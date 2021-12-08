@@ -1,0 +1,12 @@
+.idea/
+.htaccess
+files/
+content/page/
+resources/Azias/imgs/*.exe
+resources/Azias/imgs/*.url
+resources/ChartJs/
+resources/FontAwesomePro/
+resources/GoogleFonts/
+resources/HalfMoon/
+resources/Icons8/
+resources/Quantum/

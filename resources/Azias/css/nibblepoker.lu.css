@@ -1,0 +1,107 @@
+/* Fonts */
+@font-face {
+	font-family: 'Quantum';
+	src: url("/resources/Quantum/Quantum.otf") format('opentype');
+}
+
+/* Background for the main container and its cards */
+div#body-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("/resources/Azias/imgs/3px-tile.png");
+	opacity: 0.3;
+	margin: 0;
+	padding: 0;
+}
+.dark-mode .card.card-bkgd {
+	background: var(--dm-card-bg-color) url("/resources/Azias/imgs/3px-tile-0.2.png") repeat fixed center center;
+}
+.bg-very-dark.title-bkgd {
+	background: repeat center center fixed;
+	background-color: var(--dark-color-dark)!important;
+	background-image: url("/resources/Azias/imgs/3px-tile-0.1.png");
+}
+
+/* Helpers */
+.no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.quantum {
+	font-family: 'Quantum', sans-serif;
+}
+.ucase {
+	text-transform: uppercase;
+}
+.font-size-26 {
+	font-size: 2.6rem!important;
+}
+.font-size-28 {
+	font-size: 2.8rem!important;
+}
+.font-size-30 {
+	font-size: 3.0rem!important;
+}
+.text-super-muted {
+	/*color: #6E6E6E;/**/
+	color: #89898A;
+}
+.square-corners {
+	border-radius: 0!important;
+}
+.stretch-align-items {
+	align-items: stretch;
+}
+
+/* Unique rules */
+#copyright-text {
+	opacity: 0.3;
+}
+#privacy-footer-link {
+	opacity: 0.3;
+	text-decoration: none;
+}
+#privacy-footer-link:hover {
+	opacity: 0.75;
+}
+#logo-sidebar {
+	filter: grayscale(100%);
+	width: 100%;
+	height: auto;
+}
+#logo-footer {
+	filter: grayscale(100%);
+}
+#page-title-bar {
+	min-height: 64px;
+	height: 64px;
+}
+#header-lang-menu {
+	margin-right: calc(var(--content-and-card-spacing) * ( 2 / 3 ) );
+}
+#contact-tox-qrcode > img {
+	height: calc( 256px * 0.75);
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+	image-rendering: pixelated;
+}
+
+/* Trash */
+/*.lang-icon {
+	height: var(--base-line-height);
+	max-height: var(--base-line-height);
+	height: var(--base-font-size);
+	max-height: var(--base-font-size);
+}*/
+/*.page-wrapper.with-transitions.with-sidebar .content-wrapper {
+	transition: none;
+}/**/
+/*div#body-overlay.error {
+	background-image: url("/resources/Azias/imgs/psychedelic.png");
+	opacity: 0.075;
+}/**/
