@@ -17,7 +17,6 @@
 	<p>REQUEST_URI: <?php echo($_SERVER['REQUEST_URI']); ?></p>
 	<p>$requested_content_type: <?php echo($requested_content_type); ?></p>
 	<p>$requested_content_display_type: <?php echo($requested_content_display_type); ?></p>
-	<p>$requested_content_sub_type: <i>Undefined</i></p>
 	<p>$requested_tags: [<?php echo(implode(", ", $requested_tags)); ?>]</p>
 	<p>$content_has_error: <?php echo($content_has_error); ?></p>
 	<p>$_content_error_message_key: <?php echo($_content_error_message_key); ?></p>
