@@ -57,7 +57,8 @@
     "error.content.none": "No explicit error was encountered.",
     "error.content.detect.category": "Failed to detect which category of content you requested.",
     "error.content.detect.display": "Failed to detect if you requested the category's search page or a specific one.",
-    "error.content.detect.subtype": "Failed to detect the sub-type of content you requested."
+    "error.content.detect.subtype": "Failed to detect the sub-type of content you requested.",
+    "error.content.detect.tags": "Failed to detect the basic tags for the content you requested."
   },
   "fr": {
     "home.title.nav": "Accueil",
@@ -116,7 +117,8 @@
     "error.content.none": "Aucune erreur précise n'a été détectée.",
     "error.content.detect.category": "Impossibilité de détecter la catégorie de contenu demandée.",
     "error.content.detect.display": "Impossibilité de détecter si une recherche ou page spécifique était demandée.",
-    "error.content.detect.subtype": "Impossibilité de détecter le sous-type de contenu demandé."
+    "error.content.detect.subtype": "Impossibilité de détecter le sous-type de contenu demandé.",
+    "error.content.detect.tags": "Impossibilité de détecter les tags de base du contenu demandé."
   },
   "lb": {
     "home.title.nav": "Doheem",

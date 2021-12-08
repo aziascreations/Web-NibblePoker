@@ -18,7 +18,7 @@ abstract class ContentDisplayType {
     const ARTICLE = 2;
     const APPLICATION = 3;
 }
-abstract class ContentSubType {
+/*abstract class ContentSubType {
 	const NONE = CONTENT_NONE;
     const PUREBASIC = 1;
     const PYTHON = 2;
@@ -32,12 +32,13 @@ abstract class ContentSubType {
     const HAM = 10;
     const ALL = 11;
     const DOCKER = 11;
-}
+}*/
 
 // Preparing default variables.
 $requested_content_type = ContentType::NONE;
 $requested_content_display_type = ContentDisplayType::NONE;
-$requested_content_sub_type = ContentSubType::NONE;
+$requested_tags = array();
+//$requested_content_sub_type = ContentSubType::NONE;
 $content_has_error = false;
 $_content_error_message_key = "error.content.none";
 $content_error_message = "";
@@ -70,38 +71,57 @@ if($requested_content_type == ContentType::BLOG) {
 } elseif($requested_content_type == ContentType::PROGRAMMING) {
 	// May be changed later if a specific resource is requested and found.
 	$requested_content_display_type = ContentDisplayType::SEARCH;
+	$requested_tags[] = "programming";
 	
 	if(str_starts_with($content_requested_url_part, "/applications/")) {
-		$requested_content_sub_type = ContentSubType::APPLICATION;
+		$requested_tags[] = "application";
+		//$requested_content_sub_type = ContentSubType::APPLICATION;
 	} elseif(str_starts_with($content_requested_url_part, "/tutorials/")) {
-		$requested_content_sub_type = ContentSubType::TUTORIAL;
+		$requested_tags[] = "tutorial";
+		//$requested_content_sub_type = ContentSubType::TUTORIAL;
 	} elseif(str_starts_with($content_requested_url_part, "/tools/")) {
-		$requested_content_sub_type = ContentSubType::TOOL;
+		$requested_tags[] = "tool";
+		//$requested_content_sub_type = ContentSubType::TOOL;
 	} elseif(str_starts_with($content_requested_url_part, "/purebasic/")) {
-		$requested_content_sub_type = ContentSubType::PUREBASIC;
+		$requested_tags[] = "purebasic";
+		//$requested_content_sub_type = ContentSubType::PUREBASIC;
 	} elseif(str_starts_with($content_requested_url_part, "/python/")) {
-		$requested_content_sub_type = ContentSubType::PYTHON;
+		$requested_tags[] = "python";
+		//$requested_content_sub_type = ContentSubType::PYTHON;
 	} elseif(str_starts_with($content_requested_url_part, "/java/")) {
-		$requested_content_sub_type = ContentSubType::JAVA;
+		$requested_tags[] = "java";
+		//$requested_content_sub_type = ContentSubType::JAVA;
 	} elseif(str_starts_with($content_requested_url_part, "/others/")) {
-		$requested_content_sub_type = ContentSubType::OTHER_LANGUAGE;
+		$requested_tags[] = "miscellaneous";
+		//$requested_content_sub_type = ContentSubType::OTHER_LANGUAGE;
 	} elseif(str_starts_with($content_requested_url_part, "/docker/")) {
-		$requested_content_sub_type = ContentSubType::DOCKER;
+		$requested_tags[] = "docker";
+		//$requested_content_sub_type = ContentSubType::DOCKER;
 	} else {
-		$requested_content_sub_type = ContentSubType::ALL;
+		//$requested_content_sub_type = ContentSubType::ALL;
+		$content_has_error = true;
+		$_content_error_message_key = "error.content.detect.subtype";
+		goto content_end;
 	}
 } elseif($requested_content_type == ContentType::ELECTRONICS) {
 	// May be changed later if a specific resource is requested and found.
 	$requested_content_display_type = ContentDisplayType::SEARCH;
+	$requested_tags[] = "electronic";
 	
 	if(str_starts_with($content_requested_url_part, "/iot/")) {
+		$requested_tags[] = "iot";
 		$requested_content_sub_type = ContentSubType::IOT;
 	} elseif(str_starts_with($content_requested_url_part, "/experiments/")) {
+		$requested_tags[] = "experiment";
 		$requested_content_sub_type = ContentSubType::EXPERIMENTS;
 	} elseif(str_starts_with($content_requested_url_part, "/ham/")) {
+		$requested_tags[] = "ham";
 		$requested_content_sub_type = ContentSubType::HAM;
 	} else {
-		$requested_content_sub_type = ContentSubType::ALL;
+		//$requested_content_sub_type = ContentSubType::ALL;
+		$content_has_error = true;
+		$_content_error_message_key = "error.content.detect.subtype";
+		goto content_end;
 	}
 }
 
@@ -112,10 +132,11 @@ if($requested_content_display_type == ContentDisplayType::NONE) {
 	goto content_end;
 }
 
-if($requested_content_type != ContentType::BLOG && $requested_content_sub_type == ContentSubType::NONE) {
+//if($requested_content_type != ContentType::BLOG && $requested_content_sub_type == ContentSubType::NONE) {
+if(count($requested_tags) == 0) {
 	// Failed to detect the subtype of content requested when not a blog post.
 	$content_has_error = true;
-	$_content_error_message_key = "error.content.detect.subtype";
+	$_content_error_message_key = "error.content.detect.tags";
 	goto content_end;
 }
 $content_requested_url_part = preg_replace("^\/(java|python|purebasic|others|ham|iot|experiments|applications|tutorials|tools)^", "", $content_requested_url_part);
