@@ -4,4 +4,5 @@ $host = "nibblepoker.lu";
 $host_uri = "https://nibblepoker.lu";
 $dir_commons = dirname(__FILE__);
 $dir_root = realpath($dir_commons . "/../");
+$dir_content = realpath($dir_commons . "/../" . "content/");
 ?>

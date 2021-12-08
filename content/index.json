@@ -1,0 +1,17 @@
+[
+  {
+    "id": "test01",
+    "title": {
+      "en": "Test article",
+      "fr": "Article de test"
+    },
+    "preamble": {
+      "en": "This is a test article, please ignore it",
+      "fr": "Ceci est un article de test, veuillez l'ignorer."
+    },
+    "image": "test.jpg",
+    "tags": [
+      "programming", "purebasic"
+    ]
+  }
+]

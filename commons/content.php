@@ -2,6 +2,8 @@
 <?php
 // TODO: Include lang once
 
+// TODO: Add /content as raw input of some sort (No auto tags).
+
 // This helper requires PHP 8 or newer !
 
 // Defining constants and enums.
@@ -74,9 +76,9 @@ if($requested_content_type == ContentType::BLOG) {
 	} elseif(str_starts_with($content_requested_url_part, "/docker/")) {
 		$requested_tags[] = "docker";
 	} else {
-		$content_has_error = true;
-		$_content_error_message_key = "error.content.detect.subtype";
-		goto content_end;
+		//$content_has_error = true;
+		//$_content_error_message_key = "error.content.detect.subtype";
+		//goto content_end;
 	}
 } elseif($requested_content_type == ContentType::ELECTRONICS) {
 	// May be changed later if a specific resource is requested and found.
@@ -90,9 +92,9 @@ if($requested_content_type == ContentType::BLOG) {
 	} elseif(str_starts_with($content_requested_url_part, "/ham/")) {
 		$requested_tags[] = "ham";
 	} else {
-		$content_has_error = true;
-		$_content_error_message_key = "error.content.detect.subtype";
-		goto content_end;
+		//$content_has_error = true;
+		//$_content_error_message_key = "error.content.detect.subtype";
+		//goto content_end;
 	}
 }
 
@@ -111,7 +113,37 @@ if(count($requested_tags) == 0) {
 }
 $content_requested_url_part = preg_replace("^\/(java|python|purebasic|others|ham|iot|experiments|applications|tutorials|tools)^", "", $content_requested_url_part);
 
-// TODO: detect specific resource and parameters, and load data.
+// TODO: Detect specific resource or additional tags and parameters
+
+if($requested_content_display_type == ContentDisplayType::SEARCH) {
+	// Loading the content index.
+	$content_json = file_get_contents(realpath($dir_content . "/index.json"));
+	$content_index_data = json_decode($content_json, true);
+	unset($content_json);
+	
+	// Filtering out unwanted entries.
+	$filtered_content_index_data = array();
+	for($i = 0; $i < count($content_index_data); $i++) {
+		if(count(array_intersect($content_index_data[$i]["tags"], $requested_tags)) == count($requested_tags)) {
+			$filtered_content_index_data[] = $content_index_data[$i];
+		}
+	}
+	
+	// Cleaning some variables.
+	unset($content_index_data);
+	unset($content_json);
+	
+	// Checking if we found content for the user.
+	if(count($filtered_content_index_data) == 0) {
+		// No relevant article/page were found for the given tags.
+		$content_has_error = true;
+		$_content_error_message_key = "error.content.detect.empty";
+		goto content_end;
+	}
+}
+// TODO: Get relevant data
+
+
 
 content_end:
 $content_error_message = localize($_content_error_message_key);
