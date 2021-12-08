@@ -54,6 +54,7 @@
     "error.404.title": "404 Error",
     "error.404.description": "The requested resource couldn't be found on the server !",
 
+    "error.content.title.generic": "Content error",
     "error.content.none": "No explicit error was encountered.",
     "error.content.detect.category": "Failed to detect which category of content you requested.",
     "error.content.detect.display": "Failed to detect if you requested the category's search page or a specific one.",
@@ -115,6 +116,7 @@
     "error.404.title": "Erreur 404",
     "error.404.description": "La ressource demandée est introuvable sur le serveur !",
 
+    "error.content.title.generic": "Erreur de contenu",
     "error.content.none": "Aucune erreur précise n'a été détectée.",
     "error.content.detect.category": "Impossibilité de détecter la catégorie de contenu demandée.",
     "error.content.detect.display": "Impossibilité de détecter si une recherche ou page spécifique était demandée.",

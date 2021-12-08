@@ -105,6 +105,7 @@ if($requested_content_display_type == ContentDisplayType::NONE) {
 	goto content_end;
 }
 
+// TODO: Check with a raw root type if not set
 if(count($requested_tags) == 0) {
 	// Failed to detect the subtype of content requested when not a blog post.
 	$content_has_error = true;
