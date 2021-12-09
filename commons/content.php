@@ -24,11 +24,13 @@ abstract class ContentDisplayType {
 // Preparing default variables.
 $requested_content_type = ContentType::NONE;
 $requested_content_display_type = ContentDisplayType::NONE;
-$requested_tags = array();
 $content_has_error = false;
 $_content_error_message_key = "error.content.none";
 $content_error_message = "";
 $was_item_requested = false;
+
+$requested_tags = NULL;
+$filtered_content_index_data = NULL;
 
 // Detecting content type requested.
 $content_requested_url_part = l10n_url_switch(NULL);
@@ -48,12 +50,14 @@ if(str_starts_with($content_requested_url_part, "/blog/")) {
 
 // Detecting what kind of item was requested, parsing additional parameters and loading required data.
 $content_requested_url_part = preg_replace("^\/(blog|programming|electronics)^", "", $content_requested_url_part);
+$requested_tags = array();
 if($requested_content_type == ContentType::BLOG) {
 	if(str_starts_with($content_requested_url_part, "/article/")) {
 		$requested_content_display_type = ContentDisplayType::ARTICLE;
 	} else {
 		$requested_content_display_type = ContentDisplayType::SEARCH;
 	}
+	$requested_tags[] = "blog";
 } elseif($requested_content_type == ContentType::PROGRAMMING) {
 	// May be changed later if a specific resource is requested and found.
 	$requested_content_display_type = ContentDisplayType::SEARCH;
@@ -148,4 +152,24 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 
 content_end:
 $content_error_message = localize($_content_error_message_key);
+
+// These function are placed here to prevent the main file from becoming impossible to read.
+function printErrorCard($title, $content) {
+	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">'.
+		'<div class="row"><h2 class="card-title font-size-18 m-0"><i class="fad fa-exclamation-triangle"></i>&nbsp;&nbsp;'.
+		$title.'</h2></div></div></div><div class="px-card py-20 bg-light-lm bg-very-dark-dm rounded-bottom px-20">'.
+		'<h3 class="m-0 font-size-20 text-center font-weight-semi-bold">'.$content.'</h3></div></div>');
+}
+
+function startMainCard($iconClasses, $title, $subTitle) {
+	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">'.
+		'<div class="row"><div class="col-4"><h2 class="card-title font-size-18 m-0"><i class="'.$iconClasses.
+		'"></i>&nbsp;&nbsp;'.localize($title).'</h2></div><div class="col-8 text-right font-italic">'.
+		'<h2 class="card-title font-size-18 m-0 text-super-muted">'.$subTitle.'</h2></div></div></div></div>');
+}
+
+function endMainCard() {
+	echo('</div>');
+}
+
 ?>

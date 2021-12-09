@@ -13,5 +13,20 @@
     "tags": [
       "programming", "purebasic"
     ]
+  },
+  {
+    "id": "test02",
+    "title": {
+      "en": "Test article #2",
+      "fr": "Article de test #2"
+    },
+    "preamble": {
+      "en": "This is a test article, please ignore it",
+      "fr": "Ceci est un article de test, veuillez l'ignorer."
+    },
+    "image": "test.jpg",
+    "tags": [
+      "programming", "purebasic"
+    ]
   }
 ]
