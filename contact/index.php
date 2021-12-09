@@ -3,14 +3,14 @@
 <html lang="<?php echo($user_language); ?>">
 <head>
 	<?php include 'headers.php'; ?>
-	<title>Links - Nibble Poker</title>
-	<meta name="description" content="A collection of links to all the other locations we are active on.">
-	<meta property="og:title" content="Nibble Poker - Links" />
+	<title><?php print(localize('contact.title')); ?> - Nibble Poker</title>
+	<meta name="description" content="<?php print(localize('contact.description')); ?>">
+	<meta property="og:title" content="Nibble Poker - <?php print(localize('contact.title')); ?>" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="<?php echo($host_uri); ?>/" />
 	<meta property="og:image" content="<?php echo($host_uri); ?>/resources/Azias/logos/rect1750-9-7-3-shaded.png"/>
 	<meta property="og:image:type" content="image/png"/>
-	<meta property="og:description" content="A collection of links to all the other locations we are active on."/>
+	<meta property="og:description" content="<?php print(localize('contact.description')); ?>"/>
 </head>
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
 	<?php include 'body-root.php'; ?>

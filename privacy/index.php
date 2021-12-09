@@ -1,16 +1,16 @@
 <?php set_include_path('../commons/'); include 'config.php'; include 'langs.php'; ?>
 <!DOCTYPE html>
-<html lang="<?php print(localize('text.privacy')); ?>">
+<html lang="<?php echo($user_language); ?>">
 <head>
 	<?php include 'headers.php'; ?>
 	<title><?php print(localize('privacy.title')); ?> - Nibble Poker</title>
-	<meta name="description" content="???">
+	<meta name="description" content="<?php print(localize('privacy.description')); ?>">
 	<meta property="og:title" content="Nibble Poker - <?php print(localize('privacy.title')); ?>" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="<?php echo($host_uri); ?>/" />
 	<meta property="og:image" content="<?php echo($host_uri); ?>/resources/Azias/logos/rect1750-9-7-3-shaded.png"/>
 	<meta property="og:image:type" content="image/png"/>
-	<meta property="og:description" content="???"/>
+	<meta property="og:description" content="<?php print(localize('privacy.description')); ?>"/>
 </head>
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
 <?php include 'body-root.php'; ?>
