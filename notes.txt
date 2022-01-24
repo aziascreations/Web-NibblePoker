@@ -1,0 +1,4 @@
+* Add bottom margin to the last container in the content container for small screens
+  * Maybe for big ones too ?
+  * Does not happen on the privacy one, probably because all of them are shown.
+  * Small is done !
