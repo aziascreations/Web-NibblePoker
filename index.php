@@ -25,24 +25,57 @@
 					<?php include 'header-lang.php'; ?>
 				</div>
 				<div class="row">
+					
+					
+					
 					<div class="col-12 d-block">
 						<div class="content mb-0">
 							<div class="card p-0 m-0 card-bkgd">
-								<div class="content m-20">
-									<h2 class="content-title font-size-20 mb-10"><?php print(localize("home.intro.title")); ?></h2>
-									<p class="ml-lg-10 mt-lg-5 mb-lg-5"><?php print(localize("home.intro.text.1")); ?></p>
-									<p class="ml-lg-10 mt-lg-5"><?php print(localize("home.intro.text.2")); ?></p>
+								<div class="content m-0">
+									<div class="px-card py-10 border-bottom px-20 bg-light-lm bg-very-dark-dm">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-1 text-center"><i class="fad fa-alien-monster"></i></div>
+												<div class="col-10 text-center">
+													<h2 class="card-title font-size-18 m-0"><?php print(localize("home.intro.title")); ?></h2>
+												</div>
+												<div class="col-1 text-center"><i class="fad fa-alien-monster"></i></div>
+											</div>
+										</div>
+									</div>
+									<div class="content m-20">
+										<h2 class="content-title font-size-20 mb-10"></h2>
+										<p class="ml-lg-10 mt-lg-5 mb-lg-5"><?php print(localize("home.intro.text.1")); ?></p>
+										<p class="ml-lg-10 mt-lg-5"><?php print(localize("home.intro.text.2")); ?></p>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					
+					
+					
+					
 					<div class="col-sm-12 col-lg-8 mb-20">
 						<div class="content mb-0">
 							<div class="card p-0 m-0 card-bkgd">
-								<div class="content m-20">
-									<h2 class="content-title font-size-20 mb-15">Content</h2>
-									<div class="ml-lg-10">
-										<h3 class="content-title font-size-16 mb-10">Applications</h3>
+								<div class="content m-0">
+									
+									<div class="px-card py-10 border-bottom px-20 bg-light-lm bg-very-dark-dm">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-1"><i class="fad fa-computer-classic"></i></div>
+												<div class="col-10 text-center">
+													<h2 class="card-title font-size-18 m-0">Applications</h2>
+												</div>
+												<div class="col-1 text-right"><i class="fad fa-computer-classic"></i></div>
+											</div>
+											
+										</div>
+									</div>
+									
+									<div class="px-card py-10 px-20">
+									
 										<div class="ml-lg-10">
 											
 											<p class="mb-0 font-weight-semi-bold">
@@ -87,19 +120,39 @@
 							</div>
 						</div>
 					</div>
+					
 					<div class="col-sm-12 col-lg-4 d-none d-sm-block">
 						<div class="content ml-lg-0">
 							<div class="card p-0 m-0 card-bkgd">
-								<div class="content m-20">
-									<h2 class="content-title font-size-20">Updates</h2>
-									<p>
-										1st February 2022<br>
-										Going the self-hosted route.
-									</p>
+								<div class="content m-0">
+									
+									<div class="px-card py-10 border-bottom px-20 bg-light-lm bg-very-dark-dm">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-1">
+													<i class="fad fa-pen-nib fa-flip-horizontal"></i>
+												</div>
+												<div class="col-10 text-center">
+													<h2 class="card-title font-size-18 m-0">Updates</h2>
+												</div>
+												<div class="col-1 text-right"><i class="fad fa-pen-nib"></i></div>
+											</div>
+											
+										</div>
+									</div>
+									
+									<div class="px-card py-10 px-20">
+										<p>
+											1st February 2022<br>
+											Going the self-hosted route.
+										</p>
+									</div>
+									
 								</div>
 							</div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
