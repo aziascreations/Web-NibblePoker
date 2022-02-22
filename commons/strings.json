@@ -48,7 +48,7 @@
     "privacy.complaint.text.1": "Should you wish to report a complaint or if you feel that our privacy policy has not addressed your concern in a satisfactory manner, you may contact your national Data Protection Authority (DPA).",
     "privacy.complaint.text.2": "More information on this procedure can be found on the following websites:",
     "error.common.details.title": "Error details",
-    "error.4xx.title": "HTTP client error",
+    "error.4xx.title": "HTTP Client Error",
     "error.4xx.text": "${error.4xx.text}",
     "error.4xx.button.back": "Go back",
     "error.403.title": "403 Error",

@@ -24,6 +24,32 @@
 					</h2>
 					<?php include 'header-lang.php'; ?>
 				</div>
+				<div class="row">
+					<div class="col-12 d-block">
+						<div class="content mb-0">
+							<div class="card p-0 m-0 card-bkgd">
+								<div class="content m-0">
+									<div class="px-card py-10 border-bottom px-20 bg-light-lm bg-very-dark-dm">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-1 text-center"><i class="fad fa-exclamation-triangle"></i></div>
+												<div class="col-10 text-center">
+													<h2 class="card-title font-size-18 m-0"><?php print(localize("error.403.title")); ?></h2>
+												</div>
+												<div class="col-1 text-center"><i class="fad fa-exclamation-triangle"></i></div>
+											</div>
+										</div>
+									</div>
+									<div class="content m-20">
+										<h2 class="content-title font-size-20 mb-10"></h2>
+										<p class="ml-lg-10 mt-lg-5 text-center"><?php print(localize("error.403.description")); ?></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- TODO: Add button to go back !-->
 			</div>
 		</div>
 		<?php include 'footer.php'; ?>

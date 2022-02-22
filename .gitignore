@@ -1,7 +1,7 @@
+# IDE-related folders
 .idea/
-.htaccess
-files/
-content/page/
+
+# Static resources
 resources/Azias/imgs/*.exe
 resources/Azias/imgs/*.url
 resources/ChartJs/
@@ -10,3 +10,7 @@ resources/GoogleFonts/
 resources/HalfMoon/
 resources/Icons8/
 resources/Quantum/
+
+# Other folders
+content/page/
+files/

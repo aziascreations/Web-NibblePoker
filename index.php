@@ -15,7 +15,7 @@
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
 	<?php include 'body-root.php'; ?>
 	<div class="page-wrapper with-sidebar with-navbar-fixed-bottom">
-        <?php include 'sidebar.php'; ?>
+		<?php include 'sidebar.php'; ?>
 		<div class="content-wrapper">
 			<div class="container-fluid h-full stretch-align-items">
 				<div id="page-title-bar" class="card p-0 pl-20 m-0 square-corners bg-very-dark title-bkgd navbar">
@@ -74,10 +74,9 @@
 										</div>
 									</div>
 									
-									<div class="px-card py-10 px-20">
+									<div class="px-card py-5 px-20">
 									
-										<div class="ml-lg-10">
-											
+										<div class="pl-lg-15 l-lab-app">
 											<p class="mb-0 font-weight-semi-bold">
 												PB-ListComPort
 												<span class="ml-15 text-super-muted">
@@ -88,7 +87,9 @@
 												Cli tool that lists COM ports in different parsable formats.<br>
 												<i class="fad fa-globe"></i>&nbsp;&nbsp;Link
 											</p>
-											
+										</div>
+										<hr>
+										<div class="pl-lg-15 l-lab-web">
 											<p class="mb-0 font-weight-semi-bold">
 												Youtube-Auto-Archiver
 												<span class="ml-15 text-super-muted">
@@ -101,7 +102,9 @@
 												Automatic archival solutions for YouTube livestreams and uploads.<br>
 												<i class="fad fa-globe"></i>&nbsp;&nbsp;Link
 											</p>
-											
+										</div>
+										<hr>
+										<div class="pl-lg-15 l-lab-office">
 											<p class="mb-0 font-weight-semi-bold">
 												Excel-Worksheet-Password-Remover
 												<span class="ml-15 text-super-muted">
@@ -141,7 +144,7 @@
 										</div>
 									</div>
 									
-									<div class="px-card py-10 px-20">
+									<div class="px-card py-5 px-20">
 										<p>
 											1st February 2022<br>
 											Going the self-hosted route.

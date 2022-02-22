@@ -39,7 +39,7 @@
 							</div>
 						</div>
 						<div class="px-card py-20 bg-light-lm bg-very-dark-dm rounded-bottom px-20">
-							<form action="mailto:herwin.bozet@gmail.com?subject=Website%20contact%20form%20message" method="post" class="w-full">
+							<form action="mailto:herwin.bozet@gmail.com?subject=Website%20contact%20form%20message" target="_top" method="post" class="w-full">
 								<div class="form-group">
 									<label for="name">Sender's Name</label>
 									<input type="text" class="form-control" id="name" placeholder="John Smith">
