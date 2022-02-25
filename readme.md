@@ -10,7 +10,8 @@ file are properly removed, even if measures are in place to prevent access to th
 
 The [.htaccess](.htaccess) file has been made public **on purpose** since it does not contains any
 private information and because it could be used by other people to create their website more easily
-since these files are a pain to work with.
+since these files are a pain to work with.<br>
+Especially with the lang redirections.
 
 It is also a good idea to server this website through a jailed instance of apache, just in case.
 

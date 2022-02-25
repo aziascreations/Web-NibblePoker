@@ -1,14 +1,9 @@
-// TODO: Fix this !!!
-document.getElementById("sbl-home").classList.add("active");
-
-// Checking if the hamburger button for the side menu has been clicked
-const element = document.getElementById('profile_title')
-
-// always checking if the element is clicked, if so, do alert('hello')
+// Toggle button for the side menu.  (Global)
 document.getElementById('button-sidebar').addEventListener("click", () => {
     halfmoon.toggleSidebar();
 });
 
+// TOX ID copiers.  (Contact page)
 if(document.getElementById('button-copy-tox-id-main') != null) {
     document.getElementById('button-copy-tox-id-main').addEventListener("click", () => {
         navigator.clipboard.writeText("62C1A91A425F90D7B4F047D70CCF31E7402C9EC37B93604B0F37C416442D15044AF6C1AE033B");

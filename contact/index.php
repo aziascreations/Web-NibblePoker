@@ -15,7 +15,7 @@
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
 	<?php include 'body-root.php'; ?>
 	<div class="page-wrapper with-sidebar with-navbar-fixed-bottom">
-		<?php include 'sidebar.php'; ?>
+		<?php const SIDEBAR_ID = 'contact'; include 'sidebar.php'; ?>
 		<div class="content-wrapper">
 			<div class="container-fluid">
 				<div id="page-title-bar" class="card p-0 pl-20 m-0 square-corners bg-very-dark title-bkgd navbar">

@@ -42,8 +42,9 @@ Header always set X-Powered-By "Amiga 1200, Kickstart 3.1"
 	# Sending a 404 for git and IDEs folders just in case they ever get copied to the web server,
 	#  or if one of the honeypot files is acessed directly.
 	# A 404 is preferred to prevent further scanning of this folder and from raising some flags.
-	RedirectMatch 404 ^.*\.?(git|vs(code)|idea).*
-	RedirectMatch 404 ^.*honeypot.*
+	# FIXME: These rules break the later honeypot rules !!!
+	#RedirectMatch 404 ^.*\.?(git|vs(code)|idea).*
+	#RedirectMatch 404 ^.*honeypot.*
 
 	# Languages. (Does not work with a regex)
 	RewriteRule ^en/(.*)$ /$1 [QSA]
@@ -65,9 +66,9 @@ Header always set X-Powered-By "Amiga 1200, Kickstart 3.1"
 	# Internal redirections for scanning and exploit attempts.
 	# These rules are here since they're easier to implement in the .htaccess.
 	#RewriteRule ^.*(install|xmlrpc)\.php.*$ /honeypot/file-php.php [QSA]
-	RewriteRule ^.*\.xml.*$ /honeypot/file-xml.php [QSA]
-	RewriteRule ^.*wlwmanifest\.xml.*$ /honeypot/file-xml-wlwmanifest.php [QSA]
-	RewriteRule ^.*\.env.*$ /honeypot/file-env.php [QSA]
+	#RewriteRule ^.*\.xml.*$ /honeypot/file-xml.php [QSA]
+	#RewriteRule ^.*wlwmanifest\.xml.*$ /honeypot/file-xml-wlwmanifest.php [QSA]
+	#RewriteRule ^.*\.env.*$ /honeypot/file-env.php [QSA]
 	#RewriteRule ^.*(ap(i|p.*)|cms|sit[eo]|shop.*|wp.*).*$ /honeypot/folder.php [QSA]
 
 	# Cases left to handle:
