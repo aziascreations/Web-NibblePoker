@@ -1,4 +1,8 @@
-<?php set_include_path('./commons/'); include 'config.php'; include 'langs.php'; ?>
+<?php
+set_include_path('./commons/');
+include_once 'config.php';
+include_once 'langs.php';
+?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
 <head>

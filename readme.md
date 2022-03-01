@@ -39,8 +39,6 @@ These files are required for the website to work properly !<br>
     * `/resources/FontAwesomePro/`
 * HalfMoon v1.1.1
     * `/resources/HalfMoon/`
-* Quantum
-    * `/resources/Quantum/`
 
 ### Optional
 These files are leftovers from previous projects and might be required somewhere.
@@ -48,5 +46,3 @@ These files are leftovers from previous projects and might be required somewhere
     * `/resources/ChartJs/`
 * Material Icons
     * `/resources/GoogleFonts/MaterialIcons/`
-* Icons8 - Color & Fluent private packs
-    * `/resources/Icons8/`

@@ -1,4 +1,8 @@
-<?php set_include_path('../commons/'); include 'config.php'; include 'langs.php'; ?>
+<?php
+set_include_path('../commons/');
+include_once 'config.php';
+include_once 'langs.php';
+?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
 <head>
@@ -24,7 +28,7 @@
 				</h2>
 				<?php include 'header-lang.php'; ?>
 			</div>
-			<div class="content">
+			<div class="content mx-auto w-lg-p90">
 				<div class="card p-0 mx-0">
 					<div class="px-card py-10 border-bottom px-20">
 						<div class="container-fluid">
@@ -33,7 +37,7 @@
 							</h2>
 						</div>
 					</div>
-					<div class="px-card py-10 bg-light-lm bg-very-dark-dm px-20">
+					<div class="px-card py-10 bg-light-lm px-20 bg-very-dark title-bkgd">
 						<p class="font-size-12 m-0 mb-5">
 							<?php print(localize('privacy.introduction.text.1')); ?>
 						</p>
@@ -58,7 +62,7 @@
 							</h2>
 						</div>
 					</div>
-					<div class="px-card py-10 bg-light-lm bg-very-dark-dm px-20">
+					<div class="px-card py-10 bg-light-lm px-20 bg-very-dark title-bkgd">
 						<p class="font-size-12 m-0">
 							<?php print(localize('privacy.data.text.1')); ?>
 						</p>
@@ -72,7 +76,7 @@
 							</h2>
 						</div>
 					</div>
-					<div class="px-card py-10 bg-light-lm bg-very-dark-dm px-20">
+					<div class="px-card py-10 bg-light-lm px-20 bg-very-dark title-bkgd">
 						<p class="font-size-12 m-0 mb-5">
 							<?php print(localize('privacy.update.text.1')); ?>
 						</p>
@@ -89,7 +93,7 @@
 							</h2>
 						</div>
 					</div>
-					<div class="px-card py-10 bg-light-lm bg-very-dark-dm px-20">
+					<div class="px-card py-10 bg-light-lm px-20 bg-very-dark title-bkgd">
 						<p class="font-size-12 m-0">
 							<?php print(localize('privacy.contact.text.1')); ?><br>
 							<i class="fad fa-at ml-10"></i>
@@ -107,7 +111,7 @@
 							</h2>
 						</div>
 					</div>
-					<div class="px-card py-10 bg-light-lm bg-very-dark-dm px-20">
+					<div class="px-card py-10 bg-light-lm px-20 bg-very-dark title-bkgd">
 						<p class="font-size-12 m-0 mb-5">
 							<?php print(localize('privacy.complaint.text.1')); ?>
 						</p>

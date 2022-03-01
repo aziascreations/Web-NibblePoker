@@ -1,4 +1,8 @@
-<?php set_include_path('./commons/'); include 'config.php'; include 'langs.php'; ?>
+<?php
+set_include_path('./commons/');
+include_once 'config.php';
+include_once 'langs.php';
+?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
 <head>
@@ -15,7 +19,7 @@
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
 	<?php include 'body-root.php'; ?>
 	<div class="page-wrapper with-sidebar with-navbar-fixed-bottom">
-		<?php const SIDEBAR_ID = 'home'; include 'sidebar.php'; ?>
+		<?php $SIDEBAR_ID = 'home'; include 'sidebar.php'; ?>
 		<div class="content-wrapper">
 			<div class="container-fluid h-full stretch-align-items">
 				<div id="page-title-bar" class="card p-0 pl-20 m-0 square-corners bg-very-dark title-bkgd navbar">
@@ -24,10 +28,7 @@
 					</h2>
 					<?php include 'header-lang.php'; ?>
 				</div>
-				<div class="row">
-					
-					
-					
+				<div class="row mx-auto w-95">
 					<div class="col-12 d-block">
 						<div class="content mb-0">
 							<div class="card p-0 m-0 card-bkgd">
@@ -52,10 +53,9 @@
 							</div>
 						</div>
 					</div>
-					
-					
-					
-					
+				</div>
+				<div class="row mx-auto w-95">
+				<!--<div class="row mx-auto w-lg-p90">-->
 					<div class="col-sm-12 col-lg-8 mb-20">
 						<div class="content mb-0">
 							<div class="card p-0 m-0 card-bkgd">
@@ -75,7 +75,6 @@
 									</div>
 									
 									<div class="px-card py-5 px-20">
-									
 										<div class="pl-lg-15 l-lab-app">
 											<p class="mb-0 font-weight-semi-bold">
 												PB-ListComPort

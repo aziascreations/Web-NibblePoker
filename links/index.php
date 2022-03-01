@@ -1,4 +1,8 @@
-<?php set_include_path('../commons/'); include 'config.php'; include 'langs.php'; ?>
+<?php
+set_include_path('../commons/');
+include_once 'config.php';
+include_once 'langs.php';
+?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
 <head>
@@ -15,7 +19,7 @@
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
 	<?php include 'body-root.php'; ?>
 	<div class="page-wrapper with-sidebar with-navbar-fixed-bottom">
-		<?php const SIDEBAR_ID = 'links'; include 'sidebar.php'; ?>
+		<?php $SIDEBAR_ID = 'links'; include 'sidebar.php'; ?>
 		<div class="content-wrapper">
 			<div class="container-fluid">
 				<div id="page-title-bar" class="card p-0 pl-20 m-0 square-corners bg-very-dark title-bkgd navbar">
@@ -24,7 +28,7 @@
 					</h2>
 					<?php include 'header-lang.php'; ?>
 				</div>
-				<div class="content">
+				<div class="content mx-auto w-lg-p90">
 					<div class="card p-0 mx-0">
 						<div class="px-card py-10 border-bottom px-20">
 							<div class="container-fluid">

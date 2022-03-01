@@ -9,6 +9,7 @@
     "home.intro.text.2": "If you wish to contact me, you can do so through the contact form linked in the sidebar or via the email address present on that page.",
     "blog.title": "Blog",
     "programming.title": "Programming",
+    "programming.title.projects": "Projects",
     "programming.java.title": "Java",
     "programming.purebasic.title": "PureBasic",
     "programming.python.title": "Python",
@@ -57,6 +58,7 @@
     "error.404.description": "The requested resource couldn't be found on the server !",
 
     "error.content.title.generic": "Content error",
+    "error.content.title.empty": "No content found",
     "error.content.none": "No explicit error was encountered.",
     "error.content.detect.category": "Failed to detect which category of content you requested.",
     "error.content.detect.display": "Failed to detect if you requested the category's search page or a specific one.",
@@ -65,9 +67,17 @@
     "error.content.detect.empty": "No content could be found for the given tags.",
 
     "content.title.error": "$content.title.error",
-    "content.title.search": "$content.title.search",
+    "content.title.search": "Projects search",
     "content.title.article": "$content.title.article",
-    "content.title.application": "$content.title.application"
+    "content.title.application": "$content.title.application",
+    "content.tags.requested": "Requested tags",
+    "content.search.count.single": "result",
+    "content.search.count.multiple": "results",
+
+    "about.biography.title": "Who am I ?",
+    "about.skills.title": "Skills",
+    "about.work.title": "Professional experiences",
+    "about.education.title": "TODO:SchoolAndEducation"
   },
   "fr": {
     "home.title.nav": "Accueil",
@@ -78,6 +88,7 @@
     "home.intro.text.2": "Si vous désirez me contacter, vous pouvez le faire via le formulaire de contact dans la page prévu à cet effet qui est liée dans le menu latéral ou via l'adresse email présente sur cette page.",
     "blog.title": "Blog",
     "programming.title": "Programmation",
+    "programming.title.projects": "Projets",
     "programming.java.title": "Java",
     "programming.purebasic.title": "PureBasic",
     "programming.python.title": "Python",
@@ -126,7 +137,8 @@
     "error.404.description": "La ressource demandée est introuvable sur le serveur !",
 
     "error.content.title.generic": "Erreur de contenu",
-    "error.content.none": "Aucune erreur précise n'a été détectée.",
+    "error.content.title.empty": "Aucun contenu trouvé",
+    "error.content.none": "Aucune erreur n'a été détectée.",
     "error.content.detect.category": "Impossibilité de détecter la catégorie de contenu demandée.",
     "error.content.detect.display": "Impossibilité de détecter si une recherche ou page spécifique était demandée.",
     "error.content.detect.subtype": "Impossibilité de détecter le sous-type de contenu demandé.",
@@ -134,9 +146,17 @@
     "error.content.detect.empty": "Aucun contenu en rapport avec les tags choisi n'as été trouvé.",
 
     "content.title.error": "$content.title.error",
-    "content.title.search": "$content.title.search",
+    "content.title.search": "Recherche de projets",
     "content.title.article": "$content.title.article",
-    "content.title.application": "$content.title.application"
+    "content.title.application": "$content.title.application",
+    "content.tags.requested": "Tags demandés",
+    "content.search.count.single": "résultat",
+    "content.search.count.multiple": "résultats",
+
+    "about.biography.title": "Qui suis-je ?",
+    "about.skills.title": "Compétences",
+    "about.work.title": "Parcours professionnel",
+    "about.education.title": "Éducation"
   },
   "lb": {
     "home.title.nav": "Doheem",

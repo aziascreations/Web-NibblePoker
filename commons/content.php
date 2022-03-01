@@ -1,6 +1,14 @@
-<?php if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) { header('HTTP/1.1 403 Forbidden'); die(); } ?>
 <?php
-// TODO: Include lang once
+// Making sure the file is included.
+if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
+	header('HTTP/1.1 403 Forbidden');
+	die();
+}
+
+// Importing required scripts
+include_once 'langs.php';
+
+$CONTENT_DEBUG = true;
 
 // TODO: Add /content as raw input of some sort (No auto tags).
 
@@ -102,6 +110,7 @@ if($requested_content_type == ContentType::BLOG) {
 	}
 }
 
+// Checking for errors preliminarily
 if($requested_content_display_type == ContentDisplayType::NONE) {
 	// Failed to detect what kind of content was requested.
 	$content_has_error = true;

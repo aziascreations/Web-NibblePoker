@@ -1,4 +1,8 @@
-<?php set_include_path('../commons/'); include 'config.php'; include 'langs.php'; ?>
+<?php
+set_include_path('../commons/');
+include_once 'config.php';
+include_once 'langs.php';
+?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
 <head>
@@ -16,7 +20,7 @@
 	  data-sidebar-shortcut-enabled="true">
 	<?php include 'body-root.php'; ?>
 	<div class="page-wrapper with-sidebar with-navbar-fixed-bottom">
-		<?php const SIDEBAR_ID = 'about'; include 'sidebar.php'; ?>
+		<?php $SIDEBAR_ID = 'about'; include 'sidebar.php'; ?>
 		<div class="content-wrapper">
 			<div class="container-fluid">
 				<div id="page-title-bar" class="card p-0 pl-20 m-0 square-corners bg-very-dark title-bkgd navbar">
@@ -25,25 +29,47 @@
 					</h2>
 					<?php include 'header-lang.php'; ?>
 				</div>
-				<div class="content">
+				<div class="content mx-auto w-lg-p90">
 					
 					<div class="card p-0 mx-0">
 						<div class="px-card py-10 border-bottom px-20">
 							<div class="container-fluid">
 								<div class="row">
-									<div class="col-5 col-lg-12">
+									<div class="col-12">
 										<h2 class="card-title font-size-18 m-0">
-											<i class="fad fa-user-circle"></i>&nbsp;&nbsp;Who	am I ?
+											<i class="fad fa-user-circle"></i>&nbsp;&nbsp;<?php print(localize("about.biography.title")); ?>
 										</h2>
-									</div>
-									<div class="col-7 hidden-lg-and-up text-right font-italic">
-										<h2 class="card-title font-size-18 m-0 text-super-muted">nibblepoker@gmail.com</h2>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="px-card py-10 bg-light-lm bg-very-dark-dm rounded-bottom px-20">
-							<p>TODO</p>
+						<div class="px-card py-10 bg-light-lm rounded-bottom px-20 bg-very-dark title-bkgd">
+							
+							<div class="row">
+								<div class="col-4 col-lg-3">
+									<img src="/resources/Azias/imgs/maki-pain-03.png" class="img-fluid rounded no-save" alt="rounded image">
+								</div>
+								
+								<div class="col-8 col-lg-9">
+									<div class="row">
+										<div class="col-6 text-center">
+											<p class="font-weight-bold font-size-28 mt-0 mb-0 ml-20">
+												<span class="text-uppercase">Bozet</span> Herwin
+											</p>
+										</div>
+										<!--<div class="col-4 col-md-2 text-center">
+											<p class="font-weight-bold font-size-24 mt-0 ml-20">🇱🇺, 🇧🇪</p>
+										</div>
+										<div class="col-8 col-md-4 text-right text-super-muted">
+											<p class="font-weight-bold font-size-24 mt-0 ml-20">25y/o Male</p>
+										</div>-->
+									</div>
+									
+									
+								</div>
+							</div>
+							
+							
 						</div>
 					</div>
 					
@@ -54,7 +80,7 @@
 								<div class="row">
 									<div class="col-5 col-lg-12">
 										<h2 class="card-title font-size-18 m-0">
-											<i class="fad fa-books"></i>&nbsp;&nbsp;Skills
+											<i class="fad fa-books"></i>&nbsp;&nbsp;<?php print(localize("about.skills.title")); ?>
 										</h2>
 									</div>
 									<div class="col-7 hidden-lg-and-up text-right font-italic">
@@ -64,7 +90,32 @@
 							</div>
 						</div>
 						
-						<div class="px-card py-10 bg-light-lm bg-very-dark-dm rounded-bottom px-20">
+						<div class="px-card py-10 bg-light-lm rounded-bottom px-20 bg-very-dark title-bkgd">
+							<h3 class="font-size-16 font-weight-semi-bold">
+								<i class="fad fa-file-certificate"></i>&nbsp;&nbsp;TODO
+							</h3>
+						</div>
+						
+					</div>
+					
+					<div class="card p-0 mx-0">
+						
+						<div class="px-card py-10 border-bottom px-20">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-5 col-lg-12">
+										<h2 class="card-title font-size-18 m-0">
+											<i class="fad fa-briefcase"></i>&nbsp;&nbsp;<?php print(localize("about.work.title")); ?>
+										</h2>
+									</div>
+									<div class="col-7 hidden-lg-and-up text-right font-italic">
+										<h2 class="card-title font-size-18 m-0 text-super-muted">@NibblePoker</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="px-card py-10 bg-light-lm rounded-bottom px-20 bg-very-dark title-bkgd">
 							<h3 class="font-size-16 font-weight-semi-bold">
 								<i class="fad fa-file-certificate"></i>&nbsp;&nbsp;TODO
 							</h3>
