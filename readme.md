@@ -28,21 +28,8 @@ These pages can be removed by deleting the folders and removing the appropriate 
 the [.htaccess](.htaccess) file.
 
 ## Requirements
-These files are not present in this repo since they 
-would clutter the commits and potentially break some licensing rules.
-
-### Required
-These files are required for the website to work properly !<br>
+These files are required and need to be installed manually for the website to work properly !<br>
 
 * Apache & * PHP 8 or newer
 * Font Awesome Pro v5.15.3
     * `/resources/FontAwesomePro/`
-* HalfMoon v1.1.1
-    * `/resources/HalfMoon/`
-
-### Optional
-These files are leftovers from previous projects and might be required somewhere.
-* ChartJS
-    * `/resources/ChartJs/`
-* Material Icons
-    * `/resources/GoogleFonts/MaterialIcons/`

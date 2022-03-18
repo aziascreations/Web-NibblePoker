@@ -4,11 +4,10 @@
 # Static resources
 resources/Azias/imgs/*.exe
 resources/Azias/imgs/*.url
-resources/ChartJs/
 resources/FontAwesomePro/
 resources/GoogleFonts/
-resources/HalfMoon/
 
 # Other folders  (Will be removed once the content system is finished !)
 content/page/
-/files/
+# /files/*/
+files/

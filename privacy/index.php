@@ -58,16 +58,113 @@ include_once 'langs.php';
 					<div class="px-card py-10 border-bottom px-20">
 						<div class="container-fluid">
 							<h2 class="card-title font-size-18 m-0">
-								<i class="fad fa-database"></i>&nbsp;&nbsp;<?php print(localize('privacy.data.title')); ?>
+								<i class="fad fa-database"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.data.title')); ?>
 							</h2>
 						</div>
 					</div>
 					<div class="px-card py-10 bg-light-lm px-20 bg-very-dark title-bkgd">
 						<p class="font-size-12 m-0">
-							<?php print(localize('privacy.data.text.1')); ?>
+							<?php print(localize('privacy.v2.data.intro.1')); ?>
+							<br>
+							<?php print(localize('privacy.v2.data.intro.2')); ?>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.data.private.1')); ?><br>
+							<span class="m-0 ml-10">
+								<i class="fad fa-circle font-size-8"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.data.private_list.1')); ?><br>
+							</span>
+							<span class="m-0 ml-10">
+								<i class="fad fa-circle font-size-8"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.data.private_list.2')); ?><br>
+							</span>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.data.non_private.1')); ?><br>
+							<span class="m-0 ml-10">
+								<i class="fad fa-circle font-size-8"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.data.non_private_list.1')); ?><br>
+							</span>
+							<span class="m-0 ml-10">
+								<i class="fad fa-circle font-size-8"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.data.non_private_list.2')); ?><br>
+							</span>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.data.end.1')); ?>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.data.end.2')); ?><br>
+							<?php print(localize('privacy.v2.data.end.3')); ?>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.data.end.4')); ?>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.data.end.5')); ?><br>
+							<?php print(localize('privacy.v2.data.end.6')); ?>
 						</p>
 					</div>
 				</div>
+				
+				<div class="card p-0 mx-0">
+					<div class="px-card py-10 border-bottom px-20">
+						<div class="container-fluid">
+							<h2 class="card-title font-size-18 m-0">
+								<i class="fad fa-handshake"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.third.title')); ?>
+							</h2>
+						</div>
+					</div>
+					<div class="px-card py-10 bg-light-lm px-20 bg-very-dark title-bkgd">
+						<p class="font-size-12 m-0">
+							<?php print(localize('privacy.v2.third.intro.1')); ?>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.third.intro.2')); ?>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.third.intro.3')); ?><br>
+							<i class="fad fa-globe ml-10"></i>
+							<a href="https://www.cloudflare.com/trust-hub/gdpr/">
+								https://www.cloudflare.com/trust-hub/gdpr/
+							</a>
+							<span class="ml-5">(<?php print(localize('lang.english')); ?>)</span><br>
+							<i class="fad fa-globe ml-10"></i>
+							<a href="https://www.cloudflare.com/fr-fr/trust-hub/gdpr/">
+								https://www.cloudflare.com/fr-fr/trust-hub/gdpr/
+							</a>
+							<span class="ml-5">(<?php print(localize('lang.french')); ?>)</span><br>
+						</p>
+					</div>
+				</div>
+				
+				<div class="card p-0 mx-0">
+					<div class="px-card py-10 border-bottom px-20">
+						<div class="container-fluid">
+							<h2 class="card-title font-size-18 m-0">
+								<i class="fad fa-cookie-bite"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.cookies.title')); ?>
+							</h2>
+						</div>
+					</div>
+					<div class="px-card py-10 bg-light-lm px-20 bg-very-dark title-bkgd">
+						<p class="font-size-12 m-0">
+							<?php print(localize('privacy.v2.cookies.intro.1')); ?>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.cookies.intro.2')); ?><br>
+							<i class="fad fa-globe ml-10"></i>
+							<a href="https://www.cloudflare.com/trust-hub/gdpr/">
+								https://www.cloudflare.com/trust-hub/gdpr/
+							</a>
+							<span class="ml-5">(<?php print(localize('lang.english')); ?>)</span><br>
+							<i class="fad fa-globe ml-10"></i>
+							<a href="https://www.cloudflare.com/fr-fr/trust-hub/gdpr/">
+								https://www.cloudflare.com/fr-fr/trust-hub/gdpr/
+							</a>
+							<span class="ml-5">(<?php print(localize('lang.french')); ?>)</span><br>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.cookies.intro.3')); ?>
+						</p>
+					</div>
+				</div>
+				
 				<div class="card p-0 mx-0">
 					<div class="px-card py-10 border-bottom px-20">
 						<div class="container-fluid">
@@ -77,14 +174,47 @@ include_once 'langs.php';
 						</div>
 					</div>
 					<div class="px-card py-10 bg-light-lm px-20 bg-very-dark title-bkgd">
-						<p class="font-size-12 m-0 mb-5">
-							<?php print(localize('privacy.update.text.1')); ?>
-						</p>
 						<p class="font-size-12 m-0">
-							<?php print(localize('privacy.update.text.2')); ?>
+							<?php print(localize('privacy.v2.update.intro.1')); ?>
+						</p>
+						<p class="font-size-12 mb-0">
+							<i class="fad fa-calendar-alt"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.1.date')); ?>
+							<span class="m-0 ml-20">
+								<i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="/privacy/privacy_2021-12-04_en.txt"><?php print(localize('lang.english')); ?></a>
+							</span>
+							<span class="m-0 ml-20">
+								<i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="/privacy/privacy_2021-12-04_fr.txt"><?php print(localize('lang.french')); ?></a>
+							</span>
+							<br>
+							<span class="m-0 ml-10">
+								<i class="fad fa-circle font-size-8"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.1.desc.1')); ?><br>
+							</span>
+						</p>
+						<p class="font-size-12 mb-0">
+							<i class="fad fa-calendar-alt"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.2.date')); ?>
+							<span class="m-0 ml-20">
+								<i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="/privacy/privacy_2022-03-18_en.txt"><?php print(localize('lang.english')); ?></a>
+							</span>
+							<span class="m-0 ml-20">
+								<i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="/privacy/privacy_2022-03-18_fr.txt"><?php print(localize('lang.french')); ?></a>
+							</span>
+							<br>
+							<span class="m-0 ml-10">
+								<i class="fad fa-circle font-size-8"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.2.desc.1')); ?><br>
+							</span>
+							<span class="m-0 ml-10">
+								<i class="fad fa-circle font-size-8"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.2.desc.2')); ?><br>
+							</span>
+							<span class="m-0 ml-10">
+								<i class="fad fa-circle font-size-8"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.2.desc.3')); ?>
+							</span>
+						</p>
+						<p class="font-size-12 mb-0">
+							<?php print(localize('privacy.v2.update.end.2')); ?>
 						</p>
 					</div>
 				</div>
+				
 				<div class="card p-0 mx-0">
 					<div class="px-card py-10 border-bottom px-20">
 						<div class="container-fluid">

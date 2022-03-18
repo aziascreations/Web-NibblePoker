@@ -145,8 +145,13 @@ include_once 'langs.php';
 									
 									<div class="px-card py-5 px-20">
 										<p>
-											1st February 2022<br>
-											Going the self-hosted route.
+											<span class="font-weight-bold">18th March 2022</span><br>
+											Updated the privacy policy.
+										</p>
+										<hr>
+										<p>
+											<span class="font-weight-bold">28th February 2022</span><br>
+											Dropped OVH as our main web hosting provider, and switched to CloudFlare.
 										</p>
 									</div>
 									

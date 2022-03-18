@@ -3,6 +3,7 @@ set_include_path('../commons/');
 include_once 'config.php';
 include_once 'langs.php';
 ?>
+<!-- FIXME: Add a section about project phylosophy -> About archival -->
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
 <head>
@@ -74,7 +75,6 @@ include_once 'langs.php';
 					</div>
 					
 					<div class="card p-0 mx-0">
-						
 						<div class="px-card py-10 border-bottom px-20">
 							<div class="container-fluid">
 								<div class="row">
@@ -89,17 +89,14 @@ include_once 'langs.php';
 								</div>
 							</div>
 						</div>
-						
 						<div class="px-card py-10 bg-light-lm rounded-bottom px-20 bg-very-dark title-bkgd">
 							<h3 class="font-size-16 font-weight-semi-bold">
 								<i class="fad fa-file-certificate"></i>&nbsp;&nbsp;TODO
 							</h3>
 						</div>
-						
 					</div>
 					
 					<div class="card p-0 mx-0">
-						
 						<div class="px-card py-10 border-bottom px-20">
 							<div class="container-fluid">
 								<div class="row">
@@ -114,13 +111,33 @@ include_once 'langs.php';
 								</div>
 							</div>
 						</div>
-						
 						<div class="px-card py-10 bg-light-lm rounded-bottom px-20 bg-very-dark title-bkgd">
 							<h3 class="font-size-16 font-weight-semi-bold">
 								<i class="fad fa-file-certificate"></i>&nbsp;&nbsp;TODO
 							</h3>
 						</div>
-						
+					</div>
+					
+					<div class="card p-0 mx-0">
+						<div class="px-card py-10 border-bottom px-20">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-5 col-lg-12">
+										<h2 class="card-title font-size-18 m-0">
+											<i class="fad fa-head-side-brain"></i>&nbsp;&nbsp;<?php print(localize("about.philosophy.title")); ?>
+										</h2>
+									</div>
+									<div class="col-7 hidden-lg-and-up text-right font-italic">
+										<h2 class="card-title font-size-18 m-0 text-super-muted">@NibblePoker</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="px-card py-10 bg-light-lm rounded-bottom px-20 bg-very-dark title-bkgd">
+							<h3 class="font-size-16 font-weight-semi-bold">
+								<i class="fad fa-file-certificate"></i>&nbsp;&nbsp;TODO
+							</h3>
+						</div>
 					</div>
 				
 				</div>

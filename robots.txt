@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nibblepoker.lu/sitemap.xml
+Sitemap: https://nibblepoker.lu/sitemap.txt

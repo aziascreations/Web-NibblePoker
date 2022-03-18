@@ -53,6 +53,11 @@ if(!isset($SIDEBAR_ID)) {
 				<span class="sidebar-icon"><i class="fab fa-docker"></i></span>
 				<?php print(localize("programming.docker.title")); ?>
 			</a>
+			<div class="sidebar-divider"></div>
+			<a id="sbl-projects-downloads" href="https://files.nibblepoker.lu/" class="sidebar-link sidebar-link-with-icon">
+				<span class="sidebar-icon"><i class="fad fa-download"></i></span>
+				<?php print(localize("programming.downloads.title")); ?>
+			</a>
 		</div>
 		<div class="sidebar-divider"></div>
 		<a id="sbl-links" href="<?php print(l10n_url_abs('/links/')); ?>" class="sidebar-link sidebar-link-with-icon<?php if($SIDEBAR_ID=="links"){echo(" active");} ?>">

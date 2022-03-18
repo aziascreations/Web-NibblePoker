@@ -2,5 +2,5 @@
 .idea/
 .dockerignore
 .gitignore
-*.txt
+notes.txt
 *.md

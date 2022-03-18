@@ -43,6 +43,12 @@ div#body-overlay {
 .ucase {
 	text-transform: uppercase;
 }
+.font-size-8 {
+	font-size: 0.8rem!important;
+}
+.font-size-10 {
+	font-size: 1.0rem!important;
+}
 .font-size-26 {
 	font-size: 2.6rem!important;
 }
@@ -140,6 +146,15 @@ div.content-tag-container a:not(:first-child) {
 	.w-lg-p90 {
 		width: 90% !important;
 	}
+}
+
+/* Fixes */
+/* TODO: Fix it when it is closed */
+div.last-inner-collapse-border-fix {
+	border: var(--collapse-content-border-width) solid var(--dm-collapse-content-border-color) !important;
+	border-top: 0 !important;
+	border-bottom-left-radius: var(--collapse-content-border-radius) !important;
+	border-bottom-right-radius: var(--collapse-content-border-radius) !important;
 }
 
 
