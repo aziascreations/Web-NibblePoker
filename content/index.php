@@ -28,7 +28,7 @@ if($content_has_error) {
 	}
 }
 
-// TODO: Check if it went well, else 503 or something like - Done above ?.
+// TODO: Check if it went well, else 503 or something like - Done above ?. - What is this shit supposed to mean ?!?
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
@@ -86,38 +86,46 @@ if($content_has_error) {
 
                     // Checking if an error occurred.
 					if($content_error_code != 200) {
-						printErrorCard(localize('error.content.title.generic'), $content_error_message);
+						startMainCard("fad fa-exclamation-triangle", localize('error.content.title.generic'), "");
+						echo('<div class="py-20 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
+                        echo('<h3 class="m-0 font-size-20 text-center font-weight-semi-bold">'.$content_error_message.'</h3>');
+						echo('</div>');
+						echo('<div class="px-card py-10 bg-light-lm bg-dark-dm rounded-bottom border-top">'.
+							'<p class="font-size-12 m-0">'.
+							'Card footer here.'.
+							'</p></div>');
+						endMainCard();
 						goto content_printing_end;
 					}
 
 					// Printing the containers
 					if($requested_content_display_type == ContentDisplayType::SEARCH) {
-						startMainCard("fad fa-file-search", localize("content.title.search"),
-                            strval(count($filtered_content_index_data)) . " " .
-                            (count($filtered_content_index_data) > 1 ?
-                                localize("content.search.count.multiple") :
-                                localize("content.search.count.single")));
+                        // Creating the start of the card, only a "</div>" should be required afterward.
+						startMainCard(
+                                "fad fa-file-search",
+                                localize("content.title.search"),
+                                strval(count($filtered_content_index_data)) . " " .
+                                    (count($filtered_content_index_data) > 1 ?
+                                        localize("content.search.count.multiple") :
+                                        localize("content.search.count.single")));
                         echo('<div class="py-20 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
 						for($i = 0; $i < count($filtered_content_index_data); $i++) {
 							if($i > 0) {
 								echo('<div class="sidebar-divider m-20 mx-0"></div>');
 							}
                             echo('<div class="content m-0 mx-20">');
-
-
-                            echo('<div class="d-flex flex-wrap">');
-
-                            echo('<div class="">');
-                            echo('<img class="content-search-image" src="'.$filtered_content_index_data[$i]["image"].'">');
+							
+							// https://css-tricks.com/float-an-element-to-the-bottom-corner/
+                            echo('<div class="content-presentation-container">');
+                            echo('<a href="#"><div>');
+							echo('<div class="content-search-image-container">');
+							echo('<img class="content-search-image" src="'.$filtered_content_index_data[$i]["image"].'">');
+							echo('</div>');
+							echo('<h3 class="font-size-18 mb-5 font-weight-semi-bold content-search-title">'.$filtered_content_index_data[$i]["title"][$user_language].'</h3>');
+							echo($filtered_content_index_data[$i]["preamble"][$user_language]);
+							echo('</div></a>');
                             echo('</div>');
-
-                            echo('<div class="ml-md-15">');
-                            echo('<h3 class="font-size-18 font-weight-semi-bold m-0 flex-fill">'.$filtered_content_index_data[$i]["title"][$user_language].'</h3>');
-                            echo('<p class="text-break text-justify my-5 mb-0">'.$filtered_content_index_data[$i]["preamble"][$user_language].'</p>');
-                            echo('</div>');
-
-                            echo('</div>');
-
+                            
                             echo('<hr class="subtle">');
 
                             echo('<div class="d-flex flex-wrap">');

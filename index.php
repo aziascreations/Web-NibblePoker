@@ -29,6 +29,7 @@ include_once 'langs.php';
 					<?php include 'header-lang.php'; ?>
 				</div>
 				<div class="row mx-auto w-95">
+					<!-- The "content mx-auto w-lg-p90" do not work for the parent, the cards are different ! -->
 					<div class="col-12 d-block">
 						<div class="content mb-0">
 							<div class="card p-0 m-0 card-bkgd">

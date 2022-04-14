@@ -163,13 +163,6 @@ content_end:
 $content_error_message = localize($_content_error_message_key);
 
 // These function are placed here to prevent the main file from becoming impossible to read.
-function printErrorCard($title, $content) {
-	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">'.
-		'<div class="row"><h2 class="card-title font-size-18 m-0"><i class="fad fa-exclamation-triangle"></i>&nbsp;&nbsp;'.
-		$title.'</h2></div></div></div><div class="px-card py-20 bg-light-lm bg-very-dark-dm rounded-bottom px-20">'.
-		'<h3 class="m-0 font-size-20 text-center font-weight-semi-bold">'.$content.'</h3></div></div>');
-}
-
 function startMainCard($iconClasses, $title, $subTitle) {
 	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">'.
 		'<div class="row"><div class="col-4"><h2 class="card-title font-size-18 m-0"><i class="'.$iconClasses.
