@@ -213,7 +213,7 @@ if($content_has_error) {
 						startMainCard($_title_icon, $_title_text_main, (is_null($_title_text_sub) ? "" : $_title_text_sub));
 						
 						// Opening the content container.
-						echo('<div class="py-01 pb-0 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
+						echo('<div id="content-item-container" class="py-01 pb-0 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
                         
                         // Adding elements defined in the JSON file.
                         if(array_key_exists("parts", $requested_item_data)) {

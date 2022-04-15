@@ -380,6 +380,7 @@ function createElementNode(mixed $elementNode) : void {
 			$_modNoContentPadding = false;
 			$_modNoTopMargin = false;
 			$_modIsClosed = false;
+			$_modHorizontalScroll = false;
 			if(array_key_exists("modifiers", $elementNode)) {
 				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
 					switch($elementNode["modifiers"][$i]) {
@@ -399,6 +400,9 @@ function createElementNode(mixed $elementNode) : void {
 							// Close the collapse by default.
 							$_modIsClosed = true;
 							break;
+						case "horizontal-scroll":
+							$_modHorizontalScroll = true;
+							break;
 					}
 				}
 			}
@@ -409,7 +413,8 @@ function createElementNode(mixed $elementNode) : void {
 			echo('<h4 class="font-size-16 m-0 align-middle no-select"><i class="fad fa-angle-down hidden-collapse-closed font-size-24"></i>');
 			echo('<i class="fad fa-angle-up hidden-collapse-open font-size-24"></i>');
 			echo('<span class="font-weight-semi-bold align-top">&nbsp;&nbsp;'.$_title.'<span class="ml-20 text-muted">'.$_subtitle.'</span></span>');
-			echo('</h4></summary><div class="collapse-content'.($_modNoContentPadding?" p-0 py-01":"").($_modNoRounding?" rounded-0":"").' border-0 border-bottom">');
+			echo('</h4></summary><div class="collapse-content'.($_modHorizontalScroll?' overflow-x-scroll hide-scrollbar':'').
+				($_modNoContentPadding?" p-0 py-01":"").($_modNoRounding?" rounded-0":"").' border-0 border-bottom">');
 			
 			// Rendering sub-elements.
 			if(array_key_exists("parts", $elementNode)) {

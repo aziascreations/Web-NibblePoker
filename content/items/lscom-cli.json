@@ -30,12 +30,12 @@
         "key": "content.commons.version.current"
       },
       "subtitle": {
-        "en": "v2.1.0",
-        "fr": "v2.1.0"
+        "en": "v2.1.0"
       },
       "modifiers": [
         "no-rounding",
-        "no-padding-content"
+        "no-padding-content",
+        "horizontal-scroll"
       ],
       "parts": [
         {
@@ -110,12 +110,12 @@
                 "parts": [
                   {
                     "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_fra_x86.exe",
+                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_eng_x86.exe",
                     "modifiers": [
                       "thin"
                     ],
                     "content": {
-                      "en": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                      "en": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
                     }
                   }
                 ]
@@ -153,7 +153,8 @@
         "no-rounding",
         "no-padding-content",
         "no-top-margin",
-        "closed"
+        "closed",
+        "horizontal-scroll"
       ],
       "parts": [
         {
@@ -235,12 +236,12 @@
                 "parts": [
                   {
                     "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x86.exe",
+                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x86.exe",
                     "modifiers": [
                       "thin"
                     ],
                     "content": {
-                      "en": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                      "en": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
                     }
                   }
                 ]
