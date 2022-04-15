@@ -49,9 +49,6 @@ Header always set Access-Control-Allow-Origin "*"
 Header unset X-Powered-By
 Header always set X-Powered-By "Amiga 1200, Kickstart 3.1"
 
-# Removed the condition to prevent silent errors since the module is required for the website
-# <IfModule mod_rewrite.c></IfModule>
-
 # Handling all other redirections.
 RewriteEngine On
 
@@ -67,19 +64,6 @@ RewriteRule ^en/(.*)$ /$1 [QSA]
 RewriteRule ^fr/(.*)$ /$1 [QSA]
 RewriteRule ^lb/(.*)$ /$1 [QSA]
 
-# Content categories. - Should be removed ?
-#RewriteRule ^((en|fr|lb)/)?blog/article/(.*)$ /content/page/$1 [QSA]
-#RewriteRule ^((en|fr|lb)/)?programming/(applications|tutorials|tools)/(.*)$ /content/page/$1 [QSA]
-##RewriteRule ^((en|fr|lb)/)?electronics/ham/(.*)$ /content/page/$1 [QSA]
-
-# Content root pages. - Should be removed ?
-#RewriteRule ^((en|fr|lb)/)?programming/(purebasic|python|others)/(.*)$ /content/$1 [QSA]
-#RewriteRule ^((en|fr|lb)/)?electronics/(iot|experiments)/(.*)$ /content/$1 [QSA]
-
-# Content pages. (Old regex are taken care of by the "content/index.php" page)
-#RewriteRule ^((en|fr|lb)/)?(blog|programming|electronics|projects)/(.*)$ /content/$1 [QSA]
-#RewriteRule ^((en|fr|lb)/)?(content)/(.*)$ /content/$1 [QSA]
-
 # Internal redirections for scanning and exploit attempts.
 # These rules are here since they're easier to implement in the .htaccess.
 #RewriteRule ^.*(install|xmlrpc)\.php.*$ /honeypot/file-php.php [QSA]
@@ -94,4 +78,3 @@ RewriteRule ^lb/(.*)$ /$1 [QSA]
 # * //vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
 
 # TODO: Implement bee-movie themed tarpit once I have a rate-limiting solution in place !
-

@@ -8,6 +8,5 @@ resources/FontAwesomePro/
 resources/GoogleFonts/
 
 # Other folders  (Will be removed once the content system is finished !)
-content/page/
 # /files/*/
 files/

@@ -44,12 +44,35 @@ if($content_has_error) {
 			<div class="container-fluid">
 				<div id="page-title-bar" class="card p-0 pl-20 m-0 square-corners bg-very-dark title-bkgd navbar">
 					<h2 class="content-title font-size-24 mt-20 text-truncate">
-						<i class="fad fa-mailbox"></i>&nbsp;${TODO}
+                        <i class="fad fa-briefcase"></i>&nbsp;&nbsp;<?php
+                        if($content_has_error) {
+							if(isset($_SERVER['HTTP_REFERER'])) {
+								echo('<a href="'.$_SERVER['HTTP_REFERER'].'">'.localize("content.title.content").'</a>');
+                            } else {
+								//echo('<a class="js-set-previous-url" href="#">'.localize("content.title.content").'</a>');
+								echo(localize("content.title.content"));
+                            }
+							echo('<span class="mx-10">❱</span>'.localize("content.title.error"));
+                        } elseif($requested_content_display_type == ContentDisplayType::SEARCH) {
+							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.localize("content.title.search"));
+                        } elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
+							echo(localize("content.title.content").'<span class="mx-10">❱</span>$TODO');
+                        }
+                        ?>
 					</h2>
 					<?php include 'header-lang.php'; ?>
 				</div>
 				<div class="content mx-auto w-lg-p90">
                     <?php
+					startMainCard("fad fa-construction", "Under construction", "");
+					echo('<div class="py-20 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
+					echo('<div class="content m-0 mx-20">');
+					echo('<h3 class="font-size-18 mb-5 font-weight-semi-bold content-search-title">');
+                    echo('<span class="font-weight-bold">15/04/2021</span> - This section is under construction...</h3>');
+					echo('</div>');
+					echo('</div>');
+					endMainCard();
+                    
                     if($SHOW_CONTENT_DEBUG_CARD) {
                         echo('<div class="card p-0 mx-0">
 						<div class="px-card py-10 border-bottom px-20">
@@ -74,6 +97,12 @@ if($content_has_error) {
                         print_r($filtered_content_index_data);
                         echo('</p>');
                         echo('<p class="m-0 mb-5">$content_requested_url_part: '.$content_requested_url_part.'</p>');
+                        if($requested_content_display_type == ContentDisplayType::CONTENT) {
+							echo('<hr class="subtle mb-10 mt-15">');
+							echo('<p class="m-0 mb-5">$requested_item_data: ');
+							print_r($requested_item_data);
+							echo('</p>');
+                        }
                         echo('</div></div>');
                     }
 
@@ -139,10 +168,36 @@ if($content_has_error) {
                             '</p></div>');
                         endMainCard();
 					} elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
-						startMainCard("fad fa-file-alt", localize("content.title.content"), "subtitle");
-                        endMainCard();
+						$_title_icon = "fad fa-question";
+						$_title_text = '<i>' . localize("error.content.data.no.title") . '</i>';
+						
+						if (array_key_exists("title", $requested_item_data)) {
+							if (array_key_exists("icon", $requested_item_data["title"])) {
+								$_title_icon = $requested_item_data["title"]["icon"];
+							}
+							
+							if (array_key_exists($user_language, $requested_item_data["title"])) {
+								$_title_text = $requested_item_data["title"][$user_language];
+							} elseif (array_key_exists($default_language, $requested_item_data["title"])) {
+								$_title_text = $requested_item_data["title"][$user_language];
+							}
+						}
+						
+						startMainCard($_title_icon, $_title_text, "");
+						
+						echo('<div class="py-20 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
+						echo('<div class="content m-0 mx-20">');
+						echo('<p class="my-0">Text will go here...</p>');
+						echo('</div>');
+						echo('</div>');
+						
+						echo('<div class="px-card py-10 bg-light-lm bg-dark-dm rounded-bottom border-top">' .
+							'<p class="font-size-12 m-0">' .
+							'Card footer here.' .
+							'</p></div>');
+						endMainCard();
 					}
-					
+     
 					content_printing_end:
 					?>
 				</div>

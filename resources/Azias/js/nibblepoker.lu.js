@@ -3,6 +3,14 @@ document.getElementById('button-sidebar').addEventListener("click", () => {
     halfmoon.toggleSidebar();
 });
 
+// Adding the last URL to every a element with the 'js-set-previous-url' class.
+/*document.querySelectorAll("a.js-set-previous-url").forEach(element => {
+    element.href = document.referrer;
+    element.addEventListener('click', function(e) {
+        window.history.go(-2);
+    });
+});*/
+
 // TOX ID copiers.  (Contact page)
 if(document.getElementById('button-copy-tox-id-main') != null) {
     document.getElementById('button-copy-tox-id-main').addEventListener("click", () => {

@@ -10,7 +10,7 @@ include_once 'langs.php';
 
 // This helper requires PHP 8 or newer !
 
-$SHOW_CONTENT_DEBUG_CARD = true;
+$SHOW_CONTENT_DEBUG_CARD = false;
 
 // Defining constants and enums.
 abstract class ContentDisplayType {
@@ -27,6 +27,7 @@ $content_error_message = "";
 $requested_tags = array();
 $raw_additional_tags = "";
 $filtered_content_index_data = NULL;
+$requested_item_data = NULL;
 
 // Detecting content display type requested.
 $content_requested_url_part = explode("?", explode("#", preg_replace("^\/(content)^", "", l10n_url_switch(NULL)))[0])[0];
@@ -91,7 +92,26 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 		goto content_end;
 	}
 } elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
-	// Attempting to get the requested ID.
+	// Sanitizing the requested ID.
+	if(!ctype_alnum(str_replace("-", "", $content_requested_url_part))) {
+		$content_has_error = true;
+		$content_error_message_key = "error.content.id.alphanumeric";
+		goto content_end;
+	}
+	
+	// Loading the content's data.
+	$content_file_path = realpath($dir_content . "/items/".$content_requested_url_part.".json");
+	if($content_file_path) {
+		// FIXME: Handle JSON errors cleanly
+		$content_json = file_get_contents($content_file_path);
+		$requested_item_data = json_decode($content_json, true);
+		unset($content_json);
+	} else {
+		$content_has_error = true;
+		$content_error_message_key = "error.content.data.not.exist";
+		goto content_end;
+	}
+	unset($content_file_path);
 }
 
 content_end:
@@ -100,9 +120,9 @@ $content_error_message = localize($content_error_message_key);
 // These functions are placed here to prevent the main file from becoming impossible to read.
 function startMainCard($iconClasses, $title, $subTitle) {
 	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">');
-	echo('<div class="row"><div class="col-4"><h2 class="card-title font-size-18 m-0">');
+	echo('<div class="row"><div class="col-8"><h2 class="card-title font-size-18 m-0">');
 	echo('<i class="'.$iconClasses.'"></i>&nbsp;&nbsp;'.localize($title).'</h2></div>');
-	echo('<div class="col-8 text-right font-italic"><h2 class="card-title font-size-18 m-0 text-super-muted">'.$subTitle.'</h2>');
+	echo('<div class="col-4 text-right font-italic"><h2 class="card-title font-size-18 m-0 text-super-muted">'.$subTitle.'</h2>');
 	echo('</div></div></div></div>');
 }
 
