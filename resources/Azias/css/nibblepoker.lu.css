@@ -61,8 +61,8 @@ img.no-save {
 	align-items: stretch;
 }
 .py-01 {
-	padding-top: 0.01rem!important;
-	padding-bottom: 0.01rem!important;
+	padding-top: 0.01rem;
+	padding-bottom: 0.01rem;
 }
 
 /* Unique rules */

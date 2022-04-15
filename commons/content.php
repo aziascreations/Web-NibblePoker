@@ -122,10 +122,9 @@ $content_error_message = localize($content_error_message_key);
 // These functions are placed here to prevent the main file from becoming impossible to read.
 function startMainCard($iconClasses, $title, $subTitle) {
 	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">');
-	echo('<div class="row"><div class="col-8"><h2 class="card-title font-size-18 m-0">');
-	echo('<i class="'.$iconClasses.'"></i>&nbsp;&nbsp;'.localize($title).'</h2></div>');
-	echo('<div class="col-4 text-right font-italic"><h2 class="card-title font-size-18 m-0 text-super-muted">'.$subTitle.'</h2>');
-	echo('</div></div></div></div>');
+	echo('<h2 class="card-title font-size-18 m-0"><i class="'.$iconClasses.'"></i>&nbsp;&nbsp;'.localize($title));
+	echo('<span class="card-title font-size-18 m-0 text-super-muted float-right hidden-xs-and-down">'.$subTitle.'</span></h2>');
+	echo('</div></div>');
 }
 
 function endMainCard() {
@@ -178,43 +177,143 @@ function createElementNode(mixed $elementNode) : void {
 	}
 	
 	switch($elementNode["type"]) {
+		case "container":
+			// Grabbing the global padding.
+			$_containerPadding = "10";
+			if(array_key_exists("padding", $elementNode)) {
+				$_containerPadding = $elementNode["padding"];
+			}
+			
+			// Reading and processing the modifiers.
+			$_modNoTopMargin = false;
+			$_modNoTopPadding = false;
+			$_modNoSizePadding = false;
+			if(array_key_exists("modifiers", $elementNode)) {
+				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
+					switch($elementNode["modifiers"][$i]) {
+						case "no-top-margin":
+							$_modNoTopMargin = true;
+							break;
+						case "no-top-padding":
+							$_modNoTopPadding = true;
+							break;
+						case "no-side-padding":
+							$_modNoSizePadding = true;
+							break;
+					}
+				}
+			}
+			
+			// Opening container.
+			echo('<div class="p-'.$_containerPadding.($_modNoTopMargin?'':' mt-10').
+				($_modNoSizePadding?' px-0':'').($_modNoTopPadding?' pt-0':'').'">');
+			
+			// Adding content.
+			if(array_key_exists("content", $elementNode)) {
+				if (array_key_exists("parts", $elementNode["content"])) {
+					for ($iPart = 0; $iPart < count($elementNode["content"]["parts"]); $iPart++) {
+						createElementNode($elementNode["content"]["parts"][$iPart]);
+					}
+				} else {
+					echo(getContentItemText($elementNode["content"], false, true));
+				}
+			}
+			
+			// Closing container.
+			echo('</div>');
+			
+			break;
+		case "button":
+			// Reading and processing the modifiers.
+			$_modRawStyle = false;
+			$_modThinStyle = false;
+			$_modThickStyle = false;
+			$_modRoundShape = false;
+			$_modCircleShape = false;
+			if(array_key_exists("modifiers", $elementNode)) {
+				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
+					switch($elementNode["modifiers"][$i]) {
+						case "raw":
+							$_modRawStyle = true;
+							break;
+						case "thin":
+							$_modThinStyle = true;
+							break;
+						case "thick":
+							$_modThickStyle = true;
+							break;
+						case "rounded":
+							$_modRoundShape = true;
+							break;
+						case "circle":
+							$_modCircleShape = true;
+							break;
+					}
+				}
+			}
+			
+			// Adding link if needed.
+			if(array_key_exists("link", $elementNode)) {
+				echo('<a href="'.$elementNode["link"].'">');
+			}
+			
+			// Opening button.
+			echo('<button'.($_modRawStyle?'':' class="btn'.
+					($_modThinStyle?' btn-sm':'').
+					($_modThickStyle?' btn-lg':'').
+					(array_key_exists("color", $elementNode)?' btn-'.$elementNode["color"]:'').
+					($_modRoundShape?' btn-rounded':'').
+					($_modCircleShape?' rounded-circle':'').
+					'"').'>');
+			
+			// Adding content.
+			if(array_key_exists("content", $elementNode)) {
+				if (array_key_exists("parts", $elementNode["content"])) {
+					for ($iPart = 0; $iPart < count($elementNode["content"]["parts"]); $iPart++) {
+						createElementNode($elementNode["content"]["parts"][$iPart]);
+					}
+				} else {
+					echo(getContentItemText($elementNode["content"], false, true));
+				}
+			}
+			
+			// Closing button.
+			echo('</button>');
+			if(array_key_exists("link", $elementNode)) {
+				echo('</a>');
+			}
+			
+			break;
 		case "table":
-			//printInfoTextElement('table item type');
-
-			// Reading and processing the modifiers
+			// Reading and processing the modifiers.
 			$_modNoOuterPadding = false;
 			$_modStriped = false;
 			$_modHover = false;
 			$_modInnerBordered = false;
 			if(array_key_exists("modifiers", $elementNode)) {
 				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
-					//printInfoTextElement('&gt;&gt; Modifier: '.$elementNode["modifiers"][$i]);
 					switch($elementNode["modifiers"][$i]) {
 						case "no-outer-padding":
-							// Removes the rounding on the external edges.
 							$_modNoOuterPadding = true;
 							break;
 						case "striped":
-							// Removes the internal padding and adds 0.01em to the top to prevent gaps from margins.
 							$_modStriped = true;
 							break;
 						case "hover":
-							// Removes the standard top margin.
 							$_modHover = true;
 							break;
 						case "inner-bordered":
-							// Removes the standard top margin.
 							$_modInnerBordered = true;
 							break;
 					}
 				}
 			}
 			
-			// Preparing table
+			// Preparing table.
 			echo('<table class="table'.($_modNoOuterPadding?" table-no-outer-padding":"").($_modStriped?" table-striped":"").
 				($_modHover?" table-hover":"").($_modInnerBordered?" table-inner-bordered":"").'">');
 			
-			// Creating "thead"
+			// Creating "thead".
 			if(array_key_exists("head", $elementNode)) {
 				echo('<thead><tr>');
 				for ($iTableHead = 0; $iTableHead < count($elementNode["head"]); $iTableHead++) {
@@ -231,7 +330,7 @@ function createElementNode(mixed $elementNode) : void {
 				echo('</tr></thead>');
 			}
 			
-			// Creating "tbody"
+			// Creating "tbody".
 			if(array_key_exists("body", $elementNode)) {
 				echo('<tbody>');
 				for ($iTableBodyRow = 0; $iTableBodyRow < count($elementNode["body"]); $iTableBodyRow++) {
@@ -261,14 +360,12 @@ function createElementNode(mixed $elementNode) : void {
 				echo('</tbody>');
 			}
 			
-			// Ending table
+			// Ending table.
 			echo('</table>');
 		
 			break;
 		case "collapse":
-			//printInfoTextElement('collapse item type');
-			
-			// Preparing some stuff
+			// Preparing some stuff.
 			$_title = '<i>'.localize("error.content.data.no.title").'</i>';
 			$_subtitle = '';
 			if(array_key_exists("title", $elementNode)) {
@@ -277,17 +374,14 @@ function createElementNode(mixed $elementNode) : void {
 			if(array_key_exists("subtitle", $elementNode)) {
 				$_subtitle = getContentItemText($elementNode["subtitle"], true, true);
 			}
-			//printInfoTextElement('&gt; title: "'.$_title);
-			//printInfoTextElement('&gt; subtitle: "'.$_subtitle);
 			
-			// Reading and processing the modifiers
+			// Reading and processing the modifiers.
 			$_modNoRounding = false;
 			$_modNoContentPadding = false;
 			$_modNoTopMargin = false;
 			$_modIsClosed = false;
 			if(array_key_exists("modifiers", $elementNode)) {
 				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
-					//printInfoTextElement('&gt;&gt; Modifier: '.$elementNode["modifiers"][$i]);
 					switch($elementNode["modifiers"][$i]) {
 						case "no-rounding":
 							// Removes the rounding on the external edges.
@@ -309,28 +403,25 @@ function createElementNode(mixed $elementNode) : void {
 				}
 			}
 			
-			// Starting the collapse
-			echo('<details class="collapse-panel w-full'.($_modNoTopMargin?"":" mt-20").'" '.($_modIsClosed?"closed":"open").'>');
+			// Starting the collapse.
+			echo('<details class="collapse-panel w-full'.($_modNoTopMargin?"":" mt-10").'" '.($_modIsClosed?"closed":"open").'>');
 			echo('<summary class="collapse-header p-10 px-15 text-truncate without-arrow'.($_modNoRounding?" rounded-0":"").' border-left-0 border-right-0">');
-			echo('<h4 class="font-size-16 m-0 align-middle no-select"><i class="fad fa-angle-down hidden-collapse-open font-size-24"></i>');
-			echo('<i class="fad fa-angle-up hidden-collapse-closed font-size-24"></i>');
+			echo('<h4 class="font-size-16 m-0 align-middle no-select"><i class="fad fa-angle-down hidden-collapse-closed font-size-24"></i>');
+			echo('<i class="fad fa-angle-up hidden-collapse-open font-size-24"></i>');
 			echo('<span class="font-weight-semi-bold align-top">&nbsp;&nbsp;'.$_title.'<span class="ml-20 text-muted">'.$_subtitle.'</span></span>');
 			echo('</h4></summary><div class="collapse-content'.($_modNoContentPadding?" p-0 py-01":"").($_modNoRounding?" rounded-0":"").' border-0 border-bottom">');
 			
-			// Rendering sub-elements
+			// Rendering sub-elements.
 			if(array_key_exists("parts", $elementNode)) {
-				//printInfoTextElement('&gt; Processing sub-parts');
 				for ($i = 0; $i < count($elementNode["parts"]); $i++) {
 					createElementNode($elementNode["parts"][$i]);
 				}
-				//printInfoTextElement('&gt; Done processing sub-parts');
 			} else {
 				printErrorTextElement(localize("error.content.data.no.subpart"));
 			}
 			
-			// Ending the collapse
+			// Ending the collapse.
 			echo('</div></details>');
-			//printInfoTextElement('end of collapse');
 			
 			break;
 		default:

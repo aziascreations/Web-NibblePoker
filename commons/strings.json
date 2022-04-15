@@ -34,6 +34,9 @@
     "lang.english": "English",
     "lang.french": "French",
     "lang.luxembourgish": "Luxembourgish",
+    "lang.english.639-3": "English (eng)",
+    "lang.french.639-3": "French (fra)",
+    "lang.luxembourgish.639-3": "Luxembourgish (ltz)",
     "privacy.title": "Privacy policy",
     "privacy.description": "Our privacy policy in a clear and easy to understand format.",
     "privacy.introduction.title": "Introduction",
@@ -133,6 +136,7 @@
     "content.commons.lang": "Language",
     "content.commons.download.single": "Download",
     "content.commons.download.multiple": "Downloads",
+    "content.commons.version": "Version",
 
     "about.biography.title": "Who am I ?",
     "about.philosophy.title": "Projects philosophy",
@@ -278,6 +282,7 @@
     "content.commons.lang": "Langue",
     "content.commons.download.single": "Téléchargement",
     "content.commons.download.multiple": "Téléchargements",
+    "content.commons.version": "Version",
 
     "about.biography.title": "Qui suis-je ?",
     "about.philosophy.title": "Philosophie des projets",

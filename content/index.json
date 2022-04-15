@@ -36,7 +36,7 @@
       "fr": "Excel-Worksheet-Password-Remover"
     },
     "preamble": {
-      "en": "Small web page from which you can easily remove a password from an Excel worksheet without uploading any file, directly in your browser.<br>It works by leaving the task of editing the XML files on an Excel document to your browser instead to keep everything local.",
+      "en": "Small web page from which you can easily remove a password from an Excel worksheet without a central server.<br>It works by leaving the task of editing the XML files on an Excel document to your browser instead to keep everything local.",
       "fr": "Petite application web qui permet de facilement retirer le mot de passe d'une feuille de calcul Excel depuis votre navigateur web sans avoir à uploader le fichier sur internet.<br>Cette application laisse votre navigateur modifier les fichiers XML du fichier Excel afin de tout garder en local."
     },
     "image": "/resources/Azias/imgs/excel-password-remover.png",
