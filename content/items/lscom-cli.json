@@ -1,13 +1,100 @@
 {
   "title": {
     "icon": "fad fa-terminal",
-    "en": "PB-ListComPort - CLI COM port enumerator",
-    "fr": "PB-ListComPort - Enumérateur de port COM pour invité de commande"
+    "page": {
+      "en": "PB-ListComPort",
+      "fr": "PB-ListComPort"
+    },
+    "card": {
+      "main": {
+        "en": "PB-ListComPort",
+        "fr": "PB-ListComPort"
+      },
+      "sub": {
+        "en": "CLI COM port enumerator",
+        "fr": "Enumérateur de port COM pour invité de commande"
+      }
+    }
   },
-  "tags": [
-    "programming", "lscom"
+  "parts": [
+    {
+      "type": "collapse",
+      "title": {
+        "key": "content.commons.version.current"
+      },
+      "subtitle": {
+        "en": "v2.1.0",
+        "fr": "v2.1.0"
+      },
+      "modifiers": [
+        "no-rounding",
+        "no-padding-content"
+      ],
+      "parts": [
+        {
+          "type": "table",
+          "modifiers": [
+            "striped",
+            "inner-bordered"
+          ],
+          "head": [
+            {
+              "key": "content.commons.cpu"
+            },
+            {
+              "key": "content.commons.lang"
+            },
+            {
+              "key": "content.commons.download.single"
+            }
+          ],
+          "body": [
+            [
+              {
+                "key": "content.commons.cpu.x64",
+                "rowspan": 2
+              },
+              {
+                "key": "lang.english"
+              },
+              {
+                "en": "URL here"
+              }
+            ],
+            [
+              {
+                "key": "lang.french"
+              },
+              {
+                "en": "URL here"
+              }
+            ],
+            [
+              {
+                "key": "content.commons.cpu.x86",
+                "rowspan": 2
+              },
+              {
+                "key": "lang.english"
+              },
+              {
+                "en": "URL here"
+              }
+            ],
+            [
+              {
+                "key": "lang.french"
+              },
+              {
+                "en": "URL here"
+              }
+            ]
+          ]
+        }
+      ]
+    }
   ],
-  "toggles": {
-    "downloads": true
-  }
+  "tags": [
+    "application", "lscom", "purebasic", "windows"
+  ]
 }

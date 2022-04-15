@@ -2,10 +2,9 @@
 .idea/
 
 # Static resources
-resources/Azias/imgs/*.exe
-resources/Azias/imgs/*.url
 resources/FontAwesomePro/
-resources/GoogleFonts/
+*.exe
+*.url
 
 # Other folders  (Will be removed once the content system is finished !)
 # /files/*/

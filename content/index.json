@@ -1,47 +1,47 @@
 [
   {
-    "id": "test01",
-    "title": {
-      "en": "Test article",
-      "fr": "Article de test"
-    },
-    "preamble": {
-      "en": "This is a test article, please ignore it",
-      "fr": "Ceci est un article de test, veuillez l'ignorer."
-    },
-    "image": "/resources/Azias/imgs/angry-alchool-pussy.png",
-    "tags": [
-      "test", "programming", "purebasic"
-    ]
-  },
-  {
-    "id": "test02",
-    "title": {
-      "en": "Test article #2",
-      "fr": "Article de test #2"
-    },
-    "preamble": {
-      "en": "This is a test article, please ignore it",
-      "fr": "Ceci est un article de test, veuillez l'ignorer."
-    },
-    "image": "test.jpg",
-    "tags": [
-      "test", "programming", "docker"
-    ]
-  },
-  {
     "id": "lscom-cli",
     "title": {
-      "en": "PB-ListComPort - CLI COM port enumerator",
-      "fr": "PB-ListComPort - Enumérateur de port COM pour invité de commande"
+      "en": "PB-ListComPort",
+      "fr": "PB-ListComPort"
     },
     "preamble": {
-      "en": "A simple tool that can list COM ports with their name, friendly name and device name easily and cleanly.<br>This tool is intended to replace the tedious task of having to use the <code>mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port.",
+      "en": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.<br>This tool is intended to replace the tedious task of having to use the <code>mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port.",
       "fr": "..."
     },
     "image": "/resources/Azias/imgs/lscom-v2-text-01-bkgd-cli.png",
     "tags": [
       "application", "lscom", "purebasic", "windows"
+    ]
+  },
+  {
+    "id": "youtube-auto-archiver",
+    "title": {
+      "en": "Youtube-Auto-Archiver",
+      "fr": "Youtube-Auto-Archiver"
+    },
+    "preamble": {
+      "en": "...",
+      "fr": "..."
+    },
+    "image": "/resources/Azias/imgs/placeholder.jpg",
+    "tags": [
+      "docker", "web", "python"
+    ]
+  },
+  {
+    "id": "excel-worksheet-password-remover",
+    "title": {
+      "en": "Excel-Worksheet-Password-Remover",
+      "fr": "Excel-Worksheet-Password-Remover"
+    },
+    "preamble": {
+      "en": "Small web page from which you can easily remove a password from an Excel worksheet without uploading any file, directly in your browser.<br>It works by leaving the task of editing the XML files on an Excel document to your browser instead to keep everything local.",
+      "fr": "Petite application web qui permet de facilement retirer le mot de passe d'une feuille de calcul Excel depuis votre navigateur web sans avoir à uploader le fichier sur internet.<br>Cette application laisse votre navigateur modifier les fichiers XML du fichier Excel afin de tout garder en local."
+    },
+    "image": "/resources/Azias/imgs/excel-password-remover.png",
+    "tags": [
+      "tool", "web"
     ]
   }
 ]

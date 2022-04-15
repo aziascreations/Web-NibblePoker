@@ -8,11 +8,8 @@ include_once 'content.php';
 // Checking if an error occurred while loading data and parsing the URL.
 $content_error_code = 200;
 if($content_has_error) {
-	if(is_null($requested_tags)) {
-		// Failed to parse URL and detect a default category.
-		header("HTTP/1.1 400 Bad Request");
-		$content_error_code = 400;
-	} elseif(is_null($filtered_content_index_data)) {
+    // TODO: Add condition for the lack of data for an item.
+	if(is_null($filtered_content_index_data)) {
 		// Failed to get a display type or to extract types.
 		header("HTTP/1.1 400 Bad Request");
 		$content_error_code = 400;
@@ -35,6 +32,7 @@ if($content_has_error) {
 	<meta property="og:image" content="<?php echo($host_uri); ?>/resources/Azias/logos/rect1750-9-7-3-shaded.png"/>
 	<meta property="og:image:type" content="image/png"/>
 	<meta property="og:description" content="???"/>
+    <link href="/resources/GliderJs/1.7.6/glider.min.css" rel="stylesheet" />
 </head>
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
 	<?php include 'body-root.php'; ?>
@@ -56,7 +54,15 @@ if($content_has_error) {
                         } elseif($requested_content_display_type == ContentDisplayType::SEARCH) {
 							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.localize("content.title.search"));
                         } elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
-							echo(localize("content.title.content").'<span class="mx-10">❱</span>$TODO');
+							$_nav_title_text = '<i>' . localize("error.content.data.no.title") . '</i>';
+							if (array_key_exists("page", $requested_item_data["title"])) {
+								if (array_key_exists($user_language, $requested_item_data["title"]["page"])) {
+									$_nav_title_text = $requested_item_data["title"]["page"][$user_language];
+								} elseif (array_key_exists($default_language, $requested_item_data["title"]["page"])) {
+									$_nav_title_text = $requested_item_data["title"]["page"][$user_language];
+								}
+							}
+							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.$_nav_title_text);
                         }
                         ?>
 					</h2>
@@ -74,6 +80,9 @@ if($content_has_error) {
 					endMainCard();
                     
                     if($SHOW_CONTENT_DEBUG_CARD) {
+						// ################
+						//  Debugging card
+						// ################
                         echo('<div class="card p-0 mx-0">
 						<div class="px-card py-10 border-bottom px-20">
 							<div class="container-fluid">
@@ -108,12 +117,15 @@ if($content_has_error) {
 
                     // Checking if an error occurred.
 					if($content_error_code != 200) {
+						// #############
+						//  Error card
+						// #############
 						startMainCard("fad fa-exclamation-triangle", localize('error.content.title.generic'), "");
 						echo('<div class="py-20 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
                         echo('<h3 class="m-0 font-size-20 text-center font-weight-semi-bold">'.$content_error_message.'</h3>');
 						echo('</div>');
 						echo('<div class="px-card py-10 bg-light-lm bg-dark-dm rounded-bottom border-top">'.
-							'<p class="font-size-12 m-0">'.
+							'<p class="font-size-12 m-0 text-super-muted">'.
 							'Card footer here.'.
 							'</p></div>');
 						endMainCard();
@@ -122,6 +134,10 @@ if($content_has_error) {
 
 					// Printing the containers
 					if($requested_content_display_type == ContentDisplayType::SEARCH) {
+						// #############
+						//  Search page
+						// #############
+                        
                         // Creating the start of the card, only a "</div>" should be required afterward.
 						startMainCard(
                                 "fad fa-file-search",
@@ -154,7 +170,8 @@ if($content_has_error) {
                             echo('<div class="content-tag-container">');
                             echo('<i class="fad fa-tags"></i>');
 						    for($j = 0; $j < count($filtered_content_index_data[$i]["tags"]); $j++) {
-                                echo('<a href="#" class="content-tag">#'.$filtered_content_index_data[$i]["tags"][$j].'</a>');
+                                echo('<a href="'.l10n_url_abs("/content/?tags=".$filtered_content_index_data[$i]["tags"][$j]).'" class="content-tag">#');
+                                echo($filtered_content_index_data[$i]["tags"][$j].'</a>');
                             }
                             echo('</div>');
                             echo('</div>');
@@ -163,38 +180,88 @@ if($content_has_error) {
 						}
                         echo('</div>');
                         echo('<div class="px-card py-10 bg-light-lm bg-dark-dm rounded-bottom border-top">'.
-                            '<p class="font-size-12 m-0">'.
+                            '<p class="font-size-12 m-0 text-super-muted">'.
                             'Card footer here.'.
                             '</p></div>');
                         endMainCard();
 					} elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
+						// ##############
+                        //  Content page
+						// ##############
+      
+                        // Preparing soma variables for the icon, title and subtitle.
 						$_title_icon = "fad fa-question";
-						$_title_text = '<i>' . localize("error.content.data.no.title") . '</i>';
+						$_title_text_main = '<i>'.localize("error.content.data.no.title").'</i>';
+						$_title_text_sub = NULL;
 						
+						// Attempting to read the card's icon, title and subtitle.
 						if (array_key_exists("title", $requested_item_data)) {
 							if (array_key_exists("icon", $requested_item_data["title"])) {
 								$_title_icon = $requested_item_data["title"]["icon"];
 							}
-							
-							if (array_key_exists($user_language, $requested_item_data["title"])) {
-								$_title_text = $requested_item_data["title"][$user_language];
-							} elseif (array_key_exists($default_language, $requested_item_data["title"])) {
-								$_title_text = $requested_item_data["title"][$user_language];
+							if (array_key_exists("card", $requested_item_data["title"])) {
+								if (array_key_exists("main", $requested_item_data["title"]["card"])) {
+									$_title_text_main = getContentItemText($requested_item_data["title"]["card"]["main"], true);
+								}
+								if (array_key_exists("sub", $requested_item_data["title"]["card"])) {
+									$_title_text_sub = getContentItemText($requested_item_data["title"]["card"]["sub"], true);
+								}
 							}
 						}
 						
-						startMainCard($_title_icon, $_title_text, "");
+						// Opening the card.
+						startMainCard($_title_icon, $_title_text_main, (is_null($_title_text_sub) ? "" : $_title_text_sub));
 						
+						// Opening the content container.
 						echo('<div class="py-20 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
-						echo('<div class="content m-0 mx-20">');
-						echo('<p class="my-0">Text will go here...</p>');
-						echo('</div>');
+                        
+                        // Adding elements defined in the JSON file.
+                        if(array_key_exists("parts", $requested_item_data)) {
+                            for ($i = 0; $i < count($requested_item_data["parts"]); $i++) {
+								createElementNode($requested_item_data["parts"][$i]);
+                            }
+                        } else {
+							echo('<h3 class="m-0 font-size-20 text-center text-danger font-weight-semi-bold">');
+                            echo(localize("error.content.data.no.parts").'</h3>');
+                        }
+      
+						// New elements test zone. - START
+      
+						/*echo('<div class="content m-0 mx-20">');
+                        echo('<p class="my-0">Text will go here...</p>');
 						echo('</div>');
 						
-						echo('<div class="px-card py-10 bg-light-lm bg-dark-dm rounded-bottom border-top">' .
-							'<p class="font-size-12 m-0">' .
-							'Card footer here.' .
-							'</p></div>');
+						echo('<div class="sidebar-divider m-20 mx-0"></div>');/**/
+						//echo('<hr class="subtle">');
+						
+						/*<td>
+							<a href="#" class="d-flex justify-content-center align-items-center">
+							<p class="m-0 p-0 text-monospace">lscom_fra_x86.exe</p>
+							<button class="btn btn-sm btn-success font-size-18 px-5 ml-15" type="button">
+							<i class="fad fa-save"></i>
+							</button>
+							</a>
+						</td>*/
+      
+						// New elements test zone. - END
+						
+						// Closing the content container.
+						echo('</div>');
+						
+                        // Printing the tags' section at the end of the card
+						echo('<div class="px-20 py-10 bg-light-lm bg-dark-dm rounded-bottom border-top">');
+						echo('<div class="content-tag-container"><i class="fad fa-tags"></i>');
+                        if(array_key_exists("tags", $requested_item_data)) {
+							for($i = 0; $i < count($requested_item_data["tags"]); $i++) {
+								echo('<a href="'.l10n_url_abs("/content/?tags=".$requested_item_data["tags"][$i]).'" class="content-tag">#');
+								echo($requested_item_data["tags"][$i].'</a>');
+							}
+                        } else {
+                            echo('<i>'.localize("error.content.data.no.tags").'</i>');
+                        }
+						echo('</div></div>');
+                        
+                        // Closing the card.
 						endMainCard();
 					}
      
@@ -205,7 +272,8 @@ if($content_has_error) {
 		</div>
 		<?php include 'footer.php'; ?>
 	</div>
-	<script src="/resources/HalfMoon/1.1.1/js/halfmoon.min.js"></script>
+    <script src="/resources/HalfMoon/1.1.1/js/halfmoon.min.js"></script>
+    <script src="/resources/GliderJs/1.7.6/glider-compat.min.js"></script>
 	<script src="/resources/Azias/js/nibblepoker.lu.js"></script>
 </body>
 </html>

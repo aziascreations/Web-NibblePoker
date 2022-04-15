@@ -11,12 +11,14 @@ include_once 'langs.php';
 // This helper requires PHP 8 or newer !
 
 $SHOW_CONTENT_DEBUG_CARD = false;
+$PRINT_CONTENT_DEBUG_INFO_TEXT_ELEMENTS = true;
+$PRINT_CONTENT_DEBUG_ERROR_TEXT_ELEMENTS = true;
 
 // Defining constants and enums.
 abstract class ContentDisplayType {
 	const NONE = 0;
     const SEARCH = 1;
-    const CONTENT = 2;
+	const CONTENT = 2;
 }
 
 // Preparing default variables.
@@ -128,6 +130,213 @@ function startMainCard($iconClasses, $title, $subTitle) {
 
 function endMainCard() {
 	echo('</div>');
+}
+
+function getContentItemText(array $contentNode, bool $italicOnError = true, bool $returnMissingAsEmpty = false) : string {
+	global $user_language, $default_language;
+	if(array_key_exists("key", $contentNode)) {
+		return localize($contentNode["key"]);
+	} elseif(array_key_exists($user_language, $contentNode)) {
+		return $contentNode[$user_language];
+	} elseif(array_key_exists($default_language, $contentNode)) {
+		return $contentNode[$default_language];
+	} else {
+		if($returnMissingAsEmpty) {
+			return "";
+		}
+		if($italicOnError) {
+			return '<i>'.localize("error.content.data.no.title").'</i>';
+		} else {
+			return localize("error.content.data.no.title");
+		}
+	}
+}
+
+function printInfoTextElement(string $text) : void {
+	global $PRINT_CONTENT_DEBUG_INFO_TEXT_ELEMENTS;
+	if($PRINT_CONTENT_DEBUG_INFO_TEXT_ELEMENTS) {
+		echo('<h3 class="m-0 font-size-20 text-primary font-weight-semi-bold">'.$text.'</h3>');
+	}
+}
+
+function printErrorTextElement(string $text) : void {
+	global $PRINT_CONTENT_DEBUG_ERROR_TEXT_ELEMENTS;
+	if($PRINT_CONTENT_DEBUG_ERROR_TEXT_ELEMENTS) {
+		echo('<h3 class="m-0 font-size-20 text-center text-danger font-weight-semi-bold">'.$text.'</h3>');
+	}
+}
+
+function createElementNode(mixed $elementNode) : void {
+	// Checking if we actually have a JSON object.
+	if(!is_array($elementNode)) {
+		echo('<p>Not array node !</p>');
+		return;
+	}
+	if(!array_key_exists("type", $elementNode)) {
+		echo('<p>No "type" member found in node !</p>');
+		return;
+	}
+	
+	switch($elementNode["type"]) {
+		case "table":
+			//printInfoTextElement('table item type');
+
+			// Reading and processing the modifiers
+			$_modNoOuterPadding = false;
+			$_modStriped = false;
+			$_modHover = false;
+			$_modInnerBordered = false;
+			if(array_key_exists("modifiers", $elementNode)) {
+				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
+					//printInfoTextElement('&gt;&gt; Modifier: '.$elementNode["modifiers"][$i]);
+					switch($elementNode["modifiers"][$i]) {
+						case "no-outer-padding":
+							// Removes the rounding on the external edges.
+							$_modNoOuterPadding = true;
+							break;
+						case "striped":
+							// Removes the internal padding and adds 0.01em to the top to prevent gaps from margins.
+							$_modStriped = true;
+							break;
+						case "hover":
+							// Removes the standard top margin.
+							$_modHover = true;
+							break;
+						case "inner-bordered":
+							// Removes the standard top margin.
+							$_modInnerBordered = true;
+							break;
+					}
+				}
+			}
+			
+			// Preparing table
+			echo('<table class="table'.($_modNoOuterPadding?" table-no-outer-padding":"").($_modStriped?" table-striped":"").
+				($_modHover?" table-hover":"").($_modInnerBordered?" table-inner-bordered":"").'">');
+			
+			// Creating "thead"
+			if(array_key_exists("head", $elementNode)) {
+				echo('<thead><tr>');
+				for ($iTableHead = 0; $iTableHead < count($elementNode["head"]); $iTableHead++) {
+					echo('<th>');
+					if(array_key_exists("parts", $elementNode["head"][$iTableHead])) {
+						for ($iPart = 0; $iPart < count($elementNode["head"][$iTableHead]["parts"]); $iPart++) {
+							createElementNode($elementNode["head"][$iTableHead]["parts"][$iPart]);
+						}
+					} else {
+						echo(getContentItemText($elementNode["head"][$iTableHead], false, true));
+					}
+					echo('</th>');
+				}
+				echo('</tr></thead>');
+			}
+			
+			// Creating "tbody"
+			if(array_key_exists("body", $elementNode)) {
+				echo('<tbody>');
+				for ($iTableBodyRow = 0; $iTableBodyRow < count($elementNode["body"]); $iTableBodyRow++) {
+					echo('<tr>');
+					for ($iTableBodyCell = 0; $iTableBodyCell < count($elementNode["body"][$iTableBodyRow]); $iTableBodyCell++) {
+						$_cellColSpan = 1;
+						$_cellRowSpan = 1;
+						if(array_key_exists("colspan", $elementNode["body"][$iTableBodyRow][$iTableBodyCell])) {
+							$_cellColSpan = $elementNode["body"][$iTableBodyRow][$iTableBodyCell]["colspan"];
+						}
+						if(array_key_exists("rowspan", $elementNode["body"][$iTableBodyRow][$iTableBodyCell])) {
+							$_cellRowSpan = $elementNode["body"][$iTableBodyRow][$iTableBodyCell]["rowspan"];
+						}
+						
+						echo('<td'.($_cellColSpan>1?' colspan="'.$_cellColSpan.'"':'').($_cellRowSpan>1?' rowspan="'.$_cellRowSpan.'"':'').'>');
+						if(array_key_exists("parts", $elementNode["body"][$iTableBodyRow][$iTableBodyCell])) {
+							for ($iPart = 0; $iPart < count($elementNode["body"][$iTableBodyRow][$iTableBodyCell]["parts"]); $iPart++) {
+								createElementNode($elementNode["body"][$iTableBodyRow][$iTableBodyCell]["parts"][$iPart]);
+							}
+						} else {
+							echo(getContentItemText($elementNode["body"][$iTableBodyRow][$iTableBodyCell], false, true));
+						}
+						echo('</td>');
+					}
+					echo('</tr>');
+				}
+				echo('</tbody>');
+			}
+			
+			// Ending table
+			echo('</table>');
+		
+			break;
+		case "collapse":
+			//printInfoTextElement('collapse item type');
+			
+			// Preparing some stuff
+			$_title = '<i>'.localize("error.content.data.no.title").'</i>';
+			$_subtitle = '';
+			if(array_key_exists("title", $elementNode)) {
+				$_title = getContentItemText($elementNode["title"], true, true);
+			}
+			if(array_key_exists("subtitle", $elementNode)) {
+				$_subtitle = getContentItemText($elementNode["subtitle"], true, true);
+			}
+			//printInfoTextElement('&gt; title: "'.$_title);
+			//printInfoTextElement('&gt; subtitle: "'.$_subtitle);
+			
+			// Reading and processing the modifiers
+			$_modNoRounding = false;
+			$_modNoContentPadding = false;
+			$_modNoTopMargin = false;
+			$_modIsClosed = false;
+			if(array_key_exists("modifiers", $elementNode)) {
+				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
+					//printInfoTextElement('&gt;&gt; Modifier: '.$elementNode["modifiers"][$i]);
+					switch($elementNode["modifiers"][$i]) {
+						case "no-rounding":
+							// Removes the rounding on the external edges.
+							$_modNoRounding = true;
+							break;
+						case "no-padding-content":
+							// Removes the internal padding and adds 0.01em to the top to prevent gaps from margins.
+							$_modNoContentPadding = true;
+							break;
+						case "no-top-margin":
+							// Removes the standard top margin.
+							$_modNoTopMargin = true;
+							break;
+						case "closed":
+							// Close the collapse by default.
+							$_modIsClosed = true;
+							break;
+					}
+				}
+			}
+			
+			// Starting the collapse
+			echo('<details class="collapse-panel w-full'.($_modNoTopMargin?"":" mt-20").'" '.($_modIsClosed?"closed":"open").'>');
+			echo('<summary class="collapse-header p-10 px-15 text-truncate without-arrow'.($_modNoRounding?" rounded-0":"").' border-left-0 border-right-0">');
+			echo('<h4 class="font-size-16 m-0 align-middle no-select"><i class="fad fa-angle-down hidden-collapse-open font-size-24"></i>');
+			echo('<i class="fad fa-angle-up hidden-collapse-closed font-size-24"></i>');
+			echo('<span class="font-weight-semi-bold align-top">&nbsp;&nbsp;'.$_title.'<span class="ml-20 text-muted">'.$_subtitle.'</span></span>');
+			echo('</h4></summary><div class="collapse-content'.($_modNoContentPadding?" p-0 py-01":"").($_modNoRounding?" rounded-0":"").' border-0 border-bottom">');
+			
+			// Rendering sub-elements
+			if(array_key_exists("parts", $elementNode)) {
+				//printInfoTextElement('&gt; Processing sub-parts');
+				for ($i = 0; $i < count($elementNode["parts"]); $i++) {
+					createElementNode($elementNode["parts"][$i]);
+				}
+				//printInfoTextElement('&gt; Done processing sub-parts');
+			} else {
+				printErrorTextElement(localize("error.content.data.no.subpart"));
+			}
+			
+			// Ending the collapse
+			echo('</div></details>');
+			//printInfoTextElement('end of collapse');
+			
+			break;
+		default:
+			printErrorTextElement(sprintf(localize("error.content.data.part.unknown"), $elementNode["type"]));
+			break;
+	}
 }
 
 ?>
