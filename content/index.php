@@ -5,11 +5,6 @@ include_once 'config.php';
 include_once 'langs.php';
 include_once 'content.php';
 
-// Safety check for the constants
-/*if(!defined('CONTENT_DEBUG')) {
-    $CONTENT_DEBUG = false;
-}/**/
-
 // Checking if an error occurred while loading data and parsing the URL.
 $content_error_code = 200;
 if($content_has_error) {
@@ -27,8 +22,6 @@ if($content_has_error) {
 		$content_error_code = 500;
 	}
 }
-
-// TODO: Check if it went well, else 503 or something like - Done above ?. - What is this shit supposed to mean ?!?
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
@@ -57,7 +50,7 @@ if($content_has_error) {
 				</div>
 				<div class="content mx-auto w-lg-p90">
                     <?php
-                    if($CONTENT_DEBUG) {
+                    if($SHOW_CONTENT_DEBUG_CARD) {
                         echo('<div class="card p-0 mx-0">
 						<div class="px-card py-10 border-bottom px-20">
 							<div class="container-fluid">
@@ -69,14 +62,14 @@ if($content_has_error) {
 						<div class="px-card py-20 bg-light-lm rounded-bottom px-20 bg-very-dark title-bkgd">
 							<!--<h3 class="m-0 mb-5 font-size-20 text-center font-weight-semi-bold">This page is still under construction !</h3>-->');
                         echo('<p class="m-0 mb-5">REQUEST_URI: '.$_SERVER['REQUEST_URI'].'</p>');
-                        echo('<p class="m-0 mb-5">$requested_content_type: '.$requested_content_type.'</p>');
                         echo('<p class="m-0 mb-5">$requested_content_display_type: '.$requested_content_display_type.'</p>');
                         echo('<p class="m-0 mb-5">$requested_tags: ['.implode(", ", $requested_tags).']</p>');
                         echo('<p class="m-0 mb-5">count($requested_tags): '.count($requested_tags).'</p>');
                         echo('<p class="m-0 mb-5">$content_has_error: '.$content_has_error.'</p>');
-                        echo('<p class="m-0 mb-5">$_content_error_message_key: '.$_content_error_message_key.'</p>');
-                        echo('<p class="m-0 mb-5">localize($_content_error_message_key): '.localize($_content_error_message_key).'</p>');
+                        echo('<p class="m-0 mb-5">$content_error_message_key: '.$content_error_message_key.'</p>');
+                        echo('<p class="m-0 mb-5">localize($content_error_message_key): '.localize($content_error_message_key).'</p>');
                         echo('<p class="m-0 mb-5">$content_error_message: '.$content_error_message.'</p>');
+						echo('<p class="m-0 mb-5">$raw_additional_tags: '.$raw_additional_tags.'</p>');
                         echo('<p class="m-0 mb-5">$filtered_content_index_data: ');
                         print_r($filtered_content_index_data);
                         echo('</p>');
@@ -117,7 +110,7 @@ if($content_has_error) {
 							
 							// https://css-tricks.com/float-an-element-to-the-bottom-corner/
                             echo('<div class="content-presentation-container">');
-                            echo('<a href="#"><div>');
+                            echo('<a href="'.l10n_url_abs("/content/".$filtered_content_index_data[$i]["id"]).'"><div>');
 							echo('<div class="content-search-image-container">');
 							echo('<img class="content-search-image" src="'.$filtered_content_index_data[$i]["image"].'">');
 							echo('</div>');
@@ -135,10 +128,8 @@ if($content_has_error) {
                                 echo('<a href="#" class="content-tag">#'.$filtered_content_index_data[$i]["tags"][$j].'</a>');
                             }
                             echo('</div>');
-                            // TODO: Add button to view article !
                             echo('</div>');
-
-
+                            
                             echo('</div>');
 						}
                         echo('</div>');
@@ -147,11 +138,8 @@ if($content_has_error) {
                             'Card footer here.'.
                             '</p></div>');
                         endMainCard();
-					} elseif($requested_content_display_type == ContentDisplayType::ARTICLE) {
-						startMainCard("fad fa-file-alt", localize("content.title.article"), "subtitle");
-                        endMainCard();
-					} elseif($requested_content_display_type == ContentDisplayType::APPLICATION) {
-						startMainCard("fad fa-file-alt", localize("content.title.application"), "subtitle");
+					} elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
+						startMainCard("fad fa-file-alt", localize("content.title.content"), "subtitle");
                         endMainCard();
 					}
 					

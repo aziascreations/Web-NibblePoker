@@ -102,6 +102,9 @@
     "error.content.detect.subtype": "Failed to detect the sub-type of content you requested.",
     "error.content.detect.tags": "Failed to detect the basic tags for the content you requested.",
     "error.content.detect.empty": "No content could be found for the given tags.",
+    "error.content.tags.length": "The \"tags\" URL parameter is too long.",
+    "error.content.tags.alphanumeric": "One of the tags given in the \"tags\" URL parameter is not a valid alphanumeric string.",
+    "error.content.detect.type": "The type of requested content couldn't be determined.",
 
     "content.title.error": "$content.title.error",
     "content.title.search": "Projects search",
@@ -224,6 +227,9 @@
     "error.content.detect.subtype": "Impossibilité de détecter le sous-type de contenu demandé.",
     "error.content.detect.tags": "Impossibilité de détecter les tags de base du contenu demandé.",
     "error.content.detect.empty": "Aucun contenu en rapport avec les tags choisi n'as été trouvé.",
+    "error.content.tags.length": "Le paramètre d'URL \"tags\" est trop long.",
+    "error.content.tags.alphanumeric": "Un des tags donné dans le paramètre d'URL \"tags\" n'est pas une chaîne de texte alphanumérique valide.",
+    "error.content.detect.type": "Le type de contenu désiré n'as pas pu être détecté.",
 
     "content.title.error": "$content.title.error",
     "content.title.search": "Recherche de projets",

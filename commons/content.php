@@ -8,128 +8,64 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 // Importing required scripts
 include_once 'langs.php';
 
-$CONTENT_DEBUG = true;
-
-// TODO: Add /content as raw input of some sort (No auto tags).
-
 // This helper requires PHP 8 or newer !
 
+$SHOW_CONTENT_DEBUG_CARD = true;
+
 // Defining constants and enums.
-const CONTENT_NONE = 0;
-abstract class ContentType {
-	const NONE = CONTENT_NONE;
-    const BLOG = 1;
-    const PROGRAMMING = 2;
-    const ELECTRONICS = 3;
-}
 abstract class ContentDisplayType {
-	const NONE = CONTENT_NONE;
+	const NONE = 0;
     const SEARCH = 1;
-    const ARTICLE = 2;
-    const APPLICATION = 3;
+    const CONTENT = 2;
 }
 
 // Preparing default variables.
-$requested_content_type = ContentType::NONE;
 $requested_content_display_type = ContentDisplayType::NONE;
 $content_has_error = false;
-$_content_error_message_key = "error.content.none";
+$content_error_message_key = "error.content.none";
 $content_error_message = "";
-$was_item_requested = false;
-
-$requested_tags = NULL;
+$requested_tags = array();
+$raw_additional_tags = "";
 $filtered_content_index_data = NULL;
 
-// Detecting content type requested.
-$content_requested_url_part = l10n_url_switch(NULL);
+// Detecting content display type requested.
+$content_requested_url_part = explode("?", explode("#", preg_replace("^\/(content)^", "", l10n_url_switch(NULL)))[0])[0];
 
-if(str_starts_with($content_requested_url_part, "/blog/")) {
-	$requested_content_type = ContentType::BLOG;
-} elseif(str_starts_with($content_requested_url_part, "/programming/")) {
-	$requested_content_type = ContentType::PROGRAMMING;
-} elseif(str_starts_with($content_requested_url_part, "/electronics/")) {
-	$requested_content_type = ContentType::ELECTRONICS;
+if(strcmp($content_requested_url_part, "/") == 0) {
+	$requested_content_display_type = ContentDisplayType::SEARCH;
 } else {
-	// Failed to detect which category of content was requested.
-	$content_has_error = true;
-	$_content_error_message_key = "error.content.detect.category";
-	goto content_end;
+	$requested_content_display_type = ContentDisplayType::CONTENT;
+	$content_requested_url_part = ltrim($content_requested_url_part, "/");
 }
-
-// Detecting what kind of item was requested, parsing additional parameters and loading required data.
-$content_requested_url_part = preg_replace("^\/(blog|programming|electronics)^", "", $content_requested_url_part);
-$requested_tags = array();
-if($requested_content_type == ContentType::BLOG) {
-	if(str_starts_with($content_requested_url_part, "/article/")) {
-		$requested_content_display_type = ContentDisplayType::ARTICLE;
-	} else {
-		$requested_content_display_type = ContentDisplayType::SEARCH;
-	}
-	$requested_tags[] = "blog";
-} elseif($requested_content_type == ContentType::PROGRAMMING) {
-	// May be changed later if a specific resource is requested and found.
-	$requested_content_display_type = ContentDisplayType::SEARCH;
-	$requested_tags[] = "programming";
-	
-	if(str_starts_with($content_requested_url_part, "/applications/")) {
-		$requested_tags[] = "application";
-	} elseif(str_starts_with($content_requested_url_part, "/tutorials/")) {
-		$requested_tags[] = "tutorial";
-	} elseif(str_starts_with($content_requested_url_part, "/tools/")) {
-		$requested_tags[] = "tool";
-	} elseif(str_starts_with($content_requested_url_part, "/purebasic/")) {
-		$requested_tags[] = "purebasic";
-	} elseif(str_starts_with($content_requested_url_part, "/python/")) {
-		$requested_tags[] = "python";
-	} elseif(str_starts_with($content_requested_url_part, "/java/")) {
-		$requested_tags[] = "java";
-	} elseif(str_starts_with($content_requested_url_part, "/others/")) {
-		$requested_tags[] = "miscellaneous";
-	} elseif(str_starts_with($content_requested_url_part, "/docker/")) {
-		$requested_tags[] = "docker";
-	} else {
-		//$content_has_error = true;
-		//$_content_error_message_key = "error.content.detect.subtype";
-		//goto content_end;
-	}
-} elseif($requested_content_type == ContentType::ELECTRONICS) {
-	// May be changed later if a specific resource is requested and found.
-	$requested_content_display_type = ContentDisplayType::SEARCH;
-	$requested_tags[] = "electronic";
-	
-	if(str_starts_with($content_requested_url_part, "/iot/")) {
-		$requested_tags[] = "iot";
-	} elseif(str_starts_with($content_requested_url_part, "/experiments/")) {
-		$requested_tags[] = "experiment";
-	} elseif(str_starts_with($content_requested_url_part, "/ham/")) {
-		$requested_tags[] = "ham";
-	} else {
-		//$content_has_error = true;
-		//$_content_error_message_key = "error.content.detect.subtype";
-		//goto content_end;
-	}
-}
-
-// Checking for errors preliminarily
-if($requested_content_display_type == ContentDisplayType::NONE) {
-	// Failed to detect what kind of content was requested.
-	$content_has_error = true;
-	$_content_error_message_key = "error.content.detect.display";
-	goto content_end;
-}
-
-// TODO: Check with a raw root type if not set
-if(count($requested_tags) == 0) {
-	// Failed to detect the subtype of content requested when not a blog post.
-	$content_has_error = true;
-	$_content_error_message_key = "error.content.detect.tags";
-	goto content_end;
-}
-$content_requested_url_part = preg_replace("^\/(java|python|purebasic|others|ham|iot|experiments|applications|tutorials|tools)^", "", $content_requested_url_part);
-
-// TODO: Detect specific resource or additional tags and parameters
 
 if($requested_content_display_type == ContentDisplayType::SEARCH) {
+	// Checking if more tags were given
+	if(isset($_GET['tags'])) {
+		$raw_additional_tags = htmlspecialchars($_GET['tags']);
+		
+		// Checking the length to prevent bad requests
+		if(strlen($raw_additional_tags) > 256) {
+			$content_has_error = true;
+			$content_error_message_key = "error.content.tags.length";
+			goto content_end;
+		}
+		
+		// Extracting the additional tags safely
+		$raw_additional_tags_exploded = explode(";", $raw_additional_tags);
+		for($i = 0; $i < count($raw_additional_tags_exploded); $i++) {
+			if(strlen($raw_additional_tags_exploded[$i]) > 0) {
+				if(ctype_alnum($raw_additional_tags_exploded[$i])) {
+					$requested_tags[] = $raw_additional_tags_exploded[$i];
+				} else {
+					$content_has_error = true;
+					$content_error_message_key = "error.content.tags.alphanumeric";
+					goto content_end;
+				}
+			}
+		}
+		unset($raw_additional_tags_exploded);
+	}
+	
 	// Loading the content index.
 	$content_json = file_get_contents(realpath($dir_content . "/index.json"));
 	$content_index_data = json_decode($content_json, true);
@@ -151,23 +87,23 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 	if(count($filtered_content_index_data) == 0) {
 		// No relevant article/page were found for the given tags.
 		$content_has_error = true;
-		$_content_error_message_key = "error.content.detect.empty";
+		$content_error_message_key = "error.content.detect.empty";
 		goto content_end;
 	}
+} elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
+	// Attempting to get the requested ID.
 }
-// TODO: Get relevant data
-
-
 
 content_end:
-$content_error_message = localize($_content_error_message_key);
+$content_error_message = localize($content_error_message_key);
 
-// These function are placed here to prevent the main file from becoming impossible to read.
+// These functions are placed here to prevent the main file from becoming impossible to read.
 function startMainCard($iconClasses, $title, $subTitle) {
-	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">'.
-		'<div class="row"><div class="col-4"><h2 class="card-title font-size-18 m-0"><i class="'.$iconClasses.
-		'"></i>&nbsp;&nbsp;'.localize($title).'</h2></div><div class="col-8 text-right font-italic">'.
-		'<h2 class="card-title font-size-18 m-0 text-super-muted">'.$subTitle.'</h2></div></div></div></div>');
+	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">');
+	echo('<div class="row"><div class="col-4"><h2 class="card-title font-size-18 m-0">');
+	echo('<i class="'.$iconClasses.'"></i>&nbsp;&nbsp;'.localize($title).'</h2></div>');
+	echo('<div class="col-8 text-right font-italic"><h2 class="card-title font-size-18 m-0 text-super-muted">'.$subTitle.'</h2>');
+	echo('</div></div></div></div>');
 }
 
 function endMainCard() {

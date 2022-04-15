@@ -11,7 +11,7 @@
     },
     "image": "/resources/Azias/imgs/angry-alchool-pussy.png",
     "tags": [
-      "programming", "purebasic"
+      "test", "programming", "purebasic"
     ]
   },
   {
@@ -26,22 +26,22 @@
     },
     "image": "test.jpg",
     "tags": [
-      "programming", "docker"
+      "test", "programming", "docker"
     ]
   },
   {
-    "id": "test03",
+    "id": "lscom-cli",
     "title": {
-      "en": "ListComPort - COM port enumerator",
-      "fr": "ListComPort - Enumérateur de port COM"
+      "en": "PB-ListComPort - CLI COM port enumerator",
+      "fr": "PB-ListComPort - Enumérateur de port COM pour invité de commande"
     },
     "preamble": {
-      "en": "A simple cli tool that can list COM ports with their full name easily and cleanly.<br>This tool is intended to replace the tedious task of having to use the <code>mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port.",
+      "en": "A simple tool that can list COM ports with their name, friendly name and device name easily and cleanly.<br>This tool is intended to replace the tedious task of having to use the <code>mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port.",
       "fr": "..."
     },
-    "image": "/resources/Azias/imgs/lscom-v2-text-01.png",
+    "image": "/resources/Azias/imgs/lscom-v2-text-01-bkgd-cli.png",
     "tags": [
-      "programming", "docker"
+      "application", "lscom", "purebasic"
     ]
   }
 ]

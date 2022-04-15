@@ -1,0 +1,9 @@
+{
+  "title": {
+    "en": "PB-ListComPort - CLI COM port enumerator",
+    "fr": "PB-ListComPort - Enumérateur de port COM pour invité de commande"
+  },
+  "tags": [
+    "programming", "lscom"
+  ]
+}

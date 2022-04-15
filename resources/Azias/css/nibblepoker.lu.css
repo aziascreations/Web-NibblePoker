@@ -111,14 +111,25 @@ hr, hr.dark-mde, hr.subtle {
 	margin-bottom: 5px;
 }
 
+/* Content search */
+@media (max-width: 992px) {
+	:root {
+		--content-search-image-size: 96px;
+	}
+}
+@media (min-width: 993px) {
+	:root {
+		--content-search-image-size: 128px;
+	}
+}
 div.content-presentation-container {
 	margin-bottom: 10px;
-	min-height: 128px;
+	min-height: var(--content-search-image-size);
 	display: flex;
 }
 div.content-presentation-container > a {
 	width: 100%;
-	min-height: 128px;
+	min-height: var(--content-search-image-size);
 	text-align: justify;
 	color: var(--dm-card-text-color);
 }
@@ -130,14 +141,14 @@ div.content-search-image-container {
 	background: var(--dm-card-bg-color) url("/resources/Azias/imgs/3px-tile-0.2.png") repeat fixed center center;
 	box-shadow: inset 0 0 25px 1px rgba(255,255,255,0.05);
 	border-radius: 8px;
-	width: 128px;
-	height: 128px;
+	width: var(--content-search-image-size);
+	height: var(--content-search-image-size);
 	margin-right: 10px;
 	float: left;
 }
 img.content-search-image {
-	max-width: 128px;
-	max-height: 128px;
+	max-width: var(--content-search-image-size);
+	max-height: var(--content-search-image-size);
 	border-radius: 8px;
 	box-shadow: 0 0 5px 1px rgba(0,0,0,0.3);
 }

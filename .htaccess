@@ -77,7 +77,8 @@ RewriteRule ^lb/(.*)$ /$1 [QSA]
 #RewriteRule ^((en|fr|lb)/)?electronics/(iot|experiments)/(.*)$ /content/$1 [QSA]
 
 # Content pages. (Old regex are taken care of by the "content/index.php" page)
-RewriteRule ^((en|fr|lb)/)?(blog|programming|electronics)/(.*)$ /content/$1 [QSA]
+#RewriteRule ^((en|fr|lb)/)?(blog|programming|electronics|projects)/(.*)$ /content/$1 [QSA]
+#RewriteRule ^((en|fr|lb)/)?(content)/(.*)$ /content/$1 [QSA]
 
 # Internal redirections for scanning and exploit attempts.
 # These rules are here since they're easier to implement in the .htaccess.

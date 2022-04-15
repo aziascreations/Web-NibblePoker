@@ -23,33 +23,33 @@ if(!isset($SIDEBAR_ID)) {
 			<?php print(localize("home.title.nav")); ?>
 		</a>
 		<div class="sidebar-divider"></div>
-		<a id="sbl-programming" href="<?php print(l10n_url_abs('/programming/')); ?>" class="sidebar-link sidebar-link-with-icon<?php if($SIDEBAR_ID=="blog"){echo(" active");} ?>">
+		<a id="sbl-programming" href="<?php print(l10n_url_abs('/content/')); ?>" class="sidebar-link sidebar-link-with-icon<?php if($SIDEBAR_ID=="blog"){echo(" active");} ?>">
 			<span class="sidebar-icon"><i class="fad fa-briefcase"></i></span>
 			<?php print(localize("programming.title.projects")); ?>
 		</a>
 		<div class="ml-20">
-			<a id="sbl-projects-apps" href="<?php print(l10n_url_abs('/programming/applications/')); ?>" class="sidebar-link sidebar-link-with-icon">
+			<a id="sbl-projects-apps" href="<?php print(l10n_url_abs('/content/?tags=application')); ?>" class="sidebar-link sidebar-link-with-icon">
 				<span class="sidebar-icon"><i class="fad fa-browser"></i></span>
 				<?php print(localize("programming.apps.title")); ?>
 			</a>
-			<a id="sbl-projects-tutorials" href="<?php print(l10n_url_abs('/programming/tutorials/')); ?>" class="sidebar-link sidebar-link-with-icon">
+			<a id="sbl-projects-tutorials" href="<?php print(l10n_url_abs('/content/?tags=tutorial')); ?>" class="sidebar-link sidebar-link-with-icon">
 				<span class="sidebar-icon"><i class="fad fa-books"></i></span>
 				<?php print(localize("programming.tutorials.title")); ?>
 			</a>
-			<a id="sbl-projects-tools" href="<?php print(l10n_url_abs('/programming/tools/')); ?>" class="sidebar-link sidebar-link-with-icon">
+			<a id="sbl-projects-tools" href="<?php print(l10n_url_abs('/content/?tags=tool')); ?>" class="sidebar-link sidebar-link-with-icon">
 				<span class="sidebar-icon"><i class="fad fa-tools"></i></span>
 				<?php print(localize("programming.tools.title")); ?>
 			</a>
 			<div class="sidebar-divider"></div>
-			<a id="sbl-purebasic" href="<?php print(l10n_url_abs('/programming/purebasic/')); ?>" class="sidebar-link sidebar-link-with-icon">
+			<a id="sbl-purebasic" href="<?php print(l10n_url_abs('/content/?tags=purebasic')); ?>" class="sidebar-link sidebar-link-with-icon">
 				<span class="sidebar-icon"><i class="fad fa-microchip"></i></span>
 				<?php print(localize("programming.purebasic.title")); ?>
 			</a>
-			<a id="sbl-python" href="<?php print(l10n_url_abs('/programming/python/')); ?>" class="sidebar-link sidebar-link-with-icon">
+			<a id="sbl-python" href="<?php print(l10n_url_abs('/content/?tags=python')); ?>" class="sidebar-link sidebar-link-with-icon">
 				<span class="sidebar-icon"><i class="fab fa-python"></i></span>
 				<?php print(localize("programming.python.title")); ?>
 			</a>
-			<a id="sbl-docker" href="<?php print(l10n_url_abs('/programming/docker/')); ?>" class="sidebar-link sidebar-link-with-icon">
+			<a id="sbl-docker" href="<?php print(l10n_url_abs('/content/?tags=docker')); ?>" class="sidebar-link sidebar-link-with-icon">
 				<span class="sidebar-icon"><i class="fab fa-docker"></i></span>
 				<?php print(localize("programming.docker.title")); ?>
 			</a>
