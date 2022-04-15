@@ -209,3 +209,7 @@ div.last-inner-collapse-border-fix {
 .content-wrapper {
 	max-width: 100vw;
 }
+
+code.w-full {
+	white-space: pre;
+}

@@ -165,6 +165,18 @@ function printErrorTextElement(string $text) : void {
 	}
 }
 
+function processStandardContentSubNode(mixed $elementNode) : void {
+	if(array_key_exists("content", $elementNode)) {
+		if (array_key_exists("parts", $elementNode["content"])) {
+			for ($iPart = 0; $iPart < count($elementNode["content"]["parts"]); $iPart++) {
+				createElementNode($elementNode["content"]["parts"][$iPart]);
+			}
+		} else {
+			echo(getContentItemText($elementNode["content"], false, true));
+		}
+	}
+}
+
 function createElementNode(mixed $elementNode) : void {
 	// Checking if we actually have a JSON object.
 	if(!is_array($elementNode)) {
@@ -177,6 +189,92 @@ function createElementNode(mixed $elementNode) : void {
 	}
 	
 	switch($elementNode["type"]) {
+		case "spacer":
+			// Defining the font size.
+			$_spacerSize = 1;
+			if(array_key_exists("size", $elementNode)) {
+				$_spacerSize = $elementNode["size"];
+			}
+			
+			// Adding element.
+			echo('<div class="m-0 pt-'.($_spacerSize*5).' pb-md-'.($_spacerSize*5).'"></div>');
+			
+			break;
+		case "h1":
+		case "h2":
+		case "h3":
+			// Defining the font size.
+			$_headingFontSize = ($elementNode["type"] == "h3" ? '18' : (($elementNode["type"] == "h2" ? '20' : '22')));
+			
+			// Opening heading.
+			echo('<'.$elementNode["type"].' class="font-weight-semi-bold font-size-'.$_headingFontSize.' m-0">');
+			
+			// Adding content.
+			processStandardContentSubNode($elementNode);
+			
+			// Closing heading.
+			echo('</'.$elementNode["type"].'>');
+			
+			break;
+		case "paragraph":
+			// Parsing properties.
+			$_indentLevel = 0;
+			if(array_key_exists("indent", $elementNode)) {
+				$_indentLevel = $elementNode["indent"];
+			}
+			
+			// Opening paragraph.
+			echo('<p'.($_indentLevel?' class="ml-md-'.($_indentLevel*5).'"':'').'>');
+			
+			// Adding content.
+			processStandardContentSubNode($elementNode);
+			
+			// Closing paragraph.
+			echo('</p>');
+			
+			break;
+		case "code":
+			// Parsing properties.
+			$_indentLevel = 0;
+			if(array_key_exists("indent", $elementNode)) {
+				$_indentLevel = $elementNode["indent"];
+			}
+			
+			// Reading and processing the modifiers.
+			$_modNoTopMargin = false;
+			$_modFullWidth = false;
+			$_modHorizontalScroll = false;
+			if(array_key_exists("modifiers", $elementNode)) {
+				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
+					switch($elementNode["modifiers"][$i]) {
+						case "no-top-margin":
+							$_modNoTopMargin = true;
+							break;
+						case "full-width":
+							$_modFullWidth = true;
+							break;
+						case "horizontal-scroll":
+							$_modHorizontalScroll = true;
+							break;
+					}
+				}
+			}
+			
+			// Opening code element.
+			echo('<code class="code'.($_modNoTopMargin?'':' mt-10').($_modFullWidth?' w-full d-inline-block':'').
+				($_indentLevel?' ml-md-'.($_indentLevel*5):'').($_modHorizontalScroll?' overflow-x-scroll hide-scrollbar':'').'">');
+			
+			// Adding code lines.
+			if (array_key_exists("code", $elementNode)) {
+				for ($iCodeLine = 0; $iCodeLine < count($elementNode["code"]); $iCodeLine++) {
+					echo(htmlspecialchars($elementNode["code"][$iCodeLine]).'<br>');
+				}
+			}
+			
+			// Closing code element.
+			echo('</code>');
+			
+			break;
 		case "container":
 			// Grabbing the global padding.
 			$_containerPadding = "10";
@@ -187,6 +285,7 @@ function createElementNode(mixed $elementNode) : void {
 			// Reading and processing the modifiers.
 			$_modNoTopMargin = false;
 			$_modNoTopPadding = false;
+			$_modNoBottomPadding = false;
 			$_modNoSizePadding = false;
 			if(array_key_exists("modifiers", $elementNode)) {
 				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
@@ -197,6 +296,9 @@ function createElementNode(mixed $elementNode) : void {
 						case "no-top-padding":
 							$_modNoTopPadding = true;
 							break;
+						case "no-bottom-padding":
+							$_modNoBottomPadding = true;
+							break;
 						case "no-side-padding":
 							$_modNoSizePadding = true;
 							break;
@@ -206,18 +308,10 @@ function createElementNode(mixed $elementNode) : void {
 			
 			// Opening container.
 			echo('<div class="p-'.$_containerPadding.($_modNoTopMargin?'':' mt-10').
-				($_modNoSizePadding?' px-0':'').($_modNoTopPadding?' pt-0':'').'">');
+				($_modNoSizePadding?' px-0':'').($_modNoBottomPadding?' pb-0':'').($_modNoTopPadding?' pt-0':'').'">');
 			
 			// Adding content.
-			if(array_key_exists("content", $elementNode)) {
-				if (array_key_exists("parts", $elementNode["content"])) {
-					for ($iPart = 0; $iPart < count($elementNode["content"]["parts"]); $iPart++) {
-						createElementNode($elementNode["content"]["parts"][$iPart]);
-					}
-				} else {
-					echo(getContentItemText($elementNode["content"], false, true));
-				}
-			}
+			processStandardContentSubNode($elementNode);
 			
 			// Closing container.
 			echo('</div>');
@@ -267,15 +361,7 @@ function createElementNode(mixed $elementNode) : void {
 					'"').'>');
 			
 			// Adding content.
-			if(array_key_exists("content", $elementNode)) {
-				if (array_key_exists("parts", $elementNode["content"])) {
-					for ($iPart = 0; $iPart < count($elementNode["content"]["parts"]); $iPart++) {
-						createElementNode($elementNode["content"]["parts"][$iPart]);
-					}
-				} else {
-					echo(getContentItemText($elementNode["content"], false, true));
-				}
-			}
+			processStandardContentSubNode($elementNode);
 			
 			// Closing button.
 			echo('</button>');

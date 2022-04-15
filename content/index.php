@@ -91,8 +91,7 @@ if($content_has_error) {
 								</div>
 							</div>
 						</div>
-						<div class="px-card py-20 bg-light-lm rounded-bottom px-20 bg-very-dark title-bkgd">
-							<!--<h3 class="m-0 mb-5 font-size-20 text-center font-weight-semi-bold">This page is still under construction !</h3>-->');
+						<div class="px-card py-20 bg-light-lm rounded-bottom px-20 bg-very-dark title-bkgd">');
                         echo('<p class="m-0 mb-5">REQUEST_URI: '.$_SERVER['REQUEST_URI'].'</p>');
                         echo('<p class="m-0 mb-5">$requested_content_display_type: '.$requested_content_display_type.'</p>');
                         echo('<p class="m-0 mb-5">$requested_tags: ['.implode(", ", $requested_tags).']</p>');
@@ -213,7 +212,7 @@ if($content_has_error) {
 						startMainCard($_title_icon, $_title_text_main, (is_null($_title_text_sub) ? "" : $_title_text_sub));
 						
 						// Opening the content container.
-						echo('<div id="content-item-container" class="py-01 pb-0 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
+						echo('<article id="content-item-container" class="py-01 pb-0 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
                         
                         // Adding elements defined in the JSON file.
                         if(array_key_exists("parts", $requested_item_data)) {
@@ -227,26 +226,10 @@ if($content_has_error) {
       
 						// New elements test zone. - START
       
-						/*echo('<div class="content m-0 mx-20">');
-                        echo('<p class="my-0">Text will go here...</p>');
-						echo('</div>');
-						
-						echo('<div class="sidebar-divider m-20 mx-0"></div>');/**/
-						//echo('<hr class="subtle">');
-						
-						/*<td>
-							<a href="#" class="d-flex justify-content-center align-items-center">
-							<p class="m-0 p-0 text-monospace">lscom_fra_x86.exe</p>
-							<button class="btn btn-sm btn-success font-size-18 px-5 ml-15" type="button">
-							<i class="fad fa-save"></i>
-							</button>
-							</a>
-						</td>*/
-      
 						// New elements test zone. - END
 						
 						// Closing the content container.
-						echo('</div>');
+						echo('</article>');
 						
                         // Printing the tags' section at the end of the card
 						echo('<div class="px-20 py-10 bg-light-lm bg-dark-dm rounded-bottom border-top">');
