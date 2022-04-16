@@ -1,0 +1,28 @@
+{
+  "title": {
+    "icon": "fab fa-youtube",
+    "page": {
+      "en": "Youtube-Auto-Archiver",
+      "fr": "Youtube-Auto-Archiver"
+    },
+    "card": {
+      "main": {
+        "en": "Youtube-Auto-Archiver",
+        "fr": "Youtube-Auto-Archiver"
+      }
+    }
+  },
+  "meta": {
+    "title": {
+      "en": "Youtube-Auto-Archiver",
+      "fr": "Youtube-Auto-Archiver"
+    },
+    "description": {
+      "en": "A simple and yet highly configurable Python application that automatically checks if a Youtuber is streaming, and downloads said streams while also archiving its latest uploads.",
+      "fr": "Conteneur et application Python hautement configurable qui permet d'automatiquement archiver et télécharger des livestreams et vidéos depuis YouTube."
+    }
+  },
+  "tags": [
+    "docker", "web", "python"
+  ]
+}

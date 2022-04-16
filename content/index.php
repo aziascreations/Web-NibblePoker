@@ -23,15 +23,41 @@ if($content_has_error) {
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
 <head>
-	<?php include 'headers.php'; ?>
-	<title>Content - Nibble Poker</title>
-	<meta name="description" content="???">
-	<meta property="og:title" content="Nibble Poker - Content" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="<?php echo($host_uri); ?>/" />
-	<meta property="og:image" content="<?php echo($host_uri); ?>/resources/Azias/logos/opengraph.png"/>
-	<meta property="og:image:type" content="image/png"/>
-	<meta property="og:description" content="???"/>
+	<?php
+    include 'headers.php';
+    
+    // Setting up the common variables.
+	if($content_has_error) {
+		$_metaTitle = localize("error.content.title.generic");
+		$_metaDescription = $content_error_message;
+	} else {
+		$_metaTitle = localize("error.content.data.no.title");
+		$_metaDescription = localize("error.content.data.no.description");
+	    if($requested_content_display_type == ContentDisplayType::CONTENT) {
+            if(array_key_exists("meta", $requested_item_data)) {
+				if(array_key_exists("title", $requested_item_data["meta"])) {
+					$_metaTitle = getContentItemText($requested_item_data["meta"]["title"]);
+				}
+				if(array_key_exists("description", $requested_item_data["meta"])) {
+					$_metaDescription = getContentItemText($requested_item_data["meta"]["description"]);
+				}
+            }
+        } else {
+            $_metaTitle = localize("content.title.search.card");
+			$_metaDescription = "";
+        }
+    }
+    
+	// Printing the title, meta and opengraph tags.
+	echo('<title>'.$_metaTitle.' - Nibble Poker</title>');
+	echo('<meta name="description" content="'.$_metaDescription.'">');
+	echo('<meta property="og:title" content="Nibble Poker - '.$_metaTitle.'" />');
+	echo('<meta property="og:description" content="'.$_metaDescription.'"/>');
+    ?>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?php echo($host_uri); ?>/" />
+    <meta property="og:image" content="<?php echo($host_uri); ?>/resources/Azias/logos/opengraph.png"/>
+    <meta property="og:image:type" content="image/png"/>
     <link href="/resources/GliderJs/1.7.6/glider.min.css" rel="stylesheet" />
 </head>
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
@@ -55,13 +81,11 @@ if($content_has_error) {
 							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.localize("content.title.search.header"));
                         } elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
 							$_nav_title_text = '<i>' . localize("error.content.data.no.title") . '</i>';
+       
 							if (array_key_exists("page", $requested_item_data["title"])) {
-								if (array_key_exists($user_language, $requested_item_data["title"]["page"])) {
-									$_nav_title_text = $requested_item_data["title"]["page"][$user_language];
-								} elseif (array_key_exists($default_language, $requested_item_data["title"]["page"])) {
-									$_nav_title_text = $requested_item_data["title"]["page"][$user_language];
-								}
+								$_nav_title_text = getContentItemText($requested_item_data["title"]["page"]);
 							}
+       
 							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.$_nav_title_text);
                         }
                         ?>
@@ -70,15 +94,6 @@ if($content_has_error) {
 				</div>
 				<div class="content mx-auto w-lg-p90">
                     <?php
-					startMainCard("fad fa-construction", "Under construction", "");
-					echo('<div class="py-20 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
-					echo('<div class="content m-0 mx-20">');
-					echo('<h3 class="font-size-18 mb-5 font-weight-semi-bold content-search-title">');
-                    echo('<span class="font-weight-bold">15/04/2021</span> - This section is under construction...</h3>');
-					echo('</div>');
-					echo('</div>');
-					endMainCard();
-                    
                     if($SHOW_CONTENT_DEBUG_CARD) {
 						// ################
 						//  Debugging card
@@ -192,7 +207,7 @@ if($content_has_error) {
 						$_title_icon = "fad fa-question";
 						$_title_text_main = '<i>'.localize("error.content.data.no.title").'</i>';
 						$_title_text_sub = NULL;
-						
+      
 						// Attempting to read the card's icon, title and subtitle.
 						if (array_key_exists("title", $requested_item_data)) {
 							if (array_key_exists("icon", $requested_item_data["title"])) {

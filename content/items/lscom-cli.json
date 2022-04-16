@@ -16,6 +16,16 @@
       }
     }
   },
+  "meta": {
+    "title": {
+      "en": "PB-ListComPort",
+      "fr": "PB-ListComPort"
+    },
+    "description": {
+      "en": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.",
+      "fr": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemin des ports COM."
+    }
+  },
   "parts": [
     {
       "type": "container",
@@ -160,7 +170,7 @@
         "key": "content.commons.version.current"
       },
       "subtitle": {
-        "en": "v2.1.0"
+        "en": "<i class=\"fab fa-windows mr-20\"></i>v2.1.0"
       },
       "modifiers": [
         "no-rounding",
