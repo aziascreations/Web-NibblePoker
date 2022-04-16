@@ -176,7 +176,7 @@
           ],
           "head": [
             {
-              "key": "content.commons.cpu"
+              "key": "content.commons.cpu.responsive"
             },
             {
               "key": "content.commons.lang"
@@ -298,7 +298,7 @@
               "key": "content.commons.version"
             },
             {
-              "key": "content.commons.cpu"
+              "key": "content.commons.cpu.responsive"
             },
             {
               "key": "content.commons.lang"

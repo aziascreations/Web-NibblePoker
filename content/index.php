@@ -29,7 +29,7 @@ if($content_has_error) {
 	<meta property="og:title" content="Nibble Poker - Content" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="<?php echo($host_uri); ?>/" />
-	<meta property="og:image" content="<?php echo($host_uri); ?>/resources/Azias/logos/rect1750-9-7-3-shaded.png"/>
+	<meta property="og:image" content="<?php echo($host_uri); ?>/resources/Azias/logos/opengraph.png"/>
 	<meta property="og:image:type" content="image/png"/>
 	<meta property="og:description" content="???"/>
     <link href="/resources/GliderJs/1.7.6/glider.min.css" rel="stylesheet" />
@@ -52,7 +52,7 @@ if($content_has_error) {
                             }
 							echo('<span class="mx-10">❱</span>'.localize("content.title.error"));
                         } elseif($requested_content_display_type == ContentDisplayType::SEARCH) {
-							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.localize("content.title.search"));
+							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.localize("content.title.search.header"));
                         } elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
 							$_nav_title_text = '<i>' . localize("error.content.data.no.title") . '</i>';
 							if (array_key_exists("page", $requested_item_data["title"])) {
@@ -140,7 +140,7 @@ if($content_has_error) {
                         // Creating the start of the card, only a "</div>" should be required afterward.
 						startMainCard(
                                 "fad fa-file-search",
-                                localize("content.title.search"),
+                                localize("content.title.search.card"),
                                 strval(count($filtered_content_index_data)) . " " .
                                     (count($filtered_content_index_data) > 1 ?
                                         localize("content.search.count.multiple") :

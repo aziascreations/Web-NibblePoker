@@ -6,6 +6,5 @@ resources/FontAwesomePro/
 *.exe
 *.url
 
-# Other folders  (Will be removed once the content system is finished !)
-# /files/*/
-files/
+# Others
+*.pdn
