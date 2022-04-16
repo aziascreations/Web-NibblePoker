@@ -1,5 +1,5 @@
 <?php
-// Making sure the file is included.
+// Making sure the file is included and not accessed directly.
 if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	header('HTTP/1.1 403 Forbidden');
 	die();
@@ -358,7 +358,7 @@ function createElementNode(mixed $elementNode) : void {
 					(array_key_exists("color", $elementNode)?' btn-'.$elementNode["color"]:'').
 					($_modRoundShape?' btn-rounded':'').
 					($_modCircleShape?' rounded-circle':'').
-					'"').'>');
+					' mr-15"').'>');
 			
 			// Adding content.
 			processStandardContentSubNode($elementNode);

@@ -1,6 +1,11 @@
-.git/
+# IDE-related folders
 .idea/
-.dockerignore
+
+# Git
+.git/
 .gitignore
-notes.txt
+
+# Others
+.dockerignore
 *.md
+*.lnk

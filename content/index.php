@@ -69,6 +69,7 @@ if($content_has_error) {
 				<div id="page-title-bar" class="card p-0 pl-20 m-0 square-corners bg-very-dark title-bkgd navbar">
 					<h2 class="content-title font-size-24 mt-20 text-truncate">
                         <i class="fad fa-briefcase"></i>&nbsp;&nbsp;<?php
+						echo('<span class="hidden-xs-and-down">');
                         if($content_has_error) {
 							if(isset($_SERVER['HTTP_REFERER'])) {
 								echo('<a href="'.$_SERVER['HTTP_REFERER'].'">'.localize("content.title.content").'</a>');
@@ -86,7 +87,7 @@ if($content_has_error) {
 								$_nav_title_text = getContentItemText($requested_item_data["title"]["page"]);
 							}
        
-							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.$_nav_title_text);
+							echo(localize("content.title.content").'<span class="mx-10">❱</span></span>'.$_nav_title_text);
                         }
                         ?>
 					</h2>

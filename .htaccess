@@ -1,23 +1,7 @@
 # Prevent access to .htaccess
 <Files ~ "^.*\.([Hh][Tt][Aa]|[Pp][Yy])">
-    ## Apache 2.2
-    Order allow,deny
-    Deny from all
-    ## Apache 2.4
-    # Require all denied
+    Require all denied
 </Files>
-
-## Deny access to some common leftovers
-#<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
-#    ## Apache 2.2
-#    Order allow,deny
-#    Deny from all
-#    Satisfy All
-#    ## Apache 2.4
-#    # Require all denied
-#</FilesMatch>
-
-ServerSignature Off
 
 # Redirecting HTTP traffic to HTTPS. (Keep commented on localhost !)
 # This is handled other services, but it should still be enabled in production just to be safe.
@@ -26,8 +10,9 @@ ServerSignature Off
 #RewriteRule ^(.*)$ https://nibblepoker.lu/$1 [R,L]
 
 # Correcting some default options for security and language/content redirection.
-# FollowSymlinks is on since it required for "mod_rewrite" and the server is jailed.
+# FollowSymlinks is also on since it's required for "mod_rewrite" and the server is jailed.
 Options -Indexes +FollowSymlinks -ExecCGI
+ServerSignature Off
 
 # Custom error pages.
 ErrorDocument 403 /403.php
@@ -36,15 +21,12 @@ ErrorDocument 404 /404.php
 # Setting some headers for security.
 Header always set X-Detected-Country "NK"
 Header always set X-Frame-Options "deny"
-# Prevents CloudFlare from injecting some JS code through their hidden apps...
 Header always set Content-Security-Policy "default-src 'self'; object-src 'none'; child-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests; block-all-mixed-content"
 Header always set X-XSS-Protection " 1; mode=block"
 Header always set Referrer-Policy "no-referrer"
 Header always set X-Content-Type-Options "nosniff"
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 Header always set Cache-Control "max-age=300, public"
-# Remark: Apparently, the 'Permissions-Policy' header is not properly formatted, IDK why...
-Header always set Permissions-Policy "accelerometer=(),autoplay=(),camera=(),display-capture=(),document-domain=(),encrypted-media=(),fullscreen=(),geolocation=(),gyroscope=(),magnetometer=(),microphone=(),midi=(),payment=(),picture-in-picture=(),publickey-credentials-get=(),screen-wake-lock=(),sync-xhr=(self),usb=(),web-share=(),xr-spatial-tracking=()"
 Header always set Access-Control-Allow-Origin "*"
 Header unset X-Powered-By
 Header always set X-Powered-By "Amiga 1200, Kickstart 3.1"
@@ -52,17 +34,17 @@ Header always set X-Powered-By "Amiga 1200, Kickstart 3.1"
 # Handling all other redirections.
 RewriteEngine On
 
+# Languages. (Does not work with a regex)
+RewriteRule ^en/(.*)$ /$1 [QSA]
+RewriteRule ^fr/(.*)$ /$1 [QSA]
+RewriteRule ^lb/(.*)$ /$1 [QSA]
+
 # Sending a 404 for git and IDEs folders just in case they ever get copied to the web server,
 #  or if one of the honeypot files is acessed directly.
 # A 404 is preferred to prevent further scanning of this folder and from raising some flags.
 # FIXME: These rules break the later honeypot rules !!!
 #RedirectMatch 404 ^.*\.?(git|vs(code)|idea).*
 #RedirectMatch 404 ^.*honeypot.*
-
-# Languages. (Does not work with a regex)
-RewriteRule ^en/(.*)$ /$1 [QSA]
-RewriteRule ^fr/(.*)$ /$1 [QSA]
-RewriteRule ^lb/(.*)$ /$1 [QSA]
 
 # Internal redirections for scanning and exploit attempts.
 # These rules are here since they're easier to implement in the .htaccess.

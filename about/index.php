@@ -48,7 +48,7 @@ include_once 'langs.php';
 							
 							<div class="row">
 								<div class="col-4 col-lg-3">
-									<img src="/resources/Azias/imgs/maki-pain-03.png" class="img-fluid rounded no-save" alt="rounded image">
+									<img src="/resources/Azias/imgs/profile-pic.png" class="img-fluid rounded no-save" alt="rounded image">
 								</div>
 								
 								<div class="col-8 col-lg-9">

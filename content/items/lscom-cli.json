@@ -1,26 +1,14 @@
 {
   "title": {
     "icon": "fad fa-terminal",
-    "page": {
-      "en": "PB-ListComPort",
-      "fr": "PB-ListComPort"
-    },
+    "page": {"en": "PB-ListComPort", "fr": "PB-ListComPort"},
     "card": {
-      "main": {
-        "en": "PB-ListComPort",
-        "fr": "PB-ListComPort"
-      },
-      "sub": {
-        "en": "CLI COM port enumerator",
-        "fr": "Enumérateur de port COM pour invité de commande"
-      }
+      "main": {"en": "PB-ListComPort", "fr": "PB-ListComPort"},
+      "sub": {"en": "CLI COM port enumerator", "fr": "Enumérateur de port COM pour invité de commande"}
     }
   },
   "meta": {
-    "title": {
-      "en": "PB-ListComPort",
-      "fr": "PB-ListComPort"
-    },
+    "title": {"en": "PB-ListComPort", "fr": "PB-ListComPort"},
     "description": {
       "en": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.",
       "fr": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemin des ports COM."
@@ -28,38 +16,23 @@
   },
   "parts": [
     {
-      "type": "container",
-      "padding": 20,
-      "modifiers": [
-        "no-top-padding",
-        "no-bottom-padding"
-      ],
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
       "content": {
         "parts": [
           {
             "type": "h1",
-            "content": {
-              "en": "Introduction",
-              "fr": "Introduction"
-            }
-          },
-          {
-            "type": "paragraph",
-            "indent": 2,
-            "content": {
-              "en": "A simple cli tool that can list COM ports with their full name easily and cleanly."
-            }
-          },
-          {
-            "type": "paragraph",
-            "indent": 2,
+            "content": {"en": "Introduction"}
+          },{
+            "type": "paragraph", "indent": 2,
+            "content": {"en": "A simple cli tool that can list COM ports with their full name easily and cleanly."}
+          },{
+            "type": "paragraph", "indent": 2,
             "content": {
               "en": "This tool is intended to replace the tedious task of having to use the <code class=\"code\">mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port."
             }
-          },
-          {
-            "type": "paragraph",
-            "indent": 2,
+          },{
+            "type": "paragraph", "indent": 2,
             "content": {
               "en": "The earliest version of Windows that can be used is Windows XP x64 or Windows Vista due to the fact that RegGetValueW is not available on older versions of Windows."
             }
@@ -69,28 +42,16 @@
     },
 
     {
-      "type": "container",
-      "padding": 20,
-      "modifiers": [
-        "no-top-padding",
-        "no-bottom-padding"
-      ],
+      "type": "container", "padding": 20,
+      "modifiers": ["no-top-padding", "no-bottom-padding"],
       "content": {
         "parts": [
           {
             "type": "h1",
-            "content": {
-              "en": "Usage",
-              "fr": "Utilisation"
-            }
-          },
-          {
-            "type": "code",
-            "indent": 2,
-            "modifiers": [
-              "full-width",
-              "horizontal-scroll"
-            ],
+            "content": {"en": "Usage", "fr": "Utilisation"}
+          },{
+            "type": "code", "indent": 2,
+            "modifiers": ["full-width", "horizontal-scroll"],
             "code": [
               "lscom.exe [-a|--show-all] [-d|--show-device] [-D <str>|--divider <str>] [-f|--show-friendly]",
               "          [-h|--help] [-n|--show-name-raw] [-P|--no-pretty] [-s|--sort] [-S|--sort-reverse]",
@@ -114,29 +75,18 @@
         ]
       }
     },
+
     {
-      "type": "container",
-      "padding": 20,
-      "modifiers": [
-        "no-top-padding",
-        "no-bottom-padding"
-      ],
+      "type": "container", "padding": 20,
+      "modifiers": ["no-top-padding", "no-bottom-padding"],
       "content": {
         "parts": [
           {
             "type": "h1",
-            "content": {
-              "en": "Output formatting",
-              "fr": "Formatage de sortie"
-            }
-          },
-          {
-            "type": "code",
-            "indent": 2,
-            "modifiers": [
-              "full-width",
-              "horizontal-scroll"
-            ],
+            "content": {"en": "Output formatting", "fr": "Formatage de sortie"}
+          },{
+            "type": "code", "indent": 2,
+            "modifiers": ["full-width", "horizontal-scroll"],
             "code": [
               " *┬> No launch arguments:",
               "  └──> ${Raw name}      => COM1",
@@ -160,350 +110,227 @@
         ]
       }
     },
+
     {
-      "type": "spacer",
-      "size": 2
+      "type": "spacer", "size": 2
     },
+
     {
       "type": "collapse",
-      "title": {
-        "key": "content.commons.version.current"
-      },
-      "subtitle": {
-        "en": "<i class=\"fab fa-windows mr-20\"></i>v2.1.0"
-      },
-      "modifiers": [
-        "no-rounding",
-        "no-padding-content",
-        "horizontal-scroll"
-      ],
+      "title": {"key": "content.commons.version.current"},
+      "subtitle": {"en": "<i class=\"fab fa-windows mr-20\"></i>v2.1.0"},
+      "modifiers": ["no-rounding", "no-padding-content", "horizontal-scroll"],
       "parts": [
         {
           "type": "table",
-          "modifiers": [
-            "striped",
-            "inner-bordered"
-          ],
+          "modifiers": ["striped", "inner-bordered"],
           "head": [
-            {
-              "key": "content.commons.cpu.responsive"
-            },
-            {
-              "key": "content.commons.lang"
-            },
-            {
-              "key": "content.commons.download.single"
-            }
+            {"key": "content.commons.cpu.responsive"},
+            {"key": "content.commons.lang"},
+            {"key": "content.commons.download.single"}
           ],
           "body": [
             [
+              {"key": "content.commons.cpu.x64", "rowspan": 2},
+              {"key": "lang.english"},
               {
-                "key": "content.commons.cpu.x64",
-                "rowspan": 2
-              },
-              {
-                "key": "lang.english"
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_eng_x64.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_eng_x64.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
               }
-            ],
-            [
+            ],[
+              {"key": "lang.french"},
               {
-                "key": "lang.french"
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_fra_x64.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_fra_x64.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
               }
-            ],
-            [
+            ],[
+              {"key": "content.commons.cpu.x86", "rowspan": 2},
+              {"key": "lang.english"},
               {
-                "key": "content.commons.cpu.x86",
-                "rowspan": 2
-              },
-              {
-                "key": "lang.english"
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_eng_x86.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_eng_x86.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
               }
-            ],
-            [
+            ],[
+              {"key": "lang.french"},
               {
-                "key": "lang.french"
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_fra_x86.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_fra_x86.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
               }
             ]
           ]
         }
       ]
     },
+
     {
       "type": "collapse",
-      "title": {
-        "key": "content.commons.version.previous.multiple"
-      },
-      "modifiers": [
-        "no-rounding",
-        "no-padding-content",
-        "no-top-margin",
-        "closed",
-        "horizontal-scroll"
-      ],
+      "title": {"key": "content.commons.version.previous.multiple"},
+      "modifiers": ["no-rounding", "no-padding-content", "no-top-margin", "closed", "horizontal-scroll"],
       "parts": [
         {
           "type": "table",
-          "modifiers": [
-            "striped",
-            "inner-bordered"
-          ],
+          "modifiers": ["striped", "inner-bordered"],
           "head": [
-            {
-              "key": "content.commons.version"
-            },
-            {
-              "key": "content.commons.cpu.responsive"
-            },
-            {
-              "key": "content.commons.lang"
-            },
-            {
-              "key": "content.commons.download.single"
-            }
+            {"key": "content.commons.version"},
+            {"key": "content.commons.cpu.responsive"},
+            {"key": "content.commons.lang"},
+            {"key": "content.commons.download.single"}
           ],
           "body": [
             [
+              {"en": "v2.0.0", "rowspan": 4},
+              {"key": "content.commons.cpu.x64", "rowspan": 2},
+              {"key": "lang.english"},
               {
-                "en": "v2.0.0",
-                "rowspan": 4
-              },
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x64.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
+              }
+            ],[
+              {"key": "lang.french"},
               {
-                "key": "content.commons.cpu.x64",
-                "rowspan": 2
-              },
-              {
-                "key": "lang.english"
-              },
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x64.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
+              }
+            ],[
+              {"key": "content.commons.cpu.x86", "rowspan": 2},
+              {"key": "lang.english"},
               {
                 "parts": [
                   {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x64.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
+                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x86.exe",
+                    "modifiers": ["thin"],
+                    "content": {"en": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
                   }
                 ]
               }
-            ],
-            [
+            ],[
+              {"key": "lang.french"},
               {
-                "key": "lang.french"
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x64.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x86.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
               }
-            ],
-            [
+            ],[
+              {"en": "v1.1.0", "rowspan": 2},
+              {"key": "content.commons.cpu.x64"},
+              {"key": "lang.english", "rowspan": 2},
               {
-                "key": "content.commons.cpu.x86",
-                "rowspan": 2
-              },
-              {
-                "key": "lang.english"
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x86.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/lscom-x64.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
               }
-            ],
-            [
+            ],[
+              {"key": "content.commons.cpu.x86"},
               {
-                "key": "lang.french"
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x86.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/lscom-x86.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
               }
-            ],
-            [
+            ],[
+              {"en": "v1.0.0", "rowspan": 2},
+              {"key": "content.commons.cpu.x64"},
+              {"key": "lang.english", "rowspan": 2},
               {
-                "en": "v1.1.0",
-                "rowspan": 2
-              },
-              {
-                "key": "content.commons.cpu.x64"
-              },
-              {
-                "key": "lang.english",
-                "rowspan": 2
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/lscom-x64.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom-x64.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
               }
-            ],
-            [
+            ],[
+              {"key": "content.commons.cpu.x86"},
               {
-                "key": "content.commons.cpu.x86"
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/lscom-x86.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
-              }
-            ],
-            [
-              {
-                "en": "v1.0.0",
-                "rowspan": 2
-              },
-              {
-                "key": "content.commons.cpu.x64"
-              },
-              {
-                "key": "lang.english",
-                "rowspan": 2
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom-x64.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
-              }
-            ],
-            [
-              {
-                "key": "content.commons.cpu.x86"
-              },
-              {
-                "parts": [
-                  {
-                    "type": "button",
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom-x86.exe",
-                    "modifiers": [
-                      "thin"
-                    ],
-                    "content": {
-                      "en": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                    }
-                  }
-                ]
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom-x86.exe",
+                  "modifiers": ["thin"],
+                  "content": {"en": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
+                }]
               }
             ]
           ]
         }
       ]
+    },
+
+    {
+      "type": "collapse",
+      "title": {"key": "content.commons.version.source"},
+      "modifiers": ["no-rounding", "no-padding-content", "no-top-margin", "closed", "horizontal-scroll"],
+      "parts": [{
+        "type": "table", "modifiers": ["striped", "inner-bordered"],
+        "head": [{"key": "content.commons.version"}, {"key": "content.commons.download.multiple"}],
+        "body": [[
+          {"en": "v2.1.0"},
+          {"parts": [{
+            "type": "button", "modifiers": ["thin"],
+            "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/2.1.0.zip",
+            "content": {"en": "<span class=\"text-monospace\">2.1.0.zip</span><i class=\"fas fa-download ml-10\"></i>"}
+          },{
+            "type": "button", "modifiers": ["thin"],
+            "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/2.1.0.tar.gz",
+            "content": {"en": "<span class=\"text-monospace\">2.1.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>"}
+          }]}
+        ],[
+          {"en": "v2.0.0"},
+          {"parts": [{
+            "type": "button", "modifiers": ["thin"],
+            "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/2.0.0.zip",
+            "content": {"en": "<span class=\"text-monospace\">2.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>"}
+          },{
+            "type": "button", "modifiers": ["thin"],
+            "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/2.0.0.tar.gz",
+            "content": {"en": "<span class=\"text-monospace\">2.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>"}
+          }]}
+        ],[
+          {"en": "v1.1.0"},
+          {"parts": [{
+            "type": "button", "modifiers": ["thin"],
+            "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/1.1.0.zip",
+            "content": {"en": "<span class=\"text-monospace\">1.1.0.zip</span><i class=\"fas fa-download ml-10\"></i>"}
+          },{
+            "type": "button", "modifiers": ["thin"],
+            "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/1.1.0.tar.gz",
+            "content": {"en": "<span class=\"text-monospace\">1.1.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>"}
+          }]}
+        ],[
+          {"en": "v1.0.0"},
+          {"parts": [{
+            "type": "button", "modifiers": ["thin"],
+            "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/1.0.0.zip",
+            "content": {"en": "<span class=\"text-monospace\">1.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>"}
+          },{
+            "type": "button", "modifiers": ["thin"],
+            "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/1.0.0.tar.gz",
+            "content": {"en": "<span class=\"text-monospace\">1.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>"}
+          }]}
+        ]]
+      }]
     }
+
   ],
-  "tags": [
-    "application", "lscom", "purebasic", "windows"
-  ]
+  "tags": ["application", "lscom", "purebasic", "windows"]
 }

@@ -19,7 +19,7 @@ It is also a good idea to server this website through a jailed instance of apach
 ### Blog
 Unfinished, but all the files should be contained in the `content/` folder.
 
-### Honeypot & Tarpits
+### Honeypot & Tarpits *(Disabled)*
 There are a couple of files in the `honeypot/` and `tarpit/` folders that are used
 to serve some basic fake files that are often requested by automated scanners in order
 to mess with them, or potentially force them to report invalid data.
@@ -30,6 +30,6 @@ the [.htaccess](.htaccess) file.
 ## Requirements
 These files are required and need to be installed manually for the website to work properly !<br>
 
-* Apache & * PHP 8 or newer
+* Apache 2.4 & PHP 8 or newer
 * Font Awesome Pro v5.15.3
     * `/resources/FontAwesomePro/`

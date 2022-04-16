@@ -85,7 +85,10 @@ include_once 'langs.php';
 											</p>
 											<p class="ml-5 mt-0">
 												Cli tool that lists COM ports in different parsable formats.<br>
-												<i class="fad fa-globe"></i>&nbsp;&nbsp;Link
+                                                <span class="pr-20">
+                                                    <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="https://github.com/aziascreations/PB-ListComPort">GitHub</a>
+                                                </span>
+                                                <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/lscom-cli")); ?>">Project's page</a>
 											</p>
 										</div>
 										<hr>
@@ -100,7 +103,10 @@ include_once 'langs.php';
 											</p>
 											<p class="ml-5 mt-0">
 												Automatic archival solutions for YouTube livestreams and uploads.<br>
-												<i class="fad fa-globe"></i>&nbsp;&nbsp;Link
+                                                <span class="pr-20">
+                                                    <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="https://github.com/aziascreations/Youtube-Auto-Archiver">GitHub</a>
+                                                </span>
+                                                <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/youtube-auto-archiver")); ?>">Project's page</a>
 											</p>
 										</div>
 										<hr>
@@ -114,7 +120,10 @@ include_once 'langs.php';
 											</p>
 											<p class="ml-5 mt-0">
 												Web-based tool that simplifies the removal of passwords on Excel's Worksheet.<br>
-												<i class="fad fa-globe"></i>&nbsp;&nbsp;Link
+                                                <span class="pr-20">
+                                                    <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="https://github.com/aziascreations/Excel-Worksheet-Password-Remover">GitHub</a>
+                                                </span>
+                                                <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/excel-worksheet-password-remover")); ?>">Project's page</a>
 											</p>
 										</div>
 									</div>
@@ -128,7 +137,6 @@ include_once 'langs.php';
 						<div class="content ml-lg-0">
 							<div class="card p-0 m-0 card-bkgd">
 								<div class="content m-0">
-									
 									<div class="px-card py-10 border-bottom px-20 bg-light-lm bg-very-dark-dm">
 										<div class="container-fluid">
 											<div class="row">
@@ -140,22 +148,24 @@ include_once 'langs.php';
 												</div>
 												<div class="col-1 text-right"><i class="fad fa-pen-nib"></i></div>
 											</div>
-											
 										</div>
 									</div>
-									
 									<div class="px-card py-5 px-20">
-										<p>
-											<span class="font-weight-bold">18th March 2022</span><br>
-											Updated the privacy policy.
-										</p>
+                                        <p>
+                                            <span class="font-weight-bold">16th April 2022</span><br>
+                                            Finished the <i>"Project"</i> section
+                                        </p>
+                                        <hr>
+                                        <p>
+                                            <span class="font-weight-bold">18th March 2022</span><br>
+                                            Updated the privacy policy.
+                                        </p>
 										<hr>
 										<p>
 											<span class="font-weight-bold">28th February 2022</span><br>
 											Dropped OVH as our main web hosting provider, and switched to CloudFlare.
 										</p>
 									</div>
-									
 								</div>
 							</div>
 						</div>
