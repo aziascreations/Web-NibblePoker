@@ -39,6 +39,8 @@ RewriteRule ^en/(.*)$ /$1 [QSA]
 RewriteRule ^fr/(.*)$ /$1 [QSA]
 RewriteRule ^lb/(.*)$ /$1 [QSA]
 
+# Honeypots. (Just to fuck with automated scanners, gotta love those unsolicited emails tho...)
+
 # Sending a 404 for git and IDEs folders just in case they ever get copied to the web server,
 #  or if one of the honeypot files is acessed directly.
 # A 404 is preferred to prevent further scanning of this folder and from raising some flags.

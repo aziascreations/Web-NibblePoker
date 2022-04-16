@@ -111,9 +111,7 @@
       }
     },
 
-    {
-      "type": "spacer", "size": 2
-    },
+    {"type": "spacer", "size": 2},
 
     {
       "type": "collapse",

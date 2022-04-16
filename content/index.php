@@ -241,7 +241,7 @@ if($content_has_error) {
                         }
       
 						// New elements test zone. - START
-      
+                        
 						// New elements test zone. - END
 						
 						// Closing the content container.
@@ -272,7 +272,7 @@ if($content_has_error) {
 		<?php include 'footer.php'; ?>
 	</div>
     <script src="/resources/HalfMoon/1.1.1/js/halfmoon.min.js"></script>
-    <script src="/resources/GliderJs/1.7.6/glider-compat.min.js"></script>
+    <script src="/resources/GliderJs/1.7.6/glider.min.js"></script>
 	<script src="/resources/Azias/js/nibblepoker.lu.js"></script>
 </body>
 </html>

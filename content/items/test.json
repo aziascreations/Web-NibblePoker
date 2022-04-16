@@ -1,0 +1,184 @@
+{
+  "title": {
+    "icon": "fad fa-debug",
+    "page": {"en": "Testing page", "fr": "Page de test"},
+    "card": {
+      "main": {"en": "Testing page", "fr": "Page de test"},
+      "sub": {"en": "How did you end up here ?", "fr": "title.card.sub.fr"}
+    }
+  },
+  "meta": {
+    "title": {"en": "Testing page", "fr": "Page de test"},
+    "description": {
+      "en": "A test page used internally when writing new content rules and/or elements.",
+      "fr": "Une page de test utilisé pour écrire de nouvelles règles ou éléments pour ce site."
+    }
+  },
+  "parts": [
+    {
+      "_": "Testing the paragraph padding and margin.",
+      "type": "container", "padding": 10,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "content": {
+        "parts": [
+          {
+            "type": "paragraph", "modifiers": ["no-top-margin"],
+            "content": {"en": "container.p10.no-bottom-padding.no-top-margin &gt; p.no-top-margin"}
+          },{
+            "type": "paragraph", "modifiers": ["no-top-margin"],
+            "content": {"en": "Joe mama !"}
+          }
+        ]
+      }
+    },
+
+    {"type": "hr"},
+
+    {
+      "_": "Testing the paragraph padding and margin.",
+      "type": "container", "padding": 10,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "content": {
+        "parts": [
+          {
+            "type": "paragraph", "modifiers": ["no-top-margin"],
+            "content": {"en": "container.p10.no-bottom-padding.no-top-margin &gt; gallery &gt; ..."}
+          },{
+            "type": "gallery", "modifiers": [],
+            "content": {
+              "parts": [
+                {
+                  "type": "paragraph", "modifiers": ["no-top-margin"],
+                  "content": {"en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget tempus nisl."}
+                },
+                {
+                  "type": "paragraph", "modifiers": ["no-top-margin"],
+                  "content": {"en": "Donec et sollicitudin tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."}
+                },
+                {
+                  "type": "paragraph", "modifiers": ["no-top-margin"],
+                  "content": {"en": "Nullam iaculis nec ex quis tincidunt. Cras mattis magna magna, id laoreet elit pharetra in. Cras lacinia tempus tincidunt."}
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+
+    {"type": "hr"},
+
+    {
+      "_": "Testing tables",
+      "type": "container", "padding": 10,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "content": {
+        "parts": [
+          {
+            "type": "paragraph", "modifiers": ["no-top-margin"],
+            "content": {"en": "container.p10.no-bottom-padding.no-top-margin &gt; table.striped.inner-bordered"}
+          },{
+            "type": "table",
+            "modifiers": ["striped", "inner-bordered"],
+            "head": [
+              {"en": "Column 1"}, {"en": "Column 2"}, {"en": "Column 3"}, {"en": "Column 4"}
+            ],
+            "body": [
+              [{"en": "Data 1"}, {"en": "Data 2"}, {"en": "Data 3"}, {"en": "Data 4"}],
+              [{"en": "Data 5"}, {"en": "Data 6"}, {"en": "Data 7"}, {"en": "Data 8"}]
+            ]
+          }
+        ]
+      }
+    },
+
+    {"type": "hr"},
+
+    {
+      "_": "Testing tables",
+      "type": "container", "padding": 10,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "content": {
+        "parts": [
+          {
+            "type": "paragraph", "modifiers": ["no-top-margin"],
+            "content": {"en": "container.p10.no-bottom-padding.no-top-margin &gt; table.striped.inner-bordered.outer-bordered"}
+          },{
+            "type": "table",
+            "modifiers": ["striped", "inner-bordered", "outer-bordered"],
+            "head": [
+              {"en": "Column 1"}, {"en": "Column 2"}, {"en": "Column 3"}, {"en": "Column 4"}
+            ],
+            "body": [
+              [{"en": "Data 1"}, {"en": "Data 2"}, {"en": "Data 3"}, {"en": "Data 4"}],
+              [{"en": "Data 5"}, {"en": "Data 6"}, {"en": "Data 7"}, {"en": "Data 8"}]
+            ]
+          }
+        ]
+      }
+    },
+
+    {"type": "hr"},
+
+    {
+      "_": "Testing tables",
+      "type": "container", "padding": 10,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "content": {
+        "parts": [
+          {
+            "type": "paragraph", "modifiers": ["no-top-margin"],
+            "content": {"en": "container.p10.no-bottom-padding.no-top-margin &gt; container.p0.card?horizontal-scroll &gt; table.striped.inner-bordered"}
+          },
+          {
+            "_": "Testing tables",
+            "type": "container", "padding": 0,
+            "modifiers": ["no-bottom-padding", "no-top-margin", "card"],
+            "content": {
+              "parts": [
+                {
+                  "type": "table",
+                  "modifiers": ["striped", "inner-bordered"],
+                  "head": [
+                    {"en": "Column 1"}, {"en": "Column 2"}, {"en": "Column 3"}, {"en": "Column 4"}
+                  ],
+                  "body": [
+                    [{"en": "Data 1"}, {"en": "Data 2"}, {"en": "Data 3"}, {"en": "Data 4"}],
+                    [{"en": "Data 5"}, {"en": "Data 6"}, {"en": "Data 7"}, {"en": "Data 8"}]
+                  ]
+                }
+              ]
+            }
+          },
+
+          {"type": "spacer", "size": 2},
+
+          {
+            "_": "Testing tables",
+            "type": "container", "padding": 0,
+            "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
+            "content": {
+              "parts": [
+                {
+                  "type": "table",
+                  "modifiers": ["striped", "inner-bordered"],
+                  "head": [
+                    {"en": "Column 1"}, {"en": "Column 2"}, {"en": "Column 3"}, {"en": "Column 4"}, {"en": "Column 5"}, {"en": "Column 6"}
+                  ],
+                  "body": [
+                    [{"en": "Data 1"}, {"en": "Data 2"}, {"en": "Data 3"}, {"en": "Data 4"}, {"en": "Data 5"}, {"en": "Data 6"}],
+                    [{"en": "Data 7"}, {"en": "Data 8"}, {"en": "Data 9"}, {"en": "Data 10"}, {"en": "Data 11"}, {"en": "Data 12"}]
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+
+    {"type": "spacer", "size": 2}
+  ],
+
+  "tags": ["test"]
+}

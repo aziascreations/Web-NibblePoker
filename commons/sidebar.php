@@ -64,10 +64,10 @@ if(!isset($SIDEBAR_ID)) {
 			<span class="sidebar-icon"><i class="fad fa-link"></i></span>
 			<?php print(localize("links.title")); ?>
 		</a>
-		<a id="sbl-about" href="<?php print(l10n_url_abs('/about/')); ?>" class="sidebar-link sidebar-link-with-icon<?php if($SIDEBAR_ID=="about"){echo(" active");} ?>">
+		<!--<a id="sbl-about" href="<?php print(l10n_url_abs('/about/')); ?>" class="sidebar-link sidebar-link-with-icon<?php if($SIDEBAR_ID=="about"){echo(" active");} ?>">
 			<span class="sidebar-icon"><i class="fad fa-user"></i></span>
 			<?php print(localize("about.title")); ?>
-		</a>
+		</a>-->
 		<a id="sbl-contact" href="<?php print(l10n_url_abs('/contact/')); ?>" class="sidebar-link sidebar-link-with-icon<?php if($SIDEBAR_ID=="contact"){echo(" active");} ?>">
 			<span class="sidebar-icon"><i class="fad fa-mailbox"></i></span>
 			<?php print(localize("contact.title")); ?>

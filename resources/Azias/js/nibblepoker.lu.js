@@ -23,3 +23,35 @@ if(document.getElementById('button-copy-tox-id-backup') != null) {
         navigator.clipboard.writeText("01ABBD4515C8FA56231333D1022CEEE0A605F4E85F8A945365F56D196A1BBA10FB4DCE08DBE8");
     });
 }
+
+// Creating the galleries from Glider.js
+window.addEventListener('load', function(){
+    document.querySelectorAll(".glider").forEach(element => {
+        new Glider(element, {
+            slidesToShow: 1,
+            draggable: true,
+            scrollLock: true,
+            scrollLockDelay: 125,
+            rewind: true,
+            arrows: {
+                prev: element.previousSibling,
+                next: element.nextSibling
+            },
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        duration: 0.25
+                    }
+                },{
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    });
+})

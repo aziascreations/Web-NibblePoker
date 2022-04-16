@@ -51,6 +51,15 @@ img.no-save {
 .font-size-30 {
 	font-size: 3.0rem!important;
 }
+.font-size-30 {
+	font-size: 3.0rem!important;
+}
+.font-size-35 {
+	font-size: 3.5rem!important;
+}
+.font-size-40 {
+	font-size: 4.0rem!important;
+}
 .text-super-muted {
 	color: #89898A;
 }
@@ -61,8 +70,8 @@ img.no-save {
 	align-items: stretch;
 }
 .py-01 {
-	padding-top: 0.01rem;
-	padding-bottom: 0.01rem;
+	padding-top: 0.01rem!important;
+	padding-bottom: 0.01rem!important;
 }
 .hide-scrollbar::-webkit-scrollbar {
 	display: none;
@@ -70,6 +79,9 @@ img.no-save {
 .hide-scrollbar {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+}
+.cursor-pointer {
+	cursor: pointer;
 }
 
 /* Unique rules */
@@ -111,6 +123,17 @@ hr, hr.dark-mde, hr.subtle {
 	opacity: 0.1;
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+/* Glider rules */
+.glider {
+	border: var(--card-border-width) solid var(--dm-card-border-color);
+	box-shadow: inset 1px 0 25px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+.glider-nav {
+	cursor: pointer;
+	height: 100%;
 }
 
 /* Content */
@@ -213,3 +236,17 @@ div.last-inner-collapse-border-fix {
 code.w-full {
 	white-space: pre;
 }
+
+/* Temporary */
+/*.glider >div {
+	border: 1px solid yellow;
+}
+.t01 > div {
+	border: 1px solid cyan;
+}
+.glider > div > * {
+	border: 1px solid green;
+}
+.glider, .t01 {
+	border: 1px solid deeppink !important;
+}/**/

@@ -165,19 +165,21 @@ function printErrorTextElement(string $text) : void {
 	}
 }
 
-function processStandardContentSubNode(mixed $elementNode) : void {
+function processStandardContentSubNode(mixed $elementNode, string $prepend="", string $append="") : void {
 	if(array_key_exists("content", $elementNode)) {
 		if (array_key_exists("parts", $elementNode["content"])) {
 			for ($iPart = 0; $iPart < count($elementNode["content"]["parts"]); $iPart++) {
+				echo($prepend);
 				createElementNode($elementNode["content"]["parts"][$iPart]);
+				echo($append);
 			}
 		} else {
-			echo(getContentItemText($elementNode["content"], false, true));
+			echo($prepend.getContentItemText($elementNode["content"], false, true).$append);
 		}
 	}
 }
 
-function createElementNode(mixed $elementNode) : void {
+function createElementNode(mixed $elementNode, string $prepend="", string $append="") : void {
 	// Checking if we actually have a JSON object.
 	if(!is_array($elementNode)) {
 		echo('<p>Not array node !</p>');
@@ -199,6 +201,23 @@ function createElementNode(mixed $elementNode) : void {
 			// Adding element.
 			echo('<div class="m-0 pt-'.($_spacerSize*5).' pb-md-'.($_spacerSize*5).'"></div>');
 			
+			break;
+		case "hr":
+			// Reading and processing the modifiers.
+			$_modIsSubtle = false;
+			if(array_key_exists("modifiers", $elementNode)) {
+				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
+					if ($elementNode["modifiers"][$i] == "subtle") {
+						$_modIsSubtle = true;
+					}
+				}
+			}
+			
+			if($_modIsSubtle) {
+				echo('<hr class="subtle">');
+			} else {
+				echo('<div class="sidebar-divider"></div>');
+			}
 			break;
 		case "h1":
 		case "h2":
@@ -223,8 +242,20 @@ function createElementNode(mixed $elementNode) : void {
 				$_indentLevel = $elementNode["indent"];
 			}
 			
+			// Reading and processing the modifiers.
+			$_modNoTopMargin = false;
+			if(array_key_exists("modifiers", $elementNode)) {
+				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
+					switch($elementNode["modifiers"][$i]) {
+						case "no-top-margin":
+							$_modNoTopMargin = true;
+							break;
+					}
+				}
+			}
+			
 			// Opening paragraph.
-			echo('<p'.($_indentLevel?' class="ml-md-'.($_indentLevel*5).'"':'').'>');
+			echo('<p class="'.($_modNoTopMargin?'mt-0 mb-10':'my-10').($_indentLevel?' ml-md-'.($_indentLevel*5):'').'">');
 			
 			// Adding content.
 			processStandardContentSubNode($elementNode);
@@ -283,13 +314,19 @@ function createElementNode(mixed $elementNode) : void {
 			}
 			
 			// Reading and processing the modifiers.
+			$_modIsCard = false;
 			$_modNoTopMargin = false;
 			$_modNoTopPadding = false;
 			$_modNoBottomPadding = false;
 			$_modNoSizePadding = false;
+			$_modHorizontalScroll = false;
 			if(array_key_exists("modifiers", $elementNode)) {
 				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
 					switch($elementNode["modifiers"][$i]) {
+						case "card":
+							$_modIsCard = true;
+							$_modNoTopMargin = true;
+							break;
 						case "no-top-margin":
 							$_modNoTopMargin = true;
 							break;
@@ -302,13 +339,17 @@ function createElementNode(mixed $elementNode) : void {
 						case "no-side-padding":
 							$_modNoSizePadding = true;
 							break;
+						case "horizontal-scroll":
+							$_modHorizontalScroll = true;
+							break;
 					}
 				}
 			}
 			
 			// Opening container.
-			echo('<div class="p-'.$_containerPadding.($_modNoTopMargin?'':' mt-10').
-				($_modNoSizePadding?' px-0':'').($_modNoBottomPadding?' pb-0':'').($_modNoTopPadding?' pt-0':'').'">');
+			echo('<div class="'.($_modIsCard?'card m-0 ':'').'p-'.$_containerPadding.($_modNoTopMargin?'':' mt-10').
+				($_modNoSizePadding?' px-0':'').($_modNoBottomPadding?' pb-0':'').($_modNoTopPadding?' pt-0':'').
+				($_modHorizontalScroll?' overflow-x-scroll hide-scrollbar':'').'">');
 			
 			// Adding content.
 			processStandardContentSubNode($elementNode);
@@ -376,6 +417,7 @@ function createElementNode(mixed $elementNode) : void {
 			$_modStriped = false;
 			$_modHover = false;
 			$_modInnerBordered = false;
+			$_modOuterBordered = false;
 			if(array_key_exists("modifiers", $elementNode)) {
 				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
 					switch($elementNode["modifiers"][$i]) {
@@ -391,13 +433,17 @@ function createElementNode(mixed $elementNode) : void {
 						case "inner-bordered":
 							$_modInnerBordered = true;
 							break;
+						case "outer-bordered":
+							$_modOuterBordered = true;
+							break;
 					}
 				}
 			}
 			
 			// Preparing table.
 			echo('<table class="table'.($_modNoOuterPadding?" table-no-outer-padding":"").($_modStriped?" table-striped":"").
-				($_modHover?" table-hover":"").($_modInnerBordered?" table-inner-bordered":"").'">');
+				($_modHover?" table-hover":"").($_modInnerBordered?" table-inner-bordered":"").
+				($_modOuterBordered?' table-outer-bordered':'').'">');
 			
 			// Creating "thead".
 			if(array_key_exists("head", $elementNode)) {
@@ -513,6 +559,23 @@ function createElementNode(mixed $elementNode) : void {
 			
 			// Ending the collapse.
 			echo('</div></details>');
+			
+			break;
+		case "slider":
+		case "glider":
+		case "gallery":
+			// Starting the gallery
+			echo('<div class="glider-container d-flex">');
+			echo('<div class="align-self-stretch font-size-40 mr-5 my-auto glider-nav" aria-label="Previous">');
+			echo('<i class="fad fa-angle-left"></i></div>');
+			echo('<div class="glider align-self-stretch flex-fill">');
+			
+			// Adding content.
+			processStandardContentSubNode($elementNode, "<div>", "</div>");
+		
+			// Ending the gallery
+			echo('</div><div class="align-self-stretch font-size-40 ml-5 my-auto glider-nav" aria-label="Next">');
+			echo('<i class="fad fa-angle-right"></i></div></div>');
 			
 			break;
 		default:
