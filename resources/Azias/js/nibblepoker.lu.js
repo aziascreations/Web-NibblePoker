@@ -29,7 +29,7 @@ window.addEventListener('load', function(){
     document.querySelectorAll(".glider").forEach(element => {
         new Glider(element, {
             slidesToShow: 1,
-            draggable: true,
+            //draggable: true,
             scrollLock: true,
             scrollLockDelay: 125,
             rewind: true,
@@ -53,5 +53,24 @@ window.addEventListener('load', function(){
                 }
             ]
         });
+        element.childNodes[0].childNodes.forEach(childElement => {
+            if(childElement.childNodes[0].tagName === "IMG") {
+                childElement.childNodes[0].onclick = function() {
+                    let imageElement = document.getElementById("modal-img");
+                    imageElement.src = childElement.childNodes[0].src;
+                    imageElement.alt = childElement.childNodes[0].alt;
+                    halfmoon.toggleModal('modal-content-image-viewer');
+                    console.log("Opening image...");
+                };
+            }
+        });
     });
+
+    // It looks like ass, jesus...
+    let eImgModalCloseButton = document.getElementById("modal-img-close");
+    if(eImgModalCloseButton != null) {
+        eImgModalCloseButton.onclick = function() {
+            halfmoon.toggleModal('modal-content-image-viewer');
+        }
+    }
 })

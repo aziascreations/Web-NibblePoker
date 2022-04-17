@@ -269,6 +269,20 @@ if($content_has_error) {
 				</div>
 			</div>
 		</div>
+        
+        <!-- Custom modal, see: https://dev.to/nicm42/fading-in-and-fading-out-with-css-transitions-3lc1 -->
+        
+        <div class="modal" id="modal-content-image-viewer" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-content-media w-three-quarter">
+                    <a id="modal-img-close" href="#" class="close" role="button" aria-label="Close">
+                        <span aria-hidden="true"><i class="fad fa-times"></i></span>
+                    </a>
+                    <img id="modal-img" src="/resources/Azias/imgs/placeholder.png" class="img-fluid ml-auto mr-auto" alt="modal-img">
+                </div>
+            </div>
+        </div>
+        
 		<?php include 'footer.php'; ?>
 	</div>
     <script src="/resources/HalfMoon/1.1.1/js/halfmoon.min.js"></script>

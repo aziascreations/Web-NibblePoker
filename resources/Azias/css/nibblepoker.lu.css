@@ -135,6 +135,15 @@ hr, hr.dark-mde, hr.subtle {
 	cursor: pointer;
 	height: 100%;
 }
+div.glider-slide > * {
+	border: var(--card-border-width) solid var(--dm-card-border-color);
+	box-shadow: inset 1px 0 25px 5px rgba(0, 0, 0, 0.1);
+}
+img.fill-height {
+	height: 100%;
+	object-fit: cover;
+	object-position: 0 0;
+}
 
 /* Content */
 /* Content > Search */
@@ -186,6 +195,10 @@ h3.content-search-title {
 div.content-tag-container a:not(:first-child) {
 	margin-left: 10px;
 }
+/* Adding a margin to buttons present right after another one */
+button + button, .button-link + .button-link > button {
+	margin-left: 1.5rem !important;
+}
 
 /* Gradient used on home page's applications card */
 @media (min-width: 993px) {
@@ -236,17 +249,3 @@ div.last-inner-collapse-border-fix {
 code.w-full {
 	white-space: pre;
 }
-
-/* Temporary */
-/*.glider >div {
-	border: 1px solid yellow;
-}
-.t01 > div {
-	border: 1px solid cyan;
-}
-.glider > div > * {
-	border: 1px solid green;
-}
-.glider, .t01 {
-	border: 1px solid deeppink !important;
-}/**/

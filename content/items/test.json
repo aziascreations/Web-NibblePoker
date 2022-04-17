@@ -48,16 +48,14 @@
             "content": {
               "parts": [
                 {
-                  "type": "paragraph", "modifiers": ["no-top-margin"],
-                  "content": {"en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget tempus nisl."}
-                },
-                {
-                  "type": "paragraph", "modifiers": ["no-top-margin"],
-                  "content": {"en": "Donec et sollicitudin tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."}
-                },
-                {
-                  "type": "paragraph", "modifiers": ["no-top-margin"],
-                  "content": {"en": "Nullam iaculis nec ex quis tincidunt. Cras mattis magna magna, id laoreet elit pharetra in. Cras lacinia tempus tincidunt."}
+                  "type": "image", "modifiers": ["fill-height"],
+                  "alt": "Alt text", "src": "/resources/Azias/imgs/lscom/screen-cli-csv-2x-xBR.png"
+                },{
+                  "type": "image", "modifiers": ["fill-height"],
+                  "alt": "Alt text", "src": "/resources/Azias/imgs/lscom/screen-cli-full-2x-xBR.png"
+                },{
+                  "type": "image", "modifiers": ["fill-height"],
+                  "alt": "Alt text", "src": "/resources/Azias/imgs/lscom/screen-cli-stylish-2x-xBR.png"
                 }
               ]
             }

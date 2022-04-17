@@ -219,6 +219,31 @@ function createElementNode(mixed $elementNode, string $prepend="", string $appen
 				echo('<div class="sidebar-divider"></div>');
 			}
 			break;
+		case "image":
+			// Parsing properties.
+			$_imgAlt = "";
+			$_imgSource = "/resources/Azias/imgs/placeholder.png";
+			if(array_key_exists("alt", $elementNode)) {
+				$_imgAlt = $elementNode["alt"];
+			}
+			if(array_key_exists("src", $elementNode)) {
+				$_imgSource = $elementNode["src"];
+			}
+			
+			// Reading and processing the modifiers.
+			$_modFillHeight = false;
+			if(array_key_exists("modifiers", $elementNode)) {
+				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
+					if ($elementNode["modifiers"][$i] == "fill-height") {
+						$_modFillHeight = true;
+					}
+				}
+			}
+			
+			// Adding element.
+			echo('<img class="'.($_modFillHeight?'fill-height':'').'" src="'.$_imgSource.'" alt="'.$_imgAlt.'">');
+			
+			break;
 		case "h1":
 		case "h2":
 		case "h3":
@@ -389,7 +414,7 @@ function createElementNode(mixed $elementNode, string $prepend="", string $appen
 			
 			// Adding link if needed.
 			if(array_key_exists("link", $elementNode)) {
-				echo('<a href="'.$elementNode["link"].'">');
+				echo('<a href="'.$elementNode["link"].'" class="button-link">');
 			}
 			
 			// Opening button.
@@ -399,7 +424,7 @@ function createElementNode(mixed $elementNode, string $prepend="", string $appen
 					(array_key_exists("color", $elementNode)?' btn-'.$elementNode["color"]:'').
 					($_modRoundShape?' btn-rounded':'').
 					($_modCircleShape?' rounded-circle':'').
-					' mr-15"').'>');
+					'"').'>');
 			
 			// Adding content.
 			processStandardContentSubNode($elementNode);
