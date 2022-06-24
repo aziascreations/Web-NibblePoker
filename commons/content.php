@@ -5,12 +5,11 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	die();
 }
 
-// Importing required scripts
+// Importing required scripts.
 include_once 'langs.php';
+include_once 'composer.php';
 
-// This helper requires PHP 8 or newer !
-
-$SHOW_CONTENT_DEBUG_CARD = false;
+// Defining some options.
 $PRINT_CONTENT_DEBUG_INFO_TEXT_ELEMENTS = true;
 $PRINT_CONTENT_DEBUG_ERROR_TEXT_ELEMENTS = true;
 
@@ -30,6 +29,7 @@ $requested_tags = array();
 $raw_additional_tags = "";
 $filtered_content_index_data = NULL;
 $requested_item_data = NULL;
+$content = null;
 
 // Detecting content display type requested.
 $content_requested_url_part = explode("?", explode("#", preg_replace("^\/(content)^", "", l10n_url_switch(NULL)))[0])[0];
@@ -93,7 +93,7 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 		$content_error_message_key = "error.content.detect.empty";
 		goto content_end;
 	}
-} elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
+} else if($requested_content_display_type == ContentDisplayType::CONTENT) {
 	// Sanitizing the requested ID.
 	if(!ctype_alnum(str_replace("-", "", $content_requested_url_part))) {
 		$content_has_error = true;
@@ -101,37 +101,46 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 		goto content_end;
 	}
 	
-	// Loading the content's data.
-	$content_file_path = realpath($dir_content . "/items/".$content_requested_url_part.".json");
-	if($content_file_path) {
-		// FIXME: Handle JSON errors cleanly
-		$content_json = file_get_contents($content_file_path);
-		$requested_item_data = json_decode($content_json, true);
-		unset($content_json);
-	} else {
+	// Loading the content's data
+	$content_file_path = get_content_file_path($content_requested_url_part);
+	
+	if(is_null($content_file_path)) {
+		// File doesn't exist !
 		$content_has_error = true;
 		$content_error_message_key = "error.content.data.not.exist";
+		unset($content_file_path);
 		goto content_end;
+	} else {
+		$content = load_content_by_file_path($content_file_path);
+		
+		if(is_null($content)) {
+			$content_has_error = true;
+			$content_error_message_key = "error.content.cannot.load";
+			unset($content_file_path);
+			goto content_end;
+		}
 	}
+	
 	unset($content_file_path);
 }
 
 content_end:
+// TODO: Create error thingy
 $content_error_message = localize($content_error_message_key);
 
 // These functions are placed here to prevent the main file from becoming impossible to read.
-function startMainCard($iconClasses, $title, $subTitle) {
+function start_content_card($iconClasses, $title, $subTitle) {
 	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">');
 	echo('<h2 class="card-title font-size-18 m-0"><i class="'.$iconClasses.'"></i>&nbsp;&nbsp;'.localize($title));
 	echo('<span class="card-title font-size-18 m-0 text-super-muted float-right hidden-xs-and-down">'.$subTitle.'</span></h2>');
 	echo('</div></div>');
 }
 
-function endMainCard() {
+function end_content_card() {
 	echo('</div>');
 }
 
-function getContentItemText(array $contentNode, bool $italicOnError = true, bool $returnMissingAsEmpty = false) : string {
+/*function getContentItemText(array $contentNode, bool $italicOnError = true, bool $returnMissingAsEmpty = false) : string {
 	global $user_language, $default_language;
 	if(array_key_exists("key", $contentNode)) {
 		return localize($contentNode["key"]);
@@ -607,6 +616,6 @@ function createElementNode(mixed $elementNode, string $prepend="", string $appen
 			printErrorTextElement(sprintf(localize("error.content.data.part.unknown"), $elementNode["type"]));
 			break;
 	}
-}
+}*/
 
 ?>

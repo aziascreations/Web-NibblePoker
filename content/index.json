@@ -23,7 +23,7 @@
       "fr": "Conteneur et application Python hautement configurable qui permet d'automatiquement archiver et télécharger des livestreams et vidéos depuis YouTube."
     },
     "image": "/resources/Azias/imgs/yaa/icon-final.png",
-    "tags": ["docker", "web", "python"]
+    "tags": ["docker", "application", "web", "python"]
   },
   {
     "id": "excel-worksheet-password-remover",

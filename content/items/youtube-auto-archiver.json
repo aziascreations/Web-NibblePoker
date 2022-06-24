@@ -23,6 +23,6 @@
     }
   },
   "tags": [
-    "docker", "web", "python"
+    "docker", "application", "web", "python"
   ]
 }

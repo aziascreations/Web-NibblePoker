@@ -1,0 +1,56 @@
+{
+  "strings": {
+    "en": {
+      "title.meta": "Test content",
+      "title.og": "Test content",
+      "title.article": "Test content",
+      "heading.1": "t1",
+      "text.1": "p1",
+      "hello.world": "Hello World !"
+    },
+    "fr": {
+      "title.meta": "Test content fr",
+      "title.og": "Test content fr",
+      "title.article": "Test content fr",
+      "heading.1": "t1 fr",
+      "text.1": "p1 fr",
+      "hello.world": "Bonjour le monde !"
+    }
+  },
+  "metadata": {
+    "title": "title.meta",
+    "template": "article",
+    "opengraph": {
+      "title": "title.og",
+      "description": "",
+      "type": "",
+      "url": null,
+      "image": "",
+      "imageType": ""
+    },
+    "article": {
+      "icon": "fad fa-terminal",
+      "title": "title.article",
+      "tags": ["fuck", "you"]
+    }
+  },
+  "elements": [
+    {
+      "type": "container",
+      "padding": 10,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {
+          "type": "paragraph",
+          "modifiers": ["no-top-margin"],
+          "content": "hello.world"
+        },{
+          "type": "paragraph",
+          "modifiers": [],
+          "content": "Joe mama !",
+          "localize": false
+        }
+      ]
+    }
+  ]
+}

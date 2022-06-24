@@ -33,26 +33,41 @@ if(str_starts_with($_SERVER['REQUEST_URI'], "/en/")) {
 $lang_json = file_get_contents(realpath($dir_commons . "/strings.json"));
 $lang_data = json_decode($lang_json, true);
 
-// Localizer function
-function localize($stringKey) {
+// Localization functions
+function localize_private(string $string_key, array $private_lang_data, bool $fallback_to_common = false,
+						  string $fallback_prefix = "fallback.unknown") : string {
 	global $user_language, $default_language, $lang_data;
-	if(array_key_exists($stringKey, $lang_data[$user_language])) {
-		return $lang_data[$user_language][$stringKey];
-	} else {
-		if(array_key_exists($stringKey, $lang_data[$default_language])) {
-			return $lang_data[$default_language][$stringKey];
-		} else {
-			return $stringKey;
+	
+	if(array_key_exists($user_language, $private_lang_data)) {
+		if(array_key_exists($string_key, $private_lang_data[$user_language])) {
+			// If found in direct array in user's language.
+			return $private_lang_data[$user_language][$string_key];
 		}
+	} else if(array_key_exists($default_language, $private_lang_data)) {
+		if(array_key_exists($string_key, $private_lang_data[$default_language])) {
+			// If found in direct array in default language.
+			return $private_lang_data[$default_language][$string_key];
+		}
+	} else if($fallback_to_common) {
+		// If we can attempt to fallback on the common lang file.
+		return localize_private($fallback_prefix . "." . $string_key, $lang_data, false);
 	}
+	
+	// If nothing could be done, we simply return the key.
+	return $string_key;
 }
 
-function l10n_url_abs($url) {
+function localize($string_key) : string {
+	global $lang_data;
+	return localize_private($string_key, $lang_data, false);
+}
+
+function l10n_url_abs($url) : string {
 	global $user_uri_language;
 	return $user_uri_language . $url;
 }
 
-function l10n_url_switch($lang) {
+function l10n_url_switch($lang) : string {
 	if(is_null($lang)) {
 		return preg_replace("^\/(lb|lu|fr|en)^", "", $_SERVER['REQUEST_URI']);
 	} else {

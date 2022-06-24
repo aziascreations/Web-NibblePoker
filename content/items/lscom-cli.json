@@ -4,7 +4,7 @@
     "page": {"en": "PB-ListComPort", "fr": "PB-ListComPort"},
     "card": {
       "main": {"en": "PB-ListComPort", "fr": "PB-ListComPort"},
-      "sub": {"en": "CLI COM port enumerator", "fr": "Enumérateur de port COM pour invité de commande"}
+      "sub": {"en": "<a href=\"https://github.com/aziascreations/PB-ListComPort\"><i class=\"fab fa-github\"></i></a>"}
     }
   },
   "meta": {
@@ -123,7 +123,7 @@
             "type": "spacer", "size": 1
           },{
             "type": "container", "padding": 0,
-            "modifiers": ["no-bottom-padding", "no-top-margin", "card"],
+            "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
             "content": {
               "parts": [{
                 "type": "table",
@@ -193,7 +193,7 @@
             "type": "spacer", "size": 1
           },{
             "type": "container", "padding": 0,
-            "modifiers": ["no-bottom-padding", "no-top-margin", "card"],
+            "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
             "content": {
               "parts": [{
                 "type": "table",
@@ -307,7 +307,7 @@
             "type": "spacer", "size": 1
           },{
             "type": "container", "padding": 0,
-            "modifiers": ["no-bottom-padding", "no-top-margin", "card"],
+            "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
             "content": {
               "parts": [{
                 "type": "table", "modifiers": ["striped", "inner-bordered"],
