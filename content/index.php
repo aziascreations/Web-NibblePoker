@@ -71,13 +71,7 @@ if($content_has_error) {
                         } elseif($requested_content_display_type == ContentDisplayType::SEARCH) {
 							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.localize("content.title.search.header"));
                         } elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
-							$_nav_title_text = '<i>' . localize("error.content.data.no.title") . '</i>';
-       
-							//if (array_key_exists("page", $requested_item_data["title"])) {
-							//	$_nav_title_text = getContentItemText($requested_item_data["title"]["page"]);
-							//}
-       
-							echo(localize("content.title.content").'<span class="mx-10">❱</span></span>'.$_nav_title_text);
+							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.$content->get_head_title());
                         }
                         ?>
 					</h2>

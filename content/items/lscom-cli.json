@@ -58,7 +58,7 @@
 
     {
       "type": "container", "padding": 20,
-      "modifiers": ["no-top-padding", "no-bottom-padding"],
+      "modifiers": ["_no-top-padding", "no-bottom-padding"],
       "parts": [
         {"type": "h1", "content": "usage.title"},
         {
@@ -89,7 +89,7 @@
 
     {
       "type": "container", "padding": 20,
-      "modifiers": ["no-top-padding", "no-bottom-padding"],
+      "modifiers": ["_no-top-padding", "no-bottom-padding"],
       "parts": [
         {"type": "h1", "content": "formatting.title"},
         {
@@ -118,6 +118,293 @@
       ]
     },
 
-    {"type": "spacer", "size": 1}
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["_no-top-padding"],
+      "parts": [
+        {"type": "h1", "modifiers": ["no-top-margin"], "content": "content.commons.version.current"},
+        {"type": "spacer", "size": 1},
+        {
+          "type": "container", "padding": 0,
+          "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
+          "parts": [
+            {
+              "type": "table", "modifiers": ["striped", "inner-bordered"],
+              "head": [
+                {"type": "raw", "content": "content.commons.cpu.responsive"},
+                {"type": "raw", "content": "content.commons.lang"},
+                {"type": "raw", "content": "content.commons.download.single"}
+              ],
+              "body": [
+                [
+                  {"type": "raw", "content": "content.commons.cpu.x64", "rowspan": 2},
+                  {"type": "raw", "content": "content.commons.lang.english"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_eng_x64.exe",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "content.commons.lang.french"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_fra_x64.exe",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "content.commons.cpu.x86", "rowspan": 2},
+                  {"type": "raw", "content": "content.commons.lang.english"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_eng_x86.exe",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "content.commons.lang.french"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_fra_x86.exe",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20, "modifiers": ["no-top-padding"],
+      "parts": [
+        {"type": "h1", "modifiers": ["no-top-margin"], "content": "content.commons.version.previous.multiple"},
+        {"type": "spacer", "size": 1},
+        {
+          "type": "container", "padding": 0,
+          "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
+          "parts": [{
+            "type": "table", "modifiers": ["striped", "inner-bordered"],
+            "head": [
+              {"type": "raw", "content": "content.commons.version"},
+              {"type": "raw", "content": "content.commons.cpu.responsive"},
+              {"type": "raw", "content": "content.commons.lang"},
+              {"type": "raw", "content": "content.commons.download.single"}
+            ],
+            "body": [
+              [
+                {"type": "raw", "content": "v2.0.0", "localize": false, "rowspan": 4},
+                {"type": "raw", "content": "content.commons.cpu.x64", "rowspan": 2},
+                {"type": "raw", "content": "content.commons.lang.english"},
+                {
+                  "type": "raw",
+                  "parts": [{
+                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x64.exe",
+                    "modifiers": ["thin"], "localize": false,
+                    "content": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  }]
+                }
+              ],[
+                {"type": "raw", "content": "content.commons.lang.french"},
+                {
+                  "type": "raw",
+                  "parts": [{
+                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x64.exe",
+                    "modifiers": ["thin"], "localize": false,
+                    "content": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  }]
+                }
+              ],[
+                {"type": "raw", "content": "content.commons.cpu.x86", "rowspan": 2},
+                {"type": "raw", "content": "content.commons.lang.english"},
+                {
+                  "type": "raw",
+                  "parts": [
+                    {
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x86.exe",
+                      "modifiers": ["thin"], "localize": false,
+                      "content": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                    }
+                  ]
+                }
+              ],[
+                {"type": "raw", "content": "content.commons.lang.french"},
+                {
+                  "type": "raw",
+                  "parts": [{
+                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x86.exe",
+                    "modifiers": ["thin"], "localize": false,
+                    "content": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  }]
+                }
+              ],[
+                {"type": "raw", "content": "v1.1.0", "localize": false, "rowspan": 2},
+                {"type": "raw", "content": "content.commons.cpu.x64"},
+                {"type": "raw", "content": "content.commons.lang.english", "rowspan": 2},
+                {
+                  "type": "raw",
+                  "parts": [{
+                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/lscom-x64.exe",
+                    "modifiers": ["thin"], "localize": false,
+                    "content": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  }]
+                }
+              ],[
+                {"type": "raw", "content": "content.commons.cpu.x86"},
+                {
+                  "type": "raw",
+                  "parts": [{
+                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/lscom-x86.exe",
+                    "modifiers": ["thin"], "localize": false,
+                    "content": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  }]
+                }
+              ],[
+                {"type": "raw", "content": "v1.0.0", "localize": false, "rowspan": 2},
+                {"type": "raw", "content": "content.commons.cpu.x64"},
+                {"type": "raw", "content": "content.commons.lang.english", "rowspan": 2},
+                {
+                  "type": "raw",
+                  "parts": [{
+                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom-x64.exe",
+                    "modifiers": ["thin"], "localize": false,
+                    "content": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  }]
+                }
+              ],[
+                {"type": "raw", "content": "content.commons.cpu.x86"},
+                {
+                  "type": "raw",
+                  "parts": [{
+                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom-x86.exe",
+                    "modifiers": ["thin"], "localize": false,
+                    "content": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  }]
+                }
+              ]
+            ]
+          }]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20, "modifiers": ["no-top-padding"],
+      "parts": [
+        {"type": "h1", "modifiers": ["no-top-margin"], "content": "content.commons.version.source"},
+        {"type": "spacer", "size": 1},
+        {
+          "type": "container", "padding": 0,
+          "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
+          "parts": [{
+            "type": "table", "modifiers": ["striped", "inner-bordered"],
+            "head": [
+              {"type": "raw", "content": "content.commons.version"},
+              {"type": "raw", "content": "content.commons.download.multiple"}
+            ],
+            "body": [[
+              {"type": "raw", "content": "v2.1.0", "localize": false},
+              {
+                "type": "raw",
+                "parts": [
+                  {
+                    "type": "button", "modifiers": ["thin"],
+                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/2.1.0.zip",
+                    "content": "<span class=\"text-monospace\">2.1.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                    "localize": false
+                  },{
+                    "type": "button", "modifiers": ["thin"],
+                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/2.1.0.tar.gz",
+                    "content": "<span class=\"text-monospace\">2.1.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                    "localize": false
+                  }
+                ]
+              }
+            ],[
+              {"type": "raw", "content": "v2.0.0", "localize": false},
+              {
+                "type": "raw",
+                "parts": [
+                  {
+                    "type": "button", "modifiers": ["thin"],
+                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/2.0.0.zip",
+                    "content": "<span class=\"text-monospace\">2.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                    "localize": false
+                  },{
+                    "type": "button", "modifiers": ["thin"],
+                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/2.0.0.tar.gz",
+                    "content": "<span class=\"text-monospace\">2.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                    "localize": false
+                  }
+                ]
+              }
+            ],[
+              {"type": "raw", "content": "v1.1.0", "localize": false},
+              {
+                "type": "raw",
+                "parts": [
+                  {
+                    "type": "button", "modifiers": ["thin"],
+                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/1.1.0.zip",
+                    "content": "<span class=\"text-monospace\">1.1.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                    "localize": false
+                  },{
+                    "type": "button", "modifiers": ["thin"],
+                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/1.1.0.tar.gz",
+                    "content": "<span class=\"text-monospace\">1.1.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                    "localize": false
+                  }
+                ]
+              }
+            ],[
+              {"type": "raw", "content": "v1.0.0", "localize": false},
+              {
+                "type": "raw",
+                "parts": [
+                  {
+                    "type": "button", "modifiers": ["thin"],
+                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/1.0.0.zip",
+                    "content": "<span class=\"text-monospace\">1.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                    "localize": false
+                  },{
+                    "type": "button", "modifiers": ["thin"],
+                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/1.0.0.tar.gz",
+                    "content": "<span class=\"text-monospace\">1.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                    "localize": false
+                  }
+                ]
+              }
+            ]]
+          }]
+        }
+      ]
+    }
   ]
 }

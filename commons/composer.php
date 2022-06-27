@@ -47,7 +47,7 @@ abstract class ComposerElementTypes {
 	const IMAGE     = "image";
 	const TABLE     = "table";
 	const GRID      = "grid";
-	const GLIDER    = "glider";
+	const GALLERY   = "gallery";
 	
 	/**
 	 * Returns all the constants present in the class.
@@ -96,6 +96,13 @@ abstract class ComposerElementModifiers {
 	// Collapse
 	const DETAILS_NO_ROUNDING = ["no-rounding", ""];
 	const DETAILS_CLOSED = ["closed", ""];
+	
+	// Tables
+	const TABLE_NO_OUTER_PADDING = ["no-outer-padding", "table-no-outer-padding"];
+	const TABLE_STRIPED = ["striped", "table-striped"];
+	const TABLE_HOVER = ["hover", "table-hover"];
+	const TABLE_INNER_BORDER = ["inner-bordered", "table-inner-bordered"];
+	const TABLE_OUTER_BORDER = ["outer-bordered", "table-outer-bordered"];
 	
 	// Code
 	const CODE_BLOCK = ["code-block", "w-full d-inline-block"];
@@ -274,13 +281,13 @@ class ComposerContentMetadata {
 		);
 	}
 	
-	function apply_template(ComposerContent $contentRoot, string $inner_html) : string {
+	function apply_template(ComposerContent $content_root, string $inner_html) : string {
 		switch($this->template) {
 			case ComposerTemplates::ARTICLE:
 				$inner_html = '<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20">' .
 					'<div class="container-fluid"><h2 class="card-title font-size-18 m-0">' .
 					'<i class="' . $this->article->icon . '"></i>&nbsp;&nbsp;' .
-					localize_private($this->article->title, $contentRoot->strings, false) .
+					localize_private($this->article->title, $content_root->strings, false) .
 					'<span class="card-title font-size-18 m-0 text-super-muted float-right hidden-xs-and-down">' .
 					'\$subTitle' . '</span></h2></div></div>' .
 					'<article id="content-item-container" class="py-01 pb-0 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">' .
@@ -402,8 +409,8 @@ class ComposerElement {
 	// Table's parameters
 	private ?array $head;
 	private ?array $body;
-	private ?int $colspan;
-	private ?int $rowspan;
+	private int $colspan;
+	private int $rowspan;
 	
 	// Paragraph and code's parameters
 	private ?int $indent;
@@ -416,7 +423,7 @@ class ComposerElement {
 	
 	function __construct(string $type, ?array $modifiers, ?string $link, ?array $parts, ?string $content,
 						 bool $localize, ?int $padding, ?int $margin, ?int $size, ?array $head, ?array $body,
-						 ?int $colspan, ?int $rowspan, ?int $indent, ?array $code, ?string $color) {
+						 int $colspan, int $rowspan, ?int $indent, ?array $code, ?string $color) {
 		$this->type = $type;
 		$this->modifiers = $modifiers;
 		$this->link = $link;
@@ -426,8 +433,15 @@ class ComposerElement {
 		$this->padding = $padding;
 		$this->margin = $margin;
 		$this->size = $size;
-		$this->head = $head;
-		$this->body = $body;
+		$this->head = ComposerElement::from_json_array($head);
+		if(is_null($body)) {
+			$this->body = array();
+		} else {
+			$this->body = array_fill(0, sizeof($body), []);
+			for($body_row_index = 0; $body_row_index < sizeof($body); $body_row_index++) {
+				$this->body[$body_row_index] = ComposerElement::from_json_array($body[$body_row_index]);
+			}
+		}
 		$this->colspan = $colspan;
 		$this->rowspan = $rowspan;
 		$this->indent = $indent;
@@ -435,10 +449,12 @@ class ComposerElement {
 		$this->color = $color;
 	}
 	
-	static function from_json_array(array $json_dataArray) : array {
+	static function from_json_array(?array $json_dataArray) : array {
 		$parts = array();
-		foreach($json_dataArray as $part) {
-			$parts[] = ComposerElement::from_json($part);
+		if(!is_null($json_dataArray)) {
+			foreach($json_dataArray as $part) {
+				$parts[] = ComposerElement::from_json($part);
+			}
 		}
 		return $parts;
 	}
@@ -456,8 +472,8 @@ class ComposerElement {
 			key_exists("size", $json_data) ? $json_data["size"] : null,
 			key_exists("head", $json_data) ? $json_data["head"] : null,
 			key_exists("body", $json_data) ? $json_data["body"] : null,
-			key_exists("colspan", $json_data) ? $json_data["colspan"] : null,
-			key_exists("rowspan", $json_data) ? $json_data["rowspan"] : null,
+			key_exists("colspan", $json_data) ? $json_data["colspan"] : 1,
+			key_exists("rowspan", $json_data) ? $json_data["rowspan"] : 1,
 			key_exists("indent", $json_data) ? $json_data["indent"] : null,
 			key_exists("code", $json_data) ? $json_data["code"] : null,
 			key_exists("color", $json_data) ? $json_data["color"] : null,
@@ -466,13 +482,13 @@ class ComposerElement {
 	
 	/**
 	 * Processes the "content" and "parts" class' variables and returns their interpreted content as HTML.
-	 * @param ComposerContent $contentRoot The content in which this element is contained.
+	 * @param ComposerContent $content_root The content in which this element is contained.
 	 * @param bool $doLocalization Whether the "content" variable should be processed to return localized text.
 	 * @param bool $doSubElements Whether the "parts" variable should be processed to return localized text.
 	 * @param bool $stopIfLocalized Whether the process should return if some text was in the "content" variable.
 	 * @return string The interpreted content as HTML.
 	 */
-	private function get_inner_html(ComposerContent $contentRoot, bool $doLocalization = true,
+	private function get_inner_html(ComposerContent $content_root, bool $doLocalization = true,
 									bool $doSubElements = true, bool $stopIfLocalized = true) : string {
 		global $LANG_FALLBACK_KEY_PREFIX;
 		
@@ -493,7 +509,7 @@ class ComposerElement {
 					$htmlCode .= $this->content;
 				} else {
 					// We can now localize the content key.
-					$htmlCode .= localize_private($this->content, $contentRoot->strings, true,
+					$htmlCode .= localize_private($this->content, $content_root->strings, true,
 						$LANG_FALLBACK_KEY_PREFIX);
 				}
 			}
@@ -516,19 +532,19 @@ class ComposerElement {
 			// Appending each sub-element.
 			foreach($this->parts as $subElement) {
 				/** @var ComposerElement $subElement */
-				$htmlCode .= $subElement->get_html($contentRoot);
+				$htmlCode .= $subElement->get_html($content_root);
 			}
 		}
 		
 		return $htmlCode;
 	}
 	
-	private function get_inner_html_elements(ComposerContent $contentRoot) : string {
-		return $this->get_inner_html($contentRoot, false, true, false);
+	private function get_inner_html_elements(ComposerContent $content_root) : string {
+		return $this->get_inner_html($content_root, false, true, false);
 	}
 	
-	private function get_inner_html_text(ComposerContent $contentRoot) : string {
-		return $this->get_inner_html($contentRoot, true, false, false);
+	private function get_inner_html_text(ComposerContent $content_root) : string {
+		return $this->get_inner_html($content_root, true, false, false);
 	}
 	
 	private function get_modifiers_classes() : string {
@@ -550,23 +566,24 @@ class ComposerElement {
 	
 	/**
 	 * Processes the element and returns its interpreted form as HTML.
-	 * @param ComposerContent $contentRoot The content in which this element is contained.
+	 * @param ComposerContent $content_root The content in which this element is contained.
 	 * @return string The interpreted element as HTML.
 	 */
-	public function get_html(ComposerContent $contentRoot) : string {
+	public function get_html(ComposerContent $content_root) : string {
 		$htmlCode = "";
 		
 		if(!is_null($this->link)) {
-			$htmlCode .= '<a href="' . $this->link . '">';
+			$htmlCode .= '<a href="' . $this->link . '"' .
+				($this->type == ComposerElementTypes::BUTTON ? 'class="button-link"' : '') . '>';
 		}
 		
 		switch($this->type) {
 			case ComposerElementTypes::UNSET:
-				$htmlCode .= "<p>error.unset !</p>";
+				$htmlCode .= "<p>error.element.type.unset !</p>";
 				break;
 				
 			case ComposerElementTypes::RAW:
-				$htmlCode .= $this->get_inner_html($contentRoot);
+				$htmlCode .= $this->get_inner_html($content_root);
 				break;
 			
 			case ComposerElementTypes::H1:
@@ -579,7 +596,7 @@ class ComposerElement {
 				
 				// Composing heading.
 				$htmlCode .= '<' . strtolower($this->type) . ' class="font-weight-semi-bold font-size-' .
-					$_headingFontSize . ' m-0">' . $this->get_inner_html($contentRoot) . '</' . strtolower($this->type) .
+					$_headingFontSize . ' m-0">' . $this->get_inner_html($content_root) . '</' . strtolower($this->type) .
 					'>';
 				
 				break;
@@ -593,14 +610,14 @@ class ComposerElement {
 					(ComposerElementModifiers::is_modifier_in_modifiers(
 						ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers)
 					? 'mt-0 mb-10' : 'my-10') . ' ml-md-' . ($_paragraph_ident_level * 5) . '">' .
-					$this->get_inner_html($contentRoot) . '</p>';
+					$this->get_inner_html($content_root) . '</p>';
 				
 				break;
 				
 			case ComposerElementTypes::BUTTON:
 				// Composing the button.
-				$htmlCode .= '<button class="' . (is_null($this->color) ? '' : 'btn-' . $this->color) .
-					$this->get_modifiers_classes() . '">' . $this->get_inner_html($contentRoot) . '</button>';
+				$htmlCode .= '<button class="btn ' . (is_null($this->color) ? '' : 'btn-' . $this->color . ' ') .
+					$this->get_modifiers_classes() . '">' . $this->get_inner_html($content_root) . '</button>';
 				
 				break;
 				
@@ -648,7 +665,7 @@ class ComposerElement {
 					(ComposerElementModifiers::is_modifier_in_modifiers(
 						ComposerElementModifiers::CONTAINER_CARD, $this->modifiers
 					) ? ComposerElementModifiers::get_modifier_classes(
-							ComposerElementModifiers::CONTAINER_CARD ) . "m-0 " : "") .
+							ComposerElementModifiers::CONTAINER_CARD ) . " m-0 " : "") .
 					'p-' . $_container_padding .
 					(ComposerElementModifiers::is_modifier_in_modifiers(
 						ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers
@@ -669,7 +686,7 @@ class ComposerElement {
 						ComposerElementModifiers::CONTAINER_SCROLL_HORIZONTAL, $this->modifiers
 					) ? " " . ComposerElementModifiers::get_modifier_classes(
 							ComposerElementModifiers::CONTAINER_SCROLL_HORIZONTAL ) : "") . '">' .
-					$this->get_inner_html($contentRoot) . '</div>';
+					$this->get_inner_html($content_root) . '</div>';
 				break;
 				
 			case ComposerElementTypes::COLLAPSE:
@@ -708,7 +725,7 @@ class ComposerElement {
 					(ComposerElementModifiers::is_modifier_in_modifiers(
 						ComposerElementModifiers::DETAILS_NO_ROUNDING, $this->modifiers
 					) ? " rounded-0" : "") . ' border-0 border-bottom">' .
-					$this->get_inner_html($contentRoot) . '</div></details>';
+					$this->get_inner_html($content_root) . '</div></details>';
 				break;
 			
 			case ComposerElementTypes::SPACER:
@@ -724,12 +741,44 @@ class ComposerElement {
 				break;
 				
 			case ComposerElementTypes::TABLE:
+				// Composing table.
+				$htmlCode .= '<table class="table ' . $this->get_modifiers_classes() . '">';
+				
+				if(!is_null($this->head)) {
+					$htmlCode .= '<thead><tr>';
+					foreach($this->head as $head_element) {
+						/** @var ComposerElement $head_element */
+						$htmlCode .= '<th>' . $head_element->get_html($content_root) . '</th>';
+					}
+					$htmlCode .= '</tr></thead>';
+				}
+				
+				if(!is_null($this->body)) {
+					$htmlCode .= '<tbody>';
+					
+					for($body_row_index = 0; $body_row_index < sizeof($this->body); $body_row_index++) {
+						$htmlCode .= '<tr>';
+						
+						foreach($this->body[$body_row_index] as $body_cell) {
+							/** @var ComposerElement $body_cell */
+							$htmlCode .= '<td' . ($body_cell->colspan > 1 ? ' colspan="' . $body_cell->colspan . '"' : '') .
+								($body_cell->rowspan > 1 ? ' rowspan="' . $body_cell->rowspan . '"' : '') . '>' .
+								$body_cell->get_html($content_root) . '</td>';
+						}
+						
+						$htmlCode .= '</tr>';
+					}
+					
+					$htmlCode .= '</tbody>';
+				}
+				
+				$htmlCode .= '</table>';
 				break;
 				
 			case ComposerElementTypes::GRID:
 				break;
 				
-			case ComposerElementTypes::GLIDER:
+			case ComposerElementTypes::GALLERY:
 				break;
 				
 			default:

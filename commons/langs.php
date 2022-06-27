@@ -43,12 +43,14 @@ function localize_private(string $string_key, array $private_lang_data, bool $fa
 			// If found in direct array in user's language.
 			return $private_lang_data[$user_language][$string_key];
 		}
-	} else if(array_key_exists($default_language, $private_lang_data)) {
+	}
+	if(array_key_exists($default_language, $private_lang_data)) {
 		if(array_key_exists($string_key, $private_lang_data[$default_language])) {
 			// If found in direct array in default language.
 			return $private_lang_data[$default_language][$string_key];
 		}
-	} else if($fallback_to_common) {
+	}
+	if($fallback_to_common) {
 		// If we can attempt to fallback on the common lang file.
 		return localize_private($fallback_prefix . "." . $string_key, $lang_data, false);
 	}
