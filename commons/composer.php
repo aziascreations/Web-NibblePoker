@@ -1,9 +1,9 @@
 <?php
 // Making sure the file is included and not accessed directly.
-/*if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
+if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	header('HTTP/1.1 403 Forbidden');
 	die();
-}*/
+}
 
 // Including required helpers.
 include_once 'config.php';
@@ -33,6 +33,7 @@ abstract class ComposerTemplates {
 // Defining the different types of elements available.
 abstract class ComposerElementTypes {
 	const UNSET     = "unset";
+	const RAW       = "raw";
 	const H1        = "h1";
 	const H2        = "h2";
 	const H3        = "h3";
@@ -60,7 +61,7 @@ abstract class ComposerElementTypes {
 }
 
 // Defining modifiers.
-abstract class ComposerElementModifiersTest {
+abstract class ComposerElementModifiers {
 	// Generic > Margin
 	const GENERIC_MARGIN_NO_TOP    = ["no-top-margin",    "mt-0"];
 	const GENERIC_MARGIN_NO_BOTTOM = ["no-bottom-margin", "mb-0"];
@@ -75,20 +76,29 @@ abstract class ComposerElementModifiersTest {
 	const GENERIC_PADDING_NO_BOTTOM = ["no-bottom-padding", "pb-0"];
 	const GENERIC_PADDING_NO_LEFT   = ["no-left-padding",   "pl-0"];
 	const GENERIC_PADDING_NO_RIGHT  = ["no-right-padding",  "pr-0"];
-	const GENERIC_PADDING_NO_X      = ["no-y-padding",      "px-0"];
-	const GENERIC_PADDING_NO_Y      = ["no-x-padding",      "py-0"];
+	const GENERIC_PADDING_NO_X      = ["no-x-padding",      "px-0"];
+	const GENERIC_PADDING_NO_Y      = ["no-y-padding",      "py-0"];
 	const GENERIC_PADDING_NONE      = ["no-padding",        "p-0" ];
 	
 	// Containers
-	const CONTAINER_SCROLL_HORIZONTAL = ["h-scroll", "overflow-x-scroll hide-scrollbar"];
+	const CONTAINER_SCROLL_HORIZONTAL = ["horizontal-scroll", "overflow-x-scroll hide-scrollbar"];
 	const CONTAINER_CARD = ["card", "card"];
 	
 	// Buttons
-	const BUTTON_THIN  = ["thin", "?thin"];
-	const BUTTON_THICK = ["thick", "?thick"];
+	const BUTTON_THIN  = ["thin", "btn-sm"];
+	const BUTTON_THICK = ["thick", "btn-lg"];
+	const BUTTON_ROUNDED = ["rounded", "btn-rounded"];
+	const BUTTON_CIRCLE = ["circle", "rounded-circle"];
 	
 	// Horizontal ruler
 	const HR_SUBTLE = ["subtle", "subtle"];
+	
+	// Collapse
+	const DETAILS_NO_ROUNDING = ["no-rounding", ""];
+	const DETAILS_CLOSED = ["closed", ""];
+	
+	// Code
+	const CODE_BLOCK = ["code-block", "w-full d-inline-block"];
 	
 	// Other internal constants
 	const _INDEX_KEY = 0;
@@ -106,33 +116,33 @@ abstract class ComposerElementModifiersTest {
 	
 	/**
 	 * Returns the given modifier's constant's key
-	 * @param array $modifier_data A modifier constant defined in "ComposerElementModifiersTest".
+	 * @param array $modifier_data A modifier constant defined in "ComposerElementModifiers".
 	 * @return string The modifier's key or an empty string if an error was encountered.
 	 */
 	static function get_modifier_key(array $modifier_data) : string {
-		return sizeof($modifier_data) >= 1 ? $modifier_data[ComposerElementModifiersTest::_INDEX_KEY] : '';
+		return sizeof($modifier_data) >= 1 ? $modifier_data[ComposerElementModifiers::_INDEX_KEY] : '';
 	}
 	
 	/**
 	 * Returns the given modifier's constant's classes
-	 * @param array $modifier_data A modifier constant defined in "ComposerElementModifiersTest".
+	 * @param array $modifier_data A modifier constant defined in "ComposerElementModifiers".
 	 * @return string The modifier's classes or an empty string if an error was encountered.
 	 */
 	static function get_modifier_classes(array $modifier_data) : string {
-		return sizeof($modifier_data) >= 2 ? $modifier_data[ComposerElementModifiersTest::_INDEX_CLASSES] : '';
+		return sizeof($modifier_data) >= 2 ? $modifier_data[ComposerElementModifiers::_INDEX_CLASSES] : '';
 	}
 	
 	/**
 	 * @param string $modifier_key
 	 * @return string The resolved DOM classes, or an empty string if the given modifier is unknown.
 	 */
-	static function getClassesFromKey(string $modifier_key) : string {
-		foreach(ComposerElementModifiersTest::getConstants() as $constant_values) {
+	static function get_classes_from_key(string $modifier_key) : string {
+		foreach(ComposerElementModifiers::getConstants() as $constant_values) {
 			if(!is_array($constant_values)) {
 				continue;
 			}
-			if($modifier_key == $constant_values[ComposerElementModifiersTest::_INDEX_KEY]) {
-				return $constant_values[ComposerElementModifiersTest::_INDEX_CLASSES];
+			if($modifier_key == $constant_values[ComposerElementModifiers::_INDEX_KEY]) {
+				return $constant_values[ComposerElementModifiers::_INDEX_CLASSES];
 			}
 		}
 		return "";
@@ -140,7 +150,7 @@ abstract class ComposerElementModifiersTest {
 	
 	static function is_modifier_in_modifiers(array $modifier_data, array $modifiers) : bool {
 		foreach($modifiers as $modifier) {
-			if($modifier_data[ComposerElementModifiersTest::_INDEX_KEY] == $modifier) {
+			if($modifier_data[ComposerElementModifiers::_INDEX_KEY] == $modifier) {
 				return true;
 			}
 		}
@@ -182,7 +192,46 @@ class ComposerContent {
 			$htmlCode .= $element->get_html($this);
 		}
 		
-		return $this->metadata->apply_template($htmlCode);
+		return $this->metadata->apply_template($this, $htmlCode);
+	}
+	
+	public function get_head_title() : string {
+		if(!is_null($this->metadata->head->title)) {
+			return localize_private($this->metadata->head->title, $this->strings, false);
+		}
+		
+		return localize("content.default.head.title");
+	}
+	
+	public function get_head_description() : string {
+		if(!is_null($this->metadata->head->title)) {
+			return localize_private($this->metadata->head->description, $this->strings, false);
+		}
+		
+		return localize("content.default.head.description");
+	}
+	
+	public function get_opengraph_tags(?string $title_prefix, ?string $type_override, ?string $url_override,
+									   ?string $image_url_override, ?string $image_url_fallback) : string {
+		global $host_uri;
+		
+		$final_image_uri = (is_null($image_url_override) ? (is_null($this->metadata->opengraph->image) ?
+			$image_url_fallback : $this->metadata->opengraph->image) : $image_url_override);
+		
+		return '<meta property="og:title" content="' . (is_null($title_prefix) ? '' : $title_prefix) .
+			(is_null($this->metadata->opengraph->title) ?
+				localize("content.default.opengraph.title") :
+				localize_private($this->metadata->opengraph->title, $this->strings, false)) .
+			'" /><meta property="og:description" content="' . (is_null($this->metadata->opengraph->description) ?
+				localize("content.default.opengraph.description") :
+				localize_private($this->metadata->opengraph->description, $this->strings, false)) .
+			'" /><meta property="og:type" content="' . (is_null($type_override) ?
+				(is_null($this->metadata->opengraph->type) ? "website" : $this->metadata->opengraph->type)
+				: $type_override) . '" /><meta property="og:url" content="' .
+			(is_null($url_override) ? (is_null($this->metadata->opengraph->url) ?
+				$host_uri : $this->metadata->opengraph->url) : $url_override) .
+			'" /><meta property="og:image" content="' . $final_image_uri . '"/>';
+    	//<meta property="og:image:type" content="image/png"/>
 	}
 }
 
@@ -190,14 +239,16 @@ class ComposerContentMetadata {
 	public string $title;
 	public string $description;
 	public string $template;
+	public ComposerContentMetadataHead $head;
 	public ComposerContentMetadataOpengraph $opengraph;
 	public ?ComposerContentMetadataArticle $article;
 	
-	function __construct(string $title, string $description, string $template, ComposerContentMetadataOpengraph $opengraph,
-						 ?ComposerContentMetadataArticle $article) {
+	function __construct(string $title, string $description, string $template, ComposerContentMetadataHead $head,
+						 ComposerContentMetadataOpengraph $opengraph, ?ComposerContentMetadataArticle $article) {
 		$this->title = $title;
 		$this->description = $description;
 		$this->template = $template;
+		$this->head = $head;
 		$this->opengraph = $opengraph;
 		$this->article = $article;
 		
@@ -212,6 +263,9 @@ class ComposerContentMetadata {
 			key_exists("title", $json_data) ? $json_data["title"] : "",
 			key_exists("description", $json_data) ? $json_data["description"] : "",
 			key_exists("template", $json_data) ? $json_data["template"] : "",
+			ComposerContentMetadataHead::from_json(
+				key_exists("head", $json_data) ? $json_data["head"] : array()
+			),
 			ComposerContentMetadataOpengraph::from_json(
 				key_exists("opengraph", $json_data) ? $json_data["opengraph"] : array()
 			),
@@ -220,12 +274,13 @@ class ComposerContentMetadata {
 		);
 	}
 	
-	function apply_template(string $inner_html) : string {
+	function apply_template(ComposerContent $contentRoot, string $inner_html) : string {
 		switch($this->template) {
 			case ComposerTemplates::ARTICLE:
 				$inner_html = '<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20">' .
 					'<div class="container-fluid"><h2 class="card-title font-size-18 m-0">' .
-					'<i class="' . $this->article->icon . '"></i>&nbsp;&nbsp;' . localize($this->article->title) .
+					'<i class="' . $this->article->icon . '"></i>&nbsp;&nbsp;' .
+					localize_private($this->article->title, $contentRoot->strings, false) .
 					'<span class="card-title font-size-18 m-0 text-super-muted float-right hidden-xs-and-down">' .
 					'\$subTitle' . '</span></h2></div></div>' .
 					'<article id="content-item-container" class="py-01 pb-0 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">' .
@@ -250,35 +305,41 @@ class ComposerContentMetadata {
 		}
 		return $inner_html;
 	}
-	
-	/*function start_content_card($iconClasses, $title, $subTitle) {
-	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">');
-	echo('<h2 class="card-title font-size-18 m-0"><i class="'.$iconClasses.'"></i>&nbsp;&nbsp;'.localize($title));
-	echo('<span class="card-title font-size-18 m-0 text-super-muted float-right hidden-xs-and-down">'.$subTitle.'</span></h2>');
-	echo('</div></div>');
 }
+
+class ComposerContentMetadataHead {
+	public ?string $title;
+	public ?string $description;
 	
-	function end_content_card() {
-		echo('</div>');
-	}*/
+	function __construct(?string $title, ?string $description) {
+		$this->title = $title;
+		$this->description = $description;
+	}
+	
+	static function from_json(array $json_data) : ComposerContentMetadataHead {
+		return new ComposerContentMetadataHead(
+			key_exists("title", $json_data) ? $json_data["title"] : null,
+			key_exists("description", $json_data) ? $json_data["description"] : null
+		);
+	}
 }
 
 class ComposerContentMetadataOpengraph {
-	private ?string $title;
-	private ?string $description;
-	private ?string $type;
-	private ?string $url;
-	private ?string $image;
-	private ?string $imageType;
+	public ?string $title;
+	public ?string $description;
+	public ?string $type;
+	public ?string $url;
+	public ?string $image;
+	public ?string $image_type;
 	
 	function __construct(?string $title, ?string $description, ?string $type, ?string $url, ?string $image,
-						 ?string $imageType) {
+						 ?string $image_type) {
 		$this->title = $title;
 		$this->description = $description;
 		$this->type = $type;
 		$this->url = $url;
 		$this->image = $image;
-		$this->imageType = $imageType;
+		$this->image_type = $image_type;
 	}
 	
 	static function from_json(array $json_data) : ComposerContentMetadataOpengraph {
@@ -288,12 +349,8 @@ class ComposerContentMetadataOpengraph {
 			key_exists("type", $json_data) ? $json_data["type"] : null,
 			key_exists("url", $json_data) ? $json_data["url"] : null,
 			key_exists("image", $json_data) ? $json_data["image"] : null,
-			key_exists("imageType", $json_data) ? $json_data["imageType"] : null,
+			key_exists("image_type", $json_data) ? $json_data["image_type"] : null,
 		);
-	}
-	
-	public function __get($property) {
-		return is_null($this->$property) ? "" : $this->$property;
 	}
 }
 
@@ -326,6 +383,7 @@ class ComposerElement {
 	// Global parameters
 	private string $type;
 	private ?array $modifiers;
+	private ?string $link;
 	
 	// Any direct element-container
 	private ?array $parts;
@@ -353,11 +411,15 @@ class ComposerElement {
 	// Code's parameters
 	private ?array $code;
 	
-	function __construct(string $type, ?array $modifiers, ?array $parts, ?string $content, bool $localize,
-						 ?int $padding, ?int $margin, ?int $size, ?array $head, ?array $body, ?int $colspan,
-						 ?int $rowspan, ?int $indent, ?array $code) {
+	// Button's parameters
+	private ?string $color;
+	
+	function __construct(string $type, ?array $modifiers, ?string $link, ?array $parts, ?string $content,
+						 bool $localize, ?int $padding, ?int $margin, ?int $size, ?array $head, ?array $body,
+						 ?int $colspan, ?int $rowspan, ?int $indent, ?array $code, ?string $color) {
 		$this->type = $type;
 		$this->modifiers = $modifiers;
+		$this->link = $link;
 		$this->parts = $parts;
 		$this->content = $content;
 		$this->localize = $localize;
@@ -370,6 +432,7 @@ class ComposerElement {
 		$this->rowspan = $rowspan;
 		$this->indent = $indent;
 		$this->code = $code;
+		$this->color = $color;
 	}
 	
 	static function from_json_array(array $json_dataArray) : array {
@@ -383,7 +446,8 @@ class ComposerElement {
 	static function from_json(array $json_data) : ComposerElement {
 		return new ComposerElement(
 			key_exists("type", $json_data) ? $json_data["type"] : ComposerElementTypes::UNSET,
-			key_exists("modifiers", $json_data) ? $json_data["modifiers"] : null,
+			key_exists("modifiers", $json_data) ? $json_data["modifiers"] : [],
+			key_exists("link", $json_data) ? $json_data["link"] : null,
 			key_exists("parts", $json_data) ? ComposerElement::from_json_array($json_data["parts"]) : null,
 			key_exists("content", $json_data) ? $json_data["content"] : null,
 			key_exists("localize", $json_data) ? $json_data["localize"] : true,
@@ -396,6 +460,7 @@ class ComposerElement {
 			key_exists("rowspan", $json_data) ? $json_data["rowspan"] : null,
 			key_exists("indent", $json_data) ? $json_data["indent"] : null,
 			key_exists("code", $json_data) ? $json_data["code"] : null,
+			key_exists("color", $json_data) ? $json_data["color"] : null,
 		);
 	}
 	
@@ -473,7 +538,7 @@ class ComposerElement {
 			// Combining classes.
 			foreach($this->modifiers as $modifier) {
 				/** @var string $modifier */
-				$classes .= ComposerElementModifiersTest::getClassesFromKey($modifier) . ' ';
+				$classes .= ComposerElementModifiers::get_classes_from_key($modifier) . ' ';
 			}
 			
 			// Removing redundant and useless spaces.
@@ -491,9 +556,17 @@ class ComposerElement {
 	public function get_html(ComposerContent $contentRoot) : string {
 		$htmlCode = "";
 		
+		if(!is_null($this->link)) {
+			$htmlCode .= '<a href="' . $this->link . '">';
+		}
+		
 		switch($this->type) {
 			case ComposerElementTypes::UNSET:
 				$htmlCode .= "<p>error.unset !</p>";
+				break;
+				
+			case ComposerElementTypes::RAW:
+				$htmlCode .= $this->get_inner_html($contentRoot);
 				break;
 			
 			case ComposerElementTypes::H1:
@@ -517,14 +590,18 @@ class ComposerElement {
 				
 				// Composing the paragraph
 				$htmlCode .= '<p class="' .
-					(ComposerElementModifiersTest::is_modifier_in_modifiers(
-						ComposerElementModifiersTest::GENERIC_MARGIN_NO_TOP, $this->modifiers)
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers)
 					? 'mt-0 mb-10' : 'my-10') . ' ml-md-' . ($_paragraph_ident_level * 5) . '">' .
 					$this->get_inner_html($contentRoot) . '</p>';
 				
 				break;
 				
 			case ComposerElementTypes::BUTTON:
+				// Composing the button.
+				$htmlCode .= '<button class="' . (is_null($this->color) ? '' : 'btn-' . $this->color) .
+					$this->get_modifiers_classes() . '">' . $this->get_inner_html($contentRoot) . '</button>';
+				
 				break;
 				
 			case ComposerElementTypes::CODE:
@@ -532,8 +609,9 @@ class ComposerElement {
 				$_paragraph_ident_level = is_null($this->indent) ? 0 : $this->indent;
 				
 				// Opening the code element.
+				// Note: The "mt-10" may have to be removed if it clashes with 'no-margin-top' !
 				$htmlCode .= '<code class="code ' . $this->get_modifiers_classes() .
-					' ml-md-' . ($_paragraph_ident_level * 5) . '">';
+					' mt-10 ml-md-' . ($_paragraph_ident_level * 5) . '">';
 				
 				// Adding code lines.
 				if(!is_null($this->code)) {
@@ -564,19 +642,75 @@ class ComposerElement {
 				// Defining the padding's size.
 				$_container_padding = is_null($this->padding) ? 10 : $this->padding;
 				
-				// Getting the modifiers' classes
-				$_container_classes = $this->get_modifiers_classes();
-				
 				// Composing the container.
-				$htmlCode .= '<div class="mt-10 p-' . $_container_padding .
-					(empty($_container_classes) ? '' : ' ' . $_container_classes) . '">' .
+				// FIXME: Can be re-standardized if a check for the default mt-10 is added at the end after adding the mods.
+				$htmlCode .= '<div class="' .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::CONTAINER_CARD, $this->modifiers
+					) ? ComposerElementModifiers::get_modifier_classes(
+							ComposerElementModifiers::CONTAINER_CARD ) . "m-0 " : "") .
+					'p-' . $_container_padding .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers
+					) ? "" : " mt-10") .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::GENERIC_PADDING_NO_X, $this->modifiers
+					) ? " " . ComposerElementModifiers::get_modifier_classes(
+							ComposerElementModifiers::GENERIC_PADDING_NO_X ) : "") .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::GENERIC_PADDING_NO_BOTTOM, $this->modifiers
+					) ? " " . ComposerElementModifiers::get_modifier_classes(
+							ComposerElementModifiers::GENERIC_PADDING_NO_BOTTOM ) : "") .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::GENERIC_PADDING_NO_TOP, $this->modifiers
+					) ? " " . ComposerElementModifiers::get_modifier_classes(
+							ComposerElementModifiers::GENERIC_PADDING_NO_TOP ) : "") .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::CONTAINER_SCROLL_HORIZONTAL, $this->modifiers
+					) ? " " . ComposerElementModifiers::get_modifier_classes(
+							ComposerElementModifiers::CONTAINER_SCROLL_HORIZONTAL ) : "") . '">' .
 					$this->get_inner_html($contentRoot) . '</div>';
-				
 				break;
 				
 			case ComposerElementTypes::COLLAPSE:
-				break;
+				// Composing collapse.
+				$htmlCode .= '<details class="collapse-panel w-full' .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers
+					) ? ' ' . ComposerElementModifiers::get_modifier_classes(
+							ComposerElementModifiers::GENERIC_MARGIN_NO_TOP) : '') . '" ' .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::DETAILS_CLOSED, $this->modifiers
+					) ? "closed" : "open") . '>';
 				
+				$htmlCode .= '<summary class="collapse-header p-10 px-15 text-truncate without-arrow' .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::DETAILS_NO_ROUNDING, $this->modifiers
+					) ? ' rounded-0' : '') . ' border-left-0 border-right-0">';
+				
+				$_title = "title";
+				$_subtitle = "subtitle";
+				
+				$htmlCode .= '<h4 class="font-size-16 m-0 align-middle no-select">' .
+					'<i class="fad fa-angle-down hidden-collapse-closed font-size-24"></i>' .
+					'<i class="fad fa-angle-up hidden-collapse-open font-size-24"></i>' .
+					'<span class="font-weight-semi-bold align-top">&nbsp;&nbsp;'.$_title.
+					'<span class="ml-20 text-muted">'.$_subtitle.'</span></span></h4></summary>';
+				
+				$htmlCode .= '<div class="collapse-content' .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::CONTAINER_SCROLL_HORIZONTAL, $this->modifiers
+					) ? " " . ComposerElementModifiers::get_modifier_classes(
+							ComposerElementModifiers::CONTAINER_SCROLL_HORIZONTAL ) : "") .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::GENERIC_PADDING_NONE, $this->modifiers
+					) ? " p-0 py-01" : "") .
+					(ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::DETAILS_NO_ROUNDING, $this->modifiers
+					) ? " rounded-0" : "") . ' border-0 border-bottom">' .
+					$this->get_inner_html($contentRoot) . '</div></details>';
+				break;
+			
 			case ComposerElementTypes::SPACER:
 				// Defining the spacer's size.
 				$_spacer_size = is_null($this->size) ? 1 : $this->size;
@@ -588,16 +722,23 @@ class ComposerElement {
 				
 			case ComposerElementTypes::IMAGE:
 				break;
+				
 			case ComposerElementTypes::TABLE:
 				break;
+				
 			case ComposerElementTypes::GRID:
 				break;
+				
 			case ComposerElementTypes::GLIDER:
 				break;
 				
 			default:
 				$htmlCode .= "<p>error.unknown !</p>";
 				break;
+		}
+		
+		if(!is_null($this->link)) {
+			$htmlCode .= '</a>';
 		}
 		
 		return $htmlCode;

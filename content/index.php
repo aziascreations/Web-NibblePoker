@@ -26,39 +26,34 @@ if($content_has_error) {
 	<?php
     include 'headers.php';
     
-    // Setting up the common variables.
+    // Setting up the page's title, description and opengraph tags.
 	if($content_has_error) {
-		$_metaTitle = localize("error.content.title.generic");
-		$_metaDescription = $content_error_message;
+		echo('<title>' . localize("error.content.title.generic") . ' - Nibble Poker</title>');
+		echo('<meta name="description" content="'.$content_error_message.'">');
+		echo('<meta property="og:title" content="Nibble Poker - '.localize("error.content.title.generic").'" />');
+		echo('<meta property="og:description" content="'.$content_error_message.'"/>');
+		echo('<meta property="og:type" content="website" />');
+		echo('<meta property="og:url" content="' . $host_uri . '" />');
+		echo('<meta property="og:image" content="' . $host_uri . '/resources/Azias/logos/opengraph.png"/>');
+		echo('<meta property="og:image:type" content="image/png"/>');
 	} else {
-		$_metaTitle = localize("error.content.data.no.title");
-		$_metaDescription = localize("error.content.data.no.description");
-	    /*if($requested_content_display_type == ContentDisplayType::CONTENT) {
-            if(array_key_exists("meta", $requested_item_data)) {
-				if(array_key_exists("title", $requested_item_data["meta"])) {
-					$_metaTitle = getContentItemText($requested_item_data["meta"]["title"]);
-				}
-				if(array_key_exists("description", $requested_item_data["meta"])) {
-					$_metaDescription = getContentItemText($requested_item_data["meta"]["description"]);
-				}
-            }
+	    if($requested_content_display_type == ContentDisplayType::CONTENT) {
+			echo('<title>'.$content->get_head_title().' - Nibble Poker</title>');
+			echo('<meta name="description" content="'.$content->get_head_description().'">');
+			echo($content->get_opengraph_tags("Nibble Poker - ", "website", $host_uri,
+				null, $host_uri . "/resources/Azias/logos/opengraph.png"));
         } else {
-            $_metaTitle = localize("content.title.search.card");
-			$_metaDescription = "";
-        }/**/
+            echo('<title>' . localize("content.title.search.card") . ' - Nibble Poker</title>');
+            echo('<meta name="description" content="">');
+            echo('<meta property="og:title" content="Nibble Poker - '.localize("content.title.search.card").'" />');
+            echo('<meta property="og:description" content=""/>');
+            echo('<meta property="og:type" content="website" />');
+            echo('<meta property="og:url" content="' . $host_uri . '" />');
+            echo('<meta property="og:image" content="' . $host_uri . '/resources/Azias/logos/opengraph.png"/>');
+            echo('<meta property="og:image:type" content="image/png"/>');
+        }
     }
-    //$content->metadata->title
-    
-	// Printing the title, meta and opengraph tags.
-	echo('<title>'.$_metaTitle.' - Nibble Poker</title>');
-	echo('<meta name="description" content="'.$_metaDescription.'">');
-	echo('<meta property="og:title" content="Nibble Poker - '.$_metaTitle.'" />');
-	echo('<meta property="og:description" content="'.$_metaDescription.'"/>');
     ?>
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="<?php echo($host_uri); ?>/" />
-    <meta property="og:image" content="<?php echo($host_uri); ?>/resources/Azias/logos/opengraph.png"/>
-    <meta property="og:image:type" content="image/png"/>
     <link href="/resources/GliderJs/1.7.6/glider.min.css" rel="stylesheet" />
 </head>
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">

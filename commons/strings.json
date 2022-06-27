@@ -144,6 +144,11 @@
     "content.commons.download.multiple": "Downloads",
     "content.commons.version": "Version",
 
+    "content.default.head.title" : "No title found !",
+    "content.default.head.description" : "No description found !",
+    "content.default.opengraph.title" : "No title found !",
+    "content.default.opengraph.description" : "No description found !",
+
     "about.biography.title": "Who am I ?",
     "about.philosophy.title": "Projects philosophy",
     "about.skills.title": "Skills",
@@ -294,6 +299,11 @@
     "content.commons.download.single": "Téléchargement",
     "content.commons.download.multiple": "Téléchargements",
     "content.commons.version": "Version",
+
+    "content.default.head.title" : "Aucun titre trouvé !",
+    "content.default.head.description" : "Aucune description trouvée !",
+    "content.default.opengraph.title" : "Aucun titre trouvé !",
+    "content.default.opengraph.description" : "Aucune description trouvée !",
 
     "about.biography.title": "Qui suis-je ?",
     "about.philosophy.title": "Philosophie des projets",

@@ -186,9 +186,9 @@ function processStandardContentSubNode(mixed $elementNode, string $prepend="", s
 			echo($prepend.getContentItemText($elementNode["content"], false, true).$append);
 		}
 	}
-}
+}*/
 
-function createElementNode(mixed $elementNode, string $prepend="", string $append="") : void {
+/*function createElementNode(mixed $elementNode, string $prepend="", string $append="") : void {
 	// Checking if we actually have a JSON object.
 	if(!is_array($elementNode)) {
 		echo('<p>Not array node !</p>');
@@ -615,7 +615,6 @@ function createElementNode(mixed $elementNode, string $prepend="", string $appen
 		default:
 			printErrorTextElement(sprintf(localize("error.content.data.part.unknown"), $elementNode["type"]));
 			break;
-	}
-}*/
+}/**/
 
 ?>

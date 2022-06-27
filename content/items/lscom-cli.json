@@ -1,370 +1,123 @@
 {
-  "title": {
-    "icon": "fad fa-terminal",
-    "page": {"en": "PB-ListComPort", "fr": "PB-ListComPort"},
-    "card": {
-      "main": {"en": "PB-ListComPort", "fr": "PB-ListComPort"},
-      "sub": {"en": "<a href=\"https://github.com/aziascreations/PB-ListComPort\"><i class=\"fab fa-github\"></i></a>"}
+  "strings": {
+    "en": {
+      "meta.title": "PB-ListComPort",
+      "meta.description": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.",
+      "article.subtitle": "subtitle here",
+      "intro.title": "Introduction",
+      "intro.p1": "A simple cli tool that can list COM ports with their full name easily and cleanly.",
+      "intro.p2": "This tool is intended to replace the tedious task of having to use the <code class=\"code\">mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port.",
+      "intro.p3": "The earliest version of Windows that can be used is Windows XP x64 or Windows Vista due to the fact that RegGetValueW is not available on older versions of Windows.",
+      "usage.title": "Usage",
+      "formatting.title": "Output formatting"
+    },
+    "fr": {
+      "meta.title": "PB-ListComPort",
+      "meta.description": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemin des ports COM.",
+      "article.subtitle": "subtitle here",
+      "intro.title": "Introduction",
+      "_intro.p1": "",
+      "_intro.p2": "",
+      "_intro.p3": "",
+      "usage.title": "Utilisation",
+      "formatting.title": "Formatage de sortie"
     }
   },
-  "meta": {
-    "title": {"en": "PB-ListComPort", "fr": "PB-ListComPort"},
-    "description": {
-      "en": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.",
-      "fr": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemin des ports COM."
+  "metadata": {
+    "template": "article",
+    "head": {
+      "title": "meta.title",
+      "description": "meta.description"
+    },
+    "opengraph": {
+      "title": "meta.title",
+      "description": "meta.description",
+      "type": null,
+      "url": null,
+      "image": null,
+      "image_type": null
+    },
+    "article": {
+      "icon": "fad fa-terminal",
+      "title": "meta.title",
+      "_subtitle": "article.subtitle",
+      "tags": ["application", "lscom", "purebasic", "windows"]
     }
   },
-  "parts": [
+  "elements": [
     {
       "type": "container", "padding": 20,
       "modifiers": ["no-bottom-padding", "no-top-margin"],
-      "content": {
-        "parts": [
-          {
-            "type": "h1",
-            "content": {"en": "Introduction"}
-          },{
-            "type": "paragraph", "indent": 2,
-            "content": {"en": "A simple cli tool that can list COM ports with their full name easily and cleanly."}
-          },{
-            "type": "paragraph", "indent": 2,
-            "content": {
-              "en": "This tool is intended to replace the tedious task of having to use the <code class=\"code\">mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port."
-            }
-          },{
-            "type": "paragraph", "indent": 2,
-            "content": {
-              "en": "The earliest version of Windows that can be used is Windows XP x64 or Windows Vista due to the fact that RegGetValueW is not available on older versions of Windows."
-            }
-          }
-        ]
-      }
+      "parts": [
+        {"type": "h1", "content": "intro.title"},
+        {"type": "paragraph", "indent": 2, "content": "intro.p1"},
+        {"type": "paragraph", "indent": 2, "content": "intro.p2"},
+        {"type": "paragraph", "indent": 2, "content": "intro.p3"}
+      ]
     },
 
     {
       "type": "container", "padding": 20,
       "modifiers": ["no-top-padding", "no-bottom-padding"],
-      "content": {
-        "parts": [
-          {
-            "type": "h1",
-            "content": {"en": "Usage", "fr": "Utilisation"}
-          },{
-            "type": "code", "indent": 2,
-            "modifiers": ["full-width", "horizontal-scroll"],
-            "code": [
-              "lscom.exe [-a|--show-all] [-d|--show-device] [-D <str>|--divider <str>] [-f|--show-friendly]",
-              "          [-h|--help] [-n|--show-name-raw] [-P|--no-pretty] [-s|--sort] [-S|--sort-reverse]",
-              "          [-t|--tab-padding] [-v|--version] [-V|--version-only]",
-              "",
-              "Launch arguments:",
-              " -a, --show-all             Display the complete port's name (Equal to '-dfn')",
-              " -d, --show-device          Displays the port's device name",
-              " -D <str>, --divider <str>  Uses the given string or char as a separator (Can be empty string !)",
-              " -f, --show-friendly        Displays the port's friendly name",
-              " -h, --help                 Display this help text",
-              " -n, --show-name-raw        Displays the port's raw name (See remarks section)",
-              " -P, --no-pretty            Disables the pretty printing format (Equal to -D \" \")",
-              " -s, --sort                 Sorts the port based on their raw names in an ascending order",
-              " -S, --sort-reverse         Sorts the port based on their raw names in a descending order",
-              " -t, --tab-padding          Use tabs for padding between the types of names (Overrides '-D')",
-              " -v, --version              Shows the utility's version number and other info",
-              " -V, --version-only         Shows the utility's version number only (Overrides '-v')"
-            ]
-          }
-        ]
-      }
+      "parts": [
+        {"type": "h1", "content": "usage.title"},
+        {
+          "type": "code", "indent": 2,
+          "modifiers": ["horizontal-scroll", "code-block"],
+          "code": [
+            "lscom.exe [-a|--show-all] [-d|--show-device] [-D <str>|--divider <str>] [-f|--show-friendly]",
+            "          [-h|--help] [-n|--show-name-raw] [-P|--no-pretty] [-s|--sort] [-S|--sort-reverse]",
+            "          [-t|--tab-padding] [-v|--version] [-V|--version-only]",
+            "",
+            "Launch arguments:",
+            " -a, --show-all             Display the complete port's name (Equal to '-dfn')",
+            " -d, --show-device          Displays the port's device name",
+            " -D <str>, --divider <str>  Uses the given string or char as a separator (Can be empty string !)",
+            " -f, --show-friendly        Displays the port's friendly name",
+            " -h, --help                 Display this help text",
+            " -n, --show-name-raw        Displays the port's raw name (See remarks section)",
+            " -P, --no-pretty            Disables the pretty printing format (Equal to -D \" \")",
+            " -s, --sort                 Sorts the port based on their raw names in an ascending order",
+            " -S, --sort-reverse         Sorts the port based on their raw names in a descending order",
+            " -t, --tab-padding          Use tabs for padding between the types of names (Overrides '-D')",
+            " -v, --version              Shows the utility's version number and other info",
+            " -V, --version-only         Shows the utility's version number only (Overrides '-v')"
+          ]
+        }
+      ]
     },
 
     {
       "type": "container", "padding": 20,
       "modifiers": ["no-top-padding", "no-bottom-padding"],
-      "content": {
-        "parts": [
-          {
-            "type": "h1",
-            "content": {"en": "Output formatting", "fr": "Formatage de sortie"}
-          },{
-            "type": "code", "indent": 2,
-            "modifiers": ["full-width", "horizontal-scroll"],
-            "code": [
-              " *┬> No launch arguments:",
-              "  └──> ${Raw name}      => COM1",
-              " *┬> '-d' or '-f'",
-              "  ├──> ${Device name}   => \\Device\\Serial1",
-              "  └──> ${Friendly name} => Communications Port",
-              " *┬> '-d' and '-f'",
-              "  └──> ${Friendly name} [${Device name}]        => Communications Port [\\Device\\Serial1]",
-              " *┬> '-n' and '-d'",
-              "  └──> ${Raw name} [$DeviceName]        => COM1 [\\Device\\Serial1]",
-              " *┬> '-n' and '-f'",
-              "  └──> ${Raw name} - ${Friendly name}   => COM1 - Communications Port",
-              " *┬> '-ndf' or '-a'",
-              "  └──> ${Raw name} - ${Friendly name} [${Device name}]  => COM1 - Communications Port [\\Device\\Serial1]",
-              " *┬> '-ndfp' or '-ap'",
-              "  └──> ${Raw name} ${Friendly name} ${Device name}      => COM1 Communications Port \\Device\\Serial1",
-              " *┬> '-ndfD \";\"' or '-aD \";\"'",
-              "  └──> ${Raw name};${Friendly name};${Device name}      => COM1;Communications Port;\\Device\\Serial1"
-            ]
-          }
-        ]
-      }
-    },
-
-    {
-      "type": "container", "padding": 10,
-      "modifiers": ["no-top-margin"],
-      "content": {
-        "parts": [
-          {
-            "type": "h1", "modifiers": ["no-top-margin"],
-            "content": {"key": "content.commons.version.current"}
-          },{
-            "type": "spacer", "size": 1
-          },{
-            "type": "container", "padding": 0,
-            "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
-            "content": {
-              "parts": [{
-                "type": "table",
-                "modifiers": ["striped", "inner-bordered"],
-                "head": [
-                  {"key": "content.commons.cpu.responsive"},
-                  {"key": "content.commons.lang"},
-                  {"key": "content.commons.download.single"}
-                ],
-                "body": [
-                  [
-                    {"key": "content.commons.cpu.x64", "rowspan": 2},
-                    {"key": "lang.english"},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_eng_x64.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ],[
-                    {"key": "lang.french"},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_fra_x64.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ],[
-                    {"key": "content.commons.cpu.x86", "rowspan": 2},
-                    {"key": "lang.english"},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_eng_x86.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ],[
-                    {"key": "lang.french"},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_fra_x86.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ]
-                ]
-              }]
-            }
-          }
-        ]
-      }
-    },
-
-    {
-      "type": "container", "padding": 10,
-      "modifiers": ["no-top-margin"],
-      "content": {
-        "parts": [
-          {
-            "type": "h1", "modifiers": ["no-top-margin"],
-            "content": {"key": "content.commons.version.previous.multiple"}
-          },{
-            "type": "spacer", "size": 1
-          },{
-            "type": "container", "padding": 0,
-            "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
-            "content": {
-              "parts": [{
-                "type": "table",
-                "modifiers": ["striped", "inner-bordered"],
-                "head": [
-                  {"key": "content.commons.version"},
-                  {"key": "content.commons.cpu.responsive"},
-                  {"key": "content.commons.lang"},
-                  {"key": "content.commons.download.single"}
-                ],
-                "body": [
-                  [
-                    {"en": "v2.0.0", "rowspan": 4},
-                    {"key": "content.commons.cpu.x64", "rowspan": 2},
-                    {"key": "lang.english"},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x64.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ],[
-                    {"key": "lang.french"},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x64.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ],[
-                    {"key": "content.commons.cpu.x86", "rowspan": 2},
-                    {"key": "lang.english"},
-                    {
-                      "parts": [
-                        {
-                          "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x86.exe",
-                          "modifiers": ["thin"],
-                          "content": {"en": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                        }
-                      ]
-                    }
-                  ],[
-                    {"key": "lang.french"},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x86.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ],[
-                    {"en": "v1.1.0", "rowspan": 2},
-                    {"key": "content.commons.cpu.x64"},
-                    {"key": "lang.english", "rowspan": 2},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/lscom-x64.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ],[
-                    {"key": "content.commons.cpu.x86"},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/lscom-x86.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ],[
-                    {"en": "v1.0.0", "rowspan": 2},
-                    {"key": "content.commons.cpu.x64"},
-                    {"key": "lang.english", "rowspan": 2},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom-x64.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ],[
-                    {"key": "content.commons.cpu.x86"},
-                    {
-                      "parts": [{
-                        "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom-x86.exe",
-                        "modifiers": ["thin"],
-                        "content": {"en": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-10\"></i>"}
-                      }]
-                    }
-                  ]
-                ]
-              }]
-            }
-          }
-        ]
-      }
-    },
-
-    {
-      "type": "container", "padding": 10,
-      "modifiers": ["no-top-margin"],
-      "content": {
-        "parts": [
-          {
-            "type": "h1", "modifiers": ["no-top-margin"],
-            "content": {"key": "content.commons.version.source"}
-          },{
-            "type": "spacer", "size": 1
-          },{
-            "type": "container", "padding": 0,
-            "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
-            "content": {
-              "parts": [{
-                "type": "table", "modifiers": ["striped", "inner-bordered"],
-                "head": [{"key": "content.commons.version"}, {"key": "content.commons.download.multiple"}],
-                "body": [[
-                  {"en": "v2.1.0"},
-                  {"parts": [{
-                    "type": "button", "modifiers": ["thin"],
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/2.1.0.zip",
-                    "content": {"en": "<span class=\"text-monospace\">2.1.0.zip</span><i class=\"fas fa-download ml-10\"></i>"}
-                  },{
-                    "type": "button", "modifiers": ["thin"],
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/2.1.0.tar.gz",
-                    "content": {"en": "<span class=\"text-monospace\">2.1.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>"}
-                  }]}
-                ],[
-                  {"en": "v2.0.0"},
-                  {"parts": [{
-                    "type": "button", "modifiers": ["thin"],
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/2.0.0.zip",
-                    "content": {"en": "<span class=\"text-monospace\">2.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>"}
-                  },{
-                    "type": "button", "modifiers": ["thin"],
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/2.0.0.tar.gz",
-                    "content": {"en": "<span class=\"text-monospace\">2.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>"}
-                  }]}
-                ],[
-                  {"en": "v1.1.0"},
-                  {"parts": [{
-                    "type": "button", "modifiers": ["thin"],
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/1.1.0.zip",
-                    "content": {"en": "<span class=\"text-monospace\">1.1.0.zip</span><i class=\"fas fa-download ml-10\"></i>"}
-                  },{
-                    "type": "button", "modifiers": ["thin"],
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/1.1.0.tar.gz",
-                    "content": {"en": "<span class=\"text-monospace\">1.1.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>"}
-                  }]}
-                ],[
-                  {"en": "v1.0.0"},
-                  {"parts": [{
-                    "type": "button", "modifiers": ["thin"],
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/1.0.0.zip",
-                    "content": {"en": "<span class=\"text-monospace\">1.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>"}
-                  },{
-                    "type": "button", "modifiers": ["thin"],
-                    "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/1.0.0.tar.gz",
-                    "content": {"en": "<span class=\"text-monospace\">1.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>"}
-                  }]}
-                ]]
-              }]
-            }
-          }
-        ]
-      }
+      "parts": [
+        {"type": "h1", "content": "formatting.title"},
+        {
+          "type": "code", "indent": 2,
+          "modifiers": ["horizontal-scroll", "code-block"],
+          "code": [
+            " *┬> No launch arguments:",
+            "  └──> ${Raw name}      => COM1",
+            " *┬> '-d' or '-f'",
+            "  ├──> ${Device name}   => \\Device\\Serial1",
+            "  └──> ${Friendly name} => Communications Port",
+            " *┬> '-d' and '-f'",
+            "  └──> ${Friendly name} [${Device name}]        => Communications Port [\\Device\\Serial1]",
+            " *┬> '-n' and '-d'",
+            "  └──> ${Raw name} [$DeviceName]        => COM1 [\\Device\\Serial1]",
+            " *┬> '-n' and '-f'",
+            "  └──> ${Raw name} - ${Friendly name}   => COM1 - Communications Port",
+            " *┬> '-ndf' or '-a'",
+            "  └──> ${Raw name} - ${Friendly name} [${Device name}]  => COM1 - Communications Port [\\Device\\Serial1]",
+            " *┬> '-ndfp' or '-ap'",
+            "  └──> ${Raw name} ${Friendly name} ${Device name}      => COM1 Communications Port \\Device\\Serial1",
+            " *┬> '-ndfD \";\"' or '-aD \";\"'",
+            "  └──> ${Raw name};${Friendly name};${Device name}      => COM1;Communications Port;\\Device\\Serial1"
+          ]
+        }
+      ]
     },
 
     {"type": "spacer", "size": 1}
-  ],
-  "tags": ["application", "lscom", "purebasic", "windows"]
+  ]
 }
