@@ -204,15 +204,15 @@ button + button, .button-link + .button-link > button {
 @media (min-width: 993px) {
 	.l-lab-web {
 		background: linear-gradient(90deg, rgba(101,144,134,0.3) 0%, rgba(101,144,134,0.2) 1.5px, rgba(101,144,134,0.0) 7px);
-		clip-path: polygon(4px 0%, 100% 0, 100% 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);
+		border-radius: 5px 0 0 5px;
 	}
 	.l-lab-office {
 		background: linear-gradient(90deg, rgba(64,84,59,0.5) 0%, rgba(64,84,59,0.3) 2px, rgba(64,84,59,0.0) 7px);
-		clip-path: polygon(4px 0%, 100% 0, 100% 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);
+		border-radius: 5px 0 0 5px;
 	}
 	.l-lab-app {
 		background: linear-gradient(90deg, rgba(156,23,34,0.4) 0%, rgba(156,23,34,0.3) 1.5px, rgba(156,23,34,0.0) 7px);
-		clip-path: polygon(4px 0%, 100% 0, 100% 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);
+		border-radius: 5px 0 0 5px;
 	}
 }
 

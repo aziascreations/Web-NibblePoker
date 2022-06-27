@@ -289,7 +289,8 @@ class ComposerContentMetadata {
 					'<i class="' . $this->article->icon . '"></i>&nbsp;&nbsp;' .
 					localize_private($this->article->title, $content_root->strings, false) .
 					'<span class="card-title font-size-18 m-0 text-super-muted float-right hidden-xs-and-down">' .
-					'\$subTitle' . '</span></h2></div></div>' .
+					localize_private($this->article->subtitle, $content_root->strings, false) .
+					'</span></h2></div></div>' .
 					'<article id="content-item-container" class="py-01 pb-0 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">' .
 					$inner_html . '</article>' .
 					'<div class="px-20 py-10 bg-light-lm bg-dark-dm rounded-bottom border-top">' .
@@ -364,11 +365,13 @@ class ComposerContentMetadataOpengraph {
 class ComposerContentMetadataArticle {
 	public string $icon;
 	public string $title;
+	public string $subtitle;
 	public array $tags;
 	
-	function __construct(string $icon, string $title, array $tags) {
+	function __construct(string $icon, string $title, string $subtitle, array $tags) {
 		$this->icon = $icon;
 		$this->title = $title;
+		$this->subtitle = $subtitle;
 		$this->tags = $tags;
 	}
 	
@@ -377,6 +380,7 @@ class ComposerContentMetadataArticle {
 			key_exists("icon", $json_data) ? $json_data["icon"] : "fad fa-question",
 			key_exists("title", $json_data) ?
 				$json_data["title"] : '<i>'.localize("error.content.data.no.title").'</i>',
+			key_exists("subtitle", $json_data) ? $json_data["subtitle"] : '',
 			key_exists("tags", $json_data) ? $json_data["tags"] : [],
 		);
 	}

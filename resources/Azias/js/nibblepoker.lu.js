@@ -1,6 +1,7 @@
 // Toggle button for the side menu.  (Global)
 document.getElementById('button-sidebar').addEventListener("click", () => {
     halfmoon.toggleSidebar();
+    // TODO: Fix the slide size in gliders
 });
 
 // Adding the last URL to every a element with the 'js-set-previous-url' class.

@@ -3,24 +3,26 @@
     "en": {
       "meta.title": "PB-ListComPort",
       "meta.description": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.",
-      "article.subtitle": "subtitle here",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/PB-ListComPort\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> View on GitHub</a>",
       "intro.title": "Introduction",
-      "intro.p1": "A simple cli tool that can list COM ports with their full name easily and cleanly.",
+      "intro.p1": "A simple CLI tool that can list COM ports with their full name easily and cleanly.",
       "intro.p2": "This tool is intended to replace the tedious task of having to use the <code class=\"code\">mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port.",
       "intro.p3": "The earliest version of Windows that can be used is Windows XP x64 or Windows Vista due to the fact that RegGetValueW is not available on older versions of Windows.",
       "usage.title": "Usage",
-      "formatting.title": "Output formatting"
+      "formatting.title": "Output formatting",
+      "links.title": "Links"
     },
     "fr": {
       "meta.title": "PB-ListComPort",
       "meta.description": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemin des ports COM.",
-      "article.subtitle": "subtitle here",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/PB-ListComPort\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> Voir sur GitHub</a>",
       "intro.title": "Introduction",
       "_intro.p1": "",
       "_intro.p2": "",
       "_intro.p3": "",
       "usage.title": "Utilisation",
-      "formatting.title": "Formatage de sortie"
+      "formatting.title": "Formatage de sortie",
+      "links.title": "Liens"
     }
   },
   "metadata": {
@@ -40,8 +42,8 @@
     "article": {
       "icon": "fad fa-terminal",
       "title": "meta.title",
-      "_subtitle": "article.subtitle",
-      "tags": ["application", "lscom", "purebasic", "windows"]
+      "subtitle": "article.subtitle",
+      "tags": ["application", "tool", "lscom", "purebasic", "windows"]
     }
   },
   "elements": [
@@ -403,6 +405,34 @@
               }
             ]]
           }]
+        }
+      ]
+    },
+
+    {
+      "type": "container",
+      "padding": 20,
+      "modifiers": ["no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "links.title"},
+        {
+          "type": "paragraph",
+          "indent": 2,
+          "parts": [
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw", "link": "https://github.com/aziascreations/PB-ListComPort",
+              "parts": [
+                {"type": "raw", "content": "content.commons.github"},
+                {"type": "raw", "content": "&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {
+                  "type": "raw",
+                  "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/PB-ListComPort)</span>",
+                  "localize": false
+                }
+              ]
+            }
+          ]
         }
       ]
     }

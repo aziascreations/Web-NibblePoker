@@ -10,3 +10,4 @@ resources/FontAwesomePro/
 *.pdn
 *.min.json
 *.lnk
+tmp/

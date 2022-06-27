@@ -30,6 +30,6 @@ the [.htaccess](.htaccess) file.
 ## Requirements
 These files are required and need to be installed manually for the website to work properly !<br>
 
-* Apache 2.4 & PHP 8 or newer
+* Apache 2.4 & PHP 8.1 or newer
 * Font Awesome Pro v5.15.3
     * `/resources/FontAwesomePro/`

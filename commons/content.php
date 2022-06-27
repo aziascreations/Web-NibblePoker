@@ -104,7 +104,7 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 	// Loading the content's data
 	$content_file_path = get_content_file_path($content_requested_url_part);
 	
-	if(is_null($content_file_path)) {
+	if(empty($content_file_path)) {
 		// File doesn't exist !
 		$content_has_error = true;
 		$content_error_message_key = "error.content.data.not.exist";
