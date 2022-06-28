@@ -22,7 +22,7 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	</span>
 	<a href="<?php print(l10n_url_abs('/')); ?>" class="navbar-brand ml-auto">
 		<span class="navbar-brand ml-auto">
-			<img id="logo-footer" src="/resources/Azias/logos/logov3-test-finalized.svg" alt="logo" draggable="false">
+			<img id="logo-footer" src="/resources/Azias/logos/v2_full_unshaded_original.svg" alt="logo" draggable="false">
 		</span>
 	</a>
 </nav>

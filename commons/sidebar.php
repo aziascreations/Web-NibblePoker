@@ -14,7 +14,7 @@ if(!isset($SIDEBAR_ID)) {
 <div class="sidebar">
 	<div class="sidebar-menu font-weight-bold">
 		<a href="<?php print(l10n_url_abs('/')); ?>" class="sidebar-brand no-select">
-			<img id="logo-sidebar" src="/resources/Azias/logos/logov3-test-finalized.svg" alt="logo" draggable="false">
+			<img id="logo-sidebar" src="/resources/Azias/logos/v2_full_unshaded_original.svg" alt="logo" draggable="false">
 		</a>
 		<h4 class="text-center quantum ucase font-size-28 text-muted">N<span class="text-super-muted">ibble</span> P<span class="text-super-muted">oker</span></h4>
 		<div class="sidebar-divider"></div>

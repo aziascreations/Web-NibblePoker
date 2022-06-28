@@ -109,7 +109,7 @@
     "error.content.tags.alphanumeric": "One of the tags given in the \"tags\" URL parameter is not a valid alphanumeric string.",
     "error.content.detect.type": "The type of requested content couldn't be determined.",
     "error.content.id.alphanumeric": "The requested resource's ID isn't a valid alphanumeric string.",
-    "error.content.data.not.exist": "The requested content doesn't have an internal item file.",
+    "error.content.data.not.exist": "The requested content doesn't have an internal item file associated to it.",
     "error.content.data.no.title": "No title found !",
     "error.content.data.no.description": "No description found !",
     "error.content.data.no.tags": "No tags found !",

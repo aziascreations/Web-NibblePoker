@@ -424,10 +424,10 @@
               "type": "raw", "link": "https://github.com/aziascreations/PB-ListComPort",
               "parts": [
                 {"type": "raw", "content": "content.commons.github"},
-                {"type": "raw", "content": "&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
                 {
                   "type": "raw",
-                  "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/PB-ListComPort)</span>",
+                  "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/PB-ListComPort)</span></span>",
                   "localize": false
                 }
               ]

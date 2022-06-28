@@ -195,6 +195,11 @@ h3.content-search-title {
 div.content-tag-container a:not(:first-child) {
 	margin-left: 10px;
 }
+div.content-tag-container a, div.content-tag-container i {
+	/* Doesn't fix the line return issue ! */
+	display: inline-block;
+}
+
 /* Adding a margin to buttons present right after another one */
 button + button, .button-link + .button-link > button {
 	margin-left: 1.5rem !important;

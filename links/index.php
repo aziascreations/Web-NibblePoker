@@ -12,7 +12,7 @@ include_once 'langs.php';
 	<meta property="og:title" content="Nibble Poker - Links" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="<?php echo($host_uri); ?>/" />
-    <meta property="og:image" content="<?php echo($host_uri); ?>/resources/Azias/logos/opengraph.png"/>
+    <meta property="og:image" content="<?php echo($host_uri); ?>/resources/Azias/logos/v2_opengraph.png"/>
 	<meta property="og:image:type" content="image/png"/>
 	<meta property="og:description" content="A collection of links to all the other locations we are active on."/>
 </head>

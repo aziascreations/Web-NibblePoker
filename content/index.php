@@ -34,14 +34,14 @@ if($content_has_error) {
 		echo('<meta property="og:description" content="'.$content_error_message.'"/>');
 		echo('<meta property="og:type" content="website" />');
 		echo('<meta property="og:url" content="' . $host_uri . '" />');
-		echo('<meta property="og:image" content="' . $host_uri . '/resources/Azias/logos/opengraph.png"/>');
+		echo('<meta property="og:image" content="' . $host_uri . '/resources/Azias/logos/v2_opengraph.png"/>');
 		echo('<meta property="og:image:type" content="image/png"/>');
 	} else {
 	    if($requested_content_display_type == ContentDisplayType::CONTENT) {
 			echo('<title>'.$content->get_head_title().' - Nibble Poker</title>');
 			echo('<meta name="description" content="'.$content->get_head_description().'">');
 			echo($content->get_opengraph_tags("Nibble Poker - ", "website", $host_uri,
-				null, $host_uri . "/resources/Azias/logos/opengraph.png"));
+				null, $host_uri . "/resources/Azias/logos/v2_opengraph.png"));
         } else {
             echo('<title>' . localize("content.title.search.card") . ' - Nibble Poker</title>');
             echo('<meta name="description" content="">');
@@ -49,7 +49,7 @@ if($content_has_error) {
             echo('<meta property="og:description" content=""/>');
             echo('<meta property="og:type" content="website" />');
             echo('<meta property="og:url" content="' . $host_uri . '" />');
-            echo('<meta property="og:image" content="' . $host_uri . '/resources/Azias/logos/opengraph.png"/>');
+            echo('<meta property="og:image" content="' . $host_uri . '/resources/Azias/logos/v2_opengraph.png"/>');
             echo('<meta property="og:image:type" content="image/png"/>');
         }
     }
@@ -65,13 +65,12 @@ if($content_has_error) {
 				<div id="page-title-bar" class="card p-0 pl-20 m-0 square-corners bg-very-dark title-bkgd navbar">
 					<h2 class="content-title font-size-24 mt-20 text-truncate">
                         <i class="fad fa-briefcase"></i>&nbsp;&nbsp;<?php
-						echo('<span class="hidden-xs-and-down">');
                         if($content_has_error) {
-                            echo(localize("content.title.content").'<span class="mx-10">❱</span>'.localize("content.title.error"));
+                            echo('<span class="hidden-xs-and-down">'.localize("content.title.content").'<span class="mx-10">❱</span></span>'.localize("content.title.error"));
                         } elseif($requested_content_display_type == ContentDisplayType::SEARCH) {
-							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.localize("content.title.search.header"));
+							echo(localize("content.title.content").'<span class="hidden-xs-and-down"><span class="mx-10">❱</span>'.localize("content.title.search.header").'</span>');
                         } elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
-							echo(localize("content.title.content").'<span class="mx-10">❱</span>'.$content->get_head_title());
+							echo('<span class="hidden-xs-and-down">'.localize("content.title.content").'<span class="mx-10">❱</span></span>'.$content->get_head_title());
                         }
                         ?>
 					</h2>

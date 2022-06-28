@@ -8,7 +8,7 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 <div id="header-lang-menu" class="navbar-content ml-auto">
 	<div class="dropdown with-arrow">
 		<button class="btn" data-toggle="dropdown" type="button" id="navbar-lang-dropdown">
-			<i class="fad fa-language"></i>&nbsp;&nbsp;<?php print(localize("lang.menu.title")); ?>
+			<i class="fad fa-language"></i><span class="hidden-xs-and-down">&nbsp;&nbsp;<?php print(localize("lang.menu.title")); ?></span>
 			<i class="fa fa-angle-down" aria-hidden="true"></i>
 		</button>
 		<div class="dropdown-menu dropdown-menu-right w-150" aria-labelledby="navbar-lang-dropdown">
