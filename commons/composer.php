@@ -48,6 +48,7 @@ abstract class ComposerElementTypes {
 	const TABLE     = "table";
 	const GRID      = "grid";
 	const GALLERY   = "gallery";
+	const VIDEO     = "video";
 	
 	/**
 	 * Returns all the constants present in the class.
@@ -425,9 +426,14 @@ class ComposerElement {
 	// Button's parameters
 	private ?string $color;
 	
+	// Image and video's parameters
+	private ?string $source;
+	private ?string $thumbnail;
+	
 	function __construct(string $type, ?array $modifiers, ?string $link, ?array $parts, ?string $content,
 						 bool $localize, ?int $padding, ?int $margin, ?int $size, ?array $head, ?array $body,
-						 int $colspan, int $rowspan, ?int $indent, ?array $code, ?string $color) {
+						 int $colspan, int $rowspan, ?int $indent, ?array $code, ?string $color, ?string $source,
+						 ?string $thumbnail) {
 		$this->type = $type;
 		$this->modifiers = $modifiers;
 		$this->link = $link;
@@ -451,6 +457,8 @@ class ComposerElement {
 		$this->indent = $indent;
 		$this->code = $code;
 		$this->color = $color;
+		$this->source = $source;
+		$this->thumbnail = $thumbnail;
 	}
 	
 	static function from_json_array(?array $json_dataArray) : array {
@@ -481,6 +489,8 @@ class ComposerElement {
 			key_exists("indent", $json_data) ? $json_data["indent"] : null,
 			key_exists("code", $json_data) ? $json_data["code"] : null,
 			key_exists("color", $json_data) ? $json_data["color"] : null,
+			key_exists("source", $json_data) ? $json_data["source"] : null,
+			key_exists("thumbnail", $json_data) ? $json_data["thumbnail"] : null,
 		);
 	}
 	
@@ -783,6 +793,14 @@ class ComposerElement {
 				break;
 				
 			case ComposerElementTypes::GALLERY:
+				break;
+			
+			case ComposerElementTypes::VIDEO:
+				// Composing the video element
+				$htmlCode .= '<video ' . (is_null($this->source) ? '' : 'src="' . $this->source . '" ') .
+					'class="' . $this->get_modifiers_classes() . '" ' .
+					(is_null($this->thumbnail) ? '' : 'poster="' . $this->thumbnail . '" ') .
+					'controls muted></video>';
 				break;
 				
 			default:

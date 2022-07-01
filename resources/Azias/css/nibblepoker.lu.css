@@ -254,3 +254,9 @@ div.last-inner-collapse-border-fix {
 code.w-full {
 	white-space: pre;
 }
+
+video {
+	/* https://css-tricks.com/fluid-width-video/ */
+	width: 100% !important;
+	height: auto !important;
+}

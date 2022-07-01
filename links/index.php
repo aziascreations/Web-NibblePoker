@@ -57,42 +57,6 @@ include_once 'langs.php';
 							</p>
 						</div>
 					</div>
-					<!--<div class="card p-0 mx-0">
-						<div class="px-card py-10 border-bottom px-20">
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-5 col-lg-12">
-										<h2 class="card-title font-size-18 m-0">
-											<i class="fab fa-youtube"></i>&nbsp;&nbsp;YouTube
-										</h2>
-									</div>
-									<div class="col-7 hidden-lg-and-up text-right font-italic">
-										<h2 class="card-title font-size-18 m-0 text-super-muted">Herwin | Nibble Poker</h2>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="px-card py-10 bg-light-lm bg-very-dark-dm border-bottom px-20">
-							<p class="font-size-12 m-0">
-								<i class="fad fa-globe"></i> https://www.youtube.com/channel/UCfBSS1z3EsmpnhbbP-BBoYw
-								<a class="ml-20" href="https://www.youtube.com/channel/UCfBSS1z3EsmpnhbbP-BBoYw">
-									<span class="badge badge-primary">
-										<?php print(localize('links.visit.button')); ?>
-									</span>
-								</a>
-							</p>
-						</div>
-						<div class="px-card py-10 bg-light-lm bg-very-dark-dm rounded-bottom px-20">
-							<p class="font-size-12 m-0">
-								<i class="fad fa-globe"></i> https://www.youtube.com/channel/UCrvagfACQw9ukdNP-CE3A0g
-								<a class="ml-20" href="https://www.youtube.com/channel/UCrvagfACQw9ukdNP-CE3A0g">
-									<span class="badge badge-primary">
-										<?php print(localize('links.visit.button')); ?>
-									</span>
-								</a>
-							</p>
-						</div>
-					</div>-->
 					<div class="card p-0 mx-0">
 						<div class="px-card py-10 border-bottom px-20">
 							<div class="container-fluid">
@@ -125,7 +89,7 @@ include_once 'langs.php';
 								<div class="row">
 									<div class="col-5 col-lg-12">
 										<h2 class="card-title font-size-18 m-0">
-											<i class="fab fa-twitch"></i>&nbsp;&nbsp;Twitch
+                                            <i class="fab fa-linkedin"></i>&nbsp;&nbsp;LinkedIn
 										</h2>
 									</div>
 									<div class="col-7 hidden-lg-and-up text-right font-italic">
@@ -136,8 +100,8 @@ include_once 'langs.php';
 						</div>
 						<div class="px-card py-10 bg-light-lm bg-very-dark-dm rounded-bottom px-20">
 							<p class="font-size-12 m-0">
-								<i class="fad fa-globe"></i> https://www.twitch.tv/nibblepoker
-								<a class="ml-20" href="https://www.twitch.tv/nibblepoker">
+								<i class="fad fa-globe"></i> https://www.linkedin.com/in/herwin-bozet-60aa6310b/
+								<a class="ml-20" href="https://www.linkedin.com/in/herwin-bozet-60aa6310b/">
 									<span class="badge badge-primary">
 										<?php print(localize('links.visit.button')); ?>
 									</span>
