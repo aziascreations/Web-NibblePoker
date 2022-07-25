@@ -17,6 +17,7 @@
     "programming.docker.title": "Docker",
     "programming.apps.title": "Applications",
     "programming.downloads.title": "Downloads",
+    "programming.git.title": "Git Repos.",
     "programming.tutorials.title": "Tutorials",
     "programming.tools.title": "Tools",
     "electronics.title": "Electronics",
@@ -144,6 +145,7 @@
     "content.fallback.content.commons.download.multiple": "Downloads",
     "content.fallback.content.commons.version": "Version",
     "content.fallback.content.commons.github": "GitHub Repository",
+    "content.fallback.content.commons.gitea": "Self-hosted Gitea Repository",
 
     "content.fallback.content.commons.lang.english": "English",
     "content.fallback.content.commons.lang.french": "French",
@@ -185,6 +187,7 @@
     "programming.docker.title": "Docker",
     "programming.apps.title": "Applications",
     "programming.downloads.title": "Téléchargements",
+    "programming.git.title": "Dépôts Git",
     "programming.tutorials.title": "Tutoriels",
     "programming.tools.title": "Outils",
     "electronics.title": "Électronique",
@@ -308,6 +311,7 @@
     "content.fallback.content.commons.download.multiple": "Téléchargements",
     "content.fallback.content.commons.version": "Version",
     "content.fallback.content.commons.github": "Dépôt GitHub",
+    "content.fallback.content.commons.gitea": "Dépôt Gitea auto-hébergé",
 
     "content.fallback.content.commons.lang.english": "Anglais",
     "content.fallback.content.commons.lang.french": "Français",

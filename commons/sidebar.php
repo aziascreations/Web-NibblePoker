@@ -54,20 +54,20 @@ if(!isset($SIDEBAR_ID)) {
 				<?php print(localize("programming.docker.title")); ?>
 			</a>
 			<div class="sidebar-divider"></div>
-			<a id="sbl-projects-downloads" href="https://files.nibblepoker.lu/" class="sidebar-link sidebar-link-with-icon">
-				<span class="sidebar-icon"><i class="fad fa-download"></i></span>
+            <a id="sbl-projects-downloads" href="https://files.nibblepoker.lu/" class="sidebar-link sidebar-link-with-icon">
+                <span class="sidebar-icon"><i class="fad fa-download"></i></span>
 				<?php print(localize("programming.downloads.title")); ?>
-			</a>
+            </a>
+            <a id="sbl-projects-downloads" href="https://git.nibblepoker.lu/" class="sidebar-link sidebar-link-with-icon">
+                <span class="sidebar-icon"><i class="fad fa-code"></i></span>
+				<?php print(localize("programming.git.title")); ?>
+            </a>
 		</div>
 		<div class="sidebar-divider"></div>
 		<a id="sbl-links" href="<?php print(l10n_url_abs('/links/')); ?>" class="sidebar-link sidebar-link-with-icon<?php if($SIDEBAR_ID=="links"){echo(" active");} ?>">
 			<span class="sidebar-icon"><i class="fad fa-link"></i></span>
 			<?php print(localize("links.title")); ?>
 		</a>
-		<!--<a id="sbl-about" href="<?php print(l10n_url_abs('/about/')); ?>" class="sidebar-link sidebar-link-with-icon<?php if($SIDEBAR_ID=="about"){echo(" active");} ?>">
-			<span class="sidebar-icon"><i class="fad fa-user"></i></span>
-			<?php print(localize("about.title")); ?>
-		</a>-->
 		<a id="sbl-contact" href="<?php print(l10n_url_abs('/contact/')); ?>" class="sidebar-link sidebar-link-with-icon<?php if($SIDEBAR_ID=="contact"){echo(" active");} ?>">
 			<span class="sidebar-icon"><i class="fad fa-mailbox"></i></span>
 			<?php print(localize("contact.title")); ?>

@@ -57,7 +57,7 @@ include_once 'langs.php';
 				</div>
 				<div class="row mx-auto w-95">
 				<!--<div class="row mx-auto w-lg-p90">-->
-					<div class="col-sm-12 col-lg-8 mb-20">
+					<div class="col-sm-12 col-lg-8 mb-20 table-cell">
 						<div class="content mb-0">
 							<div class="card p-0 m-0 card-bkgd">
 								<div class="content m-0">
@@ -133,7 +133,7 @@ include_once 'langs.php';
 						</div>
 					</div>
 					
-					<div class="col-sm-12 col-lg-4 d-none d-sm-block">
+					<div class="col-sm-12 col-lg-4 d-none d-sm-block table-cell">
 						<div class="content ml-lg-0">
 							<div class="card p-0 m-0 card-bkgd">
 								<div class="content m-0">
@@ -151,6 +151,11 @@ include_once 'langs.php';
 										</div>
 									</div>
 									<div class="px-card py-5 px-20">
+                                        <p>
+                                            <span class="font-weight-bold">25th July 2022</span><br>
+                                            Finished setting up a public read-only Gitea instance for the projects.
+                                        </p>
+                                        <hr>
                                         <p>
                                             <span class="font-weight-bold">16th April 2022</span><br>
                                             Finished the <i>"Project"</i> section
