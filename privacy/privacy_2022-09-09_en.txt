@@ -1,0 +1,77 @@
+# Introduction
+This privacy policy is written in accordance with the 12th and 13th articles of the GDPR.
+
+If you wish to consult it, you can do so on the following websites:
+ https://gdpr.eu/
+ https://eur-lex.europa.eu/
+
+
+# Data collection
+This websites only collects data through generic access logs in order to detect and block bad actors from accessing this website.
+None of the data collected is used for any other purpose,it is never shared with any other third-party and is never use in any sort of analytics.
+
+Here is the list of private data being collected:
+* IP address
+* Browser's User-Agent
+
+And here is the list of non-private data being collected:
+* Requested resource' URI
+* Date and time
+
+Once the data has been logged in the access logs, it is automatically retrieved and processed by a locally-hosted application every 30 seconds and then deleted from said logs.
+
+This application compares this information against a list of known threat sources, targets and behaviours and if a match is found, the private information is anonymized and stored for 7 days pending a manual review.
+Once that 7 day period has elapsed, or once the report has been reviewed, all the relevant data is automatically deleted.
+
+If your request wasn't flagged as potentially malicious, every data collected from it is thrown out instantly.
+
+This process should normally never be triggered for regular traffic since most of the triggering actions are ones that should not be possible to accomplish through normal browsing.
+However, this process isn't infallible and there is always an off chance that false positives may happen.
+
+
+# Third Parties
+Our websites uses some services provided by v6Node in order to prevent bad actors from accessing this website and in order to put in place a reverse-proxy system.
+The goal of this system is to improve your browsing experience with the help of a private caching service and custom traffic filtering rules.
+
+None of the data that may be gathered by v6Node or the system described above is ever used or stored.
+
+If you'd wish to consult their privacy policy and their partners', you can do so by using the following URLs:
+* https://v6node.com/legal (English & German)
+* https://v6node.b-cdn.net/legal/dataprotection.pdf (German)
+
+
+# Cookies
+Our websites doesn't use nor store any cookies in your browser.
+
+
+# Changes to our privacy policy
+The content of this privacy policy was originally written on the 4th of December 2021 and was last updated on the 18th of March 2022.
+
+* 2021/12/04
+  * Original version
+
+* 2022/03/18
+  * Changed section on data collection to reflect new policy.
+  * Added mention about CloudFlare and linked to their privacy policy.
+  * Improved the "Changes to our privacy policy" section.
+
+* 2022/09/09
+  * Changed references to external services to reflect the migration to v6Node.
+    * Added mention about v6Node and linked to their privacy policy.
+    * Removed mentions of CloudFlare.
+  * Changed the "Cookies" section to indicate that none should be used on public domains.
+
+In the event of a change to our privacy policy, you will be informed explicitly, and a copy of previous versions of the policy will be available through this page.
+
+
+# How to contact us ?
+If you wish to contact us for more information regarding our privacy policy, please contact us via the form included on the contact page, or at the following email address:
+* herwin.bozet@gmail.com
+
+
+# How to contact the appropriate authorities ?
+Should you wish to report a complaint or if you feel that our privacy policy has not addressed your concern in a satisfactory manner, you may contact your national Data Protection Authority (DPA).
+
+More information on this procedure can be found on the following websites:
+* https://ec.europa.eu/ (English)
+* https://gegevensbeschermingsautoriteit.be/ (French)

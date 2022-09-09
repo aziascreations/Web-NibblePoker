@@ -1,0 +1,78 @@
+# Introduction
+La politique de confidentialité ci-présente a été écrite en accord avec les articles 12 et 13 de la RGPD.
+
+Si vous souhaitez consulter le texte officiel en question, vous pouvez le faire sur les sites internet suivants :
+* https://gdpr.eu/
+* https://eur-lex.europa.eu/
+
+
+# Collecte de données
+Ce site web collecte des données au travers des journaux d'évènements afin de détecter et bloquer de potentiels acteurs malveillants.
+Les données collectées ne sont en aucun cas utilisées pour une quelconque autre raison.
+
+Voici la liste des données personelles collectées:
+* L'addresse IP source
+* Le "User-Agent" de votre navigateur internet
+
+Et voici la liste des données non-personelles collectées:
+* L'URI de la ressource demandée
+* La date et l'heure
+
+Les données présentes dans les journaux d'évènements sont extraites et retirées pour être traitées par une application qui tourne en local toute les 30 secondes.
+
+L'application en question utilise et compare ces informations avec une liste d'acteurs malveillants et comportement suspects connus.
+Si une correspondance est détectée, les informations privées sont anonymisées et sont stockées pendant 7 jours en attendant qu'un examen manuel soit effectué.
+Après cette période de 7 jours, ou après qu'un examen ait été effectué, les données sont automatiquement supprimées.
+
+Toute information concernant une requête non suspecte est automatiquement supprimée.
+
+Ce processus n'est normalement jamais utilisé sur des requêtes provenant d'un trafic légitime dû au fait qu'il isole principalement les actions et requêtes qui ne devraient pas être possible sur ce site.
+Cependant, ce processus n'est pas infaillible et il est toujours possible qu'une requête soit isolée par erreur.
+
+
+# Organismes tiers
+Ce site web utilise les services proposés par v6Node afin d'empêcher des acteurs malveillants d'y accéder et dans le but de mettre en place un système de reverse-proxy.
+Ceci a pour but d'améliorer l'expérience des personnes le visitant grâce à un système de filtrage et caching privé.
+
+Aucune des données collectées et stockées par v6Node et le système décris ci-dessus n'est utilisé ou stocké.
+
+Si vous souhaitez consulter leur politique de confidentialité ainsi que celle de leur partenaires, vous pouvez le faire en suivant les liens ci-dessous:
+* https://v6node.com/legal (Allemand & Anglais)
+* https://v6node.b-cdn.net/legal/dataprotection.pdf (Allemand)
+
+
+# Cookies de navigation
+Ce site web n'utilise pas, et ne stocke aucun cookies dans votre navigateur internet.
+
+
+# Changements à notre politique de confidentialité
+Le contenu de notre politique de confidentialité a été originalement écrit et le 4 décembre 2021 modifié pour la dernière fois le 18 mars 2022.
+
+* 2021/12/04
+  * Version originale
+
+* 2022/03/18
+  * Mise-à-jour de la section sur la collection des données.
+  * Ajout d'une mention de CloudFlare et ajout de liens vers leur politique de confidentialité.
+  * Amélioration de la section "Changements à notre politique de confidentialité".
+
+* 2022/09/09
+  * Changement des références aux services externes pour indiquer l'utilisation de v6Node.
+    * Ajout de mentions de v6Node et liens vers leur politique de vie confidentialité.
+    * Suppression de mentions de CloudFlare.
+  * Changement de la section "Cookies" afin d'indiquer qu'ils ne seront plus utilisés sur les domaines publics.
+
+En cas de changement, vous serez clairement informé et une copie des anciennes versions de notre politique sera disponible au travers de cette page.
+
+
+# Comment nous contacter ?
+Si vous souhaitez nous contacter afin d'obtenir plus d'informations concernant notre politique de confidentialité, nous vous recommandons d'utiliser le formulaire présent sur la page de contact, ou par courriel à l'adresse suivante:
+* herwin.bozet@gmail.com
+
+
+# Comment contacter les autorités compétentes ?
+Dans l'éventualité où vous souhaiteriez déposer une plainte pour une quelconque raison en rapport avec notre politique de confidentialité, veuillez vous adresser à l'autorité nationale de protection des données (DPA).
+
+Les informations concernant cette procédure peuvent être trouvées sur les sites internet suivants:
+* https://ec.europa.eu/ (Anglais)
+* https://gegevensbeschermingsautoriteit.be/ (Français)
