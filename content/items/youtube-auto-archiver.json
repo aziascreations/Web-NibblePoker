@@ -1,0 +1,130 @@
+{
+  "strings": {
+    "en": {
+      "meta.title": "Youtube Auto Archiver",
+      "meta.description": "A simple and yet highly configurable Python application that automatically checks if a Youtuber is streaming, and downloads said streams while also archiving its latest uploads.",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/Youtube-Auto-Archiver\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> View on GitHub</a>",
+
+      "intro.title": "Introduction",
+      "warning.title": "Warning",
+      "warning.p1": "Due to the way some commands are executed, it is possible to have a <a href=\"https://owasp.org/www-community/attacks/Command_Injection\">command injection vulnerability</a> if you mess up or leave the config file editable by everyone.",
+      "warning.p2": "This might be fixed in the future, but don't count on it as this project is a personal one.",
+
+      "features.title": "Features",
+      "features.list.1.1": "● General",
+      "features.list.1.2": "⚬ Can run on Windows and Linux (Tested on x64 and ARMv8)",
+      "features.list.1.3": "⚬ Relatively high level of configurability.",
+      "features.list.2.1": "● YouTube",
+      "features.list.2.2": "⚬ Automatic livestream download through https://youtube.com/c/.../live",
+      "features.list.2.3": "⚬ Automatic livestream thumbnail and description download.",
+      "features.list.2.4": "⚬ Automatic download of uploads and their metadata.",
+      "features.list.2.5": "⚬ Configurable delays, actions, locations per channel.",
+      "features.list.3.1": "● Planned for v1.0.0",
+      "features.list.3.2": "⚬ Native support for cookies for yt-dlp and maybe streamlink.",
+      "features.list.3.3": "⚬ Better support to prevent command injection. (Will block some features if used)",
+      "features.list.4.1": "● Planned for later",
+      "features.list.4.2": "⚬ Using TOML for the config file when Python 3.11 is released and stable.",
+
+      "links.title": "Links"
+    },
+    "fr": {
+      "_meta.title": "",
+      "meta.description": "Une simple petite application hautement configurable qui vérifie automatiquement si un Youtubeur stream et as uploadé des vidéos afin de les archiver.",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/Youtube-Auto-Archiver\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> Voir sur GitHub</a>",
+
+      "intro.title": "Introduction",
+      "warning.title": "Avertissements",
+      "warning.p1": "Due au fait que certaines commandes sont exécutées avec des paramètres arbitraires configurables cette application est vulnérable aux attaques par <a href=\"https://owasp.org/www-community/attacks/Command_Injection\">injection de commande</a> si le fichier de configuration est modifiable par des personnes non autorisées.",
+      "warning.p2": "Ce problème sera probablement réglé dans le futur, mais il n'y a pas de date fixe comme ce projet est plus personnel qu'autre-chose.",
+
+      "features.title": "Fonctionnalités",
+      "features.list.1.1": "● General",
+      "features.list.1.2": "⚬ Can run on Windows and Linux (Tested on x64 and ARMv8)",
+      "features.list.1.3": "⚬ Relatively high level of configurability.",
+      "features.list.2.1": "● YouTube",
+      "features.list.2.2": "⚬ Automatic livestream download through https://youtube.com/c/.../live",
+      "features.list.2.3": "⚬ Automatic livestream thumbnail and description download.",
+      "features.list.2.4": "⚬ Automatic download of uploads and their metadata.",
+      "features.list.2.5": "⚬ Configurable delays, actions, locations per channel.",
+      "features.list.3.1": "● Planned for v1.0.0",
+      "features.list.3.2": "⚬ Native support for cookies for yt-dlp and maybe streamlink.",
+      "features.list.3.3": "⚬ Better support to prevent command injection. (Will block some features if used)",
+      "features.list.4.1": "● Planned for later",
+      "features.list.4.2": "⚬ Using TOML for the config file when Python 3.11 is released and stable.",
+
+      "links.title": "Liens"
+    }
+  },
+  "metadata": {
+    "template": "article",
+    "head": {
+      "title": "meta.title",
+      "description": "meta.description"
+    },
+    "opengraph": {
+      "title": "meta.title",
+      "description": "meta.description",
+      "type": null,
+      "url": null,
+      "image": null,
+      "image_type": null
+    },
+    "article": {
+      "icon": "fab fa-youtube",
+      "title": "meta.title",
+      "subtitle": "article.subtitle",
+      "tags": ["docker", "application", "web", "python"]
+    }
+  },
+  "elements": [
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "intro.title"},
+        {"type": "paragraph", "indent": 2, "content": "meta.description"}
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "warning.title"},
+        {"type": "paragraph", "indent": 2, "content": "warning.p1"},
+        {"type": "paragraph", "indent": 2, "content": "warning.p2"}
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "features.title"},
+        {"type": "paragraph", "indent": 2, "content": "features.list.1.1", "modifiers": ["no-bottom-margin"]},
+        {"type": "paragraph", "indent": 4, "content": "features.list.1.2", "modifiers": ["no-bottom-margin", "no-top-margin"]},
+        {"type": "paragraph", "indent": 4, "content": "features.list.1.3", "modifiers": ["no-bottom-margin", "no-top-margin"]},
+        {"type": "paragraph", "indent": 2, "content": "features.list.2.1", "modifiers": ["no-bottom-margin"]},
+        {"type": "paragraph", "indent": 4, "content": "features.list.2.2", "modifiers": ["no-bottom-margin", "no-top-margin"]},
+        {"type": "paragraph", "indent": 4, "content": "features.list.2.3", "modifiers": ["no-bottom-margin", "no-top-margin"]},
+        {"type": "paragraph", "indent": 4, "content": "features.list.2.4", "modifiers": ["no-bottom-margin", "no-top-margin"]},
+        {"type": "paragraph", "indent": 4, "content": "features.list.2.5", "modifiers": ["no-bottom-margin", "no-top-margin"]},
+        {"type": "paragraph", "indent": 2, "content": "features.list.3.1", "modifiers": ["no-bottom-margin"]},
+        {"type": "paragraph", "indent": 4, "content": "features.list.3.2", "modifiers": ["no-bottom-margin", "no-top-margin"]},
+        {"type": "paragraph", "indent": 4, "content": "features.list.3.3", "modifiers": ["no-bottom-margin", "no-top-margin"]},
+        {"type": "paragraph", "indent": 2, "content": "features.list.4.1", "modifiers": ["no-bottom-margin"]},
+        {"type": "paragraph", "indent": 4, "content": "features.list.4.2", "modifiers": ["no-top-margin"]}
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "warning.title"},
+        {"type": "paragraph", "indent": 2, "content": "warning.p1"},
+        {"type": "paragraph", "indent": 2, "content": "warning.p2"}
+      ]
+    }
+  ]
+}

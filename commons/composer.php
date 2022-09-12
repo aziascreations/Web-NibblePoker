@@ -619,12 +619,25 @@ class ComposerElement {
 				// Defining the text's indent level.
 				$_paragraph_ident_level = is_null($this->indent) ? 0 : $this->indent;
 				
+				// Calculating the vertical margin modifiers
+				$_paragraph_no_margin_top = ComposerElementModifiers::is_modifier_in_modifiers(
+					ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers);
+				$_paragraph_no_margin_bottom = ComposerElementModifiers::is_modifier_in_modifiers(
+					ComposerElementModifiers::GENERIC_MARGIN_NO_BOTTOM, $this->modifiers);
+				
+				if($_paragraph_no_margin_top && $_paragraph_no_margin_bottom) {
+					$_paragraph_margin_modifier = 'my-0';
+				} else if($_paragraph_no_margin_top) {
+					$_paragraph_margin_modifier = 'mt-0 mb-10';
+				} else if($_paragraph_no_margin_bottom) {
+					$_paragraph_margin_modifier = 'mt-10 mb-0';
+				} else {
+					$_paragraph_margin_modifier = 'my-10';
+				}
+				
 				// Composing the paragraph
-				$htmlCode .= '<p class="' .
-					(ComposerElementModifiers::is_modifier_in_modifiers(
-						ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers)
-					? 'mt-0 mb-10' : 'my-10') . ' ml-md-' . ($_paragraph_ident_level * 5) . '">' .
-					$this->get_inner_html($content_root) . '</p>';
+				$htmlCode .= '<p class="' . $_paragraph_margin_modifier. ' ml-md-' . ($_paragraph_ident_level * 5) .
+					'">' . $this->get_inner_html($content_root) . '</p>';
 				
 				break;
 				
@@ -834,8 +847,10 @@ function get_content_file_path(string $content_id) : ?string {
 }
 
 function load_content_by_file_path(string $file_path) : ?ComposerContent {
-	// FIXME: Add handling for JSON errors !
 	$content_json_data = json_decode(file_get_contents($file_path), true);
+	if(is_null($content_json_data)) {
+		return null;
+	}
 	return ComposerContent::from_json($content_json_data);
 }
 

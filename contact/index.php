@@ -35,7 +35,7 @@ include_once 'langs.php';
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-4">
-										<h2 class="card-title font-size-18 m-0"><i class="fad fa-envelope-square"></i>&nbsp;&nbsp;Email</h2>
+										<h2 class="card-title font-size-18 m-0"><i class="fad fa-envelope-square"></i>&nbsp;&nbsp;<?php print(localize("contact.email.title")); ?></h2>
 									</div>
 									<div class="col-8 text-right font-italic">
 										<h2 class="card-title font-size-18 m-0 text-super-muted">herwin.bozet@gmail.com</h2>
@@ -46,11 +46,11 @@ include_once 'langs.php';
 						<div class="px-card py-20 bg-light-lm bg-very-dark-dm rounded-bottom px-20">
 							<form action="mailto:herwin.bozet@gmail.com?subject=Website%20contact%20form%20message" target="_top" method="post" class="w-full">
 								<div class="form-group">
-									<label for="name">Sender's Name</label>
+									<label for="name"><?php print(localize("contact.email.name")); ?></label>
 									<input type="text" class="form-control" id="name" placeholder="John Smith">
 								</div>
 								<div class="form-group">
-									<label for="message" class="required">Message</label>
+									<label for="message" class="required"><?php print(localize("contact.email.message")); ?></label>
 									<textarea class="form-control" id="message" placeholder="Write your message here." required="required"></textarea>
 								</div>
 								<input class="btn btn-primary mr-10" type="submit" value="Submit">
@@ -73,7 +73,7 @@ include_once 'langs.php';
 						</div>
 						<div class="px-card py-20 bg-light-lm bg-very-dark-dm rounded-bottom pl-20">
 							<a href="https://twitter.com/messages/compose?recipient_id=937370791334895616">
-								<button class="btn btn-primary">Compose DM to @NibblePoker on Twitter</button>
+								<button class="btn btn-primary"><?php print(localize("contact.twitter.button")); ?></button>
 							</a>
 						</div>
 					</div>
@@ -91,29 +91,33 @@ include_once 'langs.php';
 						</div>
 						<div class="px-card py-10 bg-light-lm bg-very-dark-dm rounded-bottom px-20">
 							<p class="mb-0 mt-10">
-								Main account:
+								<?php print(localize("contact.tox.main")); ?>
 							</p>
 							<p class="text-monospace text-break font-size-12 mt-0 ml-10">
 								62C1A91A425F90D7B4F047D70CCF31E7402C9EC37B93604B0F37C416442D15044AF6C1AE033B
 							</p>
 							<p class="mb-20 text-decoration-none">
 								<a href="tox:62C1A91A425F90D7B4F047D70CCF31E7402C9EC37B93604B0F37C416442D15044AF6C1AE033B" class="text-decoration-none">
-									<button class="btn btn-primary">Open in Tox Client</button>
+									<button class="btn btn-primary"><?php print(localize("contact.tox.button.open")); ?></button>
 								</a>
-								<button id="button-copy-tox-id-main" class="btn btn-secondary ml-10">Copy to clipboard</button>
+								<button id="button-copy-tox-id-main" class="btn btn-secondary ml-10">
+                                    <?php print(localize("contact.tox.button.copy")); ?>
+                                </button>
 							</p>
 							<hr>
 							<p class="mb-0">
-								Backup account:
+								<?php print(localize("contact.tox.secondary")); ?>
 							</p>
 							<p class="text-monospace text-break font-size-12 mt-0 ml-10">
 								01ABBD4515C8FA56231333D1022CEEE0A605F4E85F8A945365F56D196A1BBA10FB4DCE08DBE8
 							</p>
 							<p>
 								<a href="tox:01ABBD4515C8FA56231333D1022CEEE0A605F4E85F8A945365F56D196A1BBA10FB4DCE08DBE8" class="text-decoration-none">
-									<button class="btn btn-primary">Open in Tox Client</button>
+									<button class="btn btn-primary"><?php print(localize("contact.tox.button.open")); ?></button>
 								</a>
-								<button id="button-copy-tox-id-backup" class="btn btn-secondary ml-10">Copy to clipboard</button>
+								<button id="button-copy-tox-id-backup" class="btn btn-secondary ml-10">
+                                    <?php print(localize("contact.tox.button.copy")); ?>
+                                </button>
 							</p>
 						</div>
 					</div>

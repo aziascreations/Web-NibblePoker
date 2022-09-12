@@ -175,7 +175,16 @@
     "downloads.title": "Downloads",
     "downloads.description": "$downloads.description",
     "downloads.title.header": "Downloads",
-    "downloads.intro.title": "Directory listing of: <i>/files/</i>"
+    "downloads.intro.title": "Directory listing of: <i>/files/</i>",
+
+    "contact.email.title": "Email",
+    "contact.email.name": "Sender's Name",
+    "contact.email.message": "Message",
+    "contact.twitter.button": "Compose DM to @NibblePoker on Twitter",
+    "contact.tox.main": "Main account:",
+    "contact.tox.secondary": "Backup account:",
+    "contact.tox.button.open": "Open in Tox Client",
+    "contact.tox.button.copy": "Copy to clipboard"
   },
   "fr": {
     "home.title.nav": "Accueil",
@@ -340,7 +349,16 @@
     "about.philosophy.title": "Philosophie des projets",
     "about.skills.title": "Compétences",
     "about.work.title": "Parcours professionnel",
-    "about.education.title": "Éducation"
+    "about.education.title": "Éducation",
+
+    "contact.email.title": "Courriel",
+    "contact.email.name": "Nom de l'envoyeur",
+    "contact.email.message": "Message",
+    "contact.twitter.button": "Composer un message privé pour @NibblePoker sur Twitter",
+    "contact.tox.main": "Compte principal:",
+    "contact.tox.secondary": "Compte secondaire:",
+    "contact.tox.button.open": "Ouvrir dans un client Tox",
+    "contact.tox.button.copy": "Copier dans le presse-papier"
   },
   "lb": {
     "home.title.nav": "Doheem",

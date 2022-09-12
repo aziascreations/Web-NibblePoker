@@ -1,0 +1,238 @@
+{
+  "strings": {
+    "en": {
+      "meta.title": "Minecraft - Expanded Iron Bundles",
+      "meta.description": "A small Minecraft mod that provides bundles with more storage space, and new functionalities in the future.",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/MC-Expanded-Iron-Bundles\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> View on GitHub</a>",
+      "intro.title": "Introduction",
+      "feature.current.title": "Current features",
+      "feature.current.1": "Recipe for the vanilla bundle",
+      "feature.current.2": "Multiple variants with more storage space and special properties:",
+      "feature.current.3": "Copper Bundle (128 slots / 2 stacks)",
+      "feature.current.4": "Iron Bundle (256 slots / 4 stacks)",
+      "feature.current.5": "Gold Bundle (384 slots / 6 stacks)",
+      "feature.current.6": "Diamond Bundle (512 slots / 8 stacks)",
+      "feature.current.7": "Obsidian Bundle (768 slots / 12 stacks)",
+      "feature.current.8": "Ancient Scraps Bundle (896 slots / 14 stacks)",
+      "feature.current.9": "Netherite Bundle (1024 slots / 16 stacks & Immune to fire and lava)",
+      "feature.planned.title": "Planned features",
+      "feature.planned.1": "Versions for Forge and previous versions of Minecraft",
+      "feature.planned.2": "A config file to enable/disable specific bundles, change capacity",
+      "feature.planned.3": "Better visuals for the occupancy bar",
+      "feature.planned.4": "More bundles with special mechanics (i.e.: Ender Bundle, ...)",
+      "feature.planned.5": "More bundle upgrades",
+      "feature.planned.6": "Improved bundle mechanics (i.e.: Swapping last inserted item, ...)",
+      "feature.planned.7": "Support for modded ores and modded clones of existing ores",
+      "links.title": "Links"
+    },
+    "fr": {
+      "meta.title": "Minecraft - Expanded Iron Bundlest",
+      "meta.description": "Un petit mod pour Minecraft qui ajoute des sacs avec plus d'espace de stockage et de nouvelles fonctionalitées dans le futur.",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/MC-Expanded-Iron-Bundles\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> Voir sur GitHub</a>",
+      "intro.title": "Introduction",
+      "feature.current.title": "Fonctionnalités",
+      "feature.current.1": "Une recette pour le sac en cuir",
+      "feature.current.2": "Plusieurs variantes des sacs avec de nouvelles propriétés:",
+      "feature.current.3": "Sac en cuivre (128 slots / 2 stacks)",
+      "feature.current.4": "Sac en fer (256 slots / 4 stacks)",
+      "feature.current.5": "Sac en or (384 slots / 6 stacks)",
+      "feature.current.6": "Sac en diamant (512 slots / 8 stacks)",
+      "feature.current.7": "Sac en obsidienne (768 slots / 12 stacks)",
+      "feature.current.8": "Sac en fragments de Netherite (896 slots / 14 stacks)",
+      "feature.current.9": "Sac en Netherite (1024 slots / 16 stacks & Immune to fire and lava)",
+      "feature.planned.title": "Fonctionnalités planifiées",
+      "feature.planned.1": "Une version pour Forge et les anciennes versions du jeu",
+      "feature.planned.2": "Un fichier de configuration pour activer/désactiver des fonctionnalités et changer la taille des sacs",
+      "feature.planned.3": "Des meilleurs effets visuels pour la barre d'utilisation",
+      "feature.planned.4": "Des sacs avec des mécaniques spéciales (ex: Sac d'Ender, ...)",
+      "feature.planned.5": "Plus d'améliorations de sacs",
+      "feature.planned.6": "Mécaniques d'utilisations améliorées (ex: Changer l'objet qui sera sorti)",
+      "feature.planned.7": "Support pour les minerais issus d'autres mods",
+      "links.title": "Liens"
+    }
+  },
+  "metadata": {
+    "template": "article",
+    "head": {
+      "title": "meta.title",
+      "description": "meta.description"
+    },
+    "opengraph": {
+      "title": "meta.title",
+      "description": "meta.description",
+      "type": null,
+      "url": null,
+      "image": null,
+      "image_type": null
+    },
+    "article": {
+      "icon": "fad fa-cubes",
+      "title": "meta.title",
+      "subtitle": "article.subtitle",
+      "tags": ["game", "minecraft", "mod"]
+    }
+  },
+  "elements": [
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "intro.title"},
+        {"type": "paragraph", "indent": 2, "content": "meta.description"}
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "feature.current.title"},
+        {
+          "type": "paragraph",
+          "indent": 2,
+          "parts": [
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.current.1"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.current.2"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.current.3"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.current.4"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.current.5"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.current.6"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.current.7"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.current.8"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.current.9"}
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "feature.planned.title"},
+        {
+          "type": "paragraph",
+          "indent": 2,
+          "parts": [
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.planned.1"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.planned.2"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.planned.3"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.planned.4"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.planned.5"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.planned.6"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "feature.planned.7"}
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "links.title"},
+        {
+          "type": "paragraph",
+          "indent": 2,
+          "modifiers": ["no-bottom-padding"],
+          "parts": [
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw",
+              "link": "https://github.com/aziascreations/MC-Expanded-Iron-Bundles",
+              "parts": [
+                {"type": "raw", "content": "content.commons.github"},
+                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {
+                  "type": "raw",
+                  "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/MC-Expanded-Iron-Bundles)</span></span>",
+                  "localize": false
+                }
+              ]
+            },
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw",
+              "link": "https://git.nibblepoker.lu/aziascreations/MC-Expanded-Iron-Bundles",
+              "parts": [
+                {"type": "raw", "content": "content.commons.gitea"},
+                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {
+                  "type": "raw",
+                  "content": "<span class=\"font-size-12\">(https://git.nibblepoker.lu/aziascreations/MC-Expanded-Iron-Bundles)</span></span>",
+                  "localize": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "indent": 2,
+          "modifiers": ["no-top-padding"],
+          "parts": [
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw", "link": "https://modrinth.com/mod/expanded-iron-bundles",
+              "parts": [
+                {"type": "raw", "content": "Modrinth [Fabric & Forge]", "localize": false},
+                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {
+                  "type": "raw",
+                  "content": "<span class=\"font-size-12\">(https://modrinth.com/mod/expanded-iron-bundles)</span></span>",
+                  "localize": false
+                }
+              ]
+            },
+
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw", "link": "https://www.curseforge.com/minecraft/mc-mods/expanded-iron-bundles-fabric",
+              "parts": [
+                {"type": "raw", "content": "CurseForge [Fabric]", "localize": false},
+                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {
+                  "type": "raw",
+                  "content": "<span class=\"font-size-12\">(https://www.curseforge.com/minecraft/mc-mods/expanded-iron-bundles-fabric)</span></span>",
+                  "localize": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

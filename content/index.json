@@ -36,6 +36,26 @@
       "fr": "Petite application web qui permet de facilement retirer le mot de passe d'une feuille de calcul Excel depuis votre navigateur web sans avoir à uploader le fichier sur internet.<br>Cette application laisse votre navigateur modifier les fichiers XML du fichier Excel afin de tout garder en local."
     },
     "image": "/resources/Azias/imgs/excel-password-remover/excel-password-remover.png",
-    "tags": ["tool", "web"]
+    "tags": [
+      "tool",
+      "web"
+    ]
+  },
+  {
+    "id": "mc-expanded-iron-bundles",
+    "title": {
+      "en": "Expanded Iron Bundles",
+      "fr": "Expanded Iron Bundles"
+    },
+    "preamble": {
+      "en": "A small Minecraft mod that provides bundles with more storage space, and new functionalities in the future.",
+      "fr": "Un petit mod pour Minecraft qui ajoute des sacs avec plus d'espace de stockage et de nouvelles fonctionalitées dans le futur."
+    },
+    "image": "/resources/Azias/imgs/mc-expanded-iron-bundles/item-icon.png",
+    "tags": [
+      "game",
+      "minecraft",
+      "mod"
+    ]
   }
 ]

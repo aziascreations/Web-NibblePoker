@@ -21,7 +21,7 @@ include_once 'langs.php';
 	<div class="page-wrapper with-sidebar with-navbar-fixed-bottom">
 		<?php $SIDEBAR_ID = 'home'; include 'sidebar.php'; ?>
 		<div class="content-wrapper">
-			<div class="container-fluid h-full stretch-align-items">
+			<div class="container-fluid">
 				<div id="page-title-bar" class="card p-0 pl-20 m-0 square-corners bg-very-dark title-bkgd navbar">
 					<h2 class="content-title font-size-24 mt-20 text-truncate">
 						<i class="fad fa-home"></i>&nbsp;<?php print(localize("home.title.header")); ?>
@@ -151,6 +151,11 @@ include_once 'langs.php';
 										</div>
 									</div>
 									<div class="px-card py-5 px-20">
+                                        <p>
+                                            <span class="font-weight-bold">9th September 2022</span><br>
+                                            Moved to v6Node and updated privacy policy to reflect the changes.
+                                        </p>
+                                        <hr>
                                         <p>
                                             <span class="font-weight-bold">25th July 2022</span><br>
                                             Finished setting up a public read-only Gitea instance for the projects.
