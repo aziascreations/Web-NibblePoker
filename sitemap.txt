@@ -3,6 +3,7 @@ https://nibblepoker.lu/content/
 https://nibblepoker.lu/content/lscom-cli
 https://nibblepoker.lu/content/youtube-auto-archiver
 https://nibblepoker.lu/content/excel-worksheet-password-remover
+https://nibblepoker.lu/content/mc-expanded-iron-bundles
 https://nibblepoker.lu/links/
 https://nibblepoker.lu/contact/
 https://nibblepoker.lu/privacy/
@@ -11,6 +12,7 @@ https://nibblepoker.lu/en/content/
 https://nibblepoker.lu/en/content/lscom-cli
 https://nibblepoker.lu/en/content/youtube-auto-archiver
 https://nibblepoker.lu/en/content/excel-worksheet-password-remover
+https://nibblepoker.lu/en/content/mc-expanded-iron-bundles
 https://nibblepoker.lu/en/links/
 https://nibblepoker.lu/en/contact/
 https://nibblepoker.lu/en/privacy/
@@ -19,6 +21,7 @@ https://nibblepoker.lu/fr/content/
 https://nibblepoker.lu/fr/content/lscom-cli
 https://nibblepoker.lu/fr/content/youtube-auto-archiver
 https://nibblepoker.lu/fr/content/excel-worksheet-password-remover
+https://nibblepoker.lu/fr/content/mc-expanded-iron-bundles
 https://nibblepoker.lu/fr/links/
 https://nibblepoker.lu/fr/contact/
 https://nibblepoker.lu/fr/privacy/

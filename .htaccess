@@ -18,6 +18,26 @@ ServerSignature Off
 ErrorDocument 403 /403.php
 ErrorDocument 404 /404.php
 
+# Setting up browser's caching rules
+# See:
+#  * https://stackoverflow.com/a/13029007
+#  * https://www.a2hosting.com/kb/developer-corner/apache-web-server/turning-off-caching-using-htaccess
+
+# Default: 12 hours
+Header set Cache-Control "max-age=43200, public, must-revalidate"
+
+<FilesMatch "\.(?i:gif|jpe?g|png|ico|svg|woff2|otf)$">
+    # Static files: 1 Week
+    Header set Cache-Control "max-age=604800, public, must-revalidate"
+</FilesMatch>
+<FilesMatch "\.(?i:css|js)$">
+    # Semi-static files: 1 Day
+    Header set Cache-Control "max-age=86400, public, must-revalidate"
+</FilesMatch>
+
+#Header set Pragma "no-cache"
+#Header set Expires 0
+
 # Setting some headers for security.
 Header always set X-Detected-Country "NK"
 Header always set X-Frame-Options "deny"
@@ -26,7 +46,7 @@ Header always set X-XSS-Protection " 1; mode=block"
 Header always set Referrer-Policy "no-referrer"
 Header always set X-Content-Type-Options "nosniff"
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-Header always set Cache-Control "max-age=300, public"
+#Header always set Cache-Control "max-age=300, public"
 Header always set Access-Control-Allow-Origin "*"
 Header unset X-Powered-By
 Header always set X-Powered-By "Amiga 1200, Kickstart 3.1"
