@@ -11,3 +11,5 @@ resources/FontAwesomePro/
 *.min.json
 *.lnk
 tmp/
+resources/Azias/css/*.css
+resources/Azias/css/*.map

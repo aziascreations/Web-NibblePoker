@@ -18,4 +18,4 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 <link rel="alternate icon" href="/favicon.ico">
 <link href="/resources/HalfMoon/1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/FontAwesomePro/5.15.3/css/all.min.css">
-<link rel="stylesheet" href="/resources/Azias/css/nibblepoker.lu.css">
+<link rel="stylesheet" href="/resources/Azias/css/nibblepoker.lu.min.css">

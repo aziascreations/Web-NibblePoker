@@ -1,0 +1,10 @@
+/* Halfmoon > Section > Title bar */
+
+#page-title-bar {
+	min-height: 64px;
+	height: 64px;
+}
+
+#header-lang-menu {
+	margin-right: calc(var(--content-and-card-spacing) * ( 2 / 3 ) );
+}

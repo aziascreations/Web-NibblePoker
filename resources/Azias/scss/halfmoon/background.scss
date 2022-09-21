@@ -1,0 +1,21 @@
+/* Halfmoon > Background */
+
+div#body-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("/resources/Azias/imgs/3px-tile.png");
+	opacity: 0.3;
+	margin: 0;
+	padding: 0;
+}
+
+.dark-mode .card.card-bkgd {
+	background: var(--dm-card-bg-color) url("/resources/Azias/imgs/3px-tile-0.2.png") repeat fixed center center;
+}
+
+.bg-very-dark.title-bkgd {
+	background: repeat center center fixed;
+	background-color: var(--dark-color-dark) !important;
+	background-image: url("/resources/Azias/imgs/3px-tile-0.1.png");
+}

@@ -1,0 +1,16 @@
+/* Standalone > Fonts & Text */
+
+@font-face {
+	font-family: 'Quantum';
+	src: url("/resources/Quantum/Quantum.otf") format('opentype');
+}
+
+.quantum {
+	// Only really used for the logo title in the sidebar.
+	font-family: 'Quantum', sans-serif;
+}
+
+.ucase {
+	// Same as above.
+	text-transform: uppercase;
+}

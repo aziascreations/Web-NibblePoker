@@ -1,0 +1,17 @@
+/* Halfmoon > Elements > Containers */
+
+.w-lg-p90 {
+	width: 95% !important;
+}
+
+@media (max-width: 992px) {
+	.w-95 {
+		width: 95% !important;
+	}
+}
+
+@media (min-width: 993px) {
+	.w-lg-p90 {
+		width: 90% !important;
+	}
+}

@@ -1,0 +1,17 @@
+/* Halfmoon > Elements > Glider */
+
+.glider {
+	border: var(--card-border-width) solid var(--dm-card-border-color);
+	box-shadow: inset 1px 0 25px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+.glider-nav {
+	cursor: pointer;
+	height: 100%;
+}
+
+div.glider-slide > * {
+	border: var(--card-border-width) solid var(--dm-card-border-color);
+	box-shadow: inset 1px 0 25px 5px rgba(0, 0, 0, 0.1);
+}
