@@ -16,6 +16,12 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 <meta name="theme-color" content="#1D2023">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="alternate icon" href="/favicon.ico">
-<link href="/resources/HalfMoon/1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="/resources/HalfMoon/1.1.1/css/halfmoon-variables.min.css" />
 <link rel="stylesheet" href="/resources/FontAwesomePro/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="/resources/Azias/css/nibblepoker.lu.min.css">
+<link rel="preload" href="/resources/Quantum/Quantum.otf" as="font">
+<link rel="preload" href="/resources/FontAwesomePro/5.15.3/webfonts/fa-duotone-900.woff2" as="font">
+<link rel="preload" href="/resources/FontAwesomePro/5.15.3/webfonts/fa-brands-400.woff2" as="font">
+<link rel="preload" href="/resources/FontAwesomePro/5.15.3/webfonts/fa-solid-900.woff2" as="font">
+<link rel="preload" href="/resources/Azias/imgs/3px-tile-0.1.png" as="image">
+<link rel="preload" href="/resources/Azias/imgs/3px-tile.png" as="image">
