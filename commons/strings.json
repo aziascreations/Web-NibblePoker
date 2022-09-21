@@ -101,8 +101,10 @@
     "error.4xx.button.back": "Go back",
     "error.403.title": "403 Error",
     "error.403.description": "Access to the requested resource is forbidden !",
+    "error.403.explanation": "If this problem persists, you can contact us through avenues given on the <a href=\"/contact/\">Contact</a> page.",
     "error.404.title": "404 Error",
     "error.404.description": "The requested resource couldn't be found on the server !",
+    "error.404.explanation": "If this problem persists, you can contact us through avenues given on the <a href=\"/contact/\">Contact</a> page.",
 
     "error.content.title.generic": "Content error",
     "error.content.title.empty": "No content found",
@@ -184,7 +186,12 @@
     "contact.tox.main": "Main account:",
     "contact.tox.secondary": "Backup account:",
     "contact.tox.button.open": "Open in Tox Client",
-    "contact.tox.button.copy": "Copy to clipboard"
+    "contact.tox.button.copy": "Copy to clipboard",
+
+    "generic.button.close": "Close",
+    "generic.button.copy": "Copy to clipboard",
+
+    "modal.title.debugging": "Debugging information"
   },
   "fr": {
     "home.title.nav": "Accueil",
@@ -284,8 +291,10 @@
     "error.4xx.button.back": "Retourner en arrière",
     "error.403.title": "Erreur 403",
     "error.403.description": "L'accès à la ressource demandée est interdit !",
+    "error.403.explanation": "Si ce problème persiste, vous pouvez nous contacter via une des avenues données sur la page <a href=\"/contact/\">Contact</a>.",
     "error.404.title": "Erreur 404",
     "error.404.description": "La ressource demandée est introuvable sur le serveur !",
+    "error.404.explanation": "Si ce problème persiste, vous pouvez nous contacter via une des avenues données sur la page <a href=\"/contact/\">Contact</a>.",
 
     "error.content.title.generic": "Erreur de contenu",
     "error.content.title.empty": "Aucun contenu trouvé",
@@ -358,7 +367,12 @@
     "contact.tox.main": "Compte principal:",
     "contact.tox.secondary": "Compte secondaire:",
     "contact.tox.button.open": "Ouvrir dans un client Tox",
-    "contact.tox.button.copy": "Copier dans le presse-papier"
+    "contact.tox.button.copy": "Copier dans le presse-papier",
+
+    "generic.button.close": "Fermer",
+    "generic.button.copy": "Copier dans le presse-papier",
+
+    "modal.title.debugging": "Informations de débogage"
   },
   "lb": {
     "home.title.nav": "Doheem",

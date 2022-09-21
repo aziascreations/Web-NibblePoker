@@ -1,0 +1,56 @@
+/* Halfmoon > Elements > Cards */
+
+.container-card-fold {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 3rem;
+	height: 3rem;
+	
+	clip-path: polygon(100% 0, 0 100%, 100% 100%);
+	border-radius: var(--base-border-radius) !important;
+	//border-bottom-right-radius: var(--base-border-radius) !important;
+	overflow: hidden;
+	background-color: deeppink;
+	opacity: 0.4;
+	
+	// https://codepen.io/setswon/pen/VJeXXq
+	// Using a value of ~0.35 feels sluggish.
+	transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
+	transition-timing-function: cubic-bezier(.47,1.64,.41,.8);
+	
+	user-select: none;
+	
+	&.secondary {
+		color: var(--dm-button-secondary-text-color);
+		background-color: var(--dm-button-secondary-bg-color);
+		background-image: var(--dm-button-secondary-bg-image);
+		border-color: var(--dm-button-secondary-border-color);
+	}
+	
+	&.danger {
+		color: var(--dm-button-secondary-text-color);  // White icons looks like shit.
+		background-color: var(--dm-button-danger-bg-color);
+		background-image: var(--dm-button-danger-bg-image);
+		border-color: var(--dm-button-danger-border-color);
+	}
+	
+	i {
+		position: absolute;
+		right: 0.2rem;
+		bottom: 0.2rem;
+		transition: right 0.25s ease, bottom 0.25s ease;
+		transition-timing-function: cubic-bezier(.47,1.64,.41,.8);
+	}
+	
+	&:hover {
+		width: 3.5rem;
+		height: 3.5rem;
+		opacity: 0.8;
+		
+		i {
+			bottom: 0.325em;
+			right: 0.325rem;
+		}
+	}
+}
