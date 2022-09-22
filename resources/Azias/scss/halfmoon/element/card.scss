@@ -21,6 +21,13 @@
 	
 	user-select: none;
 	
+	&.primary {
+		color: var(--dm-button-primary-text-color);
+		background-color: var(--dm-button-primary-bg-color);
+		background-image: var(--dm-button-primary-bg-image);
+		border-color: var(--dm-button-primary-border-color);
+	}
+	
 	&.secondary {
 		color: var(--dm-button-secondary-text-color);
 		background-color: var(--dm-button-secondary-bg-color);
@@ -41,6 +48,11 @@
 		bottom: 0.2rem;
 		transition: right 0.25s ease, bottom 0.25s ease;
 		transition-timing-function: cubic-bezier(.47,1.64,.41,.8);
+		
+		&.r-45 {
+			// Small fix
+			right: 0.4rem;
+		}
 	}
 	
 	&:hover {
@@ -51,6 +63,29 @@
 		i {
 			bottom: 0.325em;
 			right: 0.325rem;
+			
+			&.r-45 {
+				// Small fix
+				right: 0.7rem;
+			}
+		}
+	}
+	
+	// Extra rule for mobile
+	// If it doesn't work, use "768px" !
+	@media (max-width: 576px) {
+		width: 3.5rem;
+		height: 3.5rem;
+		opacity: 0.8;
+		
+		i {
+			bottom: 0.325em;
+			right: 0.325rem;
+			
+			&.r-45 {
+				// Small fix
+				right: 0.7rem;
+			}
 		}
 	}
 }

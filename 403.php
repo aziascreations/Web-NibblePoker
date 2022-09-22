@@ -22,7 +22,7 @@ include_once 'modals.php';
     $debuggingText = "Referrer: " . (
         array_key_exists('HTTP_REFERER', $_SERVER) ? htmlspecialchars($_SERVER['HTTP_REFERER']) : "<i>Not present in request !</i>"
         ) . "<br>";
-    $debuggingText .= "<br>TODO: Add more info once the cache if properly configured for 4xx errors !";
+    $debuggingText .= "<br>TODO: Add more info once the cache is properly configured for 4xx errors !";
     add_code_modal(
         "http-error",
         localize('modal.title.debugging'),

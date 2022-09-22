@@ -126,8 +126,15 @@ include_once 'langs.php';
                                                 <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/excel-worksheet-password-remover")); ?>">Project's page</a>
 											</p>
 										</div>
+
+                                        <a href="<?php print(l10n_url_abs('/content/')); ?>">
+                                            <div class="container-card-fold primary">
+                                                <i class="fas fa-angle-right r-45"></i>
+                                            </div>
+                                        </a>
+
 									</div>
-									
+                                    
 								</div>
 							</div>
 						</div>
