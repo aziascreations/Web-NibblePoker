@@ -1,0 +1,8 @@
+{
+  "home.title.nav": "Accueil",
+  "home.title.header": "Page d'accueil",
+  "home.intro.meta.description": "${home.intro.meta.description}",
+  "home.intro.title": "Bienvenue",
+  "home.intro.text.1": "Ce site internet contient une collection de mon travail personnel dans le domaine de l'informatique, le tout étant rendu accessible par le biais d'articles de blog, ? et ?, le tout sous une licence ouverte et en open source.",
+  "home.intro.text.2": "Si vous désirez me contacter, vous pouvez le faire via le formulaire de contact dans la page prévu à cet effet qui est liée dans le menu latéral ou via l'adresse email présente sur cette page."
+}

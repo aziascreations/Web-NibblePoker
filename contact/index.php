@@ -53,8 +53,8 @@ include_once 'langs.php';
 									<label for="message" class="required"><?php print(localize("contact.email.message")); ?></label>
 									<textarea class="form-control" id="message" placeholder="Write your message here." required="required"></textarea>
 								</div>
-								<input class="btn btn-primary mr-10" type="submit" value="Submit">
-								<input class="btn btn-secondary" type="reset" value="Reset">
+								<input class="btn btn-primary mr-10" type="submit" value="<?php print(localize("generic.button.submit")); ?>">
+								<input class="btn btn-secondary" type="reset" value="<?php print(localize("generic.button.reset")); ?>">
 							</form>
 						</div>
 					</div>

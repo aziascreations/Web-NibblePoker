@@ -1,0 +1,11 @@
+{
+  "contact.title": "Contact",
+  "contact.email.title": "Email",
+  "contact.email.name": "Sender's Name",
+  "contact.email.message": "Message",
+  "contact.twitter.button": "Compose DM to @NibblePoker on Twitter",
+  "contact.tox.main": "Main account:",
+  "contact.tox.secondary": "Backup account:",
+  "contact.tox.button.open": "Open in Tox Client",
+  "contact.tox.button.copy": "Copy to clipboard"
+}

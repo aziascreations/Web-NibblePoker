@@ -1,0 +1,13 @@
+{
+  "lang.menu.title": "Language",
+  "lang.current": "English",
+  "lang.automatic": "Automatic",
+  "lang.english": "English",
+  "lang.french": "French",
+  "lang.german": "German",
+  "lang.luxembourgish": "Luxembourgish",
+
+  "_lang.english.639-3": "English (eng)",
+  "_lang.french.639-3": "French (fra)",
+  "_lang.luxembourgish.639-3": "Luxembourgish (ltz)"
+}
