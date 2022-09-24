@@ -25,3 +25,8 @@ div.last-inner-collapse-border-fix {
 .content-wrapper {
 	max-width: 100vw;
 }
+
+// Removes tha wasted stace on Chrome !
+.overflow-x-scroll {
+	overflow-x: auto !important;
+}

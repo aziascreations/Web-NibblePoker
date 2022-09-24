@@ -57,7 +57,7 @@ include_once 'langs.php';
 				</div>
 				<div class="row mx-auto w-95">
 				<!--<div class="row mx-auto w-lg-p90">-->
-					<div class="col-sm-12 col-lg-8 mb-20 table-cell">
+					<div class="col-sm-12 col-lg-8 table-cell">
 						<div class="content mb-0">
 							<div class="card p-0 m-0 card-bkgd">
 								<div class="content m-0">
@@ -92,6 +92,7 @@ include_once 'langs.php';
 											</p>
 										</div>
 										<hr>
+          
 										<div class="pl-lg-15 l-lab-web">
 											<p class="mb-0 font-weight-semi-bold">
 												Youtube-Auto-Archiver
@@ -109,23 +110,41 @@ include_once 'langs.php';
                                                 <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/youtube-auto-archiver")); ?>">Project's page</a>
 											</p>
 										</div>
-										<hr>
-										<div class="pl-lg-15 l-lab-office">
-											<p class="mb-0 font-weight-semi-bold">
-												Excel-Worksheet-Password-Remover
-												<span class="ml-15 text-super-muted">
+                                        <hr>
+
+                                        <div class="pl-lg-15 l-lab-office">
+                                            <p class="mb-0 font-weight-semi-bold">
+                                                Excel-Worksheet-Password-Remover
+                                                <span class="ml-15 text-super-muted">
 													<i class="fab fa-chrome"></i>&nbsp;
 													<i class="fab fa-firefox-browser"></i>
 												</span>
-											</p>
-											<p class="ml-5 mt-0">
-												Web-based tool that simplifies the removal of passwords on Excel's Worksheet.<br>
+                                            </p>
+                                            <p class="ml-5 mt-0">
+                                                Web-based tool that simplifies the removal of passwords on Excel's Worksheet.<br>
                                                 <span class="pr-20">
                                                     <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="https://github.com/aziascreations/Excel-Worksheet-Password-Remover">GitHub</a>
                                                 </span>
                                                 <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/excel-worksheet-password-remover")); ?>">Project's page</a>
-											</p>
-										</div>
+                                            </p>
+                                        </div>
+                                        <hr>
+
+                                        <div class="pl-lg-15 l-lab-game">
+                                            <p class="mb-0 font-weight-semi-bold">
+                                                Minecraft - Expanded Iron Bundles
+                                                <span class="ml-15 text-super-muted">
+													<i class="fas fa-gamepad-alt"></i>
+												</span>
+                                            </p>
+                                            <p class="ml-5 mt-0">
+                                                A small Minecraft mod that provides bundles with more storage space, and new functionalities in the future.<br>
+                                                <span class="pr-20">
+                                                    <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="https://github.com/aziascreations/MC-Expanded-Iron-Bundles">GitHub</a>
+                                                </span>
+                                                <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/mc-expanded-iron-bundles")); ?>">Project's page</a>
+                                            </p>
+                                        </div>
 
                                         <a href="<?php print(l10n_url_abs('/content/')); ?>">
                                             <div class="container-card-fold primary">
@@ -140,7 +159,7 @@ include_once 'langs.php';
 						</div>
 					</div>
 					
-					<div class="col-sm-12 col-lg-4 d-none d-sm-block table-cell">
+					<div class="col-sm-12 col-lg-4 table-cell"><!--d-none d-sm-block-->
 						<div class="content ml-lg-0">
 							<div class="card p-0 m-0 card-bkgd">
 								<div class="content m-0">

@@ -11,7 +11,11 @@
 	border-radius: var(--base-border-radius) !important;
 	//border-bottom-right-radius: var(--base-border-radius) !important;
 	overflow: hidden;
-	background-color: deeppink;
+	
+	color: var(--dm-button-text-color);
+	background-color: var(--dm-button-bg-color);
+	background-image: var(--dm-button-bg-image);
+	border-color: var(--dm-button-border-color);
 	opacity: 0.4;
 	
 	// https://codepen.io/setswon/pen/VJeXXq
