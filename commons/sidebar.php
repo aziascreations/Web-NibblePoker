@@ -28,10 +28,14 @@ if(!isset($SIDEBAR_ID)) {
 			<?php print(localize("programming.title.projects")); ?>
 		</a>
 		<div class="ml-20">
-			<a id="sbl-projects-apps" href="<?php print(l10n_url_abs('/content/?tags=application')); ?>" class="sidebar-link sidebar-link-with-icon">
-				<span class="sidebar-icon"><i class="fad fa-browser"></i></span>
+            <a id="sbl-projects-apps" href="<?php print(l10n_url_abs('/content/?tags=application')); ?>" class="sidebar-link sidebar-link-with-icon">
+                <span class="sidebar-icon"><i class="fad fa-browser"></i></span>
 				<?php print(localize("programming.apps.title")); ?>
-			</a>
+            </a>
+            <a id="sbl-projects-apps" href="<?php print(l10n_url_abs('/content/?tags=library')); ?>" class="sidebar-link sidebar-link-with-icon">
+                <span class="sidebar-icon"><i class="fad fa-puzzle-piece"></i></span>
+				<?php print(localize("programming.library.title")); ?>
+            </a>
             <a id="sbl-projects-tutorials" href="<?php print(l10n_url_abs('/content/?tags=game')); ?>" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon"><i class="fad fa-gamepad-alt"></i></span>
 				<?php print(localize("programming.games.title")); ?>

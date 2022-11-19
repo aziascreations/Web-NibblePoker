@@ -76,9 +76,9 @@ include_once 'langs.php';
 									</div>
 									
 									<div class="px-card py-5 px-20">
-										<div class="pl-lg-15 l-lab-app">
+										<div class="pl-lg-15 l-lab-dotnet">
 											<p class="mb-0 font-weight-semi-bold">
-												PB-ListComPort
+												DotNet-ListComPort
 												<span class="ml-15 text-super-muted">
 													<i class="fab fa-windows"></i>
 												</span>
@@ -86,9 +86,9 @@ include_once 'langs.php';
 											<p class="ml-5 mt-0">
 												Cli tool that lists COM ports in different parsable formats.<br>
                                                 <span class="pr-20">
-                                                    <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="https://github.com/aziascreations/PB-ListComPort">GitHub</a>
+                                                    <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="https://github.com/aziascreations/DotNet-ListComPort">GitHub</a>
                                                 </span>
-                                                <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/lscom-cli")); ?>">Project's page</a>
+                                                <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/lscom-cli-dotnet")); ?>">Project's page</a>
 											</p>
 										</div>
 										<hr>
@@ -143,6 +143,26 @@ include_once 'langs.php';
                                                     <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="https://github.com/aziascreations/MC-Expanded-Iron-Bundles">GitHub</a>
                                                 </span>
                                                 <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/mc-expanded-iron-bundles")); ?>">Project's page</a>
+                                            </p>
+                                        </div>
+                                        <hr>
+                                        
+                                        <div class="pl-lg-15 l-lab-app">
+                                            <p class="mb-0 font-weight-semi-bold">
+                                                DotNet-Arguments
+                                                <span class="ml-15 text-super-muted">
+													<i class="fa fa-puzzle-piece"></i>&nbsp;
+													<i class="fab fa-windows"></i>&nbsp;
+													<i class="fab fa-linux"></i>&nbsp;
+													<i class="fab fa-docker"></i>
+												</span>
+                                            </p>
+                                            <p class="ml-5 mt-0">
+                                                A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.<br>
+                                                <span class="pr-20">
+                                                    <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="https://github.com/aziascreations/DotNet-Arguments">GitHub</a>
+                                                </span>
+                                                <i class="fad fa-globe"></i>&nbsp;&nbsp;<a href="<?php echo(l10n_url_abs("/content/dotnet-arguments")); ?>">Project's page</a>
                                             </p>
                                         </div>
 

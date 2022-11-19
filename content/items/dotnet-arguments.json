@@ -1,0 +1,201 @@
+{
+  "strings": {
+    "en": {
+      "meta.title": "DotNet-Arguments",
+      "meta.description": "A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/DotNet-Arguments\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> View on GitHub</a>",
+      "intro.title": "Introduction",
+      "intro.p1": "A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.",
+      "intro.p2": "This library is an improved port of my <a href=\"https://github.com/aziascreations/PB-Arguments\">PB-Arguments</a> library that intended to achieve the same goals but was missing support for some features.",
+      "requirements.title": "Requirements",
+      "requirements.1": ".NET v6.0+",
+      "requirements.2": "C# 10.0",
+      "documentation.title": "Documentation",
+      "documentation.1": "Go to \"<a href=\"https://aziascreations.github.io/DotNet-Arguments/\">aziascreations.github.io/DotNet-Arguments/</a>\" for the HTML documentation.",
+      "example.title": "Basic Example",
+      "license.title": "License",
+      "links.title": "Links"
+    },
+    "fr": {
+      "meta.title": "DotNet-Arguments",
+      "meta.description": "Une petite librairie simple et efficace pour lire et interpréter les options de lancement d'un programme pour .NET et .NET Core.",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/DotNet-Arguments\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> Voir sur GitHub</a>",
+      "intro.title": "Introduction",
+      "intro.p1": "Une petite librarie efficace qui permet de facilement et simplement interpréter et utiliser les options de lancement d'un programme en .NET et .NET Core.",
+      "intro.p2": "Cette librairie est une version améliorée de mon ancienne librairie <a href=\"https://github.com/aziascreations/PB-Arguments\">PB-Arguments</a> qui visait à accomplir les mêmes goals mais à laquelle il manquait quelques fonctionnalités.",
+      "requirements.title": "Besoins système",
+      "requirements.1": ".NET v6.0+",
+      "requirements.2": "C# 10.0",
+      "documentation.title": "Documentation",
+      "documentation.1": "Allez sur \"<a href=\"https://aziascreations.github.io/DotNet-Arguments/\">aziascreations.github.io/DotNet-Arguments/</a>\" pour consulter la documentation.",
+      "example.title": "Example basique",
+      "license.title": "Licence",
+      "links.title": "Liens"
+    }
+  },
+  "metadata": {
+    "template": "article",
+    "head": {
+      "title": "meta.title",
+      "description": "meta.description"
+    },
+    "opengraph": {
+      "title": "meta.title",
+      "description": "meta.description",
+      "type": null,
+      "url": null,
+      "image": null,
+      "image_type": null
+    },
+    "article": {
+      "icon": "fad fa-puzzle-piece",
+      "title": "meta.title",
+      "subtitle": "article.subtitle",
+      "tags": ["library", "dotnet"]
+    }
+  },
+  "elements": [
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "intro.title"},
+        {"type": "paragraph", "indent": 2, "content": "intro.p1"},
+        {"type": "paragraph", "indent": 2, "content": "intro.p2"}
+      ]
+    },
+
+    {
+      "type": "container",
+      "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "requirements.title"},
+        {
+          "type": "paragraph",
+          "indent": 2,
+          "parts": [
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "link": "https://dotnet.microsoft.com/en-us/download/dotnet/6.0", "content": "requirements.1"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "requirements.2"}
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "documentation.title"},
+        {"type": "paragraph", "indent": 2, "content": "documentation.1"}
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["_no-top-padding", "no-bottom-padding"],
+      "parts": [
+        {"type": "h1", "content": "example.title"},
+        {
+          "type": "code", "indent": 2,
+          "modifiers": ["horizontal-scroll", "code-block"],
+          "code": [
+            "// Preparing options and root verb.",
+            "Option OptionHelp    = new('h', \"help\",    \"\", OptionFlags.StopsParsing);",
+            "Option OptionVerbose = new('v', \"verbose\", \"\", OptionFlags.Repeatable);",
+            "",
+            "Verb RootVerb = new Verb(\"\").RegisterOption(OptionHelp).RegisterOption(OptionVerbose);",
+            "",
+            "// Parsing lanch arguments",
+            "try {",
+            "    ArgumentsParser.ParseArguments(RootVerb, args);  // 'args' is gotten from Main().",
+            "} catch(ArgumentException) {",
+            "    Console.Error.Write(\"Failed to parse the launch arguments !\");",
+            "    RootVerb.Clear();  // Ignoring the error and simulating no launch parameters.",
+            "}",
+            "",
+            "// Using the results",
+            "if(OptionHelp.WasUsed()) {",
+            "    Console.WriteLine(HelpText.GetFullHelpText(RootVerb, \",app.exe\",));",
+            "}",
+            "",
+            "if(OptionVerbose.WasUsed() && OptionVerbose.Occurrences >= 2) {",
+            "    // We count the number of occurences to enable more logging.",
+            "    Console.WriteLine(\"Activating super-verbose mode !\",);",
+            "}"
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "license.title"},
+        {"type": "paragraph", "indent": 2, "content": "content.commons.license.mit.single", "link": "https://github.com/aziascreations/DotNet-Arguments/blob/master/LICENSE"}
+      ]
+    },
+
+    {
+      "type": "container",
+      "padding": 20,
+      "modifiers": ["no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "links.title"},
+        {
+          "type": "paragraph",
+          "indent": 2,
+          "parts": [
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw", "link": "https://www.nuget.org/packages/NibblePoker.Library.Arguments",
+              "parts": [
+                {"type": "raw", "content": "content.commons.nuget"},
+                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {
+                  "type": "raw",
+                  "content": "<span class=\"font-size-12\">(https://www.nuget.org/packages/NibblePoker.Library.Arguments)</span></span>",
+                  "localize": false
+                }
+              ]
+            },
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw", "link": "https://github.com/aziascreations/DotNet-Arguments",
+              "parts": [
+                {"type": "raw", "content": "content.commons.github"},
+                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {
+                  "type": "raw",
+                  "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/DotNet-Arguments)</span></span>",
+                  "localize": false
+                }
+              ]
+            },
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw", "link": "https://git.nibblepoker.lu/aziascreations/DotNet-Arguments",
+              "parts": [
+                {"type": "raw", "content": "content.commons.gitea"},
+                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {
+                  "type": "raw",
+                  "content": "<span class=\"font-size-12\">(https://git.nibblepoker.lu/aziascreations/DotNet-Arguments)</span></span>",
+                  "localize": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+
+
+  ]
+}

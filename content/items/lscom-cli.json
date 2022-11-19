@@ -1,7 +1,7 @@
 {
   "strings": {
     "en": {
-      "meta.title": "PB-ListComPort",
+      "meta.title": "PB-ListComPort (Legacy)",
       "meta.description": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.",
       "article.subtitle": "<a href=\"https://github.com/aziascreations/PB-ListComPort\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> View on GitHub</a>",
       "intro.title": "Introduction",
@@ -13,7 +13,7 @@
       "links.title": "Links"
     },
     "fr": {
-      "meta.title": "PB-ListComPort",
+      "meta.title": "PB-ListComPort (Legacy)",
       "meta.description": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemin des ports COM.",
       "article.subtitle": "<a href=\"https://github.com/aziascreations/PB-ListComPort\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> Voir sur GitHub</a>",
       "intro.title": "Introduction",
@@ -289,25 +289,15 @@
                   }]
                 }
               ],[
-                {"type": "raw", "content": "v1.0.0", "localize": false, "rowspan": 2},
+                {"type": "raw", "content": "v1.0.0", "localize": false},
                 {"type": "raw", "content": "content.commons.cpu.x64"},
-                {"type": "raw", "content": "content.commons.lang.english", "rowspan": 2},
+                {"type": "raw", "content": "content.commons.lang.english"},
                 {
                   "type": "raw",
                   "parts": [{
-                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom-x64.exe",
+                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom.exe",
                     "modifiers": ["thin"], "localize": false,
-                    "content": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
-                  }]
-                }
-              ],[
-                {"type": "raw", "content": "content.commons.cpu.x86"},
-                {
-                  "type": "raw",
-                  "parts": [{
-                    "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom-x86.exe",
-                    "modifiers": ["thin"], "localize": false,
-                    "content": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\">lscom.exe</span><i class=\"fas fa-download ml-10\"></i>"
                   }]
                 }
               ]

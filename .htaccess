@@ -4,7 +4,7 @@
 </Files>
 
 # Redirecting HTTP traffic to HTTPS. (Keep commented on localhost !)
-# This is handled other services, but it should still be enabled in production just to be safe.
+# This is handled by other services, but it should still be enabled in production just to be safe.
 #RewriteEngine On
 #RewriteCond %{SERVER_PORT} 80
 #RewriteRule ^(.*)$ https://nibblepoker.lu/$1 [R,L]

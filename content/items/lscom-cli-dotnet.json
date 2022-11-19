@@ -1,0 +1,473 @@
+{
+  "strings": {
+    "en": {
+      "meta.title": "DotNet-ListComPort",
+      "meta.description": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/DotNet-ListComPort\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> View on GitHub</a>",
+      "intro.title": "Introduction",
+      "intro.p1": "A simple CLI tool that can list COM ports with their full name easily and cleanly.",
+      "intro.p2": "This tool is intended to replace the tedious task of having to use the <code class=\"code\">mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port.",
+      "intro.p3": "This version of the program is a complete refactoring of my old <a href=\"https://github.com/aziascreations/PB-ListComPort\">PB-ListComPort</a> project that also changes from the proprietary and paid PureBasic language and compiler to .NET 6.0.",
+      "requirements.title": "Requirements",
+      "requirements.1": "Windows",
+      "requirements.2": "Any CPU architecture",
+      "requirements.3": ".NET 6.0",
+      "requirements.4": "Optional if using the larger \"self-contained\" builds.",
+      "improvements.title": "Improvements over PB-ListComPort",
+      "improvements.1": "Switched from PureBasic to .NET 6.0.",
+      "improvements.2": "Improved a lot of the program's logic.",
+      "improvements.3": "Added the <code>-h/--short-help</code>.",
+      "improvements.4": "Added support for Windows ARM & ARM64.",
+      "improvements.5": "Support for running without a console.",
+      "usage.title": "Usage",
+      "formatting.title": "Output formatting",
+      "requirements.table.title": "Requirements",
+      "requirements.text.dotnet": "<a href=\"https://dotnet.microsoft.com/en-us/download/dotnet/6.0\">.NET 6.0</a>",
+      "requirements.text.none.ms": "None",
+      "requirements.text.none.mp": "None",
+      "requirements.text.none.fs": "None",
+      "requirements.text.none.fp": "None",
+      "links.title": "Links"
+    },
+    "fr": {
+      "meta.title": "DotNet-ListComPort",
+      "meta.description": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemin des ports COM.",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/DotNet-ListComPort\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> Voir sur GitHub</a>",
+      "intro.title": "Introduction",
+      "intro.p1": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemins des ports COM.",
+      "intro.p2": "Cet outil a pour bût de faciliter cette tâche sans avoir à utiliser la commande <code>mode</code> ou le <i>Gestionnaire de périphérique</i>.",
+      "intro.p3": "Cette version du programme a completement été réecrit depuis le projet original <a href=\"https://github.com/aziascreations/PB-ListComPort\">PB-ListComPort</a> en .NET 6.0 au lieu de PureBasic afin de ne plus utiliser de langage de programmation propriétaire.",
+      "requirements.title": "Dépendances",
+      "requirements.1": "Windows",
+      "requirements.2": "Toutes architectures de CPU",
+      "requirements.3": ".NET 6.0",
+      "requirements.4": "Optionnel si vous utilisez les paquets \"self-contained\".",
+      "improvements.title": "Améliorations",
+      "improvements.1": "Changement de PureBasic vers .NET 6.0.",
+      "improvements.2": "Amélioration de la logique interne du programme.",
+      "improvements.3": "Ajout de l'option <code>-h/--short-help</code>.",
+      "improvements.4": "Support pour Windows ARM et ARM64.",
+      "improvements.5": "Support pour le lancement sans invité de commande.",
+      "usage.title": "Utilisation",
+      "formatting.title": "Formatage de sortie",
+      "requirements.table.title": "Dépendances",
+      "requirements.text.none.ms": "Aucun",
+      "requirements.text.none.mp": "Aucuns",
+      "requirements.text.none.fs": "Aucune",
+      "requirements.text.none.fp": "Aucunes",
+      "links.title": "Liens"
+    }
+  },
+  "metadata": {
+    "template": "article",
+    "head": {
+      "title": "meta.title",
+      "description": "meta.description"
+    },
+    "opengraph": {
+      "title": "meta.title",
+      "description": "meta.description",
+      "type": null,
+      "url": null,
+      "image": null,
+      "image_type": null
+    },
+    "article": {
+      "icon": "fad fa-terminal",
+      "title": "meta.title",
+      "subtitle": "article.subtitle",
+      "tags": ["application", "tool", "lscom", "dotnet", "windows"]
+    }
+  },
+  "elements": [
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "intro.title"},
+        {"type": "paragraph", "indent": 2, "content": "intro.p1"},
+        {"type": "paragraph", "indent": 2, "content": "intro.p2"},
+        {"type": "paragraph", "indent": 2, "content": "intro.p3"}
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "requirements.title"},
+        {
+          "type": "paragraph",
+          "indent": 2,
+          "parts": [
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "requirements.1"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;∘&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "requirements.2"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "requirements.3"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;∘&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "requirements.4"}
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "improvements.title"},
+        {
+          "type": "paragraph",
+          "indent": 2,
+          "parts": [
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "improvements.1"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "improvements.2"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "improvements.3"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "improvements.4"},
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "improvements.5"}
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["_no-top-padding", "no-bottom-padding"],
+      "parts": [
+        {"type": "h1", "content": "usage.title"},
+        {
+          "type": "code", "indent": 2,
+          "modifiers": ["horizontal-scroll", "code-block"],
+          "code": [
+            "lscom.exe [-a|--show-all] [-d|--show-device] [-D <str>|--divider <str>] [-f|--show-friendly]",
+            "          [-h|--help] [-H|--short-help] [-n|--show-name-raw] [-P|--no-pretty] [-s|--sort]",
+            "          [-S|--sort-reverse] [-t|--tab-padding] [-v|--version] [-V|--version-only]",
+            "",
+            "Launch arguments:",
+            " -a, --show-all             Display the complete port's name (Equal to '-dfn')",
+            " -d, --show-device          Displays the port's device name",
+            " -D <str>, --divider <str>  Uses the given string or char as a separator (Can be empty string !)",
+            " -f, --show-friendly        Displays the port's friendly name",
+            " -h, --help                 Display this help text",
+            " -H, --short-help           Display the short help text",
+            " -n, --show-name-raw        Displays the port's raw name (See remarks section)",
+            " -P, --no-pretty            Disables the pretty printing format (Equal to -D \" \")",
+            " -s, --sort                 Sorts the port based on their raw names in an ascending order",
+            " -S, --sort-reverse         Sorts the port based on their raw names in a descending order",
+            " -t, --tab-padding          Use tabs for padding between the types of names (Overrides '-D')",
+            " -v, --version              Shows the utility's version number and other info",
+            " -V, --version-only         Shows the utility's version number only (Overrides '-v')"
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["_no-top-padding", "no-bottom-padding"],
+      "parts": [
+        {"type": "h1", "content": "formatting.title"},
+        {
+          "type": "code", "indent": 2,
+          "modifiers": ["horizontal-scroll", "code-block"],
+          "code": [
+            " *┬> No launch arguments:",
+            "  └──> ${Raw name}      => COM1",
+            " *┬> '-d' or '-f'",
+            "  ├──> ${Device name}   => \\Device\\Serial1",
+            "  └──> ${Friendly name} => Communications Port",
+            " *┬> '-d' and '-f'",
+            "  └──> ${Friendly name} [${Device name}]        => Communications Port [\\Device\\Serial1]",
+            " *┬> '-n' and '-d'",
+            "  └──> ${Raw name} [$DeviceName]        => COM1 [\\Device\\Serial1]",
+            " *┬> '-n' and '-f'",
+            "  └──> ${Raw name} - ${Friendly name}   => COM1 - Communications Port",
+            " *┬> '-ndf' or '-a'",
+            "  └──> ${Raw name} - ${Friendly name} [${Device name}]  => COM1 - Communications Port [\\Device\\Serial1]",
+            " *┬> '-ndfp' or '-ap'",
+            "  └──> ${Raw name} ${Friendly name} ${Device name}      => COM1 Communications Port \\Device\\Serial1",
+            " *┬> '-ndfD \";\"' or '-aD \";\"'",
+            "  └──> ${Raw name};${Friendly name};${Device name}      => COM1;Communications Port;\\Device\\Serial1"
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
+      "modifiers": ["_no-top-padding"],
+      "parts": [
+        {"type": "h1", "modifiers": ["no-top-margin"], "content": "content.commons.version.current"},
+        {"type": "spacer", "size": 1},
+        {
+          "type": "container", "padding": 0,
+          "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
+          "parts": [
+            {
+              "type": "table", "modifiers": ["striped", "inner-bordered"],
+              "head": [
+                {"type": "raw", "content": "content.commons.cpu.responsive"},
+                {"type": "raw", "content": "requirements.table.title"},
+                {"type": "raw", "content": "content.commons.download.single"}
+              ],
+              "body": [
+                [
+                  {"type": "raw", "content": "content.commons.cpu.any"},
+                  {"type": "raw", "content": "requirements.text.dotnet"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_AnyCPU.zip",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_AnyCPU.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "content.commons.cpu.x64", "rowspan": 3},
+                  {"type": "raw", "content": "requirements.text.dotnet"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64_Single.zip",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x64_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "requirements.text.none.fp", "rowspan": 2},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64_SelfContained.zip",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x64_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64.msi",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x64.msi</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "content.commons.cpu.x86", "rowspan": 3},
+                  {"type": "raw", "content": "requirements.text.dotnet"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86_Single.zip",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x86_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "requirements.text.none.fp", "rowspan": 2},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86_SelfContained.zip",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x86_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86.msi",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x86.msi</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "content.commons.cpu.arm64", "rowspan": 2},
+                  {"type": "raw", "content": "requirements.text.dotnet"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm64_Single.zip",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_arm64_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "requirements.text.none.fp"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm64_SelfContained.zip",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_arm64_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "content.commons.cpu.arm", "rowspan": 2},
+                  {"type": "raw", "content": "requirements.text.dotnet"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm_Single.zip",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_arm_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ],[
+                  {"type": "raw", "content": "requirements.text.none.fp"},
+                  {
+                    "type": "raw",
+                    "parts": [{
+                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm_SelfContained.zip",
+                      "modifiers": ["thin"],
+                      "parts": [{
+                        "type": "raw",
+                        "localize": false,
+                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_arm_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                      }]
+                    }]
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20, "modifiers": ["no-top-padding"],
+      "parts": [
+        {"type": "h1", "modifiers": ["no-top-margin"], "content": "content.commons.version.source"},
+        {"type": "spacer", "size": 1},
+        {
+          "type": "container", "padding": 0,
+          "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
+          "parts": [{
+            "type": "table", "modifiers": ["striped", "inner-bordered"],
+            "head": [
+              {"type": "raw", "content": "content.commons.version"},
+              {"type": "raw", "content": "content.commons.download.multiple"}
+            ],
+            "body": [[
+              {"type": "raw", "content": "v3.0.0", "localize": false},
+              {
+                "type": "raw",
+                "parts": [
+                  {
+                    "type": "button", "modifiers": ["thin"],
+                    "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.zip",
+                    "content": "<span class=\"text-monospace\">3.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                    "localize": false
+                  },{
+                    "type": "button", "modifiers": ["thin"],
+                    "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.tar.gz",
+                    "content": "<span class=\"text-monospace\">3.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                    "localize": false
+                  }
+                ]
+              }
+            ]]
+          }]
+        }
+      ]
+    },
+
+    {
+      "type": "container",
+      "padding": 20,
+      "modifiers": ["no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "links.title"},
+        {
+          "type": "paragraph",
+          "indent": 2,
+          "parts": [
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw", "link": "https://github.com/aziascreations/DotNet-ListComPort",
+              "parts": [
+                {"type": "raw", "content": "content.commons.github"},
+                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {
+                  "type": "raw",
+                  "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/DotNet-ListComPort)</span></span>",
+                  "localize": false
+                }
+              ]
+            },
+            {"type": "raw", "content": "<br>", "localize": false},
+            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw", "link": "https://git.nibblepoker.lu/aziascreations/DotNet-ListComPort",
+              "parts": [
+                {"type": "raw", "content": "content.commons.gitea"},
+                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+                {
+                  "type": "raw",
+                  "content": "<span class=\"font-size-12\">(https://git.nibblepoker.lu/aziascreations/DotNet-ListComPort)</span></span>",
+                  "localize": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
