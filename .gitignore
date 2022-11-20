@@ -3,6 +3,7 @@
 
 # Static resources
 resources/FontAwesomePro/
+resources/HighlightJS/
 *.exe
 *.url
 

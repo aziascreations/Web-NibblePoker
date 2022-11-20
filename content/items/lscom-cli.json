@@ -145,7 +145,7 @@
                     "type": "raw",
                     "parts": [{
                       "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_eng_x64.exe",
-                      "modifiers": ["thin"],
+                      "modifiers": ["thin", "download-primary"],
                       "parts": [{
                         "type": "raw",
                         "localize": false,
@@ -159,7 +159,7 @@
                     "type": "raw",
                     "parts": [{
                       "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/lscom_fra_x64.exe",
-                      "modifiers": ["thin"],
+                      "modifiers": ["thin", "download-primary"],
                       "parts": [{
                         "type": "raw",
                         "localize": false,

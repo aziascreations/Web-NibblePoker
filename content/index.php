@@ -55,6 +55,7 @@ if($content_has_error) {
     }
     ?>
     <link href="/resources/GliderJs/1.7.6/glider.min.css" rel="stylesheet" />
+    <link href="/resources/HighlightJS/11.6.0/styles/atom-one-dark.min.css" rel="stylesheet" />
 </head>
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
 	<?php include 'body-root.php'; ?>
@@ -175,6 +176,9 @@ if($content_has_error) {
 	</div>
     <script src="/resources/HalfMoon/1.1.1/js/halfmoon.min.js"></script>
     <script src="/resources/GliderJs/1.7.6/glider.min.js"></script>
-	<script src="/resources/Azias/js/nibblepoker.lu.js"></script>
+    <script src="/resources/HighlightJS/11.6.0/highlight.min.js"></script>
+    <script src="/resources/HighlightJS/11.6.0/languages/csharp.min.js"></script>
+    <script src="/resources/Azias/js/nibblepoker.lu.js"></script>
+    <script src="/resources/Azias/js/code-highlighter.js"></script>
 </body>
 </html>

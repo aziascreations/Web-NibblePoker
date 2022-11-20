@@ -27,6 +27,13 @@
       "requirements.text.none.mp": "None",
       "requirements.text.none.fs": "None",
       "requirements.text.none.fp": "None",
+      "packages.title": "Packages",
+      "packages.single.title": "Single Builds",
+      "packages.single.1": "Lighter builds that only contain the exe and required licenses.<br>You will need to install the <a href=\"https://dotnet.microsoft.com/en-us/download\">.NET 6.0 Runtime</a>.",
+      "packages.self.title": "Self-Contained Builds",
+      "packages.self.1": "Larger builds that contain the exe and the <a href=\"https://dotnet.microsoft.com/en-us/download\">.NET 6.0 Runtime</a> as well as the required licenses.",
+      "packages.msi.title": "MSI Installers",
+      "packages.msi.1": "Windows installers that contain the relevant \"Self-Contained\" build with an option to automatically update existing installations and add the program to the <kbd>%PATH%</kbd>.<br>The install location is <kbd>%ProgramFiles%\\NibblePoker\\lscom\\</kbd> and cannot be changed. <i>(This will be possible in future releases)</i>",
       "links.title": "Links"
     },
     "fr": {
@@ -55,6 +62,13 @@
       "requirements.text.none.mp": "Aucuns",
       "requirements.text.none.fs": "Aucune",
       "requirements.text.none.fp": "Aucunes",
+      "packages.title": "Paquets",
+      "packages.single.title": "???&nbsp;&nbsp;<i class=\"text-super-muted\">(Single)</i>",
+      "packages.single.1": "Lighter builds that only contain the exe and required licenses.<br>You will need to install the <a href=\"https://dotnet.microsoft.com/en-us/download\">.NET 6.0 Runtime</a>.",
+      "packages.self.title": "???&nbsp;&nbsp;<i class=\"text-super-muted\">(Self-Contained)</i>",
+      "packages.self.1": "Larger builds that contain the exe and the <a href=\"https://dotnet.microsoft.com/en-us/download\">.NET 6.0 Runtime</a> as well as the required licenses.",
+      "packages.msi.title": "Installateurs MSI",
+      "packages.msi.1": "Windows installers that contain the relevant \"Self-Contained\" build with an option to automatically update existing installations and add the program to the <kbd>%PATH%</kbd>.<br>The install location is <kbd>%ProgramFiles%\\NibblePoker\\lscom\\</kbd> and cannot be changed. <i>(This will be possible in future releases)</i>",
       "links.title": "Liens"
     }
   },
@@ -209,6 +223,20 @@
 
     {
       "type": "container", "padding": 20,
+      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "parts": [
+        {"type": "h1", "content": "packages.title"},
+        {"type": "h3", "indent": 2, "content": "packages.single.title"},
+        {"type": "paragraph", "indent": 4, "content": "packages.single.1", "modifiers": ["no-top-margin"]},
+        {"type": "h3", "indent": 2, "content": "packages.self.title"},
+        {"type": "paragraph", "indent": 4, "content": "packages.self.1", "modifiers": ["no-top-margin"]},
+        {"type": "h3", "indent": 2, "content": "packages.msi.title"},
+        {"type": "paragraph", "indent": 4, "content": "packages.msi.1", "modifiers": ["no-top-margin"]}
+      ]
+    },
+
+    {
+      "type": "container", "padding": 20,
       "modifiers": ["_no-top-padding"],
       "parts": [
         {"type": "h1", "modifiers": ["no-top-margin"], "content": "content.commons.version.current"},
@@ -232,11 +260,11 @@
                     "type": "raw",
                     "parts": [{
                       "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_AnyCPU.zip",
-                      "modifiers": ["thin"],
+                      "modifiers": ["thin", "download-primary"],
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_AnyCPU.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_AnyCPU.zip</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -251,7 +279,7 @@
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x64_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x64_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -261,11 +289,11 @@
                     "type": "raw",
                     "parts": [{
                       "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64_SelfContained.zip",
-                      "modifiers": ["thin"],
+                      "modifiers": ["thin", "download-primary"],
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x64_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x64_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -274,11 +302,11 @@
                     "type": "raw",
                     "parts": [{
                       "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64.msi",
-                      "modifiers": ["thin"],
+                      "modifiers": ["thin", "download-primary"],
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x64.msi</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-archive\"></i> ListComPort_v3.0.0_x64.msi</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -293,7 +321,7 @@
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x86_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x86_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -307,7 +335,7 @@
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x86_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x86_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -320,7 +348,7 @@
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_x86.msi</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-archive\"></i> ListComPort_v3.0.0_x86.msi</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -335,7 +363,7 @@
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_arm64_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm64_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -349,7 +377,7 @@
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_arm64_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm64_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -364,7 +392,7 @@
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_arm_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -378,7 +406,7 @@
                       "parts": [{
                         "type": "raw",
                         "localize": false,
-                        "content": "<span class=\"text-monospace\">ListComPort_v3.0.0_arm_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
                       }]
                     }]
                   }
@@ -412,12 +440,12 @@
                   {
                     "type": "button", "modifiers": ["thin"],
                     "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.zip",
-                    "content": "<span class=\"text-monospace\">3.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> 3.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
                     "localize": false
                   },{
                     "type": "button", "modifiers": ["thin"],
                     "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.tar.gz",
-                    "content": "<span class=\"text-monospace\">3.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> 3.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
                     "localize": false
                   }
                 ]

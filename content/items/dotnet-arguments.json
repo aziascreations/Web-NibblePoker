@@ -102,6 +102,7 @@
         {
           "type": "code", "indent": 2,
           "modifiers": ["horizontal-scroll", "code-block"],
+          "language": "csharp", "copyable": true,
           "code": [
             "// Preparing options and root verb.",
             "Option OptionHelp    = new('h', \"help\",    \"\", OptionFlags.StopsParsing);",
@@ -119,12 +120,12 @@
             "",
             "// Using the results",
             "if(OptionHelp.WasUsed()) {",
-            "    Console.WriteLine(HelpText.GetFullHelpText(RootVerb, \",app.exe\",));",
+            "    Console.WriteLine(HelpText.GetFullHelpText(RootVerb, \"app.exe\"));",
             "}",
             "",
             "if(OptionVerbose.WasUsed() && OptionVerbose.Occurrences >= 2) {",
             "    // We count the number of occurences to enable more logging.",
-            "    Console.WriteLine(\"Activating super-verbose mode !\",);",
+            "    Console.WriteLine(\"Activating super-verbose mode !\");",
             "}"
           ]
         }

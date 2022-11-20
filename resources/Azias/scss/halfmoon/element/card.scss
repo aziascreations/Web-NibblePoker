@@ -24,6 +24,7 @@
 	transition-timing-function: cubic-bezier(.47,1.64,.41,.8);
 	
 	user-select: none;
+	cursor: pointer;
 	
 	&.primary {
 		color: var(--dm-button-primary-text-color);
@@ -90,6 +91,21 @@
 				// Small fix
 				right: 0.7rem;
 			}
+		}
+	}
+	
+	&.fold-top-right {
+		top: 0;
+		clip-path: polygon(0 0, 100% 0, 100% 100%);
+		
+		i {
+			top: 0.3em;
+			right: 0.3rem;
+		}
+		
+		&:hover i {
+			top: 0.4rem;
+			right: 0.4rem;
 		}
 	}
 }

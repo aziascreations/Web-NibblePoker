@@ -90,6 +90,7 @@ abstract class ComposerElementModifiers {
 	const BUTTON_THICK = ["thick", "btn-lg"];
 	const BUTTON_ROUNDED = ["rounded", "btn-rounded"];
 	const BUTTON_CIRCLE = ["circle", "rounded-circle"];
+	const BUTTON_DOWNLOAD_PRIMARY = ["download-primary", "btn-primary"];
 	
 	// Horizontal ruler
 	const HR_SUBTLE = ["subtle", "subtle"];
@@ -422,6 +423,8 @@ class ComposerElement {
 	
 	// Code's parameters
 	private ?array $code;
+	private ?string $codeLanguage;
+	private bool $codeCopyable;
 	
 	// Button's parameters
 	private ?string $color;
@@ -432,8 +435,8 @@ class ComposerElement {
 	
 	function __construct(string $type, ?array $modifiers, ?string $link, ?array $parts, ?string $content,
 						 bool $localize, ?int $padding, ?int $margin, ?int $size, ?array $head, ?array $body,
-						 int $colspan, int $rowspan, ?int $indent, ?array $code, ?string $color, ?string $source,
-						 ?string $thumbnail) {
+						 int $colspan, int $rowspan, ?int $indent, ?array $code, ?string $codeLanguage,
+						 bool $codeCopyable, ?string $color, ?string $source, ?string $thumbnail) {
 		$this->type = $type;
 		$this->modifiers = $modifiers;
 		$this->link = $link;
@@ -456,6 +459,8 @@ class ComposerElement {
 		$this->rowspan = $rowspan;
 		$this->indent = $indent;
 		$this->code = $code;
+		$this->codeLanguage = $codeLanguage;
+		$this->codeCopyable = $codeCopyable;
 		$this->color = $color;
 		$this->source = $source;
 		$this->thumbnail = $thumbnail;
@@ -488,6 +493,8 @@ class ComposerElement {
 			key_exists("rowspan", $json_data) ? $json_data["rowspan"] : 1,
 			key_exists("indent", $json_data) ? $json_data["indent"] : null,
 			key_exists("code", $json_data) ? $json_data["code"] : null,
+			key_exists("language", $json_data) ? $json_data["language"] : null,
+			key_exists("copyable", $json_data) ? $json_data["copyable"] : false,
 			key_exists("color", $json_data) ? $json_data["color"] : null,
 			key_exists("source", $json_data) ? $json_data["source"] : null,
 			key_exists("thumbnail", $json_data) ? $json_data["thumbnail"] : null,
@@ -603,6 +610,9 @@ class ComposerElement {
 			case ComposerElementTypes::H1:
 			case ComposerElementTypes::H2:
 			case ComposerElementTypes::H3:
+				// Defining the text's indent level.
+				$_paragraph_ident_level = is_null($this->indent) ? 0 : $this->indent;
+			
 				// Defining the text's size.
 				$_headingFontSize = ($this->type == ComposerElementTypes::H3 ? '18' : (
 					$this->type == ComposerElementTypes::H2 ? '20' : '22'
@@ -610,7 +620,7 @@ class ComposerElement {
 				
 				// Composing heading.
 				$htmlCode .= '<' . strtolower($this->type) . ' class="font-weight-semi-bold font-size-' .
-					$_headingFontSize . ' m-0">' . $this->get_inner_html($content_root) . '</' . strtolower($this->type) .
+					$_headingFontSize . ' m-0  ml-md-' . ($_paragraph_ident_level * 5) . '">' . $this->get_inner_html($content_root) . '</' . strtolower($this->type) .
 					'>';
 				
 				break;
@@ -652,20 +662,30 @@ class ComposerElement {
 				// Defining the code's indent level.
 				$_paragraph_ident_level = is_null($this->indent) ? 0 : $this->indent;
 				
+				// Defining the highlight language.
+				$_language_class = is_null($this->codeLanguage) ? "nohighlight" : "language-" . $this->codeLanguage;
+				
 				// Opening the code element.
 				// Note: The "mt-10" may have to be removed if it clashes with 'no-margin-top' !
-				$htmlCode .= '<code class="code ' . $this->get_modifiers_classes() .
-					' mt-10 ml-md-' . ($_paragraph_ident_level * 5) . '">';
+				$htmlCode .= '<div class="code ' . $this->get_modifiers_classes() .
+					' mt-10 position-relative ml-md-' . ($_paragraph_ident_level * 5) . ' ' . $_language_class . '">';
 				
 				// Adding code lines.
 				if(!is_null($this->code)) {
 					foreach($this->code as $code_line) {
-						$htmlCode .= htmlspecialchars($code_line) . '<br>';
+						//$htmlCode .= htmlspecialchars($code_line) . '<br>';  // Old method (Not compatible with hljs)
+						$htmlCode .= '<span class="code-line">' .
+							str_replace(" ", "&nbsp;", htmlspecialchars($code_line)) .
+							'</span><br>';
 					}
 				}
 				
+				if($this->codeCopyable) {
+					$htmlCode .= '<div class="container-card-fold primary fold-top-right js-code-copy"><i class="fad fa-copy"></i></div>';
+				}
+				
 				// Closing code element.
-				$htmlCode .= '</code>';
+				$htmlCode .= '</div>';
 				
 				break;
 				
