@@ -433,10 +433,13 @@ class ComposerElement {
 	private ?string $source;
 	private ?string $thumbnail;
 	
+	// Galleries parameters
+	private array $images;
+	
 	function __construct(string $type, ?array $modifiers, ?string $link, ?array $parts, ?string $content,
 						 bool $localize, ?int $padding, ?int $margin, ?int $size, ?array $head, ?array $body,
 						 int $colspan, int $rowspan, ?int $indent, ?array $code, ?string $codeLanguage,
-						 bool $codeCopyable, ?string $color, ?string $source, ?string $thumbnail) {
+						 bool $codeCopyable, ?string $color, ?string $source, ?string $thumbnail, ?array $images) {
 		$this->type = $type;
 		$this->modifiers = $modifiers;
 		$this->link = $link;
@@ -464,6 +467,11 @@ class ComposerElement {
 		$this->color = $color;
 		$this->source = $source;
 		$this->thumbnail = $thumbnail;
+		if(is_null($images)) {
+			$this->images = array();
+		} else {
+			$this->images = $images;
+		}
 	}
 	
 	static function from_json_array(?array $json_dataArray) : array {
@@ -498,6 +506,7 @@ class ComposerElement {
 			key_exists("color", $json_data) ? $json_data["color"] : null,
 			key_exists("source", $json_data) ? $json_data["source"] : null,
 			key_exists("thumbnail", $json_data) ? $json_data["thumbnail"] : null,
+			key_exists("images", $json_data) ? $json_data["images"] : null,
 		);
 	}
 	
@@ -826,6 +835,13 @@ class ComposerElement {
 				break;
 				
 			case ComposerElementTypes::GALLERY:
+				$htmlCode .= '<div class="glider ' . $this->get_modifiers_classes() . '">';
+				
+				foreach($this->images as $galleryImageUrl) {
+					$htmlCode .= '<img src="'.$galleryImageUrl.'">';
+				}
+				
+				$htmlCode .= '</div>';
 				break;
 			
 			case ComposerElementTypes::VIDEO:

@@ -8,12 +8,12 @@ In the event you wished to mirror and serve it, or modify it, you should make su
 the `.git` folder and the other files referenced in the [.dockerignore](.dockerignore)
 file are properly removed, even if measures are in place to prevent access to them.
 
-The [.htaccess](.htaccess) file has been made public **on purpose** since it does not contains any
+The [.htaccess](.htaccess) file has been made public **on purpose** since it does not contain any
 private information and because it could be used by other people to create their website more easily
-since these files are a pain to work with.<br>
+since these configuration files are a nightmare to work with.<br>
 Especially with the lang redirections.
 
-It is also a good idea to server this website through a jailed instance of apache, just in case.
+It is also a good idea to serve this website through a jailed instance of apache, just in case.
 
 ## Content
 ### Blog
