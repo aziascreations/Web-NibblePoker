@@ -1,0 +1,144 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Variables > Palettes */
+
+/* Variables > Palettes > Apollo */
+// https://lospec.com/palette-list/apollo
+$color-apollo-00: #172038;
+$color-apollo-01: #253a5e;
+$color-apollo-02: #3c5e8b;
+$color-apollo-03: #4f8fba;
+$color-apollo-04: #73bed3;
+$color-apollo-05: #a4dddb;
+$color-apollo-06: #19332d;
+$color-apollo-07: #25562e;
+$color-apollo-08: #468232;
+$color-apollo-09: #75a743;
+$color-apollo-10: #a8ca58;
+$color-apollo-11: #d0da91;
+$color-apollo-12: #4d2b32;
+$color-apollo-13: #7a4841;
+$color-apollo-14: #ad7757;
+$color-apollo-15: #c09473;
+$color-apollo-16: #d7b594;
+$color-apollo-17: #e7d5b3;
+$color-apollo-18: #341c27;
+$color-apollo-19: #602c2c;
+$color-apollo-20: #884b2b;
+$color-apollo-21: #be772b;
+$color-apollo-22: #de9e41;
+$color-apollo-23: #e8c170;
+$color-apollo-24: #241527;
+$color-apollo-25: #411d31;
+$color-apollo-26: #752438;
+$color-apollo-27: #a53030;
+$color-apollo-28: #cf573c;
+$color-apollo-29: #da863e;
+$color-apollo-30: #1e1d39;
+$color-apollo-31: #402751;
+$color-apollo-32: #7a367b;
+$color-apollo-33: #a23e8c;
+$color-apollo-34: #c65197;
+$color-apollo-35: #df84a5;
+$color-apollo-36: #090a14;
+$color-apollo-37: #10141f;
+$color-apollo-38: #151d28;
+$color-apollo-39: #202e37;
+$color-apollo-40: #394a50;
+$color-apollo-41: #577277;
+$color-apollo-42: #819796;
+$color-apollo-43: #a8b5b2;
+$color-apollo-44: #c7cfcc;
+$color-apollo-45: #ebede9;
+
+$color-apollo-custom-00: mix($color-apollo-40, $color-apollo-39, 33%);
+$color-apollo-custom-01: mix($color-apollo-40, $color-apollo-39, 50%);
+$color-apollo-custom-02: mix($color-apollo-40, $color-apollo-39, 2.5%);
+$color-apollo-custom-03: mix($color-apollo-40, $color-apollo-39, 65%);
+
+$color-apollo-custom-10: mix($color-apollo-40, $color-apollo-41, 75%);
+
+//$color-test-01: mix(#7b6aa5, #000000, 33%);
+$color-test-02: #007c7d;
+
+/* Variables > Colors */
+
+$color-unset: $color-apollo-34;
+//$color-unset: deeppink;
+
+$color-text-regular-normal: $color-apollo-45;
+$color-text-inputs: $color-apollo-45;
+$color-text-muted: #{$color-apollo-45}E0;
+$color-text-muted-super: #{$color-apollo-45}C0;
+
+$color-link-hover: rgb(253, 255, 251);
+
+// Should be a mix of 03-04 and 04-05.
+$color-link-blue: #{$color-apollo-04};
+$color-link-blue-hover: #{$color-apollo-05};
+
+$color-border-all: $color-apollo-38;
+
+$color-input-glow: $color-apollo-02;
+
+$color-wedge-blue-background: $color-apollo-03;
+$color-wedge-blue-border: $color-apollo-02;
+
+//$color-background-body: $color-apollo-custom-00;
+//$color-background-main: $color-apollo-39;
+////$color-background-surround: $color-apollo-40;
+//$color-background-surround: $color-apollo-custom-00;
+$color-background-body: $color-apollo-custom-00;
+$color-background-main: $color-apollo-custom-02;
+$color-background-surround: $color-apollo-custom-00;
+
+// TMP
+//$color-background-main: mix(#333c57, #566c86, 60%);
+//$color-background-surround: mix(#333c57, #566c86, 80%);
+
+//$color-background-main-headings: $color-apollo-40;
+$color-background-main-headings: $color-apollo-custom-03;
+
+$color-background-table-main: $color-apollo-custom-01;
+$color-background-table-dual: $color-apollo-custom-00;
+//$color-table-border: $color-apollo-41;
+$color-table-border: $color-apollo-39;
+
+$color-background-inputs: $color-apollo-40;
+$color-background-button: $color-apollo-40;
+$color-background-button-hover: $color-apollo-custom-10;
+
+$_color-white-lighter: rgb(253, 255, 251);
+$_color-white-light: rgb(235, 237, 233);
+$_color-white-medium: rgb(217, 222, 218);
+$_color-white-dark: rgb(199, 207, 204);
+
+$_color-black-lighter: rgb(43, 46, 51);
+$_color-black-light: rgb(37, 40, 45);
+$_color-black-medium: rgb(31, 34, 39);
+$_color-black-dark: rgb(25, 28, 32);
+$_color-black-full: rgb(13, 14, 26);
+
+$_color-text-white-065: rgba(255, 255, 255, 0.65);
+$_color-text-white-075: rgba(255, 255, 255, 0.75);
+$_color-text-white-085: rgba(255, 255, 255, 0.85);
+
+$_color-blue-light: #4f6dce;
+$_color-blue-medium: #3b5dc8;
+$_color-blue-dark: #3353b6;
+
+$_color-white-muted: #FFFFFF96;
+//rgba(255, 255, 255, 0.6)
+
+/* Variables > Others */
+
+$border-base-radius: 5px;
+
+$margin-base-size: 1rem;
+
+$text-header-weight: 600;
+
+$size-sidebar: 15rem;
+//$size-sidebar: 30rem;
+
+$content-search-image-size: 128px;

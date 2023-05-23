@@ -1,0 +1,13 @@
+{
+  "sidebar.alt.logo": "Website's logo",
+  "sidebar.text.home": "Home",
+  "sidebar.text.projects": "Projects",
+  "sidebar.text.applications": "Applications",
+  "sidebar.text.libraries": "Libraries",
+  "sidebar.text.electronics": "Electronics",
+  "sidebar.text.links": "Links",
+  "sidebar.text.downloads": "Downloads",
+  "sidebar.text.gitea": "Git Repos.",
+  "sidebar.text.about": "About",
+  "sidebar.text.contact": "Contact"
+}

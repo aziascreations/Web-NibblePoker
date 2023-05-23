@@ -1,0 +1,93 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+p, a, h1, h2, h3, td {
+	color: #{$color-text-regular-normal};
+}
+
+// Setting colors for bland links.
+// Done before muted text to make the footer privacy link possible.
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+	
+	color: #{$color-link-hover};
+	
+	> * {
+		color: #{$color-link-hover};
+		text-decoration: underline;
+	}
+}
+
+.t-muted {
+	//@if $undefined-toggle-css-variables {
+	//	color: var(--color-white-muted);
+	//} @else {
+	//	color: #{$color-white-muted};
+	//}
+	//color: #A9A9Aa;
+	opacity: 50%;
+}
+
+.t-super-muted {
+	opacity: 45%;
+}
+
+.t-logo-text {
+	font-size: 1.775em;
+}
+
+a:not(.bland-link) {
+	text-decoration: underline;
+	//text-decoration: overline;
+	
+	color: #{$color-link-blue} !important;
+	
+	& * {
+		color: #{$color-link-blue} !important;
+	}
+	
+	&:hover {
+		//text-decoration: underline;
+		
+		color: #{$color-link-blue-hover} !important;
+		
+		& * {
+			color: #{$color-link-blue-hover} !important;
+		}
+	}
+}
+
+// Special rules for the sidebar and FontAwesome icons
+
+.sidebar-entry {
+	i {
+		width: 1.9rem !important;
+		// Required to prevent a size flicker when hiding/showing the sidebar.
+		// The about link is the most visible one.
+		min-width: 1.9rem !important;
+	}
+	
+	// Preventing a subtle line break when hiding/showing the sidebar.
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	
+	// Doesn't work, even with hyper-specific parent selectors...
+	//> i, > i:hover {
+	//	text-decoration: none !important;
+	//}
+}
+
+// And now for the headings, the exceptions keep popping up :,)
+// TODO: Add a simple and nicer divider.
+.heading-main {
+	i {
+		//margin-left: 0.25rem;
+		margin-right: 0.4rem;
+		padding-right: 0.1rem;
+		width: 1.75rem !important;
+		text-align: center;
+	}
+}

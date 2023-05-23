@@ -1,7 +1,9 @@
 {
-  "privacy.title": "Privacy policy",
-
-  "privacy.description": "Our privacy policy in a clear and easy to understand format.",
+  "privacy.head.title": "Privacy policy - NibblePoker",
+  "privacy.head.description": "Our privacy policy in a clear and easy to understand format.",
+  "privacy.og.title": "NibblePoker - Privacy Policy",
+  "privacy.og.description": "Our privacy policy in a clear and easy to understand format.",
+  "privacy.header.title": "Privacy policy",
 
   "privacy.introduction.title": "Introduction",
   "privacy.introduction.text.1": "This privacy policy is written in accordance with the 12th and 13th articles of the GDPR.",
@@ -9,7 +11,6 @@
 
   "_privacy.data.title": "What data do we collect ?",
   "_privacy.data.text.1": "This website, does not collect any personal data, be it through access logs, cookies or any third-party services.",
-  "_privacy.update.title": "Changes to our privacy policy",
   "_privacy.update.text.1": "The content of this privacy policy was written and last updated on the 4th of December 2021.",
   "_privacy.update.text.2": "In the event of a change to our privacy policy, you will be informed explicitly, and a copy of previous versions of the policy will be available on this page.",
 
@@ -36,6 +37,7 @@
   "privacy.v2.data.end.5": "This process should normally never be triggered for regular traffic since most of the triggering actions are ones that should not be possible to accomplish through normal browsing.",
   "privacy.v2.data.end.6": "However, this process isn't infallible and there is always an off chance that false positives may happen.",
 
+  "privacy.v2.update.title": "Changes to our privacy policy",
   "privacy.v2.update.intro.1": "The content of this privacy policy was originally written on the 4th of December 2021 and was last updated on the 18th of March 2022.",
   "privacy.v2.update.history.1.date": "2021/12/04",
   "privacy.v2.update.history.1.desc.1": "Original version",

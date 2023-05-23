@@ -13,6 +13,9 @@ lang_data["_compile_date"] = datetime.utcnow().isoformat() + "Z"
 
 
 for main_dir_entry in os.listdir("./"):
+    if main_dir_entry.startswith("_"):
+        continue
+
     print("Checking ./{}".format(main_dir_entry))
 
     if not os.path.isdir(os.path.join("./", main_dir_entry)):

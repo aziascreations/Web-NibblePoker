@@ -1,0 +1,51 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Utilities > Spacing > Sided */
+@mixin axis-spacing-maker($type-key, $type-property, $size-key, $size-value) {
+	.#{$type-key}x-#{$size-key} {
+		#{$type-property}-left: #{$size-value};
+		#{$type-property}-right: #{$size-value};
+	}
+	.#{$type-key}y-#{$size-key} {
+		#{$type-property}-top: #{$size-value};
+		#{$type-property}-bottom: #{$size-value};
+	}
+}
+
+
+/* Utilities > Spacing > Sided > Variable Sizes */
+@include axis-spacing-maker("m", "margin", "xs", calc(#{$margin-base-size} * 0.5));
+@include axis-spacing-maker("m", "margin", "s", calc(#{$margin-base-size} * 0.75));
+@include axis-spacing-maker("m", "margin", "m", #{$margin-base-size});
+@include axis-spacing-maker("m", "margin", "l", calc(#{$margin-base-size} * 1.5));
+@include axis-spacing-maker("m", "margin", "xl", calc(#{$margin-base-size} * 2.0));
+
+@include axis-spacing-maker("p", "padding", "xs", calc(#{$margin-base-size} * 0.5));
+@include axis-spacing-maker("p", "padding", "s", calc(#{$margin-base-size} * 0.75));
+@include axis-spacing-maker("p", "padding", "m", #{$margin-base-size});
+@include axis-spacing-maker("p", "padding", "l", calc(#{$margin-base-size} * 1.5));
+@include axis-spacing-maker("p", "padding", "xl", calc(#{$margin-base-size} * 2.0));
+
+
+/* Utilities > Spacing > Sided > Fixed Sizes */
+@include axis-spacing-maker("m", "margin", "0", 0);
+@include axis-spacing-maker("p", "padding", "0", 0);
+
+//@for $_ from 1 through 5 {
+//	// Index: [1...5, 1]
+//	// CSS: [0.5rem...2.5rem]
+//	@include axis-spacing-maker("m", "margin", $_ * 5, $_ * 0.5 rem);
+//	@include axis-spacing-maker("p", "padding", $_ * 5, $_ * 0.5 rem);
+//}
+
+
+/* Utilities > Spacing > Sided > Others */
+@include axis-spacing-maker("m", "margin", "auto", auto);
+@include axis-spacing-maker("p", "padding", "auto", auto);
+
+
+/* Utilities > Spacing > Sided > Manual Extras */
+.px-xxs {
+	padding-left: calc(#{$margin-base-size} * 0.25);
+	padding-right: calc(#{$margin-base-size} * 0.25);
+}

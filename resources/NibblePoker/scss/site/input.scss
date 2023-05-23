@@ -1,0 +1,33 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Site > Input */
+
+/* Site > Input > Commons */
+
+button, input {
+	border: 0;
+	
+	// Removing ugly-ass white glow when editing text-related inputs.
+	// Shit looks straight out of winforms in 2023...
+	outline: none;
+	
+	color: #{$color-text-inputs};
+	background-color: #{$color-background-inputs};
+	
+	&:not(.no-focus) {
+		&:focus {
+			box-shadow: 0px 0px 3px 0px #{$color-input-glow};
+		}
+	}
+}
+
+/* Site > Input > Buttons */
+
+button {
+	cursor: pointer;
+	background-color: #{$color-background-button};
+	
+	&:hover {
+		background-color: #{$color-background-button-hover};
+	}
+}

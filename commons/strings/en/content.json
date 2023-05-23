@@ -1,0 +1,41 @@
+{
+  "content.search.head.title": "Content search - NibblePoker",
+  "content.search.head.description": "TODO: description",
+  "content.search.og.title": "NibblePoker - Content search",
+  "content.search.og.description": "TODO: description",
+
+  "content.search.heading.main": "Search results",
+
+  "content.search.count.single": "result",
+  "content.search.count.multiple": "results",
+
+  "content.error.head.title": "Content error - NibblePoker",
+  "_content.error.head.description": "Done via the '$content_error_message' variable",
+  "content.error.og.title": "NibblePoker - Content error",
+  "_content.error.og.description": "Done via the '$content_error_message' variable",
+
+  "content.error.heading.main.search": "Search error",
+  "content.error.heading.main.content": "Content error",
+  "content.error.heading.main.fallback": "Unknown error",
+
+  "_": "Messages returned by 'commons/content.php'",
+  "content.error.message.none": "No explicit error was encountered.",
+  "content.error.message.tags.length": "The \"tags\" URL parameter is too long.",
+  "content.error.message.tags.alphanumeric": "One of the tags given in the \"tags\" URL parameter is not a valid alphanumeric string.",
+  "content.error.message.detect.empty": "No content could be found for the given tags.",
+  "content.error.message.id.alphanumeric": "The requested resource's ID isn't a valid alphanumeric string.",
+  "content.error.message.data.not.exist": "The requested content doesn't have an internal item file associated to it.",
+  "content.error.message.cannot.load": "The requested content couldn't be loaded on our end !",
+
+  "__": "Messages returned by 'commons/composer.php'",
+  "_content.error.message.data.no.tags": "No tags found !",
+  "_content.error.message.data.no.title": "No title found !",
+
+  "content.item.head.title.prefix": "",
+  "content.item.head.title.suffix": " - NibblePoker",
+
+  "content.item.og.title.prefix": "",
+  "content.item.og.title.suffix": " - NibblePoker",
+
+  "_content.header.title": "Homepage"
+}

@@ -1,0 +1,16 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+// Refer to "https://github.com/aziascreations/Web-NibblePoker/blob/master/resources/Quantum/readme.md" for the font's license.
+
+// Massive thanks to "fontsquirrel.com" for allowing me to properly subset and compress the font <3
+
+@font-face {
+	font-family: 'Quantum';
+	src: url('/resources/Quantum/Quantum.min.woff2') format('woff2'),
+	url('/resources/Quantum/Quantum.min.woff') format('woff'),
+	url('/resources/Quantum/Quantum.min.ttf') format('truetype');
+}
+
+.quantum {
+	// Only really used for the logo title in the sidebar.
+	font-family: 'Quantum', sans-serif;
+}

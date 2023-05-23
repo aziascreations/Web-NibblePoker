@@ -9,7 +9,7 @@
       "en": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.<br>This tool is intended to replace the tedious task of having to use the <code>mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port.",
       "fr": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemins des ports COM.<br>Cet outil a pour bût de faciliter cette tâche sans avoir à utiliser la commande <code>mode</code> ou le <i>Gestionnaire de périphérique</i>."
     },
-    "image": "/resources/Azias/imgs/lscom/lscom-v2-text-01-bkgd-cli.png",
+    "image": "/resources/NibblePoker/images/content/lscom/lscom-v2-text-01-bkgd-cli.png",
     "tags": ["application", "tool" ,"lscom", "dotnet", "windows"]
   },
   {
@@ -22,7 +22,7 @@
       "en": "A simple and yet highly configurable Python application that automatically checks if a Youtuber is streaming, and downloads said streams while also archiving its latest uploads.",
       "fr": "Conteneur et application Python hautement configurable qui permet d'automatiquement archiver et télécharger des livestreams et vidéos depuis YouTube."
     },
-    "image": "/resources/Azias/imgs/yaa/icon-final.png",
+    "image": "/resources/NibblePoker/images/content/yaa/icon-final.png",
     "tags": ["docker", "application", "web", "python"]
   },
   {
@@ -35,7 +35,7 @@
       "en": "Small web page from which you can easily remove a password from an Excel worksheet.<br>It works by leaving the task of editing the XML files on an Excel document to your browser instead to keep everything local.",
       "fr": "Petite application web qui permet de facilement retirer le mot de passe d'une feuille de calcul Excel depuis votre navigateur web sans avoir à uploader le fichier sur internet.<br>Cette application laisse votre navigateur modifier les fichiers XML du fichier Excel afin de tout garder en local."
     },
-    "image": "/resources/Azias/imgs/excel-password-remover/excel-password-remover.png",
+    "image": "/resources/NibblePoker/images/content/excel-password-remover/excel-password-remover.png",
     "tags": [
       "tool",
       "web"
@@ -51,7 +51,7 @@
       "en": "A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.",
       "fr": "Une petite librairie simple et efficace pour lire et interpréter les options de lancement d'un programme pour .NET et .NET Core."
     },
-    "image": "/resources/Azias/imgs/placeholder.png",
+    "image": "/resources/NibblePoker/images/placeholder.png",
     "tags": [
       "library",
       "dotnet"
@@ -67,7 +67,7 @@
       "en": "A small Minecraft mod that provides bundles with more storage space, and new functionalities in the future.",
       "fr": "Un petit mod pour Minecraft qui ajoute des sacs avec plus d'espace de stockage et de nouvelles fonctionalitées dans le futur."
     },
-    "image": "/resources/Azias/imgs/mc-expanded-iron-bundles/item-icon.png",
+    "image": "/resources/NibblePoker/images/content/mc-expanded-iron-bundles/item-icon.png",
     "tags": [
       "game",
       "minecraft",
@@ -84,7 +84,7 @@
       "en": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.<br>This tool is intended to replace the tedious task of having to use the <code>mode</code> command, and the <i>Device Manager</i> to find a newly plugged-in device that provides a COM port.",
       "fr": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemins des ports COM.<br>Cet outil a pour bût de faciliter cette tâche sans avoir à utiliser la commande <code>mode</code> ou le <i>Gestionnaire de périphérique</i>."
     },
-    "image": "/resources/Azias/imgs/lscom/lscom-legacy-simple.png",
+    "image": "/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png",
     "tags": ["application", "tool" ,"lscom", "purebasic", "windows"]
   }
 ]

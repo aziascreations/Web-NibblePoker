@@ -304,7 +304,7 @@ class ComposerContentMetadata {
 								'" class="content-tag">#' . $tag . '</a>');
 					}
 				} else {
-					$inner_html .= '<i>' . localize("error.content.data.no.tags") . '</i>';
+					$inner_html .= '<i>' . localize("content.error.message.data.no.tags") . '</i>';
 				}
 				
 				$inner_html .= '</div></div></div>';
@@ -381,7 +381,7 @@ class ComposerContentMetadataArticle {
 		return new ComposerContentMetadataArticle(
 			key_exists("icon", $json_data) ? $json_data["icon"] : "fad fa-question",
 			key_exists("title", $json_data) ?
-				$json_data["title"] : '<i>'.localize("error.content.data.no.title").'</i>',
+				$json_data["title"] : '<i>'.localize("content.error.message.data.no.title").'</i>',
 			key_exists("subtitle", $json_data) ? $json_data["subtitle"] : '',
 			key_exists("tags", $json_data) ? $json_data["tags"] : [],
 		);

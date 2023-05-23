@@ -3,7 +3,13 @@
 
 # Static resources
 resources/FontAwesomePro/
+resources/FontAwesome/
 resources/HighlightJS/
+
+resources/NibblePoker/css/*.css
+resources/NibblePoker/scss/trash
+resources/NibblePoker/js/*.min.js
+
 *.exe
 *.url
 
@@ -11,8 +17,12 @@ resources/HighlightJS/
 *.pdn
 *.min.json
 *.lnk
+*.map
+*.bak
+
+# Temporary
 tmp/
-resources/Azias/css/*.css
-resources/Azias/css/*.map
-resources/Azias/sass/**.css
-resources/Azias/sass/**.map
+commons/trash/
+scrollbar.scss
+commons/strings/_*/
+_unsorted/

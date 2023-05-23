@@ -4,7 +4,7 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	header('HTTP/1.1 403 Forbidden');
 	die();
 }
-include_once 'config.php';
+include_once 'commons/config.php';
 
 // This helper requires PHP 8 or newer !
 

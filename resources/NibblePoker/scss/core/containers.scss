@@ -1,0 +1,19 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Utilities > Containers */
+
+.fluid-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	
+	// First children, or all, don't care tbh.
+	& > * {
+		position: absolute;
+		width: inherit;
+		height: inherit;
+		max-height: inherit;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+}

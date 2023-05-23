@@ -1,0 +1,61 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* HTML Elements > Layout */
+
+// Fixing some alignment issues with the sidebar and header
+// I hate everyone that worked on CSS with every fiber of my soul.
+// TODO: Try .container-root > tbody > tr [ > td ] {}
+tr, td {
+	vertical-align: top;
+}
+
+.container-root {
+	width: 100vw !important;
+	min-height: 100vh !important;
+	height: 100vh !important;
+	max-height: 100vh !important;
+	overflow: hidden;
+}
+
+header, nav, footer {
+	background-color: #{$color-background-surround};
+}
+
+.sidebar {
+	width: #{$size-sidebar};
+	max-width: #{$size-sidebar};
+	min-height: 100%;
+	
+	&.retracted {
+		width: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+}
+
+// TODO: Can be simplified in the DOM
+.sidebar-entry {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+}
+
+main {
+	background-color: #{$color-background-main};
+	
+	&.expanded {
+		border-left: 0;
+		border-radius: 0;
+	}
+}
+
+main, .sidebar {
+	transition: width 0.4s, padding 0.4s, border-width 0.4s, border-radius 0.4s;
+	transition-timing-function: cubic-bezier(.25,.8,.25,1.1);
+}
+
+.heading-main > h2 {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+}

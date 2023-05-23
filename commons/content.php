@@ -6,8 +6,8 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 }
 
 // Importing required scripts.
-include_once 'langs.php';
-include_once 'composer.php';
+include_once 'commons/langs.php';
+include_once 'commons/composer.php';
 
 // Defining some options.
 $PRINT_CONTENT_DEBUG_INFO_TEXT_ELEMENTS = true;
@@ -23,7 +23,7 @@ abstract class ContentDisplayType {
 // Preparing default variables.
 $requested_content_display_type = ContentDisplayType::NONE;
 $content_has_error = false;
-$content_error_message_key = "error.content.none";
+$content_error_message_key = "content.error.message.none";
 $content_error_message = "";
 $requested_tags = array();
 $raw_additional_tags = "";
@@ -49,7 +49,7 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 		// Checking the length to prevent bad requests
 		if(strlen($raw_additional_tags) > 256) {
 			$content_has_error = true;
-			$content_error_message_key = "error.content.tags.length";
+			$content_error_message_key = "content.error.message.tags.length";
 			goto content_end;
 		}
 		
@@ -61,7 +61,7 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 					$requested_tags[] = $raw_additional_tags_exploded[$i];
 				} else {
 					$content_has_error = true;
-					$content_error_message_key = "error.content.tags.alphanumeric";
+					$content_error_message_key = "content.error.message.tags.alphanumeric";
 					goto content_end;
 				}
 			}
@@ -90,14 +90,14 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 	if(count($filtered_content_index_data) == 0) {
 		// No relevant article/page were found for the given tags.
 		$content_has_error = true;
-		$content_error_message_key = "error.content.detect.empty";
+		$content_error_message_key = "content.error.message.detect.empty";
 		goto content_end;
 	}
 } else if($requested_content_display_type == ContentDisplayType::CONTENT) {
 	// Sanitizing the requested ID.
 	if(!ctype_alnum(str_replace("-", "", $content_requested_url_part))) {
 		$content_has_error = true;
-		$content_error_message_key = "error.content.id.alphanumeric";
+		$content_error_message_key = "content.error.message.id.alphanumeric";
 		goto content_end;
 	}
 	
@@ -107,7 +107,7 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 	if(empty($content_file_path)) {
 		// File doesn't exist !
 		$content_has_error = true;
-		$content_error_message_key = "error.content.data.not.exist";
+		$content_error_message_key = "content.error.message.data.not.exist";
 		unset($content_file_path);
 		goto content_end;
 	} else {
@@ -115,7 +115,7 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 		
 		if(is_null($content)) {
 			$content_has_error = true;
-			$content_error_message_key = "error.content.cannot.load";
+			$content_error_message_key = "content.error.message.cannot.load";
 			unset($content_file_path);
 			goto content_end;
 		}
@@ -140,6 +140,7 @@ function end_content_card() {
 	echo('</div>');
 }
 
+// FIXME: What is this, should it be removed ?
 /*
 	switch($elementNode["type"]) {
 		case "image":

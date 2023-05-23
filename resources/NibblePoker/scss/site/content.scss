@@ -1,0 +1,21 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+.content-search-entry {
+	min-height: #{$content-search-image-size};
+}
+
+.content-search-image {
+	width: #{$content-search-image-size};
+	height: #{$content-search-image-size};
+	float: left;
+	filter: drop-shadow(0 0 0.2rem #000000CF);
+}
+
+.content-search-entry > p {
+	width: 90%;
+	//max-width: 800px;
+}
+
+.content-error-text {
+	max-width: 700px;
+}

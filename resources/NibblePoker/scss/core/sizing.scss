@@ -1,0 +1,51 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Utilities > Sizing */
+
+// 100 %
+.w-full {
+	width: 100%;
+}
+
+.h-full {
+	height: 100%;
+}
+
+// 50 %
+.w-half {
+	width: 50%;
+}
+
+.h-half {
+	height: 50%;
+}
+
+// Pixels
+
+@if($undefined-add-px-sizing) {
+	// 50, 100, ..., 250 px
+	@for $_ from 1 through 5 {
+		$pxSize: $_ * 50;
+
+		.w-#{$pxSize} {
+			width: #{$pxSize}px;
+		}
+
+		.h-#{$pxSize} {
+			height: #{$pxSize}px;
+		}
+	}
+
+	// 300, 400, ..., 900 px
+	@for $_ from 3 through 9 {
+		$pxSize: $_ * 100;
+
+		.w-#{$pxSize} {
+			width: #{$pxSize}px;
+		}
+
+		.h-#{$pxSize} {
+			height: #{$pxSize}px;
+		}
+	}
+}

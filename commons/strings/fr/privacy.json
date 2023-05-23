@@ -1,7 +1,9 @@
 {
-  "privacy.title": "Politique de confidentialité",
-
-  "privacy.description": "Notre politique de confidentialité dans un format clair et compréhensible.",
+  "privacy.head.title": "Politique de confidentialité - NibblePoker",
+  "privacy.head.description": "Notre politique de confidentialité dans un format clair et compréhensible.",
+  "privacy.og.title": "NibblePoker - Politique de confidentialité",
+  "privacy.og.description": "Notre politique de confidentialité dans un format clair et compréhensible.",
+  "privacy.header.title": "Politique de confidentialité",
 
   "privacy.introduction.title": "Introduction",
   "privacy.introduction.text.1": "La politique de confidentialité ci-présente a été écrite en accord avec les articles 12 et 13 de la RGPD.",
@@ -36,6 +38,7 @@
   "privacy.v2.data.end.5": "Ce processus n'est normalement jamais utilisé sur des requêtes provenant d'un trafic légitime dû au fait qu'il isole principalement les actions et requêtes qui ne devraient pas être possible sur ce site.",
   "privacy.v2.data.end.6": "Cependant, ce processus n'est pas infaillible et il est toujours possible qu'une requête soit isolée par erreur.",
 
+  "privacy.v2.update.title": "Changements à notre politique de confidentialité",
   "privacy.v2.update.intro.1": "Le contenu de notre politique de confidentialité a été originalement écrit et le 4 décembre 2021 modifié pour la dernière fois le 18 mars 2022.",
   "privacy.v2.update.history.1.date": "2021/12/04",
   "privacy.v2.update.history.1.desc.1": "Version originale",

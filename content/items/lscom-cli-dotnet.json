@@ -484,7 +484,7 @@
     {
       "type": "container",
       "padding": 20,
-      "modifiers": ["no-top-margin"],
+      "modifiers": ["no-top-padding"],
       "parts": [
         {"type": "h1", "content": "links.title"},
         {

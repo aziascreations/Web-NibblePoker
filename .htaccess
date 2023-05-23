@@ -9,6 +9,14 @@
 #RewriteCond %{SERVER_PORT} 80
 #RewriteRule ^(.*)$ https://nibblepoker.lu/$1 [R,L]
 
+# Fixing some encoding issues on non-HTML files.
+# Mostly affects the old privacy policies written in french.
+AddCharset utf-8 .css .txt .js .md
+#<Files ~ "\.txt?$">
+#    Header set Content-Type "text/plain; charset=utf-8"
+#</Files>
+#AddDefaultCharset utf-8
+
 # Correcting some default options for security and language/content redirection.
 # FollowSymlinks is also on since it's required for "mod_rewrite" and the server is jailed.
 Options -Indexes +FollowSymlinks -ExecCGI
@@ -24,32 +32,33 @@ ErrorDocument 404 /404.php
 #  * https://www.a2hosting.com/kb/developer-corner/apache-web-server/turning-off-caching-using-htaccess
 
 # Default: 12 hours
-Header set Cache-Control "max-age=43200, public, must-revalidate"
-
-<FilesMatch "\.(?i:gif|jpe?g|png|ico|svg|woff2|otf)$">
+##Header set Cache-Control "max-age=43200, public, must-revalidate"
+##
+<FilesMatch "\.(?i:gif|jpe?g|png|ico|svg|woff2|ttf|woff|otf)$">
     # Static files: 1 Week
     Header set Cache-Control "max-age=604800, public, must-revalidate"
 </FilesMatch>
-<FilesMatch "\.(?i:css|js)$">
-    # Semi-static files: 1 Day
-    Header set Cache-Control "max-age=86400, public, must-revalidate"
-</FilesMatch>
+##<FilesMatch "\.(?i:css|js)$">
+##    # Semi-static files: 1 Day
+##    Header set Cache-Control "max-age=86400, public, must-revalidate"
+##</FilesMatch>
 
+# Disabling some caching rules for debugging
 #Header set Pragma "no-cache"
 #Header set Expires 0
 
-# Setting some headers for security.
-Header always set X-Detected-Country "NK"
-Header always set X-Frame-Options "deny"
-Header always set Content-Security-Policy "default-src 'self' files.nibblepoker.lu; object-src 'none'; child-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests; block-all-mixed-content"
-Header always set X-XSS-Protection " 1; mode=block"
-Header always set Referrer-Policy "no-referrer"
-Header always set X-Content-Type-Options "nosniff"
-Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-#Header always set Cache-Control "max-age=300, public"
-Header always set Access-Control-Allow-Origin "*"
-Header unset X-Powered-By
-Header always set X-Powered-By "Amiga 1200, Kickstart 3.1"
+# # # Setting some headers for security.
+# # #Header always set X-Detected-Country "NK"
+# # Header always set X-Frame-Options "deny"
+# # Header always set Content-Security-Policy "default-src 'self' files.nibblepoker.lu; object-src 'none'; child-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests; block-all-mixed-content"
+# # Header always set X-XSS-Protection " 1; mode=block"
+# # Header always set Referrer-Policy "no-referrer"
+# # Header always set X-Content-Type-Options "nosniff"
+# # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+# # #Header always set Cache-Control "max-age=300, public"
+# # Header always set Access-Control-Allow-Origin "*"
+# # Header unset X-Powered-By
+# # #Header always set X-Powered-By "Amiga 1200, Kickstart 3.1"
 
 # Handling all other redirections.
 RewriteEngine On

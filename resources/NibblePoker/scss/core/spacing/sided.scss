@@ -1,0 +1,48 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Utilities > Spacing > Sided */
+@mixin sided-spacing-maker($type-key, $type-property, $size-key, $size-value) {
+	.#{$type-key}t-#{$size-key} {
+		#{$type-property}-top: #{$size-value};
+	}
+	.#{$type-key}b-#{$size-key} {
+		#{$type-property}-bottom: #{$size-value};
+	}
+	.#{$type-key}l-#{$size-key} {
+		#{$type-property}-left: #{$size-value};
+	}
+	.#{$type-key}r-#{$size-key} {
+		#{$type-property}-right: #{$size-value};
+	}
+}
+
+
+/* Utilities > Spacing > Sided > Variable Sizes */
+@include sided-spacing-maker("m", "margin", "xs", calc(#{$margin-base-size} * 0.5));
+@include sided-spacing-maker("m", "margin", "s", calc(#{$margin-base-size} * 0.75));
+@include sided-spacing-maker("m", "margin", "m", #{$margin-base-size});
+@include sided-spacing-maker("m", "margin", "l", calc(#{$margin-base-size} * 1.5));
+@include sided-spacing-maker("m", "margin", "xl", calc(#{$margin-base-size} * 2.0));
+
+@include sided-spacing-maker("p", "padding", "xs", calc(#{$margin-base-size} * 0.5));
+@include sided-spacing-maker("p", "padding", "s", calc(#{$margin-base-size} * 0.75));
+@include sided-spacing-maker("p", "padding", "m", #{$margin-base-size});
+@include sided-spacing-maker("p", "padding", "l", calc(#{$margin-base-size} * 1.5));
+@include sided-spacing-maker("p", "padding", "xl", calc(#{$margin-base-size} * 2.0));
+
+
+/* Utilities > Spacing > Sided > Fixed Sizes */
+@include sided-spacing-maker("m", "margin", "0", 0);
+@include sided-spacing-maker("p", "padding", "0", 0);
+
+//@for $_ from 1 through 5 {
+//	// Index: [1...5, 1]
+//	// CSS: [0.5rem...2.5rem]
+//	@include sided-spacing-maker("m", "margin", $_ * 5, $_ * 0.5 rem);
+//	@include sided-spacing-maker("p", "padding", $_ * 5, $_ * 0.5 rem);
+//}
+
+
+/* Utilities > Spacing > Sided > Others */
+@include sided-spacing-maker("m", "margin", "auto", auto);
+@include sided-spacing-maker("p", "padding", "auto", auto);

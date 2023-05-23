@@ -1,0 +1,74 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Utilities > Flex */
+
+// Display properties
+.d-flex {
+	display: flex;
+}
+
+.d-inline-flex {
+	display: inline-flex;
+}
+
+// Content justification
+.flex-justify-start {
+	justify-content: flex-start;
+}
+
+.flex-justify-end {
+	justify-content: flex-end;
+}
+
+.flex-justify-center {
+	justify-content: center;
+}
+
+.flex-justify-between {
+	justify-content: space-between;
+}
+
+.flex-justify-around {
+	justify-content: space-around;
+}
+
+.flex-justify-evenly {
+	justify-content: space-evenly;
+}
+
+.flex-justify-left {
+	justify-content: left;
+}
+
+.flex-justify-right {
+	justify-content: right;
+}
+
+// ???
+
+.flex-align-center {
+	align-items: center;
+}
+
+// Missing: start | end
+
+.flex-direction-row, .flex-row {
+	flex-direction: row;
+}
+
+.flex-direction-row-reverse, .flex-row-reverse {
+	flex-direction: row-reverse;
+}
+
+.flex-direction-column, .flex-column {
+	flex-direction: column;
+}
+
+.flex-direction-column-reverse, .flex-column-reverse {
+	flex-direction: column-reverse;
+}
+
+.flex-fill {
+	-ms-flex: 1 1 auto !important;
+	flex: 1 1 auto !important;
+}
