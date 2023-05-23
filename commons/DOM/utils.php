@@ -5,43 +5,56 @@ if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	die();
 }
 
+// Used by 'printMainHeader()'.
 $_npDomUtilsHeadingCount = 0;
 
-/**
- * Prints a standard heading container and its text with an optional anchor.
- * @param $text string Text to be shown in the heading
- * @param $iconId string|null
- * @param $rightText string|null
- * @param $anchorId string|null Anchor's ID if desired, `null` otherwise.
- * @return void
- */
-function makeMainHeader(string $text, ?string $iconId = null, ?string $rightText = null, ?string $anchorId = null): void {
-	global $_npDomUtilsHeadingCount;
-	
-	if(!is_null($anchorId)) {
-		echo('<a class="bland-link" href="#' . $anchorId . '">');
+function getMainHeader(string $text, ?string $iconId = null, ?string $rightText = null, ?string $anchorId = null,
+					   bool $addTopMargin = true, ?string $backgroundClass = "bkgd-grid", int $hLevel = 2): string {
+	if(is_null($backgroundClass)) {
+		$backgroundClass = "bkgd-grid";
 	}
 	
-	echo('<div class="heading-main p-xs border r-s ' . ($_npDomUtilsHeadingCount > 0 ? "mt-l " : "") . 'bkgd-grid"><h2 class="t-w-500 t-size-14">');
-
+	$htmlCode = "";
+	
+	if(!is_null($anchorId)) {
+		$htmlCode .= '<a class="bland-link" href="#' . $anchorId . '">';
+	}
+	
+	$htmlCode .= '<div class="heading-main p-xs border r-s ' . ($addTopMargin > 0 ? "mt-l " : "") . $backgroundClass .
+		'"><h' . $hLevel . ' class="t-w-500 t-size-14">';
+	
 	// TODO: Add a simple and nicer divider.
 	if(!is_null($iconId)) {
-		echo('<i class="' . $iconId . ' t-size-12 t-muted"></i>');
+		$htmlCode .= '<i class="' . $iconId . ' t-size-12 t-muted"></i>';
 	}
 	
-	echo($text);
+	$htmlCode .= $text;
 	
 	if(!is_null($rightText)) {
-		echo('<span class="ml-auto t-muted t-size-10">' . $rightText . '</span>');
+		$htmlCode .= '<span class="ml-auto t-muted t-size-10">' . $rightText . '</span>';
 	}
 	
-	echo('</h2></div>');
+	$htmlCode .= '</h' . $hLevel . '></div>';
 	
 	if(!is_null($anchorId)) {
-		echo('</a>');
+		$htmlCode .= '</a>';
 	}
 	
+	return $htmlCode;
+}
+
+function printMainHeader(string $text, ?string $iconId = null, ?string $rightText = null, ?string $anchorId = null,
+						 ?string $backgroundClass = "bkgd-grid"): void {
+	global $_npDomUtilsHeadingCount;
 	$_npDomUtilsHeadingCount++;
+	echo(getMainHeader(
+		$text,
+		$iconId,
+		$rightText,
+		$anchorId,
+		($_npDomUtilsHeadingCount > 1),
+		$backgroundClass
+	));
 }
 
 ?>

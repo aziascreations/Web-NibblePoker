@@ -19,7 +19,7 @@ include_once 'commons/langs.php';
 </head>
 <body>
 <?php
-include 'commons/DOM/utils.php';
+include_once 'commons/DOM/utils.php';
 include 'commons/DOM/body-1.php';
 $SIDEBAR_ID = 'privacy';
 include 'commons/DOM/sidebar.php';
@@ -35,7 +35,7 @@ include 'commons/DOM/body-2.php';
 <?php include 'commons/DOM/body-3.php'; ?>
 <main id="main" class="rl-m border border-r-0 p-l">
 	
-	<?php makeMainHeader(localize("privacy.introduction.title"), "fad fa-info"); ?>
+	<?php printMainHeader(localize("privacy.introduction.title"), "fad fa-info"); ?>
     <p class="mt-xs ml-s"><?php print(localize("privacy.introduction.text.1")); ?></p>
     <p class="mt-s ml-s">
 		<?php print(localize("privacy.introduction.text.2")); ?>
@@ -49,7 +49,7 @@ include 'commons/DOM/body-2.php';
         </a>
     </p>
 	
-	<?php makeMainHeader(localize("privacy.v2.data.title"), "fad fa-database"); ?>
+	<?php printMainHeader(localize("privacy.v2.data.title"), "fad fa-database"); ?>
     <p class="mt-s ml-s">
 		<?php print(localize('privacy.v2.data.intro.1')); ?>
         <br>
@@ -90,7 +90,7 @@ include 'commons/DOM/body-2.php';
 		<?php print(localize('privacy.v2.data.end.6')); ?>
     </p>
     
-	<?php makeMainHeader(localize("privacy.v2.third.title"), "fad fa-handshake"); ?>
+	<?php printMainHeader(localize("privacy.v2.third.title"), "fad fa-handshake"); ?>
 	<p class="mt-s ml-s">
 		<?php print(localize('privacy.v2.third.intro.1')); ?><br>
 		<?php print(localize('privacy.v2.third.intro.2')); ?>
@@ -112,12 +112,12 @@ include 'commons/DOM/body-2.php';
 		<span class="ml-s">(<?php print(localize('lang.german')); ?>)</span><br>
 	</p>
 	
-	<?php makeMainHeader(localize("privacy.v2.cookies.title"), "fad fa-cookie-bite"); ?>
+	<?php printMainHeader(localize("privacy.v2.cookies.title"), "fad fa-cookie-bite"); ?>
     <p class="mt-s ml-s">
 		<?php print(localize('privacy.v2.cookies.intro.1')); ?>
     </p>
     
-	<?php makeMainHeader(localize("privacy.v2.update.title"), "fad fa-sync-alt"); ?>
+	<?php printMainHeader(localize("privacy.v2.update.title"), "fad fa-sync-alt"); ?>
     <p class="mt-s ml-s">
 		<?php print(localize('privacy.v2.update.intro.1')); ?>
     </p>
@@ -181,14 +181,14 @@ include 'commons/DOM/body-2.php';
 		<?php print(localize('privacy.v2.update.end.2')); ?>
     </p>
     
-	<?php makeMainHeader(localize("privacy.contact.title"), "fad fa-mailbox"); ?>
+	<?php printMainHeader(localize("privacy.contact.title"), "fad fa-mailbox"); ?>
     <p class="mt-s ml-s">
 		<?php print(localize('privacy.contact.text.1')); ?><br>
         <i class="fad fa-at t-size-8 ml-s"></i>
         <a href="mailto:herwin.bozet@gmail.com">herwin.bozet@gmail.com</a>
     </p>
 	
-	<?php makeMainHeader(localize("privacy.complaint.title"), "fad fa-gavel"); ?>
+	<?php printMainHeader(localize("privacy.complaint.title"), "fad fa-gavel"); ?>
     <p class="mt-s ml-s">
 		<?php print(localize('privacy.complaint.text.1')); ?>
     </p>

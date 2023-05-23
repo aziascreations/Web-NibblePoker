@@ -70,7 +70,7 @@ if ($content_has_error) {
 </head>
 <body>
 <?php
-include 'commons/DOM/utils.php';
+include_once 'commons/DOM/utils.php';
 include 'commons/DOM/body-1.php';
 $SIDEBAR_ID = 'home';
 include 'commons/DOM/sidebar.php';
@@ -90,11 +90,11 @@ include 'commons/DOM/body-2.php';
 	// Checking if an error occurred.
     if($content_error_code != 200) {
 		if($requested_content_display_type == ContentDisplayType::SEARCH) {
-			makeMainHeader(localize("content.error.heading.main.search"), "fad fa-exclamation-triangle");
+			printMainHeader(localize("content.error.heading.main.search"), "fad fa-exclamation-triangle");
 		} elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
-			makeMainHeader(localize("content.error.heading.main.content"), "fad fa-exclamation-triangle");
+			printMainHeader(localize("content.error.heading.main.content"), "fad fa-exclamation-triangle");
 		} else {
-			makeMainHeader(localize("content.error.heading.main.fallback"), "fad fa-exclamation-triangle");
+			printMainHeader(localize("content.error.heading.main.fallback"), "fad fa-exclamation-triangle");
         }
         
         echo('<h3 class="mt-m t-size-18 t-center content-error-text mx-auto">' . $content_error_message . '</h3>');
@@ -106,7 +106,11 @@ include 'commons/DOM/body-2.php';
         // We are handling a content search with at least one result.
         
         // Making the header with the amount of results.
-		makeMainHeader(localize("content.search.heading.main"), "fad fa-file-search",
+		printMainHeader(
+			count($filtered_content_index_data) > 1 ?
+				localize("content.search.heading.main.multiple") :
+				localize("content.search.heading.main.single"),
+            "fad fa-file-search",
 			count($filtered_content_index_data) . " " . (
 			count($filtered_content_index_data) > 1 ?
 				localize("content.search.count.multiple") :

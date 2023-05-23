@@ -19,7 +19,7 @@ include_once 'commons/langs.php';
 </head>
 <body>
 <?php
-include 'commons/DOM/utils.php';
+include_once 'commons/DOM/utils.php';
 include 'commons/DOM/body-1.php';
 $SIDEBAR_ID = 'home';
 include 'commons/DOM/sidebar.php';
@@ -34,11 +34,11 @@ include 'commons/DOM/body-2.php';
 <?php include 'commons/DOM/body-3.php'; ?>
 <main id="main" class="rl-m border border-r-0 p-l">
 	
-	<?php makeMainHeader(localize("home.intro.title")); ?>
+	<?php printMainHeader(localize("home.intro.title")); ?>
 	<p class="mt-xs ml-s"><?php print(localize("home.intro.text.1")); ?></p>
 	<p class="mt-xs ml-s"><?php print(localize("home.intro.text.2")); ?></p>
 	
-	<?php makeMainHeader("Applications"); ?>
+	<?php printMainHeader("Applications"); ?>
 	<!-- If 'r-*' is used, 'o-hidden' needs to be too => https://stackoverflow.com/a/8582304 -->
 	<table class="stylish w-full mt-xs table-p-xs r-s o-hidden border">
 		<thead>
@@ -62,7 +62,7 @@ include 'commons/DOM/body-2.php';
 		</tbody>
 	</table>
 	
-	<?php makeMainHeader("Testing"); ?>
+	<?php printMainHeader("Testing"); ?>
 	<p class="mt-xs ml-s"><?php print(localize("home.intro.text.1")); ?></p>
 	<br>
 	<button class="p-xs border r-s">aaa</button>
@@ -70,7 +70,7 @@ include 'commons/DOM/body-2.php';
 	<input class="p-xs border r-s" type="text">
 	<br>
 	
-	<?php makeMainHeader(localize("home.intro.title")); ?>
+	<?php printMainHeader(localize("home.intro.title")); ?>
 	<p class="mt-xs ml-s">
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed <span class="code">do eiusmod tempor</span> incididunt ut labore et dolore magna aliqua.<br>
 		Mauris ultrices eros in cursus turpis massa tincidunt dui.<br>

@@ -52,7 +52,7 @@ function localize_private(string $string_key, array $private_lang_data, bool $fa
 	}
 	if($fallback_to_common) {
 		// If we can attempt to fallback on the common lang file.
-		return localize_private($fallback_prefix . "." . $string_key, $lang_data, false);
+		return localize_private($fallback_prefix . $string_key, $lang_data, false);
 	}
 	
 	// If nothing could be done, we simply return the key.

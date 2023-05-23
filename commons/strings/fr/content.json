@@ -1,3 +1,63 @@
 {
-
+	"content.search.head.title": "Recherche de contenu - NibblePoker",
+	"content.search.head.description": "TODO: description",
+	"content.search.og.title": "NibblePoker - Recherche de contenu",
+	"content.search.og.description": "TODO: description",
+	
+	"content.search.heading.main.single": "Résultat de recherche",
+	"content.search.heading.main.multiple": "Résultats de recherche",
+	
+	"content.search.count.single": "résultat",
+	"content.search.count.multiple": "résultats",
+	
+	"content.error.head.title": "Erreur de contenu - NibblePoker",
+	"_content.error.head.description": "Done via the '$content_error_message' variable",
+	"content.error.og.title": "NibblePoker - Erreur de contenu",
+	"_content.error.og.description": "Done via the '$content_error_message' variable",
+	
+	"content.error.heading.main.search": "Erreur de recherche",
+	"content.error.heading.main.content": "Erreur de contenu",
+	"content.error.heading.main.fallback": "Erreur inconnue",
+	
+	"_": "Messages returned by 'commons/content.php'",
+	"content.error.message.none": "Aucune erreur n'a été détectée.",
+	"content.error.message.tags.length": "Le paramètre d'URL \"tags\" est trop long.",
+	"content.error.message.tags.alphanumeric": "Un des tags donné dans le paramètre d'URL \"tags\" n'est pas une chaîne de texte alphanumérique valide.",
+	"content.error.message.detect.empty": "Aucun contenu en rapport avec les tags choisi n'as été trouvé.",
+	"content.error.message.id.alphanumeric": "L'ID de la ressource demandée n'est pas une chaîne de texte alphanumérique valide.",
+	"content.error.message.data.not.exist": "Le contenu demandée n'a pas de fichier de rendu interne associé.",
+	"content.error.message.cannot.load": "Le contenu demandé n'a pas pu être chargé de notre côté !",
+	
+	"__": "Messages returned by 'commons/composer.php'",
+	"content.error.message.data.no.tags": "Aucun tag trouvé !",
+	"content.error.message.data.no.title": "Aucun titre trouvé !",
+	
+	"content.item.head.title.prefix": "",
+	"content.item.head.title.suffix": " - NibblePoker",
+	
+	"content.item.og.title.prefix": "",
+	"content.item.og.title.suffix": " - NibblePoker",
+	
+	"content.commons.version.current": "Version actuelle",
+	"content.commons.version.previous.single": "Version précédente",
+	"content.commons.version.previous.multiple": "Versions précédentes",
+	"content.commons.version.old.single": "Ancienne version",
+	"content.commons.version.old.multiple": "Anciennes versions",
+	"content.commons.version.source": "Code source",
+	"content.commons.cpu": "Architecture de CPU",
+	"content.commons.cpu.any": "Indépendante",
+	"content.commons.cpu.x64": "x64",
+	"content.commons.cpu.x86": "x86",
+	"content.commons.cpu.arm": "arm",
+	"content.commons.cpu.arm64": "arm64",
+	"content.commons.na.italic": "<i>N/A</i>",
+	"content.commons.na": "N/A",
+	"content.commons.lang": "Langue",
+	"content.commons.download.single": "Téléchargement",
+	"content.commons.download.multiple": "Téléchargements",
+	"content.commons.version": "Version",
+	"content.commons.github": "Dépôt GitHub",
+	"content.commons.gitea": "Dépôt Gitea auto-hébergé",
+	"content.commons.nuget": "Packet Nuget",
+	"content.commons.license.mit.single": "License MIT"
 }
