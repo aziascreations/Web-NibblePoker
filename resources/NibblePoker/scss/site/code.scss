@@ -11,7 +11,9 @@ code {
 
 // For spans
 .code, kbd {
-	border: 1px solid #{$color-unset};
+	background-color: #{$color-background-code};
+	
+	border: 1px solid #{$color-border-code};
 	
 	// Using '.r-s'
 	border-radius: calc(#{$border-base-radius} * 0.75);
@@ -19,4 +21,18 @@ code {
 	// Using the middle of '.px-xs' and '.px-s'
 	padding-left: calc(#{$border-base-radius} * 0.625);
 	padding-right: calc(#{$border-base-radius} * 0.625);
+}
+
+// Removes the background added by highlight.js
+.code-line {
+	background: rgba(0,0,0,0) !important;
+}
+
+code, .code, .code-line {
+	line-height: 1.35;
+}
+
+// FIXME: Use a proper class !!!
+.code:not(code) {
+	padding: calc(#{$border-base-radius} * 0.625);
 }

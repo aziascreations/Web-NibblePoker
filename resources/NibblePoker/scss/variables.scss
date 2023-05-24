@@ -58,6 +58,8 @@ $color-apollo-custom-03: mix($color-apollo-40, $color-apollo-39, 65%);
 
 $color-apollo-custom-10: mix($color-apollo-40, $color-apollo-41, 75%);
 
+$color-apollo-custom-20: mix($color-apollo-39, $color-apollo-38, 60%);
+
 //$color-test-01: mix(#7b6aa5, #000000, 33%);
 $color-test-02: #007c7d;
 
@@ -78,6 +80,7 @@ $color-link-blue: #{$color-apollo-04};
 $color-link-blue-hover: #{$color-apollo-05};
 
 $color-border-all: $color-apollo-38;
+$color-border-light: $color-apollo-custom-20;
 
 $color-input-glow: $color-apollo-02;
 
@@ -98,6 +101,9 @@ $color-background-surround: $color-apollo-custom-00;
 
 //$color-background-main-headings: $color-apollo-40;
 $color-background-main-headings: $color-apollo-custom-03;
+
+$color-background-code: #{$color-apollo-custom-20};
+$color-border-code: #{$color-border-all}CF;
 
 $color-background-table-main: $color-apollo-custom-01;
 $color-background-table-dual: $color-apollo-custom-00;

@@ -77,15 +77,30 @@ include 'commons/DOM/sidebar.php';
 include 'commons/DOM/body-2.php';
 ?>
 <header class="w-full p-m pl-s">
-    <h1 class="t-size-18 t-w-500">
-        <img src="/resources/Icons8/Fluent/console.svg" alt="todo"
-             class="img-text">&nbsp;<?php print(localize("home.header.title")); ?>
+    <h1 class="t-size-17 t-w-500">
+        <?php
+		if($content_has_error) {
+			echo('<i class="fad fa-exclamation-triangle t-size-16 mr-s t-muted"></i>');
+			echo(localize("content.header.base"));
+			echo('<span class="mx-s t-size-15">❱</span>');
+			echo(localize("content.error.header"));
+		} elseif($requested_content_display_type == ContentDisplayType::SEARCH) {
+			echo('<i class="fad fa-briefcase t-size-16 mr-s t-muted"></i>');
+			echo(localize("content.header.base"));
+			echo('<span class="mx-s t-size-15">❱</span>');
+			echo(localize("content.search.header"));
+		} elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
+			echo('<i class="fad fa-briefcase t-size-16 mr-s t-muted"></i>');
+		    echo(localize("content.header.base"));
+			echo('<span class="mx-s t-size-15">❱</span>');
+            echo('<span class="t-size-16">' . $content->get_head_title() . '</span>');
+		}
+		?>
     </h1>
 	<?php //include 'header-lang.php'; ?>
 </header>
 <?php include 'commons/DOM/body-3.php'; ?>
 <main id="main" class="rl-m border border-r-0 p-l">
-	
 	<?php
 	// Checking if an error occurred.
     if($content_error_code != 200) {

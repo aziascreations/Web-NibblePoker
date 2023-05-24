@@ -93,6 +93,20 @@ if($requested_content_display_type == ContentDisplayType::SEARCH) {
 		$content_error_message_key = "content.error.message.detect.empty";
 		goto content_end;
 	}
+	
+	// Sorting entries based on their priority
+	for($i = 0; $i < count($filtered_content_index_data); $i++) {
+		if(!isset($filtered_content_index_data[$i]["priority"])) {
+			$filtered_content_index_data[$i]["priority"] = 0;
+		}
+	}
+	usort($filtered_content_index_data, function ($a, $b) {
+		if($a["priority"] == $b["priority"]) {
+			return 0;
+		}
+		return ($a["priority"] > $b["priority"]) ? -1 : 1;
+	});
+	
 } else if($requested_content_display_type == ContentDisplayType::CONTENT) {
 	// Sanitizing the requested ID.
 	if(!ctype_alnum(str_replace("-", "", $content_requested_url_part))) {
@@ -128,62 +142,4 @@ content_end:
 // TODO: Create error thingy
 $content_error_message = localize($content_error_message_key);
 
-// These functions are placed here to prevent the main file from becoming impossible to read.
-function start_content_card($iconClasses, $title, $subTitle) {
-	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">');
-	echo('<h2 class="card-title font-size-18 m-0"><i class="'.$iconClasses.'"></i>&nbsp;&nbsp;'.localize($title));
-	echo('<span class="card-title font-size-18 m-0 text-super-muted float-right hidden-xs-and-down">'.$subTitle.'</span></h2>');
-	echo('</div></div>');
-}
-
-function end_content_card() {
-	echo('</div>');
-}
-
-// FIXME: What is this, should it be removed ?
-/*
-	switch($elementNode["type"]) {
-		case "image":
-			// Parsing properties.
-			$_imgAlt = "";
-			$_imgSource = "/resources/Azias/imgs/placeholder.png";
-			if(array_key_exists("alt", $elementNode)) {
-				$_imgAlt = $elementNode["alt"];
-			}
-			if(array_key_exists("src", $elementNode)) {
-				$_imgSource = $elementNode["src"];
-			}
-			
-			// Reading and processing the modifiers.
-			$_modFillHeight = false;
-			if(array_key_exists("modifiers", $elementNode)) {
-				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
-					if ($elementNode["modifiers"][$i] == "fill-height") {
-						$_modFillHeight = true;
-					}
-				}
-			}
-			
-			// Adding element.
-			echo('<img class="'.($_modFillHeight?'fill-height':'').'" src="'.$_imgSource.'" alt="'.$_imgAlt.'">');
-			
-			break;
-		case "slider":
-		case "glider":
-		case "gallery":
-			// Starting the gallery
-			echo('<div class="glider-container d-flex">');
-			echo('<div class="align-self-stretch font-size-40 mr-5 my-auto glider-nav" aria-label="Previous">');
-			echo('<i class="fad fa-angle-left"></i></div>');
-			echo('<div class="glider align-self-stretch flex-fill">');
-			
-			// Adding content.
-			processStandardContentSubNode($elementNode, "<div>", "</div>");
-		
-			// Ending the gallery
-			echo('</div><div class="align-self-stretch font-size-40 ml-5 my-auto glider-nav" aria-label="Next">');
-			echo('<i class="fad fa-angle-right"></i></div></div>');
-			
-			break;
-}/**/
 ?>

@@ -26,9 +26,8 @@ include 'commons/DOM/sidebar.php';
 include 'commons/DOM/body-2.php';
 ?>
 <header class="w-full p-m pl-s">
-    <h1 class="t-size-18 t-w-500">
-        <img src="/resources/Icons8/Fluent/console.svg" alt="todo"
-             class="img-text">&nbsp;<?php print(localize("privacy.header.title")); ?>
+    <h1 class="t-size-17 t-w-500">
+        <i class="fad fa-user-secret t-size-16 mr-s t-muted"></i><?php print(localize("privacy.header.title")); ?>
     </h1>
 	<?php //include 'header-lang.php'; ?>
 </header>
@@ -50,7 +49,7 @@ include 'commons/DOM/body-2.php';
     </p>
 	
 	<?php printMainHeader(localize("privacy.v2.data.title"), "fad fa-database"); ?>
-    <p class="mt-s ml-s">
+    <p class="mt-xs ml-s">
 		<?php print(localize('privacy.v2.data.intro.1')); ?>
         <br>
 		<?php print(localize('privacy.v2.data.intro.2')); ?>
@@ -91,7 +90,7 @@ include 'commons/DOM/body-2.php';
     </p>
     
 	<?php printMainHeader(localize("privacy.v2.third.title"), "fad fa-handshake"); ?>
-	<p class="mt-s ml-s">
+	<p class="mt-xs ml-s">
 		<?php print(localize('privacy.v2.third.intro.1')); ?><br>
 		<?php print(localize('privacy.v2.third.intro.2')); ?>
 	</p>
@@ -113,12 +112,12 @@ include 'commons/DOM/body-2.php';
 	</p>
 	
 	<?php printMainHeader(localize("privacy.v2.cookies.title"), "fad fa-cookie-bite"); ?>
-    <p class="mt-s ml-s">
+    <p class="mt-xs ml-s">
 		<?php print(localize('privacy.v2.cookies.intro.1')); ?>
     </p>
     
 	<?php printMainHeader(localize("privacy.v2.update.title"), "fad fa-sync-alt"); ?>
-    <p class="mt-s ml-s">
+    <p class="mt-xs ml-s">
 		<?php print(localize('privacy.v2.update.intro.1')); ?>
     </p>
     <p class="mt-s ml-s">
@@ -182,14 +181,14 @@ include 'commons/DOM/body-2.php';
     </p>
     
 	<?php printMainHeader(localize("privacy.contact.title"), "fad fa-mailbox"); ?>
-    <p class="mt-s ml-s">
+    <p class="mt-xs ml-s">
 		<?php print(localize('privacy.contact.text.1')); ?><br>
         <i class="fad fa-at t-size-8 ml-s"></i>
         <a href="mailto:herwin.bozet@gmail.com">herwin.bozet@gmail.com</a>
     </p>
 	
 	<?php printMainHeader(localize("privacy.complaint.title"), "fad fa-gavel"); ?>
-    <p class="mt-s ml-s">
+    <p class="mt-xs ml-s">
 		<?php print(localize('privacy.complaint.text.1')); ?>
     </p>
     <p class="mt-s ml-s">

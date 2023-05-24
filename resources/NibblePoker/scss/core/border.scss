@@ -13,6 +13,10 @@
 
 .border {
 	border: 1px solid #{$color-border-all};
+	
+	&.b-light {
+		border: 1px solid #{$color-border-light};
+	}
 }
 
 * {

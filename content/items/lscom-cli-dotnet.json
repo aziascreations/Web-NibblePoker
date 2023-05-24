@@ -151,9 +151,9 @@
           "type": "gallery",
           "modifiers": [],
           "images": [
-            "/resources/Azias/imgs/lscom/screen-cli-stylish-2x-xBR.png",
-            "/resources/Azias/imgs/lscom/screen-cli-csv-2x-xBR.png",
-            "/resources/Azias/imgs/lscom/screen-cli-full-2x-xBR.png"
+            "/resources/NibblePoker/images/content/lscom/screen-cli-stylish-2x-xBR.png",
+            "/resources/NibblePoker/images/content/lscom/screen-cli-csv-2x-xBR.png",
+            "/resources/NibblePoker/images/content/lscom/screen-cli-full-2x-xBR.png"
           ]
         }
       ]
@@ -235,7 +235,7 @@
       "type": "container", "padding": 2, "modifiers": ["pb-0"],
       "parts": [
         {
-          "type": "table", "modifiers": ["stylish", "auto-cell-padding"],
+          "type": "table", "modifiers": ["stylish", "auto-cell-padding", "v-center-cells"],
           "head": [
             {"type": "raw", "content": "content.commons.cpu.responsive"},
             {"type": "raw", "content": "requirements.table.title"},
@@ -253,7 +253,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_AnyCPU.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_AnyCPU.zip</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -268,7 +268,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x64_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x64_Single.zip</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -282,7 +282,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x64_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x64_SelfContained.zip</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -295,7 +295,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-archive\"></i> ListComPort_v3.0.0_x64.msi</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x64.msi</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -310,7 +310,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x86_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x86_Single.zip</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -324,7 +324,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x86_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x86_SelfContained.zip</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -337,7 +337,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-archive\"></i> ListComPort_v3.0.0_x86.msi</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x86.msi</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -352,7 +352,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm64_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_arm64_Single.zip</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -366,7 +366,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm64_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_arm64_SelfContained.zip</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -381,7 +381,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_arm_Single.zip</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -395,7 +395,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_arm_SelfContained.zip</span><i class=\"fas fa-download ml-s\"></i>"
                   }]
                 }]
               }
@@ -410,7 +410,7 @@
       "type": "container", "padding": 2, "modifiers": ["pb-0"],
       "parts": [
         {
-          "type": "table", "modifiers": ["stylish", "auto-cell-padding"],
+          "type": "table", "modifiers": ["stylish", "auto-cell-padding", "v-center-cells"],
           "head": [
             {"type": "raw", "content": "content.commons.version"},
             {"type": "raw", "content": "content.commons.download.multiple"}
@@ -423,12 +423,12 @@
                 {
                   "type": "button", "modifiers": ["thin"],
                   "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.zip",
-                  "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> 3.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                  "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;3.0.0.zip</span><i class=\"fas fa-download ml-s\"></i>",
                   "localize": false
                 },{
                   "type": "button", "modifiers": ["thin"],
                   "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.tar.gz",
-                  "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> 3.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                  "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;3.0.0.tar.gz</span><i class=\"fas fa-download ml-s\"></i>",
                   "localize": false
                 }
               ]

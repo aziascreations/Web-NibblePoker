@@ -28,6 +28,12 @@ h1, h2, h3, h4, h5, h6 {
 .t-size-13 {
 	font-size: 1.3rem !important;
 }
+.t-size-15 {
+	font-size: 1.5rem !important;
+}
+.t-size-17 {
+	font-size: 1.7rem !important;
+}
 
 @for $_ from 2 through 7 {
 	$size: $_ * 100;

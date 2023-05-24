@@ -12,8 +12,8 @@ if(!isset($SIDEBAR_ID)) {
 }
 
 function printSidebarEntry($url, $title, $icon) {
-	echo('<a class="bland-link" href="' . $url . '" title="HTML5 anchor element"><p class="t-size-18 t-w-500 py-xs sidebar-entry">');
-	echo('<i class="' . $icon . ' pr-xs t-size-12"></i><span class="t-size-12">' . $title . '</span></p></a>');
+	echo('<a class="bland-link" href="' . $url . '"><p class="t-size-18 t-w-500 py-xs sidebar-entry">');
+	echo('<i class="' . $icon . ' pr-xs t-size-12 t-half-muted"></i><span class="t-size-12">' . $title . '</span></p></a>');
 }
 
 ?>

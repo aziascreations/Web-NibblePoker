@@ -26,8 +26,8 @@ include 'commons/DOM/sidebar.php';
 include 'commons/DOM/body-2.php';
 ?>
 <header class="w-full p-m pl-s">
-	<h1 class="t-size-18 t-w-500">
-		<img src="/resources/Icons8/Fluent/console.svg" alt="todo" class="img-text">&nbsp;<?php print(localize("home.header.title")); ?>
+	<h1 class="t-size-17 t-w-500">
+        <i class="fad fa-home t-size-16 mr-s t-muted"></i><?php print(localize("home.header.title")); ?>
 	</h1>
 	<?php //include 'header-lang.php'; ?>
 </header>

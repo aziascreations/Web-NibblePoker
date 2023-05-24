@@ -9,7 +9,12 @@
 
   "content.search.count.single": "result",
   "content.search.count.multiple": "results",
-
+  
+  "content.header.base" : "Content",
+  "content.search.header" : "Search",
+  "content.error.header" : "Error",
+  "_content.item.header" : "",
+  
   "content.error.head.title": "Content error - NibblePoker",
   "_content.error.head.description": "Done via the '$content_error_message' variable",
   "content.error.og.title": "NibblePoker - Content error",

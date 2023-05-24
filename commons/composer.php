@@ -113,8 +113,9 @@ abstract class ComposerElementModifiers {
 	const TABLE_HOVER = ["hover", "table-hover"];
 	const TABLE_INNER_BORDER = ["inner-bordered", "table-inner-bordered"];
 	const TABLE_OUTER_BORDER = ["outer-bordered", "table-outer-bordered"];
-	const TABLE_V2_STYLISH = ["stylish", "stylish"];
+	const TABLE_V2_STYLISH = ["stylish", "stylish r-s border o-hidden"];
 	const TABLE_V2_CELL_PADDING = ["auto-cell-padding", "table-p-xs"];
+	const TABLE_V2_VERTICAL_ALIGN = ["v-center-cells", "table-v-center"];
 	
 	// Code
 	const CODE_BLOCK = ["code-block", "w-full d-inline-block"];
@@ -646,7 +647,7 @@ class ComposerElement {
 		// Setting up the link and its title if needed.
 		if(!is_null($this->link)) {
 			$htmlCode .= '<a href="' . $this->link . '"' .
-				($this->type == ComposerElementTypes::BUTTON ? 'class="button-link"' : '') .'>';
+				($this->type == ComposerElementTypes::BUTTON ? 'class="bland-link button-link"' : '') .'>';
 		}
 		
 		switch($this->type) {
@@ -726,7 +727,7 @@ class ComposerElement {
 				
 			case ComposerElementTypes::BUTTON:
 				// Composing the button.
-				$htmlCode .= '<button class="btn ' . (is_null($this->color) ? '' : 'btn-' . $this->color . ' ') .
+				$htmlCode .= '<button class="p-mxs r-s border b-light ' . (is_null($this->color) ? '' : 'btn-' . $this->color . ' ') .
 					$this->get_modifiers_classes() . '">' . $this->get_inner_html($content_root) . '</button>';
 				
 				break;

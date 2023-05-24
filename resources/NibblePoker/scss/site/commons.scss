@@ -21,3 +21,7 @@
 //	}
 //}
 //
+
+button + button, .button-link + .button-link > button {
+	margin-left: 0.75rem;
+}

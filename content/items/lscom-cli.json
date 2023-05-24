@@ -1,7 +1,7 @@
 {
   "strings": {
     "en": {
-      "meta.title": "PB-ListComPort (Legacy)",
+      "meta.title": "PB-ListComPort&nbsp;&nbsp;<i>(Legacy)</i>",
       "meta.description": "A simple CLI tool that can list COM ports with their name, friendly name and device name easily and cleanly.",
       "article.subtitle": "<a href=\"https://github.com/aziascreations/PB-ListComPort\"><i class=\"fab fa-github\"></i> View on GitHub</a>",
       "intro.title": "Introduction",
@@ -13,7 +13,7 @@
       "links.title": "Links"
     },
     "fr": {
-      "meta.title": "PB-ListComPort (Legacy)",
+      "meta.title": "PB-ListComPort&nbsp;&nbsp;<i>(Legacy)</i>",
       "meta.description": "Un petit utilitaire pour invité de commande qui permet de facilement lister les noms, noms formatés et chemin des ports COM.",
       "article.subtitle": "<a href=\"https://github.com/aziascreations/PB-ListComPort\"><i class=\"fab fa-github\"></i> Voir sur GitHub</a>",
       "intro.title": "Introduction",
@@ -120,7 +120,7 @@
       "modifiers": ["pb-0"],
       "parts": [
         {
-          "type": "table", "modifiers": ["stylish", "auto-cell-padding"],
+          "type": "table", "modifiers": ["stylish", "auto-cell-padding", "v-center-cells"],
           "head": [
             {"type": "raw", "content": "content.commons.cpu.responsive"},
             {"type": "raw", "content": "content.commons.lang"},
@@ -138,7 +138,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                   }]
                 }]
               }
@@ -152,7 +152,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                   }]
                 }]
               }
@@ -167,7 +167,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                   }]
                 }]
               }
@@ -181,7 +181,7 @@
                   "parts": [{
                     "type": "raw",
                     "localize": false,
-                    "content": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                   }]
                 }]
               }
@@ -196,7 +196,7 @@
       "type": "container", "padding": 2, "modifiers": ["pb-0"],
       "parts": [
         {
-          "type": "table", "modifiers": ["stylish", "auto-cell-padding"],
+          "type": "table", "modifiers": ["stylish", "auto-cell-padding", "v-center-cells"],
           "head": [
             {"type": "raw", "content": "content.commons.version"},
             {"type": "raw", "content": "content.commons.cpu.responsive"},
@@ -213,7 +213,7 @@
                 "parts": [{
                   "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x64.exe",
                   "modifiers": ["thin"], "localize": false,
-                  "content": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  "content": "<span class=\"text-monospace\">lscom_eng_x64.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                 }]
               }
             ],[
@@ -223,7 +223,7 @@
                 "parts": [{
                   "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x64.exe",
                   "modifiers": ["thin"], "localize": false,
-                  "content": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  "content": "<span class=\"text-monospace\">lscom_fra_x64.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                 }]
               }
             ],[
@@ -235,7 +235,7 @@
                   {
                     "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_eng_x86.exe",
                     "modifiers": ["thin"], "localize": false,
-                    "content": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                    "content": "<span class=\"text-monospace\">lscom_eng_x86.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                   }
                 ]
               }
@@ -246,7 +246,7 @@
                 "parts": [{
                   "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/lscom_fra_x86.exe",
                   "modifiers": ["thin"], "localize": false,
-                  "content": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  "content": "<span class=\"text-monospace\">lscom_fra_x86.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                 }]
               }
             ],[
@@ -258,7 +258,7 @@
                 "parts": [{
                   "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/lscom-x64.exe",
                   "modifiers": ["thin"], "localize": false,
-                  "content": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  "content": "<span class=\"text-monospace\">lscom-x64.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                 }]
               }
             ],[
@@ -268,7 +268,7 @@
                 "parts": [{
                   "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/lscom-x86.exe",
                   "modifiers": ["thin"], "localize": false,
-                  "content": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  "content": "<span class=\"text-monospace\">lscom-x86.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                 }]
               }
             ],[
@@ -280,7 +280,7 @@
                 "parts": [{
                   "type": "button", "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/lscom.exe",
                   "modifiers": ["thin"], "localize": false,
-                  "content": "<span class=\"text-monospace\">lscom.exe</span><i class=\"fas fa-download ml-10\"></i>"
+                  "content": "<span class=\"text-monospace\">lscom.exe</span><i class=\"fas fa-download ml-xs\"></i>"
                 }]
               }
             ]
@@ -294,7 +294,7 @@
       "type": "container", "padding": 2, "modifiers": ["pb-0"],
       "parts": [
         {
-          "type": "table", "modifiers": ["stylish", "auto-cell-padding"],
+          "type": "table", "modifiers": ["stylish", "auto-cell-padding", "v-center-cells"],
           "head": [
             {"type": "raw", "content": "content.commons.version"},
             {"type": "raw", "content": "content.commons.download.multiple"}
@@ -307,12 +307,12 @@
                 {
                   "type": "button", "modifiers": ["thin"],
                   "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/2.1.0.zip",
-                  "content": "<span class=\"text-monospace\">2.1.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                  "content": "<span class=\"text-monospace\">2.1.0.zip</span><i class=\"fas fa-download ml-xs\"></i>",
                   "localize": false
                 },{
                   "type": "button", "modifiers": ["thin"],
                   "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.1.0/2.1.0.tar.gz",
-                  "content": "<span class=\"text-monospace\">2.1.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                  "content": "<span class=\"text-monospace\">2.1.0.tar.gz</span><i class=\"fas fa-download ml-xs\"></i>",
                   "localize": false
                 }
               ]
@@ -325,12 +325,12 @@
                 {
                   "type": "button", "modifiers": ["thin"],
                   "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/2.0.0.zip",
-                  "content": "<span class=\"text-monospace\">2.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                  "content": "<span class=\"text-monospace\">2.0.0.zip</span><i class=\"fas fa-download ml-xs\"></i>",
                   "localize": false
                 },{
                   "type": "button", "modifiers": ["thin"],
                   "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/2.0.0/2.0.0.tar.gz",
-                  "content": "<span class=\"text-monospace\">2.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                  "content": "<span class=\"text-monospace\">2.0.0.tar.gz</span><i class=\"fas fa-download ml-xs\"></i>",
                   "localize": false
                 }
               ]
@@ -343,12 +343,12 @@
                 {
                   "type": "button", "modifiers": ["thin"],
                   "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/1.1.0.zip",
-                  "content": "<span class=\"text-monospace\">1.1.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                  "content": "<span class=\"text-monospace\">1.1.0.zip</span><i class=\"fas fa-download ml-xs\"></i>",
                   "localize": false
                 },{
                   "type": "button", "modifiers": ["thin"],
                   "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.1.0/1.1.0.tar.gz",
-                  "content": "<span class=\"text-monospace\">1.1.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                  "content": "<span class=\"text-monospace\">1.1.0.tar.gz</span><i class=\"fas fa-download ml-xs\"></i>",
                   "localize": false
                 }
               ]
@@ -361,12 +361,12 @@
                 {
                   "type": "button", "modifiers": ["thin"],
                   "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/1.0.0.zip",
-                  "content": "<span class=\"text-monospace\">1.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
+                  "content": "<span class=\"text-monospace\">1.0.0.zip</span><i class=\"fas fa-download ml-xs\"></i>",
                   "localize": false
                 },{
                   "type": "button", "modifiers": ["thin"],
                   "link": "https://files.nibblepoker.lu/downloads/PB-ListComPort/1.0.0/1.0.0.tar.gz",
-                  "content": "<span class=\"text-monospace\">1.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
+                  "content": "<span class=\"text-monospace\">1.0.0.tar.gz</span><i class=\"fas fa-download ml-xs\"></i>",
                   "localize": false
                 }
               ]
