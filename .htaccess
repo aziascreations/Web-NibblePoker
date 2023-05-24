@@ -23,8 +23,8 @@ Options -Indexes +FollowSymlinks -ExecCGI
 ServerSignature Off
 
 # Custom error pages.
-ErrorDocument 403 /403.php
-ErrorDocument 404 /404.php
+ErrorDocument 403 /error.php
+ErrorDocument 404 /error.php
 
 # Setting up browser's caching rules
 # See:

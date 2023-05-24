@@ -3,7 +3,6 @@
 
 # Static resources
 resources/FontAwesomePro/
-resources/FontAwesome/
 resources/HighlightJS/
 
 resources/NibblePoker/css/*.css

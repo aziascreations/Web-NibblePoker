@@ -94,11 +94,11 @@ abstract class ComposerElementModifiers {
 	const CONTAINER_CARD = ["card", "card"];
 	
 	// Buttons
-	const BUTTON_THIN  = ["thin", "btn-sm"];
-	const BUTTON_THICK = ["thick", "btn-lg"];
-	const BUTTON_ROUNDED = ["rounded", "btn-rounded"];
-	const BUTTON_CIRCLE = ["circle", "rounded-circle"];
-	const BUTTON_DOWNLOAD_PRIMARY = ["download-primary", "btn-primary"];
+	const BUTTON_THIN  = ["thin", ""];
+	const BUTTON_THICK = ["thick", ""];
+	const BUTTON_ROUNDED = ["rounded", ""];
+	const BUTTON_CIRCLE = ["circle", ""];
+	const BUTTON_DOWNLOAD_PRIMARY = ["download-primary", "primary"];
 	
 	// Horizontal ruler
 	const HR_SUBTLE = ["subtle", "subtle"];
@@ -114,7 +114,7 @@ abstract class ComposerElementModifiers {
 	const TABLE_INNER_BORDER = ["inner-bordered", "table-inner-bordered"];
 	const TABLE_OUTER_BORDER = ["outer-bordered", "table-outer-bordered"];
 	const TABLE_V2_STYLISH = ["stylish", "stylish r-s border o-hidden"];
-	const TABLE_V2_CELL_PADDING = ["auto-cell-padding", "table-p-xs"];
+	const TABLE_V2_CELL_PADDING = ["auto-cell-padding", "table-p-xs table-h-p-s"];
 	const TABLE_V2_VERTICAL_ALIGN = ["v-center-cells", "table-v-center"];
 	
 	// Code
@@ -334,15 +334,30 @@ class ComposerContentMetadata {
 						true
 					) . '<div class="px-xxs">' . $inner_html . '</div>';
 				
-				// Appending the tags if any are present
+				// Grabbing the DOM for inside the tags bar
+				$_template_gpr_tags_dom = '<i class="fad fa-tags t-size-10"></i>';
 				if(sizeof($this->article->tags) > 0) {
 					foreach($this->article->tags as $tag) {
-						$inner_html .= '<a href="'.l10n_url_abs("/content/?tags=" . $tag .
-								'" class="content-tag">#' . $tag . '</a>');
+						$_template_gpr_tags_dom .= '<a href="'.l10n_url_abs("/content/?tags=" . $tag .
+								'" class="ml-xs">#' . $tag . '</a>');
 					}
 				} else {
-					$inner_html .= '<i>' . localize("content.error.message.data.no.tags") . '</i>';
+					$_template_gpr_tags_dom .= '<i>' . localize("content.error.message.data.no.tags") . '</i>';
 				}
+				
+				// Printing the tags bar
+				$inner_html .= getMainHeader(
+					$_template_gpr_tags_dom,
+					null,
+					null,
+					null,
+					true,
+					null,
+					6,
+					false,
+					false,
+					true
+				);
 				
 				break;
 			case ComposerTemplates::RAW:

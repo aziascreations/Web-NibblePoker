@@ -44,7 +44,7 @@
 @import 'site/body';
 @import 'site/layout';  // Has manual disabling of some core stuff in specific situations and a shit-tier fix for tables.
 @import 'site/hr';
-//@import 'site/scrollbar';
+@import 'site/scrollbar';
 @import 'site/image';
 @import 'site/wedge';
 @import 'site/input';

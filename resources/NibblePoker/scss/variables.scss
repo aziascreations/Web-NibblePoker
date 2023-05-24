@@ -60,6 +60,9 @@ $color-apollo-custom-10: mix($color-apollo-40, $color-apollo-41, 75%);
 
 $color-apollo-custom-20: mix($color-apollo-39, $color-apollo-38, 60%);
 
+$color-apollo-custom-30: mix($color-apollo-01, $color-apollo-03, 80%);  // Primary button
+$color-apollo-custom-31: mix($color-apollo-01, $color-apollo-03, 65%);  // Primary button hover
+
 //$color-test-01: mix(#7b6aa5, #000000, 33%);
 $color-test-02: #007c7d;
 
@@ -114,6 +117,9 @@ $color-background-inputs: $color-apollo-40;
 $color-background-button: $color-apollo-40;
 $color-background-button-hover: $color-apollo-custom-10;
 
+$color-background-button-primary: #{$color-apollo-custom-30};
+$color-background-button-primary-hover: #{$color-apollo-custom-31};
+
 $_color-white-lighter: rgb(253, 255, 251);
 $_color-white-light: rgb(235, 237, 233);
 $_color-white-medium: rgb(217, 222, 218);
@@ -135,6 +141,16 @@ $_color-blue-dark: #3353b6;
 
 $_color-white-muted: #FFFFFF96;
 //rgba(255, 255, 255, 0.6)
+
+
+/* Variables > Scrollbar */
+
+//$color-scrollbar-border: rgba(0, 0, 0, 0.15);
+$color-scrollbar-border: $color-border-all;
+
+$scrollbar-size: 1.25em;
+
+
 
 /* Variables > Others */
 

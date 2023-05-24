@@ -35,47 +35,47 @@ include 'commons/DOM/body-2.php';
 <main id="main" class="rl-m border border-r-0 p-l">
 	
 	<?php printMainHeader(localize("home.intro.title")); ?>
-	<p class="mt-xs ml-s"><?php print(localize("home.intro.text.1")); ?></p>
-	<p class="mt-xs ml-s"><?php print(localize("home.intro.text.2")); ?></p>
+    <p class="mt-xs ml-s"><?php print(localize("home.intro.text.1")); ?></p>
+    <p class="mt-xs ml-s"><?php print(localize("home.intro.text.2")); ?></p>
 	
 	<?php printMainHeader("Applications"); ?>
-	<!-- If 'r-*' is used, 'o-hidden' needs to be too => https://stackoverflow.com/a/8582304 -->
-	<table class="stylish w-full mt-xs table-p-xs r-s o-hidden border">
-		<thead>
-		<tr>
-			<th>Version</th>
-			<th>Downloads</th>
-			<th>Downloads</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-			<td>C11</td>
-			<td>C12</td>
-			<td>C13</td>
-		</tr>
-		<tr>
-			<td>C21</td>
-			<td>C22</td>
-			<td>C23</td>
-		</tr>
-		</tbody>
-	</table>
+    <!-- If 'r-*' is used, 'o-hidden' needs to be too => https://stackoverflow.com/a/8582304 -->
+    <table class="stylish w-full mt-xs table-p-xs r-s o-hidden border">
+        <thead>
+        <tr>
+            <th>Version</th>
+            <th>Downloads</th>
+            <th>Downloads</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>C11</td>
+            <td>C12</td>
+            <td>C13</td>
+        </tr>
+        <tr>
+            <td>C21</td>
+            <td>C22</td>
+            <td>C23</td>
+        </tr>
+        </tbody>
+    </table>
 	
 	<?php printMainHeader("Testing"); ?>
-	<p class="mt-xs ml-s"><?php print(localize("home.intro.text.1")); ?></p>
-	<br>
-	<button class="p-xs border r-s">aaa</button>
-	<br>
-	<input class="p-xs border r-s" type="text">
-	<br>
+    <p class="mt-xs ml-s"><?php print(localize("home.intro.text.1")); ?></p>
+    <br>
+    <button class="p-xs border r-s">aaa</button>
+    <br>
+    <input class="p-xs border r-s" type="text">
+    <br>
 	
 	<?php printMainHeader(localize("home.intro.title")); ?>
-	<p class="mt-xs ml-s">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed <span class="code">do eiusmod tempor</span> incididunt ut labore et dolore magna aliqua.<br>
-		Mauris ultrices eros in cursus turpis massa tincidunt dui.<br>
-		Pulvinar elementum integer enim neque. Nunc mi ipsum faucibus vitae aliquet nec.
-	</p>
+    <p class="mt-xs ml-s">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed <span class="code">do eiusmod tempor</span> incididunt ut labore et dolore magna aliqua.<br>
+        Mauris ultrices eros in cursus turpis massa tincidunt dui.<br>
+        Pulvinar elementum integer enim neque. Nunc mi ipsum faucibus vitae aliquet nec.
+    </p>
     
 </main>
 <?php

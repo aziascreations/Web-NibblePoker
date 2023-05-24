@@ -1,0 +1,3 @@
+# Redirecting any URL that starts with "/tools" to the root of this folder.
+RewriteEngine On
+RewriteRule ^(.*) index.php [NC]

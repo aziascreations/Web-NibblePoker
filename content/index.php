@@ -161,10 +161,10 @@ include 'commons/DOM/body-2.php';
    
 		}
         
-        // // Printing the tags used in the search and others that may be available.
-    
+        // TODO: Print the tags used in the search and others that may be available.
 	} elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
-		echo($content->get_html());
+		// Printing the content
+        echo($content->get_html());
 	}
  
 	// Label used when there is an error to skip the content printing parts.

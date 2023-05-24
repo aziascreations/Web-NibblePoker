@@ -7,7 +7,7 @@ This repository is only a mirror and should never be cloned and served as-is.
 The [.htaccess](.htaccess) file has been made public **on purpose** since it does not contain any
 private information and because it could be used by other people to create their website more easily
 since these configuration files are a nightmare to work with.<br>
-Especially with the lang redirections.
+Especially with redirections to handle language changes and whatnot.
 
 ## Content
 ### Blog
@@ -30,7 +30,9 @@ These files are required and need to be installed manually for the website to wo
 * Highlight.js v11.6.0
     * `/resources/HighlightJS/`
 
-## External Licenses
+## Licenses
+
+### External
 Here is a list of the licenses for any third-party thing included in this repository.
 
 * [Quantum Font](https://sesohq.sellfy.store/p/3enu/) by [sesohq](https://www.sesohq.com/)
@@ -39,3 +41,10 @@ Here is a list of the licenses for any third-party thing included in this reposi
   * Uses the [MIT license](https://github.com/NickPiscitelli/Glider.js/blob/master/LICENSE.txt)
 
 All licenses are also included as-is in their project's respective folder.
+
+### Website's code
+All the code, stylesheets and configs that are not covered by the [External licenses](#external) are all 
+licensed under the [Unlicense](LICENSE) license.
+
+### Images
+The images present in this repository are currently not licensed.

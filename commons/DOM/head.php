@@ -28,6 +28,3 @@ if($enable_glider) {
 	echo('<link href="/resources/GliderJs/1.7.6/glider.min.css" rel="stylesheet" />');
 }
 ?>
-
-
-

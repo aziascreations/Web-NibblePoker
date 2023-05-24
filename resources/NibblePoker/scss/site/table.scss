@@ -29,6 +29,12 @@ table.stylish {
 		}
 	}
 	
+	&.table-h-p-s {
+		th {
+			padding: calc(#{$margin-base-size} * 0.75);
+		}
+	}
+	
 	&.table-p-s {
 		td, th {
 			padding: calc(#{$margin-base-size} * 0.75);

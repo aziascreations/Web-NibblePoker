@@ -30,6 +30,18 @@
 	object-fit: contain;
 }
 
+#error-page-skit {
+	max-width: 40%;
+	height: auto;
+	position: absolute;
+	bottom: 1.5em;
+	right: 1.5em;
+	filter: drop-shadow(0 0 0.5rem #0000007F);
+	mix-blend-mode: multiply;
+	//opacity: 0.25;
+	opacity: 0.2;
+}
+
 // Logo colors
 //.npl1, .npl6 {
 //}

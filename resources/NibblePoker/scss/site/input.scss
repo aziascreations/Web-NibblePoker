@@ -30,4 +30,12 @@ button {
 	&:hover {
 		background-color: #{$color-background-button-hover};
 	}
+	
+	&.primary {
+		background-color: #{$color-background-button-primary};
+		
+		&:hover {
+			background-color: #{$color-background-button-primary-hover};
+		}
+	}
 }
