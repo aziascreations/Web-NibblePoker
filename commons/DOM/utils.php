@@ -9,7 +9,8 @@ if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 $_npDomUtilsHeadingCount = 0;
 
 function getMainHeader(string $text, ?string $iconId = null, ?string $rightText = null, ?string $anchorId = null,
-					   bool $addTopMargin = true, ?string $backgroundClass = "bkgd-grid", int $hLevel = 2): string {
+					   bool $addTopMargin = true, ?string $backgroundClass = "bkgd-grid", int $hLevel = 2,
+					   bool $autoWidth = false, bool $chungusMode = false, bool $makeSmaller = false): string {
 	if(is_null($backgroundClass)) {
 		$backgroundClass = "bkgd-grid";
 	}
@@ -21,17 +22,18 @@ function getMainHeader(string $text, ?string $iconId = null, ?string $rightText 
 	}
 	
 	$htmlCode .= '<div class="heading-main p-xs border r-s ' . ($addTopMargin > 0 ? "mt-l " : "") . $backgroundClass .
-		'"><h' . $hLevel . ' class="t-w-500 t-size-14">';
+		($autoWidth ? " d-inline-block" : "") . '"><h' . $hLevel . ' class="t-w-500 ' .
+		($chungusMode ? "t-size-16" : ($makeSmaller ? "t-size-11" : "t-size-14")) . '">';
 	
 	// TODO: Add a simple and nicer divider.
 	if(!is_null($iconId)) {
-		$htmlCode .= '<i class="' . $iconId . ' t-size-12 t-muted"></i>';
+		$htmlCode .= '<i class="' . $iconId . ' t-muted ' . ($chungusMode ? "t-size-14" : "t-size-12") . '"></i>';
 	}
 	
 	$htmlCode .= $text;
 	
 	if(!is_null($rightText)) {
-		$htmlCode .= '<span class="ml-auto t-muted t-size-10">' . $rightText . '</span>';
+		$htmlCode .= '<span class="ml-auto ' . ($chungusMode ? "t-size-12 mr-xs" : "t-size-10 t-muted") . '">' . $rightText . '</span>';
 	}
 	
 	$htmlCode .= '</h' . $hLevel . '></div>';

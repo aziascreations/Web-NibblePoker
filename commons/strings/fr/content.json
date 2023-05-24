@@ -59,5 +59,12 @@
 	"content.commons.github": "Dépôt GitHub",
 	"content.commons.gitea": "Dépôt Gitea auto-hébergé",
 	"content.commons.nuget": "Packet Nuget",
-	"content.commons.license.mit.single": "License MIT"
+	"content.commons.license.mit.single": "License MIT",
+	
+	"content.commons.lang.english": "Anglais",
+	"content.commons.lang.french": "Français",
+	"content.commons.lang.luxembourgish": "Luxembourgeois",
+	"content.commons.lang.english.639-3": "Anglais (eng)",
+	"content.commons.lang.french.639-3": "Français (fra)",
+	"content.commons.lang.luxembourgish.639-3": "Luxembourgeois (ltz)"
 }

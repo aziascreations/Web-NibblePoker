@@ -85,6 +85,10 @@ abstract class ComposerElementModifiers {
 	const GENERIC_PADDING_NO_Y      = ["py-0", "py-0"];
 	const GENERIC_PADDING_NONE      = ["p-0" , "p-0" ];
 	
+	// Generic > Others
+	const GENERIC_FULL_WIDTH = ["w-full", "w-full"];
+	const GENERIC_BOLD = ["bold", "f-w-500"];
+	
 	// Containers
 	const CONTAINER_SCROLL_HORIZONTAL = ["horizontal-scroll", "overflow-x-scroll hide-scrollbar"];
 	const CONTAINER_CARD = ["card", "card"];
@@ -109,6 +113,8 @@ abstract class ComposerElementModifiers {
 	const TABLE_HOVER = ["hover", "table-hover"];
 	const TABLE_INNER_BORDER = ["inner-bordered", "table-inner-bordered"];
 	const TABLE_OUTER_BORDER = ["outer-bordered", "table-outer-bordered"];
+	const TABLE_V2_STYLISH = ["stylish", "stylish"];
+	const TABLE_V2_CELL_PADDING = ["auto-cell-padding", "table-p-xs"];
 	
 	// Code
 	const CODE_BLOCK = ["code-block", "w-full d-inline-block"];
@@ -320,8 +326,12 @@ class ComposerContentMetadata {
 						$this->article->icon,
 						localize_private($this->article->subtitle, $content_root->strings, false),
 						null,
-						false
-					) . $inner_html;
+						false,
+						null,
+						3,
+						false,
+						true
+					) . '<div class="px-xxs">' . $inner_html . '</div>';
 				
 				// Appending the tags if any are present
 				if(sizeof($this->article->tags) > 0) {
@@ -461,10 +471,14 @@ class ComposerElement {
 	// Galleries parameters
 	private array $images;
 	
+	// Screen readers parameters
+	private ?string $srTitle;
+	
 	function __construct(string $type, ?array $modifiers, ?string $link, ?array $parts, ?string $content,
 						 bool $localize, ?int $padding, ?int $margin, ?int $size, ?array $head, ?array $body,
 						 int $colspan, int $rowspan, ?int $indent, ?array $code, ?string $codeLanguage,
-						 bool $codeCopyable, ?string $color, ?string $source, ?string $thumbnail, ?array $images) {
+						 bool $codeCopyable, ?string $color, ?string $source, ?string $thumbnail, ?array $images,
+						 ?string $srTitle) {
 		$this->type = $type;
 		$this->modifiers = $modifiers;
 		$this->link = $link;
@@ -497,6 +511,7 @@ class ComposerElement {
 		} else {
 			$this->images = $images;
 		}
+		$this->srTitle = $srTitle;
 	}
 	
 	static function from_json_array(?array $json_dataArray) : array {
@@ -532,6 +547,7 @@ class ComposerElement {
 			key_exists("source", $json_data) ? $json_data["source"] : null,
 			key_exists("thumbnail", $json_data) ? $json_data["thumbnail"] : null,
 			key_exists("images", $json_data) ? $json_data["images"] : null,
+			key_exists("sr_title", $json_data) ? $json_data["sr_title"] : null,
 		);
 	}
 	
@@ -627,9 +643,10 @@ class ComposerElement {
 	public function get_html(ComposerContent $content_root) : string {
 		$htmlCode = "";
 		
+		// Setting up the link and its title if needed.
 		if(!is_null($this->link)) {
 			$htmlCode .= '<a href="' . $this->link . '"' .
-				($this->type == ComposerElementTypes::BUTTON ? 'class="button-link"' : '') . '>';
+				($this->type == ComposerElementTypes::BUTTON ? 'class="button-link"' : '') .'>';
 		}
 		
 		switch($this->type) {
@@ -649,8 +666,11 @@ class ComposerElement {
 					null,
 					!ComposerElementModifiers::is_modifier_in_modifiers(
 						ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers),
-					null,
-					3
+					"bkgd-math",  // heading-dyn-width-1
+					3,
+					false,
+					false,
+					true
 				);
 				break;
 				
@@ -687,6 +707,16 @@ class ComposerElement {
 				} else {
 					$_paragraph_margin_modifier = 'mt-xs ';
 				}
+				
+				// Adding other tags manually
+				// FIXME: Use the standard functions FFS...
+				$_paragraph_margin_modifier .= (
+					ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::GENERIC_BOLD, $this->modifiers)
+				) ? "t-w-500 " : "";
+				
+				// Fixes some "overflowing" issue when indent is bigger than 2.
+				$_paragraph_margin_modifier .= "mr-s ";
 				
 				// Composing the paragraph
 				$htmlCode .= '<p class="' . $_paragraph_margin_modifier . $_paragraph_ident_level .
@@ -811,7 +841,7 @@ class ComposerElement {
 				
 			case ComposerElementTypes::TABLE:
 				// Composing table.
-				$htmlCode .= '<table class="table ' . $this->get_modifiers_classes() . '">';
+				$htmlCode .= '<table class="' . $this->get_modifiers_classes() . '">';
 				
 				if(!is_null($this->head)) {
 					$htmlCode .= '<thead><tr>';

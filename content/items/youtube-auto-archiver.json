@@ -3,7 +3,7 @@
     "en": {
       "meta.title": "Youtube Auto Archiver",
       "meta.description": "A simple and yet highly configurable Python application that automatically checks if a Youtuber is streaming, and downloads said streams while also archiving its latest uploads.",
-      "article.subtitle": "<a href=\"https://github.com/aziascreations/Youtube-Auto-Archiver\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> View on GitHub</a>",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/Youtube-Auto-Archiver\"><i class=\"fab fa-github\"></i> View on GitHub</a>",
 
       "intro.title": "Introduction",
       "warning.title": "Warning",
@@ -30,7 +30,7 @@
     "fr": {
       "_meta.title": "",
       "meta.description": "Une simple petite application hautement configurable qui vérifie automatiquement si un Youtubeur stream et as uploadé des vidéos afin de les archiver.",
-      "article.subtitle": "<a href=\"https://github.com/aziascreations/Youtube-Auto-Archiver\" class=\"font-size-16\"><i class=\"fab fa-github\"></i> Voir sur GitHub</a>",
+      "article.subtitle": "<a href=\"https://github.com/aziascreations/Youtube-Auto-Archiver\"><i class=\"fab fa-github\"></i> Voir sur GitHub</a>",
 
       "intro.title": "Introduction",
       "warning.title": "Avertissements",
@@ -56,7 +56,7 @@
     }
   },
   "metadata": {
-    "template": "article",
+    "template": "generic-project-readme",
     "head": {
       "title": "meta.title",
       "description": "meta.description"
@@ -77,54 +77,30 @@
     }
   },
   "elements": [
-    {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
-      "parts": [
-        {"type": "h1", "content": "intro.title"},
-        {"type": "paragraph", "indent": 2, "content": "meta.description"}
-      ]
-    },
+    {"type": "h1", "content": "intro.title"},
+    {"type": "paragraph", "indent": 2, "content": "meta.description"},
+    
+    {"type": "h1", "content": "warning.title"},
+    {"type": "paragraph", "indent": 2, "content": "warning.p1"},
+    {"type": "paragraph", "indent": 2, "content": "warning.p2"},
 
-    {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
-      "parts": [
-        {"type": "h1", "content": "warning.title"},
-        {"type": "paragraph", "indent": 2, "content": "warning.p1"},
-        {"type": "paragraph", "indent": 2, "content": "warning.p2"}
-      ]
-    },
+    {"type": "h1", "content": "features.title"},
+    {"type": "paragraph", "indent": 2, "content": "features.list.1.1"},
+    {"type": "paragraph", "indent": 4, "content": "features.list.1.2"},
+    {"type": "paragraph", "indent": 4, "content": "features.list.1.3"},
+    {"type": "paragraph", "indent": 2, "content": "features.list.2.1"},
+    {"type": "paragraph", "indent": 4, "content": "features.list.2.2"},
+    {"type": "paragraph", "indent": 4, "content": "features.list.2.3"},
+    {"type": "paragraph", "indent": 4, "content": "features.list.2.4"},
+    {"type": "paragraph", "indent": 4, "content": "features.list.2.5"},
+    {"type": "paragraph", "indent": 2, "content": "features.list.3.1"},
+    {"type": "paragraph", "indent": 4, "content": "features.list.3.2"},
+    {"type": "paragraph", "indent": 4, "content": "features.list.3.3"},
+    {"type": "paragraph", "indent": 2, "content": "features.list.4.1"},
+    {"type": "paragraph", "indent": 4, "content": "features.list.4.2"},
 
-    {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
-      "parts": [
-        {"type": "h1", "content": "features.title"},
-        {"type": "paragraph", "indent": 2, "content": "features.list.1.1", "modifiers": ["no-bottom-margin"]},
-        {"type": "paragraph", "indent": 4, "content": "features.list.1.2", "modifiers": ["no-bottom-margin", "no-top-margin"]},
-        {"type": "paragraph", "indent": 4, "content": "features.list.1.3", "modifiers": ["no-bottom-margin", "no-top-margin"]},
-        {"type": "paragraph", "indent": 2, "content": "features.list.2.1", "modifiers": ["no-bottom-margin"]},
-        {"type": "paragraph", "indent": 4, "content": "features.list.2.2", "modifiers": ["no-bottom-margin", "no-top-margin"]},
-        {"type": "paragraph", "indent": 4, "content": "features.list.2.3", "modifiers": ["no-bottom-margin", "no-top-margin"]},
-        {"type": "paragraph", "indent": 4, "content": "features.list.2.4", "modifiers": ["no-bottom-margin", "no-top-margin"]},
-        {"type": "paragraph", "indent": 4, "content": "features.list.2.5", "modifiers": ["no-bottom-margin", "no-top-margin"]},
-        {"type": "paragraph", "indent": 2, "content": "features.list.3.1", "modifiers": ["no-bottom-margin"]},
-        {"type": "paragraph", "indent": 4, "content": "features.list.3.2", "modifiers": ["no-bottom-margin", "no-top-margin"]},
-        {"type": "paragraph", "indent": 4, "content": "features.list.3.3", "modifiers": ["no-bottom-margin", "no-top-margin"]},
-        {"type": "paragraph", "indent": 2, "content": "features.list.4.1", "modifiers": ["no-bottom-margin"]},
-        {"type": "paragraph", "indent": 4, "content": "features.list.4.2", "modifiers": ["no-top-margin"]}
-      ]
-    },
-
-    {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
-      "parts": [
-        {"type": "h1", "content": "warning.title"},
-        {"type": "paragraph", "indent": 2, "content": "warning.p1"},
-        {"type": "paragraph", "indent": 2, "content": "warning.p2"}
-      ]
-    }
+    {"type": "h1", "content": "warning.title"},
+    {"type": "paragraph", "indent": 2, "content": "warning.p1"},
+    {"type": "paragraph", "indent": 2, "content": "warning.p2"}
   ]
 }

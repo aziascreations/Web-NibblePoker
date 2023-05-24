@@ -60,5 +60,12 @@
   "content.commons.github": "GitHub Repository",
   "content.commons.gitea": "Self-hosted Gitea Repository",
   "content.commons.nuget": "Nuget Package",
-  "content.commons.license.mit.single": "MIT License"
+  "content.commons.license.mit.single": "MIT License",
+  
+  "content.commons.lang.english": "English",
+  "content.commons.lang.french": "French",
+  "content.commons.lang.luxembourgish": "Luxembourgish",
+  "content.commons.lang.english.639-3": "English (eng)",
+  "content.commons.lang.french.639-3": "French (fra)",
+  "content.commons.lang.luxembourgish.639-3": "Luxembourgish (ltz)"
 }

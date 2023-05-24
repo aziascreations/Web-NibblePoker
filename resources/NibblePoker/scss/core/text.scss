@@ -21,6 +21,14 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+// Adding special ones
+.t-size-11 {
+	font-size: 1.1rem !important;
+}
+.t-size-13 {
+	font-size: 1.3rem !important;
+}
+
 @for $_ from 2 through 7 {
 	$size: $_ * 100;
 	
