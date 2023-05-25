@@ -21,6 +21,8 @@ header, nav, footer {
 	background-color: #{$color-background-surround};
 }
 
+// FIXME: Might be easier to have it as absolute, shift it left when closing and using a blank spacing div tbh...
+// Or nest content in div, and when retracted move it out at the same speed, idk...
 .sidebar {
 	width: #{$size-sidebar};
 	max-width: #{$size-sidebar};
@@ -28,7 +30,8 @@ header, nav, footer {
 	
 	&.retracted {
 		width: 0;
-		padding: 0;
+		padding-left: 0;
+		padding-right: 0;
 		overflow: hidden;
 	}
 }

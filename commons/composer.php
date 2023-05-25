@@ -8,6 +8,7 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 // Including required helpers.
 include_once 'commons/config.php';
 include_once 'commons/langs.php';
+include_once 'commons/content.php';
 
 // Required to make headings
 include_once 'commons/DOM/utils.php';
@@ -931,16 +932,6 @@ function get_content_error(string $error_title_key, string $error_description_ke
 	return null;
 }
 
-function get_content_file_path(string $content_id) : ?string {
-	global $dir_content;
-	
-	if(ctype_alnum(str_replace("-", "", $content_id))) {
-		return realpath($dir_content . "/items/" . $content_id . ".json");
-	}
-	
-	return null;
-}
-
 function load_content_by_file_path(string $file_path) : ?ComposerContent {
 	$content_json_data = json_decode(file_get_contents($file_path), true);
 	if(is_null($content_json_data)) {
@@ -950,7 +941,9 @@ function load_content_by_file_path(string $file_path) : ?ComposerContent {
 }
 
 function load_content_by_id(string $content_id) : ?ComposerContent {
-	$content_file_path = get_content_file_path($content_id);
+	// FIXME: Find another way to get `$config_dir_content` here !
+	global $config_dir_content;
+	$content_file_path = get_content_file_path($config_dir_content, $content_id);
 	
 	if(is_null($content_file_path)) {
 		return null;

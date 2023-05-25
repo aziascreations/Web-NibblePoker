@@ -56,7 +56,7 @@ if(isset($_SERVER['REDIRECT_STATUS'])) {
                 $np_err_img_alt = localize("error.skit.pc.dead");
                 break;
         }
-        echo('<img id="error-page-skit" src="' . $np_err_img . '" alt="' . $np_err_img_alt . '">');
+        echo('<img id="error-page-skit" src="' . $np_err_img . '" alt="' . $np_err_img_alt . '" draggable="false">');
         ?>
     </main>
 	<?php
