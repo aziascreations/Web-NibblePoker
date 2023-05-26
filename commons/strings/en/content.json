@@ -32,11 +32,18 @@
   "content.error.message.id.alphanumeric": "The requested resource's ID isn't a valid alphanumeric string.",
   "content.error.message.data.not.exist": "The requested content doesn't have an internal item file associated to it.",
   "content.error.message.cannot.load": "The requested content couldn't be loaded on our end !",
-
+  
   "__": "Messages returned by 'commons/composer.php'",
   "content.error.message.data.no.tags": "No tags found !",
   "content.error.message.data.no.title": "No title found !",
-
+  
+  "___": "Messages returned by 'commons/content/tools.php'",
+  "_content.error.message.cannot.load.item.as.not.content": "",
+  "_content.error.message.missing.file.dom": "",
+  "_content.error.message.missing.file.lang": "",
+  "_content.error.message.missing.file.code": "",
+  "_content.error.message.missing.file.style": "",
+  
   "content.item.head.title.prefix": "",
   "content.item.head.title.suffix": " - NibblePoker",
 

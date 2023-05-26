@@ -1,0 +1,16 @@
+[
+	{
+		"id": "svg-to-png",
+		"title": {
+			"en": "SVG to PNG Converter",
+			"fr": "Convertisseur SVG vers PNG"
+		},
+		"preamble": {
+			"en": "",
+			"fr": ""
+		},
+		"_image": "",
+		"tags": ["converter", "svg", "png"],
+		"priority": 100
+	}
+]

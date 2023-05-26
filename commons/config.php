@@ -10,7 +10,7 @@ $host_uri = "https://nibblepoker.lu";
 $dir_commons = dirname(__FILE__);
 $dir_root = realpath($dir_commons . "/../");
 $config_dir_content = realpath($dir_commons . "/../" . "content/");
-$config_dir_tools = realpath($dir_commons . "/../" . "content/");
+$config_dir_tools = realpath($dir_commons . "/../" . "tools/");
 
 // Optional features
 $enable_grids = false;

@@ -1,0 +1,9 @@
+{
+	"dom": "svg-to-png/page.php",
+	"lang": "svg-to-png/lang.json",
+	"code": [
+		"svg-to-png/code.min.js"
+	],
+	"icon": "fad fa-exchange-alt",
+	"title": "tool.svg-to-png.title"
+}

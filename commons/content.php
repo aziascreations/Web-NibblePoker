@@ -31,7 +31,7 @@ class ContentIndexEntry {
 		$this->priority = is_null($priority) ? 0 : $priority;
 	}
 	
-	static function from_json(array $json_data) : ?ContentIndexEntry {
+	static function from_json(array $json_data): ?ContentIndexEntry {
 		if(!key_exists("id", $json_data)) {
 			return null;
 		}
@@ -70,7 +70,7 @@ class ContentManager {
 		if(!$this->hasError) {
 			if($this->displayType == ContentDisplayType::SEARCH) {
 				$this->loadRootIndex(realpath($contentRootPath . "/index.json"));
-			} else if($this->displayType == ContentDisplayType::CONTENT) {
+			} elseif($this->displayType == ContentDisplayType::CONTENT) {
 				$this->prepareContentFilePath($contentRootPath);
 			}
 		}
@@ -80,7 +80,7 @@ class ContentManager {
 		// Doing some dark magic whose inner workings are lost to times...
 		$requestedUrlPart = explode(
 			"?",
-			explode("#", preg_replace("^\/(content)^", "", $requestedUrl))[0]
+			explode("#", preg_replace("^\/(content|tools)^", "", $requestedUrl))[0]
 		)[0];
 		
 		if(strcmp($requestedUrlPart, "/") == 0) {
@@ -111,7 +111,7 @@ class ContentManager {
 			}
 		} else {
 			$this->displayType = ContentDisplayType::CONTENT;
-			$this->requestedId = ltrim($requestedUrlPart, "/");
+			$this->requestedId = ltrim(rtrim($requestedUrlPart, "/"), "/");
 		}
 	}
 	
@@ -154,7 +154,7 @@ class ContentManager {
 		}
 		
 		// Sorting entries based on their priority
-		usort($this->rootIndexEntries, function (ContentIndexEntry $a, ContentIndexEntry $b) {
+		usort($this->rootIndexEntries, function(ContentIndexEntry $a, ContentIndexEntry $b) {
 			if($a->priority == $b->priority) {
 				return 0;
 			}
@@ -182,7 +182,7 @@ class ContentManager {
 }
 
 // Common utilities
-function get_content_file_path(string $contentRootPath, string $contentId) : ?string {
+function get_content_file_path(string $contentRootPath, string $contentId): ?string {
 	if(ctype_alnum(str_replace("-", "", $contentId))) {
 		return realpath($contentRootPath . "/items/" . $contentId . ".json");
 	}

@@ -41,7 +41,11 @@ function printSidebarEntry($url, $title, $icon) {
 		printSidebarEntry(l10n_url_abs('/content/?tags=electronic'), localize("sidebar.text.electronics"), "fad fa-microchip");
 		?>
 	</div>
-	<hr class="subtle">
+    <hr class="subtle">
+	<?php
+	printSidebarEntry(l10n_url_abs('/tools/'), localize("sidebar.text.tools"), "fad fa-tools");
+	?>
+    <hr class="subtle">
 	<?php
 	printSidebarEntry(l10n_url_abs('/links/'), localize("sidebar.text.links"), "fad fa-link");
 	?>

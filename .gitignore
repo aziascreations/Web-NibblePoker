@@ -25,3 +25,4 @@ commons/trash/
 scrollbar.scss
 commons/strings/_*/
 _unsorted/
+tools/items/*/*.min.js
