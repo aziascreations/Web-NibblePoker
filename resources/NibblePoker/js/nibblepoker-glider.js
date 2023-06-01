@@ -45,11 +45,14 @@ window.addEventListener('load', function(){
 			}
 			
 			eChildElement.onclick = function() {
-				let imageElement = document.getElementById("modal-img");
-				imageElement.src = eChildElement.src;
-				imageElement.alt = eChildElement.alt;
-				halfmoon.toggleModal('modal-content-image-viewer');
-				console.log("Opening image...");
+				let eModalImage = document.createElement("img")
+				eModalImage.classList.add("modal-inner-image");
+				eModalImage.classList.add("r-xl");
+				eModalImage.src = eChildElement.src;
+				eModalImage.alt = eChildElement.alt;
+				//halfmoon.toggleModal('modal-content-image-viewer');
+				//console.log("Opening image...");
+				showContentModal(eModalImage);
 			};
 			
 			// Saving the element for later.

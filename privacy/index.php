@@ -20,18 +20,15 @@ include_once 'commons/langs.php';
 <body>
 <?php
 include_once 'commons/DOM/utils.php';
-include 'commons/DOM/body-1.php';
-$SIDEBAR_ID = 'privacy';
+$SIDEBAR_IDS = [];
 include 'commons/DOM/sidebar.php';
-include 'commons/DOM/body-2.php';
 ?>
 <header class="w-full p-m pl-s">
     <h1 class="t-size-17 t-w-500">
         <i class="fad fa-user-secret t-size-16 mr-s t-muted"></i><?php print(localize("privacy.header.title")); ?>
     </h1>
-	<?php //include 'header-lang.php'; ?>
+	<?php include 'commons/DOM/header-lang.php'; ?>
 </header>
-<?php include 'commons/DOM/body-3.php'; ?>
 <main id="main" class="rl-m border border-r-0 p-l">
 	
 	<?php printMainHeader(localize("privacy.introduction.title"), "fad fa-info"); ?>
@@ -207,9 +204,7 @@ include 'commons/DOM/body-2.php';
     
 </main>
 <?php
-include 'commons/DOM/body-4.php';
 include 'commons/DOM/footer.php';
-include 'commons/DOM/body-5.php';
 include 'commons/DOM/scripts.php';
 ?>
 </body>

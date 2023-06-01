@@ -33,7 +33,7 @@ function getMainHeader(string $text, ?string $iconId = null, ?string $rightText 
 	$htmlCode .= $text;
 	
 	if(!is_null($rightText)) {
-		$htmlCode .= '<span class="ml-auto ' . ($chungusMode ? "t-size-12 mr-xs" : "t-size-10 t-muted") . '">' . $rightText . '</span>';
+		$htmlCode .= '<span class="ml-auto mobile-hide ' . ($chungusMode ? "t-size-12 mr-xs" : "t-size-10 t-muted") . '">' . $rightText . '</span>';
 	}
 	
 	$htmlCode .= '</h' . $hLevel . '></div>';

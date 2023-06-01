@@ -150,8 +150,6 @@ $color-scrollbar-border: $color-border-all;
 
 $scrollbar-size: 1.25em;
 
-
-
 /* Variables > Others */
 
 $border-base-radius: 5px;
@@ -164,3 +162,9 @@ $size-sidebar: 15rem;
 //$size-sidebar: 30rem;
 
 $content-search-image-size: 128px;
+
+/* Variables > Z Indexes */
+
+$z-index-sidebar: 5;
+$z-index-lang-dropdown: 10;
+$z-index-modal: 99;

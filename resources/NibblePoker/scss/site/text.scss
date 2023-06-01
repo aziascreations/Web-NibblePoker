@@ -1,28 +1,76 @@
 // NibblePoker.lu CSS - (C) 2023 Bozet Herwin
 
-p, a, h1, h2, h3, td {
+/* Site > Text */
+
+/* Site > Text > Commons */
+
+p, a, h1, h2, h3, h4, h5, h6, td, th, .code, summary {
 	color: #{$color-text-regular-normal};
 }
+
+/* Site > Text > Paragraphs */
 
 p {
 	line-height: 1.2;
 }
 
-// Setting colors for bland links.
-// Done before muted text to make the footer privacy link possible.
+/* Site > Text > Links */
+
 a {
-	text-decoration: none;
-}
-a:hover {
+	// Base
 	text-decoration: underline;
+	color: #{$color-link-blue};
 	
-	color: #{$color-link-hover};
+	& * {
+		color: #{$color-link-blue};
+	}
 	
-	> * {
-		color: #{$color-link-hover};
-		text-decoration: underline;
+	&:hover {
+		color: #{$color-link-blue-hover};
+		
+		& * {
+			color: #{$color-link-blue-hover};
+			text-decoration: underline;
+		}
+	}
+	
+	// Bland links
+	&.casper-link, &.bland-link {
+		text-decoration: none;
+		color: #{$color-text-regular-normal};
+		
+		& * {
+			color: #{$color-text-regular-normal};
+		}
+		
+		&:hover {
+			text-decoration: underline;
+			color: #{$color-link-hover};
+			
+			& * {
+				color: #{$color-link-hover};
+			}
+			
+			// FIXME: Not working, big F
+			//i {
+			//	text-decoration: none !important;
+			//}
+		}
+	}
+	
+	// Special case for buttons
+	&.casper-link, &.button-link, &.text-link {
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;  // Only really applies to content listing entries...
+			& * {
+				text-decoration: none;
+			}
+		}
 	}
 }
+
+/* Site > Text > Helpers */
 
 .t-half-muted {
 	opacity: 65%;
@@ -42,32 +90,14 @@ a:hover {
 	opacity: 45%;
 }
 
+/* Site > Text > Targeted Rules */
+
 .t-logo-text {
 	font-size: 1.775em;
 	line-height: 1;
 }
 
-a:not(.bland-link) {
-	text-decoration: underline;
-	//text-decoration: overline;
-	
-	color: #{$color-link-blue} !important;
-	
-	& * {
-		color: #{$color-link-blue} !important;
-	}
-	
-	&:hover {
-		//text-decoration: underline;
-		
-		color: #{$color-link-blue-hover} !important;
-		
-		& * {
-			color: #{$color-link-blue-hover} !important;
-		}
-	}
-}
-
+/* Site > Text > Targeted Rules > Sidebar */
 // Special rules for the sidebar and FontAwesome icons
 
 .sidebar-entry {
@@ -88,6 +118,8 @@ a:not(.bland-link) {
 	//	text-decoration: none !important;
 	//}
 }
+
+/* Site > Text > Targeted Rules > Headings */
 
 // And now for the headings, the exceptions keep popping up :,)
 // TODO: Add a simple and nicer divider.

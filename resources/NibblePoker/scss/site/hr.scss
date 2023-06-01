@@ -1,19 +1,10 @@
 // NibblePoker.lu CSS - (C) 2023 Bozet Herwin
 
-/* HTML Elements > Horizontal Rule */
+/* Site > Elements > Horizontal Rule */
 
-hr {
-	//color: var(--dm-horizontal-rule-color);
-	//background-color: var(--dm-horizontal-rule-color);
-	
-	.dark-mode & {
-	
-	}
-	
-	&.subtle {
-		background-color: rgba(0,0,0,0) !important;
-		background: #5d5f61;
-		background: radial-gradient(circle, rgba(83, 85, 87, 0.8) 0%, rgba(65, 67, 69, 0.65) 75%, rgba(17, 20, 23, 0) 100%);
-		opacity: 0.1;
-	}
+hr.subtle {
+	background-color: rgba(0,0,0,0) !important;
+	background: #5d5f61;
+	background: radial-gradient(circle, rgba(83, 85, 87, 0.8) 0%, rgba(65, 67, 69, 0.65) 75%, rgba(17, 20, 23, 0) 100%);
+	opacity: 0.1;
 }

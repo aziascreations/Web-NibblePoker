@@ -50,7 +50,7 @@ ErrorDocument 404 /error.php
 # # # Setting some headers for security.
 # # #Header always set X-Detected-Country "NK"
 # # Header always set X-Frame-Options "deny"
-# # Header always set Content-Security-Policy "default-src 'self' files.nibblepoker.lu; object-src 'none'; child-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests; block-all-mixed-content"
+# # Header always set Content-Security-Policy "default-src 'self' files.nibblepoker.lu; img-src 'self' files.nibblepoker.lu data:; object-src 'none'; child-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests; block-all-mixed-content"
 # # Header always set X-XSS-Protection " 1; mode=block"
 # # Header always set Referrer-Policy "no-referrer"
 # # Header always set X-Content-Type-Options "nosniff"
@@ -66,7 +66,6 @@ RewriteEngine On
 # Languages. (Does not work with a regex)
 RewriteRule ^en/(.*)$ /$1 [QSA]
 RewriteRule ^fr/(.*)$ /$1 [QSA]
-RewriteRule ^lb/(.*)$ /$1 [QSA]
 
 # Honeypots. (Just to fuck with automated scanners, gotta love those unsolicited emails tho...)
 

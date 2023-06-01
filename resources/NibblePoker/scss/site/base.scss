@@ -1,0 +1,155 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Site > Base */
+
+/* Site > Base > Layout */
+
+/* Site > Base > Layout > Root */
+
+html, body {
+	min-width: 100vw;
+	min-height: 100vh;
+	width: 100vw !important;
+	height: 100vh !important;
+	max-width: 100vw;
+	max-height: 100vh;
+}
+
+/* Site > Base > Layout > Main Grid */
+
+body {
+	display: grid;
+	grid-template-columns: min-content 1fr;
+	grid-template-rows: min-content 1fr min-content;
+	gap: 0;
+	
+	& > nav {
+		grid-column: 1;
+		grid-row: 1 / span 2;
+		overflow-x: hidden;
+		overflow-y: auto;
+		z-index: #{$z-index-sidebar};
+	}
+	
+	& > header {
+		grid-column: 2;
+		grid-row: 1;
+		
+		// Inner content
+		display: grid;
+		grid-template-columns: 1fr min-content;
+		grid-template-rows: min-content;
+		
+		& > h1 {
+			grid-column: 1;
+		}
+		& > #lang-selector {
+			grid-column: 2;
+		}
+	}
+	
+	& > main {
+		grid-column: 2;
+		grid-row: 2;
+		overflow-x: hidden;
+		overflow-y: auto;
+		position: relative;  // Helps with some absolute alignments inside it
+	}
+	
+	& > footer {
+		grid-column: 1 / span 2;
+		grid-row: 3;
+	}
+}
+
+/* Site > Base > Layout > Mobile Fixes */
+
+@media only screen and (max-width: 768px) {
+	body {
+		& > nav {
+			border-right: 1px solid #{$color-border-all};
+		}
+		
+		& > header {
+			grid-column: 1 / span 2;
+		}
+		
+		& > main {
+			grid-column: 1 / span 2;
+			// TODO: Remove scrolling here
+		}
+	}
+}
+
+/* Site > Base > Coloring & Fonts */
+
+body {
+	background-color: #{$color-background-body};
+	
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+	"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+header, nav, footer {
+	background-color: #{$color-background-surround};
+}
+
+main {
+	background-color: #{$color-background-main};
+}
+
+/* Site > Base > Sidebar */
+
+// FIXME: For mobile, just use 2 media queries to define normal behaviour and inverted mobile behaviour.
+
+// FIXME: Might be easier to have it as absolute, shift it left when closing and using a blank spacing div tbh...
+// Or nest content in div, and when retracted move it out at the same speed, idk...
+.sidebar {
+	width: #{$size-sidebar};
+	max-width: #{$size-sidebar};
+	min-height: 100%;
+	
+	&.retracted {
+		width: 0;
+		padding-left: 0;
+		padding-right: 0;
+		overflow: hidden;
+	}
+	
+	.sidebar-entry {
+		display: flex;
+		align-items: center;
+		justify-content: left;
+	}
+}
+
+/* Site > Base > Main */
+
+main {
+	&.expanded {
+		border-left: 0;
+		border-radius: 0;
+	}
+}
+
+/* Site > Base > Transitions */
+
+main, .sidebar {
+	transition: width 0.4s, padding 0.4s, border-width 0.4s, border-radius 0.4s;
+	transition-timing-function: cubic-bezier(.25,.8,.25,1.1);
+}
+
+
+/* // HTML Elements > Layout > Trash */
+
+// FIXME: Move it out too !
+.heading-main {
+	> h2, > h3, > h4 {
+		display: flex;
+		align-items: center;
+		justify-content: left;
+	}
+	&.heading-dyn-width-1 {
+		min-width: 75%;
+	}
+}

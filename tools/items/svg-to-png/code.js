@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 	const eInputFiles = document.getElementById("tool-svg-to-png-files");
 	const eFileSelectButton = document.getElementById("tool-svg-to-png-btn-select");
@@ -13,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const eFileConvertButton = document.getElementById("tool-svg-to-png-btn-convert");
 	
 	// Propagating the button click to the input element
-	eFileSelectButton.onclick = function () {
+	eFileSelectButton.onclick = function() {
 		eInputFiles.click();
 	}
 	
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 	
 	// Handling conversion
-	eFileConvertButton.onclick = function () {
+	eFileConvertButton.onclick = function() {
 		const canvas = document.getElementById('conversion-canvas');
 		const ctx = canvas.getContext('2d');
 		

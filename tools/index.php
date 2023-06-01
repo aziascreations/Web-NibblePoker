@@ -68,18 +68,15 @@ if($contentManager->hasError) {
 <body>
 <?php
 include_once 'commons/DOM/utils.php';
-include 'commons/DOM/body-1.php';
-$SIDEBAR_ID = 'tools';
+$SIDEBAR_IDS = ['tools'];
 include 'commons/DOM/sidebar.php';
-include 'commons/DOM/body-2.php';
 ?>
 <header class="w-full p-m pl-s">
 	<h1 class="t-size-17 t-w-500">
 		<i class="fad fa-tools t-size-16 mr-s t-muted"></i><?php print(localize("tools.header.title")); ?>
 	</h1>
-	<?php //include 'header-lang.php'; ?>
+	<?php include 'commons/DOM/header-lang.php'; ?>
 </header>
-<?php include 'commons/DOM/body-3.php'; ?>
 <main id="main" class="rl-m border border-r-0 p-l">
 	<?php
 	// Checking if an error occurred.
@@ -163,9 +160,7 @@ include 'commons/DOM/body-2.php';
 	?>
 </main>
 <?php
-include 'commons/DOM/body-4.php';
 include 'commons/DOM/footer.php';
-include 'commons/DOM/body-5.php';
 include 'commons/DOM/scripts.php';
 
 // Including the tool's scripts if required.

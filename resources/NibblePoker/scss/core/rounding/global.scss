@@ -13,6 +13,7 @@
 @include global-rounding-maker("s", calc(#{$border-base-radius} * 0.75));
 @include global-rounding-maker("m", #{$border-base-radius});
 @include global-rounding-maker("l", calc(#{$border-base-radius} * 1.5));
+@include global-rounding-maker("xl", calc(#{$border-base-radius} * 2.0));
 
 /* Utilities > Rounding > Global > Fixed Sizes */
 @include global-rounding-maker("0", 0);

@@ -65,9 +65,9 @@ if($contentManager->hasError) {
 		$content_head_og_description = $content->get_head_description();
     } elseif($contentManager->displayType == ContentDisplayType::SEARCH) {
 		$content_head_title = localize("content.search.head.title");
-		$content_head_description = localize("content.search.head.description");;
-		$content_head_og_title = localize("content.search.og.title");;
-		$content_head_og_description = localize("content.search.og.description");;
+		$content_head_description = localize("content.search.head.description");
+		$content_head_og_title = localize("content.search.og.title");
+		$content_head_og_description = localize("content.search.og.description");
     }
     
     // TODO: Fix the OG URL tag to add the tags !
@@ -84,10 +84,8 @@ if($contentManager->hasError) {
 <body>
 <?php
 include_once 'commons/DOM/utils.php';
-include 'commons/DOM/body-1.php';
-$SIDEBAR_ID = 'home';
+$SIDEBAR_IDS = array_merge(['content'], is_null($contentManager->requestedTags) ? [] : $contentManager->requestedTags);
 include 'commons/DOM/sidebar.php';
-include 'commons/DOM/body-2.php';
 ?>
 <header class="w-full p-m pl-s">
     <h1 class="t-size-17 t-w-500">
@@ -95,24 +93,29 @@ include 'commons/DOM/body-2.php';
 		if($contentManager->hasError) {
 			echo('<i class="fad fa-exclamation-triangle t-size-16 mr-s t-muted"></i>');
 			echo(localize("content.header.base"));
+			echo('<span class="mobile-hide">');
 			echo('<span class="mx-s t-size-15">❱</span>');
 			echo(localize("content.error.header"));
+			echo('</span>');
 		} elseif($contentManager->displayType == ContentDisplayType::SEARCH) {
 			echo('<i class="fad fa-briefcase t-size-16 mr-s t-muted"></i>');
 			echo(localize("content.header.base"));
+			echo('<span class="mobile-hide">');
 			echo('<span class="mx-s t-size-15">❱</span>');
 			echo(localize("content.search.header"));
+			echo('</span>');
 		} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
 			echo('<i class="fad fa-briefcase t-size-16 mr-s t-muted"></i>');
 		    echo(localize("content.header.base"));
+			echo('<span class="mobile-hide">');
 			echo('<span class="mx-s t-size-15">❱</span>');
             echo('<span class="t-size-16">' . $content->get_head_title() . '</span>');
+			echo('</span>');
 		}
 		?>
     </h1>
-	<?php //include 'header-lang.php'; ?>
+	<?php include 'commons/DOM/header-lang.php'; ?>
 </header>
-<?php include 'commons/DOM/body-3.php'; ?>
 <main id="main" class="rl-m border border-r-0 p-l">
 	<?php
 	// Checking if an error occurred.
@@ -187,9 +190,7 @@ include 'commons/DOM/body-2.php';
 	?>
 </main>
 <?php
-include 'commons/DOM/body-4.php';
 include 'commons/DOM/footer.php';
-include 'commons/DOM/body-5.php';
 include 'commons/DOM/scripts.php';
 ?>
 </body>

@@ -1,6 +1,6 @@
 <?php
 // Making sure the file is included and not accessed directly.
-if (basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
+if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	header('HTTP/1.1 403 Forbidden');
 	die();
 }
@@ -18,6 +18,6 @@ include_once 'commons/langs.php';
 	</p>
 	<a href="<?php print(l10n_url_abs('/')); ?>">
 		<img id="logo-footer" src="/resources/NibblePoker/images/logos/v2_full_unshaded_original.svg"
-			 alt="<?php echo(localize("footer.alt.logo")); ?>" draggable="false">
+		     alt="<?php echo(localize("footer.alt.logo")); ?>" draggable="false">
 	</a>
 </footer>

@@ -13,6 +13,7 @@
 
 /* Externals */
 @import 'external/reset';
+@import 'external/quantum';
 
 /* Variables */
 @import 'variables';
@@ -36,21 +37,26 @@
 @import 'core/spacing/axis';
 @import 'core/spacing/sided';
 
-/* Site > Fonts */
-@import 'external/quantum';
+/* Site */
+@import 'site/base';  // Has manual disabling of some core stuff in specific situations and a shit-tier fix for tables & border on mobile.
+@import 'site/text';  // Has some hardcoded width for font-awesome icons in sidebar and headings
 
-/* Site > HTML Elements */
-@import 'site/commons';
-@import 'site/body';
-@import 'site/layout';  // Has manual disabling of some core stuff in specific situations and a shit-tier fix for tables.
+/* Site > Elements */
 @import 'site/hr';
 @import 'site/scrollbar';
+@import 'site/input';  // Has ugly fix for download buttons
+@import 'site/table';  // Uses copied paddings for cells & ugly rounding fix
+
+/* Site > Misc */
+@import 'site/backgrounds';
+
+/* Site > Fixes */
+@import 'site/mobile';  // Has !important overrides for obvious reasons
+
+/* Site > Unsorted */
 @import 'site/image';
 @import 'site/wedge';
-@import 'site/input';
-@import 'site/text';  // Has hardcoded with for font-awesome icons in sidebar
-@import 'site/backgrounds';
-@import 'site/table';  // Uses copied paddings for cells & ugly rounding fix
 @import 'site/code';  // Uses copied borders, roundings and paddings
 @import 'site/content';  // Uses fixed sizes and floats
 @import 'site/video';
+@import 'site/modal';

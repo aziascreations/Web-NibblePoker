@@ -20,14 +20,49 @@ if(str_starts_with($_SERVER['REQUEST_URI'], "/en/")) {
 } elseif(str_starts_with($_SERVER['REQUEST_URI'], "/fr/")) {
 	$user_language = "fr";
 	$user_uri_language = "/".$user_language;
-} elseif(str_starts_with($_SERVER['REQUEST_URI'], "/lb/")) {
-	$user_language = "lb";
-	$user_uri_language = "/".$user_language;
-} else {
+} elseif(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
 	// Attempting to detect the language through the browser's headers.
-	// TODO: This !
-	$user_uri_language = "";
+	$_client_languages = [];
+	
+	foreach(explode(",", $_SERVER["HTTP_ACCEPT_LANGUAGE"]) as $_client_lang_entry) {
+		$_client_lang_entry_parts = explode(";", $_client_lang_entry);
+		
+		// Ignoring "en-US" and similar entries
+		if(count($_client_lang_entry_parts) != 2) {
+			continue;
+		}
+		
+		// Only allowing supported languages
+		if(!in_array($_client_lang_entry_parts[0], ["en", "fr"])) {
+			continue;
+		}
+		
+		// Parsing the language's weight
+		$_client_lang_entry_parts[1] = str_replace("q=", "", $_client_lang_entry_parts[1]);
+		$_client_lang_entry_weight = filter_var($_client_lang_entry_parts[1], FILTER_VALIDATE_FLOAT);
+		if($_client_lang_entry_weight === false || !is_float($_client_lang_entry_weight)) {
+			continue;
+		}
+		
+		// Saving it for later
+		$_client_languages[] = $_client_lang_entry_parts;
+	}
+	
+	// Sorting based on weight and selecting the preferred one.
+	if(count($_client_languages) > 0) {
+		usort($_client_languages, function(array $a, array $b) {
+			if($a[1] == $b[1]) {
+				return 0;
+			}
+			return ($a[1] > $b[1]) ? -1 : 1;
+		});
+		
+		$user_language = $_client_languages[0][0];
+	}
 }
+
+// Setting headers
+header("Content-Language: " . $user_language);
 
 // Reading and parsing the strings.json file
 $lang_json = file_get_contents(realpath($dir_commons . "/strings.json"));

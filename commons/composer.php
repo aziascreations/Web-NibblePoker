@@ -907,7 +907,7 @@ class ComposerElement {
 			case ComposerElementTypes::VIDEO:
 				// Composing the video element
 				$htmlCode .= '<video ' . (is_null($this->source) ? '' : 'src="' . $this->source . '" ') .
-					'class="' . $this->get_modifiers_classes() . '" ' .
+					'class="' . $this->get_modifiers_classes() . ' r-l" ' .
 					(is_null($this->thumbnail) ? '' : 'poster="' . $this->thumbnail . '" ') .
 					'controls muted></video>';
 				break;

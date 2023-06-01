@@ -40,9 +40,12 @@
 
 
 /* Utilities > Spacing > Global > Manual Extras */
+.p-xxs {
+	padding: calc(#{$margin-base-size} * 0.25);
+}
 .p-mxs {
 	padding: calc(#{$margin-base-size} * 0.375);
 }
-.p-xxs {
-	padding: calc(#{$margin-base-size} * 0.25);
+.p-ms {
+	padding: calc(#{$margin-base-size} * 0.625);
 }
