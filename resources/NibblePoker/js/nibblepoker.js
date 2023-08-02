@@ -69,13 +69,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 	//showContentModal(eContentModal);
 	
-	[eContentModal, document.getElementById("modal-content-cross"), eContentModalInner].forEach(value => {
-		value.onclick = function() {
-			fadeOut(eContentModal, 175).then(r => {
-				eContentModalInner.innerHTML = "";
-			});
-		}
-	})
+	// FIXME: Fix this shit !
+	//[eContentModal, document.getElementById("modal-content-cross"), eContentModalInner].forEach(value => {
+	//	value.onclick = function() {
+	//		fadeOut(eContentModal, 175).then(r => {
+	//			eContentModalInner.innerHTML = "";
+	//		});
+	//	}
+	//})
 	
 	// TODO: Autodetect mobile screens, close it, and add classes to make it over the rest with dark modal bkgd.
 });

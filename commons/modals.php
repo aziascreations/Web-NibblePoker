@@ -31,8 +31,3 @@ function add_code_modal(string $id, string $title, string $text) {
 }
 
 ?>
-
-
-
-
-

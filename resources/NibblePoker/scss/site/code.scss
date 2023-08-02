@@ -13,7 +13,7 @@ code {
 .code, kbd {
 	background-color: #{$color-background-code};
 	
-	border: 1px solid #{$color-border-code};
+	border: 1px solid;
 	
 	// Using '.r-s'
 	border-radius: calc(#{$border-base-radius} * 0.75);

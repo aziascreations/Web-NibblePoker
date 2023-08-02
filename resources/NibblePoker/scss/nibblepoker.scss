@@ -12,7 +12,7 @@
 @import 'config';
 
 /* Externals */
-@import 'external/reset';
+@import 'external/reset';  // Not resetting it for checkboxes !
 @import 'external/quantum';
 
 /* Variables */
@@ -46,8 +46,10 @@
 @import 'site/scrollbar';
 @import 'site/input';  // Has ugly fix for download buttons
 @import 'site/table';  // Uses copied paddings for cells & ugly rounding fix
+@import 'site/code';  // Uses forced borders, roundings and paddings
 
 /* Site > Misc */
+@import 'site/borders';  // Applies the colors mostly, the size are in the elements !
 @import 'site/backgrounds';
 
 /* Site > Fixes */
@@ -56,7 +58,6 @@
 /* Site > Unsorted */
 @import 'site/image';
 @import 'site/wedge';
-@import 'site/code';  // Uses copied borders, roundings and paddings
 @import 'site/content';  // Uses fixed sizes and floats
 @import 'site/video';
 @import 'site/modal';

@@ -166,7 +166,7 @@
       "parts": [
         {
           "type": "code", "indent": 2,
-          "modifiers": ["horizontal-scroll", "code-block"],
+          "modifiers": ["horizontal-scroll-auto", "code-block"],
           "code": [
             "lscom.exe [-a|--show-all] [-d|--show-device] [-D <str>|--divider <str>] [-f|--show-friendly]",
             "          [-h|--help] [-H|--short-help] [-n|--show-name-raw] [-P|--no-pretty] [-s|--sort]",
@@ -198,7 +198,7 @@
       "parts": [
         {
           "type": "code", "indent": 2,
-          "modifiers": ["horizontal-scroll", "code-block"],
+          "modifiers": ["horizontal-scroll-auto", "code-block"],
           "code": [
             " *┬> No launch arguments:",
             "  └──> ${Raw name}      => COM1",

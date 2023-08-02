@@ -1,0 +1,51 @@
+{
+	"en": {
+		"tool.formula-wizard.title": "Formula Wizard - (W.I.P)",
+		"tool.formula-wizard.output.graph": "Output Graph",
+		"tool.formula-wizard.workbench": "Formula Workbench",
+		"tool.formula-wizard.workbench.context": "Context",
+		"tool.formula-wizard.workbench.context.components": "Components:",
+		"tool.formula-wizard.workbench.context.placeholder": "No components present in the context.<br>Use the button below to add one :)",
+		"tool.formula-wizard.workbench.placeholder": "???",
+		
+		"tool.formula-wizard.workbench.formula.inputs": "Input(s):",
+		"tool.formula-wizard.workbench.formula.outputs": "Output(s):",
+		"tool.formula-wizard.workbench.formula.value.expand": "Enable live experiment mode",
+		
+		"tool.formula-wizard.categories": "Available Formulas",
+		"tool.formula-wizard.categories.electricity": "Electricity",
+		"tool.formula-wizard.categories.convert": "Converters",
+		"tool.formula-wizard.categories.physics": "Physics",
+		"tool.formula-wizard.categories.chemistry": "Chemistry",
+		"tool.formula-wizard.categories.radioactivity": "Radioactivity",
+		
+		"tool.formula-wizard.button.context.add": "Add a context element.",
+		"tool.formula-wizard.button.context.debug": "Show debugging print-out of current context.",
+		
+		"tool.formula-wizard.source": "Downloads & Source Code"
+	},
+	"fr": {
+		"tool.formula-wizard.title": "Ensorceleur de formules - (W.I.P)",
+		"tool.formula-wizard.output.graph": "Graphes des résultats",
+		"tool.formula-wizard.workbench": "Atelier de formule",
+		"tool.formula-wizard.workbench.context": "Contexte",
+		"tool.formula-wizard.workbench.context.components": "Composantes:",
+		"tool.formula-wizard.workbench.context.placeholder": "Aucune composante n'est présente dans le contexte.<br>Utilisez les bouttons ci-dessous pour en ajouter :)",
+		"tool.formula-wizard.workbench.placeholder": "???",
+		
+		"tool.formula-wizard.workbench.formula.inputs": "Entrée(s):",
+		"tool.formula-wizard.workbench.formula.outputs": "Sortie(s):",
+		
+		"tool.formula-wizard.categories": "Formules disponible",
+		"tool.formula-wizard.categories.electricity": "Électricité",
+		"tool.formula-wizard.categories.convert": "Convertisseurs",
+		"tool.formula-wizard.categories.physics": "Physique",
+		"tool.formula-wizard.categories.chemistry": "Chimie",
+		"tool.formula-wizard.categories.radioactivity": "Radioactivité",
+		
+		"tool.formula-wizard.button.context.add": "Ajouter un élement au contexte.",
+		"tool.formula-wizard.button.context.debug": "Afficher un récapitulatif de débogage pour le contexte actuel.",
+		
+		"tool.formula-wizard.source": "Télechargements & code source"
+	}
+}

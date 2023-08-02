@@ -4,7 +4,7 @@
 
 /* Site > Elements > Inputs > Commons */
 
-button, input {
+button, input, textarea, select {
 	border: 0;
 	
 	// Removing ugly-ass white glow when editing text-related inputs.
@@ -19,6 +19,37 @@ button, input {
 			box-shadow: 0px 0px 3px 0px #{$color-input-glow};
 		}
 	}
+	
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+label {
+	cursor: pointer;
+	user-select: none;
+}
+
+/* Site > Elements > Inputs > Checkbox */
+
+input[type=checkbox] {
+	width: 1.65em;
+	height: 1.65em;
+	background-color: #{$color-background-checkbox-unchecked};
+	
+	cursor: pointer;
+	
+	&:checked {
+		background-color: #{$color-background-checkbox-checked};
+	}
+	
+	position: relative;
+	vertical-align: middle;
+}
+input[type="checkbox"] + label {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 /* Site > Elements > Inputs > Buttons */
@@ -36,6 +67,30 @@ button {
 		
 		&:hover {
 			background-color: #{$color-background-button-primary-hover};
+		}
+	}
+	
+	&.success {
+		background-color: #{$color-background-button-success};
+		
+		&:hover {
+			background-color: #{$color-background-button-success-hover};
+		}
+	}
+	
+	&.error {
+		background-color: #{$color-background-button-error};
+		
+		&:hover {
+			background-color: #{$color-background-button-error-hover};
+		}
+	}
+	
+	&.warning {
+		background-color: #{$color-background-button-warning};
+		
+		&:hover {
+			background-color: #{$color-background-button-warning-hover};
 		}
 	}
 }
@@ -75,4 +130,11 @@ button + button, .button-link + .button-link > button {
 	//&[open] > div {
 	//	height: auto;
 	//}
+}
+
+textarea {
+
+	&.no-resize {
+		resize: none;
+	}
 }

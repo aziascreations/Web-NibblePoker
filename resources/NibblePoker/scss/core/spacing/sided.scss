@@ -18,6 +18,7 @@
 
 
 /* Utilities > Spacing > Sided > Variable Sizes */
+@include sided-spacing-maker("m", "margin", "xxs", calc(#{$margin-base-size} * 0.25));
 @include sided-spacing-maker("m", "margin", "xs", calc(#{$margin-base-size} * 0.5));
 @include sided-spacing-maker("m", "margin", "s", calc(#{$margin-base-size} * 0.75));
 @include sided-spacing-maker("m", "margin", "m", #{$margin-base-size});

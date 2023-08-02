@@ -6,11 +6,39 @@
 			"fr": "Convertisseur SVG vers PNG"
 		},
 		"preamble": {
-			"en": "",
-			"fr": ""
+			"en": "TODO: Description",
+			"fr": "TODO: Description"
 		},
 		"_image": "",
 		"tags": ["converter", "svg", "png"],
 		"priority": 100
+	},
+	{
+		"id": "formula-wizard",
+		"title": {
+			"en": "Formula Wizard",
+			"fr": "Ensorceleur de formules"
+		},
+		"preamble": {
+			"en": "TODO: Description",
+			"fr": "TODO: Description"
+		},
+		"_image": "",
+		"tags": ["converter"],
+		"priority": 200
+	},
+	{
+		"id": "b64-tools",
+		"title": {
+			"en": "Base64 Tools",
+			"fr": "Outils pour Base64"
+		},
+		"preamble": {
+			"en": "TODO: Description",
+			"fr": "TODO: Description"
+		},
+		"_image": "",
+		"tags": ["converter"],
+		"priority": 210
 	}
 ]

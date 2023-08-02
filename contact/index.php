@@ -31,6 +31,13 @@ include 'commons/DOM/sidebar.php';
 </header>
 <main id="main" class="rl-m border border-r-0 p-l">
 	
+	<?php printMainHeader(localize("contact.email.title"), "fad fa-mail-bulk", "herwin.bozet@gmail.com"); ?>
+	<p class="m-s">
+		<a href="mailto:Herwin Bozet<herwin.bozet@gmail.com>?subject=Contact%20via%20NibblePoker.lu" class="bland-link button-link">
+			<button class="p-xs r-s border b-light success"><?php print(localize("contact.email.compose")); ?></button>
+		</a>
+	</p>
+	
 	<?php printMainHeader(localize("contact.twitter.title"), "fab fa-twitter", "@NibblePoker"); ?>
 	<p class="m-s">
 		<a href="https://twitter.com/messages/compose?recipient_id=937370791334895616" class="bland-link button-link">

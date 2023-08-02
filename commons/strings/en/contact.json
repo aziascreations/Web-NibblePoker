@@ -5,6 +5,9 @@
 	"contact.og.description": "TODO: description",
 	"contact.header.title": "Contact",
 	
+	"contact.email.title": "Email",
+	"contact.email.compose": "Send an email to <i>herwin.bozet@gmail.com</i>",
+	
 	"contact.twitter.title": "Twitter",
 	"contact.twitter.compose": "Compose DM to @NibblePoker on Twitter"
 	

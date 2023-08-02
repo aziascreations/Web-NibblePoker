@@ -59,4 +59,23 @@ function printMainHeader(string $text, ?string $iconId = null, ?string $rightTex
 	));
 }
 
+function printSubHeader(string $text, ?string $anchorId = null, ?string $backgroundClass = "bkgd-math"): void {
+	if(is_null($backgroundClass)) {
+		$backgroundClass = "bkgd-math";
+	}
+	$headingText = getMainHeader(
+		$text,
+		null,
+		null,
+		$anchorId,
+		69, // Forcing it as a non-first of main heading.
+		$backgroundClass,
+		3
+	);
+	
+	$headingText = str_replace("t-size-14", "t-size-11", $headingText);
+	
+	echo($headingText);
+}
+
 ?>

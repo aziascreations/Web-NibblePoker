@@ -3,5 +3,17 @@
   "home.head.description": "TODO: description",
   "home.og.title": "NibblePoker",
   "home.og.description": "TODO: description",
-  "home.header.title": "Homepage"
+  "home.header.title": "Homepage",
+  
+  "home.showcase.title": "Showcase",
+  
+  "home.updates.title": "Updates",
+  "home.updates.text.privacy": "●&nbsp;&nbsp;Updated our privacy policy.",
+  "home.updates.2.date": "August 15 2023",
+  "home.updates.2.text.1": "●&nbsp;&nbsp;The website is back online.",
+  "home.updates.2.text.2": "●&nbsp;&nbsp;New and much lighter design.",
+  "home.updates.2.text.3": "●&nbsp;&nbsp;Changed our host to <a href=\"https://hostbrr.com/\">HostBrr</a>.",
+  "home.updates.2.text.4": "●&nbsp;&nbsp;Added a section for web-based tools.",
+  "home.updates.1.date": "September 9 2022",
+  "home.updates.1.text.1": "●&nbsp;&nbsp;Changed our host to v6Node."
 }

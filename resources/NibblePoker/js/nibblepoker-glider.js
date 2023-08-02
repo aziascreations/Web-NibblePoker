@@ -1,7 +1,11 @@
 // Creating the galleries from Glider.js
+
 window.addEventListener('load', function(){
 	document.querySelectorAll(".glider").forEach(element => {
-		new Glider(element, {
+		console.debug("Creating glider...");
+		console.debug(element);
+		
+		let glider = new Glider(element, {
 			slidesToShow: 1,
 			draggable: true,
 			scrollLock: true,
@@ -27,6 +31,7 @@ window.addEventListener('load', function(){
 				}
 			]
 		});
+		console.debug(glider);
 		
 		// Processing the images
 		const eImages = [];

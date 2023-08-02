@@ -92,6 +92,7 @@ abstract class ComposerElementModifiers {
 	
 	// Containers
 	const CONTAINER_SCROLL_HORIZONTAL = ["horizontal-scroll", "overflow-x-scroll hide-scrollbar"];
+	const CONTAINER_SCROLL_HORIZONTAL_AUTO = ["horizontal-scroll-auto", "overflow-x-auto"];
 	const CONTAINER_CARD = ["card", "card"];
 	
 	// Buttons

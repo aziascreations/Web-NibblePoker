@@ -1,9 +1,17 @@
 # IDE-related folders
 .idea/
 
+# Node.JS
+node_modules/
+package-lock.json
+
 # Static resources
+resources/DecimalJs/
+resources/DecimalJsLight/
 resources/FontAwesomePro/
 resources/HighlightJS/
+resources/GliderJs/
+resources/PlotlyJs/
 
 resources/NibblePoker/css/*.css
 resources/NibblePoker/scss/trash

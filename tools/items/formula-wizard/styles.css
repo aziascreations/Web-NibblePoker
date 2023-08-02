@@ -1,0 +1,21 @@
+
+/* https://cssflex-generator.netlify.app/ */
+
+.fw-variants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    overflow: auto;
+    flex-direction: row;
+}
+
+.fw-variants div, .fw-variants button {
+    margin: 5px;
+}
+
+.fw-workbench-name {
+    border-bottom: 1px solid;
+}

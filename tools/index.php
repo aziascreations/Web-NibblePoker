@@ -55,15 +55,44 @@ if($contentManager->hasError) {
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
 <head>
-	<?php include 'commons/DOM/head.php'; ?>
-	<title><?php print(localize('tools.head.title')); ?></title>
-	<meta name="description" content="<?php print(localize('tools.head.description')); ?>">
-	<meta property="og:title" content="<?php print(localize('tools.og.title')); ?>"/>
-	<meta property="og:type" content="website"/>
+	<?php
+	include 'commons/DOM/head.php';
+	
+	// Preparing values for the head's tags.
+	if($contentManager->displayType == ContentDisplayType::SEARCH) {
+		$tool_head_title = localize('tools.head.description');
+		$tool_head_description = localize('tools.head.description');
+		$tool_head_og_title = localize('tools.og.title');
+		$tool_head_og_description = localize('tools.og.description');
+		$tool_head_og_image_url = $host_uri . "/resources/NibblePoker/images/logos/v2_opengraph.png";
+		$tool_head_og_image_type = "image/png";
+		$tool_head_og_type = "website";
+	} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+		$tool_head_title = $toolInfo->openGraphData->title;
+		$tool_head_description = $toolInfo->openGraphData->description;
+		$tool_head_og_title = $toolInfo->openGraphData->title;
+		$tool_head_og_description = $toolInfo->openGraphData->description;
+		$tool_head_og_image_url = $host_uri . $toolInfo->openGraphData->image;
+		$tool_head_og_image_type = $toolInfo->openGraphData->image_type;
+		$tool_head_og_type = $toolInfo->openGraphData->type;
+	}
+	
+	?>
+	<title><?php echo($tool_head_title); ?></title>
+	<meta name="description" content="<?php echo($tool_head_description); ?>">
+	<meta property="og:title" content="<?php echo($tool_head_og_title); ?>"/>
+	<meta property="og:type" content="<?php echo($tool_head_og_type); ?>"/>
 	<meta property="og:url" content="<?php echo($host_uri . l10n_url_abs('/')); ?>"/>
-	<meta property="og:image" content="<?php echo($host_uri); ?>/resources/NibblePoker/images/logos/v2_opengraph.png"/>
-	<meta property="og:image:type" content="image/png"/>
-	<meta property="og:description" content="<?php print(localize('tools.og.description')); ?>"/>
+	<meta property="og:image" content="<?php echo($tool_head_og_image_url); ?>"/>
+	<meta property="og:image:type" content="<?php echo($tool_head_og_image_type); ?>"/>
+	<meta property="og:description" content="<?php echo($tool_head_og_description); ?>"/>
+	<?php
+	if(!$contentManager->hasError && $contentManager->displayType == ContentDisplayType::CONTENT) {
+		foreach($toolInfo->styleFilesPaths as $styleFilePath) {
+			echo('<link rel="stylesheet" href="'.substr($styleFilePath, strlen($dir_root)).'">');
+		}
+	}
+	?>
 </head>
 <body>
 <?php
@@ -165,9 +194,12 @@ include 'commons/DOM/scripts.php';
 
 // Including the tool's scripts if required.
 if(!$contentManager->hasError && $contentManager->displayType == ContentDisplayType::CONTENT) {
-    foreach($toolInfo->codeFilesPaths as $codeFilePath) {
+	foreach($toolInfo->codeFilesPaths as $codeFilePath) {
 		echo('<script src="'.substr($codeFilePath, strlen($dir_root)).'"></script>');
-    }
+	}
+	foreach($toolInfo->moduleFilesPaths as $moduleFilePath) {
+		echo('<script src="'.substr($moduleFilePath, strlen($dir_root)).'" type="module"></script>');
+	}
 }
 ?>
 </body>

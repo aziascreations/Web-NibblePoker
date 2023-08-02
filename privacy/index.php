@@ -109,9 +109,41 @@ include 'commons/DOM/sidebar.php';
 	</p>
 	
 	<?php printMainHeader(localize("privacy.v2.cookies.title"), "fad fa-cookie-bite"); ?>
-    <p class="mt-xs ml-s">
+	<p class="mt-xs ml-s">
 		<?php print(localize('privacy.v2.cookies.intro.1')); ?>
-    </p>
+	</p>
+	
+	<?php printMainHeader(localize("privacy.v2.personal.title"), "fad fa-fist-raised"); ?>
+	<p class="mt-xs ml-s">
+		<?php print(localize('privacy.v2.personal.disabled.intro')); ?>
+		<br>
+		<span class="ml-s">
+			<i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.personal.disabled.list.1')); ?>
+		</span>
+		<br>
+		<span class="ml-s">
+			<i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.personal.disabled.list.2')); ?>
+		</span>
+		<br>
+		<span class="ml-s">
+			<i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.personal.disabled.list.3')); ?>
+		</span>
+	</p>
+	<p class="mt-s ml-s">
+		<?php print(localize('privacy.v2.personal.tracking.text.1')); ?><br>
+		<?php print(localize('privacy.v2.personal.tracking.text.2')); ?><br>
+		<?php print(localize('privacy.v2.personal.tracking.text.3')); ?>
+	</p>
+	<p class="mt-s ml-s">
+		<?php print(localize('privacy.v2.personal.transparency.text.1')); ?>
+	</p>
+	<p class="mt-s ml-s">
+		<?php print(localize('privacy.v2.personal.recommendations')); ?>
+		<br>
+		<i class="fad fa-globe ml-s t-size-8"></i>
+		<a href="https://www.enisa.europa.eu/publications/privacy-considerations-of-online-behavioural-tracking">https://www.enisa.europa.eu/publications/privacy-considerations-of-online-behavioural-tracking</a>
+		<span class="ml-s">(<?php print(localize('lang.english')); ?>)</span>
+	</p>
     
 	<?php printMainHeader(localize("privacy.v2.update.title"), "fad fa-sync-alt"); ?>
     <p class="mt-xs ml-s">
@@ -191,14 +223,10 @@ include 'commons/DOM/sidebar.php';
     <p class="mt-s ml-s">
 		<?php print(localize('privacy.complaint.text.2')); ?><br>
         <i class="fad fa-globe t-size-8 ml-s"></i>
-        <a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rights-citizens/redress/what-should-i-do-if-i-think-my-personal-data-protection-rights-havent-been-respected_en">
-            https://ec.europa.eu/
-        </a>
+        <a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rights-citizens/redress/what-should-i-do-if-i-think-my-personal-data-protection-rights-havent-been-respected_en">https://ec.europa.eu/</a>
         <span class="ml-s">(<?php print(localize('lang.english')); ?>)</span><br>
         <i class="fad fa-globe t-size-8 ml-s"></i>
-        <a href="https://gegevensbeschermingsautoriteit.be/citoyen/agir/introduire-une-plainte">
-            https://gegevensbeschermingsautoriteit.be/
-        </a>
+        <a href="https://gegevensbeschermingsautoriteit.be/citoyen/agir/introduire-une-plainte">https://gegevensbeschermingsautoriteit.be/</a>
         <span class="ml-s">(<?php print(localize('lang.french')); ?>)</span><br>
     </p>
     

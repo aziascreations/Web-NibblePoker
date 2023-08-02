@@ -1,0 +1,18 @@
+{
+	"files": [
+		"code.min.js"
+	],
+	"properties": [
+		"WATT",
+		"VOLT",
+		"AMPERE",
+		"OHM",
+		"METER",
+		"INCH",
+		"POUND",
+		"symbol",
+		"symbol",
+		"symbol",
+		"symbol"
+	]
+}

@@ -8,7 +8,7 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 include_once 'commons/langs.php';
 ?>
 <footer class="d-flex flex-align-center w-full p-s py-xs">
-	<button id="sidebar-toggle-footer" class="p-xs border r-s t-size-10">
+	<button id="sidebar-toggle-footer" class="p-xs border r-s t-size-10" aria-label="<?php echo(localize("footer.alt.sidebar.button")); ?>">
 		<i class="fa fa-bars px-xxs" aria-hidden="true"></i>
 	</button>
 	<p class="flex-fill t-center t-size-10 t-w-500 t-muted">

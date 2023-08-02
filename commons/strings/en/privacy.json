@@ -23,7 +23,7 @@
 
   "privacy.v2.data.title": "Data collection",
   "privacy.v2.data.intro.1": "This websites only collects data through generic access logs in order to detect and block bad actors from accessing this website.",
-  "privacy.v2.data.intro.2": "None of the data collected is used for any other purpose,it is never shared with any other third-party and is never use in any sort of analytics.",
+  "privacy.v2.data.intro.2": "None of the data collected is used for any other purpose, it is never shared with any other third-party and is never use in any sort of analytics.",
   "privacy.v2.data.private.1": "Here is the list of private data being collected:",
   "privacy.v2.data.private_list.1": "IP address",
   "privacy.v2.data.private_list.2": "Browser's User-Agent",
@@ -57,7 +57,18 @@
   "privacy.v2.third.intro.2": "The goal of this system is to improve your browsing experience with the help of a private caching service and custom traffic filtering rules.",
   "privacy.v2.third.intro.3": "None of the data that may be gathered by v6Node or the system described above is ever used or stored.",
   "privacy.v2.third.intro.4": "If you'd wish to consult their privacy policy and their partners', you can do so by using the following URLs:",
-
+  
   "privacy.v2.cookies.title": "Cookies",
-  "privacy.v2.cookies.intro.1": "Our websites doesn't use nor store any cookies in your browser."
+  "privacy.v2.cookies.intro.1": "Our websites doesn't use nor store any cookies in your browser.",
+  
+  "privacy.v2.personal.title": "Personal Measures &amp; Convictions",
+  "privacy.v2.personal.disabled.intro": "While not required by any laws, we decided to improve your online privacy by disabling some features:",
+  "privacy.v2.personal.disabled.list.1": "Disabling hidden <a href=\"https://wikipedia.org/wiki/HTTP_referer\">HTTP Referer</a> system.",
+  "privacy.v2.personal.disabled.list.2": "Disabling Google's predatory <i>Topics API</i> and defunct <a href=\"https://www.eff.org/deeplinks/2021/03/googles-floc-terrible-idea\"><i>Cohort</i></a> ad-serving systems.",
+  "privacy.v2.personal.disabled.list.3": "Preventing any external third-party code from being injected into the page.",
+  "privacy.v2.personal.tracking.text.1": "It is our belief that the web and modern technology in general should never be used to track and spy on people in any way shape or form.",
+  "privacy.v2.personal.tracking.text.2": "We believe that any service that is in any way trying to force you to disable any ad-blocking or privacy-enhancing extensions should be avoided at all cost and shunned for their practices.",
+  "privacy.v2.personal.tracking.text.3": "Modern website should <b>never</b> break with those type of extensions unless they are purposefully built to track you to near-illegal extents, this excuse is only used to force you to accept these predatory practices.",
+  "_privacy.v2.personal.transparency.text.": "Additionally, we believe in the principles of transparency and openness [???]",
+  "privacy.v2.personal.recommendations": "We also strongly recommend you to read the <acronym title=\"European Union Agency for Cybersecurity\">ENISA</acronym>'s <i>Privacy considerations of online behavioural tracking report</i> in order to improve your online privacy."
 }

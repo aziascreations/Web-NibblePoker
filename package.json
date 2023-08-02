@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "minify": "^10.2.0",
+    "rollup": "^3.26.2",
+    "sass": "^1.63.6",
+    "terser": "^5.19.0",
+    "typescript": "^5.1.6"
+  }
+}

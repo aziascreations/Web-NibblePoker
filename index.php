@@ -3,6 +3,9 @@ $start_time = microtime(true);
 set_include_path('./');
 include_once 'commons/config.php';
 include_once 'commons/langs.php';
+
+// Page-specific config
+$enable_glider = true;
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
@@ -35,45 +38,30 @@ include 'commons/DOM/sidebar.php';
     <p class="mt-xs ml-s"><?php print(localize("home.intro.text.1")); ?></p>
     <p class="mt-xs ml-s"><?php print(localize("home.intro.text.2")); ?></p>
 	
-	<?php printMainHeader("Applications"); ?>
-    <!-- If 'r-*' is used, 'o-hidden' needs to be too => https://stackoverflow.com/a/8582304 -->
-    <table class="stylish w-full mt-xs table-p-xs r-s o-hidden border">
-        <thead>
-        <tr>
-            <th>Version</th>
-            <th>Downloads</th>
-            <th>Downloads</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>C11</td>
-            <td>C12</td>
-            <td>C13</td>
-        </tr>
-        <tr>
-            <td>C21</td>
-            <td>C22</td>
-            <td>C23</td>
-        </tr>
-        </tbody>
-    </table>
+	<?php printMainHeader(localize("home.showcase.title")); ?>
+	<div class="mt-xs mx-s">
+		<div class="glider">
+			<img src="/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png" alt="test123">
+			<img src="/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png" alt="test123">
+			<img src="/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png" alt="test123">
+			<img src="/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png" alt="test123">
+		</div>
+	</div>
 	
-	<?php printMainHeader("Testing"); ?>
-    <p class="mt-xs ml-s"><?php print(localize("home.intro.text.1")); ?></p>
-    <br>
-    <button class="p-xs border r-s">aaa</button>
-    <br>
-    <input class="p-xs border r-s" type="text">
-    <br>
-	
-	<?php printMainHeader(localize("home.intro.title")); ?>
-    <p class="mt-xs ml-s">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed <span class="code">do eiusmod tempor</span> incididunt ut labore et dolore magna aliqua.<br>
-        Mauris ultrices eros in cursus turpis massa tincidunt dui.<br>
-        Pulvinar elementum integer enim neque. Nunc mi ipsum faucibus vitae aliquet nec.
-    </p>
-    
+	<?php printMainHeader(localize("home.updates.title")); ?>
+	<p class="mt-xs ml-s t-w-600"><i class="fad fa-calendar-alt mr-xs"></i><?php print(localize("home.updates.2.date")); ?></p>
+	<p class="mt-xxs ml-m">
+		<?php print(localize("home.updates.2.text.1")); ?><br>
+		<?php print(localize("home.updates.2.text.2")); ?><br>
+		<?php print(localize("home.updates.2.text.3")); ?><br>
+		<?php print(localize("home.updates.2.text.4")); ?><br>
+		<?php print(localize("home.updates.text.privacy")); ?>
+	</p>
+	<p class="mt-s ml-s t-w-600"><i class="fad fa-calendar-alt mr-xs"></i><?php print(localize("home.updates.1.date")); ?></p>
+	<p class="mt-xxs ml-m">
+		<?php print(localize("home.updates.1.text.1")); ?><br>
+		<?php print(localize("home.updates.text.privacy")); ?>
+	</p>
 </main>
 <?php
 include 'commons/DOM/footer.php';

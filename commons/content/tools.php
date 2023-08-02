@@ -10,6 +10,9 @@ include_once 'commons/config.php';
 include_once 'commons/langs.php';
 include_once 'commons/content.php';
 
+// Required to handle opengraph data
+include_once 'commons/content/opengraph.php';
+
 // Required to make headings
 include_once 'commons/DOM/utils.php';
 
@@ -18,20 +21,25 @@ class ToolInfoFile {
 	public string $domFile;
 	public ?string $langFile;
 	public array $codeFilesPaths;
+	public array $moduleFilesPaths;
 	public array $styleFilesPaths;
 	public string $icon;
 	public string $titleKey;
 	public ?string $subTitleKey;
+	public OpenGraphData $openGraphData;
 	
-	function __construct(string $domFile, ?string $langFile, ?array $codeFilesPaths, ?array $styleFilesPaths,
-						 ?string $icon, ?string $titleKey, ?string $subTitleKey) {
+	function __construct(string $domFile, ?string $langFile, ?array $codeFilesPaths, ?array $moduleFilesPaths,
+	                     ?array $styleFilesPaths, ?string $icon, ?string $titleKey, ?string $subTitleKey,
+	                     array $opengraph) {
 		$this->domFile = $domFile;
 		$this->langFile = $langFile;
 		$this->codeFilesPaths = is_null($codeFilesPaths) ? array() : $codeFilesPaths;
+		$this->moduleFilesPaths = is_null($moduleFilesPaths) ? array() : $moduleFilesPaths;
 		$this->styleFilesPaths = is_null($styleFilesPaths) ? array() : $styleFilesPaths;
 		$this->icon = is_null($icon) ? "fad fa-question" : $icon;
 		$this->titleKey = is_null($titleKey) ? "unset" : $titleKey;
 		$this->subTitleKey = $subTitleKey;
+		$this->openGraphData = OpenGraphData::from_json($opengraph);
 	}
 	
 	static function from_json(array $json_data): ?ToolInfoFile {
@@ -42,10 +50,12 @@ class ToolInfoFile {
 			$json_data["dom"],
 			key_exists("lang", $json_data) ? $json_data["lang"] : null,
 			key_exists("code", $json_data) ? $json_data["code"] : null,
+			key_exists("module", $json_data) ? $json_data["module"] : null,
 			key_exists("styles", $json_data) ? $json_data["styles"] : null,
 			key_exists("icon", $json_data) ? $json_data["icon"] : null,
 			key_exists("title", $json_data) ? $json_data["title"] : null,
-			key_exists("subtitle", $json_data) ? $json_data["subtitle"] : null
+			key_exists("subtitle", $json_data) ? $json_data["subtitle"] : null,
+			$json_data["opengraph"]
 		);
 	}
 	
@@ -68,6 +78,14 @@ class ToolInfoFile {
 			if(!(file_exists($codeFilePath) && is_file($codeFilePath))) {
 				$contentManager->hasError = true;
 				$contentManager->errorMessageKey = "content.error.message.missing.file.code";
+				return;
+			}
+		}
+		
+		foreach($this->moduleFilesPaths as $moduleFilePath) {
+			if(!(file_exists($moduleFilePath) && is_file($moduleFilePath))) {
+				$contentManager->hasError = true;
+				$contentManager->errorMessageKey = "content.error.message.missing.file.module";
 				return;
 			}
 		}
@@ -108,10 +126,23 @@ abstract class ToolsContent {
 			for($iCodeFilePath = 0; $iCodeFilePath < count($toolInfo->codeFilesPaths); $iCodeFilePath++) {
 				$toolInfo->codeFilesPaths[$iCodeFilePath] = realpath(
 					$contentRootPath . "/items/" . $toolInfo->codeFilesPaths[$iCodeFilePath]);
+				$toolInfo->codeFilesPaths[$iCodeFilePath] = str_replace(
+					"\\", "/", $toolInfo->codeFilesPaths[$iCodeFilePath]
+				);
+			}
+			for($iModuleFilePath = 0; $iModuleFilePath < count($toolInfo->moduleFilesPaths); $iModuleFilePath++) {
+				$toolInfo->moduleFilesPaths[$iModuleFilePath] = realpath(
+					$contentRootPath . "/items/" . $toolInfo->moduleFilesPaths[$iModuleFilePath]);
+				$toolInfo->moduleFilesPaths[$iModuleFilePath] = str_replace(
+					"\\", "/", $toolInfo->moduleFilesPaths[$iModuleFilePath]
+				);
 			}
 			for($iStyleFilePath = 0; $iStyleFilePath < count($toolInfo->styleFilesPaths); $iStyleFilePath++) {
 				$toolInfo->styleFilesPaths[$iStyleFilePath] = realpath(
 					$contentRootPath . "/items/" . $toolInfo->styleFilesPaths[$iStyleFilePath]);
+				$toolInfo->styleFilesPaths[$iStyleFilePath] = str_replace(
+					"\\", "/", $toolInfo->styleFilesPaths[$iStyleFilePath]
+				);
 			}
 		} else {
 			$contentManager->hasError = true;
