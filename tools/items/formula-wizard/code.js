@@ -3,6 +3,9 @@ const version = [0, 0, 1];
 console.log("Initializing 'Formula Wizard v" + version.join(".") + "'...");
 const startTime = new Date().getMilliseconds();
 Decimal.set({ precision: 25, rounding: 8 });
+function isStringValidNumber(text) {
+    return isNaN(parseFloat(text));
+}
 console.debug("Preparing langs...");
 const langKey = document.documentElement.lang.match("(en|fr)") ? document.documentElement.lang : "en";
 const langData = {
@@ -228,6 +231,18 @@ function scaleToBase(value, scaleFactor) {
 }
 function scaleFromBase(value, scaleFactor) {
     return value.dividedBy(scaleFactor.multiplier);
+}
+function getScaleKeyFromValue(scaleFactor) {
+    return Object.keys(scaleFactors).find(scaleFactorKey => (scaleFactors[scaleFactorKey]) === scaleFactor);
+}
+function populateScaleSelectForUnit(unit, eSelect, selectedScaleFactor) {
+    unit.scale.scaleFactors.forEach(scaleFactor => {
+        const eNewScaleOption = document.createElement("option");
+        eNewScaleOption.setAttribute("value", getScaleKeyFromValue(scaleFactor));
+        eNewScaleOption.innerText = scaleFactor.prefix + " - " + eNewScaleOption.getAttribute("value");
+        eNewScaleOption.selected = (scaleFactor === selectedScaleFactor);
+        eSelect.appendChild(eNewScaleOption);
+    });
 }
 console.debug("Preparing units...");
 class Unit {
@@ -479,7 +494,7 @@ var WorkbenchFormulaValueTypes;
 class WorkbenchFormulaValueUiElement {
     constructor(rootElement, formulaValue, parentFormulaElement, valueType) {
         this.rootElement = rootElement;
-        this.idSuffix = Date.now().toString() + Math.floor(Math.random() * 9999);
+        this.idSuffix = Date.now().toString() + Math.floor(Math.random() * 99);
         this.valueType = valueType;
         this.formulaValue = formulaValue;
         this.parentFormulaElement = parentFormulaElement;
@@ -494,6 +509,7 @@ class WorkbenchFormulaValueUiElement {
             alert("error.ui.formula.value.missingElement");
             throw Error("error.ui.formula.value.missingElement");
         }
+        this.toggleField(this.eFormulaValueTestValueSet, true);
         this.rootElement.querySelectorAll(`input, select, p, div`).forEach(eFormInput => {
             if (eFormInput.hasAttribute("id")) {
                 eFormInput.setAttribute("id", eFormInput.getAttribute("id") + this.idSuffix);
@@ -505,13 +521,23 @@ class WorkbenchFormulaValueUiElement {
             }
         });
         this.eFormulaValueName.innerText = `${this.formulaValue.unit.name} (${this.formulaValue.unit.symbol})`;
-        this.toggleField(this.eFormulaValueTestValueSet, true);
+        this.eFormulaValueId.value = this.idSuffix;
+        populateScaleSelectForUnit(this.formulaValue.unit, this.eFormulaValueTestScale, this.formulaValue.scaleFactor);
         if (this.valueType === WorkbenchFormulaValueTypes.INPUT) {
             this.setupInput();
         }
         else {
             this.setupOutput();
         }
+    }
+    onTestFieldChange(event) {
+        this.parentFormulaElement.calculateTestValues();
+    }
+    getTestValue() {
+        return new Decimal(isStringValidNumber(this.eFormulaValueTestValue.value) ? this.eFormulaValueTestValue.value : 0);
+    }
+    setTestValue(newValue) {
+        this.eFormulaValueTestValue.value = newValue.toString();
     }
     toggleTestMode(hidden) {
         this.eFormulaValueTestScale.parentNode.parentNode.hidden = hidden;
@@ -521,12 +547,15 @@ class WorkbenchFormulaValueUiElement {
         eFormField.parentNode.parentNode.hidden = hidden;
     }
     setupInput() {
-        console.log("Setting up as input...");
         this.toggleField(this.eFormulaValueId, true);
+        this.eFormulaValueTestValue.value = "0";
+        this.eFormulaValueTestValue.onchange = this.onTestFieldChange.bind(this);
+        this.eFormulaValueTestScale.onchange = this.onTestFieldChange.bind(this);
     }
     setupOutput() {
-        console.log("Setting up as output...");
         this.toggleField(this.eFormulaValueLink, true);
+        this.eFormulaValueTestValue.readOnly = true;
+        this.eFormulaValueTestScale.onchange = this.onTestFieldChange.bind(this);
     }
     static getNew(formulaValue, parentFormulaElement, valueType) {
         const eNewWorkbenchFormulaValue = eTemplateWorkbenchFormulaValue.cloneNode(true).firstElementChild;
@@ -564,6 +593,9 @@ class WorkbenchFormulaUiElement {
         });
     }
     toggleTestMode(hidden) {
+    }
+    calculateTestValues() {
+        console.log("Handling change...");
     }
     static createNew(formulaVariant) {
         const eNewWorkbenchFormula = eTemplateWorkbenchFormula.cloneNode(true).firstElementChild;
@@ -689,9 +721,8 @@ if (eContextStatusMessage === null) {
     alert("error.ui.context.noStatus");
     throw Error("error.ui.context.noStatus");
 }
-let eContextAddButton = document.getElementById("fw-button-add-context");
-let eContextDebugButton = document.getElementById("fw-button-debug-context");
-if (eContextAddButton === null || eContextDebugButton === null) {
+let eContextAddButton = document.querySelector("button#fw-button-add-context");
+if (eContextAddButton === null) {
     alert("error.ui.context.missingButton");
     throw Error("error.ui.context.missingButton");
 }
@@ -799,6 +830,23 @@ eContextAddButton.onclick = function () {
     eContextStatusMessage.parentNode.insertBefore(newContextComponent.rootElement, eContextStatusMessage);
     eContextStatusMessage.hidden = true;
 };
+function getRee() {
+}
+class NumberProlapsingMachine {
+}
+if (new URLSearchParams(window.location.search).has("debug")) {
+    console.debug("Preparing debugging tools...");
+    let eDebugContainer = document.querySelector("div#fw-debug-root");
+    let eDebugLinkAndIdsButton = document.querySelector("button#fw-button-debug-linkAndIds");
+    if (eDebugContainer === null || eDebugLinkAndIdsButton === null) {
+        alert("error.ui.context.missingButton");
+        throw Error("error.ui.context.missingButton");
+    }
+    eDebugContainer.hidden = false;
+    eDebugLinkAndIdsButton.onclick = function () {
+        alert(JSON.stringify({ 'a': 1, 'b': 3 }, null, 4));
+    };
+}
 const endTime = new Date().getMilliseconds();
 console.log("Done, took " + (endTime - startTime) + "ms !");
 //# sourceMappingURL=code.js.map

@@ -177,8 +177,6 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 			</tr>
 		</table>
 	</div>
-	
-	
 </template>
 
 <template id="template-workbench-formula">
@@ -191,15 +189,21 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 				<td class="w-full">
 					<p id="fw-workbench-formula-name" class="p-xxs t-w-600 t-center border border-t-0 border-l-0 border-r-0">${formula.name}</p>
 					<div class="fw-formula-io">
-						<div id="fw-workbench-formula-inputs" class="p-xxs">
+						<div class="p-xxs">
 							<p class="t-w-500 t-italic">
 								<?php echo(localize("tool.formula-wizard.workbench.formula.inputs")); ?>
 							</p>
+							<div id="fw-workbench-formula-inputs" class="fw-workbench-io-grid">
+							
+							</div>
 						</div>
-						<div id="fw-workbench-formula-outputs" class="p-xxs border border-l-0 border-r-0">
+						<div class="p-xxs border border-l-0 border-r-0">
 							<p class="t-w-500 t-italic">
 								<?php echo(localize("tool.formula-wizard.workbench.formula.outputs")); ?>
 							</p>
+							<div id="fw-workbench-formula-outputs" class="fw-workbench-io-grid">
+							
+							</div>
 						</div>
 					</div>
 				</td>
@@ -238,10 +242,10 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 									        title="<?php echo(localize("tool.formula-wizard.button.context.add")); ?>">
 										<i class="fad fa-plus"></i>
 									</button>
-									<button id="fw-button-debug-context" class="warning p-mxs px-xs border r-s"
+									<!--<button id="fw-button-debug-context" class="warning p-mxs px-xs border r-s"
 									        title="<?php echo(localize("tool.formula-wizard.button.context.debug")); ?>">
 										<i class="fad fa-bug"></i>
-									</button>
+									</button>-->
 								</div>
 							</div>
 						</div>
@@ -250,7 +254,7 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 			</table>
 		</div>
 		
-		<div class="border border-t-0 border-l-0 border-r-0">
+		<!--<div class="border border-t-0 border-l-0 border-r-0">
 			<table>
 				<tr>
 					<td class="border border-t-0 border-l-0 border-b-0 p-xs mobile-hide">
@@ -284,10 +288,6 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 											</select>
 										</td>
 									</tr>
-									<!--<tr>
-										<td colspan="2" class="p-xxs bkgd-blank">
-										</td>
-									</tr>-->
 									<tr>
 										<td>
 											<label for="fw-context-component-unit" class="mx-xs t-center">Value:</label>
@@ -336,12 +336,11 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 					</td>
 				</tr>
 			</table>
-		</div>
+		</div>-->
 		
 		<a id="fw-workbench-formula-spawn"></a>
 		
-		
-		<div class="border border-t-0 border-l-0 border-r-0">
+		<!-- <div class="border border-t-0 border-l-0 border-r-0">
 			<table>
 				<tr>
 					<td class="border border-t-0 border-l-0 border-b-0 p-xs mobile-hide">
@@ -365,18 +364,39 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 									<input id="test-123" type="text" class="p-mxs rr-s border border-t-0 border-b-0 border-r-0">
 								</div>
 								
-								<!-- ON/OFF -> Add extra ranges as sliders, or refuse to proceed -->
-								
-								<!-- Highlights, limits, extra styles, ... -->
 							
 							</div>
 						</div>
 					</td>
 				</tr>
 			</table>
+		</div>-->
+		<!-- ON/OFF -> Add extra ranges as sliders, or refuse to proceed -->
+		<!-- Highlights, limits, extra styles, ... -->
+		
+		<div id="fw-debug-root" class="border border-t-0 border-l-0 border-r-0" hidden>
+			<table>
+				<tr>
+					<td class="border border-t-0 border-l-0 border-b-0 p-xs mobile-hide">
+						<p class="t-size-14"><i class="fad fa-grip-vertical"></i></p>
+					</td>
+					<td class="w-full">
+						<p class="p-xxs t-w-600 t-center border border-t-0 border-l-0 border-r-0 fw-workbench-name">
+							<?php echo(localize("tool.formula-wizard.workbench.debugging")); ?>
+						</p>
+						<div class="fw-formula-io">
+							<div class="fw-formula-components p-xxs">
+								<div class="my-xs ml-xs">
+									<button id="fw-button-debug-linkAndIds" class="warning p-mxs px-xs border r-s">
+										<i class="fad fa-bug"></i> <?php echo(localize("tool.formula-wizard.button.debug.testLinkAndIds")); ?>
+									</button>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
-		
-		
 		
 		<div class="p-xxs">
 			<p class="t-center t-muted t-size-8">Selected formulas will appear here, all seems good.</p>

@@ -8,6 +8,13 @@ const startTime = new Date().getMilliseconds();
 // Configuring the Decimal.JS library to use its maximum potential precision.
 Decimal.set({ precision: 25, rounding: 8 });
 
+// Random utils (Can be exported in other module)
+function isStringValidNumber(text: string): boolean {
+    // Can be replaced with regex if needed to be more strict.
+    // I'd need to see if the "Decimal" library handles values like "42px" correctly.
+    return isNaN(parseFloat(text));
+}
+
 // Common L10N stuff.
 console.debug("Preparing langs...");
 const langKey= document.documentElement.lang.match("(en|fr)") ? document.documentElement.lang : "en";
@@ -243,6 +250,21 @@ function scaleFromBase(value: Decimal, scaleFactor: UnitScaleFactor): Decimal {
     return value.dividedBy(scaleFactor.multiplier);
 }
 
+function getScaleKeyFromValue(scaleFactor: UnitScaleFactor): string {
+    return Object.keys(scaleFactors).find(
+        scaleFactorKey => (scaleFactors[scaleFactorKey]) === scaleFactor
+    )!;
+}
+
+function populateScaleSelectForUnit(unit: Unit, eSelect: HTMLSelectElement, selectedScaleFactor: UnitScaleFactor | null) {
+    unit.scale.scaleFactors.forEach(scaleFactor => {
+        const eNewScaleOption = document.createElement("option");
+        eNewScaleOption.setAttribute("value", getScaleKeyFromValue(scaleFactor));
+        eNewScaleOption.innerText = scaleFactor.prefix + " - " + eNewScaleOption.getAttribute("value");
+        eNewScaleOption.selected = (scaleFactor === selectedScaleFactor);
+        eSelect.appendChild(eNewScaleOption);
+    });
+}
 
 // Preparing units
 console.debug("Preparing units...");
@@ -743,6 +765,11 @@ class WorkbenchFormulaValueUiElement {
             throw Error("error.ui.formula.value.missingElement");
         }
 
+        // Hiding the testing value set row since it isn't implemented yet.
+        // This should be used for stuff like wire gauge to get fixed sets like 8,6,4,5.
+        // Note: It might actually be redundant...
+        this.toggleField(this.eFormulaValueTestValueSet, true);
+
         // Changing IDs as needed.
         this.rootElement.querySelectorAll(`input, select, p, div`).forEach(eFormInput => {
             if(eFormInput.hasAttribute("id")) {
@@ -755,18 +782,33 @@ class WorkbenchFormulaValueUiElement {
             }
         });
 
+        // Setting some fields' default value.
         this.eFormulaValueName.innerText = `${this.formulaValue.unit.name} (${this.formulaValue.unit.symbol})`;
+        this.eFormulaValueId.value = this.idSuffix;
 
-        // Hiding the testing value set row since it isn't implemented yet.
-        // This should be used for stuff like wire gauge to get fixed sets like 8,6,4,5.
-        // Note: It might actually be redundant...
-        this.toggleField(this.eFormulaValueTestValueSet, true);
+        // Adding the relevant scale factors.
+        populateScaleSelectForUnit(this.formulaValue.unit, this.eFormulaValueTestScale, this.formulaValue.scaleFactor);
 
         if(this.valueType === WorkbenchFormulaValueTypes.INPUT) {
             this.setupInput();
         } else {
             this.setupOutput();
         }
+    }
+
+    private onTestFieldChange(event: Event | null) {
+        // NOTE: As it stands, it could be replaced by a direct bind to the parent's function :/
+        this.parentFormulaElement.calculateTestValues();
+    }
+
+    public getTestValue(): Decimal {
+        return new Decimal(
+            isStringValidNumber(this.eFormulaValueTestValue.value) ? this.eFormulaValueTestValue.value : 0
+        );
+    }
+
+    public setTestValue(newValue: Decimal) {
+        this.eFormulaValueTestValue.value = newValue.toString();
     }
 
     toggleTestMode(hidden: boolean) {
@@ -781,13 +823,16 @@ class WorkbenchFormulaValueUiElement {
     }
 
     private setupInput() {
-        console.log("Setting up as input...");
         this.toggleField(this.eFormulaValueId, true);
+        this.eFormulaValueTestValue.value = "0";
+        this.eFormulaValueTestValue.onchange = this.onTestFieldChange.bind(this);
+        this.eFormulaValueTestScale.onchange = this.onTestFieldChange.bind(this);
     }
 
     private setupOutput() {
-        console.log("Setting up as output...");
         this.toggleField(this.eFormulaValueLink, true);
+        this.eFormulaValueTestValue.readOnly = true;
+        this.eFormulaValueTestScale.onchange = this.onTestFieldChange.bind(this);
     }
 
     public static getNew(formulaValue: FormulaValue, parentFormulaElement: WorkbenchFormulaUiElement,
@@ -858,6 +903,10 @@ class WorkbenchFormulaUiElement {
 
     toggleTestMode(hidden: boolean) {
         // TODO
+    }
+
+    calculateTestValues() {
+        console.log("Handling change...");
     }
 
     public static createNew(formulaVariant: FormulaVariant): WorkbenchFormulaUiElement {
@@ -1031,9 +1080,8 @@ if(eContextStatusMessage === null) {
 
 // Preparing the context components buttons.
 // Those are simply used to add and debug context components.
-let eContextAddButton = document.getElementById("fw-button-add-context");
-let eContextDebugButton = document.getElementById("fw-button-debug-context");
-if(eContextAddButton === null || eContextDebugButton === null) {
+let eContextAddButton: HTMLButtonElement | null = document.querySelector("button#fw-button-add-context");
+if(eContextAddButton === null) {
     alert("error.ui.context.missingButton");
     throw Error("error.ui.context.missingButton");
 }
@@ -1218,11 +1266,51 @@ eContextAddButton.onclick = function() {
     eContextStatusMessage!.hidden = true;
 }
 
+// --------------------------------
+//  User Interface > Super Helpers
+// --------------------------------
+
+function getRee() {
+
+}
+
+
+// -----------------------------------------------------------------------------------------------------------------
+//  The "Nobody could give me a synonym for a math nerd/number cruncher to serve as a pun" mechanism.
+// -----------------------------------------------------------------------------------------------------------------
+//  You can all go eat a bag of dicks with your
+//    "muh, I cAn'T GiVE yoU AnYtHinG That remOtEly rEsEmBlEs a PejOraTiVE Term, eveN In A friEndLY/jOkey cONteXT".
+//  I'll just call it the "NumberProlapsingMachine" then...
+//  Fuck you all and your tumblr-esque PC brain-rot.
+// -----------------------------------------------------------------------------------------------------------------
+
+class NumberProlapsingMachine {
+
+}
+
+// -----------
+//  Debugging
+// -----------
+
+if(new URLSearchParams(window.location.search).has("debug")) {
+    console.debug("Preparing debugging tools...");
+
+    let eDebugContainer: HTMLDivElement | null = document.querySelector("div#fw-debug-root");
+    let eDebugLinkAndIdsButton: HTMLButtonElement | null = document.querySelector("button#fw-button-debug-linkAndIds");
+    if(eDebugContainer === null || eDebugLinkAndIdsButton === null) {
+        alert("error.ui.context.missingButton");
+        throw Error("error.ui.context.missingButton");
+    }
+    eDebugContainer.hidden = false;
+    eDebugLinkAndIdsButton.onclick = function() {
+        alert(JSON.stringify({'a': 1, 'b': 3}, null, 4));
+    };
+}
 
 // --------------
 //  End of setup
 // --------------
-// We're done and ready to crunch numbers :)
+// We're done and ready to stretch some numbers :)
 const endTime = new Date().getMilliseconds();
 console.log("Done, took " + (endTime - startTime) + "ms !");
 

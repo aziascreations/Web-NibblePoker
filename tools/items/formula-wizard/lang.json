@@ -12,6 +12,9 @@
 		"tool.formula-wizard.workbench.formula.outputs": "Output(s):",
 		"tool.formula-wizard.workbench.formula.value.expand": "Enable live experiment mode",
 		
+		"tool.formula-wizard.workbench.debugging": "Debugging Tools",
+		"tool.formula-wizard.button.debug.testLinkAndIds": "Test links and IDs",
+		
 		"tool.formula-wizard.categories": "Available Formulas",
 		"tool.formula-wizard.categories.electricity": "Electricity",
 		"tool.formula-wizard.categories.convert": "Converters",
