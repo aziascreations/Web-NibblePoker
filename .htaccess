@@ -27,8 +27,8 @@ AddType text/javascript .mjs
 Options -Indexes +FollowSymlinks -ExecCGI
 ServerSignature Off
 
-# Helping out with minified pages and/or pre-rendered ones first if available
-DirectoryIndex index.min.html index.min.php index.html index.php
+# Serving minified pages and/or pre-rendered ones first if available.
+DirectoryIndex index.min.html index.min.php index.php index.html
 
 # Custom error pages.
 ErrorDocument 403 /error.php
@@ -41,13 +41,14 @@ ErrorDocument 404 /error.php
 
 # Default: 12 hours
 ##Header set Cache-Control "max-age=43200, public, must-revalidate"
-##
+
+# Static files: 1 Week
 <FilesMatch "\.(?i:gif|jpe?g|png|ico|svg|woff2|ttf|woff|otf)$">
-    # Static files: 1 Week
     Header set Cache-Control "max-age=604800, public, must-revalidate"
 </FilesMatch>
+
+# Semi-static files: 1 Day
 ##<FilesMatch "\.(?i:css|js|mjs)$">
-##    # Semi-static files: 1 Day
 ##    Header set Cache-Control "max-age=86400, public, must-revalidate"
 ##</FilesMatch>
 
@@ -87,27 +88,3 @@ RewriteEngine On
 # Languages. (Does not work with a regex)
 RewriteRule ^en/(.*)$ /$1 [QSA]
 RewriteRule ^fr/(.*)$ /$1 [QSA]
-
-# Honeypots. (Just to fuck with automated scanners, gotta love those unsolicited emails tho...)
-
-# Sending a 404 for git and IDEs folders just in case they ever get copied to the web server,
-#  or if one of the honeypot files is acessed directly.
-# A 404 is preferred to prevent further scanning of this folder and from raising some flags.
-# FIXME: These rules break the later honeypot rules !!!
-#RedirectMatch 404 ^.*\.?(git|vs(code)|idea).*
-#RedirectMatch 404 ^.*honeypot.*
-
-# Internal redirections for scanning and exploit attempts.
-# These rules are here since they're easier to implement in the .htaccess.
-#RewriteRule ^.*(install|xmlrpc)\.php.*$ /honeypot/file-php.php [QSA]
-#RewriteRule ^.*\.xml.*$ /honeypot/file-xml.php [QSA]
-#RewriteRule ^.*wlwmanifest\.xml.*$ /honeypot/file-xml-wlwmanifest.php [QSA]
-#RewriteRule ^.*\.env.*$ /honeypot/file-env.php [QSA]
-#RewriteRule ^.*(ap(i|p.*)|cms|sit[eo]|shop.*|wp.*).*$ /honeypot/folder.php [QSA]
-
-# Cases left to handle:
-# * /wp-admin/post.php?id=whatever
-# * /public /vendor /storage
-# * //vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
-
-# TODO: Implement bee-movie themed tarpit once I have a rate-limiting solution in place !

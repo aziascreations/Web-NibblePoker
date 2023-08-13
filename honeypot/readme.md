@@ -1,4 +1,0 @@
-# Honeypots
-
-## ???
-TODO

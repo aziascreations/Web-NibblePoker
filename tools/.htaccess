@@ -1,3 +1,7 @@
+# FIXME: The minified content scripts fail for some reason !
+# Could be the missing closing php tag !!!
+DirectoryIndex index.php index.html
+
 # Redirecting any URL that starts with "/tools" to the root of this folder.
 RewriteEngine On
 RewriteRule ^\/?(tools\/)?[a-zA-Z0-9\-]+\/?$ index.php [NC]

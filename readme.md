@@ -16,14 +16,6 @@ Unfinished, but all the files should be contained in the `content/` folder.
 
 ### Tools
 
-### Honeypot & Tarpits
-There are a couple of files in the `honeypot/` and `tarpit/` folders that are used
-to serve some basic fake files and pages that are often requested by automated scanners in order
-to mess with them.
-
-These pages can be removed by deleting the folders and removing the appropriate rules in
-the [.htaccess](.htaccess) file.
-
 ## Requirements
 These files are required and need to be installed manually for the website to work properly !<br>
 
