@@ -1285,7 +1285,15 @@ function getRee() {
 // -----------------------------------------------------------------------------------------------------------------
 
 class NumberProlapsingMachine {
+    // uiContextComponents: ContextComponentUiElement[]
+    // uiWorkbenchFormulas: WorkbenchFormulaUiElement[]
 
+    public static createNewFromUi(formulaVariant: FormulaVariant): NumberProlapsingMachine {
+
+
+
+        return null!;
+    }
 }
 
 // -----------

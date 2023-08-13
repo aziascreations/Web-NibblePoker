@@ -20,6 +20,9 @@ resources/NibblePoker/js/*.min.js
 *.exe
 *.url
 
+# Compiled Stuff
+*.min.php
+
 # Others
 *.pdn
 *.min.json

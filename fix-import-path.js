@@ -13,7 +13,7 @@ const inputFile = process.argv[2];
 const inputImportName = process.argv[3];
 const inputReplacement = process.argv[4];
 
-let filesToProcess = [inputFile];
+let filesToProcess = inputFile.split(";");
 
 
 // Fixing the files

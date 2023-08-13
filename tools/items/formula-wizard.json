@@ -1,9 +1,9 @@
 {
-	"dom": "formula-wizard/page.php",
+	"dom": "formula-wizard/page.min.php",
 	"lang": "formula-wizard/lang.json",
 	"code": [],
 	"module": [
-		"formula-wizard/code.min.js"
+		"formula-wizard/src/main.js"
 	],
 	"styles": [
 		"formula-wizard/styles.css"

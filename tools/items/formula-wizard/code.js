@@ -833,6 +833,9 @@ eContextAddButton.onclick = function () {
 function getRee() {
 }
 class NumberProlapsingMachine {
+    static createNewFromUi(formulaVariant) {
+        return null;
+    }
 }
 if (new URLSearchParams(window.location.search).has("debug")) {
     console.debug("Preparing debugging tools...");
