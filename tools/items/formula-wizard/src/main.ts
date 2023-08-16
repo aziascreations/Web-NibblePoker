@@ -1,5 +1,5 @@
 /*!
- *  Formula Wizard v0.0.3
+ *  NibblePoker - Formula Wizard
  *  [Short desc here]
  *  https://github.com/aziascreations/Web-NibblePoker
  *  Copyright (c) 2023 Herwin Bozet <herwin.bozet@gmail.com>
@@ -7,7 +7,7 @@
  */
 
 // Preparing some things before the import statements.
-const version = [0, 0, 2];
+const version = [0, 0, 3];
 console.log("Initializing 'Formula Wizard v" + version.join(".") + "'...");
 const startTime = new Date().getMilliseconds();
 
@@ -27,7 +27,7 @@ Decimal.set({ precision: 25, rounding: 8 });
 initUnits();
 initFormulas();
 
-// Preparing the UI
+// Preparing the UI & MVC stuff
 initCatalog();
 setupWorkbenchContext();
 setupWorkbenchFormula();
@@ -35,6 +35,8 @@ setupWorkbenchFormula();
 // ???
 
 // Tests
-console.log(localize("joe.mama"));
 console.log(units);
 console.log(formulas);
+
+const endTime = new Date().getMilliseconds();
+console.log("Done, took " + (endTime - startTime) + "ms !");

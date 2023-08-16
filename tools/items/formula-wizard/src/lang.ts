@@ -1,4 +1,4 @@
-// TODO: Move into a common lib with parameter support !
+// TODO: Move into a common lib with parameter support!
 
 export const langKey= document.documentElement.lang.match("(en|fr)") ? document.documentElement.lang : "en";
 

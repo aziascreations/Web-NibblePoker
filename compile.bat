@@ -69,8 +69,8 @@ echo -----------------------------
 echo Cleaning...
 pushd %CD%
 cd %~dp0\tools\items\formula-wizard\src\
-del *.js
-del *.map
+del *.js 2>nul
+del *.map 2>nul
 popd
 
 :formula-wizard-compile
@@ -84,14 +84,15 @@ popd
 echo Fixing imports...
 pushd %CD%
 cd %~dp0\tools\items\formula-wizard\src\
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "decimal" "decimal.min.mjs"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "lang" "lang.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "formulas" "formulas.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "units" "units.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "ui_catalog" "ui_catalog.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "mvc_context" "mvc_context.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "sets" "sets.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "mvc_formula" "mvc_formula.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "decimal" "decimal.min.mjs"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "lang" "lang.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "formulas" "formulas.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "units" "units.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "ui_catalog" "ui_catalog.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "mvc_context" "mvc_context.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "sets" "sets.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "mvc_formula" "mvc_formula.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "utils_templates" "utils_templates.js"
 popd
 
 :formula-wizard-bundle
@@ -113,6 +114,7 @@ call "%~dp0node_modules\.bin\terser" ui_catalog.js -c -m --toplevel -o ui_catalo
 call "%~dp0node_modules\.bin\terser" mvc_context.js -c -m --toplevel -o mvc_context.min.js
 call "%~dp0node_modules\.bin\terser" sets.js -c -m --toplevel -o sets.min.js
 call "%~dp0node_modules\.bin\terser" mvc_formula.js -c -m --toplevel -o mvc_formula.min.js
+call "%~dp0node_modules\.bin\terser" utils_templates.js -c -m --toplevel -o utils_templates.min.js
 call "%~dp0node_modules\.bin\terser" formula-wizard.js -c -m --toplevel -o formula-wizard.min.js
 popd
 

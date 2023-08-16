@@ -212,7 +212,6 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 	</div>
 </template>
 
-
 <div class="m-s mt-xs">
 	<div class=" border r-s bkgd-grid w-full">
 		<div class="border border-t-0 border-l-0 border-r-0">
