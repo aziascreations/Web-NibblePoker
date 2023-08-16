@@ -1,5 +1,5 @@
 {
-	"dom": "formula-wizard/page.min.php",
+	"dom": "formula-wizard/page.php",
 	"lang": "formula-wizard/lang.json",
 	"code": [],
 	"module": [

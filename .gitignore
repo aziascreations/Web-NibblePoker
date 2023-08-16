@@ -22,6 +22,8 @@ resources/NibblePoker/js/*.min.js
 
 # Compiled Stuff
 *.min.php
+tools/items/formula-wizard/*.js
+tools/items/formula-wizard/src/*.js
 
 # Others
 *.pdn

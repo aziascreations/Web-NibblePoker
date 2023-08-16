@@ -57,13 +57,21 @@ popd
 :libs-end
 
 
-:: THE FW min files don't poitn to the proper JS file !!!!
+:: THE Formula-wizard minified files don't point to the proper minified JS file !!!!
 
 
 :formula-wizard
 echo.
 echo Handling the 'Formula Wizard'
 echo -----------------------------
+
+:formula-wizard-clean
+echo Cleaning...
+pushd %CD%
+cd %~dp0\tools\items\formula-wizard\src\
+del *.js
+del *.map
+popd
 
 :formula-wizard-compile
 echo Compiling TypeScript...
@@ -76,13 +84,14 @@ popd
 echo Fixing imports...
 pushd %CD%
 cd %~dp0\tools\items\formula-wizard\src\
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js" "decimal" "decimal.min.mjs"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js" "lang" "lang.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js" "formulas" "formulas.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js" "units" "units.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js" "ui_catalog" "ui_catalog.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js" "mvc_context" "mvc_context.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js" "sets" "sets.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "decimal" "decimal.min.mjs"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "lang" "lang.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "formulas" "formulas.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "units" "units.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "ui_catalog" "ui_catalog.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "mvc_context" "mvc_context.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "sets" "sets.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js" "mvc_formula" "mvc_formula.js"
 popd
 
 :formula-wizard-bundle
@@ -100,6 +109,10 @@ call "%~dp0node_modules\.bin\terser" main.js -c -m --toplevel -o main.min.js
 call "%~dp0node_modules\.bin\terser" lang.js -c -m --toplevel -o lang.min.js
 call "%~dp0node_modules\.bin\terser" formulas.js -c -m --toplevel -o formulas.min.js
 call "%~dp0node_modules\.bin\terser" units.js -c -m --toplevel -o units.min.js
+call "%~dp0node_modules\.bin\terser" ui_catalog.js -c -m --toplevel -o ui_catalog.min.js
+call "%~dp0node_modules\.bin\terser" mvc_context.js -c -m --toplevel -o mvc_context.min.js
+call "%~dp0node_modules\.bin\terser" sets.js -c -m --toplevel -o sets.min.js
+call "%~dp0node_modules\.bin\terser" mvc_formula.js -c -m --toplevel -o mvc_formula.min.js
 call "%~dp0node_modules\.bin\terser" formula-wizard.js -c -m --toplevel -o formula-wizard.min.js
 popd
 
