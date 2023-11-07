@@ -1,6 +1,5 @@
-# FIXME: The minified content scripts fail for some reason !
-# Could be the missing closing php tag !!!
-DirectoryIndex index.php index.html
+# Serving minified pages and/or pre-rendered ones first if available.
+DirectoryIndex index.min.html index.min.php index.php index.html
 
 # Redirecting any URL that starts with "/tools" to the root of this folder.
 RewriteEngine On

@@ -197,3 +197,5 @@ function getContentManager(string $contentRootPath): ContentManager {
 		isset($_GET['tags']) ? htmlspecialchars($_GET['tags']) : NULL
 	);
 }
+
+?>

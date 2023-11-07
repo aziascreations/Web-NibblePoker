@@ -205,6 +205,23 @@ export const units: { [key: string]: Unit } = {
 };
 
 
+// --------------------
+//  Units > Populators
+// --------------------
+
+export function populateScaleSelectForUnit(unit: Unit, eSelect: HTMLSelectElement,
+                                           selectedScaleFactor: UnitScaleFactor | null) {
+    unit.scale.scaleFactors.forEach(scaleFactor => {
+        const eNewScaleOption = document.createElement("option");
+        eNewScaleOption.setAttribute("value", getScaleKeyFromValue(scaleFactor));
+        eNewScaleOption.innerText = scaleFactor.prefix + " - " + eNewScaleOption.getAttribute("value");
+        eNewScaleOption.selected = (scaleFactor === selectedScaleFactor);
+        eSelect.appendChild(eNewScaleOption);
+    });
+}
+
+
+
 // -----------------
 //  Units > Helpers
 // -----------------
@@ -214,6 +231,12 @@ export function scaleToBase(value: Decimal, scaleFactor: UnitScaleFactor): Decim
 
 export function scaleFromBase(value: Decimal, scaleFactor: UnitScaleFactor): Decimal {
     return value.dividedBy(scaleFactor.multiplier);
+}
+
+function getScaleKeyFromValue(scaleFactor: UnitScaleFactor): string {
+    return Object.keys(scaleFactors).find(
+        scaleFactorKey => (scaleFactors[scaleFactorKey]) === scaleFactor
+    )!;
 }
 
 // ---------------------------

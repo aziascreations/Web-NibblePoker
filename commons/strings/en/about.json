@@ -5,37 +5,12 @@
 	"about.og.description": "TODO: description",
 	"about.header.title": "About",
 	
-	"about.part.year.single": "year",
-	"about.part.year.multiple": "years",
-	"about.part.since": "since",
+	"about.intro.title": "Introduction",
 	
-	"about.education.title": "Education",
+	"about.future.title": "Future plans",
 	
-	"about.skills.title": "Skills",
 	
-	"about.work.title": "Work Experience",
-	"about.work.ctie.title": "Government IT Centre (CTIE)",
-	"about.work.ctie.role.1": "<abbr title=\"Internet-of-Things\">IoT</abbr> Developer Internship",
-	"about.work.ctie.location": "Luxembourg",
+	"about.nibblepoker.title": "The 'NibblePoker' name",
 	
-	"about.work.computrade.title": "CompuTrade Luxembourg Ltd",
-	"about.work.computrade.role.1": "Full & Half-time student job",
-	"about.work.computrade.location": "Steinfort, Luxembourg",
-	
-	"about.work.lih.title": "Luxembourg Institute of Health (LIH)",
-	"about.work.lih.role.1": "IT Support Internship",
-	"about.work.lih.location": "Luxembourg",
-	
-	"about.work.crlux.title": "Luxembourg Red Cross",
-	"about.work.crlux.role.1": "Volunteer Excel VBA programmer.",
-	"about.work.crlux.location": "Luxembourg",
-	
-	"about.work.buttek.title": "Luxembourg Red Cross - Buttek",
-	"about.work.buttek.role.1": "Volunteer ???",
-	"about.work.buttek.role.2": "Student cashier ???",
-	"about.work.buttek.location": "Luxembourg",
-	
-	"about.work.current.title": "Current employer kept private",
-	"about.work.current.role.1": "???",
-	"about.work.current.location": "Belgium"
+	"about.aziascreations.title": "The 'AziasCreations' name"
 }

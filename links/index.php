@@ -30,9 +30,58 @@ include 'commons/DOM/sidebar.php';
 	<?php include 'commons/DOM/header-lang.php'; ?>
 </header>
 <main id="main" class="rl-m border border-r-0 p-l">
+	<?php printMainHeader(localize("links.social.title")); ?>
 	
-	<!-- TODO -->
-
+	<p class="mt-s ml-s t-w-600 t-size-12">
+		<i class="fab fa-twitter mr-xs"></i><a href="https://twitter.com/NibblePoker"><?php print(localize("links.twitter.title")); ?></a>
+	</p>
+	<p class="mt-xxs  ml-l">
+		<?php print(localize("links.twitter.text.1")); ?>
+	</p>
+	
+	<p class="mt-s ml-s t-w-600 t-size-12">
+		<i class="fab fa-github mr-xs"></i><a href="https://github.com/aziascreations"><?php print(localize("links.github.title")); ?></a>
+	</p>
+	<p class="mt-xxs ml-l">
+		<?php print(localize("links.github.text.1")); ?>
+	</p>
+	
+	<p class="mt-s ml-s t-w-600 t-size-12">
+		<i class="fab fa-github mr-xs"></i><a href="https://github.com/NibblePoker"><?php print(localize("links.github_pro.title")); ?></a>
+	</p>
+	<p class="mt-xxs ml-l">
+		<?php print(localize("links.github_pro.text.1")); ?>
+	</p>
+	
+	<p class="mt-s ml-s t-w-600 t-size-12">
+		<i class="fab fa-linkedin mr-xs"></i><a href="https://twitter.com/NibblePoker"><?php print(localize("links.linkedin.title")); ?></a>
+	</p>
+	<p class="mt-xxs ml-l">
+		<?php print(localize("links.linkedin.text.1")); ?>
+	</p>
+	
+	<?php printMainHeader(localize("links.misc.title")); ?>
+	
+	<p class="mt-s ml-s t-w-600 t-size-12">
+		<i class="fad fa-code-branch ml-xxs mr-xs"></i><a href="https://git.nibblepoker.lu/"><?php print(localize("links.gitea.title")); ?></a>
+	</p>
+	<p class="mt-xxs ml-l">
+		<?php print(localize("links.gitea.text.1")); ?>
+	</p>
+	
+	<p class="mt-s ml-s t-w-600 t-size-12">
+		<i class="fad fa-download mr-xs"></i><a href="https://files.nibblepoker.lu/"><?php print(localize("links.files.title")); ?></a>
+	</p>
+	<p class="mt-xxs ml-l">
+		<?php print(localize("links.files.text.1")); ?>
+	</p>
+	
+	<p class="mt-s ml-s t-w-600 t-size-12">
+		<i class="fad fa-archive mr-xs"></i><a href="https://archives.nibblepoker.lu/"><?php print(localize("links.archives.title")); ?></a>
+	</p>
+	<p class="mt-xxs ml-l">
+		<?php print(localize("links.archives.text.1")); ?>
+	</p>
 </main>
 <?php
 include 'commons/DOM/footer.php';

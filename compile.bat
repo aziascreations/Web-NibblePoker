@@ -40,8 +40,20 @@ popd
 
 :libs
 echo.
-echo Handling the external libraries
-echo -------------------------------
+echo Handling the libraries
+echo ----------------------
+
+:libs-nibblepoker-minify
+echo Minifying nibblepoker.js
+pushd %CD%
+cd %~dp0\resources\NibblePoker\js\
+echo ^> resources\NibblePoker\js\nibblepoker.js
+call "%~dp0node_modules\.bin\terser" nibblepoker.js -c -m -o nibblepoker.min.js
+echo ^> resources\NibblePoker\js\nibblepoker-code.js
+call "%~dp0node_modules\.bin\terser" nibblepoker-code.js -c -m -o nibblepoker-code.min.js
+echo ^> resources\NibblePoker\js\nibblepoker-glider.js
+call "%~dp0node_modules\.bin\terser" nibblepoker-glider.js -c -m -o nibblepoker-glider.min.js
+popd
 
 :libs-decimaljs-minify
 echo Minifying Decimal.JS
@@ -56,6 +68,7 @@ popd
 
 :libs-end
 
+goto end
 
 :: THE Formula-wizard minified files don't point to the proper minified JS file !!!!
 
@@ -84,15 +97,16 @@ popd
 echo Fixing imports...
 pushd %CD%
 cd %~dp0\tools\items\formula-wizard\src\
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "decimal" "decimal.min.mjs"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "lang" "lang.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "formulas" "formulas.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "units" "units.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "ui_catalog" "ui_catalog.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "mvc_context" "mvc_context.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "sets" "sets.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "mvc_formula" "mvc_formula.js"
-call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js" "utils_templates" "utils_templates.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js;formula_weaver.js" "decimal" "decimal.min.mjs"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js;formula_weaver.js" "lang" "lang.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js;formula_weaver.js" "formulas" "formulas.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js;formula_weaver.js" "units" "units.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js;formula_weaver.js" "ui_catalog" "ui_catalog.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js;formula_weaver.js" "mvc_context" "mvc_context.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js;formula_weaver.js" "sets" "sets.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js;formula_weaver.js" "mvc_formula" "mvc_formula.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js;formula_weaver.js" "formula_weaver" "formula_weaver.js"
+call node "%~dp0fix-import-path.js" "formulas.js;lang.js;main.js;units.js;ui_catalog.js;mvc_context.js;sets.js;mvc_formula.js;utils_templates.js;formula_weaver.js" "utils_templates" "utils_templates.js"
 popd
 
 :formula-wizard-bundle
@@ -115,6 +129,7 @@ call "%~dp0node_modules\.bin\terser" mvc_context.js -c -m --toplevel -o mvc_cont
 call "%~dp0node_modules\.bin\terser" sets.js -c -m --toplevel -o sets.min.js
 call "%~dp0node_modules\.bin\terser" mvc_formula.js -c -m --toplevel -o mvc_formula.min.js
 call "%~dp0node_modules\.bin\terser" utils_templates.js -c -m --toplevel -o utils_templates.min.js
+call "%~dp0node_modules\.bin\terser" formula_weaver.js -c -m --toplevel -o formula_weaver.min.js
 call "%~dp0node_modules\.bin\terser" formula-wizard.js -c -m --toplevel -o formula-wizard.min.js
 popd
 
@@ -153,8 +168,6 @@ popd
 
 :php-end
 
-
-goto end
 
 :compile-typescript
 echo Compiling TypeScript for ".js" files...

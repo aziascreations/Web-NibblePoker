@@ -1,6 +1,8 @@
 {
   "sidebar.alt.logo": "Website's logo",
   "sidebar.text.home": "Home",
+  "sidebar.text.shop": "Shop",
+  "sidebar.text.school": "Training",
   "sidebar.text.projects": "Projects",
   "sidebar.text.applications": "Applications",
   "sidebar.text.libraries": "Libraries",

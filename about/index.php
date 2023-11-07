@@ -31,25 +31,51 @@ include_once 'commons/langs.php';
 	</header>
 	<main id="main" class="rl-m border border-r-0 p-l">
 		
-		<?php printMainHeader(localize("about.topmost.title"), "fab fa-twitter", "@NibblePoker"); ?>
-		<p class="m-s">
-			<a href="https://twitter.com/messages/compose?recipient_id=937370791334895616" class="bland-link button-link">
-				<button class="p-xs r-s border b-light primary"><?php print(localize("contact.twitter.compose")); ?></button>
-			</a>
+		<?php printMainHeader(localize("about.intro.title")); ?>
+		
+		<?php printSubHeader(localize("about.history.title")); ?>
+		<p class="mt-xs ml-s">
+			<?php print(localize("about.history.text.90")); ?><br>
+			<?php print(localize("about.history.text.91")); ?>
 		</p>
 		
-		<div class="px-xxs">
-			<?php printSubHeader(localize("about.education.title"), null, null); ?>
-			
-			<details>
-				<summary>ABC</summary>
-				DEF
-			</details>
-			
-			<?php printSubHeader(localize("about.skills.title"), null, null); ?>
-			
-			<?php printSubHeader(localize("about.work.title"), null, null); ?>
-		</div>
+		<?php printSubHeader(localize("about.future.title")); ?>
+		<p class="mt-xs ml-s">
+			<?php print(localize("about.future.text.01")); ?>
+		</p>
+		<p class="mt-xs ml-s">
+			<?php print(localize("about.future.text.10")); ?>
+		</p>
+		<p class="mt-xs ml-s">
+			<?php print(localize("about.future.text.20")); ?><br>
+			<?php print(localize("about.future.text.21")); ?>
+		</p>
+		<p class="mt-xs ml-s">
+			<?php print(localize("about.future.text.30")); ?>
+		</p>
+		
+		<?php printSubHeader(localize("about.nibblepoker.title")); ?>
+		<p class="mt-xxs ml-s">
+			<?php print(localize("about.nibblepoker.text.01")); ?>
+		</p>
+		<p class="mt-xs ml-s">
+			<?php print(localize("about.nibblepoker.text.10")); ?><br>
+			<?php print(localize("about.nibblepoker.text.11")); ?>
+		</p>
+		<p class="mt-xs ml-s">
+			<?php print(localize("about.nibblepoker.text.20")); ?>
+		</p>
+		
+		<?php printSubHeader(localize("about.aziascreations.title")); ?>
+		<p class="mt-xxs ml-s">
+			<?php print(localize("about.aziascreations.text.01")); ?>
+		</p>
+		<p class="mt-xxs ml-s">
+			<?php print(localize("about.aziascreations.text.10")); ?>
+		</p>
+		
+		<!--<img src="/resources/NibblePoker/images/about/profile-pic.jpg" alt="" class="r-r">-->
+		
 	</main>
 	<?php
 	include 'commons/DOM/footer.php';

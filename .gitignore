@@ -35,7 +35,7 @@ tools/items/formula-wizard/src/*.js
 # Temporary
 tmp/
 commons/trash/
-scrollbar.scss
 commons/strings/_*/
 _unsorted/
 tools/items/*/*.min.js
+wasm-test/

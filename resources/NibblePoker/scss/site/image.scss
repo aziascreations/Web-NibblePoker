@@ -17,16 +17,17 @@
 //.align-v-t
 
 #logo-sidebar {
-	filter: grayscale(100%);
-	mix-blend-mode: multiply;
-	opacity: 40%;
+	filter: brightness(110%) grayscale(100%);
+	//mix-blend-mode: multiply;
+	//opacity: 40%;
 	// Fixes the width to the size of the sidebar minus its padding. (15rem - 1rem * 2)
 	width: 13rem;
 	height: auto;
 }
 
 #logo-footer {
-	filter: grayscale(100%);
+	filter: brightness(110%) grayscale(100%);
+	opacity: 40%;
 	height: 1.8em;
 	object-fit: contain;
 }

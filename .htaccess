@@ -21,6 +21,7 @@ AddCharset utf-8 .css .txt .js .md .ts .mjs
 AddType text/typescript .ts
 AddType text/javascript .js
 AddType text/javascript .mjs
+AddType application/wasm .wasm
 
 # Correcting some default options for security and language/content redirection.
 # FollowSymlinks is also on since it's required for "mod_rewrite" and the server is jailed.

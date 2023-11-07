@@ -126,7 +126,7 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 
 <template id="template-workbench-formula-value">
 	<div class="my-xs ml-xs formula-value-input-form">
-		<table class="border stylish table-v-center">
+		<table class="border stylish table-v-center w-full">
 			<tr>
 				<td colspan="2">
 					<p id="fw-workbench-formula-value-name" class="p-xxs t-center t-w-500">${value.name}</p>
@@ -150,6 +150,14 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 				</td>
 			</tr>
 			<tr>
+				<td colspan="2">
+					<p id="fw-workbench-formula-value-test-separator-title" class="p-xxs t-w-500">
+						Live-testing:
+						<i class="fad fa-vial t-half-muted f-right"></i>
+					</p>
+				</td>
+			</tr>
+			<tr>
 				<td>
 					<label for="fw-workbench-formula-value-test-value" class="mx-xs t-center">Value:</label>
 				</td>
@@ -159,7 +167,7 @@ echo(getMainHeader(localize("tool.formula-wizard.workbench"), null, null, null,
 			</tr>
 			<tr>
 				<td>
-					<label for="fw-workbench-formula-value-test-value-set" class="mx-xs t-center">Scale:</label>
+					<label for="fw-workbench-formula-value-test-value-set" class="mx-xs t-center">Set:</label>
 				</td>
 				<td>
 					<select id="fw-workbench-formula-value-test-value-set" class="p-mxs w-full">

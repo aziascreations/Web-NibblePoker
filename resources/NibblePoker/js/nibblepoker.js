@@ -1,7 +1,31 @@
 const animationStepCount = 10;
 
+const CpuArchitecture = {
+	Unknown: 0,
+	x86: 1,
+	x64: 2,
+	ArmGeneric: 3,
+	Arm64: 4,
+	RiscV: 5,
+}
+
 function getBezierBlend(progress) {
 	return (3 * progress ** 2) - (2 * progress ** 3);
+}
+
+function getCpuArchitecture(userAgent = navigator.userAgent) {
+	if(userAgent.includes("x64")) {
+		return CpuArchitecture.x64;
+	} else if(userAgent.includes("x86")) {
+		return CpuArchitecture.x86;
+	} else if(userAgent.includes("ARM")) {
+		return CpuArchitecture.ArmGeneric;
+	} else if(userAgent.includes("ARM64")) {
+		return CpuArchitecture.Arm64;
+	} else if(userAgent.includes("RISC-V")) {
+		return CpuArchitecture.RiscV;
+	}
+	return CpuArchitecture.Unknown;
 }
 
 function fadeOut(element, time = 200) {

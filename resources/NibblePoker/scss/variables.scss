@@ -1,4 +1,5 @@
 // NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+@use 'sass:color';
 
 /* Variables > Palettes */
 
@@ -50,6 +51,16 @@ $color-apollo-42: #819796;
 $color-apollo-43: #a8b5b2;
 $color-apollo-44: #c7cfcc;
 $color-apollo-45: #ebede9;
+
+$color-apollo-37_50: mix($color-apollo-37, $color-apollo-38, 50%);
+
+$color-apollo-38_25: mix($color-apollo-39, $color-apollo-38, 25%);
+$color-apollo-38_50: mix($color-apollo-39, $color-apollo-38, 50%);
+$color-apollo-38_70: mix($color-apollo-39, $color-apollo-38, 70%);
+$color-apollo-38_75: mix($color-apollo-39, $color-apollo-38, 75%);
+
+$color-apollo-munted-37-1: color.grayscale(color.adjust($color-apollo-37, $lightness: +3.25%));
+$color-apollo-munted-37-2: color.grayscale(color.adjust($color-apollo-37, $lightness: +1.75%));
 
 $color-apollo-custom-00: mix($color-apollo-40, $color-apollo-39, 33%);
 $color-apollo-custom-01: mix($color-apollo-40, $color-apollo-39, 50%);
@@ -109,26 +120,34 @@ $color-unset: $color-apollo-34;
 //  * Teal Supreme (teal)
 //  * WinUI 3 (winui)
 //  * La Moiti Leune (moon)
-$theme: teal;
+//  * NibblePoker (nibblepoker)
+$theme: nibblepoker;
 
 /* Variables > Colors Mappings > Backgrounds & Borders */
-
-$color-background-body: map-get((
-		teal: $color-apollo-custom-00,
-		winui: $color-winui-02,
-		moon: $color-unset,
-), $theme);
 
 $color-background-main: map-get((
 		teal: $color-apollo-custom-02,
 		winui: $color-winui-04,
 		moon: $color-unset,
+		nibblepoker: #24252B,
 ), $theme);
 
 $color-background-surround: map-get((
 		teal: $color-apollo-custom-00,
 		winui: $color-winui-02,
 		moon: $color-unset,
+		nibblepoker: #1D1E22,
+), $theme);
+
+// Used as the background-color in the main's rounded corners
+$color-background-body: $color-background-surround;
+
+// Used in stylized headings
+$color-background-main-headings: map-get((
+		teal: $color-background-surround,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: $color-background-surround,
 ), $theme);
 
 
@@ -137,23 +156,21 @@ $color-background-surround: map-get((
 $color-border-all: $color-unset;  // Default border
 $color-border-light: $color-unset;  // For .b-light class (No longer exists !)
 
+// Used to separate the 'main' from the 'surround'.
 $color-border-surround: map-get((
 		teal: $color-apollo-38,
 		winui: $color-winui-01,
 		moon: $color-unset,
+		nibblepoker: #141417,
 ), $theme);
 
+// Used as the border for all element inside the "main".
+// It probably influences more stuff, but I can't be bothered to fix this...
 $color-border-main: map-get((
 		teal: $color-apollo-38,  // $color-apollo-custom-20;
 		winui: $color-winui-03,
 		moon: $color-unset,
-), $theme);
-
-
-$color-background-main-headings: map-get((
-		teal: $color-apollo-custom-03,
-		winui: $color-unset,
-		moon: $color-unset,
+		nibblepoker: $color-border-surround,
 ), $theme);
 
 
@@ -161,12 +178,14 @@ $color-background-code: map-get((
 		teal: $color-apollo-custom-20,
 		winui: $color-unset,
 		moon: $color-unset,
+		nibblepoker: mix($color-background-main, $color-background-surround, 25%),
 ), $theme);
 
 $color-border-code: map-get((
 		teal: #{$color-border-surround}CF,
 		winui: $color-unset,
 		moon: $color-unset,
+		nibblepoker: #{$color-border-surround}CF,
 ), $theme);
 
 
@@ -174,34 +193,53 @@ $color-background-table-main: map-get((
 		teal: $color-apollo-custom-01,
 		winui: $color-unset,
 		moon: $color-unset,
+		nibblepoker: mix($color-background-main, $color-background-surround, 50%),
 ), $theme);
 
 $color-background-table-dual: map-get((
 		teal: $color-apollo-custom-00,
 		winui: $color-unset,
 		moon: $color-unset,
+		nibblepoker: mix($color-background-main, $color-background-surround, 12.5%),
 ), $theme);
 
 $color-table-border: map-get((
 		teal: $color-apollo-39,
 		winui: $color-unset,
 		moon: $color-unset,
+		nibblepoker: #{$color-border-surround}CF,
 ), $theme);
 
+$color-background-inputs: map-get((
+		teal: $color-apollo-40,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: #2d2f36,
+), $theme);
 
-$color-background-inputs: $color-apollo-40;
-
+// TODO: Implement better ones !
 $color-background-checkbox-checked: $color-apollo-08;
 $color-background-checkbox-unchecked: $color-apollo-27;
 
-$color-background-button: $color-apollo-40;
-$color-background-button-hover: $color-apollo-custom-10;
+$color-background-button: map-get((
+		teal: $color-apollo-40,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: #2d2f36,
+), $theme);
+
+$color-background-button-hover: map-get((
+		teal: $color-apollo-custom-10,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: #373841,
+), $theme);
 
 $color-background-button-primary: #{$color-apollo-custom-30};
-$color-background-button-primary-hover: #{$color-apollo-custom-31};
+$color-background-button-primary-hover: mix($color-apollo-custom-30, $color-apollo-custom-31, 37.5%);
 
 $color-background-button-success: #{$color-apollo-07};
-$color-background-button-success-hover: #{$color-apollo-08};
+$color-background-button-success-hover: mix($color-apollo-07, $color-apollo-08, 50%);
 
 $color-background-button-error: #{$color-apollo-26};
 $color-background-button-error-hover: #{$color-apollo-27};
@@ -245,7 +283,7 @@ $color-wedge-blue-border: $color-apollo-02;
 /* Variables > Scrollbar */
 
 //$color-scrollbar-border: rgba(0, 0, 0, 0.15);
-$color-scrollbar-border: $color-border-all;
+$color-scrollbar-border: $color-border-surround;
 
 $scrollbar-size: 1.25em;
 

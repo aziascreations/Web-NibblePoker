@@ -6,8 +6,10 @@
 	background: #{$color-background-main-headings};
 }
 
-.bkgd-surround {
-	background: #{$color-background-surround};
+// The element rules override rules in `base.scss ~94`
+.bkgd-surround, header, nav, footer {
+	//background: #{$color-background-surround};
+	background: #{$color-background-surround} url("#{$nibblepoker-background-root}/3px-tile-0.1.png") repeat scroll center center;
 }
 
 .bkgd-blank-dark {
@@ -23,5 +25,7 @@
 }
 
 .bkgd-math {
-	background: #{$color-background-main-headings} url("#{$nibblepoker-background-root}/old-mathematics-v2-0.25.png") repeat scroll center center;
+	//background: #{$color-background-main-headings} url("#{$nibblepoker-background-root}/old-mathematics-v2-0.25.png") repeat scroll center center;
+	// FIXME: Fix the code using this class !!!
+	background: #{$color-background-main-headings} url("#{$nibblepoker-background-root}/3px-tile-0.2.png") repeat scroll center center;
 }

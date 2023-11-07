@@ -3,7 +3,29 @@
 	"about.head.description": "TODO: description",
 	"about.og.title": "NibblePoker - À-propos",
 	"about.og.description": "TODO: description",
-	"about.header.title": "À-propos"
+	"about.header.title": "À-propos",
 	
+	"about.intro.title": "Introduction",
+	
+	"_about.history.title": "",
+	"about.history.text.90": "Nowadays, for the low sum of ~46€ per year, or ~70€ including the electricity bill, I can provide a decently reliable service to people around the world, and to myself when using this infrastructure for side-projects.",
+	"about.history.text.91": "The ability to [tech souver] for the price is something I've always strived to achieve and actively encourage other people to, at the very least, play around with in order to learn about and take back control of [???]",
+	
+	"about.future.title": "Projet d'avenir",
+	"about.future.text.01": "Dans le futur, il est prévu de décliner <i>NibblePoker</i> en une <abbr title=\"Société privée à responsabilité limitée\">SPRL</abbr>",
+	"about.future.text.10": "Cela aura pour bût de me permettre d'investir dans des domaines ???.",
+	"about.future.text.20": "La finalité serait de pouvoir créer un projet d'entreprise durable et proposer un large gamme de produits et solutions couvrant les domaines de [?? & ???, en full-stack].",
+	"about.future.text.21": "Sette dernière serait soutenu, de manière ouverte en interne, par des services de conception de produits, de création de librairies et autres parties soutenable de la chaine de production.",
+	"about.future.text.30": "[Open-source & instructif].",
+	
+	"about.nibblepoker.title": "Le nom 'NibblePoker'",
+	"about.nibblepoker.text.01": "Le sobriquet 'NibblePoker' est un mot inventé qui est composé de plusieurs termes [techniques] plus anciens.",
+	"about.nibblepoker.text.10": "●&nbsp;&nbsp;'<i>Nibble</i>' est un terme technique anglais historiquement utilisé pour décrire décrit un demi-octet, ou 4 bits d'information.",
+	"about.nibblepoker.text.11": "●&nbsp;&nbsp;'<i>Poker</i>' viens du verbe anglais '<i>to poke</i>' qui, dans le domaine rétro-informatique, décrit le fait d'écrire des données dans la mémoire d'un ordinateur.",
+	"about.nibblepoker.text.20": "Finalement, lors de la création de ce surnom, je travaillais depuis quelques temps sur d'anciennes machines telle la Commodore64, Acorn Electron et [???]",
+	
+	"about.aziascreations.title": "Le nom 'AziasCreations'",
+	"about.aziascreations.text.01": "L'ancien sobriquet 'AziasCreations' était un surnom relativement basique utilisé entre 2013 et 2020.",
+	"about.aziascreations.text.10": "Il reste légèrement utilisé aujourd'hui à cause de certaines limitations concernant les changements de pseudonyme sur GitHub qui m'ont empèché de faire un changement complet."
 	
 }

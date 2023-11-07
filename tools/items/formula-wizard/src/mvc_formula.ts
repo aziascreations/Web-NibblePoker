@@ -6,6 +6,7 @@
  */
 
 import {localize} from "./lang";
+import {populateScaleSelectForUnit} from "./units";
 import {isCatalogInitialized, catalogFormulas} from "./ui_catalog";
 import {FormulaValue, FormulaVariant} from "./formulas";
 import {retrieveTemplate, makeElementFromFragment, appendToAllIds} from "./utils_templates";
@@ -27,31 +28,10 @@ const ID_FORMULA_VALUE_PREFIX = ID_FORMULA_PREFIX + "value-";
 const ID_FORMULA_VALUE_ID = ID_FORMULA_VALUE_PREFIX + "id";
 const ID_FORMULA_VALUE_NAME = ID_FORMULA_VALUE_PREFIX + "name";
 const ID_FORMULA_VALUE_LINK = ID_FORMULA_VALUE_PREFIX + "link";
+const ID_FORMULA_VALUE_TEST_SEPARATOR_TITLE = ID_FORMULA_VALUE_PREFIX + "test-separator-title";
 const ID_FORMULA_VALUE_TEST_VALUE = ID_FORMULA_VALUE_PREFIX + "test-value";
 const ID_FORMULA_VALUE_TEST_SCALE = ID_FORMULA_VALUE_PREFIX + "test-scale";
 const ID_FORMULA_VALUE_TEST_VALUE_SET = ID_FORMULA_VALUE_PREFIX + "test-value-set";
-
-//const idWorkbenchFormulaPrefix = "fw-workbench-formula-";
-//const idWorkbenchFormulaSpawnPoint = idWorkbenchFormulaPrefix + "spawn";
-//
-//// Formula template
-//const idTemplateFormula = "template-workbench-formula";
-//const idFormulaName = idWorkbenchFormulaPrefix + "name";
-//const idFormulaInputs = idWorkbenchFormulaPrefix + "inputs";
-//const idFormulaOutputs = idWorkbenchFormulaPrefix + "outputs";
-//
-//// FormulaUnit template
-//const classTemplateFormulaValue = "formula-value-input-form";
-//const idTemplateFormulaValue = idTemplateFormula + "-value";
-//const idFormulaValuePrefix = idWorkbenchFormulaPrefix + "value-";
-//const idFormulaValueId = idFormulaValuePrefix + "id";
-//const idFormulaValueName = idFormulaValuePrefix + "name";
-//const idFormulaValueLink = idFormulaValuePrefix + "link";
-//const idFormulaValueTestValue = idFormulaValuePrefix + "test-value";
-//const idFormulaValueTestScale = idFormulaValuePrefix + "test-scale";
-//const idFormulaValueTestValueSet = idFormulaValuePrefix + "test-value-set";
-
-
 
 
 // ---------
@@ -124,8 +104,9 @@ class WorkbenchFormulaValueInterface {
     private readonly eFormulaValueId: HTMLInputElement;
     private readonly eFormulaValueName: HTMLParagraphElement;
     private readonly eFormulaValueLink: HTMLSelectElement;
+    private readonly eFormulaValueTestTitleSeparator: HTMLParagraphElement;
     private readonly eFormulaValueTestValue: HTMLInputElement;
-    private readonly eFormulaValueTestScale: HTMLSelectElement;
+    public readonly eFormulaValueTestScale: HTMLSelectElement;
     private readonly eFormulaValueTestValueSet: HTMLInputElement;
 
     constructor(eRootFragment: DocumentFragment, setupValueType: EWorkbenchFormulaValueTypes) {
@@ -135,12 +116,14 @@ class WorkbenchFormulaValueInterface {
         this.eFormulaValueId = this.eRootElement.querySelector(`input#${ID_FORMULA_VALUE_ID}`)!;
         this.eFormulaValueName = this.eRootElement.querySelector(`p#${ID_FORMULA_VALUE_NAME}`)!;
         this.eFormulaValueLink = this.eRootElement.querySelector(`select#${ID_FORMULA_VALUE_LINK}`)!;
+        this.eFormulaValueTestTitleSeparator = this.eRootElement.querySelector(`p#${ID_FORMULA_VALUE_TEST_SEPARATOR_TITLE}`)!;
         this.eFormulaValueTestValue = this.eRootElement.querySelector(`input#${ID_FORMULA_VALUE_TEST_VALUE}`)!;
         this.eFormulaValueTestScale = this.eRootElement.querySelector(`select#${ID_FORMULA_VALUE_TEST_SCALE}`)!;
         this.eFormulaValueTestValueSet = this.eRootElement.querySelector(`select#${ID_FORMULA_VALUE_TEST_VALUE_SET}`)!;
 
         if([this.eFormulaValueId, this.eFormulaValueName, this.eFormulaValueLink, this.eFormulaValueTestValue,
-            this.eFormulaValueTestScale, this.eFormulaValueTestValueSet].some((item) => item === null)) {
+            this.eFormulaValueTestTitleSeparator, this.eFormulaValueTestScale, this.eFormulaValueTestValueSet].some(
+                (item) => item === null)) {
             alert("error.ui.formula.value.missingElement");
             throw Error("error.ui.formula.value.missingElement");
         }
@@ -160,14 +143,14 @@ class WorkbenchFormulaValueInterface {
         (eFormField.parentNode!.parentNode! as HTMLElement).hidden = hidden;
     }
 
-    private setupInput() {
+    setupInput() {
         this.toggleField(this.eFormulaValueId, true);
         this.eFormulaValueTestValue.value = "0";
         //this.eFormulaValueTestValue.onchange = this.onTestFieldChange.bind(this);
         //this.eFormulaValueTestScale.onchange = this.onTestFieldChange.bind(this);
     }
 
-    private setupOutput() {
+    setupOutput() {
         this.toggleField(this.eFormulaValueLink, true);
         //this.eFormulaValueTestValue.readOnly = true;
         //this.eFormulaValueTestScale.onchange = this.onTestFieldChange.bind(this);
@@ -175,6 +158,13 @@ class WorkbenchFormulaValueInterface {
 
     setName(newName: string) {
         this.eFormulaValueName.innerText = newName;
+    }
+
+    changeTestMode(newStatus: boolean) {
+        this.toggleField(this.eFormulaValueTestTitleSeparator, !newStatus);
+        this.toggleField(this.eFormulaValueTestValue, !newStatus);
+        this.toggleField(this.eFormulaValueTestScale, !newStatus);
+        this.toggleField(this.eFormulaValueTestValueSet, !newStatus);
     }
 }
 
@@ -187,14 +177,38 @@ class WorkbenchFormulaValue {
         this.data = new WorkbenchFormulaValueData(parentAssignedControllerId, valueType, formulaValue);
         this.uiElement = new WorkbenchFormulaValueInterface(eRootFragment, valueType);
 
+        // Preparing the UI.
         this.setName(`${this.data.formulaValue.unit.name} (${this.data.formulaValue.unit.symbol})`);
+
+        // Adding the relevant scale factors to "eFormulaValueTestScale" based on the formula variant's unit.
+        populateScaleSelectForUnit(
+            this.data.formulaValue.unit,
+            this.uiElement.eFormulaValueTestScale,
+            this.data.formulaValue.scaleFactor
+        );
+
+        // Making sided setups.
+        if (this.data.valueType === EWorkbenchFormulaValueTypes.INPUT) {
+            // Setting up as input.
+            this.uiElement.setupInput();
+        } else {
+            // Setting up as output.
+            this.uiElement.setupOutput();
+        }
+
+        // Finalizing the interface by making its IDs unique.
+        // This is purely a UX thing to ensure proper input selection via the labels.
+        appendToAllIds(this.uiElement.eRootElement, this.data.id);
     }
 
     setName(newName: string) {
         this.uiElement.setName(newName);
     }
-}
 
+    changeTestMode(newStatus: boolean) {
+        this.uiElement.changeTestMode(newStatus);
+    }
+}
 
 // --------------
 //  Formulas MVC
@@ -204,9 +218,13 @@ class WorkbenchFormulaData {
     id: string;
     formulaVariant: FormulaVariant;
 
+    isTestModeEnabled: boolean;
+
     constructor(controllerId: string, formulaVariant: FormulaVariant) {
         this.id = controllerId;
         this.formulaVariant = formulaVariant;
+
+        this.isTestModeEnabled = false;
     }
 }
 
@@ -271,19 +289,24 @@ class WorkbenchFormula {
         // Preparing the interface...
         this.setTitle(this.data.formulaVariant.parentFormula.name);
 
+        // Disabling the test mode by default.
+        this.changeTestMode(false);
+
         // Adding the value elements into their proper container.
         this.inputControllers.every(inputController =>
             this.uiElement.eInputsContainer.appendChild(inputController.uiElement.eRootElement));
         this.outputControllers.every(outputController =>
             this.uiElement.eOutputsContainer.appendChild(outputController.uiElement.eRootElement));
-
-        // Finalizing the interface by making its IDs unique.
-        // This is purely a UX thing to ensure proper input selection via the labels.
-        appendToAllIds(this.uiElement.eRootElement, this.data.id);
     }
 
     public setTitle(newTitle: string) {
         this.uiElement.setTitle(newTitle);
+    }
+
+    public changeTestMode(newStatus: boolean) {
+        this.data.isTestModeEnabled = newStatus;
+        this.inputControllers.forEach(inputController => inputController.changeTestMode(newStatus));
+        this.outputControllers.forEach(outputController => outputController.changeTestMode(newStatus));
     }
 }
 

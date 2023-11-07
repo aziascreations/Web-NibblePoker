@@ -30,6 +30,8 @@ function printSidebarEntry($url, $title, $icon, $activeId) {
 	<hr class="subtle">
 	<?php
 	printSidebarEntry(l10n_url_abs('/'), localize("sidebar.text.home"), "fad fa-home", "home");
+	//printSidebarEntry(l10n_url_abs('/shop'), localize("sidebar.text.shop"), "fad fa-shopping-cart", "shop");
+	//printSidebarEntry(l10n_url_abs('/school'), localize("sidebar.text.school"), "fad fa-chalkboard-teacher", "school");
 	?>
 	<hr class="subtle">
 	<?php
@@ -42,9 +44,9 @@ function printSidebarEntry($url, $title, $icon, $activeId) {
 		printSidebarEntry(l10n_url_abs('/content/?tags=electronic'), localize("sidebar.text.electronics"), "fad fa-microchip", "electronic");
 		?>
 	</div>
-	<hr class="subtle">
 	<?php
-	printSidebarEntry(l10n_url_abs('/tools/'), localize("sidebar.text.tools"), "fad fa-tools", "tools");
+	//<hr class="subtle">
+	//printSidebarEntry(l10n_url_abs('/tools/'), localize("sidebar.text.tools"), "fad fa-tools", "tools");
 	?>
 	<hr class="subtle">
 	<?php

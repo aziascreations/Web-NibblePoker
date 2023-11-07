@@ -67,7 +67,8 @@ body {
 @media only screen and (max-width: 768px) {
 	body {
 		& > nav {
-			border-right: 1px solid #{$color-border-all};
+			//border-right: 1px solid #{$color-border-all};
+			border-right: 1px solid #{$color-border-main};
 		}
 		
 		& > header {
@@ -90,17 +91,18 @@ body {
 	"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+// Overridden by a rule in background.scss !
 header, nav, footer {
 	background-color: #{$color-background-surround};
 }
 
 main {
 	background-color: #{$color-background-main};
+	// FIXME: Adapt when sidebar is closed !
+	box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.375) inset;
 }
 
 /* Site > Base > Sidebar */
-
-// FIXME: For mobile, just use 2 media queries to define normal behaviour and inverted mobile behaviour.
 
 // FIXME: Might be easier to have it as absolute, shift it left when closing and using a blank spacing div tbh...
 // Or nest content in div, and when retracted move it out at the same speed, idk...
@@ -122,6 +124,34 @@ main {
 		justify-content: left;
 	}
 }
+
+// Inverting the sidebar's states for mobile devices
+@media only screen and (max-width: 768px) {
+	.sidebar {
+		width: 0;
+		padding-left: 0;
+		padding-right: 0;
+		overflow: hidden;
+		
+		&.retracted {
+			width: #{$size-sidebar};
+			max-width: #{$size-sidebar};
+			min-height: 100%;
+			overflow: auto;
+			overflow-x: hidden;
+			// Inherited from .p-m
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+		
+		.sidebar-entry {
+			display: flex;
+			align-items: center;
+			justify-content: left;
+		}
+	}
+}
+
 
 /* Site > Base > Main */
 
