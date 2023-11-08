@@ -13,15 +13,11 @@ resources/HighlightJS/
 resources/GliderJs/
 resources/PlotlyJs/
 
-resources/NibblePoker/css/*.css
-resources/NibblePoker/scss/trash
-resources/NibblePoker/js/*.min.js
-
-*.exe
-*.url
-
 # Compiled Stuff
 *.min.php
+commons/strings.json
+resources/NibblePoker/css/*.css
+resources/NibblePoker/js/*.min.js
 tools/items/formula-wizard/*.js
 tools/items/formula-wizard/src/*.js
 
@@ -31,11 +27,10 @@ tools/items/formula-wizard/src/*.js
 *.lnk
 *.map
 *.bak
+*.exe
+*.url
+*.env
 
 # Temporary
-tmp/
-commons/trash/
+articles/*.txt
 commons/strings/_*/
-_unsorted/
-tools/items/*/*.min.js
-wasm-test/

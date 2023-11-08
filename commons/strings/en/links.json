@@ -23,9 +23,9 @@
 	"links.gitea.title": "Self-hosted Gitea",
 	"links.gitea.text.1": "Contains all my projects and some mirrors from various sites.",
 	
-	"links.files.title": "Public files <i>(files.nibblepoker.lu)</i>",
+	"links.files.title": "Public files &amp; downloads",
 	"links.files.text.1": "Contains all files that can be downloaded on this website and other documentation.",
 	
-	"links.archives.title": "Public archives <i>(archives.nibblepoker.lu)</i>",
+	"links.archives.title": "Public archives",
 	"links.archives.text.1": "Contains various public archives."
 }

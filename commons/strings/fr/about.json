@@ -25,7 +25,7 @@
 	"about.nibblepoker.text.20": "Finalement, lors de la création de ce surnom, je travaillais depuis quelques temps sur d'anciennes machines telle la Commodore64, Acorn Electron et [???]",
 	
 	"about.aziascreations.title": "Le nom 'AziasCreations'",
-	"about.aziascreations.text.01": "L'ancien sobriquet 'AziasCreations' était un surnom relativement basique utilisé entre 2013 et 2020.",
-	"about.aziascreations.text.10": "Il reste légèrement utilisé aujourd'hui à cause de certaines limitations concernant les changements de pseudonyme sur GitHub qui m'ont empèché de faire un changement complet."
+	"about.aziascreations.text.01": "L'ancien surnom 'AziasCreations' était utilisé entre 2013 et 2020 et est à présent abandonné au profit de <i>NibblePoker</i>.",
+	"about.aziascreations.text.10": "Cependant, il reste utilisé sur GitHub et Gitea à cause de certaines limitations concernant les changements de pseudonyme qui m'ont empèché de faire un changement complet."
 	
 }
