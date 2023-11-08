@@ -1,0 +1,4 @@
+# Redirecting all requests to "???"
+# Use 301 for production, and 307 for testing.
+RewriteEngine On
+RewriteRule ^ https://google.be/ [R=307,L]
