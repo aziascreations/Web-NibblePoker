@@ -39,7 +39,7 @@ include 'commons/DOM/sidebar.php';
     <p class="mt-xs ml-s"><?php print(localize("home.intro.text.2")); ?></p>
 	
 	<?php printMainHeader(localize("home.showcase.title")); ?>
-	<div class="mt-xs mx-s">
+	<div class="mt-xs mx-s border r-s">
 		<div class="glider">
 			<img src="/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png" alt="test123">
 			<img src="/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png" alt="test123">

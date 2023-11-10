@@ -4,9 +4,21 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	header('HTTP/1.1 403 Forbidden'); die();
 }
 
-// Only being used in 'head' for opengraph data.
-$host = "nibblepoker.lu";
-$host_uri = "https://nibblepoker.lu";
+// Used for opengraph head tags.
+switch($_SERVER['SERVER_NAME']) {
+	case "localhost":
+	case "nibblepoker.lu":
+		$host = "nibblepoker.lu";
+		$host_uri = "https://nibblepoker.lu";
+		break;
+	case "nibblepoker.com":
+		$host = "nibblepoker.com";
+		$host_uri = "https://nibblepoker.com";
+		break;
+	default:
+		http_response_code(400);
+		exit(1);
+}
 
 $dir_commons = dirname(__FILE__);
 $dir_root = realpath($dir_commons . "/../");

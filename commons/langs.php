@@ -4,6 +4,8 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	header('HTTP/1.1 403 Forbidden');
 	die();
 }
+
+// FIXME: Make a note of which variables are being used from that file !
 include_once 'commons/config.php';
 
 // This helper requires PHP 8 or newer !
@@ -60,6 +62,10 @@ if(str_starts_with($_SERVER['REQUEST_URI'], "/en/")) {
 		$user_language = $_client_languages[0][0];
 	}
 }
+
+// Preparing other related variables
+$lang_number_decimal = $user_language == "en" ? "." : ",";
+$lang_number_thousands = $user_language == "en" ? "," : ".";
 
 // Setting headers
 header("Content-Language: " . $user_language);
