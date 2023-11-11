@@ -1,84 +1,112 @@
-# Prevent access to .htaccess
+# Preventing access to .htaccess
 <Files ~ "^.*\.([Hh][Tt][Aa]|[Pp][Yy])">
     Require all denied
 </Files>
 
+
 # Redirecting HTTP traffic to HTTPS. (Keep commented on localhost !)
-# This is handled by other services, but it should still be enabled in production just to be safe.
+# This is handled by reverse-proxies, but it should still be enabled in production just to be safe.
 #RewriteEngine On
 #RewriteCond %{SERVER_PORT} 80
 #RewriteRule ^(.*)$ https://nibblepoker.lu/$1 [R,L]
 
+
+# Fixing some encoding issues on non-HTML files.
+# Mostly affects the old privacy policies written in french.  (Accents have issues in non-utf8 encodings !)
+AddCharset utf-8 .css .txt .js .md .ts .mjs
+#<Files ~ "\.txt?$">
+#    Header set Content-Type "text/plain; charset=utf-8"
+#</Files>
+#AddDefaultCharset utf-8
+
+
+# Adding MIME types
+AddType text/typescript .ts
+AddType text/javascript .js
+AddType text/javascript .mjs
+AddType application/wasm .wasm
+AddType video/x-matroska mkv
+
+
 # Correcting some default options for security and language/content redirection.
-# FollowSymlinks is also on since it's required for "mod_rewrite" and the server is jailed.
+# FollowSymlinks is also on since it's required for "mod_rewrite" and the server is jailed/containerized.
 Options -Indexes +FollowSymlinks -ExecCGI
+
+# Does nothing, thanks Apache...
 ServerSignature Off
 
-# Custom error pages.
-ErrorDocument 403 /403.php
-ErrorDocument 404 /404.php
 
-# Setting up browser's caching rules
+# Serving minified pages and/or pre-rendered ones first if available.
+DirectoryIndex index.min.html index.min.php index.php index.html
+
+
+# Custom error pages.
+ErrorDocument 403 /error.php
+ErrorDocument 404 /error.php
+
+
+# Setting up browser's caching rules.
 # See:
 #  * https://stackoverflow.com/a/13029007
 #  * https://www.a2hosting.com/kb/developer-corner/apache-web-server/turning-off-caching-using-htaccess
 
 # Default: 12 hours
-Header set Cache-Control "max-age=43200, public, must-revalidate"
+##Header set Cache-Control "max-age=43200, public, must-revalidate"
 
-<FilesMatch "\.(?i:gif|jpe?g|png|ico|svg|woff2|otf)$">
-    # Static files: 1 Week
+# Static files: 1 Week
+<FilesMatch "\.(?i:gif|jpe?g|png|ico|svg|woff2|ttf|woff|otf)$">
     Header set Cache-Control "max-age=604800, public, must-revalidate"
 </FilesMatch>
-<FilesMatch "\.(?i:css|js)$">
-    # Semi-static files: 1 Day
-    Header set Cache-Control "max-age=86400, public, must-revalidate"
-</FilesMatch>
 
+# Semi-static files: 1 Day
+##<FilesMatch "\.(?i:css|js|mjs)$">
+##    Header set Cache-Control "max-age=86400, public, must-revalidate"
+##</FilesMatch>
+
+# Disabling some caching rules for debugging
 #Header set Pragma "no-cache"
 #Header set Expires 0
 
+
+# Setting up GZIP.
+# It's optional since reverse-proxies or caching layers will usually do it for us.
+<ifModule mod_gzip.c>
+    mod_gzip_on Yes
+    mod_gzip_dechunk Yes
+    mod_gzip_item_include file \.(html?|txt|css|js|mjs|php|pl)$
+    mod_gzip_item_include handler ^cgi-script$
+    mod_gzip_item_include mime ^text/.*
+    mod_gzip_item_include mime ^application/x-javascript.*
+    mod_gzip_item_exclude mime ^image/.*
+    mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+</ifModule>
+
+
 # Setting some headers for security.
-Header always set X-Detected-Country "NK"
+# Will cause "fail-safe crashes" if the "headers" module isn't enabled.
 Header always set X-Frame-Options "deny"
-Header always set Content-Security-Policy "default-src 'self' files.nibblepoker.lu; object-src 'none'; child-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests; block-all-mixed-content"
+# Header always set Content-Security-Policy "default-src 'self' files.nibblepoker.lu; img-src 'self' files.nibblepoker.lu data:; object-src 'none'; child-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests; block-all-mixed-content"
 Header always set X-XSS-Protection " 1; mode=block"
 Header always set Referrer-Policy "no-referrer"
 Header always set X-Content-Type-Options "nosniff"
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 #Header always set Cache-Control "max-age=300, public"
 Header always set Access-Control-Allow-Origin "*"
+Header always set Permissions-Policy "browsing-topics=(), interest-cohort=()"
+
+# Removing some headers since they often raise BS alarms about too much back-end info being sent to clients.
+# Note: These headers can actually be removed by most reverse-proxies.
 Header unset X-Powered-By
-Header always set X-Powered-By "Amiga 1200, Kickstart 3.1"
+
 
 # Handling all other redirections.
+# Will cause "fail-safe crashes" if the "rewrite" module isn't enabled.
 RewriteEngine On
 
-# Languages. (Does not work with a regex)
-RewriteRule ^en/(.*)$ /$1 [QSA]
-RewriteRule ^fr/(.*)$ /$1 [QSA]
-RewriteRule ^lb/(.*)$ /$1 [QSA]
+# Serving normal pages when a specific language key is at the beginning of the requested path.
+# We use a regex to match all supported languages and use the 3rd ground, `(.*)` as `$3`, as the "real" path.
+RewriteRule ^((en|fr)/)(.*)$ /$3 [QSA]
 
-# Honeypots. (Just to fuck with automated scanners, gotta love those unsolicited emails tho...)
-
-# Sending a 404 for git and IDEs folders just in case they ever get copied to the web server,
-#  or if one of the honeypot files is acessed directly.
-# A 404 is preferred to prevent further scanning of this folder and from raising some flags.
-# FIXME: These rules break the later honeypot rules !!!
-#RedirectMatch 404 ^.*\.?(git|vs(code)|idea).*
-#RedirectMatch 404 ^.*honeypot.*
-
-# Internal redirections for scanning and exploit attempts.
-# These rules are here since they're easier to implement in the .htaccess.
-#RewriteRule ^.*(install|xmlrpc)\.php.*$ /honeypot/file-php.php [QSA]
-#RewriteRule ^.*\.xml.*$ /honeypot/file-xml.php [QSA]
-#RewriteRule ^.*wlwmanifest\.xml.*$ /honeypot/file-xml-wlwmanifest.php [QSA]
-#RewriteRule ^.*\.env.*$ /honeypot/file-env.php [QSA]
-#RewriteRule ^.*(ap(i|p.*)|cms|sit[eo]|shop.*|wp.*).*$ /honeypot/folder.php [QSA]
-
-# Cases left to handle:
-# * /wp-admin/post.php?id=whatever
-# * /public /vendor /storage
-# * //vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
-
-# TODO: Implement bee-movie themed tarpit once I have a rate-limiting solution in place !
+# Handling requests for "robots.txt" and "sitemap.txt" via PHP.
+RewriteRule ^(en/|fr/)?robots.txt$ robots.php [L]
+RewriteRule ^(en/|fr/)?sitemap.txt$ sitemap.php [L]

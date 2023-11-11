@@ -1,0 +1,18 @@
+{
+  "sidebar.alt.logo": "Website's logo",
+  "sidebar.text.home": "Home",
+  "sidebar.text.shop": "Shop",
+  "sidebar.text.school": "Training",
+  "sidebar.text.projects": "Projects",
+  "sidebar.text.applications": "Applications",
+  "sidebar.text.libraries": "Libraries",
+  "sidebar.text.electronics": "Electronics",
+  "sidebar.text.tools": "Tools",
+  "sidebar.text.links": "Links",
+  "sidebar.text.downloads": "Downloads",
+  "sidebar.text.gitea": "Git Repos.",
+  "sidebar.text.wiki": "Wiki",
+  "sidebar.text.about": "About",
+  "sidebar.text.contributors": "Contributors",
+  "sidebar.text.contact": "Contact"
+}

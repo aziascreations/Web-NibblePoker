@@ -1,0 +1,38 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+code, .code, kbd {
+	font-family: Consolas, "Courier New", monospace;
+}
+
+// For large blocks
+code {
+
+}
+
+// For spans
+.code, kbd {
+	background-color: #{$color-background-code};
+	
+	border: 1px solid;
+	
+	// Using '.r-s'
+	border-radius: calc(#{$border-base-radius} * 0.75);
+	
+	// Using the middle of '.px-xs' and '.px-s'
+	padding-left: calc(#{$border-base-radius} * 0.625);
+	padding-right: calc(#{$border-base-radius} * 0.625);
+}
+
+// Removes the background added by highlight.js
+.code-line {
+	background: rgba(0,0,0,0) !important;
+}
+
+code, .code, .code-line {
+	line-height: 1.35;
+}
+
+// FIXME: Use a proper class !!!
+.code:not(code) {
+	padding: calc(#{$border-base-radius} * 0.625);
+}

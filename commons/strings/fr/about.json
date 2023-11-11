@@ -1,7 +1,75 @@
 {
-  "about.biography.title": "Qui suis-je ?",
-  "about.philosophy.title": "Philosophie des projets",
-  "about.skills.title": "Compétences",
-  "about.work.title": "Parcours professionnel",
-  "about.education.title": "Éducation"
+	"about.head.title": "À-propos - NibblePoker",
+	"about.head.description": "TODO: description",
+	"about.og.title": "NibblePoker - À-propos",
+	"about.og.description": "TODO: description",
+	"about.header.title": "À-propos",
+	
+	
+	"about.intro.title": "Introduction",
+	
+	"about.intro.text.01": "Je m'appelle Herwin Bozet, et je suis un développeur expérimenté en PureBasic, Python, Java, VBA ; et de manière plus modérée en C, API Win32, systèmes embarqués et le développement web général.",
+	"about.intro.text.02": "Je programme depuis environ 10 ans, et au cours des 5 dernières années, j'ai activement travaillé à l'application de cette expérience à divers projets dans le but d'aider les programmeurs et les gens dans leur vie quotidienne.",
+	
+	"about.intro.text.10": "NibblePoker est, en essence, un simple pseudonyme et une ombrelle sous laquelle la majeure partie de mon travail axé sur le public sera présente.",
+	"about.intro.text.11": "Il abrite l'ensemble de mon travail créé et adapté pour être utilisé par d'autres personnes.",
+	
+	"about.intro.text.20": "L'ensemble de ce site web, ainsi que l'ensemble de mon travail et autres projets personnels réalisés pour lui, sont entièrement open-source et disponibles sous des licences permissives approuvées par l'<abbr title=\"Open Source Initiative\">OSI</abbr>.",
+	"about.intro.text.21": "Tout cela est maintenu, développé et étendu pendant mon temps libre, avec l'aide occasionnelle de personnes de la communauté open source.",
+	
+	
+	"about.tenets.title": "Principes fondamentaux",
+	
+	"about.tenets.text.01": "",
+	"about.tenets.text.02": "",
+	
+	
+	"about.future.title": "Projet d'avenir",
+	
+	"about.future.text.01":"Il est prévu que je décline NibblePoker en une petite <abbr title=\"Societé privée à responsibilité limitée\">SPRL</abbr> d'ici quelques années si tout se déroule comme prévu.\n",
+	"about.future.text.02":"Cela aura pour but de me permettre de centraliser plein de choses et d'investir correctement dans mes domaines de prédilection.",
+	"about.future.text.10":"La finalité serait de pouvoir créer un petit projet local d'entreprise durable, ainsi que de proposer une large gamme de produits et solutions couvrant les domaines de l'électronique connectée et intelligente, la programmation et l’indépendance technologique tout en incluant les composantes logicielles et physiques souvent manquantes dans de tels produits et solutions.",
+	"about.future.text.20":"Finalement tout ce travail et recherches seraient mis à disposition du public sous des licences open-source afin de permettre permettant à quiconque le souhaite d’apprendre, réutiliser et revendre des produits ouverts tels que le font des compagnies comme Adafruit.",
+	
+	
+	"_about.nibblepoker.title": "Le nom 'NibblePoker'",
+	"_about.nibblepoker.text.01": "Le surnom '<i>NibblePoker</i>' est un mot composé de plusieurs termes [techniques] plus anciens.",
+	"_about.nibblepoker.text.10": "●&nbsp;&nbsp;'<i>Nibble</i>' est un terme technique anglais historiquement utilisé pour décrire décrit un demi-octet, ou 4 bits d'information.",
+	"_about.nibblepoker.text.11": "●&nbsp;&nbsp;'<i>Poker</i>' viens du verbe anglais '<i>to poke</i>' qui, dans le domaine rétro-informatique, décrit le fait d'écrire des données dans la mémoire d'un ordinateur.",
+	"_about.nibblepoker.text.20": "Finalement, lors de la création de ce surnom, je travaillais depuis quelques temps sur d'anciennes machines telle la Commodore64, Acorn Electron et [???]ironique.",
+	
+	
+	"about.financing.title": "Financement",
+	
+	"about.financing.text.01": "Ce site web, ainsi que son infrastructure environnante, ont été conçus pour coûter le moins possible tout en étant indépendants d'entreprises qui se prennent pour des censeurs.",
+	"about.financing.text.02": "Et en suivant mes principes fondamentaux, je souhaitais également conserver une \"souveraineté technologique\", et, par conséquent, refuse de soutenir ou d'utiliser des entreprises qui luttent activement contre la liberté d'expression.",
+	
+	"about.financing.text.10": "Le détail des coûts opérationnels sont présents ci-dessous afin d'illustrer le faible prix d'une telle indépendance.",
+	
+	"about.financing.text.20": "Et pour les plus motivés d'entre-vous, j'espère pouvoir vous motiver à au moins tester ce genre d'activités.",
+	"about.financing.text.21": "C'est un domaine qui peut paraître intimidant de prime abord, mais pour une fraction du coût présenté ici, <b>et avec un rien de motivation</b>, vous pouvez déjà accomplir énormément de choses et acquérir des connaissances essentielles dans un monde aussi connecté que le nôtre.",
+	
+	"about.financing.text.isp": "Le coût de la connexion internet n'est pas compté car elle pourrait être remplacée par un Wi-Fi public lambda.",
+	
+	"about.financing.part.service": "Service",
+	"about.financing.part.cost": "Coût",
+	"about.financing.part.cost.total": "Coût Total",
+	"about.financing.part.equipment": "Matériel",
+	"about.financing.part.cost.yearly": "Coût Annuel",
+	"about.financing.part.cost.yearly.total": "Coût Annuel",
+	
+	"about.financing.part.domain.lu": "Domaine en <i>.lu</i>",
+	"about.financing.part.domain.com": "Domaine en <i>.com</i>",
+	"about.financing.part.proxy.europe": "Reverse-proxy en Europe",
+	"about.financing.part.proxy.america": "Reverse-proxy en Amérique",
+	"about.financing.part.proxy.asia": "Reverse-proxy en Asie",
+	"about.financing.part.emails": "Adresses email",
+	"about.financing.part.electricity": "Électricité",
+	"about.financing.part.nanopir4s": "NanoPi R4S",
+	"about.financing.part.storage": "Stockage local",
+	
+	
+	"about.aziascreations.title": "Le nom 'AziasCreations'",
+	"about.aziascreations.text.01": "L'ancien surnom 'AziasCreations' était utilisé entre 2013 et 2020 et est à présent abandonné au profit de <i>NibblePoker</i>.",
+	"about.aziascreations.text.10": "Cependant, il reste utilisé sur GitHub et Gitea à cause de certaines limitations concernant les changements de pseudonyme qui m'ont empèché de faire un changement complet."
 }

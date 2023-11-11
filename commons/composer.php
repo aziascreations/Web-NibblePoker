@@ -6,18 +6,23 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 }
 
 // Including required helpers.
-include_once 'config.php';
-include_once 'langs.php';
+include_once 'commons/config.php';
+include_once 'commons/langs.php';
+include_once 'commons/content.php';
+
+// Required to make headings
+include_once 'commons/DOM/utils.php';
 
 // Defining some options.
 $USE_CONFIG_URI_FOR_OPENGRAPH = true;
 $AUTO_DETECT_OPENGRAPH_MIME = true;
-$LANG_FALLBACK_KEY_PREFIX = "content.fallback";
+$LANG_FALLBACK_KEY_PREFIX = "";
 
 // Defining the template types.
 abstract class ComposerTemplates {
 	const RAW = "raw";
-	const ARTICLE = "article";
+	const ARTICLE_LEGACY = "article";
+	const GENERIC_PROJECT_README = "generic-project-readme";
 	
 	/**
 	 * Returns all the constants present in the class.
@@ -64,33 +69,38 @@ abstract class ComposerElementTypes {
 // Defining modifiers.
 abstract class ComposerElementModifiers {
 	// Generic > Margin
-	const GENERIC_MARGIN_NO_TOP    = ["no-top-margin",    "mt-0"];
-	const GENERIC_MARGIN_NO_BOTTOM = ["no-bottom-margin", "mb-0"];
-	const GENERIC_MARGIN_NO_LEFT   = ["no-left-margin",   "ml-0"];
-	const GENERIC_MARGIN_NO_RIGHT  = ["no-right-margin",  "mr-0"];
-	const GENERIC_MARGIN_NO_X      = ["no-y-margin",      "mx-0"];
-	const GENERIC_MARGIN_NO_Y      = ["no-x-margin",      "my-0"];
-	const GENERIC_MARGIN_NONE      = ["no-margin",        "m-0" ];
+	const GENERIC_MARGIN_NO_TOP    = ["mt-0", "mt-0"];
+	const GENERIC_MARGIN_NO_BOTTOM = ["mb-0", "mb-0"];
+	const GENERIC_MARGIN_NO_LEFT   = ["ml-0", "ml-0"];
+	const GENERIC_MARGIN_NO_RIGHT  = ["mr-0", "mr-0"];
+	const GENERIC_MARGIN_NO_X      = ["mx-0", "mx-0"];
+	const GENERIC_MARGIN_NO_Y      = ["my-0", "my-0"];
+	const GENERIC_MARGIN_NONE      = ["m-0",  "m-0" ];
 	
 	// Generic > Padding
-	const GENERIC_PADDING_NO_TOP    = ["no-top-padding",    "pt-0"];
-	const GENERIC_PADDING_NO_BOTTOM = ["no-bottom-padding", "pb-0"];
-	const GENERIC_PADDING_NO_LEFT   = ["no-left-padding",   "pl-0"];
-	const GENERIC_PADDING_NO_RIGHT  = ["no-right-padding",  "pr-0"];
-	const GENERIC_PADDING_NO_X      = ["no-x-padding",      "px-0"];
-	const GENERIC_PADDING_NO_Y      = ["no-y-padding",      "py-0"];
-	const GENERIC_PADDING_NONE      = ["no-padding",        "p-0" ];
+	const GENERIC_PADDING_NO_TOP    = ["pt-0", "pt-0"];
+	const GENERIC_PADDING_NO_BOTTOM = ["pb-0", "pb-0"];
+	const GENERIC_PADDING_NO_LEFT   = ["pl-0", "pl-0"];
+	const GENERIC_PADDING_NO_RIGHT  = ["pr-0", "pr-0"];
+	const GENERIC_PADDING_NO_X      = ["px-0", "px-0"];
+	const GENERIC_PADDING_NO_Y      = ["py-0", "py-0"];
+	const GENERIC_PADDING_NONE      = ["p-0" , "p-0" ];
+	
+	// Generic > Others
+	const GENERIC_FULL_WIDTH = ["w-full", "w-full"];
+	const GENERIC_BOLD = ["bold", "f-w-500"];
 	
 	// Containers
 	const CONTAINER_SCROLL_HORIZONTAL = ["horizontal-scroll", "overflow-x-scroll hide-scrollbar"];
+	const CONTAINER_SCROLL_HORIZONTAL_AUTO = ["horizontal-scroll-auto", "overflow-x-auto"];
 	const CONTAINER_CARD = ["card", "card"];
 	
 	// Buttons
-	const BUTTON_THIN  = ["thin", "btn-sm"];
-	const BUTTON_THICK = ["thick", "btn-lg"];
-	const BUTTON_ROUNDED = ["rounded", "btn-rounded"];
-	const BUTTON_CIRCLE = ["circle", "rounded-circle"];
-	const BUTTON_DOWNLOAD_PRIMARY = ["download-primary", "btn-primary"];
+	const BUTTON_THIN  = ["thin", ""];
+	const BUTTON_THICK = ["thick", ""];
+	const BUTTON_ROUNDED = ["rounded", ""];
+	const BUTTON_CIRCLE = ["circle", ""];
+	const BUTTON_DOWNLOAD_PRIMARY = ["download-primary", "primary"];
 	
 	// Horizontal ruler
 	const HR_SUBTLE = ["subtle", "subtle"];
@@ -105,6 +115,9 @@ abstract class ComposerElementModifiers {
 	const TABLE_HOVER = ["hover", "table-hover"];
 	const TABLE_INNER_BORDER = ["inner-bordered", "table-inner-bordered"];
 	const TABLE_OUTER_BORDER = ["outer-bordered", "table-outer-bordered"];
+	const TABLE_V2_STYLISH = ["stylish", "stylish r-s border o-hidden"];
+	const TABLE_V2_CELL_PADDING = ["auto-cell-padding", "table-p-xs table-h-p-s"];
+	const TABLE_V2_VERTICAL_ALIGN = ["v-center-cells", "table-v-center"];
 	
 	// Code
 	const CODE_BLOCK = ["code-block", "w-full d-inline-block"];
@@ -194,7 +207,7 @@ class ComposerContent {
 	public function get_html() : string {
 		$htmlCode = "";
 		
-		// FIXME: Check for the template after the loop
+		// FIXME: Check for the template after the loop - Isn't it done already ?
 		
 		foreach($this->elements as $element) {
 			/** @var ComposerElement $element */
@@ -262,7 +275,7 @@ class ComposerContentMetadata {
 		$this->article = $article;
 		
 		// Safety checks.
-		if($this->template == ComposerTemplates::ARTICLE && is_null($this->article)) {
+		if($this->template == ComposerTemplates::ARTICLE_LEGACY && is_null($this->article)) {
 			$this->article = ComposerContentMetadataArticle::from_json([]);
 		}
 	}
@@ -285,7 +298,7 @@ class ComposerContentMetadata {
 	
 	function apply_template(ComposerContent $content_root, string $inner_html) : string {
 		switch($this->template) {
-			case ComposerTemplates::ARTICLE:
+			case ComposerTemplates::ARTICLE_LEGACY:
 				$inner_html = '<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20">' .
 					'<div class="container-fluid"><h2 class="card-title font-size-18 m-0">' .
 					'<i class="' . $this->article->icon . '"></i>&nbsp;&nbsp;' .
@@ -304,10 +317,50 @@ class ComposerContentMetadata {
 								'" class="content-tag">#' . $tag . '</a>');
 					}
 				} else {
-					$inner_html .= '<i>' . localize("error.content.data.no.tags") . '</i>';
+					$inner_html .= '<i>' . localize("content.error.message.data.no.tags") . '</i>';
 				}
 				
 				$inner_html .= '</div></div></div>';
+				break;
+			case ComposerTemplates::GENERIC_PROJECT_README:
+				// Prepending the heading
+				$inner_html = getMainHeader(
+						localize_private($this->article->title, $content_root->strings, false),
+						$this->article->icon,
+						localize_private($this->article->subtitle, $content_root->strings, false),
+						null,
+						false,
+						null,
+						3,
+						false,
+						true
+					) . '<div class="px-xxs">' . $inner_html . '</div>';
+				
+				// Grabbing the DOM for inside the tags bar
+				$_template_gpr_tags_dom = '<i class="fad fa-tags t-size-10"></i>';
+				if(sizeof($this->article->tags) > 0) {
+					foreach($this->article->tags as $tag) {
+						$_template_gpr_tags_dom .= '<a href="'.l10n_url_abs("/content/?tags=" . $tag .
+								'" class="ml-xs">#' . $tag . '</a>');
+					}
+				} else {
+					$_template_gpr_tags_dom .= '<i>' . localize("content.error.message.data.no.tags") . '</i>';
+				}
+				
+				// Printing the tags bar
+				$inner_html .= getMainHeader(
+					$_template_gpr_tags_dom,
+					null,
+					null,
+					null,
+					true,
+					null,
+					6,
+					false,
+					false,
+					true
+				);
+				
 				break;
 			case ComposerTemplates::RAW:
 			default:
@@ -381,7 +434,7 @@ class ComposerContentMetadataArticle {
 		return new ComposerContentMetadataArticle(
 			key_exists("icon", $json_data) ? $json_data["icon"] : "fad fa-question",
 			key_exists("title", $json_data) ?
-				$json_data["title"] : '<i>'.localize("error.content.data.no.title").'</i>',
+				$json_data["title"] : '<i>'.localize("content.error.message.data.no.title").'</i>',
 			key_exists("subtitle", $json_data) ? $json_data["subtitle"] : '',
 			key_exists("tags", $json_data) ? $json_data["tags"] : [],
 		);
@@ -436,10 +489,14 @@ class ComposerElement {
 	// Galleries parameters
 	private array $images;
 	
+	// Screen readers parameters
+	private ?string $srTitle;
+	
 	function __construct(string $type, ?array $modifiers, ?string $link, ?array $parts, ?string $content,
 						 bool $localize, ?int $padding, ?int $margin, ?int $size, ?array $head, ?array $body,
 						 int $colspan, int $rowspan, ?int $indent, ?array $code, ?string $codeLanguage,
-						 bool $codeCopyable, ?string $color, ?string $source, ?string $thumbnail, ?array $images) {
+						 bool $codeCopyable, ?string $color, ?string $source, ?string $thumbnail, ?array $images,
+						 ?string $srTitle) {
 		$this->type = $type;
 		$this->modifiers = $modifiers;
 		$this->link = $link;
@@ -472,6 +529,7 @@ class ComposerElement {
 		} else {
 			$this->images = $images;
 		}
+		$this->srTitle = $srTitle;
 	}
 	
 	static function from_json_array(?array $json_dataArray) : array {
@@ -507,6 +565,7 @@ class ComposerElement {
 			key_exists("source", $json_data) ? $json_data["source"] : null,
 			key_exists("thumbnail", $json_data) ? $json_data["thumbnail"] : null,
 			key_exists("images", $json_data) ? $json_data["images"] : null,
+			key_exists("sr_title", $json_data) ? $json_data["sr_title"] : null,
 		);
 	}
 	
@@ -602,9 +661,10 @@ class ComposerElement {
 	public function get_html(ComposerContent $content_root) : string {
 		$htmlCode = "";
 		
+		// Setting up the link and its title if needed.
 		if(!is_null($this->link)) {
 			$htmlCode .= '<a href="' . $this->link . '"' .
-				($this->type == ComposerElementTypes::BUTTON ? 'class="button-link"' : '') . '>';
+				($this->type == ComposerElementTypes::BUTTON ? 'class="bland-link button-link"' : '') .'>';
 		}
 		
 		switch($this->type) {
@@ -617,6 +677,21 @@ class ComposerElement {
 				break;
 			
 			case ComposerElementTypes::H1:
+				$htmlCode .= getMainHeader(
+					$this->get_inner_html($content_root),
+					null,
+					null,
+					null,
+					!ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers),
+					"bkgd-math",  // heading-dyn-width-1
+					3,
+					false,
+					false,
+					true
+				);
+				break;
+				
 			case ComposerElementTypes::H2:
 			case ComposerElementTypes::H3:
 				// Defining the text's indent level.
@@ -636,33 +711,40 @@ class ComposerElement {
 				
 			case ComposerElementTypes::PARAGRAPH:
 				// Defining the text's indent level.
+				// TODO: Join with others
 				$_paragraph_ident_level = is_null($this->indent) ? 0 : $this->indent;
+				$_paragraph_ident_level = $_paragraph_ident_level < 0 ? 0 : $_paragraph_ident_level;
+				$_paragraph_ident_level = $_paragraph_ident_level > 5 ? 5 : $_paragraph_ident_level;
+				$_paragraph_ident_level = (["", "ml-xs", "ml-s", "ml-m", "ml-l", "ml-xl"])[$_paragraph_ident_level];
 				
 				// Calculating the vertical margin modifiers
 				$_paragraph_no_margin_top = ComposerElementModifiers::is_modifier_in_modifiers(
 					ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers);
-				$_paragraph_no_margin_bottom = ComposerElementModifiers::is_modifier_in_modifiers(
-					ComposerElementModifiers::GENERIC_MARGIN_NO_BOTTOM, $this->modifiers);
-				
-				if($_paragraph_no_margin_top && $_paragraph_no_margin_bottom) {
-					$_paragraph_margin_modifier = 'my-0';
-				} else if($_paragraph_no_margin_top) {
-					$_paragraph_margin_modifier = 'mt-0 mb-10';
-				} else if($_paragraph_no_margin_bottom) {
-					$_paragraph_margin_modifier = 'mt-10 mb-0';
+				if($_paragraph_no_margin_top) {
+					$_paragraph_margin_modifier = '';
 				} else {
-					$_paragraph_margin_modifier = 'my-10';
+					$_paragraph_margin_modifier = 'mt-xs ';
 				}
 				
+				// Adding other tags manually
+				// FIXME: Use the standard functions FFS...
+				$_paragraph_margin_modifier .= (
+					ComposerElementModifiers::is_modifier_in_modifiers(
+						ComposerElementModifiers::GENERIC_BOLD, $this->modifiers)
+				) ? "t-w-500 " : "";
+				
+				// Fixes some "overflowing" issue when indent is bigger than 2.
+				$_paragraph_margin_modifier .= "mr-s ";
+				
 				// Composing the paragraph
-				$htmlCode .= '<p class="' . $_paragraph_margin_modifier. ' ml-md-' . ($_paragraph_ident_level * 5) .
+				$htmlCode .= '<p class="' . $_paragraph_margin_modifier . $_paragraph_ident_level .
 					'">' . $this->get_inner_html($content_root) . '</p>';
 				
 				break;
 				
 			case ComposerElementTypes::BUTTON:
 				// Composing the button.
-				$htmlCode .= '<button class="btn ' . (is_null($this->color) ? '' : 'btn-' . $this->color . ' ') .
+				$htmlCode .= '<button class="p-mxs r-s border b-light ' . (is_null($this->color) ? '' : 'btn-' . $this->color . ' ') .
 					$this->get_modifiers_classes() . '">' . $this->get_inner_html($content_root) . '</button>';
 				
 				break;
@@ -713,36 +795,15 @@ class ComposerElement {
 				
 			case ComposerElementTypes::CONTAINER:
 				// Defining the padding's size.
-				$_container_padding = is_null($this->padding) ? 10 : $this->padding;
+				$_container_padding = is_null($this->padding) ? 0 : $this->padding;
+				$_container_padding = $_container_padding < 0 ? 0 : $_container_padding;
+				$_container_padding = $_container_padding > 5 ? 5 : $_container_padding;
+				$_container_padding = (["", "p-xs ", "p-s ", "p-m ", "p-l ", "p-xl "])[$_container_padding];
 				
 				// Composing the container.
-				// FIXME: Can be re-standardized if a check for the default mt-10 is added at the end after adding the mods.
-				$htmlCode .= '<div class="' .
-					(ComposerElementModifiers::is_modifier_in_modifiers(
-						ComposerElementModifiers::CONTAINER_CARD, $this->modifiers
-					) ? ComposerElementModifiers::get_modifier_classes(
-							ComposerElementModifiers::CONTAINER_CARD ) . " m-0 " : "") .
-					'p-' . $_container_padding .
-					(ComposerElementModifiers::is_modifier_in_modifiers(
-						ComposerElementModifiers::GENERIC_MARGIN_NO_TOP, $this->modifiers
-					) ? "" : " mt-10") .
-					(ComposerElementModifiers::is_modifier_in_modifiers(
-						ComposerElementModifiers::GENERIC_PADDING_NO_X, $this->modifiers
-					) ? " " . ComposerElementModifiers::get_modifier_classes(
-							ComposerElementModifiers::GENERIC_PADDING_NO_X ) : "") .
-					(ComposerElementModifiers::is_modifier_in_modifiers(
-						ComposerElementModifiers::GENERIC_PADDING_NO_BOTTOM, $this->modifiers
-					) ? " " . ComposerElementModifiers::get_modifier_classes(
-							ComposerElementModifiers::GENERIC_PADDING_NO_BOTTOM ) : "") .
-					(ComposerElementModifiers::is_modifier_in_modifiers(
-						ComposerElementModifiers::GENERIC_PADDING_NO_TOP, $this->modifiers
-					) ? " " . ComposerElementModifiers::get_modifier_classes(
-							ComposerElementModifiers::GENERIC_PADDING_NO_TOP ) : "") .
-					(ComposerElementModifiers::is_modifier_in_modifiers(
-						ComposerElementModifiers::CONTAINER_SCROLL_HORIZONTAL, $this->modifiers
-					) ? " " . ComposerElementModifiers::get_modifier_classes(
-							ComposerElementModifiers::CONTAINER_SCROLL_HORIZONTAL ) : "") . '">' .
-					$this->get_inner_html($content_root) . '</div>';
+				$htmlCode .= '<div class="' . $_container_padding . $this->get_modifiers_classes() .
+					'">' . $this->get_inner_html($content_root) . '</div>';
+				
 				break;
 				
 			case ComposerElementTypes::COLLAPSE:
@@ -798,7 +859,7 @@ class ComposerElement {
 				
 			case ComposerElementTypes::TABLE:
 				// Composing table.
-				$htmlCode .= '<table class="table ' . $this->get_modifiers_classes() . '">';
+				$htmlCode .= '<table class="' . $this->get_modifiers_classes() . '">';
 				
 				if(!is_null($this->head)) {
 					$htmlCode .= '<thead><tr>';
@@ -847,7 +908,7 @@ class ComposerElement {
 			case ComposerElementTypes::VIDEO:
 				// Composing the video element
 				$htmlCode .= '<video ' . (is_null($this->source) ? '' : 'src="' . $this->source . '" ') .
-					'class="' . $this->get_modifiers_classes() . '" ' .
+					'class="' . $this->get_modifiers_classes() . ' r-l" ' .
 					(is_null($this->thumbnail) ? '' : 'poster="' . $this->thumbnail . '" ') .
 					'controls muted></video>';
 				break;
@@ -872,16 +933,6 @@ function get_content_error(string $error_title_key, string $error_description_ke
 	return null;
 }
 
-function get_content_file_path(string $content_id) : ?string {
-	global $dir_content;
-	
-	if(ctype_alnum(str_replace("-", "", $content_id))) {
-		return realpath($dir_content . "/items/" . $content_id . ".json");
-	}
-	
-	return null;
-}
-
 function load_content_by_file_path(string $file_path) : ?ComposerContent {
 	$content_json_data = json_decode(file_get_contents($file_path), true);
 	if(is_null($content_json_data)) {
@@ -891,7 +942,9 @@ function load_content_by_file_path(string $file_path) : ?ComposerContent {
 }
 
 function load_content_by_id(string $content_id) : ?ComposerContent {
-	$content_file_path = get_content_file_path($content_id);
+	// FIXME: Find another way to get `$config_dir_content` here !
+	global $config_dir_content;
+	$content_file_path = get_content_file_path($config_dir_content, $content_id);
 	
 	if(is_null($content_file_path)) {
 		return null;

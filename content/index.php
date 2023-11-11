@@ -1,15 +1,31 @@
 <?php
+$start_time = microtime(true);
+
 // Importing required scripts.
-set_include_path('../commons/');
-include_once 'config.php';
-include_once 'langs.php';
-include_once 'content.php';
+set_include_path('../');
+include_once 'commons/config.php';
+include_once 'commons/langs.php';
+
+// Preparing the content
+include_once 'commons/content.php';
+include_once 'commons/composer.php';
+$contentManager = getContentManager($config_dir_content);
+$content = NULL;
+if(!$contentManager->hasError && $contentManager->displayType == ContentDisplayType::CONTENT) {
+	$content = load_content_by_file_path($contentManager->contentFilepath);
+	if(is_null($content)) {
+		$contentManager->hasError = true;
+		$contentManager->errorMessageKey = "content.error.message.cannot.load";
+	}
+}
+$content_error_message = localize($contentManager->errorMessageKey);
 
 // Checking if an error occurred while loading data and parsing the URL.
+// And if not, enabling special features.
 $content_error_code = 200;
-if($content_has_error) {
-    // TODO: Add condition for the lack of data for an item.
-	if(is_null($filtered_content_index_data)) {
+if($contentManager->hasError) {
+	// TODO: Add condition for the lack of data for an item.
+	if(is_null($contentManager->rootIndexEntries)) {
 		// Failed to get a display type or to extract types.
 		header("HTTP/1.1 400 Bad Request");
 		$content_error_code = 400;
@@ -18,167 +34,170 @@ if($content_has_error) {
 		header("HTTP/1.1 500 Internal Server Error");
 		$content_error_code = 500;
 	}
+} else {
+	$enable_code_highlight = true;
+	$enable_glider = true;
 }
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
 <head>
 	<?php
-    include 'headers.php';
-    
-    // Setting up the page's title, description and opengraph tags.
-	if($content_has_error) {
-		echo('<title>' . localize("error.content.title.generic") . ' - Nibble Poker</title>');
-		echo('<meta name="description" content="'.$content_error_message.'">');
-		echo('<meta property="og:title" content="Nibble Poker - '.localize("error.content.title.generic").'" />');
-		echo('<meta property="og:description" content="'.$content_error_message.'"/>');
-		echo('<meta property="og:type" content="website" />');
-		echo('<meta property="og:url" content="' . $host_uri . '" />');
-		echo('<meta property="og:image" content="' . $host_uri . '/resources/Azias/logos/v2_opengraph.png"/>');
-		echo('<meta property="og:image:type" content="image/png"/>');
-	} else {
-	    if($requested_content_display_type == ContentDisplayType::CONTENT) {
-			echo('<title>'.$content->get_head_title().' - Nibble Poker</title>');
-			echo('<meta name="description" content="'.$content->get_head_description().'">');
-			echo($content->get_opengraph_tags("Nibble Poker - ", "website", $host_uri,
-				null, $host_uri . "/resources/Azias/logos/v2_opengraph.png"));
-        } else {
-            echo('<title>' . localize("content.title.search.card") . ' - Nibble Poker</title>');
-            echo('<meta name="description" content="">');
-            echo('<meta property="og:title" content="Nibble Poker - '.localize("content.title.search.card").'" />');
-            echo('<meta property="og:description" content=""/>');
-            echo('<meta property="og:type" content="website" />');
-            echo('<meta property="og:url" content="' . $host_uri . '" />');
-            echo('<meta property="og:image" content="' . $host_uri . '/resources/Azias/logos/v2_opengraph.png"/>');
-            echo('<meta property="og:image:type" content="image/png"/>');
-        }
+	// Remark: The 'glider' and 'highlight.js' stylesheets are included here.
+	include 'commons/DOM/head.php';
+	
+    // Preparing values for the head's tags.
+    if ($contentManager->hasError) {
+		$content_head_title = localize("content.error.head.title");
+		$content_head_description = $content_error_message;
+		$content_head_og_title = localize("content.error.og.title");
+		$content_head_og_description = $content_error_message;
+    } elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+		$content_head_title =
+			localize("content.item.head.title.prefix") .
+            $content->get_head_title() .
+			localize("content.item.head.title.suffix");
+		$content_head_description = $content->get_head_description();
+		$content_head_title =
+			localize("content.item.og.title.prefix") .
+			$content->get_head_title() .
+			localize("content.item.og.title.suffix");
+		$content_head_og_description = $content->get_head_description();
+    } elseif($contentManager->displayType == ContentDisplayType::SEARCH) {
+		$content_head_title = localize("content.search.head.title");
+		$content_head_description = localize("content.search.head.description");
+		$content_head_og_title = localize("content.search.og.title");
+		$content_head_og_description = localize("content.search.og.description");
     }
-    ?>
-    <link href="/resources/GliderJs/1.7.6/glider.min.css" rel="stylesheet" />
-    <link href="/resources/HighlightJS/11.6.0/styles/atom-one-dark.min.css" rel="stylesheet" />
+    
+    // TODO: Fix the OG URL tag to add the tags !
+	?>
+    <title><?php echo($content_head_title); ?></title>
+    <meta name="description" content="<?php echo($content_head_description); ?>">
+    <meta property="og:title" content="<?php echo($content_head_og_title); ?>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="<?php echo($host_uri . l10n_url_abs('/')); ?>"/>
+    <meta property="og:image" content="<?php echo($host_uri); ?>/resources/NibblePoker/images/logos/v2_opengraph.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:description" content="<?php echo($content_head_og_description); ?>"/>
 </head>
-<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars dark-mode" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
-	<?php include 'body-root.php'; ?>
-	<div class="page-wrapper with-sidebar with-navbar-fixed-bottom">
-		<?php $SIDEBAR_ID = 'blog'; include 'sidebar.php'; ?>
-		<div class="content-wrapper">
-			<div class="container-fluid">
-				<div id="page-title-bar" class="card p-0 pl-20 m-0 square-corners bg-very-dark title-bkgd navbar">
-					<h2 class="content-title font-size-24 mt-20 text-truncate">
-                        <i class="fad fa-briefcase"></i>&nbsp;&nbsp;<?php
-                        if($content_has_error) {
-                            echo('<span class="hidden-xs-and-down">'.localize("content.title.content").'<span class="mx-10">❱</span></span>'.localize("content.title.error"));
-                        } elseif($requested_content_display_type == ContentDisplayType::SEARCH) {
-							echo(localize("content.title.content").'<span class="hidden-xs-and-down"><span class="mx-10">❱</span>'.localize("content.title.search.header").'</span>');
-                        } elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
-							echo('<span class="hidden-xs-and-down">'.localize("content.title.content").'<span class="mx-10">❱</span></span>'.$content->get_head_title());
-                        }
-                        ?>
-					</h2>
-					<?php include 'header-lang.php'; ?>
-				</div>
-				<div class="content mx-auto w-lg-p90">
-                    <?php
-                    // Checking if an error occurred.
-					if($content_error_code != 200) {
-						// #############
-						//  Error card
-						// #############
-						start_content_card("fad fa-exclamation-triangle", localize('error.content.title.generic'), "");
-						echo('<div class="py-20 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
-                        echo('<h3 class="m-0 font-size-20 text-center font-weight-semi-bold">'.$content_error_message.'</h3>');
-						echo('</div>');
-						echo('<div class="px-card py-10 bg-light-lm bg-dark-dm rounded-bottom border-top">'.
-							'<p class="font-size-12 m-0 text-super-muted">'.
-							'Card footer here.'.
-							'</p></div>');
-						end_content_card();
-						goto content_printing_end;
-					}
-
-					// Printing the containers
-					if($requested_content_display_type == ContentDisplayType::SEARCH) {
-						// #############
-						//  Search page
-						// #############
-						start_content_card(
-                                "fad fa-file-search",
-                                localize("content.title.search.card"),
-                                strval(count($filtered_content_index_data)) . " " .
-                                    (count($filtered_content_index_data) > 1 ?
-                                        localize("content.search.count.multiple") :
-                                        localize("content.search.count.single")));
-                        echo('<div class="py-20 bg-light-lm rounded-bottom px-0 bg-very-dark title-bkgd">');
-						for($i = 0; $i < count($filtered_content_index_data); $i++) {
-							if($i > 0) {
-								echo('<div class="sidebar-divider m-20 mx-0"></div>');
-							}
-                            echo('<div class="content m-0 mx-20">');
-							
-							// https://css-tricks.com/float-an-element-to-the-bottom-corner/
-                            echo('<div class="content-presentation-container">');
-                            echo('<a href="'.l10n_url_abs("/content/".$filtered_content_index_data[$i]["id"]).'"><div>');
-							echo('<div class="content-search-image-container">');
-							echo('<img class="content-search-image" src="'.$filtered_content_index_data[$i]["image"].'">');
-							echo('</div>');
-							echo('<h3 class="font-size-18 mb-5 font-weight-semi-bold content-search-title">'.$filtered_content_index_data[$i]["title"][$user_language].'</h3>');
-							echo($filtered_content_index_data[$i]["preamble"][$user_language]);
-							echo('</div></a>');
-                            echo('</div>');
-                            
-                            echo('<hr class="subtle">');
-
-                            echo('<div class="d-flex flex-wrap">');
-                            echo('<div class="content-tag-container">');
-                            echo('<i class="fad fa-tags"></i>');
-						    for($j = 0; $j < count($filtered_content_index_data[$i]["tags"]); $j++) {
-                                echo('<a href="'.l10n_url_abs("/content/?tags=".$filtered_content_index_data[$i]["tags"][$j]).'" class="content-tag">#');
-                                echo($filtered_content_index_data[$i]["tags"][$j].'</a>');
-                            }
-                            echo('</div>');
-                            echo('</div>');
-                            
-                            echo('</div>');
-						}
-                        echo('</div>');
-                        echo('<div class="px-card py-10 bg-light-lm bg-dark-dm rounded-bottom border-top">'.
-                            '<p class="font-size-12 m-0 text-super-muted">'.
-                            'Card footer here.'.
-                            '</p></div>');
-						end_content_card();
-					} elseif($requested_content_display_type == ContentDisplayType::CONTENT) {
-						// ##############
-                        //  Content page
-						// ##############
-                        echo($content->get_html());
-					}
-     
-					content_printing_end:
-					?>
-				</div>
-			</div>
-		</div>
+<body>
+<?php
+include_once 'commons/DOM/utils.php';
+$SIDEBAR_IDS = array_merge(['content'], is_null($contentManager->requestedTags) ? [] : $contentManager->requestedTags);
+include 'commons/DOM/sidebar.php';
+?>
+<header class="w-full p-m pl-s">
+    <h1 class="t-size-17 t-w-500">
+        <?php
+		if($contentManager->hasError) {
+			echo('<i class="fad fa-exclamation-triangle t-size-16 mr-s t-muted"></i>');
+			echo(localize("content.header.base"));
+			echo('<span class="mobile-hide">');
+			echo('<span class="mx-s t-size-15">❱</span>');
+			echo(localize("content.error.header"));
+			echo('</span>');
+		} elseif($contentManager->displayType == ContentDisplayType::SEARCH) {
+			echo('<i class="fad fa-briefcase t-size-16 mr-s t-muted"></i>');
+			echo(localize("content.header.base"));
+			echo('<span class="mobile-hide">');
+			echo('<span class="mx-s t-size-15">❱</span>');
+			echo(localize("content.search.header"));
+			echo('</span>');
+		} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+			echo('<i class="fad fa-briefcase t-size-16 mr-s t-muted"></i>');
+		    echo(localize("content.header.base"));
+			echo('<span class="mobile-hide">');
+			echo('<span class="mx-s t-size-15">❱</span>');
+            echo('<span class="t-size-16">' . $content->get_head_title() . '</span>');
+			echo('</span>');
+		}
+		?>
+    </h1>
+	<?php include 'commons/DOM/header-lang.php'; ?>
+</header>
+<main id="main" class="rl-m border border-r-0 p-l">
+	<?php
+	// Checking if an error occurred.
+    if($content_error_code != 200) {
+		if($contentManager->displayType == ContentDisplayType::SEARCH) {
+			printMainHeader(localize("content.error.heading.main.search"), "fad fa-exclamation-triangle");
+		} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+			printMainHeader(localize("content.error.heading.main.content"), "fad fa-exclamation-triangle");
+		} else {
+			printMainHeader(localize("content.error.heading.main.fallback"), "fad fa-exclamation-triangle");
+        }
         
-        <!-- Custom modal, see: https://dev.to/nicm42/fading-in-and-fading-out-with-css-transitions-3lc1 -->
+        echo('<h3 class="mt-m t-size-18 t-center content-error-text mx-auto">' . $content_error_message . '</h3>');
         
-        <div class="modal" id="modal-content-image-viewer" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content modal-content-media w-three-quarter">
-                    <a id="modal-img-close" href="#" class="close" role="button" aria-label="Close">
-                        <span aria-hidden="true"><i class="fad fa-times"></i></span>
-                    </a>
-                    <img id="modal-img" src="/resources/Azias/imgs/placeholder.png" class="img-fluid ml-auto mr-auto" alt="modal-img">
-                </div>
-            </div>
-        </div>
+        goto content_printing_end;
+    }
+    
+	if($contentManager->displayType == ContentDisplayType::SEARCH) {
+        // We are handling a content search with at least one result.
         
-		<?php include 'footer.php'; ?>
-	</div>
-    <script src="/resources/HalfMoon/1.1.1/js/halfmoon.min.js"></script>
-    <script src="/resources/GliderJs/1.7.6/glider.min.js"></script>
-    <script src="/resources/HighlightJS/11.6.0/highlight.min.js"></script>
-    <script src="/resources/HighlightJS/11.6.0/languages/csharp.min.js"></script>
-    <script src="/resources/Azias/js/nibblepoker.lu.js"></script>
-    <script src="/resources/Azias/js/code-highlighter.js"></script>
+        // Making the header with the amount of results.
+		printMainHeader(
+			count($contentManager->rootIndexEntries) > 1 ?
+				localize("content.search.heading.main.multiple") :
+				localize("content.search.heading.main.single"),
+            "fad fa-file-search",
+			count($contentManager->rootIndexEntries) . " " . (
+			count($contentManager->rootIndexEntries) > 1 ?
+				localize("content.search.count.multiple") :
+				localize("content.search.count.single")));
+        
+        // Printing the entry for each piece of relevant content.
+        $doPrintRuler = false;
+		foreach($contentManager->rootIndexEntries as $current_content) {
+			/** @var ContentIndexEntry $current_content */
+			
+            if($doPrintRuler) {
+				echo('<hr class="subtle">');
+            } else {
+				$doPrintRuler = true;
+            }
+            
+			echo('<div class="p-s">');
+			echo('<a class="casper-link" href="'.l10n_url_abs("/content/".$current_content->id).'">');
+			echo('<div class="content-search-entry">');
+   
+            echo('<img class="content-search-image mr-s r-l" src="' . $current_content->image . '">');
+            echo('<h3 class="mb-xs">' . $current_content->title[$user_language] . '</h3>');
+            echo('<p>' . $current_content->preamble[$user_language] . '</p>');
+   
+			echo('</div>');
+			echo('</a>');
+			
+            echo('<p class="mt-xs"><i class="fad fa-tags t-size-8"></i>');
+            foreach($current_content->tags as $current_content_tag) {
+                echo('<a href="' . l10n_url_abs("/content/?tags=".$current_content_tag) .
+                    '" class="ml-xs">#' . $current_content_tag . '</a>');
+			}
+            echo('</p>');
+   
+			echo('</div>');
+		}
+        
+        // TODO: Print the tags used in the search and others that may be available.
+	} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+		// Printing the content
+        echo($content->get_html());
+	}
+ 
+	// Label used when there is an error to skip the content printing parts.
+	content_printing_end:
+	?>
+</main>
+<?php
+include 'commons/DOM/footer.php';
+include 'commons/DOM/scripts.php';
+?>
 </body>
 </html>
+<?php
+$end_time = microtime(true);
+if($print_execution_timer) {
+	echo("<!-- PHP execution took " . round(($end_time - $start_time) * 1000, 2) . " ms -->");
+}
+?>

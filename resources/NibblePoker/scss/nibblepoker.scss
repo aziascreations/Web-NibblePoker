@@ -1,0 +1,64 @@
+/*
+ * -----------------------------------------------------------------------------
+ * NibblePoker.lu CSS
+ * Version: 0.0.3
+ * Copyright, 2023 Bozet Herwin
+ * -----------------------------------------------------------------------------
+ * Source: https://github.com/aziascreations/Web-NibblePoker
+ * -----------------------------------------------------------------------------
+ */
+
+/* Config */
+@import 'config';
+
+/* Externals */
+@import 'external/reset';  // Not resetting it for checkboxes !
+@import 'external/quantum';
+
+/* Variables */
+@import 'variables';
+
+/* Core */
+@import 'core/border';  // Has out-of-core colors usage
+@import 'core/float';
+@import 'core/sizing';
+@import 'core/flex';
+@import 'core/grid';
+@import 'core/text';
+@import 'core/containers';
+@import 'core/display';
+
+/* Core > Rounding */
+@import 'core/rounding/global';
+@import 'core/rounding/sided';
+@import 'core/rounding/corner';
+
+/* Core > Spacing */
+@import 'core/spacing/global';
+@import 'core/spacing/axis';
+@import 'core/spacing/sided';
+
+/* Site */
+@import 'site/base';  // Has manual disabling of some core stuff in specific situations and a shit-tier fix for tables & border on mobile.
+@import 'site/text';  // Has some hardcoded width for font-awesome icons in sidebar and headings
+
+/* Site > Elements */
+@import 'site/hr';
+@import 'site/scrollbar';
+@import 'site/input';  // Has ugly fix for download buttons
+@import 'site/table';  // Uses copied paddings for cells & ugly rounding fix
+@import 'site/code';  // Uses forced borders, roundings and paddings
+
+/* Site > Misc */
+@import 'site/borders';  // Applies the colors mostly, the size are in the elements !
+@import 'site/backgrounds';
+
+/* Site > Fixes */
+@import 'site/mobile';  // Has !important overrides for obvious reasons
+
+/* Site > Unsorted */
+@import 'site/image';
+@import 'site/wedge';
+@import 'site/content';  // Uses fixed sizes and floats
+@import 'site/video';
+@import 'site/modal';

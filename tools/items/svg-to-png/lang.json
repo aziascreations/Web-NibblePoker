@@ -1,0 +1,32 @@
+{
+	"en": {
+		"tool.svg-to-png.title": "SVG to PNG Converter",
+		"tool.svg-to-png.input.title": "File selection",
+		"tool.svg-to-png.options.title": "Options",
+		"tool.svg-to-png.output.title": "Output",
+		
+		"tool.svg-to-png.text.no.files": "No files selected.",
+		"tool.svg-to-png.text.has.files": "You selected <span id=\"tool-svg-to-png-file-count\"></span> file(s).",
+		
+		"tool.svg-to-png.select.files": "Select File(s)",
+		"tool.svg-to-png.files": "File(s)",
+		"tool.svg-to-png.width": "Width",
+		"tool.svg-to-png.height": "Height",
+		"tool.svg-to-png.convert": "Convert image(s)"
+	},
+	"fr": {
+		"tool.svg-to-png.title": "Convertisseur SVG vers PNG",
+		"tool.svg-to-png.input.title": "Selection de fichier(s)",
+		"tool.svg-to-png.options.title": "Options",
+		"_tool.svg-to-png.output.title": "",
+		
+		"tool.svg-to-png.text.no.files": "Aucun fichier sélectionné.",
+		"tool.svg-to-png.text.has.files": "Vous avez sélectionné <span id=\"tool-svg-to-png-file-count\"></span> fichier(s).",
+		
+		"tool.svg-to-png.select.files": "Sélection de Fichier(s)",
+		"tool.svg-to-png.files": "Fichier(s)",
+		"tool.svg-to-png.width": "Largeur",
+		"tool.svg-to-png.height": "Hauteur",
+		"tool.svg-to-png.convert": "Convertir vers PNG"
+	}
+}

@@ -1,0 +1,101 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Utilities > Text */
+
+/* Utilities > Text > Headings */
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: #{$text-header-weight};
+}
+
+
+/* Utilities > Text > Sizes */
+
+// From 6 to 40
+@for $_ from 3 through 20 {
+	$sizeKey: $_ * 2;
+	$sizeValue: $sizeKey / 10;
+	
+	.t-size-#{$sizeKey} {
+		font-size: #{$sizeValue}rem !important;
+	}
+}
+
+// Adding special ones
+.t-size-11 {
+	font-size: 1.1rem !important;
+}
+.t-size-13 {
+	font-size: 1.3rem !important;
+}
+.t-size-15 {
+	font-size: 1.5rem !important;
+}
+.t-size-17 {
+	font-size: 1.7rem !important;
+}
+
+@for $_ from 2 through 7 {
+	$size: $_ * 100;
+	
+	.t-w-#{$size} {
+		font-weight: #{$size} !important;
+	}
+}
+
+/* Utilities > Sizing > Variable Sizes */
+
+//@for $_ from 7 through 8 {
+//	// Index: [35...40, 5]
+//	// CSS: [3.5rem...4.5rem, 0.2rem]
+//	$size: $_ * 5;
+//
+//	.t-#{$size} {
+//		font-size: #{$size / 10}rem;
+//	}
+//}
+
+
+/* Utilities > Text > Modifiers & Styles */
+
+b, .t-bold {
+	font-weight: bold;
+}
+
+.t-bolder {
+	font-weight: bold;
+}
+
+i, .t-italic {
+	font-style: italic;
+}
+
+.t-oblique {
+	font-style: oblique;
+}
+
+u, .t-underline, .t-under {
+	text-decoration: underline;
+}
+
+s, .t-strikethrough, .t-strike {
+	text-decoration: line-through;
+}
+
+.t-overline, .t-over {
+	text-decoration: overline;
+}
+
+.t-justify, .t-just {
+	text-align: justify;
+}
+
+.t-center {
+	text-align: center;
+}
+
+.ucase {
+	text-transform: uppercase;
+}
+
+// Other default shit

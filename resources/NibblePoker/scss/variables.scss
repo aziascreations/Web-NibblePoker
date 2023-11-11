@@ -1,0 +1,307 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+@use 'sass:color';
+
+/* Variables > Palettes */
+
+/* Variables > Palettes > Apollo */
+// https://lospec.com/palette-list/apollo
+$color-apollo-00: #172038;
+$color-apollo-01: #253a5e;
+$color-apollo-02: #3c5e8b;
+$color-apollo-03: #4f8fba;
+$color-apollo-04: #73bed3;
+$color-apollo-05: #a4dddb;
+$color-apollo-06: #19332d;
+$color-apollo-07: #25562e;
+$color-apollo-08: #468232;
+$color-apollo-09: #75a743;
+$color-apollo-10: #a8ca58;
+$color-apollo-11: #d0da91;
+$color-apollo-12: #4d2b32;
+$color-apollo-13: #7a4841;
+$color-apollo-14: #ad7757;
+$color-apollo-15: #c09473;
+$color-apollo-16: #d7b594;
+$color-apollo-17: #e7d5b3;
+$color-apollo-18: #341c27;
+$color-apollo-19: #602c2c;
+$color-apollo-20: #884b2b;
+$color-apollo-21: #be772b;
+$color-apollo-22: #de9e41;
+$color-apollo-23: #e8c170;
+$color-apollo-24: #241527;
+$color-apollo-25: #411d31;
+$color-apollo-26: #752438;
+$color-apollo-27: #a53030;
+$color-apollo-28: #cf573c;
+$color-apollo-29: #da863e;
+$color-apollo-30: #1e1d39;
+$color-apollo-31: #402751;
+$color-apollo-32: #7a367b;
+$color-apollo-33: #a23e8c;
+$color-apollo-34: #c65197;
+$color-apollo-35: #df84a5;
+$color-apollo-36: #090a14;
+$color-apollo-37: #10141f;
+$color-apollo-38: #151d28;
+$color-apollo-39: #202e37;
+$color-apollo-40: #394a50;
+$color-apollo-41: #577277;
+$color-apollo-42: #819796;
+$color-apollo-43: #a8b5b2;
+$color-apollo-44: #c7cfcc;
+$color-apollo-45: #ebede9;
+
+$color-apollo-37_50: mix($color-apollo-37, $color-apollo-38, 50%);
+
+$color-apollo-38_25: mix($color-apollo-39, $color-apollo-38, 25%);
+$color-apollo-38_50: mix($color-apollo-39, $color-apollo-38, 50%);
+$color-apollo-38_70: mix($color-apollo-39, $color-apollo-38, 70%);
+$color-apollo-38_75: mix($color-apollo-39, $color-apollo-38, 75%);
+
+$color-apollo-munted-37-1: color.grayscale(color.adjust($color-apollo-37, $lightness: +3.25%));
+$color-apollo-munted-37-2: color.grayscale(color.adjust($color-apollo-37, $lightness: +1.75%));
+
+$color-apollo-custom-00: mix($color-apollo-40, $color-apollo-39, 33%);
+$color-apollo-custom-01: mix($color-apollo-40, $color-apollo-39, 50%);
+$color-apollo-custom-02: mix($color-apollo-40, $color-apollo-39, 2.5%);
+$color-apollo-custom-03: mix($color-apollo-40, $color-apollo-39, 65%);
+
+$color-apollo-custom-10: mix($color-apollo-40, $color-apollo-41, 75%);
+
+$color-apollo-custom-20: mix($color-apollo-39, $color-apollo-38, 60%);
+
+$color-apollo-custom-30: mix($color-apollo-01, $color-apollo-03, 80%);  // Primary button
+$color-apollo-custom-31: mix($color-apollo-01, $color-apollo-03, 65%);  // Primary button hover
+
+/* Variables > Palettes > Material UI */
+// https://materialui.co/colors
+
+$color-material-blueGrey-50: #eceff1;
+$color-material-blueGrey-100: #cfd8dc;
+$color-material-blueGrey-200: #b0bec5;
+$color-material-blueGrey-300: #90a4ae;
+$color-material-blueGrey-400: #78909c;
+$color-material-blueGrey-500: #607d8b;
+$color-material-blueGrey-600: #546e7a;
+$color-material-blueGrey-700: #455a64;
+$color-material-blueGrey-800: #37474f;
+$color-material-blueGrey-900: #263238;
+
+$color-material-blueGrey-1000: #151D21;
+$color-material-blueGrey-850: mix($color-material-blueGrey-800, $color-material-blueGrey-900, 50%);
+//$color-material-blueGrey-925: mix($color-material-blueGrey-1000, $color-material-blueGrey-900, 25%);
+$color-material-blueGrey-950: mix($color-material-blueGrey-1000, $color-material-blueGrey-900, 50%);
+
+/* Variables > Palettes > WinUI 3 */
+
+$color-winui-00: #191919;
+$color-winui-01: #1D1D1D;
+$color-winui-02: #202020;
+$color-winui-03: #232323;
+$color-winui-04: #272727;
+$color-winui-05: #323232;
+$color-winui-06: #3E3E3E;
+
+// https://flatuicolors.com/palette/defo
+
+/* Variables > Palettes > Misc */
+
+//$color-test-01: mix(#7b6aa5, #000000, 33%);
+//$color-test-02: #007c7d;
+
+/* Variables > Colors Mappings */
+
+$color-unset: $color-apollo-34;
+
+/* Variables > Theme selection */
+
+// Available themes:
+//  * Teal Supreme (teal)
+//  * WinUI 3 (winui)
+//  * La Moiti Leune (moon)
+//  * NibblePoker (nibblepoker)
+$theme: nibblepoker;
+
+/* Variables > Colors Mappings > Backgrounds & Borders */
+
+$color-background-main: map-get((
+		teal: $color-apollo-custom-02,
+		winui: $color-winui-04,
+		moon: $color-unset,
+		nibblepoker: #24252B,
+), $theme);
+
+$color-background-surround: map-get((
+		teal: $color-apollo-custom-00,
+		winui: $color-winui-02,
+		moon: $color-unset,
+		nibblepoker: #1D1E22,
+), $theme);
+
+// Used as the background-color in the main's rounded corners
+$color-background-body: $color-background-surround;
+
+// Used in stylized headings
+$color-background-main-headings: map-get((
+		teal: $color-background-surround,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: $color-background-surround,
+), $theme);
+
+
+// FIXME: Remove its usage !
+// Left: Code, Kbd, Scrollbar ???
+$color-border-all: $color-unset;  // Default border
+$color-border-light: $color-unset;  // For .b-light class (No longer exists !)
+
+// Used to separate the 'main' from the 'surround'.
+$color-border-surround: map-get((
+		teal: $color-apollo-38,
+		winui: $color-winui-01,
+		moon: $color-unset,
+		nibblepoker: #141417,
+), $theme);
+
+// Used as the border for all element inside the "main".
+// It probably influences more stuff, but I can't be bothered to fix this...
+$color-border-main: map-get((
+		teal: $color-apollo-38,  // $color-apollo-custom-20;
+		winui: $color-winui-03,
+		moon: $color-unset,
+		nibblepoker: $color-border-surround,
+), $theme);
+
+
+$color-background-code: map-get((
+		teal: $color-apollo-custom-20,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: mix($color-background-main, $color-background-surround, 25%),
+), $theme);
+
+$color-border-code: map-get((
+		teal: #{$color-border-surround}CF,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: #{$color-border-surround}CF,
+), $theme);
+
+
+$color-background-table-main: map-get((
+		teal: $color-apollo-custom-01,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: mix($color-background-main, $color-background-surround, 50%),
+), $theme);
+
+$color-background-table-dual: map-get((
+		teal: $color-apollo-custom-00,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: mix($color-background-main, $color-background-surround, 12.5%),
+), $theme);
+
+$color-table-border: map-get((
+		teal: $color-apollo-39,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: #{$color-border-surround}CF,
+), $theme);
+
+$color-background-inputs: map-get((
+		teal: $color-apollo-40,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: #2d2f36,
+), $theme);
+
+// TODO: Implement better ones !
+$color-background-checkbox-checked: $color-apollo-08;
+$color-background-checkbox-unchecked: $color-apollo-27;
+
+$color-background-button: map-get((
+		teal: $color-apollo-40,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: #2d2f36,
+), $theme);
+
+$color-background-button-hover: map-get((
+		teal: $color-apollo-custom-10,
+		winui: $color-unset,
+		moon: $color-unset,
+		nibblepoker: #373841,
+), $theme);
+
+$color-background-button-primary: #{$color-apollo-custom-30};
+$color-background-button-primary-hover: mix($color-apollo-custom-30, $color-apollo-custom-31, 37.5%);
+
+$color-background-button-success: #{$color-apollo-07};
+$color-background-button-success-hover: mix($color-apollo-07, $color-apollo-08, 50%);
+
+$color-background-button-error: #{$color-apollo-26};
+$color-background-button-error-hover: #{$color-apollo-27};
+
+$color-background-button-warning: #{$color-apollo-20};
+$color-background-button-warning-hover: #{$color-apollo-21};
+
+
+
+/* Variables > Colors Mappings > Text */
+
+$color-text-regular-normal: $color-apollo-45;
+$color-text-inputs: $color-apollo-45;
+$color-text-muted: #{$color-apollo-45}E0;
+$color-text-muted-super: #{$color-apollo-45}C0;
+
+$color-link-hover: rgb(253, 255, 251);
+
+// Should be a mix of 03-04 and 04-05.
+$color-link-blue: #{$color-apollo-04};
+$color-link-blue-hover: #{$color-apollo-05};
+
+//$color-border-all: $color-apollo-38;
+//$color-border-light: $color-apollo-custom-20;
+
+$color-input-glow: $color-apollo-02;
+
+$color-wedge-blue-background: $color-apollo-03;
+$color-wedge-blue-border: $color-apollo-02;
+
+//$color-background-body: $color-apollo-custom-00;
+//$color-background-main: $color-apollo-custom-02;
+//$color-background-surround: $color-apollo-custom-00;
+//
+//// TMP V2
+//$color-background-body: $color-material-blueGrey-900;
+//$color-background-main: $color-material-blueGrey-950;
+//$color-background-surround: $color-material-blueGrey-900;
+
+
+/* Variables > Scrollbar */
+
+//$color-scrollbar-border: rgba(0, 0, 0, 0.15);
+$color-scrollbar-border: $color-border-surround;
+
+$scrollbar-size: 1.25em;
+
+/* Variables > Others */
+
+$border-base-radius: 5px;
+
+$margin-base-size: 1rem;
+
+$text-header-weight: 600;
+
+$size-sidebar: 15rem;
+//$size-sidebar: 30rem;
+
+$content-search-image-size: 128px;
+
+/* Variables > Z Indexes */
+
+$z-index-sidebar: 5;
+$z-index-lang-dropdown: 10;
+$z-index-modal: 99;

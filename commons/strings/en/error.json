@@ -1,0 +1,23 @@
+{
+	"error.403.head.title": "403 - NibblePoker",
+	"error.403.head.description": "Access to the requested resource isn't unauthorized.",
+	"error.403.og.title": "NibblePoker - 403 Error",
+	"error.403.og.description": "Access to the requested resource isn't unauthorized.",
+	"error.403.header.title": "Error<span class=\"mx-s t-size-15\">❱</span>403 Error",
+	
+	"error.404.head.title": "404 - NibblePoker",
+	"error.404.head.description": "The server couldn't find the requested resource.",
+	"error.404.og.title": "NibblePoker - 404 Error",
+	"error.404.og.description": "The server couldn't find the requested resource.",
+	"error.404.header.title": "Error<span class=\"mx-s t-size-15\">❱</span>404 Error",
+	
+	"error.500.head.title": "500 - NibblePoker",
+	"error.500.head.description": "The server has encountered a situation it doesn't know how to handle.",
+	"error.500.og.title": "NibblePoker - 500 Error",
+	"error.500.og.description": "The server has encountered a situation it doesn't know how to handle.",
+	"error.500.header.title": "Error<span class=\"mx-s t-size-15\">❱</span>500 Error",
+	
+	"error.title": "%0 Error",
+	
+	"error.skit.pc.dead": "Drawing of an old PC with a face with crossed eyes."
+}

@@ -1,18 +1,37 @@
 # IDE-related folders
 .idea/
 
+# Node.JS
+node_modules/
+package-lock.json
+
 # Static resources
+resources/DecimalJs/
+resources/DecimalJsLight/
 resources/FontAwesomePro/
 resources/HighlightJS/
-*.exe
-*.url
+resources/GliderJs/
+resources/PlotlyJs/
+
+# Compiled Stuff
+*.min.php
+*.min.js
+commons/strings.json
+resources/NibblePoker/css/*.css
+tools/items/formula-wizard/*.js
+tools/items/formula-wizard/src/*.js
 
 # Others
 *.pdn
 *.min.json
 *.lnk
-tmp/
-resources/Azias/css/*.css
-resources/Azias/css/*.map
-resources/Azias/sass/**.css
-resources/Azias/sass/**.map
+*.map
+*.bak
+*.exe
+*.url
+*.env
+
+# Temporary
+articles/*.txt
+commons/strings/_*/
+*.ogg

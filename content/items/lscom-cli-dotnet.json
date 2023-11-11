@@ -75,7 +75,7 @@
     }
   },
   "metadata": {
-    "template": "article",
+    "template": "generic-project-readme",
     "head": {
       "title": "meta.title",
       "description": "meta.description"
@@ -96,101 +96,77 @@
     }
   },
   "elements": [
+    {"type": "h1", "content": "intro.title"},
+    {"type": "paragraph", "indent": 2, "content": "intro.p1"},
+    {"type": "paragraph", "indent": 2, "content": "intro.p2"},
+    {"type": "paragraph", "indent": 2, "content": "intro.p3"},
+
+    {"type": "h1", "content": "requirements.title"},
     {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "type": "paragraph",
+      "indent": 2,
       "parts": [
-        {"type": "h1", "content": "intro.title"},
-        {"type": "paragraph", "indent": 2, "content": "intro.p1"},
-        {"type": "paragraph", "indent": 2, "content": "intro.p2"},
-        {"type": "paragraph", "indent": 2, "content": "intro.p3"}
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "requirements.1"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;∘&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "requirements.2"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "requirements.3"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;∘&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "requirements.4"}
       ]
     },
 
+    {"type": "h1", "content": "improvements.title"},
     {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "type": "paragraph",
+      "indent": 2,
       "parts": [
-        {"type": "h1", "content": "requirements.title"},
-        {
-          "type": "paragraph",
-          "indent": 2,
-          "parts": [
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "requirements.1"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;∘&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "requirements.2"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "requirements.3"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;∘&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "requirements.4"}
-          ]
-        }
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "improvements.1"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "improvements.2"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "improvements.3"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "improvements.4"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "improvements.5"}
       ]
     },
 
+    {"type": "h1", "content": "screenshots.title"},
     {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "type": "container", "padding": 2,
+      "modifiers": ["pb-0"],
       "parts": [
-        {"type": "h1", "content": "improvements.title"},
         {
-          "type": "paragraph",
-          "indent": 2,
-          "parts": [
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "improvements.1"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "improvements.2"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "improvements.3"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "improvements.4"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "improvements.5"}
-          ]
-        }
-      ]
-    },
-
-    {
-      "type": "container", "padding": 20,
-      "modifiers": ["_no-top-padding", "no-bottom-padding"],
-      "parts": [
-        {"type": "h1", "content": "screenshots.title"},
-        {
-          "type": "container", "margin": 5, "padding": 0,
+          "type": "gallery",
           "modifiers": [],
-          "parts": [
-            {
-              "type": "gallery",
-              "modifiers": [],
-              "images": [
-                "/resources/Azias/imgs/lscom/screen-cli-stylish-2x-xBR.png",
-                "/resources/Azias/imgs/lscom/screen-cli-csv-2x-xBR.png",
-                "/resources/Azias/imgs/lscom/screen-cli-full-2x-xBR.png"
-              ]
-            }
+          "images": [
+            "/resources/NibblePoker/images/content/lscom/screen-cli-stylish-2x-xBR.png",
+            "/resources/NibblePoker/images/content/lscom/screen-cli-csv-2x-xBR.png",
+            "/resources/NibblePoker/images/content/lscom/screen-cli-full-2x-xBR.png"
           ]
         }
       ]
     },
-
+    
+    {"type": "h1", "content": "usage.title"},
     {
-      "type": "container", "padding": 20,
-      "modifiers": ["_no-top-padding", "no-bottom-padding"],
+      "type": "container", "padding": 2,
+      "modifiers": ["pb-0"],
       "parts": [
-        {"type": "h1", "content": "usage.title"},
         {
           "type": "code", "indent": 2,
-          "modifiers": ["horizontal-scroll", "code-block"],
+          "modifiers": ["horizontal-scroll-auto", "code-block"],
           "code": [
             "lscom.exe [-a|--show-all] [-d|--show-device] [-D <str>|--divider <str>] [-f|--show-friendly]",
             "          [-h|--help] [-H|--short-help] [-n|--show-name-raw] [-P|--no-pretty] [-s|--sort]",
@@ -214,15 +190,15 @@
         }
       ]
     },
-
+    
+    {"type": "h1", "content": "formatting.title"},
     {
-      "type": "container", "padding": 20,
-      "modifiers": ["_no-top-padding", "no-bottom-padding"],
+      "type": "container", "padding": 2,
+      "modifiers": ["pb-0"],
       "parts": [
-        {"type": "h1", "content": "formatting.title"},
         {
           "type": "code", "indent": 2,
-          "modifiers": ["horizontal-scroll", "code-block"],
+          "modifiers": ["horizontal-scroll-auto", "code-block"],
           "code": [
             " *┬> No launch arguments:",
             "  └──> ${Raw name}      => COM1",
@@ -246,277 +222,251 @@
       ]
     },
 
+    {"type": "h1", "content": "packages.title"},
+    {"type": "paragraph", "indent": 2, "content": "packages.single.title", "modifiers": ["bold"]},
+    {"type": "paragraph", "indent": 4, "content": "packages.single.1"},
+    {"type": "paragraph", "indent": 2, "content": "packages.self.title", "modifiers": ["bold"]},
+    {"type": "paragraph", "indent": 4, "content": "packages.self.1"},
+    {"type": "paragraph", "indent": 2, "content": "packages.msi.title", "modifiers": ["bold"]},
+    {"type": "paragraph", "indent": 4, "content": "packages.msi.1"},
+    
+    {"type": "h1", "content": "content.commons.version.current"},
     {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "type": "container", "padding": 2, "modifiers": ["pb-0"],
       "parts": [
-        {"type": "h1", "content": "packages.title"},
-        {"type": "h3", "indent": 2, "content": "packages.single.title"},
-        {"type": "paragraph", "indent": 4, "content": "packages.single.1", "modifiers": ["no-top-margin"]},
-        {"type": "h3", "indent": 2, "content": "packages.self.title"},
-        {"type": "paragraph", "indent": 4, "content": "packages.self.1", "modifiers": ["no-top-margin"]},
-        {"type": "h3", "indent": 2, "content": "packages.msi.title"},
-        {"type": "paragraph", "indent": 4, "content": "packages.msi.1", "modifiers": ["no-top-margin"]}
-      ]
-    },
-
-    {
-      "type": "container", "padding": 20,
-      "modifiers": ["_no-top-padding"],
-      "parts": [
-        {"type": "h1", "modifiers": ["no-top-margin"], "content": "content.commons.version.current"},
-        {"type": "spacer", "size": 1},
         {
-          "type": "container", "padding": 0,
-          "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
-          "parts": [
-            {
-              "type": "table", "modifiers": ["striped", "inner-bordered"],
-              "head": [
-                {"type": "raw", "content": "content.commons.cpu.responsive"},
-                {"type": "raw", "content": "requirements.table.title"},
-                {"type": "raw", "content": "content.commons.download.single"}
-              ],
-              "body": [
-                [
-                  {"type": "raw", "content": "content.commons.cpu.any"},
-                  {"type": "raw", "content": "requirements.text.dotnet"},
-                  {
+          "type": "table", "modifiers": ["stylish", "auto-cell-padding", "v-center-cells"],
+          "head": [
+            {"type": "raw", "content": "content.commons.cpu.responsive"},
+            {"type": "raw", "content": "requirements.table.title"},
+            {"type": "raw", "content": "content.commons.download.single"}
+          ],
+          "body": [
+            [
+              {"type": "raw", "content": "content.commons.cpu.any"},
+              {"type": "raw", "content": "requirements.text.dotnet"},
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_AnyCPU.zip",
+                  "modifiers": ["thin", "download-primary"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_AnyCPU.zip",
-                      "modifiers": ["thin", "download-primary"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_AnyCPU.zip</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ],[
-                  {"type": "raw", "content": "content.commons.cpu.x64", "rowspan": 3},
-                  {"type": "raw", "content": "requirements.text.dotnet"},
-                  {
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_AnyCPU.zip</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ],[
+              {"type": "raw", "content": "content.commons.cpu.x64", "rowspan": 3},
+              {"type": "raw", "content": "requirements.text.dotnet"},
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64_Single.zip",
+                  "modifiers": ["thin"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64_Single.zip",
-                      "modifiers": ["thin"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x64_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ],[
-                  {"type": "raw", "content": "requirements.text.none.fp", "rowspan": 2},
-                  {
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x64_Single.zip</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ],[
+              {"type": "raw", "content": "requirements.text.none.fp", "rowspan": 2},
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64_SelfContained.zip",
+                  "modifiers": ["thin", "download-primary"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64_SelfContained.zip",
-                      "modifiers": ["thin", "download-primary"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x64_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ],[
-                  {
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x64_SelfContained.zip</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ],[
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64.msi",
+                  "modifiers": ["thin", "download-primary"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64.msi",
-                      "modifiers": ["thin", "download-primary"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-archive\"></i> ListComPort_v3.0.0_x64.msi</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ],[
-                  {"type": "raw", "content": "content.commons.cpu.x86", "rowspan": 3},
-                  {"type": "raw", "content": "requirements.text.dotnet"},
-                  {
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x64.msi</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ],[
+              {"type": "raw", "content": "content.commons.cpu.x86", "rowspan": 3},
+              {"type": "raw", "content": "requirements.text.dotnet"},
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86_Single.zip",
+                  "modifiers": ["thin"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86_Single.zip",
-                      "modifiers": ["thin"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x86_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ],[
-                  {"type": "raw", "content": "requirements.text.none.fp", "rowspan": 2},
-                  {
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x86_Single.zip</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ],[
+              {"type": "raw", "content": "requirements.text.none.fp", "rowspan": 2},
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86_SelfContained.zip",
+                  "modifiers": ["thin"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86_SelfContained.zip",
-                      "modifiers": ["thin"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_x86_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ],[
-                  {
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x86_SelfContained.zip</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ],[
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86.msi",
+                  "modifiers": ["thin"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86.msi",
-                      "modifiers": ["thin"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-archive\"></i> ListComPort_v3.0.0_x86.msi</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ],[
-                  {"type": "raw", "content": "content.commons.cpu.arm64", "rowspan": 2},
-                  {"type": "raw", "content": "requirements.text.dotnet"},
-                  {
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_x86.msi</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ],[
+              {"type": "raw", "content": "content.commons.cpu.arm64", "rowspan": 2},
+              {"type": "raw", "content": "requirements.text.dotnet"},
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm64_Single.zip",
+                  "modifiers": ["thin"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm64_Single.zip",
-                      "modifiers": ["thin"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm64_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ],[
-                  {"type": "raw", "content": "requirements.text.none.fp"},
-                  {
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_arm64_Single.zip</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ],[
+              {"type": "raw", "content": "requirements.text.none.fp"},
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm64_SelfContained.zip",
+                  "modifiers": ["thin"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm64_SelfContained.zip",
-                      "modifiers": ["thin"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm64_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ],[
-                  {"type": "raw", "content": "content.commons.cpu.arm", "rowspan": 2},
-                  {"type": "raw", "content": "requirements.text.dotnet"},
-                  {
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_arm64_SelfContained.zip</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ],[
+              {"type": "raw", "content": "content.commons.cpu.arm", "rowspan": 2},
+              {"type": "raw", "content": "requirements.text.dotnet"},
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm_Single.zip",
+                  "modifiers": ["thin"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm_Single.zip",
-                      "modifiers": ["thin"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm_Single.zip</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ],[
-                  {"type": "raw", "content": "requirements.text.none.fp"},
-                  {
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_arm_Single.zip</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ],[
+              {"type": "raw", "content": "requirements.text.none.fp"},
+              {
+                "type": "raw",
+                "parts": [{
+                  "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm_SelfContained.zip",
+                  "modifiers": ["thin"],
+                  "parts": [{
                     "type": "raw",
-                    "parts": [{
-                      "type": "button", "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm_SelfContained.zip",
-                      "modifiers": ["thin"],
-                      "parts": [{
-                        "type": "raw",
-                        "localize": false,
-                        "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> ListComPort_v3.0.0_arm_SelfContained.zip</span><i class=\"fas fa-download ml-10\"></i>"
-                      }]
-                    }]
-                  }
-                ]
-              ]
-            }
+                    "localize": false,
+                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;ListComPort_v3.0.0_arm_SelfContained.zip</span><i class=\"fas fa-download ml-s\"></i>"
+                  }]
+                }]
+              }
+            ]
           ]
         }
       ]
     },
-
+    
+    {"type": "h1", "content": "content.commons.version.source"},
     {
-      "type": "container", "padding": 20, "modifiers": ["no-top-padding"],
+      "type": "container", "padding": 2, "modifiers": ["pb-0"],
       "parts": [
-        {"type": "h1", "modifiers": ["no-top-margin"], "content": "content.commons.version.source"},
-        {"type": "spacer", "size": 1},
         {
-          "type": "container", "padding": 0,
-          "modifiers": ["no-bottom-padding", "no-top-margin", "card", "horizontal-scroll"],
-          "parts": [{
-            "type": "table", "modifiers": ["striped", "inner-bordered"],
-            "head": [
-              {"type": "raw", "content": "content.commons.version"},
-              {"type": "raw", "content": "content.commons.download.multiple"}
-            ],
-            "body": [[
-              {"type": "raw", "content": "v3.0.0", "localize": false},
-              {
-                "type": "raw",
-                "parts": [
-                  {
-                    "type": "button", "modifiers": ["thin"],
-                    "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.zip",
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> 3.0.0.zip</span><i class=\"fas fa-download ml-10\"></i>",
-                    "localize": false
-                  },{
-                    "type": "button", "modifiers": ["thin"],
-                    "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.tar.gz",
-                    "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i> 3.0.0.tar.gz</span><i class=\"fas fa-download ml-10\"></i>",
-                    "localize": false
-                  }
-                ]
-              }
-            ]]
-          }]
+          "type": "table", "modifiers": ["stylish", "auto-cell-padding", "v-center-cells"],
+          "head": [
+            {"type": "raw", "content": "content.commons.version"},
+            {"type": "raw", "content": "content.commons.download.multiple"}
+          ],
+          "body": [[
+            {"type": "raw", "content": "v3.0.0", "localize": false},
+            {
+              "type": "raw",
+              "parts": [
+                {
+                  "type": "button", "modifiers": ["thin"],
+                  "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.zip",
+                  "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;3.0.0.zip</span><i class=\"fas fa-download ml-s\"></i>",
+                  "localize": false
+                },{
+                  "type": "button", "modifiers": ["thin"],
+                  "link": "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.tar.gz",
+                  "content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;3.0.0.tar.gz</span><i class=\"fas fa-download ml-s\"></i>",
+                  "localize": false
+                }
+              ]
+            }
+          ]]
         }
       ]
     },
 
+    {"type": "h1", "content": "links.title"},
     {
-      "type": "container",
-      "padding": 20,
-      "modifiers": ["no-top-margin"],
+      "type": "paragraph",
+      "indent": 2,
       "parts": [
-        {"type": "h1", "content": "links.title"},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
         {
-          "type": "paragraph",
-          "indent": 2,
+          "type": "raw", "link": "https://github.com/aziascreations/DotNet-ListComPort",
           "parts": [
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "content.commons.github"},
+            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
             {
-              "type": "raw", "link": "https://github.com/aziascreations/DotNet-ListComPort",
-              "parts": [
-                {"type": "raw", "content": "content.commons.github"},
-                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-                {
-                  "type": "raw",
-                  "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/DotNet-ListComPort)</span></span>",
-                  "localize": false
-                }
-              ]
-            },
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+              "type": "raw",
+              "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/DotNet-ListComPort)</span></span>",
+              "localize": false
+            }
+          ]
+        },
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {
+          "type": "raw", "link": "https://git.nibblepoker.lu/aziascreations/DotNet-ListComPort",
+          "parts": [
+            {"type": "raw", "content": "content.commons.gitea"},
+            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
             {
-              "type": "raw", "link": "https://git.nibblepoker.lu/aziascreations/DotNet-ListComPort",
-              "parts": [
-                {"type": "raw", "content": "content.commons.gitea"},
-                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-                {
-                  "type": "raw",
-                  "content": "<span class=\"font-size-12\">(https://git.nibblepoker.lu/aziascreations/DotNet-ListComPort)</span></span>",
-                  "localize": false
-                }
-              ]
+              "type": "raw",
+              "content": "<span class=\"font-size-12\">(https://git.nibblepoker.lu/aziascreations/DotNet-ListComPort)</span></span>",
+              "localize": false
             }
           ]
         }

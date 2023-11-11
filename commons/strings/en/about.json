@@ -1,7 +1,75 @@
 {
-  "about.biography.title": "Who am I ?",
-  "about.philosophy.title": "Projects philosophy",
-  "about.skills.title": "Skills",
-  "about.work.title": "Professional experiences",
-  "about.education.title": "TODO:SchoolAndEducation"
+	"about.head.title": "About - NibblePoker",
+	"about.head.description": "TODO: description",
+	"about.og.title": "NibblePoker - About",
+	"about.og.description": "TODO: description",
+	"about.header.title": "About",
+	
+	
+	"about.intro.title": "Introduction",
+	
+	"about.intro.text.01": "My name is Herwin Bozet, I'm an experienced developer with extensive experience in PureBasic, Python, Java, VBA; and intermediate knowledge in C, Win32 APIs, embedded systems and general web development.",
+	"about.intro.text.02": "I've been programming for about 10 years now, and for the last 5 years I've been actively working on applying that experience to a variety of projects with the aim of helping programmers and people in their day-to-day life.",
+	
+	"about.intro.text.10": "NibblePoker is, in essence, a simple moniker and the front-end for most of my public-focused work.",
+	"about.intro.text.11": "It houses all my work made and tailored for usage by other people.",
+	
+	"about.intro.text.20": "This entire website, as well as all my work for it and other personal projects, is completely open-source and available under permissive <abbr title=\"Open Source Initiative\">OSI</abbr> approved licenses.",
+	"about.intro.text.21": "All of it is maintained, developed and expanded in my free time with the occasional help from people in the open-source community.",
+	
+	
+	"about.tenets.title": "Core tenets",
+	
+	"about.tenets.text.01": "",
+	"about.tenets.text.02": "",
+	
+	
+	"about.future.title": "Future plans",
+	
+	"about.future.text.01":"It is planned to turn NibblePoker into a <abbr title=\"Private company with limited liability\">SPRL</abbr> in a couple years if everything goes as planned.",
+	"about.future.text.02":"This would allow me to centralize many things and invest properly in my targetted fields to achieve my goals.",
+	"about.future.text.10":"The goal would be to create a small sustainable local business that offers a wide range of products and solutions covering <abbr title=\"Internet of things\">IoT</abbr> devices, programming, and technological independence ; All while including the required software and hardware components often lacking in such products and solutions.",
+	"about.future.text.20":"Ultimately, all this work and research would be made available to the public under open-source licenses, enabling anyone who wishes to learn, reuse, and resell open-source products, to do so in a similar way as companies like Adafruit do.",
+	
+	
+	"_about.nibblepoker.title": "The 'NibblePoker' name",
+	"_about.nibblepoker.text.01": "TODO",
+	"_about.nibblepoker.text.10": "TODO",
+	"_about.nibblepoker.text.11": "TODO",
+	"_about.nibblepoker.text.20": "TODO",
+	
+	
+	"about.financing.title": "Financing",
+	
+	"about.financing.text.01": "This website, as well as the surrounding infrastructure, was made to cost as little as possible while not being reliant on any censor-happy companies.",
+	"about.financing.text.02": "Following my core tenets, I also wanted to retain some sort of \"technological sovereignty\", and therefore refuse to support or use companies that actively fight against legal free speech.",
+	
+	"about.financing.text.10": "The details of the operating costs are provided below to illustrate the low price of such independence.",
+	
+	"about.financing.text.20": "And for those of you who are more motivated, I hope to inspire you to at least try this kind of activity.",
+	"about.financing.text.21": "It may seem daunting at first, but for a fraction of the cost presented here, <b>and with a bit of motivation</b>, you can already accomplish a lot of things and gain valuable knowledge for a world as interconnected as ours.",
+	
+	"about.financing.text.isp": "The main ISP bill isn't accounted for since this could run off some random public Wi-Fi.",
+	
+	"about.financing.part.service": "Service",
+	"about.financing.part.cost": "Cost",
+	"about.financing.part.cost.total": "Total Cost",
+	"about.financing.part.equipment": "Equipment",
+	"about.financing.part.cost.yearly": "Yearly Cost",
+	"about.financing.part.cost.yearly.total": "Yearly Cost",
+	
+	"about.financing.part.domain.lu": "<i>.lu</i> domain",
+	"about.financing.part.domain.com": "<i>.com</i> domain",
+	"about.financing.part.proxy.europe": "European reverse-proxy",
+	"about.financing.part.proxy.america": "American reverse-proxy",
+	"about.financing.part.proxy.asia": "Asian reverse-proxy",
+	"about.financing.part.emails": "Emails",
+	"about.financing.part.electricity": "Electricity",
+	"about.financing.part.nanopir4s": "NanoPi R4S",
+	"about.financing.part.storage": "Local storage",
+	
+	
+	"about.aziascreations.title": "The 'AziasCreations' name",
+	"_about.aziascreations.text.01": "TODO",
+	"_about.aziascreations.text.10": "TODO"
 }

@@ -6,183 +6,196 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 }
 
 // Importing required scripts.
-include_once 'langs.php';
-include_once 'composer.php';
+include_once 'commons/langs.php';
 
-// Defining some options.
-$PRINT_CONTENT_DEBUG_INFO_TEXT_ELEMENTS = true;
-$PRINT_CONTENT_DEBUG_ERROR_TEXT_ELEMENTS = true;
-
-// Defining constants and enums.
 abstract class ContentDisplayType {
 	const NONE = 0;
-    const SEARCH = 1;
+	const SEARCH = 1;
 	const CONTENT = 2;
 }
 
-// Preparing default variables.
-$requested_content_display_type = ContentDisplayType::NONE;
-$content_has_error = false;
-$content_error_message_key = "error.content.none";
-$content_error_message = "";
-$requested_tags = array();
-$raw_additional_tags = "";
-$filtered_content_index_data = NULL;
-$requested_item_data = NULL;
-$content = null;
-
-// Detecting content display type requested.
-$content_requested_url_part = explode("?", explode("#", preg_replace("^\/(content)^", "", l10n_url_switch(NULL)))[0])[0];
-
-if(strcmp($content_requested_url_part, "/") == 0) {
-	$requested_content_display_type = ContentDisplayType::SEARCH;
-} else {
-	$requested_content_display_type = ContentDisplayType::CONTENT;
-	$content_requested_url_part = ltrim($content_requested_url_part, "/");
+class ContentIndexEntry {
+	public string $id;
+	public ?array $title;
+	public ?array $preamble;
+	public string $image;
+	public array $tags;
+	public int $priority;
+	
+	function __construct(string $id, ?array $title, ?array $preamble, ?string $image, ?array $tags, ?int $priority) {
+		$this->id = $id;
+		$this->title = $title;
+		$this->preamble = $preamble;
+		$this->image = is_null($image) ? "/resources/NibblePoker/images/placeholder.png" : $image;
+		$this->tags = is_null($tags) ? [] : $tags;
+		$this->priority = is_null($priority) ? 0 : $priority;
+	}
+	
+	static function from_json(array $json_data): ?ContentIndexEntry {
+		if(!key_exists("id", $json_data)) {
+			return null;
+		}
+		return new ContentIndexEntry(
+			$json_data["id"],
+			key_exists("title", $json_data) ? $json_data["title"] : null,
+			key_exists("preamble", $json_data) ? $json_data["preamble"] : null,
+			key_exists("image", $json_data) ? $json_data["image"] : null,
+			key_exists("tags", $json_data) ? $json_data["tags"] : null,
+			key_exists("priority", $json_data) ? $json_data["priority"] : null
+		);
+	}
 }
 
-if($requested_content_display_type == ContentDisplayType::SEARCH) {
-	// Checking if more tags were given
-	if(isset($_GET['tags'])) {
-		$raw_additional_tags = htmlspecialchars($_GET['tags']);
+class ContentManager {
+	public ContentDisplayType|int $displayType;
+	public bool $hasError;
+	public string $errorMessageKey;
+	public ?string $requestedId;
+	public ?array $requestedTags;
+	public ?array $rootIndexEntries;
+	public ?string $contentFilepath;
+	
+	function __construct(string $contentRootPath, string $requestedUrl, ?string $urlTags) {
+		// Preparing default values
+		$this->displayType = ContentDisplayType::NONE;
+		$this->hasError = false;
+		$this->errorMessageKey = "content.error.message.none";
+		$this->requestedId = NULL;
+		$this->requestedTags = NULL;
+		$this->rootIndexEntries = NULL;
+		$this->contentFilepath = NULL;
 		
-		// Checking the length to prevent bad requests
-		if(strlen($raw_additional_tags) > 256) {
-			$content_has_error = true;
-			$content_error_message_key = "error.content.tags.length";
-			goto content_end;
-		}
-		
-		// Extracting the additional tags safely
-		$raw_additional_tags_exploded = explode(";", $raw_additional_tags);
-		for($i = 0; $i < count($raw_additional_tags_exploded); $i++) {
-			if(strlen($raw_additional_tags_exploded[$i]) > 0) {
-				if(ctype_alnum($raw_additional_tags_exploded[$i])) {
-					$requested_tags[] = $raw_additional_tags_exploded[$i];
-				} else {
-					$content_has_error = true;
-					$content_error_message_key = "error.content.tags.alphanumeric";
-					goto content_end;
-				}
+		// Doing some standard things
+		$this->processUrl($requestedUrl, $urlTags);
+		if(!$this->hasError) {
+			if($this->displayType == ContentDisplayType::SEARCH) {
+				$this->loadRootIndex(realpath($contentRootPath . "/index.json"));
+			} elseif($this->displayType == ContentDisplayType::CONTENT) {
+				$this->prepareContentFilePath($contentRootPath);
 			}
 		}
-		unset($raw_additional_tags_exploded);
 	}
 	
-	// Loading the content index.
-	$content_json = file_get_contents(realpath($dir_content . "/index.json"));
-	$content_index_data = json_decode($content_json, true);
-	unset($content_json);
-	
-	// Filtering out unwanted entries.
-	$filtered_content_index_data = array();
-	for($i = 0; $i < count($content_index_data); $i++) {
-		if(count(array_intersect($content_index_data[$i]["tags"], $requested_tags)) == count($requested_tags)) {
-			$filtered_content_index_data[] = $content_index_data[$i];
-		}
-	}
-	
-	// Cleaning some variables.
-	unset($content_index_data);
-	unset($content_json);
-	
-	// Checking if we found content for the user.
-	if(count($filtered_content_index_data) == 0) {
-		// No relevant article/page were found for the given tags.
-		$content_has_error = true;
-		$content_error_message_key = "error.content.detect.empty";
-		goto content_end;
-	}
-} else if($requested_content_display_type == ContentDisplayType::CONTENT) {
-	// Sanitizing the requested ID.
-	if(!ctype_alnum(str_replace("-", "", $content_requested_url_part))) {
-		$content_has_error = true;
-		$content_error_message_key = "error.content.id.alphanumeric";
-		goto content_end;
-	}
-	
-	// Loading the content's data
-	$content_file_path = get_content_file_path($content_requested_url_part);
-	
-	if(empty($content_file_path)) {
-		// File doesn't exist !
-		$content_has_error = true;
-		$content_error_message_key = "error.content.data.not.exist";
-		unset($content_file_path);
-		goto content_end;
-	} else {
-		$content = load_content_by_file_path($content_file_path);
+	function processUrl(string $requestedUrl, ?string $urlTags): void {
+		// Doing some dark magic whose inner workings are lost to times...
+		$requestedUrlPart = explode(
+			"?",
+			explode("#", preg_replace("^\/(content|tools)^", "", $requestedUrl))[0]
+		)[0];
 		
-		if(is_null($content)) {
-			$content_has_error = true;
-			$content_error_message_key = "error.content.cannot.load";
-			unset($content_file_path);
-			goto content_end;
-		}
-	}
-	
-	unset($content_file_path);
-}
-
-content_end:
-// TODO: Create error thingy
-$content_error_message = localize($content_error_message_key);
-
-// These functions are placed here to prevent the main file from becoming impossible to read.
-function start_content_card($iconClasses, $title, $subTitle) {
-	echo('<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20"><div class="container-fluid">');
-	echo('<h2 class="card-title font-size-18 m-0"><i class="'.$iconClasses.'"></i>&nbsp;&nbsp;'.localize($title));
-	echo('<span class="card-title font-size-18 m-0 text-super-muted float-right hidden-xs-and-down">'.$subTitle.'</span></h2>');
-	echo('</div></div>');
-}
-
-function end_content_card() {
-	echo('</div>');
-}
-
-/*
-	switch($elementNode["type"]) {
-		case "image":
-			// Parsing properties.
-			$_imgAlt = "";
-			$_imgSource = "/resources/Azias/imgs/placeholder.png";
-			if(array_key_exists("alt", $elementNode)) {
-				$_imgAlt = $elementNode["alt"];
-			}
-			if(array_key_exists("src", $elementNode)) {
-				$_imgSource = $elementNode["src"];
+		if(strcmp($requestedUrlPart, "/") == 0) {
+			$this->displayType = ContentDisplayType::SEARCH;
+			
+			if(is_null($urlTags)) {
+				return;
 			}
 			
-			// Reading and processing the modifiers.
-			$_modFillHeight = false;
-			if(array_key_exists("modifiers", $elementNode)) {
-				for ($i = 0; $i < count($elementNode["modifiers"]); $i++) {
-					if ($elementNode["modifiers"][$i] == "fill-height") {
-						$_modFillHeight = true;
+			if(strlen($urlTags) > 256) {
+				$this->hasError = true;
+				$this->errorMessageKey = "content.error.message.tags.length";
+				return;
+			}
+			
+			$explodedTags = explode(";", $urlTags);
+			$this->requestedTags = count($explodedTags) > 0 ? array() : $this->requestedTags;
+			for($i = 0; $i < count($explodedTags); $i++) {
+				if(strlen($explodedTags[$i]) > 0) {
+					if(ctype_alnum($explodedTags[$i])) {
+						$this->requestedTags[] = $explodedTags[$i];
+					} else {
+						$this->hasError = true;
+						$this->errorMessageKey = "content.error.message.tags.alphanumeric";
+						return;
 					}
 				}
 			}
-			
-			// Adding element.
-			echo('<img class="'.($_modFillHeight?'fill-height':'').'" src="'.$_imgSource.'" alt="'.$_imgAlt.'">');
-			
-			break;
-		case "slider":
-		case "glider":
-		case "gallery":
-			// Starting the gallery
-			echo('<div class="glider-container d-flex">');
-			echo('<div class="align-self-stretch font-size-40 mr-5 my-auto glider-nav" aria-label="Previous">');
-			echo('<i class="fad fa-angle-left"></i></div>');
-			echo('<div class="glider align-self-stretch flex-fill">');
-			
-			// Adding content.
-			processStandardContentSubNode($elementNode, "<div>", "</div>");
+		} else {
+			$this->displayType = ContentDisplayType::CONTENT;
+			$this->requestedId = ltrim(rtrim($requestedUrlPart, "/"), "/");
+		}
+	}
+	
+	function loadRootIndex(string $rootIndexFilepath): void {
+		// Loading the content index.
+		$rawJsonContent = file_get_contents($rootIndexFilepath);
+		$jsonContent = json_decode($rawJsonContent, true);
+		unset($rawJsonContent);
 		
-			// Ending the gallery
-			echo('</div><div class="align-self-stretch font-size-40 ml-5 my-auto glider-nav" aria-label="Next">');
-			echo('<i class="fad fa-angle-right"></i></div></div>');
+		$this->rootIndexEntries = array();
+		for($i = 0; $i < count($jsonContent); $i++) {
+			// Filtering out unwanted entries and putting their data in a proper class.
+			if(!is_null($this->requestedTags)) {
+				if(count(array_intersect($jsonContent[$i]["tags"], $this->requestedTags)) == 0) {
+					continue;
+				}
+			}
+			//if(count(array_intersect($jsonContent[$i]["tags"], $this->requestedTags)) == count($this->requestedTags)) {}
 			
-			break;
-}/**/
+			// Parsing the raw data into a structure.
+			$newIndexEntry = ContentIndexEntry::from_json($jsonContent[$i]);
+			
+			// Checking if it was parsed properly
+			if(is_null($newIndexEntry)) {
+				$this->hasError = true;
+				$this->errorMessageKey = "content.error.message.failed.structure";
+				return;
+			} else {
+				$this->rootIndexEntries[] = $newIndexEntry;
+			}
+		}
+		unset($jsonContent);
+		
+		// Checking if we found any content for the user.
+		if(count($this->rootIndexEntries) == 0) {
+			// No relevant article/page were found for the given tags.
+			$this->hasError = true;
+			$this->errorMessageKey = "content.error.message.detect.empty";
+			return;
+		}
+		
+		// Sorting entries based on their priority
+		usort($this->rootIndexEntries, function(ContentIndexEntry $a, ContentIndexEntry $b) {
+			if($a->priority == $b->priority) {
+				return 0;
+			}
+			return ($a->priority > $b->priority) ? -1 : 1;
+		});
+	}
+	
+	function prepareContentFilePath(string $contentRootPath): void {
+		// Sanitizing the requested ID.
+		if(!ctype_alnum(str_replace("-", "", $this->requestedId))) {
+			$this->hasError = true;
+			$this->errorMessageKey = "content.error.message.id.alphanumeric";
+			return;
+		}
+		
+		// Preparing and checking the content's info index file.
+		$this->contentFilepath = get_content_file_path($contentRootPath, $this->requestedId);
+		
+		if(empty($this->contentFilepath)) {
+			// File doesn't exist !
+			$this->hasError = true;
+			$this->errorMessageKey = "content.error.message.data.not.exist";
+		}
+	}
+}
+
+// Common utilities
+function get_content_file_path(string $contentRootPath, string $contentId): ?string {
+	if(ctype_alnum(str_replace("-", "", $contentId))) {
+		return realpath($contentRootPath . "/items/" . $contentId . ".json");
+	}
+	return null;
+}
+
+// Functions for use in pages
+function getContentManager(string $contentRootPath): ContentManager {
+	return new ContentManager(
+		$contentRootPath,
+		l10n_url_switch(NULL),
+		isset($_GET['tags']) ? htmlspecialchars($_GET['tags']) : NULL
+	);
+}
+
 ?>

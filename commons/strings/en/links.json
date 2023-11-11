@@ -1,0 +1,31 @@
+{
+	"links.head.title": "Links - NibblePoker",
+	"links.head.description": "TODO: description",
+	"links.og.title": "NibblePoker - Links",
+	"links.og.description": "TODO: description",
+	"links.header.title": "Links",
+	
+	"links.social.title": "Social Networks",
+	"links.misc.title": "Miscellaneous",
+	
+	"links.twitter.title": "Twitter <i>(@NibblePoker)</i>",
+	"links.twitter.text.1": "???",
+	
+	"links.github.title": "GitHub <i>(@aziascreations)</i>",
+	"links.github.text.1": "Private account containing all my personal projects.",
+	
+	"links.github_pro.title": "GitHub <i>(@NibblePoker)</i>",
+	"links.github_pro.text.1": "Organization containing all the repositories related to this website.",
+	
+	"links.linkedin.title": "LinkedIn",
+	"links.linkedin.text.1": "???",
+	
+	"links.gitea.title": "Self-hosted Gitea",
+	"links.gitea.text.1": "Contains all my projects and some mirrors from various sites.",
+	
+	"links.files.title": "Public files &amp; downloads",
+	"links.files.text.1": "Contains all files that can be downloaded on this website and other documentation.",
+	
+	"links.archives.title": "Public archives",
+	"links.archives.text.1": "Contains various public archives."
+}

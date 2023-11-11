@@ -1,11 +1,14 @@
 {
-  "contact.title": "Contact",
-  "contact.email.title": "Courriel",
-  "contact.email.name": "Nom de l'envoyeur",
-  "contact.email.message": "Message",
-  "contact.twitter.button": "Composer un message privé pour @NibblePoker sur Twitter",
-  "contact.tox.main": "Compte principal:",
-  "contact.tox.secondary": "Compte secondaire:",
-  "contact.tox.button.open": "Ouvrir dans un client Tox",
-  "contact.tox.button.copy": "Copier dans le presse-papier"
+	"contact.head.title": "Contact - NibblePoker",
+	"contact.head.description": "TODO: description",
+	"contact.og.title": "NibblePoker - Contact",
+	"contact.og.description": "TODO: description",
+	"contact.header.title": "Contact",
+	
+	"contact.email.title": "Courriel",
+	"contact.email.compose": "Envoyer un courriel à <i>herwin.bozet@gmail.com</i>",
+	
+	"contact.twitter.title": "Twitter",
+	"contact.twitter.compose": "Composer un message privé pour @NibblePoker sur Twitter"
+	
 }

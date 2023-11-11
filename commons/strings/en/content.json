@@ -1,0 +1,83 @@
+{
+  "content.search.head.title": "Content search - NibblePoker",
+  "content.search.head.description": "TODO: description",
+  "content.search.og.title": "NibblePoker - Content search",
+  "content.search.og.description": "TODO: description",
+  
+  "content.search.heading.main.single": "Search result",
+  "content.search.heading.main.multiple": "Search results",
+
+  "content.search.count.single": "result",
+  "content.search.count.multiple": "results",
+  
+  "content.header.base" : "Projects",
+  "content.search.header" : "Search",
+  "content.error.header" : "Error",
+  "_content.item.header" : "",
+  
+  "content.error.head.title": "Content error - NibblePoker",
+  "_content.error.head.description": "Done via the '$content_error_message' variable",
+  "content.error.og.title": "NibblePoker - Content error",
+  "_content.error.og.description": "Done via the '$content_error_message' variable",
+
+  "content.error.heading.main.search": "Search error",
+  "content.error.heading.main.content": "Content error",
+  "content.error.heading.main.fallback": "Unknown error",
+
+  "_": "Messages returned by 'commons/content.php'",
+  "content.error.message.none": "No explicit error was encountered.",
+  "content.error.message.tags.length": "The \"tags\" URL parameter is too long.",
+  "content.error.message.tags.alphanumeric": "One of the tags given in the \"tags\" URL parameter is not a valid alphanumeric string.",
+  "content.error.message.detect.empty": "No content could be found for the given tags.",
+  "content.error.message.id.alphanumeric": "The requested resource's ID isn't a valid alphanumeric string.",
+  "content.error.message.data.not.exist": "The requested content doesn't have an internal item file associated to it.",
+  "content.error.message.cannot.load": "The requested content couldn't be loaded on our end !",
+  
+  "__": "Messages returned by 'commons/composer.php'",
+  "content.error.message.data.no.tags": "No tags found !",
+  "content.error.message.data.no.title": "No title found !",
+  
+  "___": "Messages returned by 'commons/content/tools.php'",
+  "_content.error.message.cannot.load.item.as.not.content": "",
+  "_content.error.message.missing.file.dom": "",
+  "_content.error.message.missing.file.lang": "",
+  "_content.error.message.missing.file.code": "",
+  "_content.error.message.missing.file.style": "",
+  
+  "content.item.head.title.prefix": "",
+  "content.item.head.title.suffix": " - NibblePoker",
+
+  "content.item.og.title.prefix": "",
+  "content.item.og.title.suffix": " - NibblePoker",
+  
+  "content.commons.version.current": "Current version",
+  "content.commons.version.previous.single": "Previous version",
+  "content.commons.version.previous.multiple": "Previous versions",
+  "content.commons.version.old.single": "Old version",
+  "content.commons.version.old.multiple": "Old versions",
+  "content.commons.version.source": "Source code",
+  "content.commons.cpu": "CPU <span class=\"mobile-hide\">Architecture</span>",
+  "content.commons.cpu.responsive": "CPU <span class=\"mobile-hide\">Architecture</span>",
+  "content.commons.cpu.any": "Any architecture",
+  "content.commons.cpu.x64": "x64",
+  "content.commons.cpu.x86": "x86",
+  "content.commons.cpu.arm": "arm",
+  "content.commons.cpu.arm64": "arm64",
+  "content.commons.na.italic": "<i>N/A</i>",
+  "content.commons.na": "N/A",
+  "content.commons.lang": "Language",
+  "content.commons.download.single": "Download",
+  "content.commons.download.multiple": "Downloads",
+  "content.commons.version": "Version",
+  "content.commons.github": "GitHub Repository",
+  "content.commons.gitea": "Self-hosted Gitea Repository",
+  "content.commons.nuget": "Nuget Package",
+  "content.commons.license.mit.single": "MIT License",
+  
+  "content.commons.lang.english": "English",
+  "content.commons.lang.french": "French",
+  "content.commons.lang.luxembourgish": "Luxembourgish",
+  "content.commons.lang.english.639-3": "English (eng)",
+  "content.commons.lang.french.639-3": "French (fra)",
+  "content.commons.lang.luxembourgish.639-3": "Luxembourgish (ltz)"
+}

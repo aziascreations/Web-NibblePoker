@@ -1,0 +1,140 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Site > Elements > Inputs */
+
+/* Site > Elements > Inputs > Commons */
+
+button, input, textarea, select {
+	border: 0;
+	
+	// Removing ugly-ass white glow when editing text-related inputs.
+	// Shit looks straight out of winforms in 2023...
+	outline: none;
+	
+	color: #{$color-text-inputs};
+	background-color: #{$color-background-inputs};
+	
+	&:not(.no-focus) {
+		&:focus {
+			box-shadow: 0px 0px 3px 0px #{$color-input-glow};
+		}
+	}
+	
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+label {
+	cursor: pointer;
+	user-select: none;
+}
+
+/* Site > Elements > Inputs > Checkbox */
+
+input[type=checkbox] {
+	width: 1.65em;
+	height: 1.65em;
+	background-color: #{$color-background-checkbox-unchecked};
+	
+	cursor: pointer;
+	
+	&:checked {
+		background-color: #{$color-background-checkbox-checked};
+	}
+	
+	position: relative;
+	vertical-align: middle;
+}
+input[type="checkbox"] + label {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Site > Elements > Inputs > Buttons */
+
+button {
+	cursor: pointer;
+	background-color: #{$color-background-button};
+	
+	&:hover {
+		background-color: #{$color-background-button-hover};
+	}
+	
+	&.primary {
+		background-color: #{$color-background-button-primary};
+		
+		&:hover {
+			background-color: #{$color-background-button-primary-hover};
+		}
+	}
+	
+	&.success {
+		background-color: #{$color-background-button-success};
+		
+		&:hover {
+			background-color: #{$color-background-button-success-hover};
+		}
+	}
+	
+	&.error {
+		background-color: #{$color-background-button-error};
+		
+		&:hover {
+			background-color: #{$color-background-button-error-hover};
+		}
+	}
+	
+	&.warning {
+		background-color: #{$color-background-button-warning};
+		
+		&:hover {
+			background-color: #{$color-background-button-warning-hover};
+		}
+	}
+}
+
+// Ugly fix for download buttons
+button + button, .button-link + .button-link > button {
+	margin-left: 0.75rem;
+}
+
+/* Site > Elements > Inputs > Lang Selector */
+
+#lang-selector {
+	position: relative;
+	white-space: nowrap;
+	
+	> summary {
+		cursor: pointer;
+		list-style: none;
+		user-select: none;
+	}
+	
+	> div {
+		position: absolute;
+		z-index: #{$z-index-lang-dropdown};
+		top: 2rem;
+		right: 0;
+		min-width: 100%;
+		
+		// Visibility transition
+		//height: 0;
+		//transition: height 0.4s;
+		//transition-timing-function: cubic-bezier(.25,.8,.25,1.1);
+	}
+	
+	// TODO: Maybe force it to be visible when closes ?
+	
+	//&[open] > div {
+	//	height: auto;
+	//}
+}
+
+textarea {
+
+	&.no-resize {
+		resize: none;
+	}
+}

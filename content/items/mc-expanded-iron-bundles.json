@@ -52,7 +52,7 @@
     }
   },
   "metadata": {
-    "template": "article",
+    "template": "generic-project-readme",
     "head": {
       "title": "meta.title",
       "description": "meta.description"
@@ -73,162 +73,138 @@
     }
   },
   "elements": [
+    {"type": "h1", "content": "intro.title"},
+    {"type": "paragraph", "indent": 2, "content": "meta.description"},
+
+    {"type": "h1", "content": "feature.current.title"},
     {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "type": "paragraph",
+      "indent": 2,
       "parts": [
-        {"type": "h1", "content": "intro.title"},
-        {"type": "paragraph", "indent": 2, "content": "meta.description"}
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.current.1"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.current.2"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.current.3"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.current.4"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.current.5"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.current.6"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.current.7"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.current.8"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.current.9"}
       ]
     },
 
+    {"type": "h1", "content": "feature.planned.title"},
     {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "type": "paragraph",
+      "indent": 2,
       "parts": [
-        {"type": "h1", "content": "feature.current.title"},
-        {
-          "type": "paragraph",
-          "indent": 2,
-          "parts": [
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.current.1"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.current.2"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.current.3"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.current.4"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.current.5"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.current.6"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.current.7"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.current.8"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "&nbsp;&nbsp;&nbsp;&nbsp;⚬&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.current.9"}
-          ]
-        }
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.planned.1"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.planned.2"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.planned.3"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.planned.4"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.planned.5"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.planned.6"},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "feature.planned.7"}
       ]
     },
 
+    {"type": "h1", "content": "links.title"},
     {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-bottom-padding", "no-top-margin"],
+      "type": "paragraph",
+      "indent": 2,
+      "modifiers": ["no-bottom-padding"],
       "parts": [
-        {"type": "h1", "content": "feature.planned.title"},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
         {
-          "type": "paragraph",
-          "indent": 2,
+          "type": "raw",
+          "link": "https://github.com/aziascreations/MC-Expanded-Iron-Bundles",
           "parts": [
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.planned.1"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.planned.2"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.planned.3"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.planned.4"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.planned.5"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.planned.6"},
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {"type": "raw", "content": "feature.planned.7"}
-          ]
-        }
-      ]
-    },
-
-    {
-      "type": "container", "padding": 20,
-      "modifiers": ["no-top-margin"],
-      "parts": [
-        {"type": "h1", "content": "links.title"},
-        {
-          "type": "paragraph",
-          "indent": 2,
-          "modifiers": ["no-bottom-padding"],
-          "parts": [
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "content.commons.github"},
+            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
             {
               "type": "raw",
-              "link": "https://github.com/aziascreations/MC-Expanded-Iron-Bundles",
-              "parts": [
-                {"type": "raw", "content": "content.commons.github"},
-                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-                {
-                  "type": "raw",
-                  "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/MC-Expanded-Iron-Bundles)</span></span>",
-                  "localize": false
-                }
-              ]
-            },
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-            {
-              "type": "raw",
-              "link": "https://git.nibblepoker.lu/aziascreations/MC-Expanded-Iron-Bundles",
-              "parts": [
-                {"type": "raw", "content": "content.commons.gitea"},
-                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-                {
-                  "type": "raw",
-                  "content": "<span class=\"font-size-12\">(https://git.nibblepoker.lu/aziascreations/MC-Expanded-Iron-Bundles)</span></span>",
-                  "localize": false
-                }
-              ]
+              "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/MC-Expanded-Iron-Bundles)</span></span>",
+              "localize": false
             }
           ]
         },
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
         {
-          "type": "paragraph",
-          "indent": 2,
-          "modifiers": ["no-top-padding"],
+          "type": "raw",
+          "link": "https://git.nibblepoker.lu/aziascreations/MC-Expanded-Iron-Bundles",
           "parts": [
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+            {"type": "raw", "content": "content.commons.gitea"},
+            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
             {
-              "type": "raw", "link": "https://modrinth.com/mod/expanded-iron-bundles",
-              "parts": [
-                {"type": "raw", "content": "Modrinth [Fabric & Forge]", "localize": false},
-                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-                {
-                  "type": "raw",
-                  "content": "<span class=\"font-size-12\">(https://modrinth.com/mod/expanded-iron-bundles)</span></span>",
-                  "localize": false
-                }
-              ]
-            },
+              "type": "raw",
+              "content": "<span class=\"font-size-12\">(https://git.nibblepoker.lu/aziascreations/MC-Expanded-Iron-Bundles)</span></span>",
+              "localize": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "indent": 2,
+      "modifiers": ["no-top-padding"],
+      "parts": [
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {
+          "type": "raw", "link": "https://modrinth.com/mod/expanded-iron-bundles",
+          "parts": [
+            {"type": "raw", "content": "Modrinth [Fabric & Forge]", "localize": false},
+            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
+            {
+              "type": "raw",
+              "content": "<span class=\"font-size-12\">(https://modrinth.com/mod/expanded-iron-bundles)</span></span>",
+              "localize": false
+            }
+          ]
+        },
 
-            {"type": "raw", "content": "<br>", "localize": false},
-            {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {
+          "type": "raw", "link": "https://www.curseforge.com/minecraft/mc-mods/expanded-iron-bundles-fabric",
+          "parts": [
+            {"type": "raw", "content": "CurseForge [Fabric]", "localize": false},
+            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
             {
-              "type": "raw", "link": "https://www.curseforge.com/minecraft/mc-mods/expanded-iron-bundles-fabric",
-              "parts": [
-                {"type": "raw", "content": "CurseForge [Fabric]", "localize": false},
-                {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-                {
-                  "type": "raw",
-                  "content": "<span class=\"font-size-12\">(https://www.curseforge.com/minecraft/mc-mods/expanded-iron-bundles-fabric)</span></span>",
-                  "localize": false
-                }
-              ]
+              "type": "raw",
+              "content": "<span class=\"font-size-12\">(https://www.curseforge.com/minecraft/mc-mods/expanded-iron-bundles-fabric)</span></span>",
+              "localize": false
             }
           ]
         }

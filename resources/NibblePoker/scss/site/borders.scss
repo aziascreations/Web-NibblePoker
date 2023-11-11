@@ -1,0 +1,36 @@
+
+.border, code, .code, kbd {
+	border-color: #{$color-border-surround};
+	
+	//&.b-light {
+	//	border: 1px solid #{$color-border-light};
+	//}
+}
+
+code, .code, kbd {
+	border-color: #{$color-border-code};
+}
+
+main {
+	.border {
+		border-color: #{$color-border-main};
+		
+		//&.b-light {
+		//	border: 1px solid #{$color-border-light};
+		//}
+	}
+}
+
+table.stylish {
+	// Fixing border issues when using rounded corners by using a "fake" one using the background's color.
+	// It will look like utter shit when rounded on firefox because its rendering engine cannot clip rounded corners apparently.
+	// I guess that's what being at less than 3% of the market share does to you and your ability to care about basic shit.
+	&.border {
+		background-color: #{$color-border-main};
+	}
+}
+
+// Special fix for select inputs' dropdown menu
+//select.border option::before {
+//	border: 1px solid deeppink !important;
+//}

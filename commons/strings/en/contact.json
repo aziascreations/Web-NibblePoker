@@ -1,11 +1,14 @@
 {
-  "contact.title": "Contact",
-  "contact.email.title": "Email",
-  "contact.email.name": "Sender's Name",
-  "contact.email.message": "Message",
-  "contact.twitter.button": "Compose DM to @NibblePoker on Twitter",
-  "contact.tox.main": "Main account:",
-  "contact.tox.secondary": "Backup account:",
-  "contact.tox.button.open": "Open in Tox Client",
-  "contact.tox.button.copy": "Copy to clipboard"
+	"contact.head.title": "Contact - NibblePoker",
+	"contact.head.description": "TODO: description",
+	"contact.og.title": "NibblePoker - Contact",
+	"contact.og.description": "TODO: description",
+	"contact.header.title": "Contact",
+	
+	"contact.email.title": "Email",
+	"contact.email.compose": "Send an email to <i>herwin.bozet@gmail.com</i>",
+	
+	"contact.twitter.title": "Twitter",
+	"contact.twitter.compose": "Compose DM to @NibblePoker on Twitter"
+	
 }

@@ -1,0 +1,31 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Utilities > Rounding > Sided */
+@mixin sided-rounding-maker($size-key, $size-value) {
+	.rt-#{$size-key} {
+		border-top-left-radius: #{$size-value};
+		border-top-right-radius: #{$size-value};
+	}
+	.rb-#{$size-key} {
+		border-bottom-left-radius: #{$size-value};
+		border-bottom-right-radius: #{$size-value};
+	}
+	.rl-#{$size-key} {
+		border-top-left-radius: #{$size-value};
+		border-bottom-left-radius: #{$size-value};
+	}
+	.rr-#{$size-key} {
+		border-top-right-radius: #{$size-value};
+		border-bottom-right-radius: #{$size-value};
+	}
+}
+
+/* Utilities > Rounding > Sided > Variable Sizes */
+@include sided-rounding-maker("xs", calc(#{$border-base-radius} * 0.5));
+@include sided-rounding-maker("s", calc(#{$border-base-radius} * 0.75));
+@include sided-rounding-maker("m", #{$border-base-radius});
+@include sided-rounding-maker("l", calc(#{$border-base-radius} * 1.5));
+
+/* Utilities > Rounding > Sided > Fixed Sizes */
+@include sided-rounding-maker("0", 0);
+@include sided-rounding-maker("r", 50%);

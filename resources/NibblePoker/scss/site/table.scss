@@ -1,0 +1,56 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+tr, td {
+	vertical-align: top;
+}
+
+table.stylish {
+	th {
+		font-weight: bold;
+	}
+	
+	tr {
+		background-color: #{$color-background-table-dual};
+	}
+	
+	tr:not(:last-of-type), th {
+		border-bottom: 1.5px solid #{$color-table-border};
+	}
+	
+	tr:nth-child(2n), th {
+		background-color: #{$color-background-table-main};
+	}
+	
+	td:not(:last-of-type), th:not(:last-of-type) {
+		border-right: 1.5px solid #{$color-table-border};
+	}
+	
+	// See 'site/border.scss' for border fix.
+}
+
+// Applying .p-xs and .p-s to all cells if needed
+// See 'core/spacing' for more info.
+.table-p-xs {
+	td, th {
+		padding: calc(#{$margin-base-size} * 0.5);
+	}
+}
+
+.table-h-p-s {
+	th {
+		padding: calc(#{$margin-base-size} * 0.75);
+	}
+}
+
+.table-p-s {
+	td, th {
+		padding: calc(#{$margin-base-size} * 0.75);
+	}
+}
+
+// Centers the cells' content vertically
+.table-v-center {
+	tr, td {
+		vertical-align: middle;
+	}
+}

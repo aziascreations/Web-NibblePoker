@@ -1,0 +1,44 @@
+[
+	{
+		"id": "svg-to-png",
+		"title": {
+			"en": "SVG to PNG Converter",
+			"fr": "Convertisseur SVG vers PNG"
+		},
+		"preamble": {
+			"en": "TODO: Description",
+			"fr": "TODO: Description"
+		},
+		"_image": "",
+		"tags": ["converter", "svg", "png"],
+		"priority": 100
+	},
+	{
+		"id": "formula-wizard",
+		"title": {
+			"en": "Formula Wizard",
+			"fr": "Ensorceleur de formules"
+		},
+		"preamble": {
+			"en": "TODO: Description",
+			"fr": "TODO: Description"
+		},
+		"image": "/resources/NibblePoker/images/content/formula-wizard/v1.png",
+		"tags": ["converter"],
+		"priority": 200
+	},
+	{
+		"id": "b64-tools",
+		"title": {
+			"en": "Base64 Tools",
+			"fr": "Outils pour Base64"
+		},
+		"preamble": {
+			"en": "TODO: Description",
+			"fr": "TODO: Description"
+		},
+		"_image": "",
+		"tags": ["converter"],
+		"priority": 210
+	}
+]

@@ -1,0 +1,31 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Site > Misc > Backgrounds */
+
+.bkgd-blank {
+	background: #{$color-background-main-headings};
+}
+
+// The element rules override rules in `base.scss ~94`
+.bkgd-surround, header, nav, footer {
+	//background: #{$color-background-surround};
+	background: #{$color-background-surround} url("#{$nibblepoker-background-root}/3px-tile-0.1.png") repeat scroll center center;
+}
+
+.bkgd-blank-dark {
+	background: mix($color-background-main, $color-background-surround, 50%);
+}
+
+.bkgd-grid {
+	background: #{$color-background-main-headings} url("#{$nibblepoker-background-root}/3px-tile-0.4.png") repeat scroll center center;
+}
+
+.bkgd-squares {
+	background: #{$color-background-main-headings} url("#{$nibblepoker-background-root}/bright-squares-p100-0.125.png") repeat scroll center center;
+}
+
+.bkgd-math {
+	//background: #{$color-background-main-headings} url("#{$nibblepoker-background-root}/old-mathematics-v2-0.25.png") repeat scroll center center;
+	// FIXME: Fix the code using this class !!!
+	background: #{$color-background-main-headings} url("#{$nibblepoker-background-root}/3px-tile-0.2.png") repeat scroll center center;
+}

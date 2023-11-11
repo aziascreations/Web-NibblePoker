@@ -1,0 +1,19 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+/* Site > Fixes > Mobile */
+
+@media only screen and (max-width: 768px) {
+	// Overrides the ".p-l" class used on "main".
+	main {
+		padding: calc(#{$margin-base-size} * 0.5) !important;
+	}
+	
+	// Overrides a style in "site/content.scss".
+	.content-search-entry > p {
+		width: 100% !important;
+	}
+	
+	.mobile-hide {
+		display: none;
+	}
+}
