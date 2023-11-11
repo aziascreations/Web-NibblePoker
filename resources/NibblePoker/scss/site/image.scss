@@ -87,9 +87,12 @@
 	bottom: 1.5em;
 	right: 1.5em;
 	filter: drop-shadow(0 0 0.25rem #0000007F);
-	mix-blend-mode: multiply;
 	//opacity: 0.25;
-	opacity: 0.2;
+	
+	//mix-blend-mode: multiply;
+	//opacity: 0.2;
+	
+	opacity: 0.4;
 	
 	// Preventing the selection and dragging of the image for aesthetic reasons.
 	user-drag: none;

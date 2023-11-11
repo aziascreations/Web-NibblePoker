@@ -47,7 +47,7 @@ include 'commons/DOM/sidebar.php';
 	</p>
 	
 	<?php printSubHeader(localize("about.tenets.title")); ?>
-	<p class="mt-xs ml-s">
+	<p class="mt-xs ml-s t-bold">
 		<!-- TODO: This section -->
 		TODO
 	</p>

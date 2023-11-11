@@ -17,5 +17,7 @@
 	"error.500.og.description": "The server has encountered a situation it doesn't know how to handle.",
 	"error.500.header.title": "Error<span class=\"mx-s t-size-15\">❱</span>500 Error",
 	
+	"error.title": "%0 Error",
+	
 	"error.skit.pc.dead": "Drawing of an old PC with a face with crossed eyes."
 }

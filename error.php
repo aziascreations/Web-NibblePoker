@@ -37,9 +37,8 @@ include 'commons/DOM/sidebar.php';
 </header>
 <main id="main" class="rl-m border border-r-0 p-l">
 	
-	<?php printMainHeader(localize("home.intro.title")); ?>
-    <p class="mt-xs ml-s"><?php print(localize("home.intro.text.1")); ?></p>
-    <p class="mt-xs ml-s"><?php print(localize("home.intro.text.2")); ?></p>
+	<?php printMainHeader(localize("error.title", [$np_err_code]), "fas fa-exclamation-triangle"); ?>
+    <p class="mt-xs mx-s t-bold t-size-12"><?php print(localize("error." . $np_err_code . ".og.description")); ?></p>
     
     <?php
 	$np_err_img = "";
@@ -47,6 +46,9 @@ include 'commons/DOM/sidebar.php';
     switch($np_err_code) {
         case 403:
         case 404:
+		    $np_err_img = "/resources/NibblePoker/images/drawings/computer_v1_danger_strong.png";
+		    $np_err_img_alt = localize("error.skit.pc.dead");
+	        break;
         case 500:
         default:
             $np_err_img = "/resources/NibblePoker/images/drawings/computer_v1_dead_strong.png";
