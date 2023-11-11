@@ -6,9 +6,10 @@
   "home.header.title": "Page d'accueil",
   
   
-  "home.intro.title": "",
-  "home.intro.text.1": "",
-  "home.intro.text.2": "",
+  "_home.intro.title": "Bienvenue sur '<i>%0</i>'",
+  "home.intro.title": "Bienvenue sur %0",
+  "home.intro.text.1": "Ce site web contient une collection de mes travaux personnels tels que des articles de blog, des logiciels utilitaires ou d'autres formes de médias.<br>Tout est accessible gratuitement et sous des licences à l'open source.",
+  "home.intro.text.2": "Si vous souhaitez me contacter, vous pouvez le faire via la page de contact lié dans la barre de navigation latérale.",
   
   
   "home.showcase.title": "Vitrine",
@@ -19,7 +20,7 @@
   "home.updates.text.privacy": "●&nbsp;&nbsp;Mise-à-jour de notre politique de confidentialité.",
   
   "home.updates.3.date": "12 novembre 2023",
-  "home.updates.3.text.1": "●&nbsp;&nbsp;Les services annexes sont complètement disponibles.",
+  "home.updates.3.text.1": "●&nbsp;&nbsp;Les services annexes sont disponibles.",
   "home.updates.3.text.2": "●&nbsp;&nbsp;Changement d'hébergeur vers <a href=\"https://www.ionos.fr/\">IONOS</a>.",
   "home.updates.3.text.3": "●&nbsp;&nbsp;Finition des pages annexes.",
   

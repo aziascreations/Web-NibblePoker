@@ -1,0 +1,25 @@
+// NibblePoker.lu CSS - (C) 2023 Bozet Herwin
+
+.grid, .d-grid {
+	display: grid;
+}
+
+@mixin grid-col-maker($col-count, $middle-part) {
+	.col-#{$middle-part}#{$col-count} {
+		grid-template-columns: repeat(#{$col-count}, 1fr);
+	}
+}
+
+// Defining rules for all devices.
+@include grid-col-maker("1", "");
+@include grid-col-maker("2", "");
+@include grid-col-maker("3", "");
+@include grid-col-maker("4", "");
+@include grid-col-maker("6", "");
+@include grid-col-maker("8", "");
+
+@media only screen and (max-width: 768px) {
+	@include grid-col-maker("1", "mobile-");
+	@include grid-col-maker("2", "mobile-");
+	@include grid-col-maker("3", "mobile-");
+}

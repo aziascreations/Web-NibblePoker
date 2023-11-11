@@ -3,9 +3,6 @@ $start_time = microtime(true);
 set_include_path('./');
 include_once 'commons/config.php';
 include_once 'commons/langs.php';
-
-// Page-specific config
-$enable_glider = true;
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
@@ -34,19 +31,13 @@ include 'commons/DOM/sidebar.php';
 </header>
 <main id="main" class="rl-m border border-r-0 p-l">
 	
-	<?php printMainHeader(localize("home.intro.title")); ?>
-    <p class="mt-xs ml-s"><?php print(localize("home.intro.text.1")); ?></p>
-    <p class="mt-xs ml-s"><?php print(localize("home.intro.text.2")); ?></p>
+	<?php printMainHeader(localize("home.intro.title", ["<i class='ml-xxs'>NibblePoker." . $host_tld . "</i>"])); ?>
+    <p class="mt-xs mx-s"><?php print(localize("home.intro.text.1")); ?></p>
+    <p class="mt-xs mx-s"><?php print(localize("home.intro.text.2")); ?></p>
+	
 	
 	<?php printMainHeader(localize("home.showcase.title")); ?>
-	<div class="mt-xs mx-s border r-s">
-		<div class="glider">
-			<img src="/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png" alt="test123">
-			<img src="/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png" alt="test123">
-			<img src="/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png" alt="test123">
-			<img src="/resources/NibblePoker/images/content/lscom/lscom-legacy-simple.png" alt="test123">
-		</div>
-	</div>
+	<p class="mt-xs mx-s t-bold">TODO</p>
 	
 	<?php printMainHeader(localize("home.updates.title")); ?>
 	<p class="mt-xs ml-s t-w-600"><i class="fad fa-calendar-alt mr-xs"></i><?php print(localize("home.updates.3.date")); ?></p>
@@ -56,7 +47,7 @@ include 'commons/DOM/sidebar.php';
 		<?php print(localize("home.updates.3.text.3")); ?><br>
 		<?php print(localize("home.updates.text.privacy")); ?>
 	</p>
-	<p class="mt-xs ml-s t-w-600"><i class="fad fa-calendar-alt mr-xs"></i><?php print(localize("home.updates.2.date")); ?></p>
+	<p class="mt-s ml-s t-w-600"><i class="fad fa-calendar-alt mr-xs"></i><?php print(localize("home.updates.2.date")); ?></p>
 	<p class="mt-xxs ml-m">
 		<?php print(localize("home.updates.2.text.1")); ?><br>
 		<?php print(localize("home.updates.2.text.2")); ?><br>

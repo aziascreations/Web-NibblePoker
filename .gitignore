@@ -34,3 +34,4 @@ tools/items/formula-wizard/src/*.js
 # Temporary
 articles/*.txt
 commons/strings/_*/
+*.ogg

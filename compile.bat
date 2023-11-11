@@ -51,6 +51,8 @@ echo ^> resources\NibblePoker\js\nibblepoker.js
 call "%~dp0node_modules\.bin\terser" nibblepoker.js -c -m -o nibblepoker.min.js
 echo ^> resources\NibblePoker\js\nibblepoker-code.js
 call "%~dp0node_modules\.bin\terser" nibblepoker-code.js -c -m -o nibblepoker-code.min.js
+echo ^> resources\NibblePoker\js\nibblepoker-contributors.js
+call "%~dp0node_modules\.bin\terser" nibblepoker-contributors.js -c -m -o nibblepoker-contributors.min.js
 echo ^> resources\NibblePoker\js\nibblepoker-glider.js
 call "%~dp0node_modules\.bin\terser" nibblepoker-glider.js -c -m -o nibblepoker-glider.min.js
 popd

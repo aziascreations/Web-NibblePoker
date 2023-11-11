@@ -6,14 +6,17 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 
 // Used for opengraph head tags.
 switch($_SERVER['SERVER_NAME']) {
+	case "192.168.1.85":
 	case "localhost":
 	case "nibblepoker.lu":
 		$host = "nibblepoker.lu";
 		$host_uri = "https://nibblepoker.lu";
+		$host_tld = "lu";
 		break;
 	case "nibblepoker.com":
 		$host = "nibblepoker.com";
 		$host_uri = "https://nibblepoker.com";
+		$host_tld = "com";
 		break;
 	default:
 		http_response_code(400);
@@ -29,6 +32,7 @@ $config_dir_tools = realpath($dir_commons . "/../" . "tools/");
 $enable_grids = false;
 $enable_code_highlight = false;
 $enable_glider = false;
+$enable_kitty_and_doggo_sounds = false;
 
 // Easter-egg optional features
 // > Belgium's independence day.

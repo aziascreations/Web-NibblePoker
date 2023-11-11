@@ -15,6 +15,49 @@
 	height: 7.5rem;
 }
 
+.img-contributor, .img-contributor > img {
+	width: 6rem;
+	height: 6rem;
+	
+	border-radius: 50%;
+	
+	transition: width 0.175s ease-in-out, height 0.175s ease-in-out, opacity 0.175s ease-in-out;
+	
+	&:hover, &:hover > img {
+		width: 7.5rem;
+		height: 7.5rem;
+	}
+	
+	&.kitty {
+		cursor: grab;
+	}
+}
+
+.img-contributor {
+	display: inline-block;
+	box-shadow: 0 0 6px 0 rgba(0,0,0,0.75);
+	
+	&>img {
+		position: absolute;
+		
+		&:last-child {
+			box-shadow: none;
+			position: relative;
+			opacity: 0.0;
+		}
+	}
+	
+	&:hover {
+		img {
+			opacity: 0.0;
+		}
+		&>img:last-child {
+			opacity: 1.0;
+		}
+	}
+}
+
+
 .sidebar-entry > i {
 
 }

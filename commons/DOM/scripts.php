@@ -23,4 +23,7 @@ if($enable_glider) {
 if($enable_code_highlight) {
 	echo('<script src="/resources/NibblePoker/js/nibblepoker-code.min.js"></script>');
 }
+if($enable_kitty_and_doggo_sounds) {
+	echo('<script src="/resources/NibblePoker/js/nibblepoker-contributors.min.js"></script>');
+}
 ?>

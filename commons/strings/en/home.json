@@ -6,9 +6,9 @@
   "home.header.title": "Homepage",
   
   
-  "home.intro.title": "",
-  "home.intro.text.1": "",
-  "home.intro.text.2": "",
+  "home.intro.title": "Welcome to %0",
+  "home.intro.text.1": "This website contains a collection of my personal work through blog posts, software releases and other forms of media, all of which is accessible for free and under open-source friendly licenses.",
+  "home.intro.text.2": "If you wish to contact me, you can do so through the contact form linked in the sidebar or via the email address present on that page.",
   
   
   "home.showcase.title": "Showcase",

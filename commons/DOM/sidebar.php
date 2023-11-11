@@ -62,6 +62,7 @@ function printSidebarEntry($url, $title, $icon, $activeId) {
 	<hr class="subtle">
 	<?php
 	printSidebarEntry(l10n_url_abs('/about/'), localize("sidebar.text.about"), "fad fa-user", "about");
+	//printSidebarEntry(l10n_url_abs('/contributors/'), localize("sidebar.text.contributors"), "fad fa-users", "contributors");
 	printSidebarEntry(l10n_url_abs('/contact/'), localize("sidebar.text.contact"), "fad fa-mailbox", "contact");
 	?>
 </nav>

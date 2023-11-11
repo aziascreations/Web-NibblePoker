@@ -100,9 +100,19 @@ function localize_private(string $string_key, array $private_lang_data, bool $fa
 	return $string_key;
 }
 
-function localize($string_key) : string {
+function localize($string_key, ?array $param_values = null) : string {
 	global $lang_data;
-	return localize_private($string_key, $lang_data, false);
+	if(is_null($param_values)) {
+		return localize_private($string_key, $lang_data, false);
+	} else {
+		$localized_string = localize_private($string_key, $lang_data, false);
+		
+		for($iStrParam = 0; $iStrParam < sizeof($param_values); $iStrParam++) {
+			$localized_string = str_replace("%" . $iStrParam, $param_values[$iStrParam], $localized_string);
+		}
+		
+		return $localized_string;
+	}
 }
 
 function l10n_url_abs($url) : string {
