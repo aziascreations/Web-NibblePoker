@@ -5,15 +5,30 @@
   "home.og.description": "TODO: description",
   "home.header.title": "Homepage",
   
+  
+  "home.intro.title": "",
+  "home.intro.text.1": "",
+  "home.intro.text.2": "",
+  
+  
   "home.showcase.title": "Showcase",
   
+  
   "home.updates.title": "Updates",
+  
   "home.updates.text.privacy": "●&nbsp;&nbsp;Updated our privacy policy.",
+  
+  "home.updates.3.date": "Novembre 12 2023",
+  "home.updates.3.text.1": "●&nbsp;&nbsp;Other services are back online.",
+  "home.updates.3.text.2": "●&nbsp;&nbsp;Changed our host to <a href=\"https://www.ionos.fr/\">IONOS</a>.",
+  "home.updates.3.text.3": "●&nbsp;&nbsp;Finished all side pages.",
+  
   "home.updates.2.date": "August 15 2023",
   "home.updates.2.text.1": "●&nbsp;&nbsp;The website is back online.",
   "home.updates.2.text.2": "●&nbsp;&nbsp;New and much lighter design.",
   "home.updates.2.text.3": "●&nbsp;&nbsp;Changed our host to <a href=\"https://hostbrr.com/\">HostBrr</a>.",
   "home.updates.2.text.4": "●&nbsp;&nbsp;Added a section for web-based tools.",
+  
   "home.updates.1.date": "September 9 2022",
   "home.updates.1.text.1": "●&nbsp;&nbsp;Changed our host to v6Node."
 }

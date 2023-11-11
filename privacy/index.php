@@ -97,15 +97,15 @@ include 'commons/DOM/sidebar.php';
 	<p class="mt-s ml-s">
 		<?php print(localize('privacy.v2.third.intro.4')); ?><br>
 		<i class="fad fa-globe ml-s t-size-8"></i>
-		<a href="https://v6node.com/legal">
-			https://v6node.com/legal
+		<a href="https://www.ionos.fr/terms-gtc/clause-de-confidentialite/">
+			https://www.ionos.fr/terms-gtc/clause-de-confidentialite/
 		</a>
-		<span class="ml-s">(<?php print(localize('lang.english')); ?> & <?php print(localize('lang.german')); ?>)</span><br>
+		<span class="ml-s">(<?php print(localize('lang.french')); ?>)</span><br>
 		<i class="fad fa-globe ml-s t-size-8"></i>
-		<a href="https://v6node.b-cdn.net/legal/dataprotection.pdf">
-			https://v6node.b-cdn.net/legal/dataprotection.pdf
+		<a href="https://www.ionos.com/terms-gtc/privacy-policy/">
+			https://www.ionos.com/terms-gtc/privacy-policy/
 		</a>
-		<span class="ml-s">(<?php print(localize('lang.german')); ?>)</span><br>
+		<span class="ml-s">(<?php print(localize('lang.english')); ?>)</span><br>
 	</p>
 	
 	<?php printMainHeader(localize("privacy.v2.cookies.title"), "fad fa-cookie-bite"); ?>
@@ -113,7 +113,7 @@ include 'commons/DOM/sidebar.php';
 		<?php print(localize('privacy.v2.cookies.intro.1')); ?>
 	</p>
 	
-	<?php printMainHeader(localize("privacy.v2.personal.title"), "fad fa-fist-raised"); ?>
+	<!--<?php printMainHeader(localize("privacy.v2.personal.title"), "fad fa-fist-raised"); ?>
 	<p class="mt-xs ml-s">
 		<?php print(localize('privacy.v2.personal.disabled.intro')); ?>
 		<br>
@@ -143,7 +143,7 @@ include 'commons/DOM/sidebar.php';
 		<i class="fad fa-globe ml-s t-size-8"></i>
 		<a href="https://www.enisa.europa.eu/publications/privacy-considerations-of-online-behavioural-tracking">https://www.enisa.europa.eu/publications/privacy-considerations-of-online-behavioural-tracking</a>
 		<span class="ml-s">(<?php print(localize('lang.english')); ?>)</span>
-	</p>
+	</p>-->
     
 	<?php printMainHeader(localize("privacy.v2.update.title"), "fad fa-sync-alt"); ?>
     <p class="mt-xs ml-s">
@@ -183,28 +183,48 @@ include 'commons/DOM/sidebar.php';
             <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.2.desc.3')); ?>
         </span>
     </p>
-    <p class="mt-s ml-s">
-        <i class="fad fa-calendar-alt"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.3.date')); ?>
-        <span class="ml-l">
+	<p class="mt-s ml-s">
+		<i class="fad fa-calendar-alt"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.3.date')); ?>
+		<span class="ml-l">
             <i class="fad fa-globe t-size-8"></i>&nbsp;&nbsp;<a href="/privacy/privacy_2022-09-09_en.txt"><?php print(localize('lang.english')); ?></a>
         </span>
-        <span class="ml-l">
+		<span class="ml-l">
             <i class="fad fa-globe t-size-8"></i>&nbsp;&nbsp;<a href="/privacy/privacy_2022-09-09_fr.txt"><?php print(localize('lang.french')); ?></a>
         </span>
-        <br>
-        <span class="ml-s">
+		<br>
+		<span class="ml-s">
             <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.3.desc.1')); ?><br>
         </span>
-        <span class="ml-l">
+		<span class="ml-l">
             <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.3.desc.1.1')); ?><br>
         </span>
-        <span class="ml-l">
+		<span class="ml-l">
             <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.3.desc.1.2')); ?><br>
         </span>
-        <span class="ml-s">
+		<span class="ml-s">
             <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.3.desc.2')); ?><br>
         </span>
-    </p>
+	</p>
+	<p class="mt-s ml-s">
+		<i class="fad fa-calendar-alt"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.4.date')); ?>
+		<span class="ml-l">
+            <i class="fad fa-globe t-size-8"></i>&nbsp;&nbsp;<a href="/privacy/privacy_2023-11-11_en.txt"><?php print(localize('lang.english')); ?></a>
+        </span>
+		<span class="ml-l">
+            <i class="fad fa-globe t-size-8"></i>&nbsp;&nbsp;<a href="/privacy/privacy_2023-11-11_fr.txt"><?php print(localize('lang.french')); ?></a>
+        </span>
+		<br>
+		<span class="ml-s">
+            <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.4.desc.1')); ?><br>
+        </span>
+		<span class="ml-l">
+            <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.4.desc.1.1')); ?><br>
+        </span>
+		<span class="ml-s">
+            <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.4.desc.2')); ?><br>
+        </span>
+	</p>
+	
     <p class="mt-s ml-s">
 		<?php print(localize('privacy.v2.update.end.2')); ?>
     </p>

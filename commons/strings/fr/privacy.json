@@ -9,12 +9,6 @@
   "privacy.introduction.text.1": "La politique de confidentialité ci-présente a été écrite en accord avec les articles 12 et 13 de la RGPD.",
   "privacy.introduction.text.2": "Si vous souhaitez consulter le texte officiel en question, vous pouvez le faire sur les sites internet suivants :",
 
-  "_privacy.data.title": "Quelles données sont collectées ?",
-  "_privacy.data.text.1": "Ce site web ne collecte aucune donnée personnelle, que ce soit au travers des journaux d'évènements sur nos serveurs, des cookies ou via quelconque autre tiers parti.",
-  "_privacy.update.title": "Changements à notre politique de confidentialité",
-  "_privacy.update.text.1": "Le contenu de notre politique de confidentialité a été écrit et modifié pour la dernière fois le 4 décembre 2021.",
-  "_privacy.update.text.2": "En cas de changement, vous serez clairement informé et une copie des anciennes versions de notre politique sera disponible sur cette page.",
-
   "privacy.contact.title": "Comment nous contacter ?",
   "privacy.contact.text.1": "Si vous souhaitez nous contacter afin d'obtenir plus d'informations concernant notre politique de confidentialité, nous vous recommandons d'utiliser le formulaire présent sur la page de contact, ou par courriel à l'adresse suivante:",
 
@@ -31,8 +25,8 @@
   "privacy.v2.data.non_private.1": "Et voici la liste des données non-personelles collectées:",
   "privacy.v2.data.non_private_list.1": "L'URI de la ressource demandée",
   "privacy.v2.data.non_private_list.2": "La date et l'heure",
-  "privacy.v2.data.end.1": "Les données présentes dans les journaux d'évènements sont extraites et retirées pour être traitées par une application qui tourne en local toute les 30 secondes.",
-  "privacy.v2.data.end.2": "L'application en question utilise et compare ces informations avec une liste d'acteurs malveillants et comportement suspects connus.<br>Si une correspondance est détectée, les informations privées sont anonymisées et sont stockées pendant 7 jours en attendant qu'un examen manuel soit effectué.",
+  "privacy.v2.data.end.1": "Les données présentes dans les journaux d'évènements sont extraites et retirées pour être traitées par des applications qui tournent en local toute les 30 à 60 secondes.",
+  "privacy.v2.data.end.2": "L'application en question utilise et compare ces informations avec une liste d'acteurs malveillants et comportement suspects connus.<br>Si une correspondance est détectée, les informations privées sont stockées pendant 7 jours en attendant qu'un examen manuel soit effectué.",
   "privacy.v2.data.end.3": "Après cette période de 7 jours, ou après qu'un examen ait été effectué, les données sont automatiquement supprimées.",
   "privacy.v2.data.end.4": "Toute information concernant une requête non suspecte est automatiquement supprimée.",
   "privacy.v2.data.end.5": "Ce processus n'est normalement jamais utilisé sur des requêtes provenant d'un trafic légitime dû au fait qu'il isole principalement les actions et requêtes qui ne devraient pas être possible sur ce site.",
@@ -51,12 +45,16 @@
   "privacy.v2.update.history.3.desc.1.1": "Ajout de mentions de v6Node et liens vers leur politique de vie confidentialité.",
   "privacy.v2.update.history.3.desc.1.2": "Suppression de mentions de CloudFlare.",
   "privacy.v2.update.history.3.desc.2": "Changement de la section \"Cookies\" afin d'indiquer qu'ils ne seront plus utilisés sur les domaines publics.",
+  "privacy.v2.update.history.4.date": "2023/11/11",
+  "privacy.v2.update.history.4.desc.1": "Changement des références aux services externes pour indiquer l'utilisation de IONOS.",
+  "privacy.v2.update.history.4.desc.1.1": "Suppression de mentions de v6Node.",
+  "privacy.v2.update.history.4.desc.2": "Changement des temps de traitement et mentions de l'infrastructure dans la section <i>\"Changements à notre politique de confidentialité\"</i>.",
   "privacy.v2.update.end.2": "En cas de changement, vous serez clairement informé et une copie des anciennes versions de notre politique sera disponible au travers de cette page.",
 
   "privacy.v2.third.title": "Organismes tiers",
-  "privacy.v2.third.intro.1": "Ce site web utilise les services proposés par v6Node afin d'empêcher des acteurs malveillants d'y accéder et dans le but de mettre en place un système de reverse-proxy.",
+  "privacy.v2.third.intro.1": "Ce site web utilise un <abbr title=\"Serveur privé virtuel\">VPS</abbr> proposés par IONOS dans le but de mettre en place un système de reverse-proxy.",
   "privacy.v2.third.intro.2": "Ceci a pour but d'améliorer l'expérience des personnes le visitant grâce à un système de filtrage et caching privé.",
-  "privacy.v2.third.intro.3": "Aucune des données collectées et stockées par v6Node et le système décris ci-dessus n'est utilisé ou stocké.",
+  "privacy.v2.third.intro.3": "Due à la nature du serveur loué à IONOS, aucune donnée ne devraient être collectées de leur côté.",
   "privacy.v2.third.intro.4": "Si vous souhaitez consulter leur politique de confidentialité ainsi que celle de leur partenaires, vous pouvez le faire en suivant les liens ci-dessous:",
 
   "privacy.v2.cookies.title": "Cookies de navigation",
