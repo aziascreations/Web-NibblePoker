@@ -1,104 +1,103 @@
 # Introduction
-La politique de confidentialité ci-présente a été écrite en accord avec les articles 12 et 13 de la RGPD.
+This privacy policy is written in accordance with the 12th and 13th articles of the GDPR.
 
-Si vous souhaitez consulter le texte officiel en question, vous pouvez le faire sur les sites internet suivants :
+If you wish to consult it, you can do so on the following websites:
 * https://gdpr.eu/
 * https://eur-lex.europa.eu/
 
 
-# Collecte de données (Web)
-Ce site web collecte des données au travers des journaux d'évènements afin de détecter et bloquer de potentiels acteurs malveillants.
-Les données collectées ne sont en aucun cas utilisées pour une quelconque autre raison.
+# Data collection (Web)
+This websites only collects data through generic access logs in order to detect and block bad actors from accessing this website.
+None of the data collected is used for any other purpose, it is never shared with any other third-party and is never use in any sort of analytics.
 
-Voici la liste des données personnelles collectées:
-* L'addresse IP source
-* Le "User-Agent" de votre navigateur internet
+Here is the list of private data being collected:
+* IP address
+* Browser's User-Agent
 
-Et voici la liste des données non-personnelles collectées:
-* L'URI de la ressource demandée
-* La date et l'heure
+And here is the list of non-private data being collected:
+* Requested resource' URI
+* Date and time
 
-Les données présentes dans les journaux d'évènements sont extraites et retirées pour être traitées par des applications qui tournent en local toute les 30 à 60 secondes.
+Once the data has been logged in the access logs, it is automatically retrieved and processed by a locally-hosted applications every 30-60 seconds and then deleted from said logs.
 
-L'application en question utilise et compare ces informations avec une liste d'acteurs malveillants et comportement suspects connus.
-Si une correspondance est détectée, les informations privées sont stockées pendant 7 jours en attendant qu'un examen manuel soit effectué.
-Après cette période de 7 jours, ou après qu'un examen ait été effectué, les données sont automatiquement supprimées.
+This application compares this information against a list of known threat sources, targets and behaviours and if a match is found, the private information is stored for 7 days pending a manual review.
+Once that 7 day period has elapsed, or once the report has been reviewed, all the relevant data is automatically deleted.
 
-Toute information concernant une requête non suspecte est automatiquement supprimée.
+If your request wasn't flagged as potentially malicious, every data collected from it is thrown out instantly.
 
-Ce processus n'est normalement jamais utilisé sur des requêtes provenant d'un trafic légitime dû au fait qu'il isole principalement les actions et requêtes qui ne devraient pas être possible sur ce site.
-Cependant, ce processus n'est pas infaillible et il est toujours possible qu'une requête soit isolée par erreur.
-
-
-# Collecte de données (DNS)
-Nos serveurs DNS collectent des données au travers des journaux d'évènements afin de détecter et bloquer de potentiels acteurs malveillants.
-Les données collectées ne sont en aucun cas utilisées pour une quelconque autre raison.
-
-Voici la liste des données personnelles collectées:
-* L'addresse IP source
-
-Et voici la liste des données non-personnelles collectées:
-* L'enregistrement DNS demandée
-* La date et l'heure
-
-Toutes les données personnelles sont automatiquement supprimées après une période de 7 jours.
+This process should normally never be triggered for regular traffic since most of the triggering actions are ones that should not be possible to accomplish through normal browsing.
+However, this process isn't infallible and there is always an off chance that false positives may happen.
 
 
-# Organismes tiers
-Ce site web utilise des VPS proposés par IONOS et ChicagoVPS dans le but de mettre en place un système de RDC.
-Ceci a pour but d'améliorer l'expérience des personnes le visitant grâce à un système de filtrage et caching privé.
+# Data collection (DNS)
+Our DNS servers collects data through generic access logs in order to detect and block bad actors.
+None of the data collected is used for any other purpose, it is never shared with any other third-party and is never use in any sort of analytics.
 
-Due à la nature des serveurs loués, aucune donnée ne devraient être collectées de leur côté.
+Here is the list of private data being collected:
+* IP address
 
-Si vous souhaitez consulter leur politique de confidentialité ainsi que celle de leur partenaires, vous pouvez le faire en suivant les liens ci-dessous:
+And here is the list of non-private data being collected:
+* Requested DNS record
+* Date and time
+
+All private data is deleted after a period of 7 days.
+
+
+# Third Parties
+Our websites uses some VPS provided by IONOS and ChicagoVPS in order to put in place a CDN system.
+The goal of this system is to improve your browsing experience with the help of a private caching service and custom traffic filtering rules.
+
+No data should be collected on their side due to the nature of the server leased to us.
+
+If you'd wish to consult their privacy policy and their partners', you can do so by using the following URLs:
 * IONOS
-  * Français -> https://www.ionos.fr/terms-gtc/clause-de-confidentialite/
-  * Anglais -> https://www.ionos.com/terms-gtc/privacy-policy/
+   * French -> https://www.ionos.fr/terms-gtc/clause-de-confidentialite/
+   * English -> https://www.ionos.com/terms-gtc/privacy-policy/
 * ChicagoVPS
-  * Anglais -> https://www.chicagovps.net/wp-content/uploads/2023/07/Terms-and-Conditions-ChicagoVPS.pdf
+   * English -> https://www.chicagovps.net/wp-content/uploads/2023/07/Terms-and-Conditions-ChicagoVPS.pdf
 
 
-# Cookies de navigation
-Ce site web n'utilise pas, et ne stocke aucun cookies dans votre navigateur internet.
+# Cookies
+Our websites doesn't use nor store any cookies in your browser.
 
 
-# Changements à notre politique de confidentialité
-Le contenu de notre politique de confidentialité a été originalement écrit et le 4 décembre 2021 modifié pour la dernière fois le 18 mars 2022.
+# Changes to our privacy policy
+The content of this privacy policy was originally written on the 4th of December 2021 and was last updated on the 18th of March 2022.
 
 * 2021/12/04
-* Version originale
+* Original version
 
 * 2022/03/18
-* Mise-à-jour de la section sur la collection des données.
-* Ajout d'une mention de CloudFlare et ajout de liens vers leur politique de confidentialité.
-* Amélioration de la section "Changements à notre politique de confidentialité".
+* Changed section on data collection to reflect new policy.
+* Added mention about CloudFlare and linked to their privacy policy.
+* Improved the "Changes to our privacy policy" section.
 
 * 2022/09/09
-* Changement des références aux services externes pour indiquer l'utilisation de v6Node.
-* Ajout de mentions de v6Node et liens vers leur politique de vie confidentialité.
-* Suppression de mentions de CloudFlare.
-* Changement de la section "Cookies" afin d'indiquer qu'ils ne seront plus utilisés sur les domaines publics.
+* Changed references to external services to reflect the migration to v6Node.
+* Added mention about v6Node and linked to their privacy policy.
+* Removed mentions of CloudFlare.
+* Changed the "Cookies" section to indicate that none should be used on public domains.
 
 * 2023/11/11
-* Changement des références aux services externes pour indiquer l'utilisation de IONOS.
-* Suppression de mentions de v6Node.
-* Changement des temps de traitement et mentions de l'infrastructure dans la section "Changements à notre politique de confidentialité".
+* Changed references to external services to reflect the migration to IONOS.
+* Removed mentions of v6Node.
+* Changed section on data collection to reflect new timings & infrastructure.
 
 * 2023/11/30
-* Ajout de la section sur la collection des données par le serveur DNS.
-* Changement des références aux services externes pour indiquer l'utilisation de ChicagoVPS.
+* Added a section regarding data collection through DNS servers.
+* Changed references to external services to reflect the usage of ChicagoVPS
 
-En cas de changement, vous serez clairement informé et une copie des anciennes versions de notre politique sera disponible au travers de cette page.
+In the event of a change to our privacy policy, you will be informed explicitly, and a copy of previous versions of the policy will be available through this page.
 
 
-# Comment nous contacter ?
-Si vous souhaitez nous contacter afin d'obtenir plus d'informations concernant notre politique de confidentialité, nous vous recommandons d'utiliser le formulaire présent sur la page de contact, ou par courriel à l'adresse suivante:
+# How to contact us ?
+If you wish to contact us for more information regarding our privacy policy, please contact us via the form included on the contact page, or at the following email address:
  herwin.bozet@gmail.com
 
 
-# Comment contacter les autorités compétentes ?
-Dans l'éventualité où vous souhaiteriez déposer une plainte pour une quelconque raison en rapport avec notre politique de confidentialité, veuillez vous adresser à l'autorité nationale de protection des données (DPA).
+# How to contact the appropriate authorities ?
+Should you wish to report a complaint or if you feel that our privacy policy has not addressed your concern in a satisfactory manner, you may contact your national Data Protection Authority (DPA).
 
-Les informations concernant cette procédure peuvent être trouvées sur les sites internet suivants:
- https://ec.europa.eu/ (Anglais)
- https://gegevensbeschermingsautoriteit.be/ (Français)
+More information on this procedure can be found on the following websites:
+* https://ec.europa.eu/ (English)
+* https://gegevensbeschermingsautoriteit.be/ (French)

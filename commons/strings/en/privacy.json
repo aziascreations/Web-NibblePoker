@@ -33,7 +33,7 @@
   "privacy.v2.data.end.6": "However, this process isn't infallible and there is always an off chance that false positives may happen.",
   
   "privacy.v2.data_dns.title": "Data collection (DNS)",
-  "privacy.v2.data_dns.intro.1": "Our <abbr title=\"Domain Name Service\">DNS</abbr> servers collect data through generic access logs in order to detect and block bad actors.",
+  "privacy.v2.data_dns.intro.1": "Our <abbr title=\"Domain Name Service\">DNS</abbr> servers collects data through generic access logs in order to detect and block bad actors.",
   "privacy.v2.data_dns.intro.2": "None of the data collected is used for any other purpose, it is never shared with any other third-party and is never use in any sort of analytics.",
   "privacy.v2.data_dns.private.1": "Here is the list of private data being collected:",
   "privacy.v2.data_dns.private_list.1": "IP address",
