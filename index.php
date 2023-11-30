@@ -40,6 +40,13 @@ include 'commons/DOM/sidebar.php';
 	<p class="mt-xs mx-s t-bold">TODO</p>
 	
 	<?php printMainHeader(localize("home.updates.title")); ?>
+	<p class="mt-xs ml-s t-w-600"><i class="fad fa-calendar-alt mr-xs"></i><?php print(localize("home.updates.4.date")); ?></p>
+	<p class="mt-xxs ml-m">
+		<?php print(localize("home.updates.4.text.1")); ?><br>
+		<?php print(localize("home.updates.4.text.2")); ?><br>
+		<?php print(localize("home.updates.4.text.3")); ?><br>
+		<?php print(localize("home.updates.text.privacy")); ?>
+	</p>
 	<p class="mt-xs ml-s t-w-600"><i class="fad fa-calendar-alt mr-xs"></i><?php print(localize("home.updates.3.date")); ?></p>
 	<p class="mt-xxs ml-m">
 		<?php print(localize("home.updates.3.text.1")); ?><br>

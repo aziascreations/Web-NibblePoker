@@ -19,6 +19,11 @@
   
   "home.updates.text.privacy": "●&nbsp;&nbsp;Mise-à-jour de notre politique de confidentialité.",
   
+  "home.updates.4.date": "30 novembre 2023",
+  "home.updates.4.text.1": "●&nbsp;&nbsp;Centralisation des serveurs DNS & implémentation de GeoDNS.",
+  "home.updates.4.text.2": "●&nbsp;&nbsp;Ajout d'un CDN pour l'Amérique du Nord hébergé par <a href=\"https://www.chicagovps.net/\">ChicagoVPS</a>.",
+  "home.updates.4.text.3": "●&nbsp;&nbsp;Les autres régions utilisent le CDN Européen hébergé par <a href=\"https://www.ionos.fr/\">IONOS</a>.",
+  
   "home.updates.3.date": "12 novembre 2023",
   "home.updates.3.text.1": "●&nbsp;&nbsp;Les services annexes sont disponibles.",
   "home.updates.3.text.2": "●&nbsp;&nbsp;Changement d'hébergeur vers <a href=\"https://www.ionos.fr/\">IONOS</a>.",

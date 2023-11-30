@@ -85,7 +85,36 @@ include 'commons/DOM/sidebar.php';
 		<?php print(localize('privacy.v2.data.end.5')); ?><br>
 		<?php print(localize('privacy.v2.data.end.6')); ?>
     </p>
-    
+	
+	
+	
+	<?php printMainHeader(localize("privacy.v2.data_dns.title"), "fad fa-database"); ?>
+	<p class="mt-xs ml-s">
+		<?php print(localize('privacy.v2.data_dns.intro.1')); ?>
+		<br>
+		<?php print(localize('privacy.v2.data_dns.intro.2')); ?>
+	</p>
+	<p class="mt-s ml-s">
+		<?php print(localize('privacy.v2.data_dns.private.1')); ?><br>
+		<span class="ml-s">
+			<i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.data_dns.private_list.1')); ?>
+		</span>
+	</p>
+	<p class="mt-s ml-s">
+		<?php print(localize('privacy.v2.data_dns.non_private.1')); ?><br>
+		<span class="ml-s">
+			<i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.data_dns.non_private_list.1')); ?>
+		</span>
+		<br>
+		<span class="ml-s">
+			<i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.data_dns.non_private_list.2')); ?>
+		</span>
+	</p>
+	<p class="mt-s ml-s">
+		<?php print(localize('privacy.v2.data_dns.end.1')); ?>
+	</p>
+	
+	
 	<?php printMainHeader(localize("privacy.v2.third.title"), "fad fa-handshake"); ?>
 	<p class="mt-xs ml-s">
 		<?php print(localize('privacy.v2.third.intro.1')); ?><br>
@@ -97,15 +126,14 @@ include 'commons/DOM/sidebar.php';
 	<p class="mt-s ml-s">
 		<?php print(localize('privacy.v2.third.intro.4')); ?><br>
 		<i class="fad fa-globe ml-s t-size-8"></i>
-		<a href="https://www.ionos.fr/terms-gtc/clause-de-confidentialite/">
-			https://www.ionos.fr/terms-gtc/clause-de-confidentialite/
-		</a>
-		<span class="ml-s">(<?php print(localize('lang.french')); ?>)</span><br>
+		IONOS&nbsp;&nbsp;
+		<a href="https://www.ionos.fr/terms-gtc/clause-de-confidentialite/"><?php print(localize('lang.french')); ?></a>&nbsp;&nbsp;
+		<a href="https://www.ionos.com/terms-gtc/privacy-policy/"><?php print(localize('lang.english')); ?></a>
+		<br>
 		<i class="fad fa-globe ml-s t-size-8"></i>
-		<a href="https://www.ionos.com/terms-gtc/privacy-policy/">
-			https://www.ionos.com/terms-gtc/privacy-policy/
-		</a>
-		<span class="ml-s">(<?php print(localize('lang.english')); ?>)</span><br>
+		ChicagoVPS&nbsp;&nbsp;
+		<a href="https://www.chicagovps.net/wp-content/uploads/2023/07/Terms-and-Conditions-ChicagoVPS.pdf"><?php print(localize('lang.english')); ?></a>
+		<br>
 	</p>
 	
 	<?php printMainHeader(localize("privacy.v2.cookies.title"), "fad fa-cookie-bite"); ?>
@@ -222,6 +250,22 @@ include 'commons/DOM/sidebar.php';
         </span>
 		<span class="ml-s">
             <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.4.desc.2')); ?><br>
+        </span>
+	</p>
+	<p class="mt-s ml-s">
+		<i class="fad fa-calendar-alt"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.5.date')); ?>
+		<span class="ml-l">
+            <i class="fad fa-globe t-size-8"></i>&nbsp;&nbsp;<a href="/privacy/privacy_2023-11-30_en.txt"><?php print(localize('lang.english')); ?></a>
+        </span>
+		<span class="ml-l">
+            <i class="fad fa-globe t-size-8"></i>&nbsp;&nbsp;<a href="/privacy/privacy_2023-11-30_fr.txt"><?php print(localize('lang.french')); ?></a>
+        </span>
+		<br>
+		<span class="ml-s">
+            <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.5.desc.1')); ?><br>
+        </span>
+		<span class="ml-s">
+            <i class="fad fa-circle t-size-6"></i>&nbsp;&nbsp;<?php print(localize('privacy.v2.update.history.5.desc.2')); ?><br>
         </span>
 	</p>
 	

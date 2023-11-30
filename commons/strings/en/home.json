@@ -18,7 +18,12 @@
   
   "home.updates.text.privacy": "●&nbsp;&nbsp;Updated our privacy policy.",
   
-  "home.updates.3.date": "Novembre 12 2023",
+  "home.updates.4.date": "November 30 2023",
+  "home.updates.4.text.1": "●&nbsp;&nbsp;Centralized DNS servers & implemented GeoDNS.",
+  "home.updates.4.text.2": "●&nbsp;&nbsp;Added US CDN hosted by <a href=\"https://www.chicagovps.net/\">ChicagoVPS</a>.",
+  "home.updates.4.text.3": "●&nbsp;&nbsp;All other regions use the EU CDN hosted by <a href=\"https://www.ionos.fr/\">IONOS</a>.",
+  
+  "home.updates.3.date": "November 12 2023",
   "home.updates.3.text.1": "●&nbsp;&nbsp;Other services are back online.",
   "home.updates.3.text.2": "●&nbsp;&nbsp;Changed our host to <a href=\"https://www.ionos.fr/\">IONOS</a>.",
   "home.updates.3.text.3": "●&nbsp;&nbsp;Finished all side pages.",

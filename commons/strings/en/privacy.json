@@ -15,8 +15,8 @@
   "privacy.complaint.title": "How to contact the appropriate authorities ?",
   "privacy.complaint.text.1": "Should you wish to report a complaint or if you feel that our privacy policy has not addressed your concern in a satisfactory manner, you may contact your national Data Protection Authority (DPA).",
   "privacy.complaint.text.2": "More information on this procedure can be found on the following websites:",
-
-  "privacy.v2.data.title": "Data collection",
+  
+  "privacy.v2.data.title": "Data collection (Web)",
   "privacy.v2.data.intro.1": "This websites only collects data through generic access logs in order to detect and block bad actors from accessing this website.",
   "privacy.v2.data.intro.2": "None of the data collected is used for any other purpose, it is never shared with any other third-party and is never use in any sort of analytics.",
   "privacy.v2.data.private.1": "Here is the list of private data being collected:",
@@ -31,7 +31,17 @@
   "privacy.v2.data.end.4": "If your request wasn't flagged as potentially malicious, every data collected from it is thrown out instantly.",
   "privacy.v2.data.end.5": "This process should normally never be triggered for regular traffic since most of the triggering actions are ones that should not be possible to accomplish through normal browsing.",
   "privacy.v2.data.end.6": "However, this process isn't infallible and there is always an off chance that false positives may happen.",
-
+  
+  "privacy.v2.data_dns.title": "Data collection (DNS)",
+  "privacy.v2.data_dns.intro.1": "Our <abbr title=\"Domain Name Service\">DNS</abbr> servers collect data through generic access logs in order to detect and block bad actors.",
+  "privacy.v2.data_dns.intro.2": "None of the data collected is used for any other purpose, it is never shared with any other third-party and is never use in any sort of analytics.",
+  "privacy.v2.data_dns.private.1": "Here is the list of private data being collected:",
+  "privacy.v2.data_dns.private_list.1": "IP address",
+  "privacy.v2.data_dns.non_private.1": "And here is the list of non-private data being collected:",
+  "privacy.v2.data_dns.non_private_list.1": "Requested DNS record",
+  "privacy.v2.data_dns.non_private_list.2": "Date and time",
+  "privacy.v2.data_dns.end.1": "All private data is deleted after a period of 7 days.",
+  
   "privacy.v2.update.title": "Changes to our privacy policy",
   "privacy.v2.update.intro.1": "The content of this privacy policy was originally written on the 4th of December 2021 and was last updated on the 18th of March 2022.",
   "privacy.v2.update.history.1.date": "2021/12/04",
@@ -49,12 +59,15 @@
   "privacy.v2.update.history.4.desc.1": "Changed references to external services to reflect the migration to IONOS.",
   "privacy.v2.update.history.4.desc.1.1": "Removed mentions of v6Node.",
   "privacy.v2.update.history.4.desc.2": "Changed section on data collection to reflect new timings & infrastructure.",
+  "privacy.v2.update.history.5.date": "2023/11/30",
+  "privacy.v2.update.history.5.desc.1": "Added a section regarding data collection through DNS servers.",
+  "privacy.v2.update.history.5.desc.2": "Changed references to external services to reflect the usage of ChicagoVPS",
   "privacy.v2.update.end.2": "In the event of a change to our privacy policy, you will be informed explicitly, and a copy of previous versions of the policy will be available through this page.",
 
   "privacy.v2.third.title": "Third Parties",
-  "privacy.v2.third.intro.1": "Our websites uses some <abbr title=\"Virtual private server\">VPS</abbr> provided by IONOS in order to put in place a reverse-proxy system.",
+  "privacy.v2.third.intro.1": "Our websites uses some <abbr title=\"Virtual private server\">VPS</abbr> provided by IONOS and ChicagoVPS in order to put in place a <abbr title=\"Content delivery network\">CDN</abbr> system.",
   "privacy.v2.third.intro.2": "The goal of this system is to improve your browsing experience with the help of a private caching service and custom traffic filtering rules.",
-  "privacy.v2.third.intro.3": "No data should be collected on their side due to the nature of the server leased from IONOS.",
+  "privacy.v2.third.intro.3": "No data should be collected on their side due to the nature of the server leased to us.",
   "privacy.v2.third.intro.4": "If you'd wish to consult their privacy policy and their partners', you can do so by using the following URLs:",
   
   "privacy.v2.cookies.title": "Cookies",
