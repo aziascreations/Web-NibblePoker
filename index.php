@@ -16,11 +16,6 @@ include_once 'commons/langs.php';
     <meta property="og:image" content="<?php echo($host_uri); ?>/resources/NibblePoker/images/logos/v2_opengraph.png"/>
 	<meta property="og:image:type" content="image/png"/>
 	<meta property="og:description" content="<?php print(localize('home.og.description')); ?>"/>
-	<style>
-		#showcase-grid article > img {
-			height: 96px;
-		}
-	</style>
 </head>
 <body>
 <?php
@@ -89,7 +84,7 @@ include 'commons/DOM/sidebar.php';
 			
 			echo('<a href="'.l10n_url_abs("/content/".$current_content->id).'" class="bland-link">');
 			echo('<article class="">');
-			echo('<img src="' . $shown_project->image . '" class="f-left r-l border mr-xs" alt="' .
+			echo('<img src="' . $shown_project->image . '" class="f-left r-l border mr-xs img-showcase" alt="' .
 				$shown_project->title[$user_language] . ' logo">');
 			echo('<h3 class="mt-xxs">' . $shown_project->title[$user_language] . '</h3>');
 			echo('<p>' . preg_replace('/<br>.*/', '', $current_content->preamble[$user_language]) . '</p>');
