@@ -10,6 +10,12 @@
 	}
 }
 
+@mixin grid-gap-maker($gap-size-key, $gap-size-value) {
+	.gap-#{$gap-size-key} {
+		grid-gap: #{$gap-size-value};
+	}
+}
+
 // Defining rules for all devices.
 @include grid-col-maker("1", "");
 @include grid-col-maker("2", "");
@@ -17,6 +23,18 @@
 @include grid-col-maker("4", "");
 @include grid-col-maker("6", "");
 @include grid-col-maker("8", "");
+
+@include grid-gap-maker("xs", calc(#{$grid-gap-base-size} * 0.5));
+@include grid-gap-maker("s", calc(#{$grid-gap-base-size} * 0.75));
+@include grid-gap-maker("m", #{$grid-gap-base-size});
+@include grid-gap-maker("l", calc(#{$grid-gap-base-size} * 1.5));
+@include grid-gap-maker("xl", calc(#{$grid-gap-base-size} * 2.0));
+
+@media only screen and (max-width: 992px) {
+	@include grid-col-maker("1", "medium-");
+	@include grid-col-maker("2", "medium-");
+	@include grid-col-maker("3", "medium-");
+}
 
 @media only screen and (max-width: 768px) {
 	@include grid-col-maker("1", "mobile-");
