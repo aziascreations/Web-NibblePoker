@@ -896,13 +896,21 @@ class ComposerElement {
 				break;
 				
 			case ComposerElementTypes::GALLERY:
-				$htmlCode .= '<div class="glider ' . $this->get_modifiers_classes() . '">';
-				
-				foreach($this->images as $galleryImageUrl) {
-					$htmlCode .= '<img src="'.$galleryImageUrl.'">';
+				if(!is_null($this->srTitle)) {
+					$htmlCode .= '<section class="splide border" aria-label="' . $this->srTitle . '">';
+					$htmlCode .= '<h2 id="carousel-heading">' . $this->srTitle . '</h2>';
+				} else {
+					$htmlCode .= '<section class="splide border">';
 				}
 				
-				$htmlCode .= '</div>';
+				$htmlCode .= '<div class="splide__track">';
+				$htmlCode .= '<ul class="splide__list">';
+				
+				foreach($this->images as $galleryImageUrl) {
+					$htmlCode .= '<li class="splide__slide"><img src="'.$galleryImageUrl.'"></li>';
+				}
+				
+				$htmlCode .= '</ul></div></section>';
 				break;
 			
 			case ComposerElementTypes::VIDEO:

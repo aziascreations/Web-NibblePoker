@@ -36,7 +36,7 @@ if($contentManager->hasError) {
 	}
 } else {
 	$enable_code_highlight = true;
-	$enable_glider = true;
+	$enable_gallery = true;
 }
 ?>
 <!DOCTYPE html>

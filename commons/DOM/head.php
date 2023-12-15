@@ -17,7 +17,7 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 if($enable_code_highlight) {
 	echo('<link href="/resources/HighlightJS/11.6.0/styles/atom-one-dark.min.css" rel="stylesheet"/>');
 }
-if($enable_glider) {
-	echo('<link href="/resources/GliderJs/1.7.6/glider.min.css" rel="stylesheet"/>');
+if($enable_gallery) {
+	echo('<link href="/resources/SplideJs/dist/css/splide.min.css" rel="stylesheet"/>');
 }
 ?>

@@ -1,0 +1,3 @@
+[submodule "resources/SplideJs"]
+	path = resources/SplideJs
+	url = https://github.com/Splidejs/splide.git

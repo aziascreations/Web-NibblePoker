@@ -31,7 +31,7 @@ $config_dir_tools = realpath($dir_commons . "/../" . "tools/");
 // Optional features
 $enable_grids = false;
 $enable_code_highlight = false;
-$enable_glider = false;
+$enable_gallery = false;
 $enable_kitty_and_doggo_sounds = false;
 
 // Easter-egg optional features

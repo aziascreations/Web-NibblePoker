@@ -48,8 +48,8 @@ if($contentManager->hasError) {
 		$content_error_code = 500;
 	}
 } else {
-	$enable_code_highlight = true;
-	$enable_glider = true;
+	$enable_code_highlight = false;
+	$enable_gallery = true;
 }
 ?>
 <!DOCTYPE html>
@@ -141,6 +141,11 @@ include 'commons/DOM/sidebar.php';
 		$doPrintRuler = false;
 		foreach($contentManager->rootIndexEntries as $current_content) {
 			/** @var ContentIndexEntry $current_content */
+			
+			if($current_content->priority == -1) {
+				continue;
+			}
+			
 			if($doPrintRuler) {
 				echo('<hr class="subtle">');
 			} else {

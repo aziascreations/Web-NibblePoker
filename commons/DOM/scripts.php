@@ -5,8 +5,8 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	die();
 }
 
-if($enable_glider) {
-	echo('<script src="/resources/GliderJs/1.7.6/glider.min.js"></script>');
+if($enable_gallery) {
+	echo('<script src="/resources/SplideJs/dist/js/splide.min.js"></script>');
 }
 
 if($enable_code_highlight) {
@@ -16,9 +16,8 @@ if($enable_code_highlight) {
 ?>
 <script src="/resources/NibblePoker/js/nibblepoker.min.js"></script>
 <?php
-if($enable_glider) {
-    // FIXME: Find out why the minified version is broken.  (Only displays 1 pic per scroll position)
-	echo('<script src="/resources/NibblePoker/js/nibblepoker-glider.js"></script>');
+if($enable_gallery) {
+	echo('<script src="/resources/NibblePoker/js/nibblepoker-splide.js"></script>');
 }
 if($enable_code_highlight) {
 	echo('<script src="/resources/NibblePoker/js/nibblepoker-code.min.js"></script>');
