@@ -58,7 +58,7 @@ if($contentManager->hasError) {
             $content->get_head_title() .
 			localize("content.item.head.title.suffix");
 		$content_head_description = $content->get_head_description();
-		$content_head_title =
+	    $content_head_og_title =
 			localize("content.item.og.title.prefix") .
 			$content->get_head_title() .
 			localize("content.item.og.title.suffix");

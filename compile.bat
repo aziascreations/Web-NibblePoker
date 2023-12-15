@@ -17,7 +17,8 @@ echo ----------------------
 
 :lang-compile
 echo Compiling lang files...
-python commons/strings/compile.py
+python compile_strings.py ./commons/strings/ ./commons/strings.json
+python compile_strings.py ./wiki/strings/ ./wiki/strings.json
 
 :lang-end
 
@@ -33,6 +34,11 @@ pushd %CD%
 cd %~dp0\resources\NibblePoker\scss\
 call "%~dp0node_modules\.bin\sass" nibblepoker.scss:../css/nibblepoker.css -q
 call "%~dp0node_modules\.bin\sass" nibblepoker.scss:../css/nibblepoker.min.css -q --style compressed
+popd
+pushd %CD%
+cd %~dp0\wiki\scss\
+call "%~dp0node_modules\.bin\sass" nibblepoker-wiki.scss:../css/nibblepoker-wiki.css -q
+call "%~dp0node_modules\.bin\sass" nibblepoker-wiki.scss:../css/nibblepoker-wiki.min.css -q --style compressed
 popd
 
 :sass-end

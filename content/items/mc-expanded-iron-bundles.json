@@ -149,63 +149,23 @@
           "type": "raw",
           "link": "https://github.com/aziascreations/MC-Expanded-Iron-Bundles",
           "parts": [
-            {"type": "raw", "content": "content.commons.github"},
-            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-            {
-              "type": "raw",
-              "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/MC-Expanded-Iron-Bundles)</span></span>",
-              "localize": false
-            }
+            {"type": "raw", "content": "content.commons.github"}
           ]
         },
         {"type": "raw", "content": "<br>", "localize": false},
         {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
         {
-          "type": "raw",
-          "link": "https://git.nibblepoker.lu/aziascreations/MC-Expanded-Iron-Bundles",
-          "parts": [
-            {"type": "raw", "content": "content.commons.gitea"},
-            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-            {
-              "type": "raw",
-              "content": "<span class=\"font-size-12\">(https://git.nibblepoker.lu/aziascreations/MC-Expanded-Iron-Bundles)</span></span>",
-              "localize": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "indent": 2,
-      "modifiers": ["no-top-padding"],
-      "parts": [
-        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-        {
           "type": "raw", "link": "https://modrinth.com/mod/expanded-iron-bundles",
           "parts": [
-            {"type": "raw", "content": "Modrinth [Fabric & Forge]", "localize": false},
-            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-            {
-              "type": "raw",
-              "content": "<span class=\"font-size-12\">(https://modrinth.com/mod/expanded-iron-bundles)</span></span>",
-              "localize": false
-            }
+            {"type": "raw", "content": "Modrinth [Fabric & Forge]", "localize": false}
           ]
         },
-
         {"type": "raw", "content": "<br>", "localize": false},
         {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
         {
           "type": "raw", "link": "https://www.curseforge.com/minecraft/mc-mods/expanded-iron-bundles-fabric",
           "parts": [
-            {"type": "raw", "content": "CurseForge [Fabric]", "localize": false},
-            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-            {
-              "type": "raw",
-              "content": "<span class=\"font-size-12\">(https://www.curseforge.com/minecraft/mc-mods/expanded-iron-bundles-fabric)</span></span>",
-              "localize": false
-            }
+            {"type": "raw", "content": "CurseForge [Fabric]", "localize": false}
           ]
         }
       ]

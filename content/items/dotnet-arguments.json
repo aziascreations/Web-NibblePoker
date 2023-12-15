@@ -125,43 +125,25 @@
       "parts": [
         {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
         {
-          "type": "raw", "link": "https://www.nuget.org/packages/NibblePoker.Library.Arguments",
-          "parts": [
-            {"type": "raw", "content": "content.commons.nuget"},
-            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-            {
-              "type": "raw",
-              "content": "<span class=\"font-size-12\">(https://www.nuget.org/packages/NibblePoker.Library.Arguments)</span></span>",
-              "localize": false
-            }
-          ]
-        },
-        {"type": "raw", "content": "<br>", "localize": false},
-        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
-        {
           "type": "raw", "link": "https://github.com/aziascreations/DotNet-Arguments",
           "parts": [
-            {"type": "raw", "content": "content.commons.github"},
-            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-            {
-              "type": "raw",
-              "content": "<span class=\"font-size-12\">(https://github.com/aziascreations/DotNet-Arguments)</span></span>",
-              "localize": false
-            }
+            {"type": "raw", "content": "content.commons.github"}
           ]
         },
         {"type": "raw", "content": "<br>", "localize": false},
         {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
         {
-          "type": "raw", "link": "https://git.nibblepoker.lu/aziascreations/DotNet-Arguments",
+          "type": "raw", "link": "https://aziascreations.github.io/DotNet-Arguments/",
           "parts": [
-            {"type": "raw", "content": "content.commons.gitea"},
-            {"type": "raw", "content": "<span class=\"hidden-xs-and-down\">&nbsp;&nbsp;-&nbsp;&nbsp;", "localize": false},
-            {
-              "type": "raw",
-              "content": "<span class=\"font-size-12\">(https://git.nibblepoker.lu/aziascreations/DotNet-Arguments)</span></span>",
-              "localize": false
-            }
+            {"type": "raw", "content": "content.commons.doc.online"}
+          ]
+        },
+        {"type": "raw", "content": "<br>", "localize": false},
+        {"type": "raw", "content": "●&nbsp;&nbsp;", "localize": false},
+        {
+          "type": "raw", "link": "https://www.nuget.org/packages/NibblePoker.Library.Arguments",
+          "parts": [
+            {"type": "raw", "content": "content.commons.nuget"}
           ]
         }
       ]

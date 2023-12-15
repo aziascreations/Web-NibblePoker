@@ -21,6 +21,10 @@ resources/NibblePoker/css/*.css
 tools/items/formula-wizard/*.js
 tools/items/formula-wizard/src/*.js
 
+# ???
+# Source: https://github.com/sjmulder/nbt-js
+tools/items/mc-art-viewer/nbt.js
+
 # Others
 *.pdn
 *.min.json
@@ -30,6 +34,7 @@ tools/items/formula-wizard/src/*.js
 *.exe
 *.url
 *.env
+*.sqlite
 
 # Temporary
 articles/*.txt

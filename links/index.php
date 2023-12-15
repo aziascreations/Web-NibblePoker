@@ -63,13 +63,6 @@ include 'commons/DOM/sidebar.php';
 	<?php printMainHeader(localize("links.misc.title")); ?>
 	
 	<p class="mt-s ml-s t-w-600 t-size-12">
-		<i class="fad fa-code-branch ml-xxs mr-xs"></i><a href="https://git.nibblepoker.lu/"><?php print(localize("links.gitea.title")); ?></a>
-	</p>
-	<p class="mt-xxs ml-l">
-		<?php print(localize("links.gitea.text.1")); ?>
-	</p>
-	
-	<p class="mt-s ml-s t-w-600 t-size-12">
 		<i class="fad fa-download mr-xs"></i><a href="https://files.nibblepoker.lu/"><?php print(localize("links.files.title")); ?></a>
 	</p>
 	<p class="mt-xxs ml-l">
