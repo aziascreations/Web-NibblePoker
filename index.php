@@ -52,7 +52,7 @@ include 'commons/DOM/sidebar.php';
 	
 	// Preparing the array of IDs
 	$shown_projects = ["lscom-cli-dotnet", "youtube-auto-archiver",
-		"excel-worksheet-password-remover", "dotnet-arguments"];
+		"excel-worksheet-password-remover", "dotnet-arguments", "circuitpython-ebyte-e32"];
 	shuffle($shown_projects);
 	$shown_projects = array_slice($shown_projects, 0, 4);
 	sort($shown_projects);

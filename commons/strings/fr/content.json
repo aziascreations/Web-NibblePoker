@@ -65,6 +65,8 @@
 	"content.commons.gitea": "Dépôt Gitea auto-hébergé",
 	"content.commons.nuget": "Packet Nuget",
 	"content.commons.license.mit.single": "License MIT",
+	"content.commons.doc": "Documentation",
+	"content.commons.doc.online": "Documentation en ligne",
 	
 	"content.commons.lang.english": "Anglais",
 	"content.commons.lang.french": "Français",

@@ -13,6 +13,7 @@ const SITEMAP_PAGES = [
 	"content/excel-worksheet-password-remover",
 	"content/mc-expanded-iron-bundles",
 	"content/dotnet-arguments",
+	"content/circuitpython-ebyte-e32",
 	"links/",
 	"contact/",
 	"privacy/",

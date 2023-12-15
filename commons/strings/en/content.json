@@ -73,6 +73,8 @@
   "content.commons.gitea": "Self-hosted Gitea Repository",
   "content.commons.nuget": "Nuget Package",
   "content.commons.license.mit.single": "MIT License",
+  "content.commons.doc": "Documentation",
+  "content.commons.doc.online": "Online Documentation",
   
   "content.commons.lang.english": "English",
   "content.commons.lang.french": "French",

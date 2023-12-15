@@ -1,5 +1,19 @@
 [
   {
+    "id": "circuitpython-ebyte-e32",
+    "title": {
+      "en": "CircuitPython Ebyte E32",
+      "fr": "CircuitPython Ebyte E32"
+    },
+    "preamble": {
+      "en": "CircuitPython driver for Ebyte's E32 UART LoRa modules that use the SX1278/SX1276 chipsets.",
+      "fr": "Driver CircuitPython pour les modules sérial LoRa E32 de Ebyte tournant sous les chipset SX1278/SX1276."
+    },
+    "image": "/resources/NibblePoker/images/content/circuitpython-ebyte-e32/main.png",
+    "tags": ["electronic", "python" ,"circuitpython", "lora", "library"],
+    "priority": 105
+  },
+  {
     "id": "lscom-cli-dotnet",
     "title": {
       "en": "DotNet-ListComPort",
@@ -54,7 +68,7 @@
       "en": "A simple and 'to-the-point' library to parse launch arguments in .NET and .NET Core applications.",
       "fr": "Une petite librairie simple et efficace pour lire et interpréter les options de lancement d'un programme pour .NET et .NET Core."
     },
-    "image": "/resources/NibblePoker/images/placeholder.png",
+    "image": "/resources/NibblePoker/images/content/dotnet-arguments/main.png",
     "tags": [
       "library",
       "dotnet"
