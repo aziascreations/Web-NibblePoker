@@ -267,8 +267,10 @@ $color-link-blue-hover: #{$color-apollo-05};
 
 $color-input-glow: $color-apollo-02;
 
-$color-wedge-blue-background: $color-apollo-03;
-$color-wedge-blue-border: $color-apollo-02;
+//$color-wedge-blue-background: $color-apollo-03;
+
+// Still used for wedges !!! - Nope, it looked bad with the new colors !
+//$color-wedge-blue-border: $color-apollo-02;
 
 //$color-background-body: $color-apollo-custom-00;
 //$color-background-main: $color-apollo-custom-02;

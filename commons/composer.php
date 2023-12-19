@@ -756,6 +756,10 @@ class ComposerElement {
 				// Defining the highlight language.
 				$_language_class = is_null($this->codeLanguage) ? "nohighlight" : "language-" . $this->codeLanguage;
 				
+				if($this->codeCopyable) {
+					$_language_class .= ' p-relative';
+				}
+				
 				// Opening the code element.
 				// Note: The "mt-10" may have to be removed if it clashes with 'no-margin-top' !
 				$htmlCode .= '<div class="code ' . $this->get_modifiers_classes() .
@@ -772,7 +776,9 @@ class ComposerElement {
 				}
 				
 				if($this->codeCopyable) {
-					$htmlCode .= '<div class="container-card-fold primary fold-top-right js-code-copy"><i class="fad fa-copy"></i></div>';
+					$htmlCode .= '<div class="wedge wedge-tr primary js-code-copy border border-t-0 border-r-0 rbl-m p-xxxs px-xs wedge-shadow">';
+					$htmlCode .= '<i class="fad fa-copy"></i> ' . localize("common.action.copy");
+					$htmlCode .= '</div>';
 				}
 				
 				// Closing code element.

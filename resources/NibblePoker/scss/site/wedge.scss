@@ -4,116 +4,75 @@
 
 .wedge {
 	position: absolute;
-	bottom: 0;
+	top: 0;
 	right: 0;
-	width: 2.5rem;
-	height: 2.5rem;
 	
-	clip-path: polygon(100% 0, 0 100%, 100% 100%);
-	border-radius: var(--base-border-radius) !important;
-	//border-bottom-right-radius: var(--base-border-radius) !important;
-	overflow: hidden;
-	
-	color: var(--dm-button-text-color);
-	background-color: var(--dm-button-bg-color);
-	background-image: var(--dm-button-bg-image);
-	border-color: var(--dm-button-border-color);
-	opacity: 0.4;
-	
-	// https://codepen.io/setswon/pen/VJeXXq
-	// Using a value of ~0.35 feels sluggish.
-	transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
-	transition-timing-function: cubic-bezier(.47,1.64,.41,.8);
+	color: #{$color-text-regular-normal};
+	background-color: #{$color-background-button};
 	
 	user-select: none;
 	cursor: pointer;
 	
-	&.primary {
-		color: white;
-		
-		background-color: #{$color-wedge-blue-background};
-		border-color: #{$color-wedge-blue-border};
-		
-		//color: var(--dm-button-primary-text-color);
-		//background-color: var(--dm-button-primary-bg-color);
-		//background-image: var(--dm-button-primary-bg-image);
-		//border-color: var(--dm-button-primary-border-color);
-	}
+	//opacity: 0.875;
 	
-	&.secondary {
-		color: var(--dm-button-secondary-text-color);
-		background-color: var(--dm-button-secondary-bg-color);
-		background-image: var(--dm-button-secondary-bg-image);
-		border-color: var(--dm-button-secondary-border-color);
-	}
-	
-	&.danger {
-		color: var(--dm-button-secondary-text-color);  // White icons looks like shit.
-		background-color: var(--dm-button-danger-bg-color);
-		background-image: var(--dm-button-danger-bg-image);
-		border-color: var(--dm-button-danger-border-color);
-	}
-	
-	i {
-		position: absolute;
-		right: 0.2rem;
-		bottom: 0.2rem;
-		transition: right 0.25s ease, bottom 0.25s ease;
-		transition-timing-function: cubic-bezier(.47,1.64,.41,.8);
-		
-		&.r-45 {
-			// Small fix
-			right: 0.4rem;
-		}
-	}
+	// https://codepen.io/setswon/pen/VJeXXq
+	// Using a value of ~0.35 feels sluggish.
+	//transition: color 0.25s ease;
+	//transition-timing-function: cubic-bezier(.47,1.64,.41,.8);
 	
 	&:hover {
-		width: 3rem;
-		height: 3rem;
-		opacity: 0.8;
-		
-		i {
-			bottom: 0.325em;
-			right: 0.325rem;
-			
-			&.r-45 {
-				// Small fix
-				right: 0.7rem;
-			}
+		background-color: #{$color-background-button-hover};
+	}
+	
+	&.wedge-shadow {
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+	}
+	
+	&.primary {
+		background-color: #{$color-background-button-primary};
+		&:hover {
+			background-color: #{$color-background-button-primary-hover};
 		}
 	}
 	
-	// Extra rule for mobile
-	// If it doesn't work, use "768px" !
-	@media (max-width: 576px) {
-		width: 3.5rem;
-		height: 3.5rem;
-		opacity: 0.8;
-		
-		i {
-			bottom: 0.325em;
-			right: 0.325rem;
-			
-			&.r-45 {
-				// Small fix
-				right: 0.7rem;
-			}
+	&.success {
+		background-color: #{$color-background-button-success};
+		&:hover {
+			background-color: #{$color-background-button-success-hover};
 		}
 	}
 	
-	&.fold-top-right {
+	&.error {
+		background-color: #{$color-background-button-error};
+		&:hover {
+			background-color: #{$color-background-button-error-hover};
+		}
+	}
+	
+	&.warning {
+		background-color: #{$color-background-button-warning};
+		&:hover {
+			background-color: #{$color-background-button-warning-hover};
+		}
+	}
+	
+	&.wedge-tr {
 		top: 0;
-		clip-path: polygon(0 0, 100% 0, 100% 100%);
-		
-		i {
-			top: 0.3em;
-			right: 0.3rem;
-		}
-		
-		&:hover i {
-			top: 0.4rem;
-			right: 0.4rem;
-		}
+		right: 0;
+	}
+	
+	&.wedge-br {
+		bottom: 0;
+		right: 0;
+	}
+	
+	&.wedge-tl {
+		top: 0;
+		left: 0;
+	}
+	
+	&.wedge-bl {
+		bottom: 0;
+		left: 0;
 	}
 }
-
