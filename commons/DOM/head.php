@@ -15,7 +15,7 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 <link rel="stylesheet" href="/resources/NibblePoker/css/nibblepoker.min.css?v=1">
 <?php
 if($enable_code_highlight) {
-	echo('<link href="/resources/HighlightJS/11.6.0/styles/atom-one-dark.min.css" rel="stylesheet"/>');
+	echo('<link href="/resources/HighlightJS/src/styles/atom-one-dark.min.css" rel="stylesheet"/>');
 }
 if($enable_gallery) {
 	echo('<link href="/resources/SplideJs/dist/css/splide.min.css" rel="stylesheet"/>');

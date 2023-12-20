@@ -10,8 +10,7 @@ if($enable_gallery) {
 }
 
 if($enable_code_highlight) {
-	echo('<script src="/resources/HighlightJS/11.6.0/highlight.min.js"></script>');
-	echo('<script src="/resources/HighlightJS/11.6.0/languages/csharp.min.js"></script>');
+	echo('<script src="/resources/HighlightJS/highlight.min.js"></script>');
 }
 ?>
 <script src="/resources/NibblePoker/js/nibblepoker.min.js"></script>
