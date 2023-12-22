@@ -756,9 +756,9 @@ class ComposerElement {
 				// Defining the highlight language.
 				$_language_class = is_null($this->codeLanguage) ? "nohighlight" : "language-" . $this->codeLanguage;
 				
-				if($this->codeCopyable) {
-					$_language_class .= ' p-relative';
-				}
+				// Parent container with a relative position to handle the wedge when the code itself is
+				//  horizontally scrollable.
+				$htmlCode .= '<div class="p-relative">';
 				
 				// Opening the code element.
 				// Note: The "mt-10" may have to be removed if it clashes with 'no-margin-top' !
@@ -776,12 +776,15 @@ class ComposerElement {
 				}
 				
 				if($this->codeCopyable) {
-					$htmlCode .= '<div class="wedge wedge-tr primary js-code-copy border border-t-0 border-r-0 rbl-m p-xxxs px-xs wedge-shadow" hidden>';
+					$htmlCode .= '<div class="wedge wedge-tr primary js-code-copy border border-t-0 border-r-0 rbl-m rtr-s p-xxxs px-xs wedge-shadow" hidden>';
 					$htmlCode .= '<i class="fad fa-copy"></i> ' . localize("common.action.copy");
 					$htmlCode .= '</div>';
 				}
 				
 				// Closing code element.
+				$htmlCode .= '</div>';
+				
+				// Closing super container.
 				$htmlCode .= '</div>';
 				
 				break;

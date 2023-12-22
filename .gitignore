@@ -19,6 +19,9 @@ resources/NibblePoker/css/*.css
 tools/items/formula-wizard/*.js
 tools/items/formula-wizard/src/*.js
 
+# Build artifacts
+build*.7z
+
 # ???
 # Source: https://github.com/sjmulder/nbt-js
 tools/items/mc-art-viewer/nbt.js
