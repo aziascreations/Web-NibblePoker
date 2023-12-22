@@ -76,70 +76,75 @@ include 'commons/DOM/sidebar.php';
 		<?php print(localize("about.financing.text.20")); ?><br>
 		<?php print(localize("about.financing.text.21")); ?>
 	</p>
-	<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center mt-xs mx-s">
-		<thead>
+	
+	<div class="grid col-2 col-medium-1">
+		<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center mt-s mx-s">
+			<thead>
+				<tr>
+					<th><?php print(localize("about.financing.part.service")); ?></th>
+					<th><?php print(localize("about.financing.part.cost.yearly")); ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><?php print(localize("about.financing.part.domain.lu")); ?></td>
+					<td><?php print(number_format(17,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
+				</tr>
+				<tr>
+					<td><?php print(localize("about.financing.part.domain.com")); ?></td>
+					<td><?php print(number_format(14.5,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
+				</tr>
+				<tr>
+					<td><?php print(localize("about.financing.part.proxy.europe")); ?></td>
+					<td><?php print(number_format(14.5,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
+				</tr>
+				<tr>
+					<td><?php print(localize("about.financing.part.proxy.america")); ?></td>
+					<td><?php print(number_format(13,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
+				</tr>
+				<tr>
+					<td><?php print(localize("about.financing.part.electricity")); ?></td>
+					<td>&pm;<?php print(number_format(30,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
+				</tr>
+				<tr>
+					<td><b class="f-right"><?php print(localize("about.financing.part.cost.yearly.total")); ?>:</b></td>
+					<td>&pm;<?php print(number_format(
+						17 + 14.5 + 14.5 + 13 + 30,
+						2, $lang_number_decimal, $lang_number_thousands)
+						); ?> €
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center mt-s mx-s">
+			<thead>
 			<tr>
-				<th><?php print(localize("about.financing.part.service")); ?></th>
-				<th><?php print(localize("about.financing.part.cost.yearly")); ?></th>
+				<th><?php print(localize("about.financing.part.equipment")); ?></th>
+				<th><?php print(localize("about.financing.part.cost")); ?></th>
 			</tr>
-		</thead>
-		<tbody>
+			</thead>
+			<tbody>
 			<tr>
-				<td><?php print(localize("about.financing.part.domain.lu")); ?></td>
-				<td><?php print(number_format(17,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
+				<td>
+					<?php print(localize("about.financing.part.nanopir4s")); ?>
+				</td>
+				<td>&pm;<?php print(number_format(80,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
 			</tr>
 			<tr>
-				<td><?php print(localize("about.financing.part.domain.com")); ?></td>
-				<td><?php print(number_format(14.5,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
+				<td><?php print(localize("about.financing.part.storage")); ?></td>
+				<td>&pm;<?php print(number_format(10,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
 			</tr>
 			<tr>
-				<td><?php print(localize("about.financing.part.proxy.europe")); ?></td>
-				<td><?php print(number_format(14.5,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
-			</tr>
-			<tr>
-				<td><?php print(localize("about.financing.part.emails")); ?></td>
-				<td><?php print(number_format(14.4,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
-			</tr>
-			<tr>
-				<td><?php print(localize("about.financing.part.electricity")); ?></td>
-				<td>&pm;<?php print(number_format(30,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
-			</tr>
-			<tr>
-				<td><b class="f-right"><?php print(localize("about.financing.part.cost.yearly.total")); ?>:</b></td>
-				<td>&pm;<?php print(number_format(
-					16.93 + 14.5 + 14.52 + 14.4 + 30,
-					2, $lang_number_decimal, $lang_number_thousands)
-					); ?> €
+				<td><b class="f-right"><?php print(localize("about.financing.part.cost.total")); ?>:</b></td>
+				<td>&pm;<?php print(number_format(90, 2, $lang_number_decimal, $lang_number_thousands)); ?> €
 				</td>
 			</tr>
-		</tbody>
-	</table>
-	<p class="mt-xxs ml-s t-super-muted">
+			</tbody>
+		</table>
+	</div>
+	<p class="mt-xs ml-s t-super-muted t-center">
 		<?php print(localize("about.financing.text.isp")); ?>
 	</p>
-	<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center mt-xxs mx-s mb-xs">
-		<thead>
-		<tr>
-			<th><?php print(localize("about.financing.part.equipment")); ?></th>
-			<th><?php print(localize("about.financing.part.cost")); ?></th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-			<td><?php print(localize("about.financing.part.nanopir4s")); ?></td>
-			<td>&pm;<?php print(number_format(80,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
-		</tr>
-		<tr>
-			<td><?php print(localize("about.financing.part.storage")); ?></td>
-			<td>&pm;<?php print(number_format(10,2, $lang_number_decimal, $lang_number_thousands)); ?> €</td>
-		</tr>
-		<tr>
-			<td><b class="f-right"><?php print(localize("about.financing.part.cost.total")); ?>:</b></td>
-			<td>&pm;<?php print(number_format(90, 2, $lang_number_decimal, $lang_number_thousands)); ?> €
-			</td>
-		</tr>
-		</tbody>
-	</table>
 </main>
 <?php
 include 'commons/DOM/footer.php';

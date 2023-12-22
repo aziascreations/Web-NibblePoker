@@ -39,5 +39,4 @@ tools/items/mc-art-viewer/nbt.js
 
 # Temporary
 articles/*.txt
-commons/strings/_*/
 meow*.ogg
