@@ -16,7 +16,7 @@
       "improvements.title": "Improvements over PB-ListComPort",
       "improvements.1": "Switched from PureBasic to .NET 6.0.",
       "improvements.2": "Improved a lot of the program's logic.",
-      "improvements.3": "Added the <code>-h/--short-help</code>.",
+      "improvements.3": "Added the <code>-H/--short-help</code>.",
       "improvements.4": "Added support for Windows ARM & ARM64.",
       "improvements.5": "Support for running without a console.",
       "usage.title": "Usage",
@@ -53,7 +53,7 @@
       "improvements.title": "Améliorations",
       "improvements.1": "Changement de PureBasic vers .NET 6.0.",
       "improvements.2": "Amélioration de la logique interne du programme.",
-      "improvements.3": "Ajout de l'option <code>-h/--short-help</code>.",
+      "improvements.3": "Ajout de l'option <code>-H/--short-help</code>.",
       "improvements.4": "Support pour Windows ARM et ARM64.",
       "improvements.5": "Support pour le lancement sans invité de commande.",
       "usage.title": "Utilisation",
@@ -85,7 +85,7 @@
       "description": "meta.description",
       "type": null,
       "url": null,
-      "image": null,
+      "image": "/resources/NibblePoker/images/content/lscom/lscom-v2-text-01-bkgd-cli.png",
       "image_type": null
     },
     "article": {

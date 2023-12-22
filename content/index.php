@@ -46,6 +46,9 @@ if($contentManager->hasError) {
 	// Remark: The 'glider' and 'highlight.js' stylesheets are included here.
 	include 'commons/DOM/head.php';
 	
+	$content_head_image = $host_uri . "/resources/NibblePoker/images/logos/v2_opengraph.png";
+	$content_head_image_type = "image/png";
+	
     // Preparing values for the head's tags.
     if ($contentManager->hasError) {
 		$content_head_title = localize("content.error.head.title");
@@ -63,6 +66,36 @@ if($contentManager->hasError) {
 			$content->get_head_title() .
 			localize("content.item.og.title.suffix");
 		$content_head_og_description = $content->get_head_description();
+	    
+	    if(!is_null($content->metadata->opengraph->image)) {
+		    $content_head_image = $host_uri . $content->metadata->opengraph->image;
+	    }
+		
+	    if(!is_null($content->metadata->opengraph->image_type)) {
+		    $content_head_image_type = $content->metadata->opengraph->image_type;
+	    } else {
+			switch(pathinfo($content_head_image, PATHINFO_EXTENSION)) {
+				case "png":
+					$content_head_image_type = "image/png";
+					break;
+				case "jpg":
+				case "jpeg":
+					$content_head_image_type = "image/jpeg";
+					break;
+				case "gif":
+					$content_head_image_type = "image/gif";
+					break;
+				case "svg":
+					$content_head_image_type = "image/svg+xml";
+					break;
+				case "webp":
+					$content_head_image_type = "image/webp";
+					break;
+				case "apng":
+					$content_head_image_type = "image/apng";
+					break;
+			}
+	    }
     } elseif($contentManager->displayType == ContentDisplayType::SEARCH) {
 		$content_head_title = localize("content.search.head.title");
 		$content_head_description = localize("content.search.head.description");
@@ -77,8 +110,8 @@ if($contentManager->hasError) {
     <meta property="og:title" content="<?php echo($content_head_og_title); ?>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="<?php echo($host_uri . l10n_url_abs('/')); ?>"/>
-    <meta property="og:image" content="<?php echo($host_uri); ?>/resources/NibblePoker/images/logos/v2_opengraph.png"/>
-    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image" content="<?php echo($content_head_image); ?>"/>
+    <meta property="og:image:type" content="<?php echo($content_head_image_type); ?>"/>
     <meta property="og:description" content="<?php echo($content_head_og_description); ?>"/>
 </head>
 <body>

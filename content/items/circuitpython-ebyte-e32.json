@@ -92,7 +92,7 @@
 			"description": "meta.description",
 			"type": null,
 			"url": null,
-			"image": null,
+			"image": "/resources/NibblePoker/images/content/circuitpython-ebyte-e32/main.png",
 			"image_type": null
 		},
 		"article": {

@@ -62,7 +62,7 @@
       "description": "meta.description",
       "type": null,
       "url": null,
-      "image": null,
+      "image": "/resources/NibblePoker/images/content/mc-expanded-iron-bundles/item-icon.png",
       "image_type": null
     },
     "article": {

@@ -1,3 +1,4 @@
 {
-	"common.action.copy": "Copier"
+	"common.action.copy": "Copier",
+	"common.action.copied": "Copié"
 }

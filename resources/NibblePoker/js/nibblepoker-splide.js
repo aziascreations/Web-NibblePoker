@@ -14,6 +14,5 @@ window.addEventListener('load', function() {
 		}).mount();
 	} catch(err) {
 		console.log("Unable to setup Splide !");
-		console.log(err);
 	}
 });

@@ -45,6 +45,7 @@
 						audioPurr.volume = 0.075;
 						try {
 							audioPurr.load();
+							audioPurr.loop = true;
 							audioPurr.play();
 						} catch(DOMException) {
 						}

@@ -777,8 +777,11 @@ class ComposerElement {
 				}
 				
 				if($this->codeCopyable) {
-					$htmlCode .= '<div class="wedge wedge-tr primary js-code-copy border border-t-0 border-r-0 rbl-m rtr-s p-xxxs px-xs wedge-shadow" hidden>';
-					$htmlCode .= '<i class="fad fa-copy"></i> ' . localize("common.action.copy");
+					//border-t-0 border-r-0
+					$htmlCode .= '<div class="wedge wedge-tr primary js-code-copy border rbl-m rtr-s p-xxxs px-xs" hidden>';
+					$htmlCode .= '<i class="fad fa-copy"></i>&nbsp;';
+					$htmlCode .= '<span>' . localize("common.action.copy") . '</span>';
+					$htmlCode .= '<span hidden>' . localize("common.action.copied") . '</span>';
 					$htmlCode .= '</div>';
 				}
 				

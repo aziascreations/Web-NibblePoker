@@ -42,7 +42,24 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 			
 			eCodeCopyButton.onclick = function() {
+				const eCodeCopySpans = eCodeCopyButton.querySelectorAll("span");
+				
 				navigator.clipboard.writeText(code);
+				
+				if(eCodeCopySpans.length < 2) {
+					return;
+				}
+				
+				const eSpanCopy = eCodeCopySpans[0];
+				const eSpanCopied = eCodeCopySpans[1];
+				
+				eSpanCopy.hidden = true;
+				eSpanCopied.hidden = false;
+				
+				fadeOut(eSpanCopied, 600).then(r => {
+					eSpanCopy.hidden = false;
+					eSpanCopied.hidden = true;
+				});
 			};
 			
 			eCodeCopyButton.hidden = false;
