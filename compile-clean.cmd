@@ -4,12 +4,13 @@ setlocal enabledelayedexpansion
 :: Going into the script's directory
 cd /D "%~dp0"
 
-:main
+
+:clean
 echo.
 echo Cleaning up the project
 echo -----------------------
 
-:php-clean
+:clean-php-minified
 echo Clearing old minified PHP files...
 pushd %CD%
 for /r "%CD%" %%F in (*.min.php) do (
@@ -19,6 +20,7 @@ for /r "%CD%" %%F in (*.min.php) do (
 echo ^> Done ^!
 popd
 
+:clean-end
+
+
 :end
-:: FIXME: Won't this close the terminal when not called ?
-exit /b

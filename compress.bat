@@ -12,8 +12,8 @@ call "%~dp0compile.bat"
 
 :archive
 echo.
-echo Handling the 'Formula Wizard'
-echo -----------------------------
+echo Preparing a deployment archive
+echo ------------------------------
 
 :archive-env-name
 echo Preparing name variable...
@@ -26,10 +26,12 @@ echo Preparing environment variable...
 set NP_ZIP_CONTENT=
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "about/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "commons/*.php" "commons/strings.json" "commons/DOM/" "commons/content/"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "contact/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "content/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "contributors/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "links/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "privacy/"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/FontAwesomePro/5.15.3/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/HighlightJS/highlight.min.js" "resources/HighlightJS/src/styles/atom-one-dark.min.css"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/css/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/images/*.png"
@@ -47,7 +49,7 @@ set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/images/*/*/*.jpg"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/images/*/*/*.jpeg"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/images/*/*/*.svg"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/images/*/*/*.webp"
-set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/js/*.min.js"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/js/*.js"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/sounds/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/Quantum/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/SplideJs/dist/"

@@ -16,7 +16,7 @@ if($enable_code_highlight) {
 <script src="/resources/NibblePoker/js/nibblepoker.min.js"></script>
 <?php
 if($enable_gallery) {
-	echo('<script src="/resources/NibblePoker/js/nibblepoker-splide.js"></script>');
+	echo('<script src="/resources/NibblePoker/js/nibblepoker-splide.min.js"></script>');
 }
 if($enable_code_highlight) {
 	echo('<script src="/resources/NibblePoker/js/nibblepoker-code.min.js"></script>');

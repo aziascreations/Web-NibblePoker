@@ -299,6 +299,7 @@ class ComposerContentMetadata {
 	function apply_template(ComposerContent $content_root, string $inner_html) : string {
 		switch($this->template) {
 			case ComposerTemplates::ARTICLE_LEGACY:
+				// FIXME: Is this even used anymore ?!?
 				$inner_html = '<div class="card p-0 mx-0"><div class="px-card py-10 border-bottom px-20">' .
 					'<div class="container-fluid"><h2 class="card-title font-size-18 m-0">' .
 					'<i class="' . $this->article->icon . '"></i>&nbsp;&nbsp;' .
@@ -341,7 +342,7 @@ class ComposerContentMetadata {
 				if(sizeof($this->article->tags) > 0) {
 					foreach($this->article->tags as $tag) {
 						$_template_gpr_tags_dom .= '<a href="'.l10n_url_abs("/content/?tags=" . $tag .
-								'" class="ml-xs">#' . $tag . '</a>');
+								'" class="ml-xs d-inline-block">#' . $tag . '</a>');
 					}
 				} else {
 					$_template_gpr_tags_dom .= '<i>' . localize("content.error.message.data.no.tags") . '</i>';
@@ -744,7 +745,7 @@ class ComposerElement {
 				
 			case ComposerElementTypes::BUTTON:
 				// Composing the button.
-				$htmlCode .= '<button class="p-mxs r-s border b-light ' . (is_null($this->color) ? '' : 'btn-' . $this->color . ' ') .
+				$htmlCode .= '<button class="p-mxs r-s border b-light t-nowrap ' . (is_null($this->color) ? '' : 'btn-' . $this->color . ' ') .
 					$this->get_modifiers_classes() . '">' . $this->get_inner_html($content_root) . '</button>';
 				
 				break;
@@ -769,7 +770,7 @@ class ComposerElement {
 				if(!is_null($this->code)) {
 					foreach($this->code as $code_line) {
 						//$htmlCode .= htmlspecialchars($code_line) . '<br>';  // Old method (Not compatible with hljs)
-						$htmlCode .= '<span class="code-line">' .
+						$htmlCode .= '<span class="code-line t-nowrap">' .
 							str_replace(" ", "&nbsp;", htmlspecialchars($code_line)) .
 							'</span><br>';
 					}
@@ -868,6 +869,7 @@ class ComposerElement {
 				
 			case ComposerElementTypes::TABLE:
 				// Composing table.
+				$htmlCode .= '<div class="overflow-x-scroll">';
 				$htmlCode .= '<table class="' . $this->get_modifiers_classes() . '">';
 				
 				if(!is_null($this->head)) {
@@ -899,6 +901,7 @@ class ComposerElement {
 				}
 				
 				$htmlCode .= '</table>';
+				$htmlCode .= "</div>";
 				break;
 				
 			case ComposerElementTypes::GRID:
@@ -968,22 +971,5 @@ function load_content_by_id(string $content_id) : ?ComposerContent {
 	} else {
 		return load_content_by_file_path($content_file_path);
 	}
-}
-
-// Test
-if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
-	$content = load_content_by_id("test2");
-	
-	if(!is_null($content)) {
-		echo "<pre>";
-		print_r(htmlspecialchars($content->get_html()));
-		echo "</pre>";
-		
-		echo "<pre>";
-		print_r($content);
-		echo "</pre>";
-	}
-	
-	echo("<br>");
 }
 ?>

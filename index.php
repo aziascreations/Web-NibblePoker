@@ -120,7 +120,7 @@ include 'commons/DOM/sidebar.php';
 		<?php print(localize("home.updates.text.privacy")); ?>
 	</p>
 	<p class="mt-s ml-s t-w-600"><i class="fad fa-calendar-alt mr-xs"></i><?php print(localize("home.updates.1.date")); ?></p>
-	<p class="mt-xxs ml-m">
+	<p class="mt-xxs ml-m mb-s">
 		<?php print(localize("home.updates.1.text.1")); ?><br>
 		<?php print(localize("home.updates.text.privacy")); ?>
 	</p>
