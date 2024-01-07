@@ -48,7 +48,7 @@ function printSidebarEntry($url, $title, $icon, $activeId) {
 	<?php
 	printSidebarEntry(l10n_url_abs('/links/'), localize("sidebar.text.links"), "fad fa-link", "links");
 	printSidebarEntry("https://files.nibblepoker.lu/", localize("sidebar.text.downloads"), "fad fa-download", "");
-	//printSidebarEntry("https://git.nibblepoker.lu/", localize("sidebar.text.gitea"), "fad fa-code", "");
+	printSidebarEntry("https://git.nibblepoker.lu/", localize("sidebar.text.gitea"), "fad fa-code", "");
 	//printSidebarEntry("https://wiki.nibblepoker.lu/", localize("sidebar.text.wiki"), "fad fa-books", "");
 	?>
 	<hr class="subtle">
