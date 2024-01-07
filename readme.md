@@ -1,5 +1,5 @@
 # Website - NibblePoker.lu
-Public repository containing my *nibblepoker.lu* website's code.
+Public repository containing the source code for the *nibblepoker.lu* & *nibblepoker.com* websites.
 
 
 ## Preamble
@@ -61,7 +61,7 @@ See [php-relinker.js](php-relinker.js).
 These files are required and need to be installed manually for the website to work properly !
 
 * Apache 2.4 & PHP 8.1 or newer
-* Font Awesome Pro v5.15.3
+* Font Awesome Pro v5.15.3 & v6.5.1
     * `/resources/FontAwesomePro/`
 
 
@@ -78,6 +78,9 @@ All licenses are also included as-is in their project's respective folder.
 ### Website's code
 All the code, stylesheets, and configs that are not covered by the [External licenses](#external) are all 
 licensed under the [Unlicense](LICENSE) license.
+
+### Articles
+The articles present in this repository aren't currently licensed.
 
 ### Images & Sounds
 The images and sounds present in this repository aren't currently licensed.
