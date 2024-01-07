@@ -92,7 +92,7 @@ function localize_private(string $string_key, array $private_lang_data, bool $fa
 		}
 	}
 	if($fallback_to_common) {
-		// If we can attempt to fallback on the common lang file.
+		// If we can attempt to fall back on the common lang file.
 		return localize_private($fallback_prefix . $string_key, $lang_data, false);
 	}
 	

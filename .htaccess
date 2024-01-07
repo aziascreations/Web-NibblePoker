@@ -3,6 +3,11 @@
     Require all denied
 </Files>
 
+# Preventing access to wrongly copied .conf files
+<Files ~ "^.*\.conf">
+    Require all denied
+</Files>
+
 
 # Redirecting HTTP traffic to HTTPS. (Keep commented on localhost !)
 # This is handled by reverse-proxies, but it should still be enabled in production just to be safe.

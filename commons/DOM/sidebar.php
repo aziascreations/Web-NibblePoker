@@ -35,10 +35,10 @@ function printSidebarEntry($url, $title, $icon, $activeId) {
 	?>
 	<hr class="subtle">
 	<?php
-	//printSidebarEntry(l10n_url_abs('/content/'), localize("sidebar.text.projects"), "fad fa-briefcase", "content");
 	printSidebarEntry(l10n_url_abs('/content/?tags=application;web'), localize("sidebar.text.applications"), "fad fa-browser", "application");
 	printSidebarEntry(l10n_url_abs('/content/?tags=library'), localize("sidebar.text.libraries"), "fad fa-puzzle-piece", "library");
-	//printSidebarEntry(l10n_url_abs('/content/?tags=electronic'), localize("sidebar.text.electronics"), "fad fa-microchip", "electronic");
+	//printSidebarEntry(l10n_url_abs('/content/?tags=library'), localize("sidebar.text.libraries"), "fad fa-chart-scatter-3d", "library");
+	printSidebarEntry(l10n_url_abs('/content/?tags=electronic'), localize("sidebar.text.electronics"), "fad fa-microchip", "electronic");
 	?>
 	<?php
 	//<hr class="subtle">
@@ -48,7 +48,7 @@ function printSidebarEntry($url, $title, $icon, $activeId) {
 	<?php
 	printSidebarEntry(l10n_url_abs('/links/'), localize("sidebar.text.links"), "fad fa-link", "links");
 	printSidebarEntry("https://files.nibblepoker.lu/", localize("sidebar.text.downloads"), "fad fa-download", "");
-	printSidebarEntry("https://git.nibblepoker.lu/", localize("sidebar.text.gitea"), "fad fa-code", "");
+	//printSidebarEntry("https://git.nibblepoker.lu/", localize("sidebar.text.gitea"), "fad fa-code", "");
 	//printSidebarEntry("https://wiki.nibblepoker.lu/", localize("sidebar.text.wiki"), "fad fa-books", "");
 	?>
 	<hr class="subtle">

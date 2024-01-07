@@ -38,6 +38,9 @@ $enable_kitty_and_doggo_sounds = false;
 // > Belgium's independence day.
 $enable_waffle_iron = date('m-d') === '07-21';
 
+// > Luxembourg's national day.
+$enable_bouneschlupp_mode = date('m-d') === '06-23';
+
 // Debugging stuff
 $print_execution_timer = true;
 ?>

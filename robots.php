@@ -15,6 +15,8 @@ switch($_SERVER['SERVER_NAME']) {
 		http_response_code(400);
 		exit(1);
 }
-http_response_code(200);
+
+// Finishing the response.
+//http_response_code(200);
 exit(0);
 ?>

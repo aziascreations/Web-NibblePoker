@@ -1,4 +1,5 @@
 <?php
+// Common setup
 $start_time = microtime(true);
 set_include_path('./');
 include_once 'commons/config.php';

@@ -40,6 +40,6 @@ foreach(SITEMAP_LANGUAGES as $language_key) {
 }
 
 // Finishing the response.
-http_response_code(200);
+//http_response_code(200);
 exit(0);
 ?>
