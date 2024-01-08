@@ -15,6 +15,46 @@ $default_language = "en";
 $user_language = "en";
 $user_uri_language = "";
 
+$lang_compilation_date = "1970-01-01T00:00:00Z";
+//$lang_compilation_date = (new DateTime('2010-12-30 23:21:46'))->format(DateTimeInterface::ATOM);
+
+// Preparing a function for later
+function process_lang_header(string $accepted_lang_header, bool $filter_unsupported = true, bool $simplify_entries = true): array {
+	$accepted_languages = [];
+	
+	foreach(explode(",", $accepted_lang_header) as $_client_lang_entry) {
+		$lang_entry_parts = explode(";", $_client_lang_entry);
+		
+		// Ignoring entries without a "q=<float>" part
+		if(count($lang_entry_parts) != 2) {
+			continue;
+		}
+		
+		// Simplifying complex entries from "en-US" to "en".
+		// We'll ignore duplicates since it won't matter after sorting.
+		if($simplify_entries && strlen($lang_entry_parts[0]) > 2) {
+			$lang_entry_parts[0] = substr($lang_entry_parts[0], 0, 2);
+		}
+		
+		// Only allowing supported languages
+		if(!in_array($lang_entry_parts[0], ["en", "fr"]) && $filter_unsupported) {
+			continue;
+		}
+		
+		// Parsing the language's weight
+		$lang_entry_parts[1] = str_replace("q=", "", $lang_entry_parts[1]);
+		$lang_entry_weights = filter_var($lang_entry_parts[1], FILTER_VALIDATE_FLOAT);
+		if($lang_entry_weights === false || !is_float($lang_entry_weights)) {
+			continue;
+		}
+		
+		// Saving it for later
+		$accepted_languages[] = $lang_entry_parts;
+	}
+	
+	return $accepted_languages;
+}
+
 // Attempting to detect the language through the URI
 if(str_starts_with($_SERVER['REQUEST_URI'], "/en/")) {
 	$user_language = "en";
@@ -24,31 +64,7 @@ if(str_starts_with($_SERVER['REQUEST_URI'], "/en/")) {
 	$user_uri_language = "/".$user_language;
 } elseif(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
 	// Attempting to detect the language through the browser's headers.
-	$_client_languages = [];
-	
-	foreach(explode(",", $_SERVER["HTTP_ACCEPT_LANGUAGE"]) as $_client_lang_entry) {
-		$_client_lang_entry_parts = explode(";", $_client_lang_entry);
-		
-		// Ignoring "en-US" and similar entries
-		if(count($_client_lang_entry_parts) != 2) {
-			continue;
-		}
-		
-		// Only allowing supported languages
-		if(!in_array($_client_lang_entry_parts[0], ["en", "fr"])) {
-			continue;
-		}
-		
-		// Parsing the language's weight
-		$_client_lang_entry_parts[1] = str_replace("q=", "", $_client_lang_entry_parts[1]);
-		$_client_lang_entry_weight = filter_var($_client_lang_entry_parts[1], FILTER_VALIDATE_FLOAT);
-		if($_client_lang_entry_weight === false || !is_float($_client_lang_entry_weight)) {
-			continue;
-		}
-		
-		// Saving it for later
-		$_client_languages[] = $_client_lang_entry_parts;
-	}
+	$_client_languages = process_lang_header($_SERVER['HTTP_ACCEPT_LANGUAGE']);
 	
 	// Sorting based on weight and selecting the preferred one.
 	if(count($_client_languages) > 0) {
@@ -73,6 +89,10 @@ header("Content-Language: " . $user_language);
 // Reading and parsing the strings.json file
 $lang_json = file_get_contents(realpath($dir_commons . "/strings.json"));
 $lang_data = json_decode($lang_json, true);
+
+if(array_key_exists("_compile_date", $lang_data)) {
+	$lang_compilation_date = $lang_data["_compile_date"];
+}
 
 // Localization functions
 function localize_private(string $string_key, array $private_lang_data, bool $fallback_to_common = false,

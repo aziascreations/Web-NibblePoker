@@ -1,4 +1,10 @@
 {
 	"common.action.copy": "Copier",
-	"common.action.copied": "Copié"
+	"common.action.copied": "Copié",
+	
+	"common.undefined": "Indéfini(e)",
+	"common.na": "Non-applicable",
+	
+	"common.yes": "Oui",
+	"common.no": "Non"
 }

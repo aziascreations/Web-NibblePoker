@@ -37,6 +37,7 @@ tools/items/mc-art-viewer/nbt.js
 *.url
 *.sqlite
 *.conf
+*.pyc
 
 # Temporary
 articles/*.txt

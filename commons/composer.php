@@ -912,10 +912,10 @@ class ComposerElement {
 				
 			case ComposerElementTypes::GALLERY:
 				if(!is_null($this->srTitle)) {
-					$htmlCode .= '<section class="splide border" aria-label="' . $this->srTitle . '">';
+					$htmlCode .= '<section class="splide border bkgd-math" aria-label="' . $this->srTitle . '">';
 					$htmlCode .= '<h2 id="carousel-heading">' . $this->srTitle . '</h2>';
 				} else {
-					$htmlCode .= '<section class="splide border">';
+					$htmlCode .= '<section class="splide border bkgd-math">';
 				}
 				
 				$htmlCode .= '<div class="splide__track">';
