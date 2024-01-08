@@ -34,7 +34,6 @@ tools/items/mc-art-viewer/nbt.js
 *.bak
 *.exe
 *.url
-*.env
 *.sqlite
 *.conf
 

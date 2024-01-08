@@ -54,7 +54,7 @@ set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/js/*.js"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/sounds/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/Quantum/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/SplideJs/dist/"
-set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "./.htaccess" "./*.php" "./favicon.*"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "./.htaccess" "./*.php" "./favicon.*" "./.env"
 ::echo ^>%NP_ZIP_CONTENT%
 
 :archive-7z
