@@ -26,102 +26,139 @@ include 'commons/DOM/sidebar.php';
 ?>
 <header class="w-full p-m pl-s">
 	<h1 class="t-size-17 t-w-500">
-		<i class="fad fa-user t-size-16 mr-s t-muted"></i><?php print(localize("debug.header.title")); ?>
+		<i class="fad fa-bug t-size-16 mr-s t-muted"></i><?php print(localize("debug.header.title")); ?>
 	</h1>
 	<?php include 'commons/DOM/header-lang.php'; ?>
 </header>
 <main id="main" class="rl-m border border-r-0 p-l">
 	<?php printMainHeader(localize("debug.host.title")); ?>
 	<div class="p-s pb-0">
-		<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center">
-			<thead>
-			<tr>
-				<th><?php echo(localize("debug.tables.field")); ?></th>
-				<th><?php echo(localize("debug.tables.value")); ?></th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-				<td><?php echo(localize("debug.host.requested")); ?></td>
-				<td><kbd><?php echo(htmlspecialchars($_SERVER['SERVER_NAME'])); ?></kbd></td>
-			</tr>
-			<tr>
-				<td><?php echo(localize("debug.host.domain")); ?></td>
-				<td><kbd><?php echo(htmlspecialchars($host)); ?></kbd></td>
-			</tr>
-			<tr>
-				<td><?php echo(localize("debug.host.uri")); ?></td>
-				<td><kbd><?php echo(htmlspecialchars($host_uri)); ?></kbd></td>
-			</tr>
-			<tr>
-				<td><?php echo(localize("debug.host.tld")); ?></td>
-				<td><kbd><?php echo(htmlspecialchars($host_tld)); ?></kbd></td>
-			</tr>
-			<tr>
-				<td><?php echo(localize("debug.host.waffle")); ?></td>
-				<td><i><?php echo(localize($enable_bouneschlupp_mode ? "common.yes": "common.no")); ?></i></td>
-			</tr>
-			<tr>
-				<td><?php echo(localize("debug.host.bouneschlupp")); ?></td>
-				<td><i><?php echo(localize($enable_waffle_iron ? "common.yes": "common.no")); ?></i></td>
-			</tr>
-			</tbody>
-		</table>
+		<div class="overflow-x-auto t-nowrap">
+			<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center">
+				<thead>
+				<tr>
+					<th><?php echo(localize("debug.tables.field")); ?></th>
+					<th><?php echo(localize("debug.tables.value")); ?></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><?php echo(localize("debug.host.requested")); ?></td>
+					<td><kbd><?php echo(htmlspecialchars($_SERVER['SERVER_NAME'])); ?></kbd></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("debug.host.domain")); ?></td>
+					<td><kbd><?php echo(htmlspecialchars($host)); ?></kbd></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("debug.host.uri")); ?></td>
+					<td><kbd><?php echo(htmlspecialchars($host_uri)); ?></kbd></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("debug.host.tld")); ?></td>
+					<td><kbd><?php echo(htmlspecialchars($host_tld)); ?></kbd></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("debug.host.waffle")); ?></td>
+					<td><i><?php echo(localize($enable_waffle_iron ? "common.yes": "common.no")); ?></i></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("debug.host.bouneschlupp")); ?></td>
+					<td><i><?php echo(localize($enable_bouneschlupp_mode ? "common.yes": "common.no")); ?></i></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 	
 	<?php printMainHeader(localize("debug.lang.title")); ?>
 	<div class="p-s pb-0">
-		<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center">
-			<thead>
-			<tr>
-				<th><?php echo(localize("debug.tables.field")); ?></th>
-				<th><?php echo(localize("debug.tables.value")); ?></th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-				<td><?php echo(localize("debug.lang.compile-date")); ?></td>
-				<td><kbd><?php echo(htmlspecialchars($lang_compilation_date)); ?></kbd></td>
-			</tr>
-			<tr>
-				<td><?php echo(localize("debug.lang.default")); ?></td>
-				<td><kbd><?php echo(htmlspecialchars($default_language)); ?></kbd></td>
-			</tr>
-			<tr>
-				<td><?php echo(localize("debug.lang.user")); ?></td>
-				<td><kbd><?php echo(htmlspecialchars($user_language)); ?></kbd></td>
-			</tr>
-			<tr>
-				<td><?php echo(localize("debug.lang.header.raw")); ?></td>
-				<td><?php
-					if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-						 echo('<kbd>' . htmlspecialchars($_SERVER['HTTP_ACCEPT_LANGUAGE']) . '</kbd>');
-					} else {
-						 echo('<i>' . localize("common.undefined") . '</i>');
-					}
-					?></td>
-			</tr>
-			<tr>
-				<td><?php echo(localize("debug.lang.header.processed")); ?></td>
-				<td><?php
-					if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-						$_client_languages = process_lang_header($_SERVER['HTTP_ACCEPT_LANGUAGE'], false, false);
-						$_i_client_language = 0;
-						foreach($_client_languages as $_client_language) {
-							echo('<p' . ($_i_client_language > 0 ? ' class="mt-xs"' : '') . '>');
-							echo('<kbd>' . htmlspecialchars($_client_language[0]) . '</kbd>');
-							echo(' &#10140; ');
-							echo('<kbd>' . htmlspecialchars($_client_language[1]) . '</kbd>');
-							echo('</p>');
-							$_i_client_language++;
+		<div class="overflow-x-auto t-nowrap">
+			<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center">
+				<thead>
+				<tr>
+					<th><?php echo(localize("debug.tables.field")); ?></th>
+					<th><?php echo(localize("debug.tables.value")); ?></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><?php echo(localize("debug.lang.compile-date")); ?></td>
+					<td><kbd><?php echo(htmlspecialchars($lang_compilation_date)); ?></kbd></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("debug.lang.default")); ?></td>
+					<td><kbd><?php echo(htmlspecialchars($default_language)); ?></kbd></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("debug.lang.user")); ?></td>
+					<td><kbd><?php echo(htmlspecialchars($user_language)); ?></kbd></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("debug.lang.header.raw")); ?></td>
+					<td><?php
+						if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+							 echo('<kbd>' . htmlspecialchars($_SERVER['HTTP_ACCEPT_LANGUAGE']) . '</kbd>');
+						} else {
+							 echo('<i>' . localize("common.undefined") . '</i>');
 						}
-					} else {
-						echo('<i>' . localize("common.na") . '</i>');
-					}
-					?></td>
-			</tr>
-			</tbody>
-		</table>
+						?></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("debug.lang.header.processed")); ?></td>
+					<td><?php
+						if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+							$_client_languages = process_lang_header($_SERVER['HTTP_ACCEPT_LANGUAGE'], false, false);
+							$_i_client_language = 0;
+							foreach($_client_languages as $_client_language) {
+								echo('<p' . ($_i_client_language > 0 ? ' class="mt-xs"' : '') . '>');
+								echo('<kbd>' . htmlspecialchars($_client_language[0]) . '</kbd>');
+								echo(' &#10140; ');
+								echo('<kbd>' . htmlspecialchars($_client_language[1]) . '</kbd>');
+								echo('</p>');
+								$_i_client_language++;
+							}
+						} else {
+							echo('<i>' . localize("common.na") . '</i>');
+						}
+						?></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<?php printMainHeader(localize("debug.client.title")); ?>
+	<div class="p-s pb-0">
+		<div class="overflow-x-auto t-nowrap">
+			<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center">
+				<thead>
+				<tr>
+					<th><?php echo(localize("debug.tables.field")); ?></th>
+					<th><?php echo(localize("debug.tables.value")); ?></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><?php echo(localize("content.commons.cpu")); ?> (PHP)</td>
+					<td><kbd><?php echo("TODO"); ?></kbd></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("content.commons.cpu")); ?> (JS)</td>
+					<td><kbd><?php echo("TODO"); ?></kbd></td>
+				</tr>
+				<tr>
+					<td><?php echo(localize("common.user-agent")); ?></td>
+					<td><?php
+							if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+								echo('<kbd>' . htmlspecialchars($_SERVER['HTTP_USER_AGENT']) . '</kbd>');
+							} else {
+								echo('<i>' . localize("common.undefined") . '</i>');
+							}?></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </main>
 <?php

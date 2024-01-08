@@ -1,8 +1,8 @@
 {
 	"debug.head.title": "Debugger - NibblePoker",
-	"debug.head.description": "TODO: description",
+	"debug.head.description": "Debugging page used to analyse the behaviour of various mechanisms used by the website.",
 	"debug.og.title": "NibblePoker - Debugger",
-	"debug.og.description": "TODO: description",
+	"debug.og.description": "Debugging page used to analyse the behaviour of various mechanisms used by the website.",
 	"debug.header.title": "Debugger",
 	
 	"debug.tables.field": "Field",
@@ -21,5 +21,7 @@
 	"debug.lang.default": "Default language",
 	"debug.lang.user": "Active language",
 	"debug.lang.header.raw": "Raw HTTP header",
-	"debug.lang.header.processed": "Processed HTTP header"
+	"debug.lang.header.processed": "Processed HTTP header",
+	
+	"debug.client.title": "Client Information"
 }

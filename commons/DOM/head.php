@@ -22,4 +22,7 @@ if($enable_code_highlight) {
 if($enable_gallery) {
 	echo('<link href="/resources/SplideJs/dist/css/splide.min.css" rel="stylesheet"/>');
 }
+if($enable_waffle_iron) {
+	echo('<link href="/resources/NibblePoker/css/snowflakes.min.css" rel="stylesheet"/>');
+}
 ?>

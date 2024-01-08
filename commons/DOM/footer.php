@@ -21,3 +21,23 @@ include_once 'commons/langs.php';
 		     alt="<?php echo(localize("footer.alt.logo")); ?>" draggable="false">
 	</a>
 </footer>
+<?php
+if($enable_waffle_iron) {
+	$emojis = ['🍟', '🧇', '🥔'];
+	shuffle($emojis);
+	echo('<div class="snowflakes" aria-hidden="true">');
+	for($i_waffle = 0; $i_waffle < 12; $i_waffle++) {
+		echo('<div class="snowflake"><div class="inner">' . ($emojis)[$i_waffle % 3] . '</div></div>');
+	}
+	echo('</div>');
+}
+if($enable_bouneschlupp_mode) {
+
+}
+
+// TODO: Implement those
+//if($enable_gallery) {
+//	echo('<div id="modal-bkgd" hidden></div>');
+//	echo('<div id="modal-container" hidden></div>');
+//}
+?>

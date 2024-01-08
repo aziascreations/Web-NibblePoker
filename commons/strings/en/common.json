@@ -6,5 +6,7 @@
 	"common.na": "N/A",
 	
 	"common.yes": "Yes",
-	"common.no": "No"
+	"common.no": "No",
+	
+	"common.user-agent": "User-Agent"
 }

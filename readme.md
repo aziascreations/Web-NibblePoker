@@ -72,6 +72,9 @@ Here is a list of the licenses for any third-party thing included in this reposi
 
 * [Quantum Font](https://sesohq.sellfy.store/p/3enu/) by [sesohq](https://www.sesohq.com/)
   * Free font with no apparent usage restrictions.
+* [CSSnowflakes](https://github.com/pajasevi/CSSnowflakes) by [PavelTheCoder](https://github.com/pajasevi)
+  * MIT licensed snowflake effects used on certain days of the year.
+  * Can be found in [resources/NibblePoker/scss/snowflakes.scss](resources/NibblePoker/scss/snowflakes.scss)
 
 All licenses are also included as-is in their project's respective folder.
 

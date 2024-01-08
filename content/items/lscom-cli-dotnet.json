@@ -371,7 +371,7 @@
                 }]
               }
             ],[
-              {"type": "raw", "content": "content.commons.cpu.arm", "rowspan": 2},
+              {"type": "raw", "content": "content.commons.cpu.arm32", "rowspan": 2},
               {"type": "raw", "content": "requirements.text.dotnet"},
               {
                 "type": "raw",

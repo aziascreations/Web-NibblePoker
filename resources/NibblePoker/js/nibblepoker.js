@@ -1,12 +1,19 @@
 const animationStepCount = 10;
 
-const CpuArchitecture = {
-	Unknown: 0,
-	x86: 1,
-	x64: 2,
-	ArmGeneric: 3,
-	Arm64: 4,
-	RiscV: 5,
+class CpuArchitecture {
+	constructor(id, name) {
+		this.id = id;
+		this.name = name;
+	}
+}
+
+const CpuArchitectures = {
+	Unknown: new CpuArchitecture(0, "?"),
+	x86: new CpuArchitecture(1, "x86"),
+	x64: new CpuArchitecture(2, "x64"),
+	ArmGeneric: new CpuArchitecture(3, "ARM"),
+	Arm64: new CpuArchitecture(4, "ARM64"),
+	RiscV: new CpuArchitecture(5, "RISC-V"),
 }
 
 function getBezierBlend(progress) {
@@ -15,17 +22,17 @@ function getBezierBlend(progress) {
 
 function getCpuArchitecture(userAgent = navigator.userAgent) {
 	if(userAgent.includes("x64")) {
-		return CpuArchitecture.x64;
+		return CpuArchitectures.x64;
 	} else if(userAgent.includes("x86")) {
-		return CpuArchitecture.x86;
+		return CpuArchitectures.x86;
 	} else if(userAgent.includes("ARM")) {
-		return CpuArchitecture.ArmGeneric;
+		return CpuArchitectures.ArmGeneric;
 	} else if(userAgent.includes("ARM64")) {
-		return CpuArchitecture.Arm64;
+		return CpuArchitectures.Arm64;
 	} else if(userAgent.includes("RISC-V")) {
-		return CpuArchitecture.RiscV;
+		return CpuArchitectures.RiscV;
 	}
-	return CpuArchitecture.Unknown;
+	return CpuArchitectures.Unknown;
 }
 
 function fadeOut(element, time = 200) {
@@ -80,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const eSidebar = document.getElementById("sidebar");
 	const eMain = document.getElementById("main");
 	
+	// TODO: Emit an event to help Splide re-align after the sidebar has changed state.
 	document.getElementById("sidebar-toggle-footer").onclick = function() {
 		if(isSidebarVisible) {
 			eSidebar.classList.add("retracted");

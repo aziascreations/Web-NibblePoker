@@ -1,8 +1,8 @@
 {
 	"debug.head.title": "Débogueur - NibblePoker",
-	"debug.head.description": "TODO: description",
+	"debug.head.description": "Page de débogage utilisée pour analyser le comportement des différents mécanismes utilisés par ce site web.",
 	"debug.og.title": "NibblePoker - Débogueur",
-	"debug.og.description": "TODO: description",
+	"debug.og.description": "Page de débogage utilisée pour analyser le comportement des différents mécanismes utilisés par ce site web.",
 	"debug.header.title": "Débogueur",
 	
 	"debug.tables.field": "Champ",
@@ -21,5 +21,7 @@
 	"debug.lang.default": "Langue par défaut",
 	"debug.lang.user": "Langue active",
 	"debug.lang.header.raw": "En-tête HTTP brut",
-	"debug.lang.header.processed": "En-tête HTTP traité"
+	"debug.lang.header.processed": "En-tête HTTP traité",
+	
+	"debug.client.title": "Informations du client"
 }
