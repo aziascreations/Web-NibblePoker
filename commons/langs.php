@@ -25,7 +25,12 @@ function process_lang_header(string $accepted_lang_header, bool $filter_unsuppor
 	foreach(explode(",", $accepted_lang_header) as $_client_lang_entry) {
 		$lang_entry_parts = explode(";", $_client_lang_entry);
 		
-		// Ignoring entries without a "q=<float>" part
+		// Modifying entries without a "q=<float>" part to have a '0.1' value
+		if(count($lang_entry_parts) == 1) {
+			$lang_entry_parts = [$lang_entry_parts[0], "0.1"];
+		}
+		
+		// Ignoring unexpected entries
 		if(count($lang_entry_parts) != 2) {
 			continue;
 		}
