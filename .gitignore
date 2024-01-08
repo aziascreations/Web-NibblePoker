@@ -15,6 +15,7 @@ resources/PlotlyJs/
 *.min.php
 *.min.js
 commons/strings.json
+content/index.json
 resources/NibblePoker/css/*.css
 tools/items/formula-wizard/*.js
 tools/items/formula-wizard/src/*.js

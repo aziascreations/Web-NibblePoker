@@ -1,0 +1,13 @@
+mc-expanded-iron-bundles:
+  title:
+    en: "Expanded Iron Bundles"
+    fr: "Expanded Iron Bundles"
+  preamble:
+    en: "A small Minecraft mod that provides bundles with more storage space, and new functionalities in the future."
+    fr: "Un petit mod pour Minecraft qui ajoute des sacs avec plus d'espace de stockage et de nouvelles fonctionalitées dans le futur."
+  image: "/resources/NibblePoker/images/content/mc-expanded-iron-bundles/item-icon.png"
+  tags:
+    - "game"
+    - "minecraft"
+    - "mod"
+  priority: 20
