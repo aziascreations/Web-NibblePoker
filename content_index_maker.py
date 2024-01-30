@@ -60,7 +60,9 @@ for index_entry_filename in os.listdir(input_folder):
 
     print("> Processing '{}'".format(index_entry_filename))
 
-    with open(os.path.join(input_folder, index_entry_filename), 'r') as f:
+    # Loading the YAML data
+    # See: https://github.com/yaml/pyyaml/issues/123#issuecomment-395431735
+    with open(os.path.join(input_folder, index_entry_filename), 'rt', encoding='utf8') as f:
         index_entry_data = yaml.safe_load(f)
 
     # Checking some stuff
@@ -97,4 +99,4 @@ except IOError:
     pass
 
 with open(output_file, "wb") as f:
-    f.write(json.dumps(index_data, separators=(',', ':')).encode("utf-8"))
+    f.write(json.dumps(index_data, separators=(',', ':'), ensure_ascii=False).encode("utf-8"))
