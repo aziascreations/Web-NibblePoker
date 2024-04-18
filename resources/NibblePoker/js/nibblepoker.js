@@ -111,4 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	//})
 	
 	// TODO: Autodetect mobile screens, close it, and add classes to make it over the rest with dark modal bkgd.
+	
+	// Printing the detected CPU architecture
+	const detectedCpuArch= getCpuArchitecture();
+	let cpuArchPrintouts = document.querySelectorAll(".data-cpu-arch");
+	cpuArchPrintouts.forEach(element => {
+		element.textContent = detectedCpuArch.name;
+	});
 });

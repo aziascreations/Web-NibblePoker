@@ -8,7 +8,7 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 // Including required helpers.
 include_once 'commons/config.php';
 include_once 'commons/langs.php';
-include_once 'commons/content.php';
+include_once 'commons/content/manager.php';
 
 // Required to make headings
 include_once 'commons/DOM/utils.php';
@@ -872,7 +872,7 @@ class ComposerElement {
 				
 			case ComposerElementTypes::TABLE:
 				// Composing table.
-				$htmlCode .= '<div class="overflow-x-scroll">';
+				$htmlCode .= '<div class="overflow-x-auto">';
 				$htmlCode .= '<table class="' . $this->get_modifiers_classes() . '">';
 				
 				if(!is_null($this->head)) {

@@ -25,4 +25,7 @@ if($enable_gallery) {
 if($enable_waffle_iron) {
 	echo('<link href="/resources/NibblePoker/css/snowflakes.min.css" rel="stylesheet"/>');
 }
+if($enable_debug_extras) {
+	echo('<link href="/resources/NibblePoker/css/debugger.min.css" rel="stylesheet"/>');
+}
 ?>

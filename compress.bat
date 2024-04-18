@@ -33,6 +33,14 @@ set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "contributors/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "debug/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "links/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "privacy/"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/ExtGraphics/*.png"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/ExtGraphics/*.svg"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/ExtGraphics/*/*.png"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/ExtGraphics/*/*.svg"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/ExtGraphics/*/*/*.png"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/ExtGraphics/*/*/*.svg"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/ExtGraphics/*/*/*/*.png"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/ExtGraphics/*/*/*/*.svg"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/FontAwesomePro/5.15.3/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/FontAwesomePro/6.5.1/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/HighlightJS/highlight.min.js" "resources/HighlightJS/src/styles/atom-one-dark.min.css"
@@ -66,5 +74,7 @@ echo ^> Done !
 
 :archive-end
 
+echo You can use the following command on the server:
+echo ^> 7z x %NP_ZIP_NAME% ^&^& chmod 755 -R ./ ^&^& rm %NP_ZIP_NAME%
 
 :end

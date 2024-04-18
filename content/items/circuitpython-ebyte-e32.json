@@ -35,6 +35,12 @@
 			"usage.p1": "Many usage examples can be found on GitHub in the \"<a href=\"https://github.com/aziascreations/CircuitPython-Ebyte-E32/tree/master/examples\">examples/</a>\" subfolder.<br>The examples cover all modes of operations for the modules, except for the <i>wake-up</i> and <i>power-saving</i> modes.",
 			"usage.p2": "However, if you want to get a feel on how to use it, I invite you to read the code below taken from the \"<a href=\"https://github.com/aziascreations/CircuitPython-Ebyte-E32/blob/master/examples/transmit_fixed/sender_unicast.py\">transmit_fixed/sender_unicast.py</a>\" example that is used to send a message in fixed mode to a specific device.",
 			
+			"demo.title": "<abbr title=\"In-Real-Life\">IRL</abbr>&nbsp;Tests",
+			"demo.p1": "Some tests were conducted using this library with an <i>E32 443T20D</i> module transmitting at <i>10 mW / 10dBm</i> and <i>2.4 kbps</i>.",
+			"demo.p2": "The transmitting side used a handmade ??? antenna held up ~8-10 m above ground-level, and the receiving one was a basic ??? from a Baofeng radio held up ~2-3 m above the ground with the help of a wooden stick.",
+			"demo.p3": "The maximum observed range was around <i>1.7km / 1.05mi</i> with a clear <abbr title=\"Line-of-Sight\">LOS</abbr>.",
+			"demo.p4": "It could have probably been bigger if we hadn't ran out of beers and were ready to walk >8km to the next unobstructed point.",
+			
 			"downloads.title": "Downloads",
 			
 			"license.title": "License",
@@ -74,6 +80,11 @@
 			"usage.title": "Utilisation",
 			"usage.p1": "De nombreux exemples d'utilisation peuvent être trouvés sur GitHub dans le sous-dossier \"<a href=\"https://github.com/aziascreations/CircuitPython-Ebyte-E32/tree/master/examples\">examples/</a>\" du projet.<br>Les exemples couvrent tous les modes de fonctionnement des modules, à l'exception des modes <i>wake-up</i> et <i>power-saving</i>.",
 			"usage.p2": "Cependant, si vous souhaitez avoir un aperçu rapide, je vous invite à lire le code ci-dessous extrait de l'exemple \"<a href=\"https://github.com/aziascreations/CircuitPython-Ebyte-E32/blob/master/examples/transmit_fixed/sender_unicast.py\">transmit_fixed/sender_unicast.py</a>\" qui est utilisé pour envoyer un message en mode fixe à un récipient spécifique.",
+			
+			"demo.title": "Essais&nbsp;<abbr title=\"dans la vraie vie\">IRL</abbr> ",
+			"demo.p1": "Des tests ont été effectués avec cette librairie en utilisant un module <i>E32 443T20D</i> émettant à <i>10 mW / 10 dBm</i> et <i>2,4 kbps</i>.",
+			"demo.p3": "La portée maximale observée était d'environ <i>1,7 km / 1,05 mi</i> avec une ligne de visée dégagée (<abbr title=\"Line-of-Sight\">LOS</abbr>).",
+			"demo.p4": "Elle aurait probablement pu être plus grande si nous n'avions pas épuisé nos réserves de bières sur la première partie de la marche, et si nous étions prêts à marcher plus de 8 km jusqu'au prochain point dégagé.\n",
 			
 			"downloads.title": "Télechargements",
 			
@@ -179,7 +190,7 @@
 			"parts": [
 				{
 					"type": "code", "indent": 2,
-					"modifiers": ["horizontal-scroll", "code-block"],
+					"modifiers": ["horizontal-scroll-auto", "code-block"],
 					"language": "python", "copyable": true,
 					"code": [
 						"import board",
@@ -212,6 +223,27 @@
 						"",
 						"# The message may be truncated at specific lengths depending on the frequencies used.",
 						"# Please check the documentation for more information !"
+					]
+				}
+			]
+		},
+		
+		{"type": "h1", "content": "demo.title"},
+		{"type": "paragraph", "indent": 2, "content": "demo.p1"},
+		{"type": "paragraph", "indent": 2, "content": "demo.p3"},
+		{"type": "paragraph", "indent": 2, "content": "demo.p4"},
+		{
+			"type": "container", "padding": 2,
+			"modifiers": ["pb-0"],
+			"parts": [
+				{
+					"type": "gallery",
+					"modifiers": [],
+					"images": [
+						"/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-01.jpg",
+						"/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-02.jpg",
+						"/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-03.jpg",
+						"/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-04.jpg"
 					]
 				}
 			]
@@ -329,7 +361,7 @@
 							"parts": [
 								{
 									"type": "button", "modifiers": ["thin"],
-									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.6.0/nibblepoker-circuitpython-e32-driver_v0.6.0_py.zip",
+									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.6.0/nibblepoker-circuitpython-e32-driver_0.6.0_py.zip",
 									"content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;10.39 KiB</span><i class=\"fas fa-download ml-s\"></i>",
 									"localize": false
 								}
@@ -340,7 +372,7 @@
 							"parts": [
 								{
 									"type": "button", "modifiers": ["thin"],
-									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.6.0/nibblepoker-circuitpython-e32-driver_v0.6.0_py-min.zip",
+									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.6.0/nibblepoker-circuitpython-e32-driver_0.6.0_py-min.zip",
 									"content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;4.62 KiB</span><i class=\"fas fa-download ml-s\"></i>",
 									"localize": false
 								}
@@ -351,7 +383,7 @@
 							"parts": [
 								{
 									"type": "button", "modifiers": ["thin"],
-									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.6.0/nibblepoker-circuitpython-e32-driver_v0.6.0_mpy-8.zip",
+									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.6.0/nibblepoker-circuitpython-e32-driver_0.6.0_mpy-8.zip",
 									"content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;6.10 KiB</span><i class=\"fas fa-download ml-s\"></i>",
 									"localize": false
 								}
@@ -362,7 +394,7 @@
 							"parts": [
 								{
 									"type": "button", "modifiers": ["thin"],
-									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.6.0/nibblepoker-circuitpython-e32-driver_v0.6.0_mpy-8-min.zip",
+									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.6.0/nibblepoker-circuitpython-e32-driver_0.6.0_mpy-8-min.zip",
 									"content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;5.83 KiB</span><i class=\"fas fa-download ml-s\"></i>",
 									"localize": false
 								}
@@ -375,7 +407,7 @@
 							"parts": [
 								{
 									"type": "button", "modifiers": ["thin"],
-									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.4.0/nibblepoker-circuitpython-e32-driver_v0.4.0_py.zip",
+									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.4.0/nibblepoker-circuitpython-e32-driver_0.4.0_py.zip",
 									"content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;19.96 KiB</span><i class=\"fas fa-download ml-s\"></i>",
 									"localize": false
 								}
@@ -386,7 +418,7 @@
 							"parts": [
 								{
 									"type": "button", "modifiers": ["thin"],
-									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.4.0/nibblepoker-circuitpython-e32-driver_v0.4.0_py-min.zip",
+									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.4.0/nibblepoker-circuitpython-e32-driver_0.4.0_py-min.zip",
 									"content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;4.18 KiB</span><i class=\"fas fa-download ml-s\"></i>",
 									"localize": false
 								}
@@ -397,7 +429,7 @@
 							"parts": [
 								{
 									"type": "button", "modifiers": ["thin"],
-									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.4.0/nibblepoker-circuitpython-e32-driver_v0.4.0_mpy-8.zip",
+									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.4.0/nibblepoker-circuitpython-e32-driver_0.4.0_mpy-8.zip",
 									"content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;5.27 KiB</span><i class=\"fas fa-download ml-s\"></i>",
 									"localize": false
 								}
@@ -408,7 +440,7 @@
 							"parts": [
 								{
 									"type": "button", "modifiers": ["thin"],
-									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.4.0/nibblepoker-circuitpython-e32-driver_v0.4.0_mpy-8-min.zip",
+									"link": "https://files.nibblepoker.lu/downloads/CircuitPython-Ebyte-E32/0.4.0/nibblepoker-circuitpython-e32-driver_0.4.0_mpy-8-min.zip",
 									"content": "<span class=\"text-monospace\"><i class=\"fad fa-file-archive\"></i>&nbsp;&nbsp;5.04 KiB</span><i class=\"fas fa-download ml-s\"></i>",
 									"localize": false
 								}

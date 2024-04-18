@@ -19,6 +19,7 @@
 .overflow-x-auto {
 	overflow-x: auto;
 }
+
 .overflow-x-scroll {
 	overflow-x: scroll;
 }
@@ -29,22 +30,27 @@
 	height: #{$scrollbar-size};
 	background-color: transparent;
 }
+
 *::-webkit-scrollbar-track:vertical {
 	border-left: 1px solid #{$color-scrollbar-border};
 }
+
 /**::-webkit-scrollbar-track:horizontal {
 	border-top: 1px solid #{$color-scrollbar-border};
 }*/
+
 *::-webkit-scrollbar-thumb {
 	background-color: rgba(255, 255, 255, 0.25);
 	border: 0.4rem solid transparent;
 	background-clip: content-box;
 	border-radius: 1em;
 }
+
 *::-webkit-scrollbar-thumb:hover {
 	background-color: rgba(255, 255, 255, 0.4);
 	border-color: transparent;
 }
+
 *::-webkit-scrollbar-corner {
 	background-color: transparent;
 	border-left: 1px solid rgba(0, 0, 0, 0.1);

@@ -8,10 +8,12 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 // Including required helpers.
 include_once 'commons/config.php';
 include_once 'commons/langs.php';
-include_once 'commons/content.php';
 
-// Required to handle opengraph data
-include_once 'commons/content/opengraph.php';
+// Including the "ContentManager" to shut the IDE up.
+include_once 'commons/content/manager.php';
+
+// Required to make the HTML meta-tags.
+include_once 'commons/content/metadata.php';
 
 // Required to make headings
 include_once 'commons/DOM/utils.php';
@@ -26,7 +28,7 @@ class ToolInfoFile {
 	public string $icon;
 	public string $titleKey;
 	public ?string $subTitleKey;
-	public OpenGraphData $openGraphData;
+	//public OpenGraphData $openGraphData;
 	
 	function __construct(string $domFile, ?string $langFile, ?array $codeFilesPaths, ?array $moduleFilesPaths,
 	                     ?array $styleFilesPaths, ?string $icon, ?string $titleKey, ?string $subTitleKey,
@@ -39,7 +41,7 @@ class ToolInfoFile {
 		$this->icon = is_null($icon) ? "fad fa-question" : $icon;
 		$this->titleKey = is_null($titleKey) ? "unset" : $titleKey;
 		$this->subTitleKey = $subTitleKey;
-		$this->openGraphData = OpenGraphData::from_json($opengraph);
+		//$this->openGraphData = OpenGraphData::from_json($opengraph);
 	}
 	
 	static function from_json(array $json_data): ?ToolInfoFile {
@@ -103,7 +105,7 @@ class ToolInfoFile {
 abstract class ToolsContent {
 	static function loadItemIndexFile(ContentManager $contentManager, string $contentRootPath): ?ToolInfoFile {
 		// Preliminary check
-		if(!$contentManager->displayType == ContentDisplayType::CONTENT) {
+		if(!$contentManager->displayType == EContentDisplayType::DISPLAY) {
 			$contentManager->hasError = true;
 			$contentManager->errorMessageKey = "content.error.message.cannot.load.item.as.not.content";
 			return null;

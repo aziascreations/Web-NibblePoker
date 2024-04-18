@@ -3,6 +3,9 @@ $start_time = microtime(true);
 set_include_path('../');
 include_once 'commons/config.php';
 include_once 'commons/langs.php';
+
+// Enable debugging extras
+$enable_debug_extras = true;
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo($user_language); ?>">
@@ -145,12 +148,12 @@ include 'commons/DOM/sidebar.php';
 				</tr>
 				<tr>
 					<td><?php echo(localize("content.commons.cpu")); ?> (JS)</td>
-					<td><kbd><?php echo("TODO"); ?></kbd></td>
+					<td><kbd class="data-cpu-arch"><?php echo("TODO"); ?></kbd></td>
 				</tr>
 				<tr>
 					<td><?php echo(localize("common.user-agent")); ?></td>
 					<td><?php
-							if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+							if(isset($_SERVER['HTTP_USER_AGENT'])) {
 								echo('<kbd>' . htmlspecialchars($_SERVER['HTTP_USER_AGENT']) . '</kbd>');
 							} else {
 								echo('<i>' . localize("common.undefined") . '</i>');

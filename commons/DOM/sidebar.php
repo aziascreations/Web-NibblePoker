@@ -37,12 +37,11 @@ function printSidebarEntry($url, $title, $icon, $activeId) {
 	<?php
 	printSidebarEntry(l10n_url_abs('/content/?tags=application;web'), localize("sidebar.text.applications"), "fad fa-browser", "application");
 	printSidebarEntry(l10n_url_abs('/content/?tags=library'), localize("sidebar.text.libraries"), "fad fa-puzzle-piece", "library");
-	//printSidebarEntry(l10n_url_abs('/content/?tags=library'), localize("sidebar.text.libraries"), "fad fa-chart-scatter-3d", "library");
 	printSidebarEntry(l10n_url_abs('/content/?tags=electronic'), localize("sidebar.text.electronics"), "fad fa-microchip", "electronic");
-	?>
-	<?php
+	//printSidebarEntry(l10n_url_abs('/content/?tags=utility'), localize("sidebar.text.utilities"), "fad fa-toolbox", "utility");
+	//printSidebarEntry(l10n_url_abs('/content/?tags=3d-print'), localize("sidebar.text.3d-print"), "fad fa-print", "3d-print");
 	//<hr class="subtle">
-	//printSidebarEntry(l10n_url_abs('/tools/'), localize("sidebar.text.tools"), "fad fa-tools", "tools");
+	printSidebarEntry(l10n_url_abs('/tools/'), localize("sidebar.text.tools"), "fad fa-tools", "tools");
 	?>
 	<hr class="subtle">
 	<?php

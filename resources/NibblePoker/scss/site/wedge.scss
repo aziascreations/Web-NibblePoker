@@ -4,8 +4,8 @@
 
 .wedge {
 	position: absolute;
-	top: 0;
-	right: 0;
+	//top: 0;
+	//right: 0;
 	
 	color: #{$color-text-regular-normal};
 	background-color: #{$color-background-button};
@@ -20,7 +20,7 @@
 	//transition: color 0.25s ease;
 	//transition-timing-function: cubic-bezier(.47,1.64,.41,.8);
 	
-	&:hover {
+	&:hover:not(.no-hover) {
 		background-color: #{$color-background-button-hover};
 	}
 	
@@ -30,28 +30,28 @@
 	
 	&.primary {
 		background-color: #{$color-background-button-primary};
-		&:hover {
+		&:hover:not(.no-hover) {
 			background-color: #{$color-background-button-primary-hover};
 		}
 	}
 	
 	&.success {
 		background-color: #{$color-background-button-success};
-		&:hover {
+		&:hover:not(.no-hover) {
 			background-color: #{$color-background-button-success-hover};
 		}
 	}
 	
 	&.error {
 		background-color: #{$color-background-button-error};
-		&:hover {
+		&:hover:not(.no-hover) {
 			background-color: #{$color-background-button-error-hover};
 		}
 	}
 	
 	&.warning {
 		background-color: #{$color-background-button-warning};
-		&:hover {
+		&:hover:not(.no-hover) {
 			background-color: #{$color-background-button-warning-hover};
 		}
 	}

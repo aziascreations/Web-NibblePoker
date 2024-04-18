@@ -18,6 +18,8 @@ call "%~dp0node_modules\.bin\sass" nibblepoker.scss:../css/nibblepoker.css -q
 call "%~dp0node_modules\.bin\sass" nibblepoker.scss:../css/nibblepoker.min.css -q --style compressed
 call "%~dp0node_modules\.bin\sass" snowflakes.scss:../css/snowflakes.css -q
 call "%~dp0node_modules\.bin\sass" snowflakes.scss:../css/snowflakes.min.css -q --style compressed
+call "%~dp0node_modules\.bin\sass" debugger.scss:../css/debugger.css -q
+call "%~dp0node_modules\.bin\sass" debugger.scss:../css/debugger.min.css -q --style compressed
 popd
 pushd %CD%
 cd %~dp0\wiki\scss\

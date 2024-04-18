@@ -19,3 +19,19 @@
 .content-error-text {
 	max-width: 700px;
 }
+
+// Image shown in the smaller inline content cards
+.content-card-image {
+	width: calc(#{$content-search-image-size} * 0.75);
+	height: calc(#{$content-search-image-size} * 0.75);
+	float: left;
+	//filter: drop-shadow(0 0 0.2rem #000000CF);
+	//box-shadow: 0px 0px 20px 2px #000000CF inset;
+}
+
+// Should be a span with IMG tags inside it.
+.app-card-icons {
+	&>img {
+		height: 1.25rem;
+	}
+}

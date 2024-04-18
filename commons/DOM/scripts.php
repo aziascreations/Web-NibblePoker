@@ -24,4 +24,7 @@ if($enable_code_highlight) {
 if($enable_kitty_and_doggo_sounds) {
 	echo('<script src="/resources/NibblePoker/js/nibblepoker-contributors.min.js"></script>');
 }
+if($enable_debug_extras) {
+	echo('<script src="/resources/NibblePoker/js/nibblepoker-debug.min.js"></script>');
+}
 ?>

@@ -81,7 +81,7 @@
       "parts": [
         {
           "type": "code", "indent": 2,
-          "modifiers": ["horizontal-scroll", "code-block"],
+          "modifiers": ["horizontal-scroll-auto", "code-block"],
           "language": "csharp", "copyable": true,
           "code": [
             "// Preparing options and root verb.",

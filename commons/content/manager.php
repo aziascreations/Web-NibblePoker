@@ -8,10 +8,10 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 // Importing required scripts.
 include_once 'commons/langs.php';
 
-abstract class ContentDisplayType {
+enum EContentDisplayType {
 	const NONE = 0;
 	const SEARCH = 1;
-	const CONTENT = 2;
+	const DISPLAY = 2;
 }
 
 class ContentIndexEntry {
@@ -57,7 +57,7 @@ class ContentManager {
 	
 	function __construct(string $contentRootPath, string $requestedUrl, ?string $urlTags) {
 		// Preparing default values
-		$this->displayType = ContentDisplayType::NONE;
+		$this->displayType = EContentDisplayType::NONE;
 		$this->hasError = false;
 		$this->errorMessageKey = "content.error.message.none";
 		$this->requestedId = NULL;
@@ -68,14 +68,21 @@ class ContentManager {
 		// Doing some standard things
 		$this->processUrl($requestedUrl, $urlTags);
 		if(!$this->hasError) {
-			if($this->displayType == ContentDisplayType::SEARCH) {
+			if($this->displayType == EContentDisplayType::SEARCH) {
 				$this->loadRootIndex(realpath($contentRootPath . "/index.json"));
-			} elseif($this->displayType == ContentDisplayType::CONTENT) {
+			} elseif($this->displayType == EContentDisplayType::DISPLAY) {
 				$this->prepareContentFilePath($contentRootPath);
 			}
 		}
 	}
 	
+	/**
+	 * Checks the given url, and determines the display type.
+	 * If given, it also splits the tags and validates them.
+	 * @param string $requestedUrl
+	 * @param string|null $urlTags
+	 * @return void
+	 */
 	function processUrl(string $requestedUrl, ?string $urlTags): void {
 		// Doing some dark magic whose inner workings are lost to times...
 		$requestedUrlPart = explode(
@@ -84,7 +91,7 @@ class ContentManager {
 		)[0];
 		
 		if(strcmp($requestedUrlPart, "/") == 0) {
-			$this->displayType = ContentDisplayType::SEARCH;
+			$this->displayType = EContentDisplayType::SEARCH;
 			
 			if(is_null($urlTags)) {
 				return;
@@ -110,11 +117,16 @@ class ContentManager {
 				}
 			}
 		} else {
-			$this->displayType = ContentDisplayType::CONTENT;
+			$this->displayType = EContentDisplayType::DISPLAY;
 			$this->requestedId = ltrim(rtrim($requestedUrlPart, "/"), "/");
 		}
 	}
 	
+	/**
+	 * If currently in a "EContentDisplayType::SEARCH" context, load the index into memory.
+	 * @param string $rootIndexFilepath
+	 * @return void
+	 */
 	function loadRootIndex(string $rootIndexFilepath): void {
 		// Loading the content index.
 		$rawJsonContent = file_get_contents($rootIndexFilepath);
@@ -162,6 +174,12 @@ class ContentManager {
 		});
 	}
 	
+	/**
+	 * If currently in a "EContentDisplayType::DISPLAY" context, we prepare the path to the content definition.
+	 * This definition must be loaded afterward depending on the content's type. (content, tool, article, ...)
+	 * @param string $rootIndexFilepath
+	 * @return void
+	 */
 	function prepareContentFilePath(string $contentRootPath): void {
 		// Sanitizing the requested ID.
 		if(!ctype_alnum(str_replace("-", "", $this->requestedId))) {
@@ -190,6 +208,12 @@ function get_content_file_path(string $contentRootPath, string $contentId): ?str
 }
 
 // Functions for use in pages
+
+/**
+ * Prepares a ContentManager for the current page.
+ * @param string $contentRootPath Root path for the relevant content ("<webRoot>/content", "<webRoot>/tools", ...)
+ * @return ContentManager
+ */
 function getContentManager(string $contentRootPath): ContentManager {
 	return new ContentManager(
 		$contentRootPath,

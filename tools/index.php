@@ -6,12 +6,16 @@ set_include_path('../');
 include_once 'commons/config.php';
 include_once 'commons/langs.php';
 
-// Preparing the content
-include_once 'commons/content.php';
-include_once 'commons/content/tools.php';
+// Preparing the content manager to get the page's context.
+include_once 'commons/content/manager.php';
 $contentManager = getContentManager($config_dir_tools);
-$toolInfo = NULL;
-if(!$contentManager->hasError && $contentManager->displayType == ContentDisplayType::CONTENT) {
+
+// Attempting to load the tool's data if relevant.
+// If loaded, we can assume the standardized index wasn't loaded by "$contentManager".
+include_once 'commons/content/tools.php';
+$toolInfo = null;
+if(!$contentManager->hasError && $contentManager->displayType == EContentDisplayType::DISPLAY) {
+	// Loading the definition and checking paths referenced in it.
     $toolInfo = ToolsContent::loadItemIndexFile($contentManager, $config_dir_tools);
 	if(!is_null($toolInfo)) {
 		$toolInfo->validateFiles($contentManager);
@@ -33,11 +37,10 @@ if(!$contentManager->hasError && $contentManager->displayType == ContentDisplayT
 }
 $content_error_message = localize($contentManager->errorMessageKey);
 
-// Checking if an error occurred while loading data and parsing the URL.
-// And if not, enabling special features.
+// Checking if an error occurred while loading data and/or parsing the URL.
 $content_error_code = 200;
 if($contentManager->hasError) {
-	// TODO: Add condition for the lack of data for an item.
+	// TODO: Add condition for the lack of data for an item. - What ?
 	if(is_null($contentManager->rootIndexEntries)) {
 		// Failed to get a display type or to extract types.
 		header("HTTP/1.1 400 Bad Request");
@@ -47,9 +50,6 @@ if($contentManager->hasError) {
 		header("HTTP/1.1 500 Internal Server Error");
 		$content_error_code = 500;
 	}
-} else {
-	$enable_code_highlight = false;
-	$enable_gallery = true;
 }
 ?>
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ if($contentManager->hasError) {
 	include 'commons/DOM/head.php';
 	
 	// Preparing values for the head's tags.
-	if($contentManager->displayType == ContentDisplayType::SEARCH) {
+	if($contentManager->displayType == EContentDisplayType::SEARCH) {
 		$tool_head_title = localize('tools.head.description');
 		$tool_head_description = localize('tools.head.description');
 		$tool_head_og_title = localize('tools.og.title');
@@ -67,14 +67,22 @@ if($contentManager->hasError) {
 		$tool_head_og_image_url = $host_uri . "/resources/NibblePoker/images/logos/v2_opengraph.png";
 		$tool_head_og_image_type = "image/png";
 		$tool_head_og_type = "website";
-	} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
-		$tool_head_title = $toolInfo->openGraphData->title;
-		$tool_head_description = $toolInfo->openGraphData->description;
-		$tool_head_og_title = $toolInfo->openGraphData->title;
-		$tool_head_og_description = $toolInfo->openGraphData->description;
-		$tool_head_og_image_url = $host_uri . $toolInfo->openGraphData->image;
-		$tool_head_og_image_type = $toolInfo->openGraphData->image_type;
-		$tool_head_og_type = $toolInfo->openGraphData->type;
+	} elseif($contentManager->displayType == EContentDisplayType::DISPLAY) {
+		$tool_head_title = "???";
+		$tool_head_description = "???";
+		$tool_head_og_title = "???";
+		$tool_head_og_description = "???";
+		$tool_head_og_image_url = "???";
+		$tool_head_og_image_type = "???";
+		$tool_head_og_type = "???";
+		
+		//$tool_head_title = $toolInfo->openGraphData->title;
+		//$tool_head_description = $toolInfo->openGraphData->description;
+		//$tool_head_og_title = $toolInfo->openGraphData->title;
+		//$tool_head_og_description = $toolInfo->openGraphData->description;
+		//$tool_head_og_image_url = $host_uri . $toolInfo->openGraphData->image;
+		//$tool_head_og_image_type = $toolInfo->openGraphData->image_type;
+		//$tool_head_og_type = $toolInfo->openGraphData->type;
 	}
 	
 	?>
@@ -87,7 +95,7 @@ if($contentManager->hasError) {
 	<meta property="og:image:type" content="<?php echo($tool_head_og_image_type); ?>"/>
 	<meta property="og:description" content="<?php echo($tool_head_og_description); ?>"/>
 	<?php
-	if(!$contentManager->hasError && $contentManager->displayType == ContentDisplayType::CONTENT) {
+	if(!$contentManager->hasError && $contentManager->displayType == EContentDisplayType::DISPLAY) {
 		foreach($toolInfo->styleFilesPaths as $styleFilePath) {
 			echo('<link rel="stylesheet" href="'.substr($styleFilePath, strlen($dir_root)).'">');
 		}
@@ -110,9 +118,9 @@ include 'commons/DOM/sidebar.php';
 	<?php
 	// Checking if an error occurred.
 	if($content_error_code != 200) {
-		if($contentManager->displayType == ContentDisplayType::SEARCH) {
+		if($contentManager->displayType == EContentDisplayType::SEARCH) {
 			printMainHeader(localize("content.error.heading.main.search"), "fad fa-exclamation-triangle");
-		} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+		} elseif($contentManager->displayType == EContentDisplayType::DISPLAY) {
 			printMainHeader(localize("content.error.heading.main.content"), "fad fa-exclamation-triangle");
 		} else {
 			printMainHeader(localize("content.error.heading.main.fallback"), "fad fa-exclamation-triangle");
@@ -123,7 +131,7 @@ include 'commons/DOM/sidebar.php';
 		goto content_printing_end;
 	}
 	
-	if($contentManager->displayType == ContentDisplayType::SEARCH) {
+	if($contentManager->displayType == EContentDisplayType::SEARCH) {
 		// We are handling a content search with at least one result.
 		
 		// Making the header with the amount of results.
@@ -169,7 +177,7 @@ include 'commons/DOM/sidebar.php';
 		}
 		
 		// TODO: Print the tags used in the search and others that may be available.
-	} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+	} elseif($contentManager->displayType == EContentDisplayType::DISPLAY) {
         // Printing the main heading  (Lifted from composer.php in the templates section)
 		echo(getMainHeader(
 			localize($toolInfo->titleKey),
@@ -198,7 +206,7 @@ include 'commons/DOM/footer.php';
 include 'commons/DOM/scripts.php';
 
 // Including the tool's scripts if required.
-if(!$contentManager->hasError && $contentManager->displayType == ContentDisplayType::CONTENT) {
+if(!$contentManager->hasError && $contentManager->displayType == EContentDisplayType::DISPLAY) {
 	foreach($toolInfo->codeFilesPaths as $codeFilePath) {
 		echo('<script src="'.substr($codeFilePath, strlen($dir_root)).'"></script>');
 	}

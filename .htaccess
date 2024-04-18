@@ -30,7 +30,8 @@ AddType text/typescript .ts
 AddType text/javascript .js
 AddType text/javascript .mjs
 AddType application/wasm .wasm
-AddType video/x-matroska mkv
+AddType video/x-matroska .mkv
+AddType text/css .css
 
 
 # Correcting some default options for security and language/content redirection.
@@ -56,7 +57,7 @@ ErrorDocument 404 /error.php
 #  * https://www.a2hosting.com/kb/developer-corner/apache-web-server/turning-off-caching-using-htaccess
 
 # Default: 12 hours
-##Header set Cache-Control "max-age=43200, public, must-revalidate"
+Header set Cache-Control "max-age=43200, public, must-revalidate"
 
 # Static files: 1 Week
 <FilesMatch "\.(?i:gif|jpe?g|png|ico|svg|woff2|ttf|woff|otf)$">
@@ -64,9 +65,9 @@ ErrorDocument 404 /error.php
 </FilesMatch>
 
 # Semi-static files: 1 Day
-##<FilesMatch "\.(?i:css|js|mjs)$">
-##    Header set Cache-Control "max-age=86400, public, must-revalidate"
-##</FilesMatch>
+<FilesMatch "\.(?i:css|js|mjs)$">
+    Header set Cache-Control "max-age=86400, public, must-revalidate"
+</FilesMatch>
 
 # Disabling some caching rules for debugging
 #Header set Pragma "no-cache"

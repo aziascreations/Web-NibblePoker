@@ -7,11 +7,11 @@ include_once 'commons/config.php';
 include_once 'commons/langs.php';
 
 // Preparing the content
-include_once 'commons/content.php';
-include_once 'commons/composer.php';
+include_once 'commons/content/manager.php';
+include_once 'commons/content/composer.php';
 $contentManager = getContentManager($config_dir_content);
 $content = NULL;
-if(!$contentManager->hasError && $contentManager->displayType == ContentDisplayType::CONTENT) {
+if(!$contentManager->hasError && $contentManager->displayType == EContentDisplayType::DISPLAY) {
 	$content = load_content_by_file_path($contentManager->contentFilepath);
 	if(is_null($content)) {
 		$contentManager->hasError = true;
@@ -55,7 +55,7 @@ if($contentManager->hasError) {
 		$content_head_description = $content_error_message;
 		$content_head_og_title = localize("content.error.og.title");
 		$content_head_og_description = $content_error_message;
-    } elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+    } elseif($contentManager->displayType == EContentDisplayType::DISPLAY) {
 		$content_head_title =
 			localize("content.item.head.title.prefix") .
             $content->get_head_title() .
@@ -96,7 +96,7 @@ if($contentManager->hasError) {
 					break;
 			}
 	    }
-    } elseif($contentManager->displayType == ContentDisplayType::SEARCH) {
+    } elseif($contentManager->displayType == EContentDisplayType::SEARCH) {
 		$content_head_title = localize("content.search.head.title");
 		$content_head_description = localize("content.search.head.description");
 		$content_head_og_title = localize("content.search.og.title");
@@ -130,14 +130,14 @@ include 'commons/DOM/sidebar.php';
 			echo('<span class="mx-s t-size-15">❱</span>');
 			echo(localize("content.error.header"));
 			echo('</span>');
-		} elseif($contentManager->displayType == ContentDisplayType::SEARCH) {
+		} elseif($contentManager->displayType == EContentDisplayType::SEARCH) {
 			echo('<i class="fad fa-briefcase t-size-16 mr-s t-muted"></i>');
 			echo(localize("content.header.base"));
 			echo('<span class="mobile-hide">');
 			echo('<span class="mx-s t-size-15">❱</span>');
 			echo(localize("content.search.header"));
 			echo('</span>');
-		} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+		} elseif($contentManager->displayType == EContentDisplayType::DISPLAY) {
 			echo('<i class="fad fa-briefcase t-size-16 mr-s t-muted"></i>');
 		    echo(localize("content.header.base"));
 			echo('<span class="mobile-hide">');
@@ -153,9 +153,9 @@ include 'commons/DOM/sidebar.php';
 	<?php
 	// Checking if an error occurred.
     if($content_error_code != 200) {
-		if($contentManager->displayType == ContentDisplayType::SEARCH) {
+		if($contentManager->displayType == EContentDisplayType::SEARCH) {
 			printMainHeader(localize("content.error.heading.main.search"), "fad fa-exclamation-triangle");
-		} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+		} elseif($contentManager->displayType == EContentDisplayType::DISPLAY) {
 			printMainHeader(localize("content.error.heading.main.content"), "fad fa-exclamation-triangle");
 		} else {
 			printMainHeader(localize("content.error.heading.main.fallback"), "fad fa-exclamation-triangle");
@@ -166,7 +166,7 @@ include 'commons/DOM/sidebar.php';
         goto content_printing_end;
     }
     
-	if($contentManager->displayType == ContentDisplayType::SEARCH) {
+	if($contentManager->displayType == EContentDisplayType::SEARCH) {
         // We are handling a content search with at least one result.
         
         // Making the header with the amount of results.
@@ -213,7 +213,7 @@ include 'commons/DOM/sidebar.php';
 		}
         
         // TODO: Print the tags used in the search and others that may be available.
-	} elseif($contentManager->displayType == ContentDisplayType::CONTENT) {
+	} elseif($contentManager->displayType == EContentDisplayType::DISPLAY) {
 		// Printing the content
         echo($content->get_html());
 	}

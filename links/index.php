@@ -54,7 +54,7 @@ include 'commons/DOM/sidebar.php';
 	</p>
 	
 	<p class="mt-s ml-s t-w-600 t-size-12">
-		<i class="fab fa-linkedin mr-xs"></i><a href="https://twitter.com/NibblePoker"><?php print(localize("links.linkedin.title")); ?></a>
+		<i class="fab fa-linkedin mr-xs"></i><a href="https://www.linkedin.com/in/herwin-bozet/"><?php print(localize("links.linkedin.title")); ?></a>
 	</p>
 	<p class="mt-xxs ml-l">
 		<?php print(localize("links.linkedin.text.1")); ?>

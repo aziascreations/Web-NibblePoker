@@ -33,6 +33,7 @@ $enable_grids = false;
 $enable_code_highlight = false;
 $enable_gallery = false;
 $enable_kitty_and_doggo_sounds = false;
+$enable_debug_extras = false;
 
 // Easter-egg optional features
 // > Belgium's independence day.
