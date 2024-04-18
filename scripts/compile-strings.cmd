@@ -12,8 +12,7 @@ echo ----------------------
 
 :lang-compile
 echo Compiling lang files...
-python compile_strings.py ./commons/strings/ ./commons/strings.json
-python compile_strings.py ./wiki/strings/ ./wiki/strings.json
+python compile_strings.py ../commons/strings/ ../commons/strings.json
 
 :lang-end
 

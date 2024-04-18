@@ -13,10 +13,10 @@ echo ---------------------------
 :js-external-decimaljs-minify
 echo Minifying Decimal.JS
 pushd %CD%
-cd %~dp0\resources\DecimalJs\10.4.3\
+cd %~dp0\..\resources\DecimalJs\10.4.3\
 echo ^> resources\DecimalJs\10.4.3\decimal.mjs
 call "%~dp0node_modules\.bin\terser" decimal.mjs -c -m --toplevel -o decimal.min.mjs
-cd %~dp0\resources\DecimalJsLight\2.5.1\
+cd %~dp0\..\resources\DecimalJsLight\2.5.1\
 echo ^> resources\DecimalJsLight\2.5.1\decimal.mjs
 call "%~dp0node_modules\.bin\terser" decimal.mjs -c -m --toplevel -o decimal.min.mjs
 popd
@@ -24,7 +24,7 @@ popd
 :js-external-highlightjs
 echo Handling HighlightJS
 pushd %CD%
-cd %~dp0\resources\HighlightJS\
+cd %~dp0\..\resources\HighlightJS\
 echo ^> Clearing old files
 del /Q /S /F highlight.js 2> nul 1> nul
 del /Q /S /F highlight.min.js 2> nul 1> nul

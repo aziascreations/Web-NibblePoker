@@ -13,7 +13,7 @@ echo --------------------------------
 :js-nibblepoker-minify
 echo Minifying nibblepoker.js
 pushd %CD%
-cd %~dp0\resources\NibblePoker\js\
+cd %~dp0\..\resources\NibblePoker\js\
 echo ^> resources\NibblePoker\js\nibblepoker.js
 call "%~dp0node_modules\.bin\terser" nibblepoker.js -c -m -o nibblepoker.min.js
 echo ^> resources\NibblePoker\js\nibblepoker-code.js

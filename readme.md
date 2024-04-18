@@ -37,7 +37,7 @@ in a single file that can be used by the [L10N PHP utility](commons/langs.php).
 It works by listing all subfolders in a location as language keys and assigning the content of each `.json`
 file to that language key.
 
-See [compile_strings.py](compile_strings.py) and [compile.bat](compile.bat).
+See [compile_strings.py](scripts/compile_strings.py) and [compile.cmd](scripts/compile.cmd).
 
 ### TypeScript Perineal Care
 This utility simply fixes the munted import paths that Typescript produces by replacing a given import name by
@@ -46,7 +46,7 @@ another one with the proper extensions.
 While not perfect, it works.<br>
 That's still better than Typescript could ever do with a maintainable *tsconfig* file...
 
-See [fix-import-path.js](fix-import-path.js) and [compile.bat](compile.bat).
+See [fix-import-path.js](scripts/legacy/fix-import-path.js) and [compile.bat](scripts/compile.cmd).
 
 ### Minified PHP Import Fixer
 Unfinished utility that will be used to change import paths in minified PHP files.
@@ -54,7 +54,7 @@ Unfinished utility that will be used to change import paths in minified PHP file
 The main goal here is to fix some weird and unfixable text-spacing issues with line returns in the
 generated HTML document.
 
-See [php-relinker.js](php-relinker.js).
+See [php-relinker.js](scripts/legacy/php-relinker.js).
 
 
 ## Requirements

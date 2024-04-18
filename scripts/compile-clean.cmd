@@ -1,8 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 
-:: Going into the script's directory
-cd /D "%~dp0"
+:: Going into the project's root directory
+cd /D "%~dp0\..\"
 
 
 :clean

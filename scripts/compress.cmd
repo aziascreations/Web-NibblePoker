@@ -1,12 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
 
-:: Going into the script's directory
-cd /D "%~dp0"
-
-
 :compile
-call "%~dp0compile.bat"
+call "%~dp0compile.cmd"
+
+:compile-path-fix
+:: Going into the project's root directory
+cd /D "%~dp0\..\"
+
 :compile-end
 
 
@@ -25,7 +26,10 @@ echo ^> %NP_ZIP_NAME%
 echo Preparing environment variable...
 set NP_ZIP_CONTENT=
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "about/"
-set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "commons/*.php" "commons/strings.json" "commons/DOM/" "commons/content/"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "commons/*.php"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "commons/strings.json"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "commons/DOM/"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "commons/content/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "contact/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "content/*.*"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "content/items/"
@@ -64,6 +68,9 @@ set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/js/*.js"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/NibblePoker/sounds/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/Quantum/"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "resources/SplideJs/dist/"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "tools/*"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "tools/items/*.json"
+set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "tools/items/*/*"
 set NP_ZIP_CONTENT=%NP_ZIP_CONTENT% "./.htaccess" "./*.php" "./favicon.*" "./.env"
 ::echo ^>%NP_ZIP_CONTENT%
 
