@@ -8,7 +8,7 @@ include_once 'commons/langs.php';
 
 // Preparing the content manager to get the page's context.
 include_once 'commons/content/manager.php';
-$contentManager = getContentManager($config_dir_tools);
+$contentManager = ContentManager::createContentManager($config_dir_tools);
 
 // Attempting to load the tool's data if relevant.
 // If loaded, we can assume the standardized index wasn't loaded by "$contentManager".

@@ -33,6 +33,11 @@ AddType application/wasm .wasm
 AddType video/x-matroska .mkv
 AddType text/css .css
 
+#  Special case for Plik
+<Files ~ "\.css?$">
+    Header set Content-Type "text/css; charset=utf-8"
+</Files>
+
 
 # Correcting some default options for security and language/content redirection.
 # FollowSymlinks is also on since it's required for "mod_rewrite" and the server is jailed/containerized.

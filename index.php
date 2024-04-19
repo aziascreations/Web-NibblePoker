@@ -39,10 +39,10 @@ include 'commons/DOM/sidebar.php';
 	<?php
 	// Loading the "index.json" file for later use in the showcase.
 	include_once 'commons/config.php';
-	include_once 'commons/content.php';
-	$contentManager = getContentManager($config_dir_content);
+	include_once 'commons/content/manager.php';
+	$contentManager = ContentManager::createContentManager($config_dir_content);
 	$content = NULL;
-	if(!$contentManager->hasError && $contentManager->displayType == ContentDisplayType::CONTENT) {
+	if(!$contentManager->hasError && $contentManager->displayType == EContentDisplayType::DISPLAY) {
 		$content = load_content_by_file_path($contentManager->contentFilepath);
 		if(is_null($content)) {
 			$contentManager->hasError = true;

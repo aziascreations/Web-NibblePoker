@@ -9,9 +9,14 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 include_once 'commons/langs.php';
 
 enum EContentDisplayType {
-	const NONE = 0;
-	const SEARCH = 1;
-	const DISPLAY = 2;
+	/** No display type have or could be determined. */
+	case NONE;
+	
+	/** The content index should be shown */
+	case SEARCH;
+	
+	/** The page for a specific piece of content should be shown */
+	case DISPLAY;
 }
 
 class ContentIndexEntry {
@@ -47,7 +52,7 @@ class ContentIndexEntry {
 }
 
 class ContentManager {
-	public ContentDisplayType|int $displayType;
+	public EContentDisplayType $displayType;
 	public bool $hasError;
 	public string $errorMessageKey;
 	public ?string $requestedId;
@@ -87,7 +92,7 @@ class ContentManager {
 		// Doing some dark magic whose inner workings are lost to times...
 		$requestedUrlPart = explode(
 			"?",
-			explode("#", preg_replace("^\/(content|tools)^", "", $requestedUrl))[0]
+			explode("#", preg_replace("^/(content|tools)^", "", $requestedUrl))[0]
 		)[0];
 		
 		if(strcmp($requestedUrlPart, "/") == 0) {
@@ -177,7 +182,7 @@ class ContentManager {
 	/**
 	 * If currently in a "EContentDisplayType::DISPLAY" context, we prepare the path to the content definition.
 	 * This definition must be loaded afterward depending on the content's type. (content, tool, article, ...)
-	 * @param string $rootIndexFilepath
+	 * @param string $contentRootPath
 	 * @return void
 	 */
 	function prepareContentFilePath(string $contentRootPath): void {
@@ -189,7 +194,7 @@ class ContentManager {
 		}
 		
 		// Preparing and checking the content's info index file.
-		$this->contentFilepath = get_content_file_path($contentRootPath, $this->requestedId);
+		$this->contentFilepath = ContentManager::getContentFilePath($contentRootPath, $this->requestedId);
 		
 		if(empty($this->contentFilepath)) {
 			// File doesn't exist !
@@ -197,29 +202,32 @@ class ContentManager {
 			$this->errorMessageKey = "content.error.message.data.not.exist";
 		}
 	}
-}
-
-// Common utilities
-function get_content_file_path(string $contentRootPath, string $contentId): ?string {
-	if(ctype_alnum(str_replace("-", "", $contentId))) {
-		return realpath($contentRootPath . "/items/" . $contentId . ".json");
+	
+	/**
+	 * Returns the path to the main JSON file for a desired piece of content.
+	 * @param string $contentRootPath
+	 * @param string $contentId
+	 * @return string|null
+	 */
+	private static function getContentFilePath(string $contentRootPath, string $contentId): ?string {
+		if(ctype_alnum(str_replace("-", "", $contentId))) {
+			return realpath($contentRootPath . "/items/" . $contentId . ".json");
+		}
+		return null;
 	}
-	return null;
-}
-
-// Functions for use in pages
-
-/**
- * Prepares a ContentManager for the current page.
- * @param string $contentRootPath Root path for the relevant content ("<webRoot>/content", "<webRoot>/tools", ...)
- * @return ContentManager
- */
-function getContentManager(string $contentRootPath): ContentManager {
-	return new ContentManager(
-		$contentRootPath,
-		l10n_url_switch(NULL),
-		isset($_GET['tags']) ? htmlspecialchars($_GET['tags']) : NULL
-	);
+	
+	/**
+	 * Prepares a ContentManager for the current page.
+	 * @param string $contentRootPath Root path for the relevant content ("<webRoot>/content", "<webRoot>/tools", ...)
+	 * @return ContentManager
+	 */
+	public static function createContentManager(string $contentRootPath): ContentManager {
+		return new ContentManager(
+			$contentRootPath,
+			l10n_url_switch(NULL),
+			isset($_GET['tags']) ? htmlspecialchars($_GET['tags']) : NULL
+		);
+	}
 }
 
 ?>

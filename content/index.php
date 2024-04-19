@@ -9,7 +9,7 @@ include_once 'commons/langs.php';
 // Preparing the content
 include_once 'commons/content/manager.php';
 include_once 'commons/content/composer.php';
-$contentManager = getContentManager($config_dir_content);
+$contentManager = ContentManager::createContentManager($config_dir_content);
 $content = NULL;
 if(!$contentManager->hasError && $contentManager->displayType == EContentDisplayType::DISPLAY) {
 	$content = load_content_by_file_path($contentManager->contentFilepath);
