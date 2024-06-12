@@ -19,7 +19,7 @@ $enable_kitty_and_doggo_sounds = true;
 	<meta property="og:description" content="<?php print(localize('contributors.og.description')); ?>"/>
 	<?php include 'commons/DOM/head-preloads.php'; ?>
 </head>
-<body>
+<body class="layout-generic">
 <?php
 include_once 'commons/DOM/utils.php';
 $SIDEBAR_IDS = ['contributors'];

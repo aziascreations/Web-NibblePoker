@@ -102,7 +102,7 @@ if($contentManager->hasError) {
 	}
 	?>
 </head>
-<body>
+<body class="layout-generic">
 <?php
 include_once 'commons/DOM/utils.php';
 $SIDEBAR_IDS = ['tools'];

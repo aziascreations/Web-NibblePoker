@@ -13,8 +13,8 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="alternate icon" href="/favicon.ico">
-<link rel="stylesheet" href="/resources/FontAwesomePro/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="/resources/NibblePoker/css/nibblepoker.min.css?v=1">
+<link rel="stylesheet" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.nibblepoker.lu/NibblePoker/StandardCSS/nibblepoker.min.css">
 <?php
 if($enable_code_highlight) {
 	echo('<link href="/resources/HighlightJS/src/styles/atom-one-dark.min.css" rel="stylesheet"/>');

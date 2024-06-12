@@ -17,7 +17,7 @@ include_once 'commons/langs.php';
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:description" content="<?php print(localize('privacy.og.description')); ?>"/>
 </head>
-<body>
+<body class="layout-generic">
 <?php
 include_once 'commons/DOM/utils.php';
 $SIDEBAR_IDS = [];

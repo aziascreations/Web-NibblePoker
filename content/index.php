@@ -114,7 +114,7 @@ if($contentManager->hasError) {
     <meta property="og:image:type" content="<?php echo($content_head_image_type); ?>"/>
     <meta property="og:description" content="<?php echo($content_head_og_description); ?>"/>
 </head>
-<body>
+<body class="layout-generic">
 <?php
 include_once 'commons/DOM/utils.php';
 $SIDEBAR_IDS = array_merge(['content'], is_null($contentManager->requestedTags) ? [] : $contentManager->requestedTags);
