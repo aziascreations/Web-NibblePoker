@@ -83,7 +83,7 @@ include 'commons/DOM/sidebar.php';
 				continue;
 			}
 			
-			echo('<a href="'.l10n_url_abs("/content/".$current_content->id).'" class="bland-link">');
+			echo('<a href="'.l10n_url_abs("/content/".$current_content->id).'" class="a-hidden">');
 			echo('<article class="">');
 			echo('<img src="' . $shown_project->image . '" class="f-left r-l border mr-xs img-showcase" alt="' .
 				$shown_project->title[$user_language] . ' logo">');

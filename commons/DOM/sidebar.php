@@ -13,7 +13,7 @@ if(!isset($SIDEBAR_IDS)) {
 
 function printSidebarEntry($url, $title, $icon, $activeId) {
 	global $SIDEBAR_IDS;
-	echo('<a class="' . (in_array($activeId, $SIDEBAR_IDS) ? 'text-link' : 'bland-link') . '" href="' . $url . '">');
+	echo('<a class="' . (in_array($activeId, $SIDEBAR_IDS) ? 'a-bland' : 'a-hidden') . '" href="' . $url . '">');
 	echo('<p class="t-size-18 t-w-500 py-xs sidebar-entry">');
 	echo('<i class="' . $icon . ' pr-xs t-size-12 t-half-muted"></i><span class="t-size-12">' . $title . '</span></p></a>');
 }
@@ -21,10 +21,12 @@ function printSidebarEntry($url, $title, $icon, $activeId) {
 ?>
 <nav id="sidebar" class="sidebar p-m pt-l">
 	<a href="<?php print(l10n_url_abs('/')); ?>" class="no-select">
-		<img id="logo-sidebar" src="/resources/NibblePoker/images/logos/v2_full_unshaded_original.svg"
-		     alt="<?php echo(localize("sidebar.alt.logo")); ?>" draggable="false">
+		<img class="logo-sidebar-v2"
+		     src="https://cdn.nibblepoker.lu/NibblePoker/Logos/v2_full_shaded_optimized.svg"
+		     alt="<?php echo(localize("sidebar.alt.logo")); ?>"
+		     draggable="false">
 	</a>
-	<p class="quantum t-logo-text mb-s mt-xs t-muted ucase">
+	<p class="quantum t-logo-text mb-s mt-xxs t-muted t-ucase">
 		N<span class="t-super-muted">ibble</span>P<span class="t-super-muted">oker</span>
 	</p>
 	<hr class="subtle">

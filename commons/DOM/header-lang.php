@@ -12,14 +12,14 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 		&nbsp;<i class="fa fa-angle-down"></i>
 	</summary>
 	<div class="p-xs border bkgd-surround r-m t-w-500">
-		<a href="<?php echo(l10n_url_switch('en')); ?>" class="bland-link">
+		<a href="<?php echo(l10n_url_switch('en')); ?>" class="a-hidden">
 			<p class="mb-s px-xxs"><?php print(localize("lang.english")); ?></p>
 		</a>
-		<a href="<?php echo(l10n_url_switch('fr')); ?>" class="bland-link">
+		<a href="<?php echo(l10n_url_switch('fr')); ?>" class="a-hidden">
 			<p class="my-s px-xxs"><?php print(localize("lang.french")); ?></p>
 		</a>
 		<hr class="subtle m-0">
-		<a href="<?php echo(l10n_url_switch(NULL)); ?>" class="bland-link">
+		<a href="<?php echo(l10n_url_switch(NULL)); ?>" class="a-hidden">
 			<p class="mt-xs px-xxs"><?php print(localize("lang.automatic")); ?></p>
 		</a>
 	</div>
