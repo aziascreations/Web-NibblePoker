@@ -6,10 +6,11 @@
 	"links.header.title": "Liens",
 	
 	"links.social.title": "Réseaux Sociaux",
+	"links.work.title": "Travail &amp; Freelancing",
 	"links.misc.title": "Autres liens",
 	
 	"links.twitter.title": "Twitter <i>(@NibblePoker)</i>",
-	"links.twitter.text.1": "???",
+	"links.twitter.text.1": "Des discussions et posts sur les projets sur lesquels je travaille.",
 	
 	"links.github.title": "GitHub <i>(@aziascreations)</i>",
 	"links.github.text.1": "Compte privé contenant tous mes projets personnels.",
@@ -19,6 +20,9 @@
 	
 	"links.linkedin.title": "LinkedIn",
 	"links.linkedin.text.1": "???",
+	
+	"links.malt.title": "Malt",
+	"links.malt.text.1": "???",
 	
 	"links.gitea.title": "Gitea auto-hébergé",
 	"links.gitea.text.1": "Contient tous mes projets et des miroirs provenant de divers sites.",

@@ -19,7 +19,7 @@ function printSidebarEntry($url, $title, $icon, $activeId) {
 }
 
 ?>
-<nav id="sidebar" class="sidebar p-m pt-l">
+<nav id="sidebar" class="sidebar p-m">
 	<a href="<?php print(l10n_url_abs('/')); ?>" class="no-select">
 		<img class="logo-sidebar-v2"
 		     src="https://cdn.nibblepoker.lu/NibblePoker/Logos/v2_full_shaded_optimized.svg"
@@ -43,7 +43,7 @@ function printSidebarEntry($url, $title, $icon, $activeId) {
 	//printSidebarEntry(l10n_url_abs('/content/?tags=utility'), localize("sidebar.text.utilities"), "fad fa-toolbox", "utility");
 	//printSidebarEntry(l10n_url_abs('/content/?tags=3d-print'), localize("sidebar.text.3d-print"), "fad fa-print", "3d-print");
 	//<hr class="subtle">
-	printSidebarEntry(l10n_url_abs('/tools/'), localize("sidebar.text.tools"), "fad fa-tools", "tools");
+	//printSidebarEntry(l10n_url_abs('/tools/'), localize("sidebar.text.tools"), "fad fa-tools", "tools");
 	?>
 	<hr class="subtle">
 	<?php

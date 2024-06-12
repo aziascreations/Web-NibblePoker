@@ -4,23 +4,20 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])) {
 	header('HTTP/1.1 403 Forbidden'); die();
 }
 
-// Used for opengraph head tags.
+// Used for opengraph head tags & the debug page.
 switch($_SERVER['SERVER_NAME']) {
-	case "192.168.1.85":
-	case "localhost":
-	case "nibblepoker.lu":
-		$host = "nibblepoker.lu";
-		$host_uri = "https://nibblepoker.lu";
-		$host_tld = "lu";
-		break;
 	case "nibblepoker.com":
 		$host = "nibblepoker.com";
 		$host_uri = "https://nibblepoker.com";
 		$host_tld = "com";
+		$cdn_uri = "https://cdn.nibblepoker.com";
 		break;
 	default:
-		http_response_code(400);
-		exit(1);
+		$host = "nibblepoker.lu";
+		$host_uri = "https://nibblepoker.lu";
+		$host_tld = "lu";
+		$cdn_uri = "https://cdn.nibblepoker.lu";
+		break;
 }
 
 $dir_commons = dirname(__FILE__);
@@ -43,5 +40,5 @@ $enable_waffle_iron = date('m-d') === '07-21';
 $enable_bouneschlupp_mode = date('m-d') === '06-23';
 
 // Debugging stuff
-$print_execution_timer = true;
+$print_execution_timer = false;
 ?>

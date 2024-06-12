@@ -53,12 +53,23 @@ include 'commons/DOM/sidebar.php';
 		<?php print(localize("links.github_pro.text.1")); ?>
 	</p>
 	
+	
+	<?php printMainHeader(localize("links.work.title")); ?>
+	
 	<p class="mt-s ml-s t-w-600 t-size-12">
-		<i class="fab fa-linkedin mr-xs"></i><a href="https://www.linkedin.com/in/herwin-bozet/"><?php print(localize("links.linkedin.title")); ?></a>
+		<i class="fab fa-linkedin ml-xxs mr-xs"></i><a href="https://www.linkedin.com/in/herwin-bozet/"><?php print(localize("links.linkedin.title")); ?></a>
 	</p>
 	<p class="mt-xxs ml-l">
 		<?php print(localize("links.linkedin.text.1")); ?>
 	</p>
+	
+	<p class="mt-s ml-s t-w-600 t-size-12">
+		<i class="fa-duotone fa-handshake mr-xxs"></i><a href="https://fr.malt.be/profile/herwinbozet"><?php print(localize("links.malt.title")); ?></a>
+	</p>
+	<p class="mt-xxs ml-l">
+		<?php print(localize("links.malt.text.1")); ?>
+	</p>
+	
 	
 	<?php printMainHeader(localize("links.misc.title")); ?>
 	
@@ -74,6 +85,13 @@ include 'commons/DOM/sidebar.php';
 	</p>
 	<p class="mt-xxs ml-l">
 		<?php print(localize("links.archives.text.1")); ?>
+	</p>
+	
+	<p class="mt-s ml-s t-w-600 t-size-12">
+		<i class="fa-duotone fa-code-branch mr-xs"></i><a href="https://git.nibblepoker.lu/"><?php print(localize("links.gitea.title")); ?></a>
+	</p>
+	<p class="mt-xxs ml-l">
+		<?php print(localize("links.gitea.text.1")); ?>
 	</p>
 </main>
 <?php
