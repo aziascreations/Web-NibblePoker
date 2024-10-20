@@ -1,5 +1,8 @@
 # FR - SVG to PNG
 
+meta.title : Convertisseur SVG en PNG
+meta.description : Convertissez et redimensionnez facilement des images SVG en fichiers PNG localement.
+
 upload.add.button: "Ajouter des images"
 upload.clear.button: "Vider séléction"
 

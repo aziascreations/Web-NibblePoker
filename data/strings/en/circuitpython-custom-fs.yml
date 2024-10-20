@@ -1,0 +1,18 @@
+# EN - CircuitPython Custom FS
+
+meta.title: CircuitPython - Custom File Systems
+meta.description: "Set of examples of custom file systems and block-level devices for CircuitPython that can be
+used for educational purposes and expanded upon."
+
+intro.title: Introduction
+intro.text.10: "The goal of this experiment was to try and give people a strong, clear, and documented starting point
+  for future experiments that may require virtual file systems and block-level devices on CircuitPython devices."
+intro.text.20: "For example, by using the blank examples, you can easily create a bootstrapping code and file system
+  that connects securely to a remote server and pulls code directly from it without ever having to touch the MCU's
+  flash storage."
+intro.text.30: "The second main advantage is that this project can serve as a robust educational tool."
+intro.text.31: "Due to the permissive nature of Python and CircuitPython's APIs, it lets people easily test out
+  different designs and mechanisms for their file systems without running the risk of corrupting unrelated data or
+  bricking their device."
+intro.text.32: "Additionally, it is possible to manipulate and add logging to many of the methods which allows you to
+  see and understand the inner workings of CircuitPython, filesystems and BLD devices themselves."

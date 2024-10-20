@@ -10,6 +10,7 @@ text.projects: Projects
 text.applications: Applications
 text.libraries: Libraries
 text.electronics: Electronics
+text.experiments: Experiments
 text.3d-print: 3D Printing
 text.tools: Tools
 text.links: Links

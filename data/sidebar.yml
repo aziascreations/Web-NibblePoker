@@ -27,6 +27,11 @@
   icon: fad fa-microchip
   active_id: electronic
 
+- title_key: text.experiments
+  abs_href: "/content/?tags=experiments"
+  icon: fad fa-flask-vial
+  active_id: electronic
+
 - title_key: text.tools
   abs_href: "/tools"
   icon: fad fa-toolbox

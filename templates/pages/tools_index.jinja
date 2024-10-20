@@ -22,9 +22,9 @@
                          src="{{ url_for("static", filename=tool_data.metadata.index.image_url) }}"
                          alt="TODO">
                     <h3 class="mb-xs">
-                        {{ l10n(tool_data.metadata.index.title_key, tool_id, lang) }}
+                        {{ l10n(tool_data.metadata.index.title_key, tool_id, user_lang) }}
                     </h3>
-                    <p>{{ l10n(tool_data.metadata.index.preamble_key, tool_id, lang) }}</p>
+                    <p>{{ l10n(tool_data.metadata.index.preamble_key, tool_id, user_lang) }}</p>
                 </div>
             </a>
 

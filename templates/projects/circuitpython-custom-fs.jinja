@@ -1,0 +1,16 @@
+{% extends "projects/_project.jinja" %}
+
+{% block project_content %}
+    {{ render_h2(l10n("intro.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("intro.text.10", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("intro.text.20", project_id, user_lang)) }}
+    {{
+        render_paragraph(
+            l10n("intro.text.30", project_id, user_lang) + "<br>" +
+            l10n("intro.text.31", project_id, user_lang) + "<br>" +
+            l10n("intro.text.32", project_id, user_lang)
+        )
+    }}
+
+    {{ render_h2(l10n("features.title", project_id, user_lang)) }}
+{% endblock %}
