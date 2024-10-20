@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Optional
 
 import yaml
@@ -9,8 +10,12 @@ class SidebarEntry:
     title_key: str
     icon: str
     active_id: str
+    has_new_until_utc: int
     abs_href: Optional[str] = field(default=None)
     raw_href: Optional[str] = field(default=None)
+
+    def has_new(self) -> bool:
+        return datetime.fromtimestamp(self.has_new_until_utc, tz=timezone.utc) > datetime.now(timezone.utc)
 
 
 __SIDEBAR_ENTRIES: list[Optional[SidebarEntry]] = list()

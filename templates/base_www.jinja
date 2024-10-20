@@ -78,6 +78,9 @@
                 <p class="t-size-18 t-w-500 py-xs sidebar-entry">
                     <i class="{{ sidebar_entry.icon }} pr-xs t-size-12 t-half-muted"></i>
                     <span class="t-size-12">{{ l10n(sidebar_entry.title_key, "sidebar", lang) }}</span>
+                    {% if sidebar_entry.has_new() %}
+                        <i class="fa-duotone fa-solid fa-sparkles ml-auto t-size-11 t-muted"></i>
+                    {% endif %}
                 </p>
             </a>
         {% else %}

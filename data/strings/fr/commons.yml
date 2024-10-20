@@ -21,3 +21,5 @@ user-agent: User-Agent
 server: Serveur
 
 cpu.architecture: CPU Architecture
+
+python: Python
