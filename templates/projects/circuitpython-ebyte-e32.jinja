@@ -1,0 +1,59 @@
+{% extends "projects/_project.jinja" %}
+
+{% block project_content %}
+    {{ render_h2(l10n("intro.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("intro.p1", project_id, user_lang)) }}
+
+    {{ render_h2(l10n("features.title", project_id, user_lang)) }}
+    {{ render_paragraph(
+    '<ul>
+        <li>' + l10n("features.1", project_id, user_lang) + '</li>
+        <li>' + l10n("features.2", project_id, user_lang) + '</li>
+        <li>
+            <ul>
+                <li>' + l10n("features.2.1", project_id, user_lang) + '</li>
+                <li>' + l10n("features.2.2", project_id, user_lang) + '</li>
+                <li>' + l10n("features.2.3", project_id, user_lang) + '</li>
+            </ul>
+        </li>
+        <li>' + l10n("features.3", project_id, user_lang) + '</li>
+        <li>
+            <ul>
+                <li>' + l10n("features.3.1", project_id, user_lang) + '</li>
+                <li>' + l10n("features.3.2", project_id, user_lang) + '</li>
+            </ul>
+        </li>
+    </ul>') }}
+
+    {{ render_h2(l10n("limitations.title", project_id, user_lang)) }}
+    {{ render_paragraph(
+    '<ul>
+        <li>' + l10n("limitations.1", project_id, user_lang) + '</li>
+        <li>
+            <ul>
+                <li>' + l10n("limitations.1.1", project_id, user_lang) + '</li>
+                <li>' + l10n("limitations.1.2", project_id, user_lang) + '</li>
+            </ul>
+        </li>
+        <li>' + l10n("limitations.2", project_id, user_lang) + '</li>
+        <li>
+            <ul>
+                <li>' + l10n("limitations.2.1", project_id, user_lang) + '</li>
+                <li>' + l10n("limitations.2.2", project_id, user_lang) + '</li>
+            </ul>
+        </li>
+        <li>' + l10n("limitations.3", project_id, user_lang) + '</li>
+        <li>
+            <ul>
+                <li>' + l10n("limitations.3.1", project_id, user_lang) + '</li>
+            </ul>
+        </li>
+    </ul>') }}
+
+    {{ render_splide([
+        '<img src="' + url_for("static", filename="/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-01.jpg") + '">',
+        '<img src="' + url_for("static", filename="/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-02.jpg") + '">',
+        '<img src="' + url_for("static", filename="/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-03.jpg") + '">',
+        '<img src="' + url_for("static", filename="/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-04.jpg") + '">',
+    ]) }}
+{% endblock %}

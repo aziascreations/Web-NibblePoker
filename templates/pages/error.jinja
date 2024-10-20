@@ -1,0 +1,29 @@
+{% if standalone %}
+    {% extends "base_standalone.jinja" %}
+{% else %}
+    {% extends "base_www.jinja" %}
+{% endif %}
+
+{% block head_title %}{{ l10n(error_key + ".head.title", "errors", user_lang) }}{% endblock %}
+{% block head_description %}{{ l10n(error_key + ".head.description", "errors", user_lang) }}{% endblock %}
+
+{% block header_title %}
+    <i class="fad fa-exclamation-triangle t-size-16 mr-s t-muted"></i>{{ l10n(error_key + ".header.title", "errors", user_lang) }}
+{% endblock %}
+
+{% block main_content %}
+    {{ render_h1(l10n(error_key + ".header.title", "errors", user_lang)) }}
+    <p class="mt-xs mx-s t-bold t-size-12">{{ l10n(error_key + ".head.description", "errors", user_lang) }}</p>
+
+    {% if error_code >= 400 and error_code <= 499 %}
+        <img id="error-page-skit"
+             src="{{ url_for("static", filename="resources/NibblePoker/images/drawings/computer_v1_danger_strong.png") }}"
+             alt="{{ l10n("skit.pc.warn.alt", "errors", user_lang) }}"
+             draggable="false">
+    {% elif error_code >= 500 and error_code <= 599 %}
+        <img id="error-page-skit"
+             src="{{ url_for("static", filename="resources/NibblePoker/images/drawings/computer_v1_dead_strong.png") }}"
+             alt="{{ l10n("skit.pc.dead.alt", "errors", user_lang) }}"
+             draggable="false">
+    {% endif %}
+{% endblock %}

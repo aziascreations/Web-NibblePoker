@@ -1,0 +1,30 @@
+head:
+  title_key: "meta.title"
+  description_key: "meta.description"
+opengraph:
+  title_key: "meta.title"
+  description_key: "meta.description"
+  type: null
+  url: null
+  image_url: "/resources/NibblePoker/images/content/circuitpython-ebyte-e32/main.png"
+  image_type: null
+twitter:
+  title_key: "meta.title"
+  description_key: "meta.description"
+index:
+  priority: 105
+  enable: true
+  title_key: "meta.title"
+  preamble_key: "meta.description"
+  image_url: "/resources/NibblePoker/images/content/circuitpython-ebyte-e32/main.png"
+  image_alt_key: ""
+general:
+  icon: "fab fa-python"
+  title_key: "meta.title"
+  subtitle_key: "article.subtitle"
+  tags:
+    - "electronic"
+    - "python"
+    - "circuitpython"
+    - "lora"
+    - "library"

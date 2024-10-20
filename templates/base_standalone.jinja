@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{ user_lang }}">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="author" content="Herwin Bozet">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/FontAwesomePro/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/StandardCSS/nibblepoker.min.css">
+    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/Quantum/Quantum.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block head_title %}{% endblock %}</title>
+</head>
+<body class="layout-generic">
+
+<header class="w-full p-m pl-s">
+	<h1 class="t-size-17 t-w-500">
+        <i class="fad fa-home t-size-16 mr-s t-muted"></i>{% block header_title %}{% endblock %}
+	</h1>
+</header>
+
+<main id="main" class="border border-r-0 p-l">
+    {% block main_content %}{% endblock %}
+</main>
+
+<footer class="d-flex flex-align-center w-full p-s py-xs">
+	<a href="{{ l10n_url_abs('/', raw_lang) }}">
+		<img id="logo-footer"
+             src="/resources/NibblePoker/images/logos/v2_full_unshaded_original.svg"
+		     alt="{{ l10n("alt.logo", "footer", user_lang) }}" draggable="false">
+	</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% if heading_anchor_id is not none %}
+<a class="bland-link" href="#{{ heading_anchor_id }}">
+{% endif %}
+
+<div class="heading-main p-xs border r-s
+        {% if heading_level == 3 %}
+            mt-l
+        {% elif heading_level == 4 %}
+            mt-m
+        {% endif %}
+        {{ heading_background_class }}">
+
+    <h{{ heading_level }} class="t-w-500
+            {% if heading_level == 2 %}
+                 t-size-16
+            {% else %}
+                {% if heading_level == 3 %}
+                    t-size-12
+                {% else %}
+                    t-size-10
+                {% endif %}
+            {% endif %}">
+
+        {% if heading_icon is not none %}
+        <i class="{{ heading_icon }} t-muted"></i>
+        {% endif %}
+
+        {{ heading_inner_html }}
+
+        {% if heading_right_html is not none %}
+        <span class="ml-auto mobile-hide t-size-10 t-muted">{{ heading_right_html }}</span>
+        {% endif %}
+
+    </h{{ heading_level }}>
+</div>
+
+{% if heading_anchor_id is not none %}
+</a>
+{% endif %}

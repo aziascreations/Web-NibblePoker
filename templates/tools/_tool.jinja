@@ -1,0 +1,36 @@
+{% extends "base_www.jinja" %}
+
+{% block head_title %}{{ l10n(tool_data.metadata.head.title_key, tool_id, user_lang) }}{% endblock %}
+{% block head_description %}{{ l10n(tool_data.metadata.head.description_key, tool_id, user_lang) }}{% endblock %}
+
+{% block extra_stylesheets %}
+    {% for tool_stylesheet in tool_data.data.stylesheets %}
+        <link rel="stylesheet" href="{{ url_for("static", filename="/resources/NibblePoker/tools/" + tool_id + "/" + tool_stylesheet) }}">
+    {% endfor %}
+{% endblock %}
+
+{% block header_title %}
+    <i class="fad fa-briefcase t-size-16 mr-s t-muted"></i><a href="../" class="a-hidden">{{ l10n("header.root", "projects", user_lang) }}</a>
+    <span class="mobile-hide"><span class="mx-s t-size-15">❱</span>{{ l10n(tool_data.metadata.general.title_key, tool_id, user_lang) }}</span>
+{% endblock %}
+
+{% block main_content %}
+    {{ render_h1(
+        '<i class="' + tool_data.metadata.general.icon + ' t-size-16 mr-s t-muted"></i>' +
+        l10n(tool_data.metadata.general.title_key, tool_id, user_lang)
+    ) }}
+
+    <div class="px-xxs">
+        {% block tool_content %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+    {% for tool_script in tool_data.data.scripts %}
+        {% if tool_script.endswith(".mjs") %}
+            <script src="{{ url_for("static", filename="/resources/NibblePoker/tools/" + tool_id + "/" + tool_script) }}" type="module"></script>
+        {% else %}
+            <script src="{{ url_for("static", filename="/resources/NibblePoker/tools/" + tool_id + "/" + tool_script) }}"></script>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

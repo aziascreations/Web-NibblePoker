@@ -1,0 +1,15 @@
+# FR - Langs
+
+menu.title: Langue
+
+current: Français
+automatic: Automatique
+
+english: Anglais
+french: Français
+german: Allemand
+luxembourgish: Luxembourgeois
+
+english.639-3: Anglais (eng)
+french.639-3: Français (fra)
+luxembourgish.639-3: Luxembourgeois (ltz)

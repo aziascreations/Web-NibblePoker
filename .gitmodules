@@ -1,6 +1,0 @@
-[submodule "resources/SplideJs"]
-	path = resources/SplideJs
-	url = https://github.com/Splidejs/splide.git
-[submodule "resources/HighlightJS"]
-	path = resources/HighlightJS
-	url = https://github.com/highlightjs/highlight.js.git

@@ -1,0 +1,20 @@
+config:
+  root_image_path: "/resources/NibblePoker/images/contributors/"
+  root_sound_path: "/resources/NibblePoker/sounds/contributors/"
+
+regular:
+
+spiritual:
+  - name: Kiki
+    image: "kiki-02.jpg"
+    image_hover: "kiki-04.jpg"
+    sound_entry: "meow-test-01.ogg"
+    sound_hover: "kiki-ronron-01.ogg"
+    sound_exit: "meow-test-02.ogg"
+
+  - name: Maki
+    image: "maki-02.jpg"
+    image_hover: "maki-03.jpg"
+    sound_entry: "meow-test-01.ogg"
+    #sound_hover: "meo-test-01.jpg"
+    sound_exit: "meow-test-02.ogg"

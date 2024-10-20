@@ -1,0 +1,99 @@
+{% extends "base_www.jinja" %}
+
+{% block head_title %}{{ l10n("head.title", "about", user_lang) }}{% endblock %}
+{% block head_description %}{{ l10n("head.description", "about", user_lang) }}{% endblock %}
+
+{% block header_title %}
+    <i class="fad fa-user t-size-16 mr-s t-muted"></i>{{ l10n("header.title", "about", user_lang) }}
+{% endblock %}
+
+{% block main_content %}
+
+    {{ render_h1(l10n("intro.title", "about", user_lang)) }}
+    <img src="/resources/NibblePoker/images/about/profile-pic.jpg"
+         alt="" class="r-r img-profile f-right m-xs ml-xxs"
+         draggable="false">
+    {{ render_paragraph(l10n("intro.text.01", "about", user_lang) + l10n("intro.text.02", "about", user_lang)) }}
+    {{ render_paragraph(l10n("intro.text.10", "about", user_lang) + l10n("intro.text.11", "about", user_lang)) }}
+    {{ render_paragraph(l10n("intro.text.20", "about", user_lang) + l10n("intro.text.21", "about", user_lang)) }}
+
+    <!--{{ render_h1(l10n("tenets.title", "about", user_lang)) }}
+    <p class="mt-xs ml-s t-bold">
+		TODO
+	</p>-->
+
+    {{ render_h1(l10n("future.title", "about", user_lang)) }}
+    {{ render_paragraph(l10n("future.text.01", "about", user_lang) + l10n("future.text.02", "about", user_lang)) }}
+    {{ render_paragraph(l10n("future.text.10", "about", user_lang)) }}
+    {{ render_paragraph(l10n("future.text.20", "about", user_lang)) }}
+
+    {{ render_h1(l10n("financing.title", "about", user_lang)) }}
+    {{ render_paragraph(l10n("financing.text.01", "about", user_lang) + l10n("financing.text.02", "about", user_lang)) }}
+    {{ render_paragraph(l10n("financing.text.10", "about", user_lang)) }}
+    {{ render_paragraph(l10n("financing.text.20", "about", user_lang) + l10n("financing.text.21", "about", user_lang)) }}
+
+
+    <div class="grid col-2 col-medium-1">
+		<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center mt-s mx-s">
+			<thead>
+				<tr>
+					<th>{{ l10n("financing.part.service", "about", user_lang) }}</th>
+					<th>{{ l10n("financing.part.cost.yearly", "about", user_lang) }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{ l10n("financing.part.domain.lu", "about", user_lang) }}</td>
+					<td>17,00 €</td>
+				</tr>
+				<tr>
+					<td>{{ l10n("financing.part.domain.com", "about", user_lang) }}</td>
+					<td>14,50 €</td>
+				</tr>
+				<tr>
+					<td>{{ l10n("financing.part.proxy.europe", "about", user_lang) }}</td>
+					<td>14,50 €</td>
+				</tr>
+				<tr>
+					<td>{{ l10n("financing.part.proxy.america", "about", user_lang) }}</td>
+					<td>13,00 €</td>
+				</tr>
+				<tr>
+					<td>{{ l10n("financing.part.electricity", "about", user_lang) }}</td>
+					<td>&pm;32,00 €</td>
+				</tr>
+				<tr>
+					<td><b class="f-right">{{ l10n("financing.part.cost.yearly.total", "about", user_lang) }}:</b></td>
+					<td>&pm;89,00 €</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center mt-s mx-s">
+			<thead>
+                <tr>
+                    <th>{{ l10n("financing.part.equipment", "about", user_lang) }}</th>
+                    <th>{{ l10n("financing.part.cost", "about", user_lang) }}</th>
+                </tr>
+			</thead>
+			<tbody>
+                <tr>
+					<td>{{ l10n("financing.part.nanopir4s", "about", user_lang) }}</td>
+					<td>&pm;80,00 €</td>
+                </tr>
+                <tr>
+					<td>{{ l10n("financing.part.storage", "about", user_lang) }}</td>
+					<td>&pm;10,00 €</td>
+                </tr>
+                <tr>
+                    <td><b class="f-right">{{ l10n("financing.part.cost.total", "about", user_lang) }}:</b></td>
+                    <td>&pm;90,00 €
+                    </td>
+                </tr>
+			</tbody>
+		</table>
+	</div>
+
+    <p class="mt-xs ml-s t-super-muted t-center">
+		{{ l10n("financing.text.isp", "about", user_lang) }}
+	</p>
+{% endblock %}

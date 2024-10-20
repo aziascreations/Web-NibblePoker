@@ -1,0 +1,23 @@
+# FR - Commons
+
+action.copy: Copier
+action.copied: Copié
+
+undefined: Indéfini(e)
+na: Non-applicable
+
+yes: Oui
+no: Non
+
+width: Largeur
+height: Hauteur
+width.min: Largeur minimale
+height.min: Hauteur minimale
+width.max: Largeur maximale
+height.max: Hauteur maximale
+
+user-agent: User-Agent
+
+server: Serveur
+
+cpu.architecture: CPU Architecture

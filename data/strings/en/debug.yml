@@ -1,0 +1,25 @@
+# EN - Debug
+
+head.title: Debugger - NibblePoker
+head.description: Debugging page used to analyse the behaviour of various mechanisms
+  used by the website.
+og.title: NibblePoker - Debugger
+og.description: Debugging page used to analyse the behaviour of various mechanisms
+  used by the website.
+header.title: Debugger
+tables.field: Field
+tables.value: Value
+host.title: Host Configuration
+host.requested: Requested
+host.domain: Domain
+host.uri: URI
+host.tld: TLD
+host.waffle: Waffle Mode
+host.bouneschlupp: Bouneschlupp Mode
+lang.title: Localization System (L10N)
+lang.compile-date: Compilation date
+lang.default: Default language
+lang.user: Active language
+lang.header.raw: Raw HTTP header
+lang.header.processed: Processed HTTP header
+client.title: Client Information

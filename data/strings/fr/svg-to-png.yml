@@ -1,0 +1,20 @@
+# FR - SVG to PNG
+
+upload.add.button: "Ajouter des images"
+upload.clear.button: "Vider séléction"
+
+options.title: "Options de conversion"
+
+fit.label: Taille
+
+fit.svg: Égale au SVG
+fit.fixed: Égale à
+fit.bigger: Plus grande ou égale à
+fit.smaller: Plus petite ou égale à
+
+preview.title: "Aperçu des images"
+
+download.main.button: "Convertir &amp; Télécharger"
+
+preview.generate.button: "Générer"
+preview.clear.button: "Nettoyer"

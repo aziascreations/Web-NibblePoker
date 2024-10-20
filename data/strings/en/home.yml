@@ -1,0 +1,43 @@
+# EN - Home
+
+head.title: NibblePoker
+head.description: Collection of free and open-source handmade utilities and libraries
+  ranging from a simple COM port lister to password remover and autonomous video archivers.
+
+og.title: NibblePoker
+og.description: Collection of free and open-source handmade utilities and libraries
+  ranging from a simple COM port lister to password remover and autonomous video archivers.
+
+header.title: Homepage
+
+intro.title: Welcome to %0
+intro.text.1: This website contains a collection of my personal work through
+  blog posts, software releases and other forms of media, all of which is accessible
+  for free and under open-source friendly licenses.
+intro.text.2: If you wish to contact me, you can do so through the contact form
+  linked in the sidebar or via the email address present on that page.
+
+showcase.title: Showcase
+
+updates.title: Updates
+
+updates.text.privacy: Updated our privacy policy.
+
+updates.4.date: November 30 2023
+updates.4.text.1: Centralized DNS servers & implemented GeoDNS.
+updates.4.text.2: Added US CDN hosted by <a href="https://www.chicagovps.net/">ChicagoVPS</a>.
+updates.4.text.3: All other regions use the EU CDN hosted by <a href="https://www.ionos.fr/">IONOS</a>.
+
+updates.3.date: November 12 2023
+updates.3.text.1: Other services are back online.
+updates.3.text.2: Changed our host to <a href="https://www.ionos.fr/">IONOS</a>.
+updates.3.text.3: Finished all side pages.
+
+updates.2.date: August 15 2023
+updates.2.text.1: The website is back online.
+updates.2.text.2: New and much lighter design.
+updates.2.text.3: Changed our host to <a href="https://hostbrr.com/">HostBrr</a>.
+updates.2.text.4: Added a section for web-based tools.
+
+updates.1.date: September 9 2022
+updates.1.text.1: Changed our host to v6Node.

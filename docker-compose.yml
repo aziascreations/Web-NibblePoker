@@ -1,0 +1,20 @@
+services:
+  www_nibblepoker_lu:
+    container_name: www-nibblepoker-python
+    #image: python:alpine
+    build:
+      context: .
+    ports:
+      - 5001:5000
+    volumes:
+      - ./app/:/app:ro
+    tty: true
+    restart: unless-stopped
+    stop_grace_period: 1s
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    logging:
+        driver: "json-file"
+        options:
+            max-size: "16m"
+    #command: ["/bin/sh", "-c", "/app/MainWebsite"]

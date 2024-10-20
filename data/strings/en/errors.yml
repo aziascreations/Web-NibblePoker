@@ -1,0 +1,52 @@
+# EN - Errors
+
+403.head.title: 403 - NibblePoker
+403.head.description: Access to the requested resource isn't unauthorized.
+403.og.title: NibblePoker - 403 Error
+403.og.description: Access to the requested resource isn't unauthorized.
+403.header.title: Error<span class="mx-s t-size-15">❱</span>403 Error
+
+404.head.title: 404 - NibblePoker
+404.head.description: The server couldn't find the requested resource.
+404.og.title: NibblePoker - 404 Error
+404.og.description: The server couldn't find the requested resource.
+404.header.title: Error<span class="mx-s t-size-15">❱</span>404 Error
+
+500.head.title: 500 - NibblePoker
+500.head.description: The server has encountered a situation it doesn't know how to handle.
+500.og.title: NibblePoker - 500 Error
+500.og.description: The server has encountered a situation it doesn't know how to handle.
+500.header.title: Error<span class="mx-s t-size-15">❱</span>500 Error
+
+content_tags_length.head.title: Content error - NibblePoker
+content_tags_length.head.description: The "tags" URL parameter is too long.
+content_tags_length.og.title: NibblePoker - Content error
+content_tags_length.og.description: The "tags" URL parameter is too long.
+content_tags_length.header.title: Content error
+
+content_tags_alphanumeric.head.title: Content error - NibblePoker
+content_tags_alphanumeric.head.description: One of the tags given in the "tags" URL parameter is not a valid alphanumeric string.
+content_tags_alphanumeric.og.title: NibblePoker - Content error
+content_tags_alphanumeric.og.description: One of the tags given in the "tags" URL parameter is not a valid alphanumeric string.
+content_tags_alphanumeric.header.title: Content error
+
+content_tags_empty.head.title: Content error - NibblePoker
+content_tags_empty.head.description: No content could be found for the given tags.
+content_tags_empty.og.title: NibblePoker - Content error
+content_tags_empty.og.description: No content could be found for the given tags.
+content_tags_empty.header.title: Content error
+
+content_id_alphanumeric.head.title: Content error - NibblePoker
+content_id_alphanumeric.head.description: The requested resource's ID isn't a valid alphanumeric string.
+content_id_alphanumeric.og.title: NibblePoker - Content error
+content_id_alphanumeric.og.description: The requested resource's ID isn't a valid alphanumeric string.
+content_id_alphanumeric.header.title: Content error
+
+content_id_not_exist.head.title: Content error - NibblePoker
+content_id_not_exist.head.description: The requested content doesn't have an internal item file associated to it.
+content_id_not_exist.og.title: NibblePoker - Content error
+content_id_not_exist.og.description: The requested content doesn't have an internal item file associated to it.
+content_id_not_exist.header.title: Content error
+
+skit.pc.dead.alt: Drawing of an old PC with a face with crossed eyes.
+skit.pc.warn.alt: Drawing of an old PC with a warning sign.

@@ -1,0 +1,37 @@
+# FR - Links
+
+head.title: Liens - NibblePoker
+head.description: 'TODO: description'
+
+og.title: NibblePoker - Liens
+og.description: 'TODO: description'
+
+header.title: Liens
+
+social.title: Réseaux Sociaux
+work.title: Travail
+misc.title: Autres liens
+
+twitter.title: Twitter <i>(@NibblePoker)</i>
+twitter.text.1: Des discussions et posts sur les projets sur lesquels je travaille.
+
+github.title: GitHub <i>(@aziascreations)</i>
+github.text.1: Compte privé contenant tous mes projets personnels.
+
+github_pro.title: GitHub <i>(@NibblePoker)</i>
+github_pro.text.1: Organisation contenant tout les dépôts en relation avec ce site web.
+
+linkedin.title: LinkedIn
+linkedin.text.1: Connectez-vous et discutez avec moi dans un cadre plus professionnel.
+
+malt.title: Malt
+malt.text.1: "???"
+
+gitea.title: Gitea auto-hébergé
+gitea.text.1: Contient tous mes projets et des miroirs provenant de divers sites.
+
+files.title: Fichiers publiques
+files.text.1: Contient tout les fichiers pouvant être téléchargé sur ce site web et dans ma documentation.
+
+archives.title: Archives publiques
+archives.text.1: Contient une variété d'archives publiques.

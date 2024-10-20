@@ -1,0 +1,13 @@
+Flask~=3.0.3
+Jinja2
+MarkupSafe
+minify-html
+PyYAML~=6.0.2
+beautifulsoup4
+
+locked-dict
+
+Werkzeug~=3.0.4
+
+#gunicorn
+waitress~=3.0.0

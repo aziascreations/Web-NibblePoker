@@ -1,0 +1,23 @@
+# EN - Commons
+
+action.copy: Copy
+action.copied: Copied
+
+undefined: Undefined
+na: N/A
+
+yes: Yes
+no: No
+
+width: Width
+height: Height
+width.min: Minimum width
+height.min: Minimum height
+width.max: Maximum width
+height.max: Maximum height
+
+user-agent: User-Agent
+
+server: Server
+
+cpu.architecture: Architecture de CPU
