@@ -27,3 +27,5 @@ general:
     - "electronic"
     - "python"
     - "circuitpython"
+  languages:
+    - "python"
