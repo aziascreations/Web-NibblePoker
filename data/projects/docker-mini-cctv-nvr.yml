@@ -1,7 +1,6 @@
 
-tools:
-  - id: "uuid-generator"
-    applet_id: "uuid-generator"
+projects:
+  - id: "docker-mini-cctv-nvr"
     metadata:
       head:
         title_key: "meta.title"
@@ -11,21 +10,25 @@ tools:
         description_key: "meta.description"
         type: null
         url: null
-        image_url: "/resources/NibblePoker/images/tools/excel-password-remover/excel-password-remover.png"
+        image_url: "/resources/NibblePoker/images/content/docker-mini-cctv-nvr/main.png"
         image_type: null
       twitter:
         title_key: "meta.title"
         description_key: "meta.description"
       index:
-        priority: 100
+        priority: 105
         enable: true
         title_key: "meta.title"
         preamble_key: "meta.description"
-        image_url: "/resources/NibblePoker/images/tools/excel-password-remover/excel-password-remover.png"
+        image_url: "/resources/NibblePoker/images/content/docker-mini-cctv-nvr/main.png"
         image_alt_key: ""
       general:
-        icon: "fab fa-python"
+        icon: "fab fa-docker"
         title_key: "meta.title"
         subtitle_key: "article.subtitle"
         tags:
-          - "undefined"
+          - "docker"
+        languages:
+          - "docker"
+          - "php"
+          - "python"

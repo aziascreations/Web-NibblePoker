@@ -1,0 +1,5 @@
+# FR - Docker Mini CCTV NVR
+
+meta.title: "Mini Dockerized CCTV NVR"
+meta.description: "Mini docker stack that allows you to easily record, clean and serve CCTV recordings made
+over RSTP while using a minimal amount of system resources."

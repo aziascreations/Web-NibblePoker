@@ -10,4 +10,4 @@ locked-dict
 Werkzeug~=3.0.4
 
 #gunicorn
-waitress~=3.0.0
+waitress~=3.0.2

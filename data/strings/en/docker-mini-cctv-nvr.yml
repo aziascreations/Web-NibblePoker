@@ -1,0 +1,72 @@
+# EN - Docker Mini CCTV NVR
+
+meta.title: "Mini Dockerized CCTV NVR"
+meta.description: "Mini docker stack that allows you to easily record, clean and serve CCTV recordings made
+over RSTP while using a minimal amount of system resources."
+
+intro.title: "Introduction"
+intro.1: "A mini docker stack that allows you to easily record, clean and serve CCTV recordings made
+over RSTP while using a minimal amount of system resources."
+intro.2: "This stack is mainly intended to be used as a backup when other and more complete solutions crash or
+need to be shutdown.This simple docker stack aims to provide you with a simple,
+lightweight and robust NVR for all of your RTSP-based CCTV cameras."
+
+preamble.title: "Preamble"
+preamble.1: "This stack records the camera's streams as-is and doesn't re-encode or compress it which uses more disk space.
+See \"Usage statistics example\" for an example."
+preamble.2: "If served out of your LAN, the web server should be behind a secure reverse-proxy that requires authentication."
+
+setup.title: "Setup"
+setup.1: "All of the setup is done through environment variables in the docker-compose.yml file."
+setup.2: "It should only take 2-3 minutes if you already have the RTSP URL on hand.<br>
+If you don't have them, you should see your camera's user manual and test the URLs with VLC."
+
+setup.camera.title: "Cameras"
+setup.camera.1: "Each recording container needs to be given a RSTP stream URL and a unique folder
+into which the recordings will go."
+setup.camera.2: "The URL must be given via the <span class=\"code\">NP_CCTV_URL</span> environment variable,
+and the output folder via a mounted volume that is mounted as <span class=\"code\">/data</span> in the container."
+setup.camera.3: "This example will use the <span class=\"code\">rtsp://user:password@address:554/sub-path</span>
+URL and will put its recordings in <span class=\"code\">./recordings/cam1.</span>"
+
+setup.cleaner.title: "Cleaner"
+setup.cleaner.1: "The cleaner script named cleaner.py only requires you to set 1 environment variable named
+<span class=\"code\">NP_MAX_FILE_AGE_HOURS</span> to the max amount of hours any recording should be kept."
+setup.cleaner.2: "If not set, the script will simply clean any recordings older than 72 hours."
+
+setup.web.title: "Web interface"
+setup.web.1: "The web interface provides more customization options, but at its core,
+it only requires the camera's environment variables to be set."
+setup.web.2: "Each camera requires one of the following environment variable:<br>
+&nbsp;&nbsp;<span class=\"code\">NP_CAM_&lt;camId&gt; = &lt;Camera's name&gt;</span>"
+setup.web.3: "Here is an example for <span class=\"code\">cam1</span> if named as <span class=\"code\">Camera #1</span>:<br>
+&nbsp;&nbsp;<span class=\"code\">NP_CAM_cam1 = Camera #1</span>"
+setup.web.vars.title: "Other variables"
+setup.web.vars.description.title: "Page's title"
+setup.web.vars.description.footer: "Page's footer HTML content"
+
+startup.title: "Startup"
+startup.1: "Once you have finished setting up the stack, you can simply run the following command:"
+#docker-compose up --build -d
+
+screenshots.title: "Screenshots"
+
+statistics.title: "Usage statistics example"
+statistics.1: "NanoPi R4S 4GB"
+statistics.1.1: "Uses 0.008 kWh / 8 Watts with other containers and USB HDD & USB SSD"
+statistics.2: "4 IP Cameras"
+statistics.2.1: "All H.256 4k RTSP TCP streams"
+statistics.2.2: "Around 220 GB of data per day"
+statistics.2.2.1: "Around 20.4 Mbit/s or 2.6 MB/s"
+statistics.3: "Less than 200MB of RAM usage"
+statistics.3.1: "~32 MB per recorder"
+statistics.3.2: "4 MB for cleaner"
+statistics.3.3: "4 MB for web server"
+statistics.4: "Uses ~10% of CPU on average over 6 cores"
+statistics.4.1: "Average of 15% per recorder"
+statistics.4.2: "Average of 1-5% on cleaner and web server"
+
+license.title: "License"
+license.1: "This software, as well as the Simplette CSS Stylesheet used for the web interface are both licensed under Unlicense."
+
+commons.example: "Example"

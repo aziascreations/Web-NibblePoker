@@ -1,0 +1,131 @@
+{% extends "projects/_project.jinja" %}
+
+{% block project_content %}
+    {{ render_h2(l10n("intro.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("intro.1", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("intro.2", project_id, user_lang)) }}
+
+    {{ render_h2(l10n("preamble.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("preamble.1", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("preamble.2", project_id, user_lang)) }}
+
+    {{ render_h2(l10n("setup.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("setup.1", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("setup.2", project_id, user_lang)) }}
+
+    {{ render_h3(l10n("setup.camera.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("setup.camera.1", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("setup.camera.2", project_id, user_lang)) }}
+    {{ render_h4(l10n("commons.example", project_id, user_lang)) }}
+    {{
+    render_code_block([
+        "nvr_stack:",
+        "  cctv_recorder_cam1:",
+        "    container_name: cctv-recorder-cam1",
+        "    build:",
+        "      context: .",
+        "      dockerfile: Dockerfile_recorder",
+        "    environment:",
+        "      - TZ=Europe/Brussels",
+        "      - \"NP_CCTV_URL=rtsp://user:password@address:554/sub-path\"",
+        "    volumes:",
+        "      - ./recordings/cam1:/data",
+        "    restart: unless-stopped",
+    ], "yaml")
+    }}
+    {{ render_paragraph(l10n("setup.camera.3", project_id, user_lang)) }}
+
+    {{ render_h3(l10n("setup.cleaner.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("setup.cleaner.1", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("setup.cleaner.2", project_id, user_lang)) }}
+    {{ render_h4(l10n("commons.example", project_id, user_lang)) }}
+    {{
+    render_code_block([
+        "nvr_stack:",
+        "  cctv_cleaner:",
+        "    container_name: cctv-cleaner",
+        "    build:",
+        "      context: .",
+        "      dockerfile: Dockerfile_cleaner",
+        "    environment:",
+        "      - TZ=Europe/Brussels",
+        "      - \"NP_MAX_FILE_AGE_HOURS=72\"",
+        "    volumes:",
+        "      - ./recordings:/data",
+        "      - ./cleaner.py:/app/app.py:ro",
+        "    restart: unless-stopped",
+    ], "yaml")
+    }}
+
+    {{ render_h3(l10n("setup.web.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("setup.web.1", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("setup.web.2", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("setup.web.3", project_id, user_lang)) }}
+    {{ render_h4(l10n("commons.web.vars.title", project_id, user_lang)) }}
+    {{ render_h4(l10n("commons.example", project_id, user_lang)) }}
+    {{
+    render_code_block([
+        "nvr_stack:",
+        "  cctv_web:",
+        "    container_name: cctv-web",
+        "    image: php:apache",
+        "    ports:",
+        "      - 26880:80",
+        "    environment:",
+        "      - TZ=Europe/Brussels",
+        "      - \"NP_CAM_cam1=Camera #1\"",
+        "      - \"NP_CAM_cam2=Camera #2\"",
+        "      - \"NP_TITLE=NibblePoker's Mini CCTV NVR\"",
+        "      - \"NP_FOOTER=Made by <i>BOZET Herwin</i>\"",
+        "    volumes:",
+        "      - ./htdocs:/var/www/html  # Cannot be \":ro\" since the recordings are mounted into it.",
+        "      - ./apache2.conf:/etc/apache2/apache2.conf:ro",
+        "      - ./recordings:/var/www/html/data:ro",
+        "    restart: unless-stopped",
+    ], "yaml")
+    }}
+
+    {{ render_h2(l10n("startup.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("startup.1", project_id, user_lang)) }}
+    {{
+    render_code_block([
+        "docker-compose up --build -d",
+    ], "bash")
+    }}
+
+    {{ render_h2(l10n("screenshots.title", project_id, user_lang)) }}
+    {{ render_splide([
+        '<img src="' + url_for("static", filename="/resources/NibblePoker/images/content/" + project_id + "/home.png") + '">',
+        '<img src="' + url_for("static", filename="/resources/NibblePoker/images/content/" + project_id + "/cam.png") + '">',
+    ]) }}
+
+    {{ render_h2(l10n("statistics.title", project_id, user_lang)) }}
+    {{ render_list_ul([
+        l10n("statistics.1", project_id, user_lang),
+        [
+            l10n("statistics.1.1", project_id, user_lang),
+        ],
+        l10n("statistics.2", project_id, user_lang),
+        [
+            l10n("statistics.2.1", project_id, user_lang),
+            l10n("statistics.2.2", project_id, user_lang),
+            [
+                l10n("statistics.2.2.1", project_id, user_lang),
+            ],
+        ],
+        l10n("statistics.3", project_id, user_lang),
+        [
+            l10n("statistics.3.1", project_id, user_lang),
+            l10n("statistics.3.2", project_id, user_lang),
+            l10n("statistics.3.3", project_id, user_lang),
+        ],
+        l10n("statistics.4", project_id, user_lang),
+        [
+            l10n("statistics.4.1", project_id, user_lang),
+            l10n("statistics.4.2", project_id, user_lang),
+        ],
+    ]) }}
+
+    {{ render_h2(l10n("license.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("license.1", project_id, user_lang)) }}
+{% endblock %}

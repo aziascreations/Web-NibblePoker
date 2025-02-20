@@ -42,13 +42,13 @@
   abs_href: "/tools"
   icon: fad fa-toolbox
   active_id: tools
-  has_new_until_utc: 0
+  has_new_until_utc: 1760986472
 
 - title_key: text.downloads
   raw_href: "https://files.nibblepoker.lu/"
   icon: fad fa-download
   active_id: ""
-  has_new_until_utc: 1760986472
+  has_new_until_utc: 0
 
 -
 

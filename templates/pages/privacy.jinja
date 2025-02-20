@@ -17,22 +17,20 @@
     {{ render_paragraph(l10n("introduction.text.1", "privacy", user_lang)) }}
     {{ render_paragraph(l10n("introduction.text.2", "privacy", user_lang) +
         '<br><i class="fad fa-globe ml-s t-size-8"></i>
-        <a href="https://gdpr.eu/privacy-notice/">
-            https://gdpr.eu/
-        </a><br>
+        <a href="https://gdpr.eu/privacy-notice/" class="ml-xs">https://gdpr.eu/</a><br>
         <i class="fad fa-globe ml-s t-size-8"></i>
-        <a href="https://eur-lex.europa.eu/legal-content/ALL/?uri=CELEX%3A32016R0679">
-            https://eur-lex.europa.eu/
-        </a>')}}
+        <a href="https://eur-lex.europa.eu/legal-content/ALL/?uri=CELEX%3A32016R0679" class="ml-xs">https://eur-lex.europa.eu/</a>')}}
 
 
     {{ render_h1(l10n("v2.data.title", "privacy", user_lang), "fad fa-database") }}
     {{ render_paragraph(l10n("v2.data.intro.1", "privacy", user_lang) +
         '<br>' + l10n("v2.data.intro.2", "privacy", user_lang)) }}
     {{ render_paragraph(l10n('v2.data.private.1', "privacy", user_lang) +
-        '<ul><li>' + l10n('v2.data.private_list.1', "privacy", user_lang) +
-        '</li><li>' + l10n('v2.data.private_list.2', "privacy", user_lang) +
-        '</li></ul>') }}
+            render_list_ul([
+                l10n('v2.data.private_list.1', "privacy", user_lang),
+                l10n('v2.data.private_list.2', "privacy", user_lang),
+            ])
+    ) }}
     {{ render_paragraph(l10n('v2.data.non_private.1', "privacy", user_lang) +
         '<ul><li>' + l10n('v2.data.non_private_list.1', "privacy", user_lang) +
         '</li><li>' + l10n('v2.data.non_private_list.2', "privacy", user_lang) +
@@ -167,17 +165,17 @@
 
 	{{ render_h1(l10n("contact.title", "privacy", user_lang), "fad fa-mailbox") }}
     {{ render_paragraph(l10n("contact.text.1", "privacy", user_lang) +
-        '<br><i class="fad fa-at t-size-8 ml-s"></i><a href="mailto:herwin.bozet@gmail.com">herwin.bozet@gmail.com</a>') }}
+        '<br><i class="fad fa-at t-size-8 ml-s"></i><a class="ml-xs" href="mailto:herwin.bozet@gmail.com">herwin.bozet@gmail.com</a>') }}
 
 
 	{{ render_h1(l10n("complaint.title", "privacy", user_lang), "fad fa-gavel") }}
     {{ render_paragraph(l10n("complaint.text.1", "privacy", user_lang)) }}
     {{ render_paragraph(l10n('complaint.text.2', "privacy", user_lang) +
         '<br><i class="fad fa-globe ml-s t-size-8"></i>' +
-        '<a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rights-citizens/redress/what-should-i-do-if-i-think-my-personal-data-protection-rights-havent-been-respected_en">https://ec.europa.eu/</a>' +
+        '<a class="ml-xs" href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rights-citizens/redress/what-should-i-do-if-i-think-my-personal-data-protection-rights-havent-been-respected_en">https://ec.europa.eu/</a>' +
         '<span class="ml-s">(' + l10n('english', "langs", user_lang) + ')</span>' +
         '<br><i class="fad fa-globe ml-s t-size-8"></i>' +
-        '<a href="https://gegevensbeschermingsautoriteit.be/citoyen/agir/introduire-une-plainte">https://gegevensbeschermingsautoriteit.be/</a>' +
+        '<a class="ml-xs" href="https://gegevensbeschermingsautoriteit.be/citoyen/agir/introduire-une-plainte">https://gegevensbeschermingsautoriteit.be/</a>' +
         '<span class="ml-s">(' + l10n('french', "langs", user_lang) + ')</span>' ) }}
 
 {% endblock %}

@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from typing import Optional
 
+from locked_dict.locked_dict import LockedDict
+
 
 @dataclass
 class ContentHeadMetadata:
@@ -66,3 +68,49 @@ class ContentMetadata:
 
         self.general: dict
         self.general = ContentGeneralMetadata(**self.general)
+
+
+@dataclass
+class ContentResource:
+    scripts: list[str] = field(default_factory=list)
+    stylesheets: list[str] = field(default_factory=list)
+
+
+@dataclass
+class ContentApplet:
+    id: str
+    resources: ContentResource
+
+    def __post_init__(self):
+        self.resources: dict
+        self.resources = ContentResource(**self.resources)
+
+
+@dataclass
+class ContentTool:
+    # NOTE: could extend `ContentProject`
+    id: str
+    applet_id: str
+    metadata: ContentMetadata
+
+    def __post_init__(self):
+        self.metadata: dict
+        self.metadata = ContentMetadata(**self.metadata)
+
+
+@dataclass
+class ContentProject:
+    id: str
+    metadata: ContentMetadata
+
+    def __post_init__(self):
+        self.metadata: dict
+        self.metadata = ContentMetadata(**self.metadata)
+
+
+@dataclass
+class ContentRoot:
+    applets: LockedDict[str, ContentApplet] = field(default_factory=LockedDict)
+    # articles: list[Con] = field(default_factory=list)
+    projects: LockedDict[str, ContentProject] = field(default_factory=LockedDict)
+    tools: LockedDict[str, ContentTool] = field(default_factory=LockedDict)

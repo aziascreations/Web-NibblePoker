@@ -25,6 +25,8 @@ metadata:
     subtitle_key: "article.subtitle"
     tags:
       - "undefined"
-data:
+resources:
   scripts:
-    - "epr_main.js"
+    - "svg-to-png.mjs"
+  stylesheets:
+    - "svg-to-png.css"

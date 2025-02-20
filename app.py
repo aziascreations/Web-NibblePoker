@@ -9,22 +9,43 @@ from flask import render_template
 from minify_html import minify
 from werkzeug.exceptions import HTTPException
 
-from website.content import reload_content_items, get_articles, get_projects, get_tools, sanitize_input_tags
+from website.content import get_articles, get_projects, get_tools, sanitize_input_tags, load_content_items, get_content, \
+    get_applets
 from website.contributors import reload_contributors_data, get_contributors_data
 from website.domains import ALLOWED_DOMAINS
 from website.l10n.utils import get_user_lang, localize, reload_strings, l10n_url_abs, l10n_url_switch, L10N, \
     DEFAULT_LANG
+from website.renderers.applet import render_applet_scripts, render_applet_head
 from website.renderers.button import render_button
-from website.renderers.headings import render_heading, render_h2, render_h1, render_h3
+from website.renderers.code import render_code_block
+from website.renderers.headings import render_heading, render_h2, render_h1, render_h3, render_h4
 from website.renderers.paragraph import render_paragraph
+from website.renderers.lists import render_list_ul
 from website.renderers.splide import render_splide
 from website.sidebar import reload_sidebar_entries, get_sidebar_entries
 from website.sitemap import reload_sitemap_entries, get_sitemap_entries
 
-# try:
-#     from rich import print
-# except ImportError:
-#     pass
+try:
+    from rich import print
+except ImportError:
+    pass
+
+
+if os.environ.get('NP_HTML_POST_PROCESS', "NONE") == "MINIFY":
+    print("Using 'minify' as HTML post-processor")
+
+    def post_process_html(html: str) -> str:
+        return minify(html).replace("> <", "><")
+elif os.environ.get('NP_HTML_POST_PROCESS', "NONE") == "BS4":
+    print("Using 'BeautifulSoup4' as HTML post-processor")
+
+    def post_process_html(html: str) -> str:
+        return BeautifulSoup(html, features="html.parser").prettify()
+else:
+    print("Using no HTML post-processor")
+
+    def post_process_html(html: str) -> str:
+        return html
 
 
 app = Flask(
@@ -72,24 +93,35 @@ def inject_processors():
         domain_host=request.headers['Host'],
         domain_tld=request.headers['Host'].split('.')[-1] if request.headers['Host'] in ALLOWED_DOMAINS else "lu",
         domain_url_root=request.url_root,
+
         # L10N
         l10n=localize,
         l10n_url_abs=l10n_url_abs,
         l10n_url_switch=l10n_url_switch,
+
         # Sidebar
         get_sidebar_entries=get_sidebar_entries,
+
         # Content
+        get_content=get_content,
         get_articles=get_articles,
         get_projects=get_projects,
         get_tools=get_tools,
+
         # Renderers
         render_button=render_button,
         render_heading=render_heading,
         render_h1=render_h1,
         render_h2=render_h2,
         render_h3=render_h3,
+        render_h4=render_h4,
         render_paragraph=render_paragraph,
+        render_list_ul=render_list_ul,
         render_splide=render_splide,
+        render_applet_scripts=render_applet_scripts,
+        render_applet_head=render_applet_head,
+        render_code_block=render_code_block,
+
         # Commons
         url_for=url_for,
         escape=escape,
@@ -118,7 +150,7 @@ def route_sitemap():
 @app.route('/fr/', defaults={'lang': "fr"})
 def route_root(lang: Optional[str]):
     user_lang = get_user_lang(lang, request.headers.get("HTTP_ACCEPT_LANGUAGE"))
-    return minify(render_template(
+    return post_process_html(render_template(
         "pages/root.jinja",
         user_lang=user_lang,
         raw_lang=lang,
@@ -132,7 +164,7 @@ def route_root(lang: Optional[str]):
 @app.route('/fr/contact/', defaults={'lang': "fr"})
 def route_contact(lang: Optional[str]):
     user_lang = get_user_lang(lang, request.headers.get("HTTP_ACCEPT_LANGUAGE"))
-    return minify(render_template(
+    return post_process_html(render_template(
         "pages/contact.jinja",
         user_lang=user_lang,
         raw_lang=lang,
@@ -152,7 +184,7 @@ def route_content(lang: Optional[str]):
     except ValueError:
         requested_tags = None
 
-    return minify(render_template(
+    return post_process_html(render_template(
         "pages/project_index.jinja",
         user_lang=user_lang,
         raw_lang=lang,
@@ -178,7 +210,7 @@ def route_content_project(lang: Optional[str], project_id: str):
         error_code = 404
 
     if error_key is not None:
-        return minify(render_template(
+        return post_process_html(render_template(
             "pages/error.jinja",
             user_lang=user_lang,
             raw_lang=lang,
@@ -188,7 +220,7 @@ def route_content_project(lang: Optional[str], project_id: str):
             error_code=error_code,
         )).replace("> <", "><"), error_code
     else:
-        return minify(render_template(
+        return post_process_html(render_template(
             "projects/" + project_id + ".jinja",
             user_lang=user_lang,
             raw_lang=lang,
@@ -210,7 +242,7 @@ def route_tools_index(lang: Optional[str]):
     except ValueError:
         requested_tags = None
 
-    return minify(render_template(
+    return post_process_html(render_template(
         "pages/tools_index.jinja",
         user_lang=user_lang,
         raw_lang=lang,
@@ -236,7 +268,7 @@ def route_tools_page(lang: Optional[str], tool_id: str):
         error_code = 404
 
     if error_key is not None:
-        return minify(render_template(
+        return post_process_html(render_template(
             "pages/error.jinja",
             user_lang=user_lang,
             raw_lang=lang,
@@ -246,14 +278,15 @@ def route_tools_page(lang: Optional[str], tool_id: str):
             error_code=error_code,
         )).replace("> <", "><"), error_code
     else:
-        return minify(render_template(
-            "tools/" + tool_id + ".jinja",
+        return post_process_html(render_template(
+            "pages/tools_page.jinja",
             user_lang=user_lang,
             raw_lang=lang,
             request_path=request.path,
             standalone="standalone" in request.args,
             tool_data=get_tools().get(tool_id),
             tool_id=tool_id,
+            applet_data=get_applets().get(get_tools().get(tool_id).applet_id),
         )).replace("> <", "><")
 
 
@@ -262,7 +295,7 @@ def route_tools_page(lang: Optional[str], tool_id: str):
 @app.route('/fr/about/', defaults={'lang': "fr"})
 def route_about(lang: Optional[str]):
     user_lang = get_user_lang(lang, request.headers.get("HTTP_ACCEPT_LANGUAGE"))
-    return minify(render_template(
+    return post_process_html(render_template(
         "pages/about.jinja",
         user_lang=user_lang,
         raw_lang=lang,
@@ -276,7 +309,7 @@ def route_about(lang: Optional[str]):
 @app.route('/fr/privacy/', defaults={'lang': "fr"})
 def route_privacy(lang: Optional[str]):
     user_lang = get_user_lang(lang, request.headers.get("HTTP_ACCEPT_LANGUAGE"))
-    return minify(render_template(
+    return post_process_html(render_template(
         "pages/privacy.jinja",
         user_lang=user_lang,
         raw_lang=lang,
@@ -290,7 +323,7 @@ def route_privacy(lang: Optional[str]):
 @app.route('/fr/links/', defaults={'lang': "fr"})
 def route_links(lang: Optional[str]):
     user_lang = get_user_lang(lang, request.headers.get("HTTP_ACCEPT_LANGUAGE"))
-    return minify(render_template(
+    return post_process_html(render_template(
         "pages/links.jinja",
         user_lang=user_lang,
         raw_lang=lang,
@@ -304,7 +337,7 @@ def route_links(lang: Optional[str]):
 @app.route('/fr/debug/', defaults={'lang': "fr"})
 def route_debug(lang: Optional[str]):
     user_lang = get_user_lang(lang, request.headers.get("HTTP_ACCEPT_LANGUAGE"))
-    return minify(render_template(
+    return post_process_html(render_template(
         "pages/debug.jinja",
         user_lang=user_lang,
         raw_lang=lang,
@@ -323,7 +356,7 @@ def handle_exception(e: Exception):
     if isinstance(e, HTTPException):
         error_code = e.code
 
-    return minify(render_template(
+    return post_process_html(render_template(
         "pages/error.jinja",
         user_lang=DEFAULT_LANG,
         raw_lang=DEFAULT_LANG,
@@ -335,7 +368,7 @@ def handle_exception(e: Exception):
 
 
 if __name__ == '__main__':
-    reload_content_items()
+    load_content_items()
     reload_strings(os.path.join(os.getcwd(), "data/strings/"))
     reload_sidebar_entries(os.path.join(os.getcwd(), "data/sidebar.yml"))
     reload_contributors_data(os.path.join(os.getcwd(), "data/contributors.yml"))
@@ -362,22 +395,3 @@ if __name__ == '__main__':
         #debug=False,
         load_dotenv=False
     )
-
-# return BeautifulSoup(render_template(
-#     "pages/root.jinja",
-#     lang=user_lang,
-#     raw_lang=lang,
-#     request_path=request.path,
-#     standalone="standalone" in request.args,
-# ), features="html.parser").prettify()
-
-# try:
-#     from minify_html import minify
-#     FORCE_NON_DEBUG = False
-# except ImportError:
-#     from bs4 import BeautifulSoup
-#     FORCE_NON_DEBUG = True
-#
-#     def minify(html):
-#         return BeautifulSoup(html, features="html.parser").prettify()
-# debug=False if FORCE_NON_DEBUG else True,

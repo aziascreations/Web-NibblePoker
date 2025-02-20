@@ -39,8 +39,8 @@ popd
 :js-uuidgenerator-minify
 echo Minifying UUID Generator
 pushd %CD%
-cd %~dp0\..\static\resources\NibblePoker\tools\uuid-generator\
-echo ^> static\resources\NibblePoker\tools\svg-to-png\svg-to-png.mjs
+cd %~dp0\..\static\resources\NibblePoker\applets\uuid-generator\
+echo ^> static\resources\NibblePoker\applets\uuid-generator\uuid-generator.mjs
 call "%~dp0node_modules\.bin\rollup" uuid-generator.mjs --file uuid-generator.js
 call "%~dp0node_modules\.bin\terser" uuid-generator.js -c -m -o uuid-generator.min.js
 popd

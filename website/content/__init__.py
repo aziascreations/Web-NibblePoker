@@ -5,13 +5,22 @@ from typing import Any
 from locked_dict.locked_dict import LockedDict
 import yaml
 
-from .metadata import ContentMetadata
-from .project import ContentProject
-from .tool import ContentTool, ContentToolData
+from .dataclasses import *
 
+__CONTENT: ContentRoot = ContentRoot()
+
+__CONTENT_APPLETS: LockedDict[str, ContentApplet] = LockedDict()
 __CONTENT_ARTICLES: LockedDict = LockedDict()
 __CONTENT_PROJECTS: LockedDict[str, ContentProject] = LockedDict()
 __CONTENT_TOOLS: LockedDict[str, ContentTool] = LockedDict()
+
+
+def get_content() -> ContentRoot:
+    return __CONTENT
+
+
+def get_applets() -> LockedDict[str, ContentApplet]:
+    return __CONTENT.applets
 
 
 def get_articles() -> LockedDict:
@@ -19,14 +28,26 @@ def get_articles() -> LockedDict:
 
 
 def get_projects() -> LockedDict[str, ContentProject]:
-    return __CONTENT_PROJECTS
+    return __CONTENT.projects
 
 
 def get_projects_by_tags(tags: list[str]) -> dict[Any, ContentProject]:
     project_obj: ContentProject
     return {
-        project_key: project_value for project_key, project_value in __CONTENT_PROJECTS.items()
+        project_key: project_value for project_key, project_value in __CONTENT.projects.items()
         if any(tag in project_value.metadata.general.tags for tag in tags)
+    }
+
+
+def get_tools() -> LockedDict[str, ContentTool]:
+    return __CONTENT.tools
+
+
+def get_tools_by_tags(tags: list[str]) -> dict[Any, ContentProject]:
+    tool_obj: ContentProject
+    return {
+        tool_key: tool_value for tool_key, tool_value in __CONTENT.tools.items()
+        if any(tag in tool_value.metadata.general.tags for tag in tags)
     }
 
 
@@ -38,34 +59,50 @@ def sanitize_input_tags(input_tags: str) -> list[str]:
     return tags
 
 
-def get_tools() -> LockedDict:
-    return __CONTENT_TOOLS
+def load_content_items() -> None:
+    global __CONTENT
 
+    __CONTENT = ContentRoot()
 
-def get_tools_by_tags(tags: list[str]) -> dict[Any, ContentProject]:
-    tool_obj: ContentProject
-    return {
-        tool_key: tool_value for tool_key, tool_value in __CONTENT_TOOLS.items()
-        if any(tag in tool_value.metadata.general.tags for tag in tags)
-    }
+    # Loading applets definition files
+    for applets_file in os.listdir(os.path.join(os.getcwd(), "data/applets")):
+        applets_file_path = os.path.join(os.getcwd(), "data/applets", applets_file)
+        if not os.path.isfile(applets_file_path) or applets_file.startswith("."):
+            continue
 
+        applets_data = yaml.safe_load(open(applets_file_path))
+        if "applets" not in applets_data:
+            print(f"Unable to load '{applets_file_path}' due to missing 'applets' field !")
+            continue
 
-def reload_content_items() -> None:
-    global __CONTENT_ARTICLES
-    global __CONTENT_PROJECTS
-    global __CONTENT_TOOLS
+        for applet_data in applets_data["applets"]:
+            _applet = ContentApplet(**applet_data)
+            __CONTENT.applets[_applet.id] = _applet
 
-    __CONTENT_ARTICLES = LockedDict()
-    __CONTENT_PROJECTS = LockedDict()
-    __CONTENT_TOOLS = LockedDict()
-
-    for article_folder in os.listdir(os.path.join(os.getcwd(), "data/articles")):
+    # Loading articles definition files
+    """for article_folder in os.listdir(os.path.join(os.getcwd(), "data/articles")):
         article_folder_path = os.path.join(os.getcwd(), "data/articles", article_folder)
         if not os.path.isdir(article_folder_path):
             continue
-        pass
+        pass"""
 
-    for project_item in os.listdir(os.path.join(os.getcwd(), "data/projects")):
+    # Loading projects definition files
+    for project_file in os.listdir(os.path.join(os.getcwd(), "data/projects")):
+        project_file_path = os.path.join(os.getcwd(), "data/projects", project_file)
+        if not os.path.isfile(project_file_path) or project_file.startswith("."):
+            continue
+
+        projects_data = yaml.safe_load(open(project_file_path))
+        if "projects" not in projects_data:
+            print(f"Unable to load '{project_file_path}' due to missing 'projects' field !")
+            continue
+
+        for project_data in projects_data["projects"]:
+            _project = ContentProject(**project_data)
+            __CONTENT.projects[_project.id] = _project
+            print(_project)
+
+    """for project_item in os.listdir(os.path.join(os.getcwd(), "data/projects")):
         project_item_path = os.path.join(os.getcwd(), "data/projects/", project_item)
         if not os.path.isfile(project_item_path) or project_item.startswith("."):
             continue
@@ -87,33 +124,25 @@ def reload_content_items() -> None:
             print(f"Loaded project '{project_id}'")
         except Exception as e:
             print(f"Unable to load project '{project_id}' due to an exception !")
-            print(e)
+            print(e)"""
 
-    for tool_item in os.listdir(os.path.join(os.getcwd(), "data/tools")):
-        tool_item_path = os.path.join(os.getcwd(), "data/tools", tool_item)
-        if not os.path.isfile(tool_item_path) or tool_item_path.startswith("."):
+    for tools_file in os.listdir(os.path.join(os.getcwd(), "data/tools")):
+        tools_file_path = os.path.join(os.getcwd(), "data/tools", tools_file)
+        if not os.path.isfile(tools_file_path) or tools_file.startswith("."):
             continue
 
-        tool_id = Path(tool_item_path).stem
-        tool_page_path = os.path.join(os.getcwd(), f"templates/tools/{tool_id}.jinja")
-
-        if not all(os.path.isfile(project_file) for project_file in
-                   [tool_item_path, tool_page_path]):
-            print(f"Unable to load tool '{tool_id}' due to missing files !")
+        tools_data = yaml.safe_load(open(tools_file_path))
+        if "tools" not in tools_data:
+            print(f"Unable to load '{tools_file_path}' due to missing 'tools' field !")
             continue
 
-        tool_data: ContentTool
-        try:
-            raw_tool_data = yaml.safe_load(open(tool_item_path))
-            __CONTENT_TOOLS[tool_id] = ContentTool(
-                id=tool_id,
-                metadata=ContentMetadata(**raw_tool_data["metadata"]),
-                data=ContentToolData(**raw_tool_data["data"]),
-            )
-            print(f"Loaded tool '{tool_id}'")
-        except Exception as e:
-            print(f"Unable to load tool '{tool_id}' due to an exception !")
-            print(e)
-            continue
+        for tool_data in tools_data["tools"]:
+            _tool = ContentTool(**tool_data)
+            __CONTENT.tools[_tool.id] = _tool
+            #print(_tool)
 
-        # FIXME: Check if the required files exist too !
+        # FIXME: Check if the required files exist too !"""
+
+
+def validate_content_items() -> bool:
+    pass

@@ -20,34 +20,35 @@
 
     {{ render_h2(l10n("updates.title", "home", user_lang)) }}
 
-    <p><i class="fad fa-calendar-alt mr-xs"></i>{{ l10n("updates.4.date", "home", user_lang) }}</p>
-    <ul>
-        <li>{{ l10n("updates.4.text.1", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.4.text.2", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.4.text.3", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.text.privacy", "home", user_lang) }}</li>
-    </ul>
+    <p><i class="fad fa-calendar-alt mr-xs mt-s"></i>{{ l10n("updates.4.date", "home", user_lang) }}</p>
+    {{ render_list_ul([
+        l10n("updates.4.text.1", "home", user_lang),
+        l10n("updates.4.text.2", "home", user_lang),
+        l10n("updates.4.text.3", "home", user_lang),
+        l10n("updates.text.privacy", "home", user_lang)
+    ]) }}
 
-    <p><i class="fad fa-calendar-alt mr-xs"></i>{{ l10n("updates.3.date", "home", user_lang) }}</p>
-    <ul>
-        <li>{{ l10n("updates.3.text.1", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.3.text.2", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.3.text.3", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.text.privacy", "home", user_lang) }}</li>
-    </ul>
+    <p><i class="fad fa-calendar-alt mr-xs mt-s"></i>{{ l10n("updates.3.date", "home", user_lang) }}</p>
+    {{ render_list_ul([
+        l10n("updates.3.text.1", "home", user_lang),
+        l10n("updates.3.text.2", "home", user_lang),
+        l10n("updates.3.text.3", "home", user_lang),
+        l10n("updates.text.privacy", "home", user_lang)
+    ]) }}
 
-    <p><i class="fad fa-calendar-alt mr-xs"></i>{{ l10n("updates.2.date", "home", user_lang) }}</p>
-    <ul>
-        <li>{{ l10n("updates.2.text.1", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.2.text.2", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.2.text.3", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.2.text.4", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.text.privacy", "home", user_lang) }}</li>
-    </ul>
+    <p><i class="fad fa-calendar-alt mr-xs mt-s"></i>{{ l10n("updates.2.date", "home", user_lang) }}</p>
+    {{ render_list_ul([
+        l10n("updates.2.text.1", "home", user_lang),
+        l10n("updates.2.text.2", "home", user_lang),
+        l10n("updates.2.text.3", "home", user_lang),
+        l10n("updates.2.text.4", "home", user_lang),
+        l10n("updates.text.privacy", "home", user_lang)
+    ]) }}
 
-    <p><i class="fad fa-calendar-alt mr-xs"></i>{{ l10n("updates.1.date", "home", user_lang) }}</p>
-    <ul>
-        <li>{{ l10n("updates.1.text.1", "home", user_lang) }}</li>
-        <li>{{ l10n("updates.text.privacy", "home", user_lang) }}</li>
-    </ul>
+    <p><i class="fad fa-calendar-alt mr-xs mt-s"></i>{{ l10n("updates.1.date", "home", user_lang) }}</p>
+    {{ render_list_ul([
+        l10n("updates.1.text.1", "home", user_lang),
+        l10n("updates.text.privacy", "home", user_lang)
+    ]) }}
+
 {% endblock %}

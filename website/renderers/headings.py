@@ -35,3 +35,11 @@ def render_h3(inner_html: str, icon: Optional[str] = None, right_html: Optional[
     return render_heading(
         inner_html, 3, icon, right_html, anchor_id, background_class
     )
+
+
+def render_h4(inner_html: str, icon: Optional[str] = None, right_html: Optional[str] = None,
+              anchor_id: Optional[str] = None, background_class: str = "bkgd-grid") -> str:
+    return render_heading(
+        inner_html, 4, icon, right_html, anchor_id, background_class
+    )
+

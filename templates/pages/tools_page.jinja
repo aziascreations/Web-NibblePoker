@@ -4,9 +4,7 @@
 {% block head_description %}{{ l10n(tool_data.metadata.head.description_key, tool_id, user_lang) }}{% endblock %}
 
 {% block extra_stylesheets %}
-    {% for tool_stylesheet in tool_data.data.stylesheets %}
-        <link rel="stylesheet" href="{{ url_for("static", filename="/resources/NibblePoker/tools/" + tool_id + "/" + tool_stylesheet) }}">
-    {% endfor %}
+    {{ render_applet_head(applet_data) }}
 {% endblock %}
 
 {% block header_title %}
@@ -21,16 +19,10 @@
     ) }}
 
     <div class="px-xxs">
-        {% block tool_content %}{% endblock %}
+        {% include 'applets/'+applet_data.id+'.jinja' %}
     </div>
 {% endblock %}
 
 {% block extra_scripts %}
-    {% for tool_script in tool_data.data.scripts %}
-        {% if tool_script.endswith(".mjs") %}
-            <script src="{{ url_for("static", filename="/resources/NibblePoker/tools/" + tool_id + "/" + tool_script) }}" type="module"></script>
-        {% else %}
-            <script src="{{ url_for("static", filename="/resources/NibblePoker/tools/" + tool_id + "/" + tool_script) }}"></script>
-        {% endif %}
-    {% endfor %}
+    {{ render_applet_scripts(applet_data) }}
 {% endblock %}
