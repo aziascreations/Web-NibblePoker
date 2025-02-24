@@ -3,18 +3,15 @@ import os
 from html import escape
 from typing import Optional
 
-from bs4 import BeautifulSoup
 from flask import Flask, request, send_from_directory, url_for, Response
 from flask import render_template
-from minify_html import minify
 from werkzeug.exceptions import HTTPException
 
-from website.content import get_articles, get_projects, get_tools, sanitize_input_tags, load_content_items, get_content, \
-    get_applets
-from website.contributors import reload_contributors_data, get_contributors_data
+from website.content import get_projects, get_tools, sanitize_input_tags, load_content_items, get_content, \
+    get_applets, get_projects_languages, get_projects_by_languages
+from website.contributors import reload_contributors_data
 from website.domains import ALLOWED_DOMAINS
-from website.l10n.utils import get_user_lang, localize, reload_strings, l10n_url_abs, l10n_url_switch, L10N, \
-    DEFAULT_LANG
+from website.l10n.utils import get_user_lang, localize, reload_strings, l10n_url_abs, l10n_url_switch, DEFAULT_LANG
 from website.renderers.applet import render_applet_scripts, render_applet_head
 from website.renderers.button import render_button
 from website.renderers.code import render_code_block
@@ -22,6 +19,7 @@ from website.renderers.headings import render_heading, render_h2, render_h1, ren
 from website.renderers.paragraph import render_paragraph
 from website.renderers.lists import render_list_ul
 from website.renderers.splide import render_splide
+from website.renderers.standalone import get_standalone_common_headers
 from website.sidebar import reload_sidebar_entries, get_sidebar_entries
 from website.sitemap import reload_sitemap_entries, get_sitemap_entries
 
@@ -34,10 +32,14 @@ except ImportError:
 if os.environ.get('NP_HTML_POST_PROCESS', "NONE") == "MINIFY":
     print("Using 'minify' as HTML post-processor")
 
+    from minify_html import minify
+
     def post_process_html(html: str) -> str:
         return minify(html).replace("> <", "><")
 elif os.environ.get('NP_HTML_POST_PROCESS', "NONE") == "BS4":
     print("Using 'BeautifulSoup4' as HTML post-processor")
+
+    from bs4 import BeautifulSoup
 
     def post_process_html(html: str) -> str:
         return BeautifulSoup(html, features="html.parser").prettify()
@@ -104,8 +106,11 @@ def inject_processors():
 
         # Content
         get_content=get_content,
-        get_articles=get_articles,
+        get_applets=get_applets,
+        # get_articles=get_articles,
         get_projects=get_projects,
+        get_projects_by_languages=get_projects_by_languages,
+        get_projects_languages=get_projects_languages,
         get_tools=get_tools,
 
         # Renderers
@@ -125,6 +130,9 @@ def inject_processors():
         # Commons
         url_for=url_for,
         escape=escape,
+
+        # Standalone
+        get_standalone_common_headers=get_standalone_common_headers
     )
 
 
@@ -150,12 +158,13 @@ def route_sitemap():
 @app.route('/fr/', defaults={'lang': "fr"})
 def route_root(lang: Optional[str]):
     user_lang = get_user_lang(lang, request.headers.get("HTTP_ACCEPT_LANGUAGE"))
+
     return post_process_html(render_template(
         "pages/root.jinja",
         user_lang=user_lang,
         raw_lang=lang,
         request_path=request.path,
-        standalone="standalone" in request.args,
+        is_standalone="standalone" in request.args,
     )).replace("> <", "><")
 
 
@@ -164,12 +173,13 @@ def route_root(lang: Optional[str]):
 @app.route('/fr/contact/', defaults={'lang': "fr"})
 def route_contact(lang: Optional[str]):
     user_lang = get_user_lang(lang, request.headers.get("HTTP_ACCEPT_LANGUAGE"))
+
     return post_process_html(render_template(
         "pages/contact.jinja",
         user_lang=user_lang,
         raw_lang=lang,
         request_path=request.path,
-        standalone="standalone" in request.args,
+        is_standalone="standalone" in request.args,
     )).replace("> <", "><")
 
 
@@ -189,7 +199,7 @@ def route_content(lang: Optional[str]):
         user_lang=user_lang,
         raw_lang=lang,
         request_path=request.path,
-        standalone="standalone" in request.args,
+        is_standalone="standalone" in request.args,
         requested_tags=requested_tags,
     )).replace("> <", "><")
 
@@ -215,7 +225,7 @@ def route_content_project(lang: Optional[str], project_id: str):
             user_lang=user_lang,
             raw_lang=lang,
             request_path=request.path,
-            standalone="standalone" in request.args,
+            is_standalone="standalone" in request.args,
             error_key=error_key,
             error_code=error_code,
         )).replace("> <", "><"), error_code
@@ -225,7 +235,7 @@ def route_content_project(lang: Optional[str], project_id: str):
             user_lang=user_lang,
             raw_lang=lang,
             request_path=request.path,
-            standalone="standalone" in request.args,
+            is_standalone="standalone" in request.args,
             project_data=get_projects().get(project_id),
             project_id=project_id,
         )).replace("> <", "><")
@@ -247,7 +257,7 @@ def route_tools_index(lang: Optional[str]):
         user_lang=user_lang,
         raw_lang=lang,
         request_path=request.path,
-        standalone="standalone" in request.args,
+        is_standalone="standalone" in request.args,
         requested_tags=requested_tags,
     )).replace("> <", "><")
 
@@ -273,7 +283,7 @@ def route_tools_page(lang: Optional[str], tool_id: str):
             user_lang=user_lang,
             raw_lang=lang,
             request_path=request.path,
-            standalone="standalone" in request.args,
+            is_standalone="standalone" in request.args,
             error_key=error_key,
             error_code=error_code,
         )).replace("> <", "><"), error_code
@@ -283,7 +293,7 @@ def route_tools_page(lang: Optional[str], tool_id: str):
             user_lang=user_lang,
             raw_lang=lang,
             request_path=request.path,
-            standalone="standalone" in request.args,
+            is_standalone="standalone" in request.args,
             tool_data=get_tools().get(tool_id),
             tool_id=tool_id,
             applet_data=get_applets().get(get_tools().get(tool_id).applet_id),
@@ -300,7 +310,7 @@ def route_about(lang: Optional[str]):
         user_lang=user_lang,
         raw_lang=lang,
         request_path=request.path,
-        standalone="standalone" in request.args,
+        is_standalone="standalone" in request.args,
     )).replace("> <", "><")
 
 
@@ -314,7 +324,7 @@ def route_privacy(lang: Optional[str]):
         user_lang=user_lang,
         raw_lang=lang,
         request_path=request.path,
-        standalone="standalone" in request.args,
+        is_standalone="standalone" in request.args,
     )).replace("> <", "><")
 
 
@@ -328,7 +338,7 @@ def route_links(lang: Optional[str]):
         user_lang=user_lang,
         raw_lang=lang,
         request_path=request.path,
-        standalone="standalone" in request.args,
+        is_standalone="standalone" in request.args,
     )).replace("> <", "><")
 
 
@@ -342,7 +352,7 @@ def route_debug(lang: Optional[str]):
         user_lang=user_lang,
         raw_lang=lang,
         request_path=request.path,
-        standalone="standalone" in request.args,
+        is_standalone="standalone" in request.args,
     )).replace("> <", "><")
 
 
@@ -361,7 +371,7 @@ def handle_exception(e: Exception):
         user_lang=DEFAULT_LANG,
         raw_lang=DEFAULT_LANG,
         request_path=request.path,
-        standalone="standalone" in request.args,
+        is_standalone="standalone" in request.args,
         error_key=str(e.code),
         error_code=e.code,
     )).replace("> <", "><"), error_code
@@ -374,24 +384,13 @@ if __name__ == '__main__':
     reload_contributors_data(os.path.join(os.getcwd(), "data/contributors.yml"))
     reload_sitemap_entries(os.path.join(os.getcwd(), "data/sitemap.yml"))
 
-    # try:
-    #     os.remove("data/strings/dumps.json")
-    # except OSError:
-    #     pass
-    #
-    # try:
-    #     with open("data/strings/dumps.json", "w") as f:
-    #         f.write(json.dumps(L10N._langs_data, indent=2))
-    # except Exception as err:
-    #     print(err)
-
-    # from waitress import serve
-    # serve(app, host='0.0.0.0', port=5000, threads=64)
+    #from waitress import serve
+    #serve(app, host='0.0.0.0', port=5000, threads=64)
 
     app.run(
         host="0.0.0.0",
         port=5000,
         debug=True,
-        #debug=False,
+        # debug=False,
         load_dotenv=False
     )

@@ -1,0 +1,47 @@
+# EN - DotNet-ListComPort
+
+meta.title: DotNet-ListComPort
+meta.description: A simple CLI tool that can list COM ports with their name, friendly
+  name and device name easily and cleanly.
+article.subtitle: <a href="https://github.com/aziascreations/DotNet-ListComPort" class="font-size-16"><i
+  class="fab fa-github"></i> View on GitHub</a>
+intro.title: Introduction
+intro.p1: A simple CLI tool that can list COM ports with their full name easily and
+  cleanly.
+intro.p2: This tool is intended to replace the tedious task of having to use the <code
+  class="code">mode</code> command, and the <i>Device Manager</i> to find a newly
+  plugged-in device that provides a COM port.
+intro.p3: This version of the program is a complete refactoring of my old <a href="https://github.com/aziascreations/PB-ListComPort">PB-ListComPort</a>
+  project that also changes from the proprietary and paid PureBasic language and compiler
+  to .NET 6.0.
+requirements.title: Requirements
+requirements.1: Windows
+requirements.2: Any CPU architecture
+requirements.3: ".NET 6.0"
+requirements.4: Optional if using the larger "self-contained" builds.
+improvements.title: Improvements over PB-ListComPort
+improvements.1: Switched from PureBasic to .NET 6.0.
+improvements.2: Improved a lot of the program's logic.
+improvements.3: Added the <code>-H/--short-help</code>.
+improvements.4: Added support for Windows ARM & ARM64.
+improvements.5: Support for running without a console.
+usage.title: Usage
+formatting.title: Output formatting
+requirements.table.title: Requirements
+requirements.text.dotnet: <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.NET
+  6.0</a>
+packages.title: Packages
+packages.single.title: Single Builds
+packages.single.1: Lighter builds that only contain the exe and required licenses.<br>You
+  will need to install the <a href="https://dotnet.microsoft.com/en-us/download">.NET
+  6.0 Runtime</a>.
+packages.self.title: Self-Contained Builds
+packages.self.1: Larger builds that contain the exe and the <a href="https://dotnet.microsoft.com/en-us/download">.NET
+  6.0 Runtime</a> as well as the required licenses.
+packages.msi.title: MSI Installers
+packages.msi.1: Windows installers that contain the relevant "Self-Contained" build
+  with an option to automatically update existing installations and add the program
+  to the <kbd>%PATH%</kbd>.<br>The install location is <kbd>%ProgramFiles%\NibblePoker\lscom\</kbd>
+  and cannot be changed. <i>(This will be possible in future releases)</i>
+links.title: Links
+screenshots.title: Screenshots

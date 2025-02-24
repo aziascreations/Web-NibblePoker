@@ -114,3 +114,4 @@ class ContentRoot:
     # articles: list[Con] = field(default_factory=list)
     projects: LockedDict[str, ContentProject] = field(default_factory=LockedDict)
     tools: LockedDict[str, ContentTool] = field(default_factory=LockedDict)
+    projects_languages: list[str] = field(default_factory=list)

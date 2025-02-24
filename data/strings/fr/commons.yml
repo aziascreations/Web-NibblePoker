@@ -20,6 +20,42 @@ user-agent: User-Agent
 
 server: Serveur
 
-cpu.architecture: CPU Architecture
+cpu.architecture: Architecture de CPU
+cpu.responsive: "<span class=\"mobile-hide\">Architecture de </span>CPU"
+cpu.any: "Indépendante"
+cpu.x64: "x64"
+#cpu.x64: "<p>x64<br>AMD64</p>"
+cpu.x86: "x86"
+cpu.arm32: "ARM32"
+#cpu.arm32: "<p>ARM32<br>ARMv7<br>AArch32</p>"
+cpu.arm64: "ARM64"
+#cpu.arm64: "<p>ARM64<br>ARMv8<br>AArch64</p>"
+cpu.risc-v: "RISC-V"
+
+requirements: "Dépendances"
 
 python: Python
+java: Java
+c99: C99
+dotnet: .NET
+purebasic: PureBasic
+
+version: "Version"
+version.current: "Version actuelle"
+version.previous.single: "Version précédente"
+version.previous.multiple: "Versions précédentes"
+version.old.single: "Ancienne version"
+version.old.multiple: "Anciennes versions"
+source.code: "Code source"
+
+download.single: "Téléchargement"
+download.multiple: "Téléchargements"
+
+github: "Dépôt GitHub"
+gitea: "Dépôt Gitea auto-hébergé"
+nuget: "Packet Nuget"
+
+none.ms: Aucun
+none.mp: Aucuns
+none.fs: Aucune
+none.fp: Aucunes

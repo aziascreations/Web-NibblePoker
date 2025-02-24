@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 from typing import Any
 
 from locked_dict.locked_dict import LockedDict
@@ -8,11 +7,6 @@ import yaml
 from .dataclasses import *
 
 __CONTENT: ContentRoot = ContentRoot()
-
-__CONTENT_APPLETS: LockedDict[str, ContentApplet] = LockedDict()
-__CONTENT_ARTICLES: LockedDict = LockedDict()
-__CONTENT_PROJECTS: LockedDict[str, ContentProject] = LockedDict()
-__CONTENT_TOOLS: LockedDict[str, ContentTool] = LockedDict()
 
 
 def get_content() -> ContentRoot:
@@ -23,8 +17,8 @@ def get_applets() -> LockedDict[str, ContentApplet]:
     return __CONTENT.applets
 
 
-def get_articles() -> LockedDict:
-    return __CONTENT_ARTICLES
+#def get_articles() -> LockedDict:
+#    return __CONTENT.a
 
 
 def get_projects() -> LockedDict[str, ContentProject]:
@@ -39,12 +33,24 @@ def get_projects_by_tags(tags: list[str]) -> dict[Any, ContentProject]:
     }
 
 
+def get_projects_by_languages(languages: list[str]) -> dict[Any, ContentProject]:
+    project_obj: ContentProject
+    return {
+        project_key: project_value for project_key, project_value in __CONTENT.projects.items()
+        if any(language in project_value.metadata.general.languages for language in languages)
+    }
+
+
+def get_projects_languages() -> list[str]:
+    return __CONTENT.projects_languages
+
+
 def get_tools() -> LockedDict[str, ContentTool]:
     return __CONTENT.tools
 
 
 def get_tools_by_tags(tags: list[str]) -> dict[Any, ContentProject]:
-    tool_obj: ContentProject
+    tool_obj: ContentTool
     return {
         tool_key: tool_value for tool_key, tool_value in __CONTENT.tools.items()
         if any(tag in tool_value.metadata.general.tags for tag in tags)
@@ -100,7 +106,7 @@ def load_content_items() -> None:
         for project_data in projects_data["projects"]:
             _project = ContentProject(**project_data)
             __CONTENT.projects[_project.id] = _project
-            print(_project)
+            #print(_project)
 
     """for project_item in os.listdir(os.path.join(os.getcwd(), "data/projects")):
         project_item_path = os.path.join(os.getcwd(), "data/projects/", project_item)
@@ -142,6 +148,13 @@ def load_content_items() -> None:
             #print(_tool)
 
         # FIXME: Check if the required files exist too !"""
+
+    # Preparing some more stuff
+    for project in __CONTENT.projects.values():
+        __CONTENT.projects_languages.extend(project.metadata.general.languages)
+    __CONTENT.projects_languages = list(set(__CONTENT.projects_languages))
+    __CONTENT.projects_languages.sort()
+    #print(__CONTENT.projects_languages)
 
 
 def validate_content_items() -> bool:

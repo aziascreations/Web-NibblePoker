@@ -1,0 +1,18 @@
+{% extends "projects/_project.jinja" %}
+
+{% block extra_stylesheets %}
+    {{ render_applet_head(get_applets()["web-usb-test"], is_standalone) }}
+{% endblock %}
+
+{% block project_content %}
+    {{ render_h2(l10n("intro.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("intro.1", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("intro.2", project_id, user_lang)) }}
+
+    {% include 'applets/web-usb-test.jinja' %}
+
+{% endblock %}
+
+{% block extra_scripts %}
+    {{ render_applet_scripts(get_applets()["web-usb-test"], is_standalone) }}
+{% endblock %}

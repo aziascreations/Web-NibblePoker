@@ -1,0 +1,8 @@
+
+applets:
+  - id: "uuid-generator"
+    resources:
+      scripts:
+        - "uuid-generator.mjs"
+      stylesheets:
+        - "uuid-generator.css"

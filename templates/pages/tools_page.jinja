@@ -1,10 +1,14 @@
-{% extends "base_www.jinja" %}
+{% if is_standalone %}
+    {% extends "base_standalone.jinja" %}
+{% else %}
+    {% extends "base_www.jinja" %}
+{% endif %}
 
 {% block head_title %}{{ l10n(tool_data.metadata.head.title_key, tool_id, user_lang) }}{% endblock %}
 {% block head_description %}{{ l10n(tool_data.metadata.head.description_key, tool_id, user_lang) }}{% endblock %}
 
 {% block extra_stylesheets %}
-    {{ render_applet_head(applet_data) }}
+    {{ render_applet_head(applet_data, is_standalone) }}
 {% endblock %}
 
 {% block header_title %}
@@ -24,5 +28,5 @@
 {% endblock %}
 
 {% block extra_scripts %}
-    {{ render_applet_scripts(applet_data) }}
+    {{ render_applet_scripts(applet_data, is_standalone) }}
 {% endblock %}

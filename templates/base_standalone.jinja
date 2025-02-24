@@ -7,12 +7,17 @@
     <meta name="viewport" content="width=device-width"/>
     <meta name="author" content="Herwin Bozet">
     <meta name="robots" content="index, follow">
+    <!-- Check: https://css-tricks.com/probably-dont-base64-svg/ -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="alternate icon" href="/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/FontAwesomePro/6.5.1/css/all.min.css">
-    <!--<link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/StandardCSS/nibblepoker.min.css">-->
-    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/IndevCSS/nibblepoker.min.css">
-    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/Quantum/Quantum.min.css">
+
+    <!--<link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/FontAwesomePro/6.5.1/css/all.min.css">-->
+    <!--<link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/IndevCSS/nibblepoker.min.css">-->
+    <!--<link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/Quantum/Quantum.min.css">-->
+    {{ get_standalone_common_headers() }}
+
+    <!-- No '<link>' should be present in here -->
+    {% block extra_stylesheets %}{% endblock %}
 
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -39,6 +44,8 @@
 		     alt="{{ l10n("alt.logo", "footer", user_lang) }}" draggable="false">
 	</a>
 </footer>
+
+{% block extra_scripts %}{% endblock %}
 
 </body>
 </html>
