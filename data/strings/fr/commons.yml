@@ -9,6 +9,8 @@ na: Non-applicable
 yes: Oui
 no: Non
 
+accept: Accepter
+
 width: Largeur
 height: Hauteur
 width.min: Largeur minimale
@@ -59,3 +61,17 @@ none.ms: Aucun
 none.mp: Aucuns
 none.fs: Aucune
 none.fp: Aucunes
+
+eula.short: CLUF
+eula.long: Contrat de licence utilisateur final (CLUF)
+
+dont.ask.again: "Ne plus demander"
+
+file.drop.upload: "Ajouter fichier(s)"
+file.drop.clear: "Vider la séléction"
+file.drop.label.single: "Choisissez ou déposez un fichier:"
+file.drop.label.multiple: "Choisissez ou déposez des fichiers:"
+file.drop.select.single: "Déposez votre fichier ici"
+file.drop.select.multiple: "Déposez vos fichiers ici"
+file.drop.selected.single: "Vous avez séléctionné 1 fichier"
+file.drop.selected.multiple: "Vous avez séléctionné <span class=\"np-file-drop-count\">???</span> fichiers"

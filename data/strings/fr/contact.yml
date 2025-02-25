@@ -9,7 +9,8 @@ og.description: 'TODO: description'
 header.title: Contact
 
 email.title: Courriel
-email.compose: Envoyer un courriel à <i>herwin.bozet@gmail.com</i>
+email.compose.gmail: Envoyer un courriel à <i>herwin.bozet@gmail.com</i>
+email.compose.nibblepoker: Envoyer un courriel à <i>herwin.bozet@nibblepoker.lu</i>
 
 twitter.title: Twitter
 twitter.compose: Composer un message privé pour @NibblePoker sur Twitter

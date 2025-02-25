@@ -9,6 +9,8 @@ na: N/A
 yes: Yes
 no: No
 
+accept: Accept
+
 width: Width
 height: Height
 width.min: Minimum width
@@ -59,3 +61,17 @@ none.ms: None
 none.mp: None
 none.fs: None
 none.fp: None
+
+eula.short: EULA
+eula.long: End-user license agreement (EULA)
+
+dont.ask.again: "Don't ask again"
+
+file.drop.upload: "Choose file(s)"
+file.drop.clear: "Clear selection"
+file.drop.label.single: "Choose or drop a file:"
+file.drop.label.multiple: "Choose or drop files:"
+file.drop.select.single: "Drop your file here"
+file.drop.select.multiple: "Drop your files here"
+file.drop.selected.single: "You selected 1 file"
+file.drop.selected.multiple: "You selected <span class=\"np-file-drop-count\">???</span> files"

@@ -1,0 +1,58 @@
+<div class="np-file-input-root-container">
+    {% if file_upload_button %}
+        <button id="{{ file_input_id }}-add" class="p-xs r-s border btn-primary">
+            <i class="fa-duotone fa-solid fa-cloud-arrow-up mr-xs"></i>
+            {{ l10n("file.drop.upload", "commons", user_lang) }}
+        </button>
+    {% endif %}
+
+    {% if file_clear_button %}
+        <button id="{{ file_input_id }}-reset" class="p-xs r-s border btn-warning">
+            {{ l10n("file.drop.clear", "commons", user_lang) }}
+        </button>
+    {% endif %}
+
+    {% if file_upload_button or file_clear_button %}
+        <br>
+    {% endif %}
+
+    <div class="np-file-input-drop-container border r-s bkgd-blank">
+        <p class="np-file-drop-text"
+           id="{{ file_input_id }}-text-drop">
+            {% if file_multiple %}
+                {{ l10n("file.drop.select.multiple", "commons", user_lang) }}
+            {% else %}
+                {{ l10n("file.drop.select.single", "commons", user_lang) }}
+            {% endif %}
+        </p>
+
+        <p class="np-file-drop-text"
+           id="{{ file_input_id }}-text-file-single"
+           hidden>
+            {{ l10n("file.drop.selected.single", "commons", user_lang) }}
+        </p>
+
+        <p class="np-file-drop-text"
+           id="{{ file_input_id }}-text-file-multiple"
+           hidden>
+            {{ l10n("file.drop.selected.multiple", "commons", user_lang) }}
+        </p>
+
+        <label for="{{ file_input_id }}"
+               hidden>
+            {% if file_multiple %}
+                {{ l10n("file.drop.label.multiple", "commons", user_lang) }}
+            {% else %}
+                {{ l10n("file.drop.label.single", "commons", user_lang) }}
+            {% endif %}
+        </label>
+
+        <input type="file"
+               id="{{ file_input_id }}"
+               name="{{ file_input_id }}"
+               {% if file_accept is not none %}accept="{{ file_accept }}"{% endif %}
+               class="np-file-input-drop w-full p-l"
+               {% if file_multiple %}multiple{% endif %}
+        />
+    </div>
+</div>

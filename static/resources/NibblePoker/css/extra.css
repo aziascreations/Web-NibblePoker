@@ -1,0 +1,15 @@
+.np-file-input-drop-container {
+    position: relative;
+}
+
+.np-file-drop-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input[type=file].np-file-input-drop {
+    opacity: 0;
+    cursor: pointer;
+}

@@ -15,6 +15,7 @@ from website.l10n.utils import get_user_lang, localize, reload_strings, l10n_url
 from website.renderers.applet import render_applet_scripts, render_applet_head
 from website.renderers.button import render_button
 from website.renderers.code import render_code_block
+from website.renderers.file_input import render_file_input
 from website.renderers.headings import render_heading, render_h2, render_h1, render_h3, render_h4
 from website.renderers.paragraph import render_paragraph
 from website.renderers.lists import render_list_ul
@@ -126,6 +127,7 @@ def inject_processors():
         render_applet_scripts=render_applet_scripts,
         render_applet_head=render_applet_head,
         render_code_block=render_code_block,
+        render_file_input=render_file_input,
 
         # Commons
         url_for=url_for,

@@ -1,5 +1,4 @@
 import html
-import re
 from typing import Optional
 
 from flask import render_template
@@ -19,13 +18,3 @@ def render_code_block(code_lines: list[str], language: Optional[str] = None):
                 code_lines=_code_lines,
                 code_language=language,
             )
-
-    # return re.sub('>\s*<span', "><span",
-    #     re.sub('<br>\s*</code>', "</code>",
-    #         render_template(
-    #             "elements/code.jinja",
-    #             code_lines=_code_lines,
-    #             code_language=language,
-    #         )
-    #     )
-    # )

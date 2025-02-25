@@ -1,0 +1,8 @@
+
+applets:
+  - id: "png-chunk-analyser"
+    resources:
+      scripts:
+        - "png-chunk-analyser.mjs"
+      stylesheets:
+        - "png-chunk-analyser.css"
