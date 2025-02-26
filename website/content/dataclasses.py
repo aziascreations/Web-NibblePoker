@@ -1,5 +1,7 @@
 from dataclasses import dataclass, field
+from enum import Enum
 from typing import Optional
+from urllib.parse import ParseResult, urlparse
 
 from locked_dict.locked_dict import LockedDict
 
@@ -70,10 +72,59 @@ class ContentMetadata:
         self.general = ContentGeneralMetadata(**self.general)
 
 
+class ContentResourceType(Enum):
+    UNKNOWN = []
+    REMOTE = ["http", "https"]
+    APPLET = ["applet"]
+    STANDALONE = ["standalone", "stand"]
+
+
+class ContentResourceDefinition:
+    raw_uri: str
+    resource_type: ContentResourceType
+    resource_uri: ParseResult
+
+    def __init__(self, raw_uri):
+        self.raw_uri = raw_uri
+        self.resource_uri = urlparse(self.raw_uri)
+
+        self.resource_type = ContentResourceType.UNKNOWN
+        for content_resource_type in ContentResourceType:
+            if self.resource_uri.scheme in content_resource_type.value:
+                self.resource_type = content_resource_type
+
+    def can_be_standalone(self):
+        return self.resource_type in [ContentResourceType.STANDALONE, ContentResourceType.APPLET]
+
+    def is_standalone(self):
+        return self.resource_type == ContentResourceType.STANDALONE
+
+    def is_remote(self):
+        return self.resource_type == ContentResourceType.REMOTE
+
+    def is_applet(self):
+        return self.resource_type == ContentResourceType.APPLET
+
+    def get_clean_path(self):
+        return self.raw_uri.replace(f"{self.resource_uri.scheme}://", "")
+
+    def __repr__(self):
+        return (f"ContentResourceDefinition(raw_uri: {self.raw_uri}, "
+                f"resource_type: {self.resource_type}, "
+                f"resource_uri: {self.resource_uri})")
+
+
 @dataclass
 class ContentResource:
-    scripts: list[str] = field(default_factory=list)
-    stylesheets: list[str] = field(default_factory=list)
+    scripts: list[ContentResourceDefinition] = field(default_factory=list)
+    stylesheets: list[ContentResourceDefinition] = field(default_factory=list)
+
+    def __post_init__(self):
+        self.scripts: list[str]
+        self.stylesheets: list[str]
+
+        self.scripts = [ContentResourceDefinition(x) for x in self.scripts]
+        self.stylesheets = [ContentResourceDefinition(x) for x in self.stylesheets]
 
 
 @dataclass
@@ -84,6 +135,7 @@ class ContentApplet:
     def __post_init__(self):
         self.resources: dict
         self.resources = ContentResource(**self.resources)
+        # print(self.resources)
 
 
 @dataclass

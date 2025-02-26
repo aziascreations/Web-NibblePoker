@@ -1,8 +1,7 @@
-
 applets:
   - id: "web-usb-test"
     resources:
       scripts:
-        - "web-usb-test.mjs"
+        - "applet://web-usb-test.mjs"
       stylesheets:
-        - "web-usb-test.css"
+        - "applet://web-usb-test.css"

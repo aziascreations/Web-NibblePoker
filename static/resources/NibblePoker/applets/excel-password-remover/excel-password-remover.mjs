@@ -1,4 +1,3 @@
-
 const excelFileRegex = /^.*\.xls[xm]$/gi;
 const excelWorksheetRegex = /^xl\/worksheets\/.*.xml$/gi;
 

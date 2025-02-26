@@ -1,8 +1,7 @@
-
 applets:
   - id: "png-optimizer"
     resources:
       scripts:
-        - "png-optimizer.mjs"
+        - "applet://png-optimizer.mjs"
       stylesheets:
-        - "png-optimizer.css"
+        - "applet://png-optimizer.css"

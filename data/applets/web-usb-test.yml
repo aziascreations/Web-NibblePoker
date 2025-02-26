@@ -1,8 +1,7 @@
-
 applets:
   - id: "uuid-generator"
     resources:
       scripts:
-        - "uuid-generator.mjs"
+        - "applet://uuid-generator.mjs"
       stylesheets:
-        - "uuid-generator.css"
+        - "applet://uuid-generator.css"
