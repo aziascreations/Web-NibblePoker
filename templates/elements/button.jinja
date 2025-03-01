@@ -1,6 +1,6 @@
 <button
         {% if button_id is not none %}id="{{ button_id }}" {% endif %}
-        class="p-mxs r-s border b-light t-nowrap {{ button_extra_classes }}"
+        class="p-xs r-s border b-light t-nowrap {{ button_extra_classes }}"
         {% if button_disabled %}disabled{% endif %}>
     {{ button_inner_html }}
 </button>

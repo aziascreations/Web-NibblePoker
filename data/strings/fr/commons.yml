@@ -52,6 +52,9 @@ source.code: "Code source"
 
 download.single: "Téléchargement"
 download.multiple: "Téléchargements"
+download.action.all: "Tout télécharger"
+
+clear.all.files: "Retirer fichier(s)"
 
 github: "Dépôt GitHub"
 gitea: "Dépôt Gitea auto-hébergé"

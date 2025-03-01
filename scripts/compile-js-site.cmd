@@ -22,6 +22,10 @@ echo ^> static\resources\NibblePoker\js\nibblepoker-code.mjs
 call "%~dp0node_modules\.bin\rollup" nibblepoker-code.mjs --file nibblepoker-code.js
 call "%~dp0node_modules\.bin\terser" nibblepoker-code.js -c -m -o nibblepoker-code.min.js
 
+echo ^> static\resources\NibblePoker\js\nibblepoker-core.mjs
+call "%~dp0node_modules\.bin\rollup" nibblepoker-core.mjs --file nibblepoker-core.js
+call "%~dp0node_modules\.bin\terser" nibblepoker-core.js -c -m -o nibblepoker-core.min.js
+
 echo ^> static\resources\NibblePoker\js\nibblepoker-contributors.mjs
 call "%~dp0node_modules\.bin\rollup" nibblepoker-contributors.mjs --file nibblepoker-contributors.js
 call "%~dp0node_modules\.bin\terser" nibblepoker-contributors.js -c -m -o nibblepoker-contributors.min.js
@@ -33,6 +37,10 @@ call "%~dp0node_modules\.bin\terser" nibblepoker-debug.js -c -m -o nibblepoker-d
 echo ^> static\resources\NibblePoker\js\nibblepoker-splide.js
 call "%~dp0node_modules\.bin\rollup" nibblepoker-splide.mjs --file nibblepoker-splide.js
 call "%~dp0node_modules\.bin\terser" nibblepoker-splide.js -c -m -o nibblepoker-splide.min.js
+
+echo ^> static\resources\NibblePoker\js\nibblepoker-template.mjs
+call "%~dp0node_modules\.bin\rollup" nibblepoker-template.mjs --file nibblepoker-template.js
+call "%~dp0node_modules\.bin\terser" nibblepoker-template.js -c -m -o nibblepoker-template.min.js
 popd
 
 

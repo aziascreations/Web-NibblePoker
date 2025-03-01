@@ -5,7 +5,7 @@
 /**
  * @param eTemplate {HTMLTemplateElement | string} The template to be cloned, or its ID.
  * @param subParts {Object.<string, Node | string | number | boolean>}
- * @param ignoreMissingParts {bool}
+ * @param ignoreMissingParts {boolean}
  * @returns {Promise<DocumentFragment>}
  */
 export function cloneTemplate(eTemplate,
@@ -34,13 +34,21 @@ export function cloneTemplate(eTemplate,
                         reject(`Unable to find sub-element with id '${key}' !`);
                     }
 
+                    ePart.removeAttribute('id');
+
                     if(value instanceof Node) {
+                        ePart.innerHTML = "";
                         ePart.appendChild(value);
                     } else {
-                        ePart.innerHTML += value;
+                        ePart.innerHTML = value;
                     }
                 }
             }
+
+            const childElements = eClone.querySelectorAll('*');
+            childElements.forEach(eChild => {
+                eChild.removeAttribute('id');
+            });
 
             resolve(eClone);
         }

@@ -52,6 +52,9 @@ source.code: "Source code"
 
 download.single: "Download"
 download.multiple: "Downloads"
+download.action.all: "Download All"
+
+clear.all.files: "Clear all file(s)"
 
 github: "GitHub Repository"
 gitea: "Self-hosted Gitea Repository"

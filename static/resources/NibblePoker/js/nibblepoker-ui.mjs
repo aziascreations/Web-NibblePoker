@@ -1,6 +1,7 @@
-// NibblePoker - UI Scripts
+// NibblePoker - Mandatory Scripts
 // Author: Herwin Bozet (@NibblePoker)
 // License: Public Domain (This code)
+// Remark: This modules contains all the scripts that are globally required on this website
 
 export const animationStepCount = 10;
 

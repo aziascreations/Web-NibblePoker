@@ -10,10 +10,12 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="alternate icon" href="/favicon.ico">
 
-    <!--<link rel="dns-prefetch" />-->
-    <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.5.1/webfonts/fa-brands-400.woff2" as="font" />
-    <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.5.1/webfonts/fa-duotone-900.woff2" as="font" />
-    <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.5.1/webfonts/fa-solid-900.woff2" as="font" />
+    <!--<link rel="dns-prefetch" href="https://cdn.nibblepoker.lu/"/>-->
+    <link rel="preconnect" href="https://cdn.nibblepoker.lu/"/>
+
+    <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.7.2/webfonts/fa-brands-400.woff2" as="font" />
+    <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.7.2/webfonts/fa-duotone-900.woff2" as="font" />
+    <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.7.2/webfonts/fa-solid-900.woff2" as="font" />
     <link rel="prefetch" href="https://cdn.nibblepoker.lu/NibblePoker/StandardCSS/3px-tile-0.1.png" as="image" />
     <link rel="prefetch" href="https://cdn.nibblepoker.lu/NibblePoker/StandardCSS/3px-tile-0.4.png" as="image" />
     {% block extra_preloads %}{% endblock %}
@@ -111,8 +113,6 @@
 		     alt="{{ l10n("alt.logo", "footer", lang) }}" draggable="false">
 	</a>
 </footer>
-
-<!--<script src="{{ url_for("static", filename="resources/NibblePoker/js/nibblepoker.min.js") }}"></script>-->
 
 {% block extra_scripts %}{% endblock %}
 
