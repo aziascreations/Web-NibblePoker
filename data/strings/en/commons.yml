@@ -64,10 +64,13 @@ none.fp: None
 
 eula.short: EULA
 eula.long: End-user license agreement (EULA)
+disclaimer.responsability: Disclaimer
+disclaimer.warning: Disclaimer
 
 dont.ask.again: "Don't ask again"
 
-file.drop.upload: "Choose file(s)"
+file.drop.upload.single: "Choose file"
+file.drop.upload.multiple: "Choose file(s)"
 file.drop.clear: "Clear selection"
 file.drop.label.single: "Choose or drop a file:"
 file.drop.label.multiple: "Choose or drop files:"

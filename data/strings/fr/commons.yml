@@ -64,10 +64,13 @@ none.fp: Aucunes
 
 eula.short: CLUF
 eula.long: Contrat de licence utilisateur final (CLUF)
+disclaimer.responsability: Clause de non-responsabilité
+disclaimer.warning: Avertissement
 
 dont.ask.again: "Ne plus demander"
 
-file.drop.upload: "Ajouter fichier(s)"
+file.drop.upload.single: "Ajouter fichier"
+file.drop.upload.multiple: "Ajouter fichier(s)"
 file.drop.clear: "Vider la séléction"
 file.drop.label.single: "Choisissez ou déposez un fichier:"
 file.drop.label.multiple: "Choisissez ou déposez des fichiers:"

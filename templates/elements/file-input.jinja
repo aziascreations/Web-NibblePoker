@@ -2,7 +2,11 @@
     {% if file_upload_button %}
         <button id="{{ file_input_id }}-add" class="p-xs r-s border btn-primary">
             <i class="fa-duotone fa-solid fa-cloud-arrow-up mr-xs"></i>
-            {{ l10n("file.drop.upload", "commons", user_lang) }}
+            {% if file_multiple %}
+                {{ l10n("file.drop.upload.multiple", "commons", user_lang) }}
+            {% else %}
+                {{ l10n("file.drop.upload.single", "commons", user_lang) }}
+            {% endif %}
         </button>
     {% endif %}
 

@@ -1,67 +1,30 @@
-// NibblePoker - Mandatory Scripts
+// NibblePoker - Core Scripts
 // Author: Herwin Bozet (@NibblePoker)
 // License: Public Domain (This code)
-// Remark: This modules contains all the scripts that are globally required on this website
+// Remark:
+//  * This module contains all the scripts that are globally required on this website
 
-import {fadeIn} from "./nibblepoker-ui"
+export let isSidebarVisible = true;
 
-/*class CpuArchitecture {
-	constructor(id, name) {
-		this.id = id;
-		this.name = name;
-	}
-}
-
-const CpuArchitectures = {
-	Unknown: new CpuArchitecture(0, "?"),
-	x86: new CpuArchitecture(1, "x86"),
-	x64: new CpuArchitecture(2, "x64"),
-	ArmGeneric: new CpuArchitecture(3, "ARM"),
-	Arm64: new CpuArchitecture(4, "ARM64"),
-	RiscV: new CpuArchitecture(5, "RISC-V"),
-}
-
-function getCpuArchitecture(userAgent = navigator.userAgent) {
-	if(userAgent.includes("x64")) {
-		return CpuArchitectures.x64;
-	} else if(userAgent.includes("x86")) {
-		return CpuArchitectures.x86;
-	} else if(userAgent.includes("ARM")) {
-		return CpuArchitectures.ArmGeneric;
-	} else if(userAgent.includes("ARM64")) {
-		return CpuArchitectures.Arm64;
-	} else if(userAgent.includes("RISC-V")) {
-		return CpuArchitectures.RiscV;
-	}
-	return CpuArchitectures.Unknown;
-}*/
-
-let isSidebarVisible = true;
-let eContentModal = document.getElementById("modal-content");
-let eContentModalInner = document.getElementById("modal-content-inner");
-
-function showContentModal(eContent) {
-	eContentModalInner.appendChild(eContent);
-	fadeIn(eContentModal, 175).then(r => {
-		// We don't care about what happens afterward...
-	});
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-	const eSidebar = document.getElementById("sidebar");
+export function initCore() {
+    const eSidebarToggleButton = document.getElementById("sidebar-toggle-footer");
+    const eSidebar = document.getElementById("sidebar");
 	const eMain = document.getElementById("main");
 
 	// TODO: Emit an event to help Splide re-align after the sidebar has changed state.
-	document.getElementById("sidebar-toggle-footer").onclick = function() {
-		if(isSidebarVisible) {
-			eSidebar.classList.add("retracted");
-			eMain.classList.add("expanded");
-		} else {
-			eSidebar.classList.remove("retracted");
-			eMain.classList.remove("expanded");
-		}
-		isSidebarVisible = !isSidebarVisible;
-	};
+
+	if(eSidebarToggleButton !== null && eSidebar !== null && eMain !== null) {
+		eSidebarToggleButton.onclick = function() {
+			if(isSidebarVisible) {
+				eSidebar.classList.add("retracted");
+				eMain.classList.add("expanded");
+			} else {
+				eSidebar.classList.remove("retracted");
+				eMain.classList.remove("expanded");
+			}
+			isSidebarVisible = !isSidebarVisible;
+		};
+	}
 
 	//showContentModal(eContentModal);
 
@@ -165,4 +128,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 	});
-});
+}

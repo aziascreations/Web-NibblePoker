@@ -28,5 +28,7 @@
 {% endblock %}
 
 {% block extra_scripts %}
+    <!--<script src="{{ url_for("static", filename="resources/NibblePoker/js/nibblepoker-default.min.js") }}"></script>-->
+
     {{ render_applet_scripts(applet_data, is_standalone) }}
 {% endblock %}

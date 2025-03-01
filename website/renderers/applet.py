@@ -20,7 +20,7 @@ def render_applet_head(applet_data: ContentApplet, is_standalone: bool = False) 
                     "./static/resources/NibblePoker/applets/",
                     applet_data.id,
                     applet_style.get_clean_path())
-                print(applet_style)
+                # print(applet_style)
             elif applet_style.is_standalone():
                 rsc_path = os.path.join(
                     "./static/resources/Standalone/",
@@ -61,6 +61,7 @@ def render_applet_scripts(applet_data: ContentApplet, is_standalone: bool = Fals
                     "./static/resources/NibblePoker/applets/",
                     applet_data.id,
                     applet_script.get_clean_path())
+                rsc_path = rsc_path.replace(".mjs", ".min.js")
             elif applet_script.is_standalone():
                 rsc_path = os.path.join(
                     "./static/resources/Standalone/",
@@ -68,7 +69,7 @@ def render_applet_scripts(applet_data: ContentApplet, is_standalone: bool = Fals
 
             if rsc_path is not None:
                 with open(rsc_path) as applet_script_file:
-                    applet_script_html += "<script" +(" type='module'>" if applet_script.raw_uri.endswith(".mjs") else ">")
+                    applet_script_html += "<script" + (" type='module'>" if applet_script.raw_uri.endswith(".mjs") else ">")
                     applet_script_html += applet_script_file.read()
                     applet_script_html += "</script>"
 

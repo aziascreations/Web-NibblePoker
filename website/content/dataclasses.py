@@ -126,6 +126,9 @@ class ContentResource:
         self.scripts = [ContentResourceDefinition(x) for x in self.scripts]
         self.stylesheets = [ContentResourceDefinition(x) for x in self.stylesheets]
 
+        self.scripts: list[ContentResourceDefinition]
+        self.stylesheets: list[ContentResourceDefinition]
+
 
 @dataclass
 class ContentApplet:
@@ -135,6 +138,7 @@ class ContentApplet:
     def __post_init__(self):
         self.resources: dict
         self.resources = ContentResource(**self.resources)
+        self.resources: ContentResource
         # print(self.resources)
 
 
@@ -148,6 +152,7 @@ class ContentTool:
     def __post_init__(self):
         self.metadata: dict
         self.metadata = ContentMetadata(**self.metadata)
+        self.metadata: ContentMetadata
 
 
 @dataclass

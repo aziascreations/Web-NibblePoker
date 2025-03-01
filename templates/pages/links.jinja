@@ -62,3 +62,7 @@
     </p>
     <p class="mt-xxs ml-l">{{ l10n("gitea.text.1", "links", user_lang ) }}</p>
 {% endblock %}
+
+{% block extra_scripts %}
+    <script src="{{ url_for("static", filename="resources/NibblePoker/js/nibblepoker-default.min.js") }}"></script>
+{% endblock %}

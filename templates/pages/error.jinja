@@ -27,3 +27,7 @@
              draggable="false">
     {% endif %}
 {% endblock %}
+
+{% block extra_scripts %}
+    <script src="{{ url_for("static", filename="resources/NibblePoker/js/nibblepoker-default.min.js") }}"></script>
+{% endblock %}
