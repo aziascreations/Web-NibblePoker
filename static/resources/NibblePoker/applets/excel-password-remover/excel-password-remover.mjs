@@ -108,11 +108,19 @@ export function isExcelExtension(fileName) {
             ).then(eFragment => {
                 console.debug(eFragment);
 
-                const uuid = crypto.randomUUID();
-                console.debug(eFragment.children);
-                eFragment.children.id = uuid;
+                const eFileOutput = eFragment.firstChild;
+                eFileOutput.addEventListener("click", function() {
+                    console.debug(123);
+                    //processedZipFile
+                    downloadProcessedFile(excelFile);
+                });
+                eResultContainer.appendChild(eFileOutput);
 
-                eResultContainer.appendChild(eFragment);
+                //const uuid = crypto.randomUUID();
+                //console.debug(eFragment.firstChild);
+                //eFragment.firstChild.id = uuid;
+                //eResultContainer.appendChild(eFragment);
+
                 onFileAddedToDom();
             });
     }
@@ -180,10 +188,28 @@ export function isExcelExtension(fileName) {
             });
     }
 
+    /**
+     * @param excelFile {ExcelFileData}
+     */
+    function downloadProcessedFile(excelFile) {
+        excelFile.processedZipFile.generateAsync({type:"base64"}).then(function(b64Data) {
+            const eLink = document.createElement('a');
+            eLink.download = excelFile.getOutputName();
+            //console.debug(b64Data);
+            eLink.href = 'data:application/zip;base64,' + b64Data;
+            eLink.click();
+        }, function(err) {
+            console.error(err);
+            //handleError("An error has occured while generating your file, please check the console for more info !");
+        });
+    }
+
     window.onload = function () {
-
         eFileDownloadAllButton.addEventListener("click", function() {
-
+            eResultContainer.childNodes.forEach(eResultLine => {
+                //console.debug(eResultLine);
+                eResultLine.click();
+            })
         });
 
         eFileClearButton.addEventListener("click", function() {
