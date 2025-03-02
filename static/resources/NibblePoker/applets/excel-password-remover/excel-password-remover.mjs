@@ -108,12 +108,16 @@ export function isExcelExtension(fileName) {
             ).then(eFragment => {
                 console.debug(eFragment);
 
-                const eFileOutput = eFragment.firstChild;
+                // Doesn't work on BS4 and RAW, it returns " "...
+                //const eFileOutput = eFragment.firstChild;
+
+                const eFileOutput = eFragment.querySelector("*");
                 eFileOutput.addEventListener("click", function() {
                     console.debug(123);
                     //processedZipFile
                     downloadProcessedFile(excelFile);
                 });
+                console.debug(eFileOutput);
                 eResultContainer.appendChild(eFileOutput);
 
                 //const uuid = crypto.randomUUID();
@@ -294,7 +298,7 @@ export function isExcelExtension(fileName) {
                         if(excelFile.filesTotalCount !== excelFile.filesProcessedCount) {
                             setTimeout(waitFilesBeingProcessed, 50);
                         } else {
-                            console.debug("Done, now switching the page !");
+                            console.debug("Done !");
                             if(excelFile.passwordsRemoved > 0) {
                                 onFileHavingPasswordRemoved(excelFile);
                             } else {
