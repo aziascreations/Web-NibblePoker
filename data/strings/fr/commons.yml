@@ -59,6 +59,7 @@ clear.all.files: "Retirer fichier(s)"
 github: "Dépôt GitHub"
 gitea: "Dépôt Gitea auto-hébergé"
 nuget: "Packet Nuget"
+doc.online: "Documentation en ligne"
 
 none.ms: Aucun
 none.mp: Aucuns
@@ -81,3 +82,5 @@ file.drop.select.single: "Déposez votre fichier ici"
 file.drop.select.multiple: "Déposez vos fichiers ici"
 file.drop.selected.single: "Vous avez séléctionné 1 fichier"
 file.drop.selected.multiple: "Vous avez séléctionné <span class=\"np-file-drop-count\">???</span> fichiers"
+
+license.mit.single: "License MIT"

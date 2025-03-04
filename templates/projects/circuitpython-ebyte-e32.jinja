@@ -1,0 +1,198 @@
+{% extends "projects/_project.jinja" %}
+
+{% block project_content %}
+    {{ render_h2(l10n("intro.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("intro.p1", project_id, user_lang)) }}
+
+    {{ render_h2(l10n("features.title", project_id, user_lang)) }}
+    {{ render_list_ul([
+        l10n("features.1", project_id, user_lang),
+        l10n("features.2", project_id, user_lang),
+        [
+            l10n("features.2.1", project_id, user_lang),
+            l10n("features.2.2", project_id, user_lang),
+            l10n("features.2.3", project_id, user_lang),
+        ],
+        l10n("features.3", project_id, user_lang),
+        [
+            l10n("features.3.1", project_id, user_lang),
+            l10n("features.3.2", project_id, user_lang),
+        ],
+    ]) }}
+
+    {{ render_h2(l10n("limitations.title", project_id, user_lang)) }}
+    {{ render_list_ul([
+        l10n("limitations.1", project_id, user_lang),
+        [
+            l10n("limitations.2.1", project_id, user_lang),
+            l10n("limitations.2.2", project_id, user_lang),
+        ],
+        l10n("limitations.2", project_id, user_lang),
+        [
+            l10n("limitations.2.1", project_id, user_lang),
+            l10n("limitations.2.2", project_id, user_lang),
+        ],
+        l10n("limitations.3", project_id, user_lang),
+        [
+            l10n("limitations.3.1", project_id, user_lang),
+        ],
+    ]) }}
+
+    {{ render_h2(l10n("doc.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("doc.p1", project_id, user_lang)) }}
+
+    {{ render_h2(l10n("usage.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("usage.p1", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("usage.p2", project_id, user_lang)) }}
+    {{
+    render_code_block([
+	    "import board",
+	    "import time",
+	    "",
+	    "import ebyte_e32",
+	    "",
+	    "PIN_M0 = board.IO13",
+	    "PIN_M1 = board.IO12",
+	    "PIN_RXD = board.IO11  # Pin marked as RX on the module",
+	    "PIN_TXD = board.IO10  # Pin marked as TX on the module",
+	    "PIN_AUX = board.IO9",
+	    "",
+	    "e32 = ebyte_e32.E32Device(PIN_M0, PIN_M1, PIN_AUX, PIN_TXD, PIN_RXD, address=0xBEEF, channel=4)",
+	    "",
+	    "# Switching to fixed transmission mode.",
+	    "e32.tx_mode = ebyte_e32.TransmissionMode.TRANSMISSION_FIXED",
+	    "",
+	    "# Switching to mode 0.  (Normal mode)",
+	    "e32.mode = ebyte_e32.Modes.MODE_NORMAL",
+	    "",
+	    "# Message content:",
+	    "#  * Receiver's address: 0x1337  (b'\\13\\x37')",
+	    "#  * Receiver's channel: 4  (b'\\x04')",
+	    "#  * Message: b'Hello World !'",
+	    "message = b'\\x13\\x37\\x04Hello World !'",
+	    "",
+	    "# Sending message with helper method",
+	    "e32.send(message)",
+	    "",
+	    "# The message may be truncated at specific lengths depending on the frequencies used.",
+	    "# Please check the documentation for more information !"
+    ], "python")
+    }}
+
+    {{ render_h2(l10n("demo.title", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("demo.p1", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("demo.p3", project_id, user_lang)) }}
+    {{ render_paragraph(l10n("demo.p4", project_id, user_lang)) }}
+    {{ render_splide([
+        '<img src="' + url_for("static", filename="/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-01.jpg") + '">',
+        '<img src="' + url_for("static", filename="/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-02.jpg") + '">',
+        '<img src="' + url_for("static", filename="/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-03.jpg") + '">',
+        '<img src="' + url_for("static", filename="/resources/NibblePoker/images/content/circuitpython-ebyte-e32/demo-04.jpg") + '">',
+    ]) }}
+
+    {{ render_h2(l10n("downloads.title", project_id, user_lang)) }}
+    <table class="table-stylish table-p-xs table-v-center border r-l">
+        <thead>
+            <tr>
+                <th>{{ l10n("version", "commons", user_lang) }}</th>
+                <th><span class="code">.py</span></th>
+                <th><span class="code">.min.py</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>v0.8.0</td>
+                <td>
+                    <a href="https://files.nibblepoker.com/downloads/CircuitPython-Ebyte-E32/0.8.0/nibblepoker-circuitpython-e32-driver_v0.8.0_py.zip" class="a-hidden">
+                        {{ render_button(
+                            "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>10.42 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                            False, None, "btn-primary")
+                        }}
+                    </a>
+                </td>
+                <td>
+                    <a href="https://files.nibblepoker.com/downloads/CircuitPython-Ebyte-E32/0.8.0/nibblepoker-circuitpython-e32-driver_v0.8.0_py-min.zip" class="a-hidden">
+                        {{ render_button(
+                            "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>4.79 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                            False, None, "btn-primary")
+                        }}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>v0.7.0</td>
+                <td>
+                    <a href="https://files.nibblepoker.com/downloads/CircuitPython-Ebyte-E32/0.7.0/nibblepoker-circuitpython-e32-driver_v0.7.0_py.zip" class="a-hidden">
+                        {{ render_button(
+                            "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>10.51 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                            False, None)
+                        }}
+                    </a>
+                </td>
+                <td>
+                    <a href="https://files.nibblepoker.com/downloads/CircuitPython-Ebyte-E32/0.7.0/nibblepoker-circuitpython-e32-driver_v0.7.0_py-min.zip" class="a-hidden">
+                        {{ render_button(
+                            "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>4.79 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                            False, None)
+                        }}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>v0.6.0</td>
+                <td>
+                    <a href="https://files.nibblepoker.com/downloads/CircuitPython-Ebyte-E32/0.6.0/nibblepoker-circuitpython-e32-driver_0.6.0_py.zip" class="a-hidden">
+                        {{ render_button(
+                            "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>10.39 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                            False, None)
+                        }}
+                    </a>
+                </td>
+                <td>
+                    <a href="https://files.nibblepoker.com/downloads/CircuitPython-Ebyte-E32/0.6.0/nibblepoker-circuitpython-e32-driver_0.6.0_py-min.zip" class="a-hidden">
+                        {{ render_button(
+                            "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>4.62 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                            False, None)
+                        }}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>v0.4.0</td>
+                <td>
+                    <a href="https://files.nibblepoker.com/downloads/CircuitPython-Ebyte-E32/0.4.0/nibblepoker-circuitpython-e32-driver_0.4.0_py.zip" class="a-hidden">
+                        {{ render_button(
+                            "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>19.96 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                            False, None)
+                        }}
+                    </a>
+                </td>
+                <td>
+                    <a href="https://files.nibblepoker.com/downloads/CircuitPython-Ebyte-E32/0.4.0/nibblepoker-circuitpython-e32-driver_0.4.0_py-min.zip" class="a-hidden">
+                        {{ render_button(
+                            "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>4.18 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                            False, None)
+                        }}
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ render_h2(l10n("license.title", project_id, user_lang)) }}
+    {{ render_paragraph(
+        "<a href=\"https://github.com/aziascreations/CircuitPython-Ebyte-E32/blob/master/LICENSE\">" +
+        l10n("license.mit.single", "commons", user_lang)) +
+        "</a>"
+    }}
+
+    {{ render_h2(l10n("links.title", project_id, user_lang)) }}
+    {{ render_list_ul([
+        "<a href=\"https://github.com/aziascreations/CircuitPython-Ebyte-E32\">" +
+        l10n("github", "commons", user_lang) + "</a>",
+
+        "<a href=\"https://aziascreations.github.io/CircuitPython-Ebyte-E32/\">" +
+        l10n("doc.online", "commons", user_lang) + "</a>",
+    ]) }}
+
+{% endblock %}

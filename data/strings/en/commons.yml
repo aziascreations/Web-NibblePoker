@@ -59,6 +59,7 @@ clear.all.files: "Clear all file(s)"
 github: "GitHub Repository"
 gitea: "Self-hosted Gitea Repository"
 nuget: "Nuget Package"
+doc.online: "Online Documentation"
 
 none.ms: None
 none.mp: None
@@ -81,3 +82,5 @@ file.drop.select.single: "Drop your file here"
 file.drop.select.multiple: "Drop your files here"
 file.drop.selected.single: "You selected 1 file"
 file.drop.selected.multiple: "You selected <span class=\"np-file-drop-count\">???</span> files"
+
+license.mit.single: "MIT License"
