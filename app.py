@@ -1,5 +1,6 @@
 import mimetypes
 import os
+import re
 from html import escape
 from typing import Optional
 
@@ -30,27 +31,6 @@ except ImportError:
     pass
 
 
-if os.environ.get('NP_HTML_POST_PROCESS', "NONE") == "MINIFY":
-    print("Using 'minify' as HTML post-processor")
-
-    from minify_html import minify
-
-    def post_process_html(html: str) -> str:
-        return minify(html).replace("> <", "><")
-elif os.environ.get('NP_HTML_POST_PROCESS', "NONE") == "BS4":
-    print("Using 'BeautifulSoup4' as HTML post-processor")
-
-    from bs4 import BeautifulSoup
-
-    def post_process_html(html: str) -> str:
-        return BeautifulSoup(html, features="html.parser").prettify()
-else:
-    print("Using no HTML post-processor")
-
-    def post_process_html(html: str) -> str:
-        return html
-
-
 app = Flask(
     import_name=__name__,
     static_folder='static',
@@ -62,6 +42,35 @@ app.jinja_env.lstrip_blocks = True
 app.jinja_env.strip_trailing_newlines = True
 
 mimetypes.add_type('application/javascript', '.mjs')
+
+
+if os.environ.get('NP_HTML_POST_PROCESS', "NONE") == "MINIFY":
+    print("Using 'Flask-Minify' as HTML minifying post-processor")
+
+    from flask_minify import Minify
+    Minify(app=app, html=True, js=True, cssless=True)
+
+    def post_process_html(html_content: str) -> str:
+        return re.sub(r'\s+', ' ', html_content.replace('\n', ''))
+
+    # This fucking library breaks so much shit it's unbelievable.
+    # And it takes FOREVER to compile because "MuH rUsT iS sUpErIoR"...
+    # print("Using 'minify' as HTML post-processor")
+    # from minify_html import minify
+    # def post_process_html(html_content: str) -> str:
+    #     return minify(html_content).replace("> <", "><")
+elif os.environ.get('NP_HTML_POST_PROCESS', "NONE") == "BS4":
+    print("Using 'BeautifulSoup4' as HTML non-minifying post-processor")
+
+    from bs4 import BeautifulSoup
+
+    def post_process_html(html_content: str) -> str:
+        return BeautifulSoup(html_content, features="html.parser").prettify()
+else:
+    print("Using no HTML post-processor")
+
+    def post_process_html(html_content: str) -> str:
+        return html_content
 
 
 @app.after_request

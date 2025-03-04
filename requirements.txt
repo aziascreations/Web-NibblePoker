@@ -1,7 +1,8 @@
 Flask~=3.0.3
 Jinja2
 MarkupSafe
-minify-html
+#minify-html
+Flask-Minify
 PyYAML~=6.0.2
 beautifulsoup4
 
