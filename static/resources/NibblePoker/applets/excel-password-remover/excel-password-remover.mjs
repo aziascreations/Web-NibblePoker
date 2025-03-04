@@ -1,3 +1,7 @@
+// NibblePoker - Excel Password Remover 2.0
+// Author: Herwin Bozet (@NibblePoker)
+// License: Public Domain (This code)
+
 // Implied Globals: JSZip
 if(JSZip == null) {
     alert("JSZip isn't available !");
@@ -106,24 +110,14 @@ export function isExcelExtension(fileName) {
                 },
                 true
             ).then(eFragment => {
-                console.debug(eFragment);
-
                 // Doesn't work on BS4 and RAW, it returns " "...
                 //const eFileOutput = eFragment.firstChild;
 
                 const eFileOutput = eFragment.querySelector("*");
                 eFileOutput.addEventListener("click", function() {
-                    console.debug(123);
-                    //processedZipFile
                     downloadProcessedFile(excelFile);
                 });
-                console.debug(eFileOutput);
                 eResultContainer.appendChild(eFileOutput);
-
-                //const uuid = crypto.randomUUID();
-                //console.debug(eFragment.firstChild);
-                //eFragment.firstChild.id = uuid;
-                //eResultContainer.appendChild(eFragment);
 
                 onFileAddedToDom();
             });
@@ -199,21 +193,19 @@ export function isExcelExtension(fileName) {
         excelFile.processedZipFile.generateAsync({type:"base64"}).then(function(b64Data) {
             const eLink = document.createElement('a');
             eLink.download = excelFile.getOutputName();
-            //console.debug(b64Data);
             eLink.href = 'data:application/zip;base64,' + b64Data;
             eLink.click();
         }, function(err) {
             console.error(err);
-            //handleError("An error has occured while generating your file, please check the console for more info !");
         });
     }
 
     window.onload = function () {
         eFileDownloadAllButton.addEventListener("click", function() {
-            eResultContainer.childNodes.forEach(eResultLine => {
-                //console.debug(eResultLine);
+            document.querySelectorAll(".epr-download-all-click").forEach(eResultLine => {
+                console.debug(eResultLine);
                 eResultLine.click();
-            })
+            });
         });
 
         eFileClearButton.addEventListener("click", function() {
