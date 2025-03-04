@@ -1,5 +1,74 @@
 # FR - Docker Mini CCTV NVR
 
-meta.title: "Mini Dockerized CCTV NVR"
-meta.description: "Mini docker stack that allows you to easily record, clean and serve CCTV recordings made
-over RSTP while using a minimal amount of system resources."
+meta.title: "Mini enregistreur NVR dockerisé"
+meta.description: "Mini stack Docker qui permet de facilement enregistrer, nettoyer et servir les enregistrements CCTV effectués
+via RTSP tout en utilisant un minimum de ressources."
+
+intro.title: "Introduction"
+intro.1: "Mini stack Docker qui permet de facilement enregistrer, nettoyer et servir les enregistrements CCTV effectués
+via RTSP tout en utilisant un minimum de ressources."
+intro.2: "Ce stack est principalement destiné à être utilisé comme solution de secours lorsque d'autres solutions plus complètes tombent en panne ou
+doivent être arrêtées."
+
+preamble.title: "Remarques"
+preamble.1: "Ce stack enregistre les flux des caméras tels quels sans les ré-encoder.<br>
+Il consommera donc plus d'espace disque.<br>
+Référez-vous à la section <i>\"Exemple de statistiques d'utilisation\"</i> pour plus d'informations."
+preamble.2: "Il est aussi fortement recommandé de mettre le serveur web derrière un reverse-proxy si vous souhaitez le rendre accessible hors de votre réseau local."
+
+setup.title: "Installation"
+setup.1: "L'entièreté de la configuration se fait via les variables d'environnement dans le fichier docker-compose.yml."
+setup.2: "Cette étape ne devrait prendre que 2-3 minutes si vous avez déjà l'URL de flux RTSP sous la main.<br>
+Si vous ne l'avez pas, consultez le manuel d'utilisation de votre caméra et testez les URLs avec VLC."
+
+setup.camera.title: "Caméras"
+setup.camera.1: "Chaque conteneur d'enregistrement doit se voir attribuer une URL de flux RTSP et un dossier unique
+dans lequel les enregistrements seront stockés."
+setup.camera.2: "L'URL doit être fourni via la variable d'environnement <span class=\"code\">NP_CCTV_URL</span>,
+et le dossier de sortie via un volume monté sous <span class=\"code\">/data</span> dans le conteneur."
+setup.camera.3: "L'exemple ci-dessus utilise l'URL <span class=\"code\">rtsp://user:password@address:554/sub-path</span>
+et stocke ses enregistrements dans <span class=\"code\">./recordings/cam1.</span>"
+
+setup.cleaner.title: "Nettoyeur"
+setup.cleaner.1: "Le script de nettoyage nommé cleaner.py nécessite uniquement de définir une variable d'environnement
+nommée <span class=\"code\">NP_MAX_FILE_AGE_HOURS</span>, correspondant au nombre maximal d'heures pendant lesquelles un enregistrement doit être conservé."
+setup.cleaner.2: "Si cette variable n'est pas définie, le script supprimera automatiquement les enregistrements de plus de 72 heures."
+
+setup.web.title: "Interface Web"
+setup.web.1: "L'interface Web doit avoir une ligne de configuration pour chaque caméra que vous souhaitez rendre disponible.<br>
+Additionellement, vous pourrez aussi configurer le titre et le pied de page si vous le souhaitez."
+setup.web.2: "Chaque caméra devra être référencée via une variable d'environnement au format suivant :<br>
+&nbsp;&nbsp;<span class=\"code\">NP_CAM_&lt;camId&gt; = &lt;Nom de la caméra&gt;</span>"
+setup.web.3: "Voici un exemple pour <span class=\"code\">cam1</span> si elle est nommée <span class=\"code\">Caméra #1</span> :<br>
+&nbsp;&nbsp;<span class=\"code\">NP_CAM_cam1 = Caméra #1</span>"
+setup.web.vars.title: "Autres variables"
+setup.web.vars.description.title: "Titre de la page"
+setup.web.vars.description.footer: "Contenu HTML du pied de page"
+
+startup.title: "Démarrage"
+startup.1: "Une fois la configuration du stack terminée, vous pouvez simplement exécuter la commande suivante :"
+#docker-compose up --build -d
+
+screenshots.title: "Captures d'écran"
+
+statistics.title: "Exemple de statistiques d'utilisation"
+statistics.1: "NanoPi R4S 4GB"
+statistics.1.1: "Consomme 0.008 kWh / 8 Watts avec d'autres conteneurs et un HDD USB & SSD USB"
+statistics.2: "4 caméras IP"
+statistics.2.1: "Tous les flux RTSP TCP en H.256 4K"
+statistics.2.2: "Environ 220 Go de données par jour"
+statistics.2.2.1: "Environ 20.4 Mbit/s ou 2.6 Mo/s"
+statistics.3: "Moins de 200 Mo d'utilisation RAM"
+statistics.3.1: "~32 Mo par enregistreur"
+statistics.3.2: "4 Mo pour le nettoyeur"
+statistics.3.3: "4 Mo pour le serveur web"
+statistics.4: "Utilisation moyenne d'environ 10 % du CPU sur 6 cœurs"
+statistics.4.1: "Moyenne de 15 % par enregistreur"
+statistics.4.2: "Moyenne de 1-5 % pour le nettoyeur et le serveur web"
+
+license.title: "Licence"
+license.1: "Ce logiciel, ainsi que la feuille de style Simplette CSS utilisée pour l'interface Web, sont tous deux sous licence Unlicense."
+
+commons.example: "Exemple"
+
+links.title: "Liens"

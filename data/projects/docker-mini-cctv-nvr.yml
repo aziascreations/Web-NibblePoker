@@ -28,6 +28,8 @@ projects:
         subtitle_key: "article.subtitle"
         tags:
           - "docker"
+          - "cctv"
+          - "nvr"
         languages:
           - "docker"
           - "php"

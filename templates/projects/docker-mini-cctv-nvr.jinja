@@ -128,4 +128,10 @@
 
     {{ render_h2(l10n("license.title", project_id, user_lang)) }}
     {{ render_paragraph(l10n("license.1", project_id, user_lang)) }}
+
+    {{ render_h2(l10n("links.title", project_id, user_lang)) }}
+    {{ render_list_ul([
+        "<a href=\"https://github.com/aziascreations/Docker-Mini-CCTV-NVR\">" +
+        l10n("github", "commons", user_lang) + "</a>",
+    ]) }}
 {% endblock %}

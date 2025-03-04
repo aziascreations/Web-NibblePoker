@@ -8,7 +8,7 @@ intro.title: "Introduction"
 intro.1: "A mini docker stack that allows you to easily record, clean and serve CCTV recordings made
 over RSTP while using a minimal amount of system resources."
 intro.2: "This stack is mainly intended to be used as a backup when other and more complete solutions crash or
-need to be shutdown.This simple docker stack aims to provide you with a simple,
+need to be shutdown.<br>This simple docker stack aims to provide you with a simple,
 lightweight and robust NVR for all of your RTSP-based CCTV cameras."
 
 preamble.title: "Preamble"
@@ -70,3 +70,5 @@ license.title: "License"
 license.1: "This software, as well as the Simplette CSS Stylesheet used for the web interface are both licensed under Unlicense."
 
 commons.example: "Example"
+
+links.title: Links
