@@ -1,0 +1,8 @@
+applets:
+  - id: "ico-maker"
+    resources:
+      scripts:
+        #- "https://cdn.nibblepoker.lu/SortableJS/1.15.6/Sortable.min.js"
+        - "applet://ico-maker.mjs"
+      stylesheets:
+        - "applet://ico-maker.css"

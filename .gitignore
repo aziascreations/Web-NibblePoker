@@ -11,3 +11,7 @@ node_modules/
 # Internal stuff
 *.pdn
 *.ai
+
+# Temp
+static/resources/SortableJS
+static/resources/Standalone

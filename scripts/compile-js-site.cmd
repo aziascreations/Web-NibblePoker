@@ -54,6 +54,16 @@ call "%~dp0node_modules\.bin\terser" excel-password-remover.js -c -m -o excel-pa
 popd
 
 
+:js-applet-ico-maker
+echo Minifying Ico Maker
+pushd %CD%
+cd %~dp0\..\static\resources\NibblePoker\applets\ico-maker\
+echo ^> static\resources\NibblePoker\applets\ico-maker\ico-maker.mjs
+call "%~dp0node_modules\.bin\rollup" ico-maker.mjs --file ico-maker.js
+call "%~dp0node_modules\.bin\terser" ico-maker.js -c -m -o ico-maker.min.js
+popd
+
+
 :js-uuidgenerator-minify
 echo Minifying UUID Generator
 pushd %CD%

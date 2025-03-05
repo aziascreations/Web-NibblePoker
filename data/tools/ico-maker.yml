@@ -1,6 +1,6 @@
 tools:
-  - id: "png-chunk-analyser"
-    applet_id: "png-chunk-analyser"
+  - id: "ico-maker"
+    applet_id: "ico-maker"
     metadata:
       head:
         title_key: "meta.title"
@@ -10,7 +10,7 @@ tools:
         description_key: "meta.description"
         type: null
         url: null
-        image_url: "/resources/NibblePoker/images/tools/excel-password-remover/excel-password-remover.png"
+        image_url: "/resources/NibblePoker/images/tools/ico-maker/main.png"
         image_type: null
       twitter:
         title_key: "meta.title"
@@ -20,7 +20,7 @@ tools:
         enable: true
         title_key: "meta.title"
         preamble_key: "meta.description"
-        image_url: "/resources/NibblePoker/images/tools/excel-password-remover/excel-password-remover.png"
+        image_url: "/resources/NibblePoker/images/tools/ico-maker/main.png"
         image_alt_key: ""
       general:
         icon: "fab fa-python"
