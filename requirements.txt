@@ -1,14 +1,14 @@
-Flask~=3.0.3
+Flask~=3.1.0
 Jinja2
 MarkupSafe
-#minify-html
 Flask-Minify
 PyYAML~=6.0.2
 beautifulsoup4
 
+# May be removed
 locked-dict
 
-Werkzeug~=3.0.4
+Werkzeug~=3.1.3
 
 #gunicorn
 waitress~=3.0.2

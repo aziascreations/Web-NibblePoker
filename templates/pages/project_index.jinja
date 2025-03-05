@@ -15,7 +15,11 @@
 {% block content_listing %}
 
     {% for project_id, project_data in get_projects().items() %}
-        <div class="p-s border r-m">
+
+        <hr class="subtle">
+
+        <!--<div class="p-s border r-m">-->
+        <div class="p-xs r-m">
             <a href="{{ l10n_url_abs('/content/' + project_id, raw_lang) }}" class="a-hidden">
                 <div class="content-search-entry">
                     <img class="content-search-image mr-s r-l"

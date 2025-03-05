@@ -47,11 +47,11 @@ mimetypes.add_type('application/javascript', '.mjs')
 if os.environ.get('NP_HTML_POST_PROCESS', "NONE") == "MINIFY":
     print("Using 'Flask-Minify' as HTML minifying post-processor")
 
-    from flask_minify import Minify
-    Minify(app=app, html=True, js=True, cssless=True)
+    #from flask_minify import Minify
+    #Minify(app=app, html=True, js=True, cssless=True)
 
     def post_process_html(html_content: str) -> str:
-        return re.sub(r'\s+', ' ', html_content.replace('\n', ''))
+        return re.sub(r'\s+', ' ', html_content.replace('\n', ' '))
 
     # This fucking library breaks so much shit it's unbelievable.
     # And it takes FOREVER to compile because "MuH rUsT iS sUpErIoR"...
@@ -395,13 +395,16 @@ if __name__ == '__main__':
     reload_contributors_data(os.path.join(os.getcwd(), "data/contributors.yml"))
     reload_sitemap_entries(os.path.join(os.getcwd(), "data/sitemap.yml"))
 
-    #from waitress import serve
-    #serve(app, host='0.0.0.0', port=5000, threads=64)
-
-    app.run(
-        host="0.0.0.0",
-        port=5000,
-        debug=True,
-        # debug=False,
-        load_dotenv=False
-    )
+    if os.environ.get('NP_FLASK_WAITRESS', "0") == "1":
+        print("Serving app using waitress.")
+        from waitress import serve
+        serve(app, host='0.0.0.0', port=5000, threads=64)
+    else:
+        print("Serving app using default development server.")
+        app.run(
+            host="0.0.0.0",
+            port=5000,
+            debug=True,
+            # debug=False,
+            load_dotenv=False
+        )
