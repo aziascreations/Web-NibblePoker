@@ -1,20 +1,14 @@
-/**
- * Generates a random UUID4 and returns its string representation
- * @returns {`${string}-${string}-${string}-${string}-${string}`}
- */
-export function generateUUID4(addHyphens, addGuidBrackets) {
-    let uuid4 = crypto.randomUUID();
-    if(!addHyphens) {
-        uuid4 = uuid4.replace(/-/g, "");
-    }
-    if(addGuidBrackets) {
-        uuid4 = "{" + uuid4 + "}";
-    }
-    return uuid4;
-}
+import {getInputCount} from "../../libs/input-utils.mjs";
+
+import {generateUUID4} from "../../libs/uuid.mjs";
+
+import {downloadStringAsFile} from "../../libs/download-helper.mjs";
+import {initCore} from "../../js/nibblepoker-core.mjs";
 
 // Tool-centric stuff
 {
+    initCore();
+
     /** @type {HTMLSelectElement} */
     const eOptionTypeSelect = document.querySelector("select#uuid-generator-option-type");
 
@@ -42,22 +36,7 @@ export function generateUUID4(addHyphens, addGuidBrackets) {
 
     /** @returns {number} */
     function getDesiredCount() {
-        let desiredCount = null;
-        try {
-            desiredCount = parseInt(eOptionCountInput.value);
-        } catch (e) {
-            console.error(e);
-        }
-        if(desiredCount === null) {
-            desiredCount = 1;
-        }
-        if(desiredCount < 1) {
-            desiredCount = 1;
-        }
-        if(desiredCount > 1000) {
-            desiredCount = 1000;
-        }
-        return desiredCount;
+        return getInputCount(eOptionCountInput, 1, 1000);
     }
 
     function changeDesiredCount(difference = 0) {
@@ -65,22 +44,6 @@ export function generateUUID4(addHyphens, addGuidBrackets) {
             eOptionCountInput.value = getDesiredCount() + difference;
         }
         eOptionCountInput.value = getDesiredCount();
-    }
-
-
-    function downloadStringAsFile(content, filename, contentType) {
-        const blob = new Blob([content], { type: contentType });
-        const link = document.createElement('a');
-        const url = URL.createObjectURL(blob);
-
-        link.href = url;
-        link.download = filename;
-
-        document.body.appendChild(link);
-        link.click();
-
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
     }
 
     window.onload = function () {
@@ -100,6 +63,8 @@ export function generateUUID4(addHyphens, addGuidBrackets) {
             }
             ePreviewTextArea.value = lastUUIDs.join("\n");
         });
+
+        // Count option
         eOptionCountInput.addEventListener("change", function() {
             changeDesiredCount(0);
         });
@@ -112,6 +77,7 @@ export function generateUUID4(addHyphens, addGuidBrackets) {
             }
         });
 
+        // Download buttons
         eDownloadRawButton.addEventListener("click", function() {
             if (lastUUIDs.length <= 0) {
                 return;
