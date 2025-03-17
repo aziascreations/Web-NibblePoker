@@ -1,18 +1,199 @@
-// NibblePoker - IBAN Data
+// NibblePoker - IBAN
 // Author: Herwin Bozet (@NibblePoker)
-// License: Public Domain (This code, not the data)
+// License: Public Domain (This code, except for the data)
 // Sources:
 //  * https://www.swift.com/standards/data-standards/iban-international-bank-account-number  (Updated December 2024)
 
-export class Iban {
+
+/**
+ * Parent class extended by all IBAN-related errors.
+ */
+export class IbanError extends Error {}
+
+export class UnknownIbanCountryError extends IbanError {}
+
+export class IncorrectIbanLengthError extends IbanError {}
+
+export class IncorrectIbanFormatError extends IbanError {}
+
+export class InvalidIbanChecksumError extends IbanError {}
+
+/**
+ * ...
+ * @param countryCode {string}
+ * @returns {boolean} `true` if the given country code is known to have IBAN, `false` otherwise.
+ */
+export function doesCountryHaveIban(countryCode) {
+    try {
+        return getCountrySpec(countryCode, true) !== null;
+    } catch (e) {
+        return false;
+    }
+}
+
+/**
+ *
+ * @param countryCode {string}
+ * @param errorOnUnknown {boolean}
+ * @returns {IbanSpecification|null} The desired specification, or `null` if none could be found.
+ * @throws TypeError If the given `countryCode` is `null`, `undefined`, or not a `string`.
+ * @throws Error If the given `countryCode` isn't exactly 2 characters long.
+ * @throws UnknownIbanCountryError If `errorOnNotFound` is set to `true`, and no linked IBAN specification could be found.
+ */
+export function getCountrySpec(countryCode, errorOnUnknown = false) {
+    if (countryCode === undefined || countryCode === null) {
+        throw new TypeError("The given countryCode is null or undefined !");
+    }
+    if (!(typeof countryCode === 'string' || countryCode instanceof String)) {
+        throw new TypeError("The given countryCode is not a string !");
+    }
+    if (countryCode.length !== 2) {
+        throw new Error(`The given countryCode '${countryCode}' isn't exactly 2 characters long !`);
+    }
+
+    let desiredSpec = countriesSpecs[countryCode];
+
+    if(desiredSpec === undefined || desiredSpec === null) {
+        if(errorOnUnknown) {
+            throw new UnknownIbanCountryError(`The given countryCode '${countryCode}' isn't linked to any IBAN specification !`);
+        }
+        return null;
+    } else {
+        return desiredSpec;
+    }
+}
+
+/**
+ * Calculates the checksum for a given `countryCode` and `bban`
+ * @param countryCode
+ * @param bban
+ * @returns {number}
+ */
+export function getIbanChecksumFromParts(countryCode, bban) {
+    if (countryCode === undefined || countryCode === null || bban === undefined || bban === null) {
+        throw new TypeError("The given countryCode or bban is null or undefined !");
+    }
+    if (!(typeof countryCode === 'string' || countryCode instanceof String) ||
+        !(typeof bban === 'string' || bban instanceof String)) {
+        throw new TypeError("The given countryCode or bban is not a string !");
+    }
+
+    let ibanStep1 = bban + countryCode + "00";
+    let ibanStep2 = "";
+
+    for (let iChar = 0; iChar < ibanStep1.length; iChar++) {
+        let charCode = ibanStep1.charCodeAt(iChar);
+
+        if(charCode <= 57 && charCode >= 48) {
+            // Numbers
+            //console.log(`NB - ${ibanStep1[iChar]} - ${charCode} - ${(charCode - 48)}`);
+            ibanStep2 += (charCode - 48).toString();
+        } else if(charCode <= 90 && charCode >= 65) {
+            // Uppercase letters
+            //console.log(`UC - ${ibanStep1[iChar]} - ${charCode} - ${(charCode - 55)}`);
+            ibanStep2 += (charCode - 55).toString();
+        } else if(charCode <= 122 && charCode >= 97) {
+            // Lowercase letters
+            //console.log(`LC - ${ibanStep1[iChar]} - ${charCode} - ${(charCode - 87)}`);
+            ibanStep2 += (charCode - 87).toString();
+        } else {
+            throw new IncorrectIbanFormatError(`The character at position '${iChar}' in '${ibanStep1}' is invalid !`)
+        }
+    }
+    //console.log(ibanStep1);
+    //console.log(ibanStep2);
+    //console.log(BigInt(ibanStep2));
+
+    // We cannot use the regular `number` type, the lack of precision will mess with the result.
+    //console.log(98n - (BigInt(ibanStep2) % 97n));
+
+    return Number(98n - (BigInt(ibanStep2) % 97n));
+}
+
+/**
+ *
+ * @param iban
+ * @returns {StandardIban}
+ * @throws TypeError If the given iban is `null`, `undefined`, or not a `string`.
+ * @throws IncorrectIbanLengthError If the given `iban` has an invalid length.
+ * @throws IncorrectIbanFormatError If the given `iban` didn't pass the regex and format checks.
+ */
+export function parseStandardIban(iban) {
+
+    if (iban === undefined || iban === null) {
+        throw new TypeError("The given iban is null or undefined !");
+    }
+    if (!(typeof iban === 'string' || iban instanceof String)) {
+        throw new TypeError("The given countryCode is not a string !");
+    }
+    if (iban.length <= 4) {
+        throw new IncorrectIbanLengthError(`The given iban '${iban}' has an invalid BBAN length !`);
+    }
+
+    /** @type {IbanSpecification} */
+    let countrySpec;
+    try {
+        countrySpec = getCountrySpec(iban.substring(0, 2), true);
+    } catch (e) {
+        throw new UnknownIbanCountryError(e.message);
+    }
+
+    // Quickly checking the regex, and extracting some groups for later if all goes well.
+    let ibanRegexResult = countrySpec.ibanRegex.exec(iban);
+    if(ibanRegexResult === undefined || ibanRegexResult === null) {
+        throw new IncorrectIbanFormatError(`The given IBAN '${iban}' didn't match the '${countrySpec.ibanRegex}' regex`);
+    }
+
+    let actualChecksum = getIbanChecksumFromParts(ibanRegexResult.groups["prefix"], ibanRegexResult.groups["bban"]);
+    if(actualChecksum !== parseInt(ibanRegexResult.groups["checksum"])) {
+        throw new InvalidIbanChecksumError(
+            `The IBAN's checksum is invalid, expected '${actualChecksum}', got '${ibanRegexResult.groups["checksum"]}' !`);
+    }
+
+    return new StandardIban(
+        ibanRegexResult.groups["prefix"],
+        ibanRegexResult.groups["bban"],
+        countrySpec
+    );
+}
+
+/**
+ * Models the most basic components required for an IBAN.<br/>
+ * This class should either be extended or used for quick-and-dirty checksum calculations.
+ */
+export class SimpleIban {
     /** @type {string} */
     countryCode;
-    /** @type {number} */
-    checksum;
-    /** @type {string[]} */
-    parts;
-    /** @type {IbanSpecification|null} */
+
+    /** @type {string} */
+    bban;
+
+    constructor(countryCode, bban) {
+        this.countryCode = countryCode;
+        this.bban = bban;
+    }
+
+    getChecksumNumber() {
+        return getIbanChecksumFromParts(this.countryCode, this.bban);
+    }
+
+    getChecksumString() {
+        return this.getChecksumNumber().toString().padStart(2, "0");
+    }
+
+    toString() {
+        return `${this.countryCode}${this.getChecksumString()}${this.bban}`;
+    }
+}
+
+export class StandardIban extends SimpleIban {
+    /** @type {IbanSpecification} */
     relevantSpec;
+
+    constructor(countryCode, bban, relevantSpec) {
+        super(countryCode, bban);
+        this.relevantSpec = relevantSpec;
+    }
 }
 
 export class IbanSpecification {
@@ -86,7 +267,7 @@ export class IbanSpecification {
     }
 }
 
-export const countriesIbanSpecs = {
+export const countriesSpecs = {
     AD: new IbanSpecification(
         "AD", 'Andorra',
         24, "AD2!n4!n4!n12!c",
@@ -1343,5 +1524,3 @@ export const countriesIbanSpecs = {
         false
     ),
 };
-
-console.log(countriesIbanSpecs);
