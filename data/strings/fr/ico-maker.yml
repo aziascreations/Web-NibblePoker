@@ -1,3 +1,11 @@
 # FR - Ico Maker
 
-t01: ""
+meta.title: "Fabricateur d'icônes"
+meta.description: "..."
+
+
+
+
+enable.expert.mode: "Activer le mode expert"
+enable.binary.blobs: "Autoriser les blobs binaires"
+enable.binary.blobs.subtext: "Active le support et l'inclusion dans le fichier .ico final."

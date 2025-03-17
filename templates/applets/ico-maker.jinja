@@ -25,7 +25,9 @@
         {{ l10n("enable.binary.blobs", applet_data.id, user_lang) }}:
     </label>
     <input id="{{ applet_data.id }}-enable-binary-blobs" class="r-m border" type="checkbox">
-    <span class="ml-s t-italic t-muted">Enables upload and inclusion in final <span class="t-monospace">.ico</span> file.</span>
+    <span class="ml-s t-italic t-muted">
+        {{ l10n("enable.binary.blobs.subtext", applet_data.id, user_lang) }}
+    </span>
 
     <br>
 

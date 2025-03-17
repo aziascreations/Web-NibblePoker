@@ -54,6 +54,16 @@ call "%~dp0node_modules\.bin\terser" excel-password-remover.js -c -m -o excel-pa
 popd
 
 
+:js-applet-iban-generator
+echo Minifying IBAN Generator
+pushd %CD%
+cd %~dp0\..\static\resources\NibblePoker\applets\iban-generator\
+echo ^> static\resources\NibblePoker\applets\iban-generator\iban-generator.mjs
+call "%~dp0node_modules\.bin\rollup" iban-generator.mjs --file iban-generator.js
+call "%~dp0node_modules\.bin\terser" iban-generator.js -c -m -o iban-generator.min.js
+popd
+
+
 :js-applet-ico-maker
 echo Minifying Ico Maker
 pushd %CD%

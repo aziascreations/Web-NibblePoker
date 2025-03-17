@@ -1,3 +1,11 @@
 # EN - Ico Maker
 
-t01: ""
+meta.title: "Icon Maker"
+meta.description: "..."
+
+
+
+
+enable.expert.mode: "Enable expert mode"
+enable.binary.blobs: "Allow binary blobs"
+enable.binary.blobs.subtext: "Enables upload and inclusion in final .ico file."
