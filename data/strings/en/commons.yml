@@ -84,3 +84,9 @@ file.drop.selected.single: "You selected 1 file"
 file.drop.selected.multiple: "You selected <span class=\"np-file-drop-count\">???</span> files"
 
 license.mit.single: "MIT License"
+
+format.raw: "Raw"
+format.json: "JSON"
+format.yaml: "YAML"
+
+action.generate: "Generate"

@@ -1,0 +1,11 @@
+# IBAN Generator - EN
+
+meta.title: "IBAN Generator"
+
+country.label: "Country"
+
+option.count: "IBAN Count"
+option.human.readable: "Format for readability"
+option.for.each: "Generate <i>X</i> for each country"
+option.sepa.enable: "Enable SEPA countries"
+option.non-sepa.enable: "Enable non-SEPA countries"

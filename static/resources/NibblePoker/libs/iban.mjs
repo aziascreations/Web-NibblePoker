@@ -4,7 +4,6 @@
 // Sources:
 //  * https://www.swift.com/standards/data-standards/iban-international-bank-account-number  (Updated December 2024)
 
-
 /**
  * Parent class extended by all IBAN-related errors.
  */
