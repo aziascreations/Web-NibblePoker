@@ -49,6 +49,30 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
 
     let lastIBANs = [];
 
+    function onExclusionRulesChanged() {
+        let showSepa = eOptionEnableSepa.checked;
+        let showNonSepa = eOptionEnableNonSepa.checked;
+
+        eOptionCountry.querySelectorAll("option").forEach(eOption => {
+            /** @type {IbanSpecification} */
+            let countrySpec = countriesSpecs[eOption.value];
+
+            if(countrySpec.isSepa) {
+                eOption.disabled = !showSepa;
+            } else {
+                eOption.disabled = !showNonSepa;
+            }
+        });
+
+        if (eOptionCountry.options[eOptionCountry.selectedIndex]?.disabled) {
+            const eFirstEnabled = Array.from(eOptionCountry.options)
+                .find(option => !option.disabled);
+            if (eFirstEnabled) {
+                eFirstEnabled.selected = true;
+            }
+        }
+    }
+
     /** @returns {number} */
     function getDesiredCount() {
         return getInputCount(eOptionCount, 1, 1000);
@@ -62,7 +86,19 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
     }
 
     window.onload = function () {
-        // FIXME: Handle the exclusions properly
+        // Exclusion rules
+        eOptionEnableSepa.addEventListener("change", function() {
+            if(!eOptionEnableSepa.checked && !eOptionEnableNonSepa.checked) {
+                eOptionEnableNonSepa.checked = true;
+            }
+            onExclusionRulesChanged();
+        });
+        eOptionEnableNonSepa.addEventListener("change", function() {
+            if(!eOptionEnableSepa.checked && !eOptionEnableNonSepa.checked) {
+                eOptionEnableSepa.checked = true;
+            }
+            onExclusionRulesChanged();
+        });
 
         // Generation
         eGenerateButton.addEventListener("click", function() {
@@ -119,19 +155,19 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
             if (lastIBANs.length <= 0) {
                 return;
             }
-            downloadStringAsFile(lastIBANs.join("\n"), "uuids.txt", "text/plain");
+            downloadStringAsFile(lastIBANs.join("\n"), "ibans.txt", "text/plain");
         });
         eDownloadJsonButton.addEventListener("click", function() {
             if (lastIBANs.length <= 0) {
                 return;
             }
-            downloadStringAsFile(JSON.stringify(lastIBANs, null, 4), "uuids.json", "application/json");
+            downloadStringAsFile(JSON.stringify(lastIBANs, null, 4), "ibans.json", "application/json");
         });
         eDownloadYamlButton.addEventListener("click", function() {
             if (lastIBANs.length <= 0) {
                 return;
             }
-            downloadStringAsFile("- \"" + lastIBANs.join("\"\n- \"") + "\"", "uuids.yaml", "text/yaml");
+            downloadStringAsFile("- \"" + lastIBANs.join("\"\n- \"") + "\"", "ibans.yaml", "text/yaml");
         });
     };
 }

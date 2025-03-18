@@ -85,6 +85,7 @@ file.drop.selected.multiple: "You selected <span class=\"np-file-drop-count\">??
 
 license.mit.single: "MIT License"
 
+format.download.as: "Download as"
 format.raw: "Raw"
 format.json: "JSON"
 format.yaml: "YAML"

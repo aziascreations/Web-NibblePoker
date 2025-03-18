@@ -129,13 +129,23 @@
 <hr class="subtle">
 
 <button id="iban-generator-generate" class="p-xs r-s border b-light success">
-    <i class="fa-duotone fa-solid fa-gears mr-xs"></i>{{ l10n("action.generate", "commons", user_lang) }}
+    {% if not is_standalone %}
+        <i class="fa-duotone fa-solid fa-gears mr-xs"></i>
+    {% endif %}
+    {{ l10n("action.generate", "commons", user_lang) }}
 </button>
 
-<button class="p-xs r-s border b-light primary rr-0 br-0">
-    <i class="fa-duotone fa-solid fa-download"></i>
-</button>
-<button id="iban-generator-download-raw" class="p-xs r-s border b-light primary ml-0 r-0 br-0">
+
+
+{% if not is_standalone %}
+    <button class="p-xs r-s border b-light primary rr-0 br-0">
+        <i class="fa-duotone fa-solid fa-download"></i>
+    </button>
+{% else %}
+    <span class="t-w-500 ml-m mr-xxs">{{ l10n("format.download.as", "commons", user_lang) }} :</span>
+{% endif %}
+<button id="iban-generator-download-raw" class="p-xs r-s border b-light primary ml-0
+        {% if not is_standalone %}r-0{% else %}rr-0{% endif %} br-0">
     {{ l10n("format.raw", "commons", user_lang) }}
 </button>
 <button id="iban-generator-download-json" class="p-xs r-s border b-light primary ml-0 r-0 br-0">
@@ -145,7 +155,21 @@
     {{ l10n("format.yaml", "commons", user_lang) }}
 </button>
 
+
 <hr class="subtle">
 
 <label for="iban-generator-preview" class="d-none">{{ l10n("preview.label", "iban-generator", user_lang) }}:</label>
 <textarea name="iban-generator-preview" id="iban-generator-preview" rows="16" class="w-full border r-s ta-resize-v"></textarea>
+
+
+{% if is_standalone %}
+    <hr class="subtle">
+
+    <p class="t-muted">
+        {{ l10n("license.1", "iban-generator", user_lang) }}<br>
+        {{ l10n("license.2", "iban-generator", user_lang) }}
+    </p>
+    <p class="mt-xs t-muted">
+        {{ l10n("license.3", "iban-generator", user_lang) }}
+    </p>
+{% endif %}

@@ -10,3 +10,9 @@ option.prefer.numbers: "Prefer numbers over letters"
 option.for.each: "Generate <i>X</i> for each country"
 option.sepa.enable: "Enable SEPA countries"
 option.non-sepa.enable: "Enable non-SEPA countries"
+
+license.1: "The code for this project is released in the public domain."
+license.2: "The original source code can be found on <a href=\"https://github.com/aziascreations/Web-NibblePoker\">GitHub</a>."
+license.3: "Data from Swift's 
+<a href=\"https://www.swift.com/standards/data-standards/iban-international-bank-account-number\">IBAN Registry</a>
+was also used and may be licensed under different terms."

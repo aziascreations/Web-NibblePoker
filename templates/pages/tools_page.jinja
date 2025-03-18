@@ -12,19 +12,26 @@
 {% endblock %}
 
 {% block header_title %}
-    <i class="fad fa-briefcase t-size-16 mr-s t-muted"></i><a href="../" class="a-hidden">{{ l10n("header.root", "projects", user_lang) }}</a>
-    <span class="mobile-hide"><span class="mx-s t-size-15">❱</span>{{ l10n(tool_data.metadata.general.title_key, tool_id, user_lang) }}</span>
+    {% if not is_standalone %}
+        <i class="fad fa-briefcase t-size-16 mr-s t-muted"></i><a href="../" class="a-hidden">{{ l10n("header.root", "projects", user_lang) }}</a>
+        <span class="mobile-hide"><span class="mx-s t-size-15">❱</span>{{ l10n(tool_data.metadata.general.title_key, tool_id, user_lang) }}</span>
+    {% else %}
+        <span class="mobile-hide">NibblePoker<span class="mx-s t-size-15">❱</span></span>{{ l10n(tool_data.metadata.general.title_key, tool_id, user_lang) }}
+    {% endif %}
 {% endblock %}
 
 {% block main_content %}
-    {{ render_h1(
-        '<i class="' + tool_data.metadata.general.icon + ' t-size-16 mr-s t-muted"></i>' +
-        l10n(tool_data.metadata.general.title_key, tool_id, user_lang)
-    ) }}
-
-    <div class="px-xxs">
+    {% if not is_standalone %}
+        {{ render_h1(
+            '<i class="' + tool_data.metadata.general.icon + ' t-size-16 mr-s t-muted"></i>' +
+            l10n(tool_data.metadata.general.title_key, tool_id, user_lang)
+        ) }}
+        <div class="p-s">
+            {% include 'applets/'+applet_data.id+'.jinja' %}
+        </div>
+    {% else %}
         {% include 'applets/'+applet_data.id+'.jinja' %}
-    </div>
+    {% endif %}
 {% endblock %}
 
 {% block extra_scripts %}

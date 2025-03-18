@@ -85,6 +85,7 @@ file.drop.selected.multiple: "Vous avez séléctionné <span class=\"np-file-dro
 
 license.mit.single: "License MIT"
 
+format.download.as: "Télécharger en"
 format.raw: "Brut"
 format.json: "JSON"
 format.yaml: "YAML"
