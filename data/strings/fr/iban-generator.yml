@@ -6,6 +6,7 @@ country.label: "Pays"
 
 option.count: "Nombre d'IBAN"
 option.human.readable: "Formatter pour lecture"
+option.prefer.numbers: "Favoriser les nombres aux lettres"
 option.for.each: "Générer <i>X</i> pour chaque pays"
 option.sepa.enable: "Activer les pays SEPA"
 option.non-sepa.enable: "Activer les pays non-SEPA"

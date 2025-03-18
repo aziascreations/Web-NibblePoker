@@ -3,10 +3,8 @@
 // License: Public Domain (This code)
 
 import {
-    parseStandardIban,
     IbanSpecification,
     countriesSpecs,
-    getIbanChecksumFromParts,
     StandardIban
 } from "../../libs/iban.mjs";
 
@@ -34,6 +32,8 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
     const eOptionCount = document.querySelector("input#iban-generator-option-count");
     /** @type {HTMLInputElement} */
     const eOptionPrettyPrint = document.querySelector("input#iban-generator-option-pretty");
+    /** @type {HTMLInputElement} */
+    const eOptionPreferNumbers = document.querySelector("input#iban-generator-option-prefer-numbers");
 
     /** @type {HTMLElement} */
     const eGenerateButton = document.querySelector("#iban-generator-generate");
@@ -62,6 +62,44 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
     }
 
     window.onload = function () {
+        // FIXME: Handle the exclusions properly
+
+        // Generation
+        eGenerateButton.addEventListener("click", function() {
+            ePreviewTextArea.value = "";
+            lastIBANs = [];
+
+            let desiredCount = getDesiredCount();
+
+            let preferNumbers = eOptionPreferNumbers.checked;
+            let prettyIban = eOptionPrettyPrint.checked;
+
+            /** @type {IbanSpecification[]} */
+            let targetSpecs;
+            if(eOptionForEach.checked) {
+                targetSpecs = Object.values(countriesSpecs);
+            } else {
+                targetSpecs = [countriesSpecs[eOptionCountry.value]];
+            }
+
+            targetSpecs.forEach(spec => {
+                for(let i = 0; i < desiredCount; i++) {
+                    if(prettyIban) {
+                        lastIBANs.push(
+                            spec.getFormattedIban(
+                                new StandardIban(spec.countryCode, spec.generateRandomBban(preferNumbers), spec).toString()
+                            )
+                        );
+                    } else {
+                        lastIBANs.push(
+                            new StandardIban(spec.countryCode, spec.generateRandomBban(preferNumbers), spec).toString()
+                        );
+                    }
+                }
+            });
+
+            ePreviewTextArea.value = lastIBANs.join("\n");
+        });
 
         // Count option
         eOptionCount.addEventListener("change", function() {
@@ -96,7 +134,4 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
             downloadStringAsFile("- \"" + lastIBANs.join("\"\n- \"") + "\"", "uuids.yaml", "text/yaml");
         });
     };
-
-    console.log(new StandardIban("LU", "0108783391941421", countriesSpecs.LU).toString());
-    console.log(new StandardIban("LU", "123456ABCDEFGHIL", countriesSpecs.LU).toString());
 }

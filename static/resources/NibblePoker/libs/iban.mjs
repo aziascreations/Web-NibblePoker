@@ -195,6 +195,10 @@ export class StandardIban extends SimpleIban {
     }
 }
 
+export const charsN = "0123456789";
+export const charsA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+export const charsC = charsN + charsA;
+
 export class IbanSpecification {
     /**
      * ISO-3166 Country Code
@@ -263,6 +267,50 @@ export class IbanSpecification {
      */
     getFormattedIban(iban) {
         return iban.match(/.{1,4}/g).join(' ');
+    }
+
+    generateRandomBban(preferNumbers = false) {
+        let returnedBban = "";
+        let patternParts = ("_" + this.bbanFormat + "0").split("!");
+
+        for(let i = 0; i < patternParts.length; i++) {
+            let elementCount = parseInt(patternParts[i].substring(1));
+            if(elementCount === 0) {
+                continue;
+            }
+
+            let elementType = patternParts[i + 1].substring(0, 1);
+            let elementChoices;
+            switch(elementType) {
+                case 'n':
+                case 'N':
+                    elementChoices = charsN;
+                    break;
+                case 'c':
+                case 'C':
+                    if(preferNumbers) {
+                        elementChoices = charsN;
+                    } else {
+                        elementChoices = charsC;
+                    }
+                    break;
+                case 'a':
+                case 'A':
+                    elementChoices = charsA;
+                    break;
+            }
+
+            if(elementChoices === undefined || elementChoices === null) {
+                throw new IncorrectIbanFormatError(
+                    `The format '${this.bbanFormat}' contains an unhandled element type '${elementType}' !`)
+            }
+
+            for (let i = 0; i < elementCount; i++) {
+                returnedBban += elementChoices.charAt(Math.floor(Math.random() * elementChoices.length));
+            }
+        }
+
+        return returnedBban;
     }
 }
 
