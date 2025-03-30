@@ -95,19 +95,27 @@ v2.update.history.5.desc.1: Ajout de la section sur la collection des données
   par le serveur DNS.
 v2.update.history.5.desc.2: Changement des références aux services externes
   pour indiquer l'utilisation de ChicagoVPS.
+
+v2.update.history.6.date: 2025/03/30
+v2.update.history.6.desc.1: Simplification de la section 'Organismes tiers'.
+v2.update.history.6.desc.2: Suppression des mentions inutiles de nous fournisseurs de <abbr title="Serveur privé virtuel">VPS</abbr>.
+
 v2.update.end.2: En cas de changement, vous serez clairement informé et une
   copie des anciennes versions de notre politique sera disponible au travers de cette
   page.
+
 v2.third.title: Organismes tiers
-v2.third.intro.1: Ce site web utilise des <abbr title="Serveur privé virtuel">VPS</abbr>
-  proposés par IONOS et ChicagoVPS dans le but de mettre en place un système de <abbr
-  title="Réseau de diffusion de contenu (CDN)">RDC</abbr>.
-v2.third.intro.2: Ceci a pour but d'améliorer l'expérience des personnes le
-  visitant grâce à un système de filtrage et caching privé.
-v2.third.intro.3: Due à la nature des serveurs loués, aucune donnée ne devraient
-  être collectées de leur côté.
-v2.third.intro.4: 'Si vous souhaitez consulter leur politique de confidentialité
-  ainsi que celle de leur partenaires, vous pouvez le faire en suivant les liens ci-dessous:'
+#v2.third.intro.1: Ce site web utilise des <abbr title="Serveur privé virtuel">VPS</abbr>
+#  proposés par IONOS et ChicagoVPS dans le but de mettre en place un système de <abbr
+#  title="Réseau de diffusion de contenu (CDN)">RDC</abbr>.
+#v2.third.intro.2: Ceci a pour but d'améliorer l'expérience des personnes le
+#  visitant grâce à un système de filtrage et caching privé.
+#v2.third.intro.3: Due à la nature des serveurs loués, aucune donnée ne devraient
+#  être collectées de leur côté.
+#v2.third.intro.4: 'Si vous souhaitez consulter leur politique de confidentialité
+#  ainsi que celle de leur partenaires, vous pouvez le faire en suivant les liens ci-dessous:'
+v3.third.intro.1: "Nos services ne partagent aucune donnée avec des tiers, quels qu'ils soient."
+
 v2.cookies.title: Cookies de navigation
 v2.cookies.intro.1: Ce site web n'utilise pas, et ne stocke aucun cookies
   dans votre navigateur internet.

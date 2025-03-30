@@ -1,0 +1,29 @@
+# Introduction
+La politique de confidentialité ci-présente a été écrite en accord avec les articles 12 et 13 de la RGPD.
+
+Si vous souhaitez consulter le texte officiel en question, vous pouvez le faire sur les sites internet suivants :
+* https://gdpr.eu/
+* https://eur-lex.europa.eu/
+
+
+# Quelles données sont collectées ?
+Ce site web ne collecte aucune donnée personnelle, que ce soit au travers des journaux d'évènements sur nos serveurs, des cookies ou via quelconque autre tiers parti.
+
+
+# Changements à notre politique de confidentialité
+Le contenu de notre politique de confidentialité a été écrit et modifié pour la dernière fois le 4 décembre 2021.
+
+En cas de changement, vous serez clairement informé et une copie des anciennes versions de notre politique sera disponible sur cette page.
+
+
+# Comment nous contacter ?
+Si vous souhaitez nous contacter afin d'obtenir plus d'informations concernant notre politique de confidentialité, nous vous recommandons d'utiliser le formulaire présent sur la page de contact, ou par courriel à l'adresse suivante:
+* herwin.bozet@gmail.com
+
+
+# Comment contacter les autorités compétentes ?
+Dans l'éventualité où vous souhaiteriez déposer une plainte pour une quelconque raison en rapport avec notre politique de confidentialité, veuillez vous adresser à l'autorité nationale de protection des données (DPA).
+
+Les informations concernant cette procédure peuvent être trouvées sur les sites internet suivants:
+* https://ec.europa.eu/ (Anglais)
+* https://gegevensbeschermingsautoriteit.be/ (Français)

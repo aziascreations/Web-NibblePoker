@@ -89,19 +89,27 @@ v2.update.history.5.desc.1: Added a section regarding data collection through
   DNS servers.
 v2.update.history.5.desc.2: Changed references to external services to reflect
   the usage of ChicagoVPS
+
+v2.update.history.6.date: 2025/03/30
+v2.update.history.6.desc.1: Simplification of the 'Third Parties' section.
+v2.update.history.6.desc.2: Removal of unnecessary mentions of our <abbr title="Virtual Private Server">VPS</abbr> providers.
+
 v2.update.end.2: In the event of a change to our privacy policy, you will
   be informed explicitly, and a copy of previous versions of the policy will be available
   through this page.
+
 v2.third.title: Third Parties
-v2.third.intro.1: Our websites uses some <abbr title="Virtual private server">VPS</abbr>
-  provided by IONOS and ChicagoVPS in order to put in place a <abbr title="Content
-  delivery network">CDN</abbr> system.
-v2.third.intro.2: The goal of this system is to improve your browsing experience
-  with the help of a private caching service and custom traffic filtering rules.
-v2.third.intro.3: No data should be collected on their side due to the nature
-  of the server leased to us.
-v2.third.intro.4: 'If you''d wish to consult their privacy policy and their
-  partners'', you can do so by using the following URLs:'
+#v2.third.intro.1: Our websites uses some <abbr title="Virtual private server">VPS</abbr>
+#  provided by IONOS and ChicagoVPS in order to put in place a <abbr title="Content
+#  delivery network">CDN</abbr> system.
+#v2.third.intro.2: The goal of this system is to improve your browsing experience
+#  with the help of a private caching service and custom traffic filtering rules.
+#v2.third.intro.3: No data should be collected on their side due to the nature
+#  of the server leased to us.
+#v2.third.intro.4: 'If you''d wish to consult their privacy policy and their
+#  partners'', you can do so by using the following URLs:'
+v3.third.intro.1: "Our services do not share any data with any third parties whatsoever."
+
 v2.cookies.title: Cookies
 v2.cookies.intro.1: Our websites doesn't use nor store any cookies in your
   browser.
