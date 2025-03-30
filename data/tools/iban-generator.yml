@@ -5,10 +5,10 @@ tools:
     metadata:
       head:
         title_key: "meta.title"
-        description_key: "meta.description"
+        description_key: "meta.description.light"
       opengraph:
         title_key: "meta.title"
-        description_key: "meta.description"
+        description_key: "meta.description.light"
         type: null
         url: null
         image_url: "/resources/NibblePoker/images/tools/iban-generator/main.png"

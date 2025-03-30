@@ -21,7 +21,6 @@
     {% block extra_preloads %}{% endblock %}
 
     <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/FontAwesomePro/6.7.2/css/all.min.css">
-    <!--<link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/StandardCSS/nibblepoker.min.css">-->
     <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/IndevCSS/nibblepoker.min.css">
     <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/Quantum/Quantum.min.css">
 
@@ -34,6 +33,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block head_title %}{% endblock %}</title>
+
+    {% block opengraph_tags %}{% endblock %}
+
+    {% block extra_head_tags %}{% endblock %}
 </head>
 <body class="layout-generic">
 

@@ -1,6 +1,7 @@
 # FR - UUID Generator
 
 meta.title: "Générateur d'UUID"
+meta.description: "Application web qui vous permet de générer des UUID en masse pour tout vos besoins en identifiants uniques."
 
 type.label: "Type d'UUID"
 

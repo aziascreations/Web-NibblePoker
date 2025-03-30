@@ -1,6 +1,10 @@
 # IBAN Generator - FR
 
 meta.title: "Générateur d'IBAN"
+meta.description: "Application web qui vous permet de générer des IBANs en masse pour les 89 pays qui les supportent.<br>
+Les IBANs sont générés complètement aléatoirement et risquent de contenir un 'BankID' qui n'est pas encore attribué
+par la banque nationale du pays concerné."
+meta.description.light: "Application web qui vous permet de générer des IBANs en masse pour les 89 pays qui les supportent."
 
 country.label: "Pays"
 

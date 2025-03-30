@@ -23,6 +23,32 @@
     {% endif %}
 {% endblock %}
 
+{% block opengraph_tags %}
+    <!-- Required fields -->
+    <meta property="og:title"
+          content="{{ l10n(tool_data.metadata.opengraph.title_key, tool_id, user_lang) }}">
+    <meta property="og:url"
+          content="{{ "https://nibblepoker." + domain_tld  + "/tools/" + tool_id }}">
+    <meta property="og:description"
+          content="{{ l10n(tool_data.metadata.opengraph.description_key, tool_id, user_lang) }}">
+
+    <!-- Optional fields -->
+    {% if tool_data.metadata.opengraph.image_url is not none %}
+        <meta property="og:image"
+              content="{{ "https://nibblepoker." + domain_tld  + tool_data.metadata.opengraph.image_url }}">
+        {% if tool_data.metadata.opengraph.image_type is not none %}
+            <meta property="og:image:type"
+                  content="{{ tool_data.metadata.opengraph.image_type }}">
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block extra_head_tags %}
+    <meta name="description"
+          content="{{ l10n(tool_data.metadata.head.description_key, tool_id, user_lang) }}">
+    <!--<meta name="keywords" content="HTML, CSS, JavaScript">-->
+{% endblock %}
+
 {% block main_content %}
     {% if not is_standalone %}
         {{ render_h1(

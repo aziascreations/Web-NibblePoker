@@ -13,6 +13,32 @@
     <span class="mobile-hide"><span class="mx-s t-size-15">❱</span>{{ l10n(project_data.metadata.general.title_key, project_id, user_lang) }}</span>
 {% endblock %}
 
+{% block opengraph_tags %}
+    <!-- Required fields -->
+    <meta property="og:title"
+          content="{{ l10n(project_data.metadata.opengraph.title_key, project_id, user_lang) }}">
+    <meta property="og:url"
+          content="{{ "https://nibblepoker." + domain_tld  + "/content/" + project_id }}">
+    <meta property="og:description"
+          content="{{ l10n(project_data.metadata.opengraph.description_key, project_id, user_lang) }}">
+
+    <!-- Optional fields -->
+    {% if project_data.metadata.opengraph.image_url is not none %}
+        <meta property="og:image"
+              content="{{ "https://nibblepoker." + domain_tld  + project_data.metadata.opengraph.image_url }}">
+        {% if project_data.metadata.opengraph.image_type is not none %}
+            <meta property="og:image:type"
+                  content="{{ project_data.metadata.opengraph.image_type }}">
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block extra_head_tags %}
+    <meta name="description"
+          content="{{ l10n(project_data.metadata.head.description_key, project_id, user_lang) }}">
+    <!--<meta name="keywords" content="HTML, CSS, JavaScript">-->
+{% endblock %}
+
 {% block main_content %}
     {{ render_h1(
         '<i class="' + project_data.metadata.general.icon + ' t-size-16 mr-s t-muted"></i>' +
