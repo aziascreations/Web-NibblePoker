@@ -1,0 +1,45 @@
+# FR - Home
+
+head.title: NibblePoker
+head.description: Collection d''utilitaires et de bibliothèques gratuits et
+  open source, allant d'un simple énumérateur de ports COM à un suppresseur de mots
+  de passe Excel ou même un système d''archivage de vidéos autonome.
+
+og.title: NibblePoker
+og.description: Collection d''utilitaires et de bibliothèques gratuits et open
+  source, allant d'un simple énumérateur de ports COM à un suppresseur de mots de
+  passe Excel ou même un système d''archivage de vidéos autonome.
+
+header.title: Page d'accueil
+
+intro.title: Bienvenue sur %0
+intro.text.1: Ce site web contient une collection de mes travaux personnels tels
+  que des articles de blog, des logiciels utilitaires ou d'autres formes de médias.<br>Tout
+  est accessible gratuitement et sous des licences à l'open source.
+intro.text.2: Si vous souhaitez me contacter, vous pouvez le faire via la page
+  de contact lié dans la barre de navigation latérale.
+
+showcase.title: Vitrine
+
+updates.title: Updates
+updates.text.privacy: Mise-à-jour de notre politique de confidentialité.
+
+updates.4.date: 30 novembre 2023
+updates.4.text.1: Centralisation des serveurs DNS & implémentation de GeoDNS.
+updates.4.text.2: Ajout d'un CDN pour l'Amérique du Nord hébergé par <a href="https://www.chicagovps.net/">ChicagoVPS</a>.
+updates.4.text.3: Les autres régions utilisent le CDN Européen hébergé par <a
+  href="https://www.ionos.fr/">IONOS</a>.
+
+updates.3.date: 12 novembre 2023
+updates.3.text.1: Les services annexes sont disponibles.
+updates.3.text.2: Changement d'hébergeur vers <a href="https://www.ionos.fr/">IONOS</a>.
+updates.3.text.3: Finition des pages annexes.
+
+updates.2.date: 15 août 2023
+updates.2.text.1: Le site internet est à nouveau disponible.
+updates.2.text.2: Mise en place d'un nouveau design plus léger.
+updates.2.text.3: Changement d'hébergeur vers <a href="https://hostbrr.com/">HostBrr</a>.
+updates.2.text.4: Ajout d'une nouvelle section pour les outils.
+
+updates.1.date: 9 septembre 2022
+updates.1.text.1: Changement d'hébergeur vers v6Node.

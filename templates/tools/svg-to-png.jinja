@@ -1,0 +1,85 @@
+{% extends "tools/_tool.jinja" %}
+
+{% block tool_content %}
+
+    {{ render_h2(l10n("upload.title", tool_id, user_lang)) }}
+    <div class="px-s">
+        <button id="svgtopng-add" class="p-xs r-s border b-light primary">
+            <i class="fa-duotone fa-solid fa-cloud-arrow-up mr-xs"></i>{{ l10n("upload.add.button", tool_id, user_lang) }}
+        </button>
+        <button id="svgtopng-reset" class="p-xs r-s border b-light warning">
+            {{ l10n("upload.clear.button", tool_id, user_lang) }}
+        </button>
+
+        <br>
+
+        <div class="svgtopng-file-drop-container border r-s bkgd-blank">
+            <p class="svgtopng-file-drop-text" id="pngtoico-drop-text-drop">Drop your file(s) here</p>
+            <p class="svgtopng-file-drop-text" id="pngtoico-drop-text-file-single" hidden>You selected 1 file</p>
+            <p class="svgtopng-file-drop-text" id="pngtoico-drop-text-file-multiple" hidden>You selected <span>9</span> files</p>
+            <label for="pngtoico-drop" hidden>Choose or drop SVG files:</label>
+            <input type="file" id="pngtoico-drop" name="pngtoico-drop" accept="image/svg+xml"
+                   class="w-full p-l" multiple/>
+        </div>
+    </div>
+
+    {{ render_h2(l10n("options.title", tool_id, user_lang)) }}
+    <div class="px-s">
+        <label for="svgtopng-fit-mode" class="mr-xs">{{ l10n("fit.label", tool_id, user_lang) }}:</label>
+        <select name="svgtopng-fit-mode" id="svgtopng-fit-mode" class="p-xxs border r-s">
+            <option value="fit-svg">{{ l10n("fit.svg", tool_id, user_lang) }}</option>
+            <option value="fit-fixed" selected>{{ l10n("fit.fixed", tool_id, user_lang) }}</option>
+            <option value="fit-bigger-than">{{ l10n("fit.bigger", tool_id, user_lang) }}</option>
+            <option value="fit-smaller-than">{{ l10n("fit.smaller", tool_id, user_lang) }}</option>
+        </select>
+
+        <div id="svgtopng-options-fit-svg" hidden>
+
+        </div>
+
+        <div id="svgtopng-options-fit-fixed">
+            <label for="fixed-size-width" class="mr-xs">{{ l10n("width", "commons", user_lang) }}:</label>
+            <input id="fixed-size-width" class="p-xxs border r-s" type="number" value="64">
+            <br>
+            <label for="fixed-size-height" class="mr-xs">{{ l10n("height", "commons", user_lang) }}:</label>
+            <input id="fixed-size-height" class="p-xxs border r-s" type="number" value="64">
+        </div>
+
+        <div id="svgtopng-options-fit-bigger-than" hidden>
+            <label for="bigger-than-size-width" class="mr-xs">{{ l10n("width.min", "commons", user_lang) }}:</label>
+            <input id="bigger-than-width" class="p-xxs border r-s" type="number" value="64">
+            <br>
+            <label for="bigger-than-height" class="mr-xs">{{ l10n("height.min", "commons", user_lang) }}:</label>
+            <input id="bigger-than-height" class="p-xxs border r-s" type="number" value="64">
+        </div>
+
+        <div id="svgtopng-options-fit-smaller-than" hidden>
+            <label for="smaller-than-size-width" class="mr-xs">{{ l10n("width.max", "commons", user_lang) }}:</label>
+            <input id="smaller-than-width" class="p-xxs border r-s" type="number" value="64">
+            <br>
+            <label for="smaller-than-height" class="mr-xs">{{ l10n("height.max", "commons", user_lang) }}:</label>
+            <input id="smaller-than-height" class="p-xxs border r-s" type="number" value="64">
+        </div>
+
+        <div>
+            <button id="svgtopng-export-individual" class="p-xs r-s border b-light success">
+                {{ l10n("download.main.button", tool_id, user_lang) }}
+            </button>
+        </div>
+    </div>
+
+    {{ render_h2(l10n("preview.title", tool_id, user_lang)) }}
+    <div class="px-s">
+        <button id="svgtopng-preview-generate" class="p-xs r-s border b-light primary">
+            {{ l10n("preview.generate.button", tool_id, user_lang) }}
+        </button>
+        <button id="svgtopng-preview-reset" class="p-xs r-s border b-light warning">
+            {{ l10n("preview.clear.button", tool_id, user_lang) }}
+        </button>
+        <div id="svgtopng-preview-container" class="w-full ox-scroll">
+            <!--<hr class="subtle">-->
+        </div>
+    </div>
+
+    <!--<canvas id="svgtopng-conversion-canvas" width="256" height="256" class="border r-l d-none"></canvas>-->
+{% endblock %}

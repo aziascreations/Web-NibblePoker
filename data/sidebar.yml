@@ -1,0 +1,71 @@
+- title_key: text.home
+  abs_href: "/"
+  icon: fad fa-home
+  active_id: home
+  has_new_until_utc: 0
+
+-
+
+#- title_key: text.articles
+#  abs_href: "/articles/"
+#  icon: fad fa-newspaper
+#  active_id: articles
+#  has_new_until_utc: 0
+#
+#-
+
+- title_key: text.applications
+  abs_href: "/content/?tags=application;web"
+  icon: fad fa-browser
+  active_id: application
+  has_new_until_utc: 0
+
+- title_key: text.libraries
+  abs_href: "/content/?tags=library"
+  icon: fad fa-puzzle-piece
+  active_id: library
+  has_new_until_utc: 0
+
+- title_key: text.electronics
+  abs_href: "/content/?tags=electronic"
+  icon: fad fa-microchip
+  active_id: electronic
+  has_new_until_utc: 0
+
+- title_key: text.experiments
+  abs_href: "/content/?tags=experiments"
+  icon: fad fa-flask-vial
+  active_id: electronic
+  has_new_until_utc: 0
+
+- title_key: text.tools
+  abs_href: "/tools"
+  icon: fad fa-toolbox
+  active_id: tools
+  has_new_until_utc: 1760986472
+
+- title_key: text.downloads
+  raw_href: "https://files.nibblepoker.lu/"
+  icon: fad fa-download
+  active_id: ""
+  has_new_until_utc: 0
+
+-
+
+- title_key: text.about
+  abs_href: "/about"
+  icon: fad fa-user
+  active_id: about
+  has_new_until_utc: 0
+
+- title_key: text.contact
+  abs_href: "/contact"
+  icon: fad fa-mailbox
+  active_id: ""
+  has_new_until_utc: 0
+
+- title_key: text.links
+  abs_href: "/links"
+  icon: fad fa-link
+  active_id: links
+  has_new_until_utc: 0

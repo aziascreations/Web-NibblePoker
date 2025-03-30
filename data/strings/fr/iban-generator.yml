@@ -1,0 +1,18 @@
+# IBAN Generator - FR
+
+meta.title: "Générateur d'IBAN"
+
+country.label: "Pays"
+
+option.count: "Nombre d'IBAN"
+option.human.readable: "Formatter pour lecture"
+option.prefer.numbers: "Favoriser les nombres aux lettres"
+option.for.each: "Générer <i>X</i> pour chaque pays"
+option.sepa.enable: "Activer les pays SEPA"
+option.non-sepa.enable: "Activer les pays non-SEPA"
+
+license.1: "Le code de ce projet est publié dans le domaine public."
+license.2: "Le code source original peut être trouvé sur <a href=\"https://github.com/aziascreations/Web-NibblePoker\">GitHub</a>."
+license.3: "Les données du 
+<a href=\"https://www.swift.com/standards/data-standards/iban-international-bank-account-number\">Registre IBAN</a>
+de Swift ont également été utilisées et peuvent être soumises à des conditions de licence différentes."

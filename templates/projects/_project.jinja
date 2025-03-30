@@ -1,0 +1,42 @@
+{% extends "base_www.jinja" %}
+
+{% block extra_stylesheets %}
+    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/SplideJS/4.1.3/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/HighlightJS/11.9.0-custom/styles/atom-one-dark.min.css">
+{% endblock %}
+
+{% block head_title %}{{ l10n(project_data.metadata.head.title_key, project_id, user_lang) }}{% endblock %}
+{% block head_description %}{{ l10n(project_data.metadata.head.description_key, project_id, user_lang) }}{% endblock %}
+
+{% block header_title %}
+    <i class="fad fa-briefcase t-size-16 mr-s t-muted"></i><a href="../" class="a-hidden">{{ l10n("header.root", "projects", user_lang) }}</a>
+    <span class="mobile-hide"><span class="mx-s t-size-15">❱</span>{{ l10n(project_data.metadata.general.title_key, project_id, user_lang) }}</span>
+{% endblock %}
+
+{% block main_content %}
+    {{ render_h1(
+        '<i class="' + project_data.metadata.general.icon + ' t-size-16 mr-s t-muted"></i>' +
+        l10n(project_data.metadata.general.title_key, project_id, user_lang)
+    ) }}
+
+    <div class="px-xxs">
+        {% block project_content %}{% endblock %}
+    </div>
+
+    <div class="heading-main p-xs border r-s mt-l bkgd-grid">
+        <h6 class="t-w-500 t-size-11">
+            <i class="fad fa-tags t-size-10"></i>
+            {% for project_tag in project_data.metadata.general.tags %}
+                <a href="{{ l10n_url_abs('/content/?tags=' + project_tag, raw_lang) }}" class="ml-xs">#{{ project_tag }}</a>
+            {% endfor %}
+        </h6>
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="https://cdn.nibblepoker.lu/SplideJS/4.1.3/js/splide.min.js"></script>
+    <script src="https://cdn.nibblepoker.lu/HighlightJS/11.9.0-custom/highlight.min.js"></script>
+
+    <script src="{{ url_for("static", filename="/resources/NibblePoker/js/nibblepoker-splide.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="/resources/NibblePoker/js/nibblepoker-code.min.js") }}"></script>
+{% endblock %}

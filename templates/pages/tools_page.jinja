@@ -1,0 +1,44 @@
+{% if is_standalone %}
+    {% extends "base_standalone.jinja" %}
+{% else %}
+    {% extends "base_www.jinja" %}
+{% endif %}
+
+{% block head_title %}{{ l10n(tool_data.metadata.head.title_key, tool_id, user_lang) }}{% endblock %}
+{% block head_description %}{{ l10n(tool_data.metadata.head.description_key, tool_id, user_lang) }}{% endblock %}
+
+{% block extra_stylesheets %}
+    {{ render_applet_head(applet_data, is_standalone) }}
+{% endblock %}
+
+{% block header_title %}
+    {% if not is_standalone %}
+        <i class="fad fa-briefcase t-size-16 mr-s t-muted"></i><a href="../" class="a-hidden">{{ l10n("header.root", "projects", user_lang) }}</a>
+        <span class="mobile-hide"><span class="mx-s t-size-15">❱</span>{{ l10n(tool_data.metadata.general.title_key, tool_id, user_lang) }}</span>
+    {% else %}
+        {% if not is_brandless %}
+            <span class="mobile-hide">NibblePoker<span class="mx-s t-size-15">❱</span></span>
+        {% endif %}
+        {{ l10n(tool_data.metadata.general.title_key, tool_id, user_lang) }}
+    {% endif %}
+{% endblock %}
+
+{% block main_content %}
+    {% if not is_standalone %}
+        {{ render_h1(
+            '<i class="' + tool_data.metadata.general.icon + ' t-size-16 mr-s t-muted"></i>' +
+            l10n(tool_data.metadata.general.title_key, tool_id, user_lang)
+        ) }}
+        <div class="p-s">
+            {% include 'applets/'+applet_data.id+'.jinja' %}
+        </div>
+    {% else %}
+        {% include 'applets/'+applet_data.id+'.jinja' %}
+    {% endif %}
+{% endblock %}
+
+{% block extra_scripts %}
+    <!--<script src="{{ url_for("static", filename="resources/NibblePoker/js/nibblepoker-default.min.js") }}"></script>-->
+
+    {{ render_applet_scripts(applet_data, is_standalone) }}
+{% endblock %}

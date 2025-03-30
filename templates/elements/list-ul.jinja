@@ -1,0 +1,9 @@
+<ul class="l-bullets l-bullet-manual">
+    {% for list_item in list_items %}
+        {% if list_item.__class__.__name__ == 'list' %}
+            {{ render_list_ul(list_item) }}
+        {% else %}
+            <li>{{ list_item }}</li>
+        {% endif %}
+    {% endfor %}
+</ul>

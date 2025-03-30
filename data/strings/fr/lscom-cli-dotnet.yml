@@ -1,0 +1,53 @@
+# FR - DotNet-ListComPort
+
+meta.title: DotNet-ListComPort
+meta.description: Un petit utilitaire pour invité de commande qui permet de facilement
+  lister les noms, noms formatés et chemin des ports COM.
+
+article.subtitle: <a href="https://github.com/aziascreations/DotNet-ListComPort" class="font-size-16"><i
+  class="fab fa-github"></i> Voir sur GitHub</a>
+
+intro.title: Introduction
+intro.p1: Un petit utilitaire pour invité de commande qui permet de facilement lister
+  les noms, noms formatés et chemins des ports COM.
+intro.p2: Cet outil a pour bût de faciliter cette tâche sans avoir à utiliser la commande
+  <code>mode</code> ou le <i>Gestionnaire de périphérique</i>.
+intro.p3: Cette version du programme a completement été réecrit depuis le projet original
+  <a href="https://github.com/aziascreations/PB-ListComPort">PB-ListComPort</a> en
+  .NET 6.0 au lieu de PureBasic afin de ne plus utiliser de langage de programmation
+  propriétaire.
+
+requirements.title: Dépendances
+requirements.1: Windows
+requirements.2: Toutes architectures de CPU
+requirements.3: ".NET 6.0"
+requirements.4: Optionnel si vous utilisez les paquets "self-contained".
+
+improvements.title: Améliorations
+improvements.1: Changement de PureBasic vers .NET 6.0.
+improvements.2: Amélioration de la logique interne du programme.
+improvements.3: Ajout de l'option <code class="code">-H/--short-help</code>.
+improvements.4: Support pour Windows ARM et ARM64.
+improvements.5: Support pour le lancement sans invité de commande.
+
+usage.title: Utilisation
+
+formatting.title: Formatage de sortie
+
+requirements.table.title: Dépendances
+requirements.text.dotnet: <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.NET 6.0</a>
+
+packages.title: Packages
+packages.single.title: Builds légers
+packages.single.1: Versions allégées contenant uniquement l'exécutable et les licences requises.<br>
+  Vous devrez installer le <a href="https://dotnet.microsoft.com/en-us/download">Runtime .NET 6.0</a>.
+packages.self.title: Builds autonomes
+packages.self.1: Versions plus volumineuses contenant l'exécutable, le <a href="https://dotnet.microsoft.com/en-us/download">Runtime .NET 6.0</a> et les licences requises.
+packages.msi.title: Installateurs MSI
+packages.msi.1: Installateurs Windows contenant la version "Autonome" avec une option de mise à jour automatique des
+  installations existantes et d'ajout du programme au <kbd>%PATH%</kbd>.<br>
+  Le chemin d'installation est <kbd>%ProgramFiles%\NibblePoker\lscom\</kbd> et ne peut pas être modifié. <i>(Cela sera possible dans les futures versions)</i>
+
+links.title: Liens
+
+screenshots.title: Captures d'écran

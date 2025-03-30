@@ -1,0 +1,52 @@
+# FR - Errors
+
+403.head.title: 403 - NibblePoker
+403.head.description: L'accès à la ressource demandée n'est pas autorisé.
+403.og.title: NibblePoker - Erreur 403
+403.og.description: L'accès à la ressource demandée n'est pas autorisé.
+403.header.title: Erreur<span class="mx-s t-size-15">❱</span>Erreur 403
+
+404.head.title: 404 - NibblePoker
+404.head.description: Le serveur n'a pas pu trouver la ressource demandée.
+404.og.title: NibblePoker - Erreur 404
+404.og.description: Le serveur n'a pas pu trouver la ressource demandée.
+404.header.title: Erreur<span class="mx-s t-size-15">❱</span>Erreur 404
+
+500.head.title: 500 - NibblePoker
+500.head.description: Le serveur a rencontré une situation qu'il ne sait pas gérer.
+500.og.title: NibblePoker - Erreur 500
+500.og.description: Le serveur a rencontré une situation qu'il ne sait pas gérer.
+500.header.title: Erreur<span class="mx-s t-size-15">❱</span>Erreur 500
+
+content_tags_length.head.title: Erreur de contenu - NibblePoker
+content_tags_length.head.description: Le paramètre d'URL "tags" est trop long.
+content_tags_length.og.title: NibblePoker - Erreur de contenu
+content_tags_length.og.description: Le paramètre d'URL "tags" est trop long.
+content_tags_length.header.title: Erreur de contenu
+
+content_tags_alphanumeric.head.title: Erreur de contenu - NibblePoker
+content_tags_alphanumeric.head.description: L'un des tags donnés dans le paramètre d'URL "tags" n'est pas une chaîne alphanumérique valide.
+content_tags_alphanumeric.og.title: NibblePoker - Erreur de contenu
+content_tags_alphanumeric.og.description: L'un des tags donnés dans le paramètre d'URL "tags" n'est pas une chaîne alphanumérique valide.
+content_tags_alphanumeric.header.title: Erreur de contenu
+
+content_tags_empty.head.title: Erreur de contenu - NibblePoker
+content_tags_empty.head.description: Aucun contenu n'a été trouvé pour les tags donnés.
+content_tags_empty.og.title: NibblePoker - Erreur de contenu
+content_tags_empty.og.description: Aucun contenu n'a été trouvé pour les tags donnés.
+content_tags_empty.header.title: Erreur de contenu
+
+content_id_alphanumeric.head.title: Erreur de contenu - NibblePoker
+content_id_alphanumeric.head.description: L'ID de la ressource demandée n'est pas une chaîne alphanumérique valide.
+content_id_alphanumeric.og.title: NibblePoker - Erreur de contenu
+content_id_alphanumeric.og.description: L'ID de la ressource demandée n'est pas une chaîne alphanumérique valide.
+content_id_alphanumeric.header.title: Erreur de contenu
+
+content_id_not_exist.head.title: Erreur de contenu - NibblePoker
+content_id_not_exist.head.description: Le contenu demandé n'a pas de fichier interne associé.
+content_id_not_exist.og.title: NibblePoker - Erreur de contenu
+content_id_not_exist.og.description: Le contenu demandé n'a pas de fichier interne associé.
+content_id_not_exist.header.title: Erreur de contenu
+
+skit.pc.dead.alt: Dessin d'un vieil ordinateur avec un visage aux yeux croisés.
+skit.pc.warn.alt: Dessin d'un vieil ordinateur avec un panneau d'avertissement.

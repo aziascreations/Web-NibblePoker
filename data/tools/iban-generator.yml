@@ -1,0 +1,32 @@
+
+tools:
+  - id: "iban-generator"
+    applet_id: "iban-generator"
+    metadata:
+      head:
+        title_key: "meta.title"
+        description_key: "meta.description"
+      opengraph:
+        title_key: "meta.title"
+        description_key: "meta.description"
+        type: null
+        url: null
+        image_url: "/resources/NibblePoker/images/tools/iban-generator/main.png"
+        image_type: null
+      twitter:
+        title_key: "meta.title"
+        description_key: "meta.description"
+      index:
+        priority: 100
+        enable: true
+        title_key: "meta.title"
+        preamble_key: "meta.description"
+        image_url: "/resources/NibblePoker/images/tools/iban-generator/main.png"
+        image_alt_key: ""
+      general:
+        icon: "fa-duotone fa-solid fa-credit-card-front"
+        title_key: "meta.title"
+        subtitle_key: "article.subtitle"
+        tags:
+          - "generator"
+          - "finance"

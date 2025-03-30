@@ -1,0 +1,9 @@
+{% if code_language is none %}
+    <code class="code ox-auto w-full d-inline-block position-relative content-spacer-vertical">
+{% else %}
+    <code class="code ox-auto w-full d-inline-block position-relative content-spacer-vertical language-{{ code_language }}">
+{% endif %}
+    {% for code_line in code_lines %}
+        <span class="code-line t-nowrap">{{ code_line }}</span><br>
+    {% endfor %}
+</code>

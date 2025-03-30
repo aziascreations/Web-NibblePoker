@@ -1,0 +1,175 @@
+
+<!-- {{ render_h2(l10n("disclaimer.title", applet_data.id, user_lang)) }} -->
+
+<label for="iban-generator-option-enable-sepa" class="mr-xxs">{{ l10n("option.sepa.enable", "iban-generator", user_lang) }}:</label>
+<input id="iban-generator-option-enable-sepa" class="r-m border" type="checkbox" checked>
+
+<br>
+
+<label for="iban-generator-option-enable-non-sepa" class="mr-xxs">{{ l10n("option.non-sepa.enable", "iban-generator", user_lang) }}:</label>
+<input id="iban-generator-option-enable-non-sepa" class="r-m border" type="checkbox" checked>
+
+<br>
+
+<label for="iban-generator-option-foreach" class="mr-xxs">{{ l10n("option.for.each", "iban-generator", user_lang) }}:</label>
+<input id="iban-generator-option-foreach" class="r-m border" type="checkbox">
+
+<hr class="subtle">
+
+
+<label for="iban-generator-option-country" class="mr-xs">{{ l10n("country.label", "iban-generator", user_lang) }}:</label>
+<select name="iban-generator-option-country" id="iban-generator-option-country" class="p-xxs border r-s">
+    <option value="AD">AD - {{ l10n("iso3166.a2.AD", "countries", user_lang) }}</option>
+    <option value="AE">AE - {{ l10n("iso3166.a2.AE", "countries", user_lang) }}</option>
+    <option value="AL">AL - {{ l10n("iso3166.a2.AL", "countries", user_lang) }}</option>
+    <option value="AT">AT - {{ l10n("iso3166.a2.AT", "countries", user_lang) }}</option>
+    <option value="AZ">AZ - {{ l10n("iso3166.a2.AZ", "countries", user_lang) }}</option>
+    <option value="BA">BA - {{ l10n("iso3166.a2.BA", "countries", user_lang) }}</option>
+    <option value="BE">BE - {{ l10n("iso3166.a2.BE", "countries", user_lang) }}</option>
+    <option value="BG">BG - {{ l10n("iso3166.a2.BG", "countries", user_lang) }}</option>
+    <option value="BH">BH - {{ l10n("iso3166.a2.BH", "countries", user_lang) }}</option>
+    <option value="BI">BI - {{ l10n("iso3166.a2.BI", "countries", user_lang) }}</option>
+    <option value="BR">BR - {{ l10n("iso3166.a2.BR", "countries", user_lang) }}</option>
+    <option value="BY">BY - {{ l10n("iso3166.a2.BY", "countries", user_lang) }}</option>
+    <option value="CH">CH - {{ l10n("iso3166.a2.CH", "countries", user_lang) }}</option>
+    <option value="CR">CR - {{ l10n("iso3166.a2.CR", "countries", user_lang) }}</option>
+    <option value="CY">CY - {{ l10n("iso3166.a2.CY", "countries", user_lang) }}</option>
+    <option value="CZ">CZ - {{ l10n("iso3166.a2.CZ", "countries", user_lang) }}</option>
+    <option value="DE">DE - {{ l10n("iso3166.a2.DE", "countries", user_lang) }}</option>
+    <option value="DJ">DJ - {{ l10n("iso3166.a2.DJ", "countries", user_lang) }}</option>
+    <option value="DK">DK - {{ l10n("iso3166.a2.DK", "countries", user_lang) }}</option>
+    <option value="DO">DO - {{ l10n("iso3166.a2.DO", "countries", user_lang) }}</option>
+    <option value="EE">EE - {{ l10n("iso3166.a2.EE", "countries", user_lang) }}</option>
+    <option value="EG">EG - {{ l10n("iso3166.a2.EG", "countries", user_lang) }}</option>
+    <option value="ES">ES - {{ l10n("iso3166.a2.ES", "countries", user_lang) }}</option>
+    <option value="FI">FI - {{ l10n("iso3166.a2.FI", "countries", user_lang) }}</option>
+    <option value="FK">FK - {{ l10n("iso3166.a2.FK", "countries", user_lang) }}</option>
+    <option value="FO">FO - {{ l10n("iso3166.a2.FO", "countries", user_lang) }}</option>
+    <option value="FR">FR - {{ l10n("iso3166.a2.FR", "countries", user_lang) }}</option>
+    <option value="GB">GB - {{ l10n("iso3166.a2.GB", "countries", user_lang) }}</option>
+    <option value="GE">GE - {{ l10n("iso3166.a2.GE", "countries", user_lang) }}</option>
+    <option value="GI">GI - {{ l10n("iso3166.a2.GI", "countries", user_lang) }}</option>
+    <option value="GL">GL - {{ l10n("iso3166.a2.GL", "countries", user_lang) }}</option>
+    <option value="GR">GR - {{ l10n("iso3166.a2.GR", "countries", user_lang) }}</option>
+    <option value="GT">GT - {{ l10n("iso3166.a2.GT", "countries", user_lang) }}</option>
+    <option value="HN">HN - {{ l10n("iso3166.a2.HN", "countries", user_lang) }}</option>
+    <option value="HR">HR - {{ l10n("iso3166.a2.HR", "countries", user_lang) }}</option>
+    <option value="HU">HU - {{ l10n("iso3166.a2.HU", "countries", user_lang) }}</option>
+    <option value="IE">IE - {{ l10n("iso3166.a2.IE", "countries", user_lang) }}</option>
+    <option value="IL">IL - {{ l10n("iso3166.a2.IL", "countries", user_lang) }}</option>
+    <option value="IQ">IQ - {{ l10n("iso3166.a2.IQ", "countries", user_lang) }}</option>
+    <option value="IS">IS - {{ l10n("iso3166.a2.IS", "countries", user_lang) }}</option>
+    <option value="IT">IT - {{ l10n("iso3166.a2.IT", "countries", user_lang) }}</option>
+    <option value="JO">JO - {{ l10n("iso3166.a2.JO", "countries", user_lang) }}</option>
+    <option value="KW">KW - {{ l10n("iso3166.a2.KW", "countries", user_lang) }}</option>
+    <option value="KZ">KZ - {{ l10n("iso3166.a2.KZ", "countries", user_lang) }}</option>
+    <option value="LB">LB - {{ l10n("iso3166.a2.LB", "countries", user_lang) }}</option>
+    <option value="LC">LC - {{ l10n("iso3166.a2.LC", "countries", user_lang) }}</option>
+    <option value="LI">LI - {{ l10n("iso3166.a2.LI", "countries", user_lang) }}</option>
+    <option value="LT">LT - {{ l10n("iso3166.a2.LT", "countries", user_lang) }}</option>
+    <option value="LU">LU - {{ l10n("iso3166.a2.LU", "countries", user_lang) }}</option>
+    <option value="LV">LV - {{ l10n("iso3166.a2.LV", "countries", user_lang) }}</option>
+    <option value="LY">LY - {{ l10n("iso3166.a2.LY", "countries", user_lang) }}</option>
+    <option value="MC">MC - {{ l10n("iso3166.a2.MC", "countries", user_lang) }}</option>
+    <option value="MD">MD - {{ l10n("iso3166.a2.MD", "countries", user_lang) }}</option>
+    <option value="ME">ME - {{ l10n("iso3166.a2.ME", "countries", user_lang) }}</option>
+    <option value="MK">MK - {{ l10n("iso3166.a2.MK", "countries", user_lang) }}</option>
+    <option value="MN">MN - {{ l10n("iso3166.a2.MN", "countries", user_lang) }}</option>
+    <option value="MR">MR - {{ l10n("iso3166.a2.MR", "countries", user_lang) }}</option>
+    <option value="MT">MT - {{ l10n("iso3166.a2.MT", "countries", user_lang) }}</option>
+    <option value="MU">MU - {{ l10n("iso3166.a2.MU", "countries", user_lang) }}</option>
+    <option value="NI">NI - {{ l10n("iso3166.a2.NI", "countries", user_lang) }}</option>
+    <option value="NL">NL - {{ l10n("iso3166.a2.NL", "countries", user_lang) }}</option>
+    <option value="NO">NO - {{ l10n("iso3166.a2.NO", "countries", user_lang) }}</option>
+    <option value="OM">OM - {{ l10n("iso3166.a2.OM", "countries", user_lang) }}</option>
+    <option value="PK">PK - {{ l10n("iso3166.a2.PK", "countries", user_lang) }}</option>
+    <option value="PL">PL - {{ l10n("iso3166.a2.PL", "countries", user_lang) }}</option>
+    <option value="PS">PS - {{ l10n("iso3166.a2.PS", "countries", user_lang) }}</option>
+    <option value="PT">PT - {{ l10n("iso3166.a2.PT", "countries", user_lang) }}</option>
+    <option value="QA">QA - {{ l10n("iso3166.a2.QA", "countries", user_lang) }}</option>
+    <option value="RO">RO - {{ l10n("iso3166.a2.RO", "countries", user_lang) }}</option>
+    <option value="RS">RS - {{ l10n("iso3166.a2.RS", "countries", user_lang) }}</option>
+    <option value="RU">RU - {{ l10n("iso3166.a2.RU", "countries", user_lang) }}</option>
+    <option value="SA">SA - {{ l10n("iso3166.a2.SA", "countries", user_lang) }}</option>
+    <option value="SC">SC - {{ l10n("iso3166.a2.SC", "countries", user_lang) }}</option>
+    <option value="SD">SD - {{ l10n("iso3166.a2.SD", "countries", user_lang) }}</option>
+    <option value="SE">SE - {{ l10n("iso3166.a2.SE", "countries", user_lang) }}</option>
+    <option value="SI">SI - {{ l10n("iso3166.a2.SI", "countries", user_lang) }}</option>
+    <option value="SK">SK - {{ l10n("iso3166.a2.SK", "countries", user_lang) }}</option>
+    <option value="SM">SM - {{ l10n("iso3166.a2.SM", "countries", user_lang) }}</option>
+    <option value="SO">SO - {{ l10n("iso3166.a2.SO", "countries", user_lang) }}</option>
+    <option value="ST">ST - {{ l10n("iso3166.a2.ST", "countries", user_lang) }}</option>
+    <option value="SV">SV - {{ l10n("iso3166.a2.SV", "countries", user_lang) }}</option>
+    <option value="TL">TL - {{ l10n("iso3166.a2.TL", "countries", user_lang) }}</option>
+    <option value="TN">TN - {{ l10n("iso3166.a2.TN", "countries", user_lang) }}</option>
+    <option value="TR">TR - {{ l10n("iso3166.a2.TR", "countries", user_lang) }}</option>
+    <option value="UA">UA - {{ l10n("iso3166.a2.UA", "countries", user_lang) }}</option>
+    <option value="VA">VA - {{ l10n("iso3166.a2.VA", "countries", user_lang) }}</option>
+    <option value="VG">VG - {{ l10n("iso3166.a2.VG", "countries", user_lang) }}</option>
+    <option value="XK">XK - {{ l10n("iso3166.a2.XK", "countries", user_lang) }}</option>
+    <option value="YE">YE - {{ l10n("iso3166.a2.YE", "countries", user_lang) }}</option>
+</select>
+
+<br>
+
+<label for="iban-generator-option-count" class="mr-xs">{{ l10n("option.count", "iban-generator", user_lang) }}:</label>
+<input id="iban-generator-option-count" class="p-xxs border r-s" type="number" value="4" min="1" max="1000">
+
+<br>
+
+<label for="iban-generator-option-pretty" class="mr-xxs">{{ l10n("option.human.readable", "iban-generator", user_lang) }}:</label>
+<input id="iban-generator-option-pretty" class="r-m border" type="checkbox" checked>
+
+<br>
+
+<label for="iban-generator-option-prefer-numbers" class="mr-xxs">{{ l10n("option.prefer.numbers", "iban-generator", user_lang) }}:</label>
+<input id="iban-generator-option-prefer-numbers" class="r-m border" type="checkbox">
+
+
+<hr class="subtle">
+
+<button id="iban-generator-generate" class="p-xs r-s border b-light success">
+    {% if not is_standalone %}
+        <i class="fa-duotone fa-solid fa-gears mr-xs"></i>
+    {% endif %}
+    {{ l10n("action.generate", "commons", user_lang) }}
+</button>
+
+
+
+{% if not is_standalone %}
+    <button class="p-xs r-s border b-light primary rr-0 br-0">
+        <i class="fa-duotone fa-solid fa-download"></i>
+    </button>
+{% else %}
+    <span class="t-w-500 ml-m mr-xxs">{{ l10n("format.download.as", "commons", user_lang) }} :</span>
+{% endif %}
+<button id="iban-generator-download-raw" class="p-xs r-s border b-light primary ml-0
+        {% if not is_standalone %}r-0{% else %}rr-0{% endif %} br-0">
+    {{ l10n("format.raw", "commons", user_lang) }}
+</button>
+<button id="iban-generator-download-json" class="p-xs r-s border b-light primary ml-0 r-0 br-0">
+    {{ l10n("format.json", "commons", user_lang) }}
+</button>
+<button id="iban-generator-download-yaml" class="p-xs r-s border b-light primary ml-0 rl-0">
+    {{ l10n("format.yaml", "commons", user_lang) }}
+</button>
+
+
+<hr class="subtle">
+
+<label for="iban-generator-preview" class="d-none">{{ l10n("preview.label", "iban-generator", user_lang) }}:</label>
+<textarea name="iban-generator-preview" id="iban-generator-preview" rows="16" class="w-full border r-s ta-resize-v"></textarea>
+
+
+{% if is_standalone %}
+    <hr class="subtle">
+
+    <p class="t-muted">
+        {{ l10n("license.1", "iban-generator", user_lang) }}<br>
+        {{ l10n("license.2", "iban-generator", user_lang) }}
+    </p>
+    <p class="mt-xs t-muted">
+        {{ l10n("license.3", "iban-generator", user_lang) }}
+    </p>
+{% endif %}

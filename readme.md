@@ -2,88 +2,41 @@
 Public repository containing the source code for the *nibblepoker.lu* & *nibblepoker.com* websites.
 
 
-## Preamble
-This repository is only a mirror and should never be cloned and served as-is since it's missing some
-key components.
-
-The [.htaccess](.htaccess) files have been made public **on purpose** since they don't contain any
-private information and because they could also be used by other people to create their website more easily.<br>
-
-
 ## Features
-
-### L10N System
-This website includes a simple and effective L10N system in ~150 lines of readable code without any
-external dependencies.
-
-This system simply takes advantage of the `HTTP_ACCEPT_LANGUAGE` request header to determine the
-user's preferred language and can be overridden by specific URL prefixes.
-
-See [.htaccess](.htaccess) and [commons/langs.php](commons/langs.php).
-
-### Content System
 TODO
 
 
-
-## Tools
-This website uses a few in-house tools to improve and fix issues encountered during development such as L10N
-bundling and fixing TypeScript's horrendous imports.
-
-### Localization Strings Compiler
-The l10n strings compiler is a Python script that takes in a bunch of `.json` files and bundles them all
-in a single file that can be used by the [L10N PHP utility](commons/langs.php).
-
-It works by listing all subfolders in a location as language keys and assigning the content of each `.json`
-file to that language key.
-
-See [compile_strings.py](scripts/compile_strings.py) and [compile.cmd](scripts/compile.cmd).
-
-### TypeScript Perineal Care
-This utility simply fixes the munted import paths that Typescript produces by replacing a given import name by
-another one with the proper extensions.
-
-While not perfect, it works.<br>
-That's still better than Typescript could ever do with a maintainable *tsconfig* file...
-
-See [fix-import-path.js](scripts/legacy/fix-import-path.js) and [compile.bat](scripts/compile.cmd).
-
-### Minified PHP Import Fixer
-Unfinished utility that will be used to change import paths in minified PHP files.
-
-The main goal here is to fix some weird and unfixable text-spacing issues with line returns in the
-generated HTML document.
-
-See [php-relinker.js](scripts/legacy/php-relinker.js).
+## Related Projects
+TODO
 
 
-## Requirements
-These files are required and need to be installed manually for the website to work properly !
-
-* Apache 2.4 & PHP 8.1 or newer
-* Font Awesome Pro v5.15.3 & v6.5.1
-    * `/resources/FontAwesomePro/`
+## Local Setup
+Follow these steps to setup a local version of this website:
+1. Install Python 3.13
+2. Install Node JS 20+
+3. Install Python Modules \
+   `pip install --upgrade -r requirements.txt`
+4. Install NPM modules \
+   `.\scripts\nodejs-setup.cmd`
+5. Compile the `.mjs` files into `.js` and `.min.js` \
+   `.\scripts\compile-js-site.cmd`
+6. [TODO: Install static files]
+7. Setup environment variables:
+   ```batch
+   :: Batch
+   set NP_HTML_POST_PROCESS=MINIFY
+   set NP_FLASK_WAITRESS=1
+   set NP_FLASK_PORT=80
+   ```
+   ```bash
+   # Bash
+   NP_HTML_POST_PROCESS=MINIFY
+   NP_FLASK_WAITRESS=1
+   NP_FLASK_PORT=80
+   ```
+8. Run [app.py](app.py) \
+   `python ./app.py`
 
 
 ## Licenses
-
-### External
-Here is a list of the licenses for any third-party thing included in this repository.
-
-* [Quantum Font](https://sesohq.sellfy.store/p/3enu/) by [sesohq](https://www.sesohq.com/)
-  * Free font with no apparent usage restrictions.
-* [CSSnowflakes](https://github.com/pajasevi/CSSnowflakes) by [PavelTheCoder](https://github.com/pajasevi)
-  * MIT licensed snowflake effects used on certain days of the year.
-  * Can be found in [resources/NibblePoker/scss/snowflakes.scss](resources/NibblePoker/scss/snowflakes.scss)
-
-All licenses are also included as-is in their project's respective folder.
-
-### Website's code
-All the code, stylesheets, and configs that are not covered by the [External licenses](#external) are all 
-licensed under the [Unlicense](LICENSE) license.
-
-### Articles
-The articles present in this repository aren't currently licensed.
-
-### Images & Sounds
-The images and sounds present in this repository aren't currently licensed.
+TODO

@@ -1,0 +1,125 @@
+{% if standalone %}
+    {% extends "base_standalone.jinja" %}
+{% else %}
+    {% extends "base_www.jinja" %}
+{% endif %}
+
+{% block head_title %}{{ l10n("head.title", "debug", user_lang) }}{% endblock %}
+{% block head_description %}{{ l10n("head.title", "debug", user_lang) }}{% endblock %}
+
+{% block header_title %}
+    <i class="fad fa-bug t-size-16 mr-s t-muted"></i>{{ l10n("header.title", "debug", user_lang) }}
+{% endblock %}
+
+{% block main_content %}
+    {{ render_h1(l10n("host.title", "debug", user_lang )) }}
+    <div class="p-s pb-0">
+		<div class="overflow-x-auto t-nowrap">
+			<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center">
+				<thead>
+                    <tr>
+                        <th>{{ l10n("tables.field", "debug", user_lang ) }}</th>
+                        <th>{{ l10n("tables.value", "debug", user_lang ) }}</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>{{ l10n("host.requested", "debug", user_lang ) }}</td>
+                        <td><kbd>???</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("host.domain", "debug", user_lang ) }}</td>
+                        <td><kbd>{{ escape(domain_host) }}</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("host.uri", "debug", user_lang ) }}</td>
+                        <td><kbd>???</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("host.tld", "debug", user_lang ) }}</td>
+                        <td><kbd>{{ escape(domain_tld) }}</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("host.waffle", "debug", user_lang ) }}</td>
+                        <td><kbd>???</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("host.bouneschlupp", "debug", user_lang ) }}</td>
+                        <td><kbd>???</kbd></td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+    {{ render_h1(l10n("lang.title", "debug", user_lang )) }}
+    <div class="p-s pb-0">
+		<div class="overflow-x-auto t-nowrap">
+			<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center">
+				<thead>
+                    <tr>
+                        <th>{{ l10n("tables.field", "debug", user_lang ) }}</th>
+                        <th>{{ l10n("tables.value", "debug", user_lang ) }}</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <!--<tr>
+                        <td>{{ l10n("lang.compile-date", "debug", user_lang ) }}</td>
+                        <td><kbd>???</kbd></td>
+                    </tr>-->
+                    <tr>
+                        <td>{{ l10n("lang.default", "debug", user_lang ) }}</td>
+                        <td><kbd>???</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("lang.user", "debug", user_lang ) }}</td>
+                        <td><kbd>{{ user_lang }}</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("lang.header.raw", "debug", user_lang ) }}</td>
+                        <td><kbd>???</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("lang.header.processed", "debug", user_lang ) }}</td>
+                        <td><kbd>???</kbd></td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+    {{ render_h1(l10n("client.title", "debug", user_lang )) }}
+    <div class="p-s pb-0">
+		<div class="overflow-x-auto t-nowrap">
+			<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center">
+				<thead>
+                    <tr>
+                        <th>{{ l10n("tables.field", "debug", user_lang ) }}</th>
+                        <th>{{ l10n("tables.value", "debug", user_lang ) }}</th>
+                    </tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td>{{ l10n("cpu.architecture", "commons", user_lang ) + " (" + l10n("server", "commons", user_lang ) + ")" }}</td>
+                        <td><kbd>TODO</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("cpu.architecture", "commons", user_lang ) }} (JS)</td>
+                        <td><kbd>TODO</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("user-agent", "commons", user_lang ) }}</td>
+                        <td><kbd>???</kbd></td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{{ url_for("static", filename="resources/NibblePoker/js/nibblepoker-default.min.js") }}"></script>
+{% endblock %}

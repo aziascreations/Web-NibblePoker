@@ -1,0 +1,23 @@
+# EN - SVG to PNG
+
+meta.title: SVG to PNG converter
+meta.description: Convert and resize SVG images into PNG files easily and locally.
+
+upload.add.button: "Add image(s)"
+upload.clear.button: "Clear"
+
+options.title: "Options"
+
+fit.label: Fitting mode
+
+fit.svg: SVG's resolution
+fit.fixed: Fixed size
+fit.bigger: Bigger or equal size
+fit.smaller: Smaller or equal size
+
+preview.title: "Preview"
+
+download.main.button: "Convert &amp; Download"
+
+preview.generate.button: "Generate"
+preview.clear.button: "Clear"

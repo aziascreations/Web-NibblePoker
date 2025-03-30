@@ -1,0 +1,25 @@
+# FR - Debug
+
+head.title: Débogueur - NibblePoker
+head.description: Page de débogage utilisée pour analyser le comportement des
+  différents mécanismes utilisés par ce site web.
+og.title: NibblePoker - Débogueur
+og.description: Page de débogage utilisée pour analyser le comportement des
+  différents mécanismes utilisés par ce site web.
+header.title: Débogueur
+tables.field: Champ
+tables.value: Valeur
+host.title: Configuration de l'hôte
+host.requested: Demandé
+host.domain: Domaine
+host.uri: URI
+host.tld: TLD
+host.waffle: Mode gaufrier
+host.bouneschlupp: Mode Bouneschlupp
+lang.title: Système de localisation (L10N)
+lang.compile-date: Date de compilation
+lang.default: Langue par défaut
+lang.user: Langue active
+lang.header.raw: En-tête HTTP brut
+lang.header.processed: En-tête HTTP traité
+client.title: Informations du client

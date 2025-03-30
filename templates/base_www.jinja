@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="{{ user_lang }}">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="author" content="Herwin Bozet">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
+
+    <!--<link rel="dns-prefetch" href="https://cdn.nibblepoker.lu/"/>-->
+    <link rel="preconnect" href="https://cdn.nibblepoker.lu/"/>
+
+    <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.7.2/webfonts/fa-brands-400.woff2" as="font" />
+    <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.7.2/webfonts/fa-duotone-900.woff2" as="font" />
+    <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.7.2/webfonts/fa-solid-900.woff2" as="font" />
+    <link rel="prefetch" href="https://cdn.nibblepoker.lu/NibblePoker/StandardCSS/3px-tile-0.1.png" as="image" />
+    <link rel="prefetch" href="https://cdn.nibblepoker.lu/NibblePoker/StandardCSS/3px-tile-0.4.png" as="image" />
+    {% block extra_preloads %}{% endblock %}
+
+    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/FontAwesomePro/6.7.2/css/all.min.css">
+    <!--<link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/StandardCSS/nibblepoker.min.css">-->
+    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/IndevCSS/nibblepoker.min.css">
+    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/Quantum/Quantum.min.css">
+
+    <link rel="stylesheet" href="{{ url_for("static", filename="resources/NibblePoker/css/extra.css") }}">
+
+    {% block extra_stylesheets %}{% endblock %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block head_title %}{% endblock %}</title>
+</head>
+<body class="layout-generic">
+
+<header class="w-full p-m pl-s">
+	<h1 class="t-size-17 t-w-500">
+        {% block header_title %}{% endblock %}
+	</h1>
+	<details id="lang-selector" class="border p-mxs px-s bkgd-blank-dark r-m">
+        <summary>
+            <i class="fad fa-language"></i>
+            <span class="mobile-hide t-w-500">&nbsp;{{ l10n("menu.title", "langs", lang) }}</span>
+            &nbsp;<i class="fa fa-angle-down"></i>
+        </summary>
+
+        <div class="p-xs border bkgd-surround r-m t-w-500">
+            <a href="{{ l10n_url_switch(request_path, "en") }}" class="a-hidden">
+                <p class="mb-s px-xxs">{{ l10n("english", "langs", lang) }}</p>
+            </a>
+            <a href="{{ l10n_url_switch(request_path, "fr") }}" class="a-hidden">
+                <p class="my-s px-xxs">{{ l10n("french", "langs", lang) }}</p>
+            </a>
+            <hr class="subtle m-0">
+            <a href="{{ l10n_url_switch(request_path) }}" class="a-hidden">
+                <p class="mt-xs px-xxs">{{ l10n("automatic", "langs", lang) }}</p>
+            </a>
+        </div>
+    </details>
+</header>
+
+<nav id="sidebar" class="sidebar p-m">
+	<a href="{{ l10n_url_abs('/', raw_lang) }}" class="no-select">
+		<img class="logo-sidebar-v2"
+		     src="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/Logos/v2_full_shaded_optimized.svg"
+		     alt="{{ l10n("logo.alt", "sidebar", lang) }}"
+		     draggable="false">
+	</a>
+    <div class="p-xs"></div>
+    {% for sidebar_entry in get_sidebar_entries() -%}
+        {% if sidebar_entry is not none %}
+            <a class="{% if sidebar_entry_active %}a-bland{% else %}a-hidden{% endif %}"
+                    {% if sidebar_entry.raw_href is not none %}
+               href="{{ sidebar_entry.raw_href }}"
+                    {% elif sidebar_entry.abs_href is not none %}
+               href="{{ l10n_url_abs(sidebar_entry.abs_href, raw_lang) }}"
+                    {% endif %}
+            >
+                <p class="t-size-18 t-w-500 py-xs sidebar-entry">
+                    <i class="{{ sidebar_entry.icon }} pr-xs t-size-12 t-half-muted"></i>
+                    <span class="t-size-12">{{ l10n(sidebar_entry.title_key, "sidebar", lang) }}</span>
+                    {% if sidebar_entry.has_new() %}
+                        <i class="fa-duotone fa-solid fa-sparkles ml-auto t-size-11 t-muted"></i>
+                    {% endif %}
+                </p>
+            </a>
+        {% else %}
+            <hr class="subtle">
+        {% endif %}
+    {% endfor %}
+</nav>
+
+<main id="main" class="rl-m border border-r-0 p-l">
+    {% block main_content %}{% endblock %}
+</main>
+
+<footer class="d-flex flex-align-center w-full p-s py-xs">
+	<button id="sidebar-toggle-footer" class="p-xs border r-s t-size-10" aria-label="{{ l10n("alt.sidebar.button", "footer", lang) }}">
+		<i class="fa fa-bars px-xxs" aria-hidden="true"></i>
+	</button>
+	<p class="flex-fill t-center t-size-10 t-w-500 t-muted">
+		<a class="a-hidden" href="{{ l10n_url_abs('/privacy/', raw_lang) }}">
+            {{ l10n("text.privacy", "footer", lang) }}
+		</a>
+	</p>
+	<a href="{{ l10n_url_abs('/', raw_lang) }}">
+		<img id="logo-footer"
+             src="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/Logos/v2_full_unshaded_original.svg"
+		     alt="{{ l10n("alt.logo", "footer", lang) }}" draggable="false">
+	</a>
+</footer>
+
+{% block extra_scripts %}{% endblock %}
+
+</body>
+</html>

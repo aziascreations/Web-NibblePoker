@@ -1,0 +1,114 @@
+# EN - Privacy
+
+head.title: Politique de confidentialité - NibblePoker
+head.description: Notre politique de confidentialité dans un format clair
+  et compréhensible.
+og.title: NibblePoker - Politique de confidentialité
+og.description: Notre politique de confidentialité dans un format clair et
+  compréhensible.
+header.title: Politique de confidentialité
+introduction.title: Introduction
+introduction.text.1: La politique de confidentialité ci-présente a été écrite
+  en accord avec les articles 12 et 13 de la RGPD.
+introduction.text.2: 'Si vous souhaitez consulter le texte officiel en question,
+  vous pouvez le faire sur les sites internet suivants :'
+contact.title: Comment nous contacter ?
+contact.text.1: 'Si vous souhaitez nous contacter afin d''obtenir plus d''informations
+  concernant notre politique de confidentialité, nous vous recommandons d''utiliser
+  le formulaire présent sur la page de contact, ou par courriel à l''adresse suivante:'
+complaint.title: Comment contacter les autorités compétentes ?
+complaint.text.1: Dans l'éventualité où vous souhaiteriez déposer une plainte
+  pour une quelconque raison en rapport avec notre politique de confidentialité, veuillez
+  vous adresser à l'autorité nationale de protection des données (DPA).
+complaint.text.2: 'Les informations concernant cette procédure peuvent être
+  trouvées sur les sites internet suivants:'
+v2.data.title: Collecte de données (Web)
+v2.data.intro.1: Ce site web collecte des données au travers des journaux
+  d'évènements afin de détecter et bloquer de potentiels acteurs malveillants.
+v2.data.intro.2: Les données collectées ne sont en aucun cas utilisées pour
+  une quelconque autre raison.
+v2.data.private.1: 'Voici la liste des données personnelles collectées:'
+v2.data.private_list.1: L'addresse IP source
+v2.data.private_list.2: Le "User-Agent" de votre navigateur internet
+v2.data.non_private.1: 'Et voici la liste des données non-personnelles collectées:'
+v2.data.non_private_list.1: L'URI de la ressource demandée
+v2.data.non_private_list.2: La date et l'heure
+v2.data.end.1: Les données présentes dans les journaux d'évènements sont extraites
+  et retirées pour être traitées par des applications qui tournent en local toute
+  les 30 à 60 secondes.
+v2.data.end.2: L'application en question utilise et compare ces informations
+  avec une liste d'acteurs malveillants et comportement suspects connus.<br>Si une
+  correspondance est détectée, les informations privées sont stockées pendant 7 jours
+  en attendant qu'un examen manuel soit effectué.
+v2.data.end.3: Après cette période de 7 jours, ou après qu'un examen ait été
+  effectué, les données sont automatiquement supprimées.
+v2.data.end.4: Toute information concernant une requête non suspecte est automatiquement
+  supprimée.
+v2.data.end.5: Ce processus n'est normalement jamais utilisé sur des requêtes
+  provenant d'un trafic légitime dû au fait qu'il isole principalement les actions
+  et requêtes qui ne devraient pas être possible sur ce site.
+v2.data.end.6: Cependant, ce processus n'est pas infaillible et il est toujours
+  possible qu'une requête soit isolée par erreur.
+v2.data_dns.title: Collecte de données (DNS)
+v2.data_dns.intro.1: Nos serveurs <abbr title="Service de nom de domaine">DNS</abbr>
+  collectent des données au travers des journaux d'évènements afin de détecter et
+  bloquer de potentiels acteurs malveillants.
+v2.data_dns.intro.2: Les données collectées ne sont en aucun cas utilisées
+  pour une quelconque autre raison.
+v2.data_dns.private.1: 'Voici la liste des données personnelles collectées:'
+v2.data_dns.private_list.1: L'addresse IP source
+v2.data_dns.non_private.1: 'Et voici la liste des données non-personnelles
+  collectées:'
+v2.data_dns.non_private_list.1: L'enregistrement DNS demandée
+v2.data_dns.non_private_list.2: La date et l'heure
+v2.data_dns.end.1: Toutes les données personnelles sont automatiquement supprimées
+  après une période de 7 jours.
+v2.update.title: Changements à notre politique de confidentialité
+v2.update.intro.1: Le contenu de notre politique de confidentialité a été
+  originalement écrit et le 4 décembre 2021 modifié pour la dernière fois le 18 mars
+  2022.
+v2.update.history.1.date: 2021/12/04
+v2.update.history.1.desc.1: Version originale
+v2.update.history.2.date: 2022/03/18
+v2.update.history.2.desc.1: Mise-à-jour de la section sur la collection des
+  données.
+v2.update.history.2.desc.2: Ajout d'une mention de CloudFlare et ajout de
+  liens vers leur politique de confidentialité.
+v2.update.history.2.desc.3: Amélioration de la section <i>"Changements à notre
+  politique de confidentialité"</i>.
+v2.update.history.3.date: 2022/09/09
+v2.update.history.3.desc.1: Changement des références aux services externes
+  pour indiquer l'utilisation de v6Node.
+v2.update.history.3.desc.1.1: Ajout de mentions de v6Node et liens vers leur
+  politique de vie confidentialité.
+v2.update.history.3.desc.1.2: Suppression de mentions de CloudFlare.
+v2.update.history.3.desc.2: Changement de la section "Cookies" afin d'indiquer
+  qu'ils ne seront plus utilisés sur les domaines publics.
+v2.update.history.4.date: 2023/11/11
+v2.update.history.4.desc.1: Changement des références aux services externes
+  pour indiquer l'utilisation de IONOS.
+v2.update.history.4.desc.1.1: Suppression de mentions de v6Node.
+v2.update.history.4.desc.2: Changement des temps de traitement et mentions
+  de l'infrastructure dans la section <i>"Changements à notre politique de confidentialité"</i>.
+v2.update.history.5.date: 2023/11/30
+v2.update.history.5.desc.1: Ajout de la section sur la collection des données
+  par le serveur DNS.
+v2.update.history.5.desc.2: Changement des références aux services externes
+  pour indiquer l'utilisation de ChicagoVPS.
+v2.update.end.2: En cas de changement, vous serez clairement informé et une
+  copie des anciennes versions de notre politique sera disponible au travers de cette
+  page.
+v2.third.title: Organismes tiers
+v2.third.intro.1: Ce site web utilise des <abbr title="Serveur privé virtuel">VPS</abbr>
+  proposés par IONOS et ChicagoVPS dans le but de mettre en place un système de <abbr
+  title="Réseau de diffusion de contenu (CDN)">RDC</abbr>.
+v2.third.intro.2: Ceci a pour but d'améliorer l'expérience des personnes le
+  visitant grâce à un système de filtrage et caching privé.
+v2.third.intro.3: Due à la nature des serveurs loués, aucune donnée ne devraient
+  être collectées de leur côté.
+v2.third.intro.4: 'Si vous souhaitez consulter leur politique de confidentialité
+  ainsi que celle de leur partenaires, vous pouvez le faire en suivant les liens ci-dessous:'
+v2.cookies.title: Cookies de navigation
+v2.cookies.intro.1: Ce site web n'utilise pas, et ne stocke aucun cookies
+  dans votre navigateur internet.
+

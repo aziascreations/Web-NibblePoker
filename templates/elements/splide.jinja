@@ -1,0 +1,9 @@
+<section class="splide border bkgd-math r-s">
+    <div class="splide__track r-s">
+        <ul class="splide__list">
+            {% for inner_html_pane in splide_inner_html_panes %}
+                <li class="splide__slide">{{ inner_html_pane }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

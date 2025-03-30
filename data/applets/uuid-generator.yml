@@ -1,0 +1,7 @@
+applets:
+  - id: "web-usb-test"
+    resources:
+      scripts:
+        - "applet://web-usb-test.mjs"
+      stylesheets:
+        - "applet://web-usb-test.css"

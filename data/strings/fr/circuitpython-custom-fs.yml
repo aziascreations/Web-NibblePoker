@@ -1,0 +1,20 @@
+# FR - CircuitPython Custom FS
+
+meta.title: CircuitPython - Systèmes de fichier perso.
+meta.description: "Collection d'exemples de systèmes de fichiers personnalisés et de périphériques de bloc pour
+CircuitPython pouvant être utilisés à des fins éducatives ou d'autres développements."
+
+intro.title: Introduction
+intro.text.10: "Le but de cette expérience était de fournir un point de départ solide, clair et documenté pour
+  de futures expériences nécessitant des systèmes de fichiers virtuels, ou des périphériques de bloc sur
+  des appareils utilisant CircuitPython."
+intro.text.20: "Par exemple, en utilisant les exemples modèles, il est possible de créer facilement un code de
+  démarrage et un système de fichiers qui vont connecter de manière sécurisée à un serveur distant, et y récupérer
+  directement du code sans jamais avoir à toucher à la mémoire flash du MCU."
+intro.text.30: "Le deuxième avantage majeur est que ce projet peut servir d'outil éducatif."
+intro.text.31: "En effet, les APIs extrêmement permissives de Python et CircuitPython permettent à leurs
+  utilisateurs de tester facilement différents designs et mécanismes pour leurs systèmes de fichiers sans risquer
+  de corrompre des données ou de rendre leur appareil inutilisable."
+intro.text.32: "De plus, vous pouvez très facilement ajouter des messages de débogage et manipuler plusieurs
+  méthodes, ce qui permet de voir et de comprendre le fonctionnement interne de CircuitPython, des systèmes de
+  fichiers et des périphériques de bloc en eux-mêmes."

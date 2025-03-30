@@ -1,0 +1,68 @@
+{% if standalone %}
+    {% extends "base_standalone.jinja" %}
+{% else %}
+    {% extends "base_www.jinja" %}
+{% endif %}
+
+{% block head_title %}{{ l10n("head.title", "links", user_lang) }}{% endblock %}
+{% block head_description %}{{ l10n("head.title", "links", user_lang) }}{% endblock %}
+
+{% block header_title %}
+    <i class="fad fa-link t-size-16 mr-s t-muted"></i>{{ l10n("header.title", "links", user_lang) }}
+{% endblock %}
+
+{% block main_content %}
+    {{ render_h1(l10n("social.title", "links", user_lang )) }}
+
+    <p class="mt-s ml-s t-w-600 t-size-12">
+        <i class="fab fa-twitter mr-xs"></i>
+        <a href="https://twitter.com/NibblePoker">{{ l10n("twitter.title", "links", user_lang ) }}</a>
+    </p>
+    <p class="mt-xxs ml-l">{{ l10n("twitter.text.1", "links", user_lang ) }}</p>
+
+    <p class="mt-s ml-s t-w-600 t-size-12">
+        <i class="fab fa-github mr-xs"></i>
+        <a href="https://github.com/aziascreations">{{ l10n("github.title", "links", user_lang ) }}</a>
+    </p>
+    <p class="mt-xxs ml-l">{{ l10n("github.text.1", "links", user_lang ) }}</p>
+
+    <p class="mt-s ml-s t-w-600 t-size-12">
+        <i class="fab fa-github mr-xs"></i>
+        <a href="https://github.com/NibblePoker">{{ l10n("github_pro.title", "links", user_lang ) }}</a>
+    </p>
+    <p class="mt-xxs ml-l">{{ l10n("github_pro.text.1", "links", user_lang ) }}</p>
+
+
+    {{ render_h1(l10n("work.title", "links", user_lang )) }}
+
+    <p class="mt-s ml-s t-w-600 t-size-12">
+        <i class="fab fa-linkedin mr-xs"></i>
+        <a href="https://www.linkedin.com/in/herwin-bozet/">{{ l10n("linkedin.title", "links", user_lang ) }}</a>
+    </p>
+    <p class="mt-xxs ml-l">{{ l10n("linkedin.text.1", "links", user_lang ) }}</p>
+
+
+    {{ render_h1(l10n("misc.title", "links", user_lang )) }}
+
+    <p class="mt-s ml-s t-w-600 t-size-12">
+        <i class="fad fa-download mr-xs"></i>
+        <a href="https://files.nibblepoker.lu/">{{ l10n("files.title", "links", user_lang ) }}</a>
+    </p>
+    <p class="mt-xxs ml-l">{{ l10n("files.text.1", "links", user_lang ) }}</p>
+
+    <p class="mt-s ml-s t-w-600 t-size-12">
+        <i class="fad fa-archive mr-xs"></i>
+        <a href="https://archives.nibblepoker.lu/">{{ l10n("archives.title", "links", user_lang ) }}</a>
+    </p>
+    <p class="mt-xxs ml-l">{{ l10n("archives.text.1", "links", user_lang ) }}</p>
+
+    <p class="mt-s ml-s t-w-600 t-size-12">
+        <i class="fa-duotone fa-code-branch mr-xs"></i>
+        <a href="https://git.nibblepoker.lu/">{{ l10n("gitea.title", "links", user_lang ) }}</a>
+    </p>
+    <p class="mt-xxs ml-l">{{ l10n("gitea.text.1", "links", user_lang ) }}</p>
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{{ url_for("static", filename="resources/NibblePoker/js/nibblepoker-default.min.js") }}"></script>
+{% endblock %}

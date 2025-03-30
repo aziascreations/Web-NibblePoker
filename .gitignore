@@ -1,50 +1,17 @@
-# IDE-related folders
+# IDEs
+.vs/
 .idea/
 
-# Node.JS
-node_modules/
-package-lock.json
-scripts/node_modules/
-scripts/package-lock.json
-
-# Static resources
-resources/DecimalJs/
-resources/DecimalJsLight/
-resources/ExtGraphics/
-resources/FontAwesomePro/
-resources/PlotlyJs/
-
-# Article drafts
-articles/drafts/
-
-# Compiled Stuff
-*.min.php
-*.min.js
-commons/strings.json
-content/index.json
-resources/NibblePoker/css/*.css
-tools/items/formula-wizard/*.js
-tools/items/formula-wizard/src/*.js
-
 # Build artifacts
-build*.7z
+__pycache__/
 
-# ???
-# Source: https://github.com/sjmulder/nbt-js
-tools/items/mc-art-viewer/nbt.js
+# NodeJS' BS
+node_modules/
 
-# Others
+# Internal stuff
 *.pdn
-*.min.json
-*.lnk
-*.map
-*.bak
-*.exe
-*.url
-*.sqlite
-*.conf
-*.pyc
+*.ai
 
-# Temporary
-articles/*.txt
-meow*.ogg
+# Temp
+static/resources/SortableJS
+static/resources/Standalone

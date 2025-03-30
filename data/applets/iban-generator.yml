@@ -1,0 +1,7 @@
+applets:
+  - id: "iban-generator"
+    resources:
+      scripts:
+        - "applet://iban-generator.mjs"
+      stylesheets:
+        - "applet://iban-generator.css"

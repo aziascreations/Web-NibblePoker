@@ -1,0 +1,17 @@
+# EN - UUID Generator
+
+meta.title: "UUID Generator"
+
+type.label: "UUID Type"
+
+type.uuid4: "UUID4 / GUID4"
+
+option.count: "UUID Count"
+option.hyphen: "Add hyphens"
+option.guid_brackets: "Add GUID brackets"
+
+generate: "Generate"
+
+download.raw: "Raw"
+download.json: "JSON"
+download.yaml: "YAML"

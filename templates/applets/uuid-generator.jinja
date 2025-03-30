@@ -1,0 +1,44 @@
+<label for="uuid-generator-option-type" class="mr-xs">{{ l10n("type.label", "uuid-generator", user_lang) }}:</label>
+<select name="uuid-generator-option-type" id="uuid-generator-option-type" class="p-xxs border r-s">
+    <option value="type-uuid4" selected>{{ l10n("type.uuid4", "uuid-generator", user_lang) }}</option>
+    <!--<option value="type-guid">{{ l10n("type.guid", "uuid-generator", user_lang) }}</option>-->
+</select>
+
+<br>
+
+<label for="uuid-generator-option-count" class="mr-xs">{{ l10n("option.count", "uuid-generator", user_lang) }}:</label>
+<input id="uuid-generator-option-count" class="p-xxs border r-s" type="number" value="4" min="1" max="1000">
+
+<br>
+
+<label for="uuid-generator-option-hyphens" class="mr-xxs">{{ l10n("option.hyphen", "uuid-generator", user_lang) }}:</label>
+<input id="uuid-generator-option-hyphens" class="r-m border" type="checkbox" checked>
+
+<br>
+
+<label for="uuid-generator-option-guid-brackets" class="mr-xxs">{{ l10n("option.guid_brackets", "uuid-generator", user_lang) }}:</label>
+<input id="uuid-generator-option-guid-brackets" class="r-m border" type="checkbox">
+
+<hr class="subtle">
+
+<button id="uuid-generator-generate" class="p-xs r-s border b-light success">
+    <i class="fa-duotone fa-solid fa-gears mr-xs"></i>{{ l10n("action.generate", "commons", user_lang) }}
+</button>
+
+<button class="p-xs r-s border b-light primary rr-0 br-0">
+    <i class="fa-duotone fa-solid fa-download"></i>
+</button>
+<button id="uuid-generator-download-raw" class="p-xs r-s border b-light primary ml-0 r-0 br-0">
+    {{ l10n("format.raw", "commons", user_lang) }}
+</button>
+<button id="uuid-generator-download-json" class="p-xs r-s border b-light primary ml-0 r-0 br-0">
+    {{ l10n("format.json", "commons", user_lang) }}
+</button>
+<button id="uuid-generator-download-yaml" class="p-xs r-s border b-light primary ml-0 rl-0">
+    {{ l10n("format.yaml", "commons", user_lang) }}
+</button>
+
+<hr class="subtle">
+
+<label for="uuid-generator-preview" class="d-none">{{ l10n("preview.label", "uuid-generator", user_lang) }}:</label>
+<textarea name="uuid-generator-preview" id="uuid-generator-preview" rows="16" class="w-full border r-s ta-resize-v"></textarea>
