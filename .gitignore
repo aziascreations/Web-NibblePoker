@@ -4,6 +4,7 @@
 
 # Build artifacts
 __pycache__/
+*.tar
 
 # NodeJS' BS
 node_modules/
