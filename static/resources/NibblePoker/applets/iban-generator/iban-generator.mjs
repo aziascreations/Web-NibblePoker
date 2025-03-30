@@ -119,6 +119,9 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
             }
 
             targetSpecs.forEach(spec => {
+                if((spec.isSepa && !eOptionEnableSepa.checked) || (!spec.isSepa && !eOptionEnableNonSepa.checked)) {
+                    return;
+                }
                 for(let i = 0; i < desiredCount; i++) {
                     if(prettyIban) {
                         lastIBANs.push(
