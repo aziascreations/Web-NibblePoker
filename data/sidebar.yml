@@ -6,13 +6,13 @@
 
 -
 
-- title_key: text.articles
-  abs_href: "/articles/"
-  icon: fad fa-newspaper
-  active_id: articles
-  has_new_until_utc: 0
-
--
+#- title_key: text.articles
+#  abs_href: "/articles/"
+#  icon: fad fa-newspaper
+#  active_id: articles
+#  has_new_until_utc: 0
+#
+#-
 
 - title_key: text.applications
   abs_href: "/content/?tags=application;web"

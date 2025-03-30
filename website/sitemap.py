@@ -13,11 +13,15 @@ def reload_sitemap_entries(definition_file: str) -> None:
     with open(definition_file, 'r') as f:
         raw_sitemap_entries = yaml.safe_load(f)
 
-    for sitemap_entry in raw_sitemap_entries:
-        __SITEMAP_ENTRIES.append(sitemap_entry)
-
-        for allowed_lang in ALLOWED_LANGS:
-            __SITEMAP_ENTRIES.append(("/" + allowed_lang + "/" + sitemap_entry).replace("//", "/"))
+    for allowed_lang in [""] + ALLOWED_LANGS:
+        for sitemap_entry in raw_sitemap_entries:
+            __SITEMAP_ENTRIES.append(
+                ("/" + str(allowed_lang) + "/" + str(sitemap_entry))
+                .replace("//", "/")
+                .replace("//", "/")
+            )
+            # __SITEMAP_ENTRIES.append(sitemap_entry)
+            # for allowed_lang in ALLOWED_LANGS:
 
 
 def get_sitemap_entries() -> list[str]:

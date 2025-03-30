@@ -16,7 +16,10 @@
         <i class="fad fa-briefcase t-size-16 mr-s t-muted"></i><a href="../" class="a-hidden">{{ l10n("header.root", "projects", user_lang) }}</a>
         <span class="mobile-hide"><span class="mx-s t-size-15">❱</span>{{ l10n(tool_data.metadata.general.title_key, tool_id, user_lang) }}</span>
     {% else %}
-        <span class="mobile-hide">NibblePoker<span class="mx-s t-size-15">❱</span></span>{{ l10n(tool_data.metadata.general.title_key, tool_id, user_lang) }}
+        {% if not is_brandless %}
+            <span class="mobile-hide">NibblePoker<span class="mx-s t-size-15">❱</span></span>
+        {% endif %}
+        {{ l10n(tool_data.metadata.general.title_key, tool_id, user_lang) }}
     {% endif %}
 {% endblock %}
 

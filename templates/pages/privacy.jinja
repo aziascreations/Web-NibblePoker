@@ -13,170 +13,177 @@
 
 {% block main_content %}
 
-    {{ render_h1(l10n("introduction.title", "privacy", user_lang), "fad fa-info") }}
-    {{ render_paragraph(l10n("introduction.text.1", "privacy", user_lang)) }}
-    {{ render_paragraph(l10n("introduction.text.2", "privacy", user_lang) +
-        '<br><i class="fad fa-globe ml-s t-size-8"></i>
-        <a href="https://gdpr.eu/privacy-notice/" class="ml-xs">https://gdpr.eu/</a><br>
-        <i class="fad fa-globe ml-s t-size-8"></i>
-        <a href="https://eur-lex.europa.eu/legal-content/ALL/?uri=CELEX%3A32016R0679" class="ml-xs">https://eur-lex.europa.eu/</a>')}}
+    <section>
+        {{ render_h1(l10n("introduction.title", "privacy", user_lang), "fad fa-info") }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("introduction.text.1", "privacy", user_lang)) }}
+            {{ render_paragraph(l10n("introduction.text.2", "privacy", user_lang) +
+                '<br><i class="fad fa-globe ml-s t-size-8"></i>
+                <a href="https://gdpr.eu/privacy-notice/" class="ml-xs">https://gdpr.eu/</a><br>
+                <i class="fad fa-globe ml-s t-size-8"></i>
+                <a href="https://eur-lex.europa.eu/legal-content/ALL/?uri=CELEX%3A32016R0679" class="ml-xs">https://eur-lex.europa.eu/</a>')}}
+        </div>
+    </section>
 
 
-    {{ render_h1(l10n("v2.data.title", "privacy", user_lang), "fad fa-database") }}
-    {{ render_paragraph(l10n("v2.data.intro.1", "privacy", user_lang) +
-        '<br>' + l10n("v2.data.intro.2", "privacy", user_lang)) }}
-    {{ render_paragraph(l10n('v2.data.private.1', "privacy", user_lang) +
-            render_list_ul([
-                l10n('v2.data.private_list.1', "privacy", user_lang),
-                l10n('v2.data.private_list.2', "privacy", user_lang),
-            ])
-    ) }}
-    {{ render_paragraph(l10n('v2.data.non_private.1', "privacy", user_lang) +
-        '<ul><li>' + l10n('v2.data.non_private_list.1', "privacy", user_lang) +
-        '</li><li>' + l10n('v2.data.non_private_list.2', "privacy", user_lang) +
-        '</li></ul>') }}
-    {{ render_paragraph(l10n("v2.data.end.1", "privacy", user_lang)) }}
-    {{ render_paragraph(l10n("v2.data.end.2", "privacy", user_lang) +
-        '<br>' + l10n("v2.data.end.3", "privacy", user_lang)) }}
-    {{ render_paragraph(l10n("v2.data.end.4", "privacy", user_lang)) }}
-    {{ render_paragraph(l10n("v2.data.end.5", "privacy", user_lang) +
-        '<br>' + l10n("v2.data.end.6", "privacy", user_lang)) }}
+    <section>
+        {{ render_h1(l10n("v2.data.title", "privacy", user_lang), "fad fa-database") }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("v2.data.intro.1", "privacy", user_lang) +
+                '<br>' + l10n("v2.data.intro.2", "privacy", user_lang)) }}
+            {{ render_paragraph(l10n('v2.data.private.1', "privacy", user_lang) +
+                    render_list_ul([
+                        l10n('v2.data.private_list.1', "privacy", user_lang),
+                        l10n('v2.data.private_list.2', "privacy", user_lang),
+                    ])
+            ) }}
+            {{ render_paragraph(l10n('v2.data.non_private.1', "privacy", user_lang) +
+                '<ul><li>' + l10n('v2.data.non_private_list.1', "privacy", user_lang) +
+                '</li><li>' + l10n('v2.data.non_private_list.2', "privacy", user_lang) +
+                '</li></ul>') }}
+            {{ render_paragraph(l10n("v2.data.end.1", "privacy", user_lang)) }}
+            {{ render_paragraph(l10n("v2.data.end.2", "privacy", user_lang) +
+                '<br>' + l10n("v2.data.end.3", "privacy", user_lang)) }}
+            {{ render_paragraph(l10n("v2.data.end.4", "privacy", user_lang)) }}
+            {{ render_paragraph(l10n("v2.data.end.5", "privacy", user_lang) +
+                '<br>' + l10n("v2.data.end.6", "privacy", user_lang)) }}
+        </div>
+    </section>
 
 
-    {{ render_h1(l10n("v2.data_dns.title", "privacy", user_lang), "fad fa-database") }}
-    {{ render_paragraph(l10n("v2.data_dns.intro.1", "privacy", user_lang) +
-        '<br>' + l10n("v2.data_dns.intro.2", "privacy", user_lang)) }}
-    {{ render_paragraph(l10n('v2.data_dns.private.1', "privacy", user_lang) +
-        '<ul><li>' + l10n('v2.data_dns.private_list.1', "privacy", user_lang) +
-        '</li></ul>') }}
-    {{ render_paragraph(l10n('v2.data_dns.non_private.1', "privacy", user_lang) +
-        '<ul><li>' + l10n('v2.data_dns.non_private_list.1', "privacy", user_lang) +
-        '</li><li>' + l10n('v2.data_dns.non_private_list.2', "privacy", user_lang) +
-        '</li></ul>') }}
-    {{ render_paragraph(l10n("v2.data_dns.end.1", "privacy", user_lang)) }}
+    <section>
+        {{ render_h1(l10n("v2.data_dns.title", "privacy", user_lang), "fad fa-database") }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("v2.data_dns.intro.1", "privacy", user_lang) +
+                '<br>' + l10n("v2.data_dns.intro.2", "privacy", user_lang)) }}
+
+            {{ render_paragraph(l10n('v2.data_dns.private.1', "privacy", user_lang)) }}
+            {{ render_list_ul([
+                l10n('v2.data_dns.private_list.1', "privacy", user_lang)
+            ]) }}
+
+            {{ render_paragraph(l10n('v2.data_dns.non_private.1', "privacy", user_lang)) }}
+            {{ render_list_ul([
+                l10n('v2.data_dns.non_private_list.1', "privacy", user_lang),
+                l10n('v2.data_dns.non_private_list.2', "privacy", user_lang)
+            ]) }}
+
+            {{ render_paragraph(l10n("v2.data_dns.end.1", "privacy", user_lang)) }}
+        </div>
+    </section>
 
 
-    {{ render_h1(l10n("v2.third.title", "privacy", user_lang), "fad fa-handshake") }}
-    {{ render_paragraph(l10n("v2.third.intro.1", "privacy", user_lang) +
-        '<br>' + l10n("v2.third.intro.2", "privacy", user_lang)) }}
-    {{ render_paragraph(l10n("v2.third.intro.3", "privacy", user_lang)) }}
-    {{ render_paragraph(l10n('v2.third.intro.4', "privacy", user_lang) +
-        '<br><i class="fad fa-globe ml-s t-size-8"></i>IONOS' +
-        '<a class="ml-s" href="https://www.ionos.fr/terms-gtc/clause-de-confidentialite/">' +
-        l10n('french', "langs", user_lang) + '</a>' +
-        '<a class="ml-s" href="https://www.ionos.com/terms-gtc/privacy-policy/">' +
-        l10n('english', "langs", user_lang) + '</a>' +
-        '<br><i class="fad fa-globe ml-s t-size-8"></i>ChicagoVPS' +
-        '<a class="ml-s" href="https://www.chicagovps.net/wp-content/uploads/2023/07/Terms-and-Conditions-ChicagoVPS.pdf">' +
-        l10n('english', "langs", user_lang) + '</a>') }}
+    <section>
+        {{ render_h1(l10n("v2.third.title", "privacy", user_lang), "fad fa-handshake") }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("v2.third.intro.1", "privacy", user_lang) +
+                '<br>' + l10n("v2.third.intro.2", "privacy", user_lang)) }}
+            {{ render_paragraph(l10n("v2.third.intro.3", "privacy", user_lang)) }}
+            {{ render_paragraph(l10n('v2.third.intro.4', "privacy", user_lang) +
+                '<br><i class="fad fa-globe ml-s t-size-8 mr-xs"></i>IONOS' +
+                '<a class="ml-s" href="https://www.ionos.fr/terms-gtc/clause-de-confidentialite/">' +
+                l10n('french', "langs", user_lang) + '</a>' +
+                '<a class="ml-s" href="https://www.ionos.com/terms-gtc/privacy-policy/">' +
+                l10n('english', "langs", user_lang) + '</a>' +
+                '<br><i class="fad fa-globe ml-s t-size-8 mr-xs"></i>ChicagoVPS' +
+                '<a class="ml-s" href="https://www.chicagovps.net/wp-content/uploads/2023/07/Terms-and-Conditions-ChicagoVPS.pdf">' +
+                l10n('english', "langs", user_lang) + '</a>') }}
+        </div>
+    </section>
 
 
-    {{ render_h1(l10n("v2.cookies.title", "privacy", user_lang), "fad fa-cookie-bite") }}
-    {{ render_paragraph(l10n("v2.cookies.intro.1", "privacy", user_lang)) }}
-
-    <!--printMainHeader(l10n("v2.personal.title"), "fad fa-fist-raised")
-	<p class="mt-xs ml-s">
-		print(l10n('v2.personal.disabled.intro'))
-		<br>
-		<span class="ml-s">
-			<i class="fad fa-circle t-size-6"></i>&nbsp&nbsp print(l10n('v2.personal.disabled.list.1'))
-		</span>
-		<br>
-		<span class="ml-s">
-			<i class="fad fa-circle t-size-6"></i>&nbsp&nbsp print(l10n('v2.personal.disabled.list.2'))
-		</span>
-		<br>
-		<span class="ml-s">
-			<i class="fad fa-circle t-size-6"></i>&nbsp&nbsp print(l10n('v2.personal.disabled.list.3'))
-		</span>
-	</p>
-	<p class="mt-s ml-s">
-		print(l10n('v2.personal.tracking.text.1'))<br>
-		print(l10n('v2.personal.tracking.text.2'))<br>
-		print(l10n('v2.personal.tracking.text.3'))
-	</p>
-	<p class="mt-s ml-s">
-		print(l10n('v2.personal.transparency.text.1'))
-	</p>
-	<p class="mt-s ml-s">
-		print(l10n('v2.personal.recommendations'))
-		<br>
-		<i class="fad fa-globe ml-s t-size-8"></i>
-		<a href="https://www.enisa.europa.eu/publications/privacy-considerations-of-online-behavioural-tracking">https://www.enisa.europa.eu/publications/privacy-considerations-of-online-behavioural-tracking</a>
-		<span class="ml-s">(print(l10n('english')))</span>
-	</p>-->
-
-	{{ render_h1(l10n("v2.update.title", "privacy", user_lang), "fad fa-sync-alt") }}
-    {{ render_paragraph(l10n("v2.update.intro.1", "privacy", user_lang)) }}
-    {{ render_paragraph('<i class="fad fa-calendar-alt"></i>' + l10n("v2.update.history.1.date", "privacy", user_lang) +
-        '<span class="ml-l"><i class="fad fa-globe t-size-8"></i><a href="/privacy/privacy_2021-12-04_en.txt">' +
-        l10n('english', "langs", user_lang) + '</a></span>' +
-        '<span class="ml-l"><i class="fad fa-globe t-size-8"></i><a href="/privacy/privacy_2021-12-04_fr.txt">' +
-        l10n('french', "langs", user_lang) + '</a></span>' +
-        '<br><ul>' +
-        '<li>' + l10n('v2.update.history.1.desc.1', "privacy", user_lang) + '</li>' +
-        '</ul>' )}}
-    {{ render_paragraph('<i class="fad fa-calendar-alt"></i>' + l10n("v2.update.history.2.date", "privacy", user_lang) +
-        '<span class="ml-l"><i class="fad fa-globe t-size-8"></i><a href="/privacy/privacy_2022-03-18_en.txt">' +
-        l10n('english', "langs", user_lang) + '</a></span>' +
-        '<span class="ml-l"><i class="fad fa-globe t-size-8"></i><a href="/privacy/privacy_2022-03-18_fr.txt">' +
-        l10n('french', "langs", user_lang) + '</a></span>' +
-        '<br><ul>' +
-        '<li>' + l10n('v2.update.history.2.desc.1', "privacy", user_lang) + '</li>' +
-        '<li>' + l10n('v2.update.history.2.desc.2', "privacy", user_lang) + '</li>' +
-        '<li>' + l10n('v2.update.history.2.desc.3', "privacy", user_lang) + '</li>' +
-        '</ul>' )}}
-    {{ render_paragraph('<i class="fad fa-calendar-alt"></i>' + l10n("v2.update.history.3.date", "privacy", user_lang) +
-        '<span class="ml-l"><i class="fad fa-globe t-size-8"></i><a href="/privacy/privacy_2022-09-09_en.txt">' +
-        l10n('english', "langs", user_lang) + '</a></span>' +
-        '<span class="ml-l"><i class="fad fa-globe t-size-8"></i><a href="/privacy/privacy_2022-09-09_fr.txt">' +
-        l10n('french', "langs", user_lang) + '</a></span>' +
-        '<br><ul>' +
-        '<li>' + l10n('v2.update.history.3.desc.1', "privacy", user_lang) + '</li>' +
-        '<li><ul>' +
-        '<li>' + l10n('v2.update.history.3.desc.1.1', "privacy", user_lang) + '</li>' +
-        '<li>' + l10n('v2.update.history.3.desc.1.2', "privacy", user_lang) + '</li>' +
-        '</ul></li>' +
-        '<li>' + l10n('v2.update.history.3.desc.2', "privacy", user_lang) + '</li>' +
-        '</ul>' )}}
-    {{ render_paragraph('<i class="fad fa-calendar-alt"></i>' + l10n("v2.update.history.4.date", "privacy", user_lang) +
-        '<span class="ml-l"><i class="fad fa-globe t-size-8"></i><a href="/privacy/privacy_2023-11-11_en.txt">' +
-        l10n('english', "langs", user_lang) + '</a></span>' +
-        '<span class="ml-l"><i class="fad fa-globe t-size-8"></i><a href="/privacy/privacy_2023-11-11_fr.txt">' +
-        l10n('french', "langs", user_lang) + '</a></span>' +
-        '<br><ul>' +
-        '<li>' + l10n('v2.update.history.4.desc.1', "privacy", user_lang) + '</li>' +
-        '<li><ul>' +
-        '<li>' + l10n('v2.update.history.4.desc.1.1', "privacy", user_lang) + '</li>' +
-        '</ul></li>' +
-        '<li>' + l10n('v2.update.history.4.desc.2', "privacy", user_lang) + '</li>' +
-        '</ul>' )}}
-    {{ render_paragraph('<i class="fad fa-calendar-alt"></i>' + l10n("v2.update.history.5.date", "privacy", user_lang) +
-        '<span class="ml-l"><i class="fad fa-globe t-size-8"></i><a href="/privacy/privacy_2023-11-30_en.txt">' +
-        l10n('english', "langs", user_lang) + '</a></span>' +
-        '<span class="ml-l"><i class="fad fa-globe t-size-8"></i><a href="/privacy/privacy_2023-11-30_fr.txt">' +
-        l10n('french', "langs", user_lang) + '</a></span>' +
-        '<br><ul>' +
-        '<li>' + l10n('v2.update.history.5.desc.1', "privacy", user_lang) + '</li>' +
-        '<li>' + l10n('v2.update.history.5.desc.2', "privacy", user_lang) + '</li>' +
-        '</ul>' )}}
-    {{ render_paragraph(l10n("v2.update.end.2", "privacy", user_lang)) }}
+    <section>
+        {{ render_h1(l10n("v2.cookies.title", "privacy", user_lang), "fad fa-cookie-bite") }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("v2.cookies.intro.1", "privacy", user_lang)) }}
+        </div>
+    </section>
 
 
-	{{ render_h1(l10n("contact.title", "privacy", user_lang), "fad fa-mailbox") }}
-    {{ render_paragraph(l10n("contact.text.1", "privacy", user_lang) +
-        '<br><i class="fad fa-at t-size-8 ml-s"></i><a class="ml-xs" href="mailto:herwin.bozet@gmail.com">herwin.bozet@gmail.com</a>') }}
+    <section>
+	    {{ render_h1(l10n("v2.update.title", "privacy", user_lang), "fad fa-sync-alt") }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("v2.update.intro.1", "privacy", user_lang)) }}
+            {{ render_paragraph('<i class="fad fa-calendar-alt mr-xs"></i>' + l10n("v2.update.history.1.date", "privacy", user_lang) +
+                '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/privacy/privacy_2021-12-04_en.txt">' +
+                l10n('english', "langs", user_lang) + '</a></span>' +
+                '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/privacy/privacy_2021-12-04_fr.txt">' +
+                l10n('french', "langs", user_lang) + '</a></span>' )}}
+            {{ render_list_ul([
+                l10n('v2.update.history.1.desc.1', "privacy", user_lang)
+            ]) }}
+
+            {{ render_paragraph('<i class="fad fa-calendar-alt mr-xs"></i>' + l10n("v2.update.history.2.date", "privacy", user_lang) +
+                '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/privacy/privacy_2022-03-18_en.txt">' +
+                l10n('english', "langs", user_lang) + '</a></span>' +
+                '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/privacy/privacy_2022-03-18_fr.txt">' +
+                l10n('french', "langs", user_lang) + '</a></span>' )}}
+            {{ render_list_ul([
+                l10n('v2.update.history.2.desc.1', "privacy", user_lang),
+                l10n('v2.update.history.2.desc.2', "privacy", user_lang),
+                l10n('v2.update.history.2.desc.3', "privacy", user_lang)
+            ]) }}
+
+            {{ render_paragraph('<i class="fad fa-calendar-alt mr-xs"></i>' + l10n("v2.update.history.3.date", "privacy", user_lang) +
+                '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/privacy/privacy_2022-09-09_en.txt">' +
+                l10n('english', "langs", user_lang) + '</a></span>' +
+                '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/privacy/privacy_2022-09-09_fr.txt">' +
+                l10n('french', "langs", user_lang) + '</a></span>' )}}
+            {{ render_list_ul([
+                l10n('v2.update.history.3.desc.1', "privacy", user_lang),
+                l10n('v2.update.history.3.desc.1.1', "privacy", user_lang),
+                l10n('v2.update.history.3.desc.1.2', "privacy", user_lang),
+                l10n('v2.update.history.3.desc.2', "privacy", user_lang)
+            ]) }}
+
+            {{ render_paragraph('<i class="fad fa-calendar-alt mr-xs"></i>' + l10n("v2.update.history.4.date", "privacy", user_lang) +
+                '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/privacy/privacy_2023-11-11_en.txt">' +
+                l10n('english', "langs", user_lang) + '</a></span>' +
+                '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/privacy/privacy_2023-11-11_fr.txt">' +
+                l10n('french', "langs", user_lang) + '</a></span>' )}}
+            {{ render_list_ul([
+                l10n('v2.update.history.4.desc.1', "privacy", user_lang),
+                l10n('v2.update.history.4.desc.1.1', "privacy", user_lang),
+                l10n('v2.update.history.4.desc.2', "privacy", user_lang)
+            ]) }}
+
+            {{ render_paragraph('<i class="fad fa-calendar-alt mr-xs"></i>' + l10n("v2.update.history.5.date", "privacy", user_lang) +
+                '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/privacy/privacy_2023-11-30_en.txt">' +
+                l10n('english', "langs", user_lang) + '</a></span>' +
+                '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/privacy/privacy_2023-11-30_fr.txt">' +
+                l10n('french', "langs", user_lang) + '</a></span>' )}}
+            {{ render_list_ul([
+                l10n('v2.update.history.5.desc.1', "privacy", user_lang),
+                l10n('v2.update.history.5.desc.2', "privacy", user_lang)
+            ]) }}
+
+            {{ render_paragraph(l10n("v2.update.end.2", "privacy", user_lang)) }}
+        </div>
+    </section>
 
 
-	{{ render_h1(l10n("complaint.title", "privacy", user_lang), "fad fa-gavel") }}
-    {{ render_paragraph(l10n("complaint.text.1", "privacy", user_lang)) }}
-    {{ render_paragraph(l10n('complaint.text.2', "privacy", user_lang) +
-        '<br><i class="fad fa-globe ml-s t-size-8"></i>' +
-        '<a class="ml-xs" href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rights-citizens/redress/what-should-i-do-if-i-think-my-personal-data-protection-rights-havent-been-respected_en">https://ec.europa.eu/</a>' +
-        '<span class="ml-s">(' + l10n('english', "langs", user_lang) + ')</span>' +
-        '<br><i class="fad fa-globe ml-s t-size-8"></i>' +
-        '<a class="ml-xs" href="https://gegevensbeschermingsautoriteit.be/citoyen/agir/introduire-une-plainte">https://gegevensbeschermingsautoriteit.be/</a>' +
-        '<span class="ml-s">(' + l10n('french', "langs", user_lang) + ')</span>' ) }}
+    <section>
+	    {{ render_h1(l10n("contact.title", "privacy", user_lang), "fad fa-mailbox") }}
+        <div class="content-spacer">
+        {{ render_paragraph(l10n("contact.text.1", "privacy", user_lang) +
+            '<br><i class="fad fa-at t-size-8 ml-s"></i><a class="ml-xs" href="mailto:herwin.bozet@gmail.com">herwin.bozet@gmail.com</a>') }}
+        </div>
+    </section>
+
+
+    <section>
+	    {{ render_h1(l10n("complaint.title", "privacy", user_lang), "fad fa-gavel") }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("complaint.text.1", "privacy", user_lang)) }}
+            {{ render_paragraph(l10n('complaint.text.2', "privacy", user_lang) +
+                '<br><i class="fad fa-globe ml-s t-size-8"></i>' +
+                '<a class="ml-xs" href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rights-citizens/redress/what-should-i-do-if-i-think-my-personal-data-protection-rights-havent-been-respected_en">https://ec.europa.eu/</a>' +
+                '<span class="ml-s">(' + l10n('english', "langs", user_lang) + ')</span>' +
+                '<br><i class="fad fa-globe ml-s t-size-8"></i>' +
+                '<a class="ml-xs" href="https://gegevensbeschermingsautoriteit.be/citoyen/agir/introduire-une-plainte">https://gegevensbeschermingsautoriteit.be/</a>' +
+                '<span class="ml-s">(' + l10n('french', "langs", user_lang) + ')</span>' ) }}
+        </div>
+    </section>
 
 {% endblock %}
 

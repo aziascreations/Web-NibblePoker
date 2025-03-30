@@ -176,6 +176,7 @@ def route_root(lang: Optional[str]):
         raw_lang=lang,
         request_path=request.path,
         is_standalone="standalone" in request.args,
+        is_brandless="brandless" in request.args,
     )).replace("> <", "><")
 
 
@@ -191,6 +192,7 @@ def route_contact(lang: Optional[str]):
         raw_lang=lang,
         request_path=request.path,
         is_standalone="standalone" in request.args,
+        is_brandless="brandless" in request.args,
     )).replace("> <", "><")
 
 
@@ -211,6 +213,7 @@ def route_content(lang: Optional[str]):
         raw_lang=lang,
         request_path=request.path,
         is_standalone="standalone" in request.args,
+        is_brandless="brandless" in request.args,
         requested_tags=requested_tags,
     )).replace("> <", "><")
 
@@ -237,6 +240,7 @@ def route_content_project(lang: Optional[str], project_id: str):
             raw_lang=lang,
             request_path=request.path,
             is_standalone="standalone" in request.args,
+            is_brandless="brandless" in request.args,
             error_key=error_key,
             error_code=error_code,
         )).replace("> <", "><"), error_code
@@ -247,6 +251,7 @@ def route_content_project(lang: Optional[str], project_id: str):
             raw_lang=lang,
             request_path=request.path,
             is_standalone="standalone" in request.args,
+            is_brandless="brandless" in request.args,
             project_data=get_projects().get(project_id),
             project_id=project_id,
         )).replace("> <", "><")
@@ -269,6 +274,7 @@ def route_tools_index(lang: Optional[str]):
         raw_lang=lang,
         request_path=request.path,
         is_standalone="standalone" in request.args,
+        is_brandless="brandless" in request.args,
         requested_tags=requested_tags,
     )).replace("> <", "><")
 
@@ -295,6 +301,7 @@ def route_tools_page(lang: Optional[str], tool_id: str):
             raw_lang=lang,
             request_path=request.path,
             is_standalone="standalone" in request.args,
+            is_brandless="brandless" in request.args,
             error_key=error_key,
             error_code=error_code,
         )).replace("> <", "><"), error_code
@@ -305,6 +312,7 @@ def route_tools_page(lang: Optional[str], tool_id: str):
             raw_lang=lang,
             request_path=request.path,
             is_standalone="standalone" in request.args,
+            is_brandless="brandless" in request.args,
             tool_data=get_tools().get(tool_id),
             tool_id=tool_id,
             applet_data=get_applets().get(get_tools().get(tool_id).applet_id),
@@ -322,6 +330,7 @@ def route_about(lang: Optional[str]):
         raw_lang=lang,
         request_path=request.path,
         is_standalone="standalone" in request.args,
+        is_brandless="brandless" in request.args,
     )).replace("> <", "><")
 
 
@@ -336,6 +345,7 @@ def route_privacy(lang: Optional[str]):
         raw_lang=lang,
         request_path=request.path,
         is_standalone="standalone" in request.args,
+        is_brandless="brandless" in request.args,
     )).replace("> <", "><")
 
 
@@ -350,6 +360,7 @@ def route_links(lang: Optional[str]):
         raw_lang=lang,
         request_path=request.path,
         is_standalone="standalone" in request.args,
+        is_brandless="brandless" in request.args,
     )).replace("> <", "><")
 
 
@@ -364,6 +375,7 @@ def route_debug(lang: Optional[str]):
         raw_lang=lang,
         request_path=request.path,
         is_standalone="standalone" in request.args,
+        is_brandless="brandless" in request.args,
     )).replace("> <", "><")
 
 
@@ -383,6 +395,7 @@ def handle_exception(e: Exception):
         raw_lang=DEFAULT_LANG,
         request_path=request.path,
         is_standalone="standalone" in request.args,
+        is_brandless="brandless" in request.args,
         error_key=str(e.code),
         error_code=e.code,
     )).replace("> <", "><"), error_code
@@ -398,12 +411,12 @@ if __name__ == '__main__':
     if os.environ.get('NP_FLASK_WAITRESS', "0") == "1":
         print("Serving app using waitress.")
         from waitress import serve
-        serve(app, host='0.0.0.0', port=5000, threads=64)
+        serve(app, host='0.0.0.0', port=int(os.environ.get('NP_FLASK_PORT', "5000")), threads=64)
     else:
         print("Serving app using default development server.")
         app.run(
             host="0.0.0.0",
-            port=5000,
+            port=int(os.environ.get('NP_FLASK_PORT', "5000")),
             debug=True,
             # debug=False,
             load_dotenv=False

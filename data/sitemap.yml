@@ -1,10 +1,16 @@
-# ???
+# Sitemap definition
 
 - "/"
 - "/about/"
-- "/articles/"
+#- "/articles/"
 - "/contact/"
 - "/content/"
 - "/content/circuitpython-ebyte-e32/"
+- "/content/docker-mini-cctv-nvr/"
+- "/content/lscom-cli-dotnet/"
 - "/links/"
 - "/privacy/"
+- "/tools/"
+- "/tools/iban-generator/"
+- "/tools/excel-password-remover/"
+- "/tools/uuid-generator/"

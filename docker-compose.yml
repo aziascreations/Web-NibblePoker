@@ -1,14 +1,17 @@
 services:
   www_nibblepoker_lu:
     container_name: www-nibblepoker-python
-    #image: python:alpine
     build:
       context: .
     ports:
       - 5001:5000
-    volumes:
-      - ./app/:/app:ro
-    tty: true
+    environment:
+      - TZ=Europe/Brussels
+      - NP_HTML_POST_PROCESS=MINIFY
+      - NP_FLASK_WAITRESS=1
+      - NP_FLASK_PORT=80
+    #volumes:
+    #  - ./app/:/app:ro
     restart: unless-stopped
     stop_grace_period: 1s
     labels:
@@ -17,4 +20,3 @@ services:
         driver: "json-file"
         options:
             max-size: "16m"
-    #command: ["/bin/sh", "-c", "/app/MainWebsite"]
