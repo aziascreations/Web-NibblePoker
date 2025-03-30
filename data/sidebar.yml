@@ -14,29 +14,35 @@
 #
 #-
 
-- title_key: text.applications
-  abs_href: "/content/?tags=application;web"
-  icon: fad fa-browser
-  active_id: application
+- title_key: text.projects
+  abs_href: "/content/?tags="
+  icon: fad fa-briefcase
+  active_id: projects
   has_new_until_utc: 0
 
-- title_key: text.libraries
-  abs_href: "/content/?tags=library"
-  icon: fad fa-puzzle-piece
-  active_id: library
-  has_new_until_utc: 0
+#- title_key: text.applications
+#  abs_href: "/content/?tags=application;web"
+#  icon: fad fa-browser
+#  active_id: application
+#  has_new_until_utc: 0
+#
+#- title_key: text.libraries
+#  abs_href: "/content/?tags=library"
+#  icon: fad fa-puzzle-piece
+#  active_id: library
+#  has_new_until_utc: 0
+#
+#- title_key: text.electronics
+#  abs_href: "/content/?tags=electronic"
+#  icon: fad fa-microchip
+#  active_id: electronic
+#  has_new_until_utc: 0
 
-- title_key: text.electronics
-  abs_href: "/content/?tags=electronic"
-  icon: fad fa-microchip
-  active_id: electronic
-  has_new_until_utc: 0
-
-- title_key: text.experiments
-  abs_href: "/content/?tags=experiments"
-  icon: fad fa-flask-vial
-  active_id: electronic
-  has_new_until_utc: 0
+#- title_key: text.experiments
+#  abs_href: "/content/?tags=experiments"
+#  icon: fad fa-flask-vial
+#  active_id: electronic
+#  has_new_until_utc: 0
 
 - title_key: text.tools
   abs_href: "/tools"

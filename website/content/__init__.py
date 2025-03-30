@@ -25,12 +25,17 @@ def get_projects() -> LockedDict[str, ContentProject]:
     return __CONTENT.projects
 
 
-def get_projects_by_tags(tags: list[str]) -> dict[Any, ContentProject]:
-    project_obj: ContentProject
-    return {
-        project_key: project_value for project_key, project_value in __CONTENT.projects.items()
-        if any(tag in project_value.metadata.general.tags for tag in tags)
-    }
+def get_sorted_projects_by_tags(tags: Optional[list[str]]) -> list[ContentProject]:
+    if tags is None:
+        return sorted(__CONTENT.projects.values(), key=lambda x: x.metadata.index.priority, reverse=True)
+    elif len(tags) == 0:
+        return sorted(__CONTENT.projects.values(), key=lambda x: x.metadata.index.priority, reverse=True)
+    else:
+        returned_list = [
+            x for x in __CONTENT.projects.values()
+            if any(tag in x.metadata.general.tags for tag in tags)
+        ]
+        return sorted(returned_list, key=lambda x: x.metadata.index.priority, reverse=True)
 
 
 def get_projects_by_languages(languages: list[str]) -> dict[Any, ContentProject]:
@@ -49,12 +54,17 @@ def get_tools() -> LockedDict[str, ContentTool]:
     return __CONTENT.tools
 
 
-def get_tools_by_tags(tags: list[str]) -> dict[Any, ContentProject]:
-    tool_obj: ContentTool
-    return {
-        tool_key: tool_value for tool_key, tool_value in __CONTENT.tools.items()
-        if any(tag in tool_value.metadata.general.tags for tag in tags)
-    }
+def get_sorted_tools_by_tags(tags: Optional[list[str]]) -> list[ContentProject]:
+    if tags is None:
+        return sorted(__CONTENT.tools.values(), key=lambda x: x.metadata.index.priority, reverse=True)
+    elif len(tags) == 0:
+        return sorted(__CONTENT.tools.values(), key=lambda x: x.metadata.index.priority, reverse=True)
+    else:
+        returned_list = [
+            x for x in __CONTENT.tools.values()
+            if any(tag in x.metadata.general.tags for tag in tags)
+        ]
+        return sorted(returned_list, key=lambda x: x.metadata.index.priority, reverse=True)
 
 
 def sanitize_input_tags(input_tags: str) -> list[str]:
@@ -108,30 +118,7 @@ def load_content_items() -> None:
             __CONTENT.projects[_project.id] = _project
             #print(_project)
 
-    """for project_item in os.listdir(os.path.join(os.getcwd(), "data/projects")):
-        project_item_path = os.path.join(os.getcwd(), "data/projects/", project_item)
-        if not os.path.isfile(project_item_path) or project_item.startswith("."):
-            continue
-
-        project_id = Path(project_item_path).stem
-        project_page_path = os.path.join(os.getcwd(), f"templates/projects/{project_id}.jinja")
-
-        if not all(os.path.isfile(project_file) for project_file in
-                   [project_item_path, project_page_path]):
-            print(f"Unable to load project '{project_item}' due to missing files !")
-            continue
-
-        try:
-            __CONTENT_PROJECTS[project_id] = ContentProject(
-                id=project_id,
-                metadata=ContentMetadata(**yaml.safe_load(open(project_item_path))),
-                # strings=json.load(open(project_strings_path))  # Deprecated
-            )
-            print(f"Loaded project '{project_id}'")
-        except Exception as e:
-            print(f"Unable to load project '{project_id}' due to an exception !")
-            print(e)"""
-
+    # Loading tools definition files
     for tools_file in os.listdir(os.path.join(os.getcwd(), "data/tools")):
         tools_file_path = os.path.join(os.getcwd(), "data/tools", tools_file)
         if not os.path.isfile(tools_file_path) or tools_file.startswith("."):

@@ -14,21 +14,21 @@
 
 {% block content_listing %}
 
-    {% for project_id, project_data in get_projects().items() %}
+    {% for project_data in get_sorted_projects_by_tags(requested_tags) %}
 
         <hr class="subtle">
 
         <!--<div class="p-s border r-m">-->
         <div class="p-xs r-m">
-            <a href="{{ l10n_url_abs('/content/' + project_id, raw_lang) }}" class="a-hidden">
+            <a href="{{ l10n_url_abs('/content/' + project_data.id, raw_lang) }}" class="a-hidden">
                 <div class="content-search-entry">
                     <img class="content-search-image mr-s r-l"
                          src="{{ url_for("static", filename=project_data.metadata.index.image_url) }}"
                          alt="TODO">
                     <h3 class="mb-xs">
-                        {{ l10n(project_data.metadata.index.title_key, project_id, user_lang) }}
+                        {{ l10n(project_data.metadata.index.title_key, project_data.id, user_lang) }}
                     </h3>
-                    <p>{{ l10n(project_data.metadata.index.preamble_key, project_id, user_lang) }}</p>
+                    <p>{{ l10n(project_data.metadata.index.preamble_key, project_data.id, user_lang) }}</p>
                 </div>
             </a>
 

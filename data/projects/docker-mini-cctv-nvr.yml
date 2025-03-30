@@ -16,7 +16,7 @@ projects:
         title_key: "meta.title"
         description_key: "meta.description"
       index:
-        priority: 105
+        priority: 1000
         enable: true
         title_key: "meta.title"
         preamble_key: "meta.description"
