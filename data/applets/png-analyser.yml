@@ -1,0 +1,7 @@
+applets:
+  - id: "png-analyser"
+    resources:
+      scripts:
+        - "applet://png-analyser.mjs"
+      stylesheets:
+        - "applet://png-analyser.css"

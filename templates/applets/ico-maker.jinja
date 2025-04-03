@@ -1,26 +1,14 @@
 
-<section id="{{ applet_data.id }}-introduction">
-    {{ render_h2(l10n("introduction.title", "commons", user_lang)) }}
-    {{ render_paragraph(l10n("introduction.1", applet_data.id, user_lang)) }}
-    {{ render_paragraph(l10n("introduction.2", applet_data.id, user_lang)) }}
-</section>
+{{ render_file_input(applet_data.id + "-image-input-file", true, ".png, .bmp, .ico", true, false, user_lang) }}
 
-<section id="{{ applet_data.id }}-input">
-    {{ render_h2(l10n("input.title", "commons", user_lang)) }}
-    {{ render_paragraph(l10n("input.1", applet_data.id, user_lang)) }}
+<hr class="subtle">
 
-    {{ render_file_input(applet_data.id + "-image-input-file", true, ".png, .bmp, .ico", true, false, user_lang) }}
+<label for="{{ applet_data.id }}-enable-expert-mode" class="mr-xxs">
+    {{ l10n("enable.expert.mode", applet_data.id, user_lang) }}:
+</label>
+<input id="{{ applet_data.id }}-enable-expert-mode" class="r-m border" type="checkbox">
 
-    <hr class="subtle">
-
-    <label for="{{ applet_data.id }}-enable-expert-mode" class="mr-xxs">
-        {{ l10n("enable.expert.mode", applet_data.id, user_lang) }}:
-    </label>
-    <input id="{{ applet_data.id }}-enable-expert-mode" class="r-m border" type="checkbox">
-    <!--<span class="ml-s t-italic t-muted">Toggles some uncommon features.</span>-->
-
-    <br>
-
+<div class="ico-maker-advanced">
     <label for="{{ applet_data.id }}-enable-binary-blobs" class="mr-xxs">
         {{ l10n("enable.binary.blobs", applet_data.id, user_lang) }}:
     </label>
@@ -35,176 +23,174 @@
 
     <span class="f-right">
         {{ render_button("<i class=\"fa-duotone fa-solid fa-remove\"></i>Remove Binary Blobs", False, None, "bkgd-orange") }}
-        {{ render_button("<i class=\"fa-duotone fa-solid fa-remove\"></i>Remove Everything", False, None, "bkgd-red") }}
+        <!--{{ render_button("<i class=\"fa-duotone fa-solid fa-remove\"></i>Remove Everything", False, None, "bkgd-red") }}-->
     </span>
-</section>
+</div>
 
-<section id="{{ applet_data.id }}-icon-parts">
-    {{ render_h2(l10n("idk01.title", "commons", user_lang)) }}
-    {{ render_paragraph(l10n("idk01.1", applet_data.id, user_lang)) }}
+<hr class="subtle">
 
-    {{ render_button("<i class=\"fa-duotone fa-solid fa-download\"></i>Download <span class=\"t-monospace\">.ico</span>", False, None, "bkgd-green") }}
+
+{{ render_button("<i class=\"fa-duotone fa-solid fa-download\"></i>Download <span class=\"t-monospace\">.ico</span>", False, None, "bkgd-green") }}
+
+<div class="border r-m ico-maker-advanced">
+    <table class="table-p-xxs ">
+        <tr>
+            <td class="bkgd-grid40 rl-m br t-size-14 t-noselect" rowspan="2">
+                <i class="fad fa-grip-vertical c-not-allowed px-xxs t-super-muted"></i>
+            </td>
+            <td class="w-full bkgd-gray">
+                <div class="px-xxs">
+                    <p>Required ICO Headers</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="bkgd-gray">
+                <div class="px-xxs">
+                    <p class="t-italic t-half-muted">
+                        <i class="fa-duotone fa-solid fa-weight-hanging mr-xs"></i>1.23 KiB
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="{{ applet_data.id }}-icon-parts-list">
 
     <div class="border r-m">
-        <table class="table-p-xxs ">
+        <table class="table-p-xxs table-v-center">
             <tr>
-                <td class="bkgd-grid40 rl-m br t-size-14 t-noselect" rowspan="2">
-                    <i class="fad fa-grip-vertical c-not-allowed px-xxs t-super-muted"></i>
+                <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
+                    <i class="fad fa-grip-vertical cursor-pointer px-xxs"></i>
                 </td>
-                <td class="w-full bkgd-gray">
+                <td class="w-full bkgd-gray bb">
                     <div class="px-xxs">
-                        <p>Required ICO Headers</p>
+                        <p class="t-bold">
+                            <i class="fa-duotone fa-solid fa-image mr-xxs t-muted"></i>
+                            MyFile.png
+                        </p>
+                    </div>
+                </td>
+                <td rowspan="3" class="bl bkgd-dark rr-m">BKGD IMG</td>
+            </tr>
+            <tr>
+                <td class="bkgd-grid40 rl-m br t-size-14 t-noselect bt">
+                    <i class="fad fa-caret-up cursor-pointer px-xxs"></i>
+                </td>
+                <td class="bkgd-gray">
+                    <div class="px-xxs">
+                        <p class="t-italic t-half-muted">
+                            <i class="fa-duotone fa-solid fa-ruler-combined mr-xs"></i>32x32
+                            <i class="fa-duotone fa-solid fa-weight-hanging mr-xs ml-m"></i>12.5 KiB
+                            <i class="fa-duotone fa-solid fa-palette mr-xs ml-m"></i>32 bpp
+                            <i class="fa-duotone fa-solid fa-swatchbook mr-xs ml-m"></i>256 colors
+                        </p>
                     </div>
                 </td>
             </tr>
             <tr>
+                <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
+                    <i class="fad fa-caret-down cursor-pointer px-xxs"></i>
+                </td>
                 <td class="bkgd-gray">
                     <div class="px-xxs">
-                        <p class="t-italic t-half-muted">
-                            <i class="fa-duotone fa-solid fa-weight-hanging mr-xs"></i>1.23 KiB
-                        </p>
+                        {{ render_button("<i class=\"fa-duotone fa-solid fa-gear\"></i>Options", False, None, "bkgd-blue") }}
+                        {{ render_button("<i class=\"fa-duotone fa-solid fa-trash\"></i>Remove", False, None, "bkgd-orange") }}
+                        {{ render_button("<i class=\"fa-duotone fa-solid fa-file-circle-info\"></i>Details", False, None, "") }}
                     </div>
                 </td>
             </tr>
         </table>
     </div>
 
-    <div id="{{ applet_data.id }}-icon-parts-list">
-
-        <div class="border r-m">
-            <table class="table-p-xxs table-v-center">
-                <tr>
-                    <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
-                        <i class="fad fa-grip-vertical cursor-pointer px-xxs"></i>
-                    </td>
-                    <td class="w-full bkgd-gray bb">
-                        <div class="px-xxs">
-                            <p class="t-bold">
-                                <i class="fa-duotone fa-solid fa-image mr-xxs t-muted"></i>
-                                MyFile.png
-                            </p>
-                        </div>
-                    </td>
-                    <td rowspan="3" class="bl bkgd-dark rr-m">BKGD IMG</td>
-                </tr>
-                <tr>
-                    <td class="bkgd-grid40 rl-m br t-size-14 t-noselect bt">
-                        <i class="fad fa-caret-up cursor-pointer px-xxs"></i>
-                    </td>
-                    <td class="bkgd-gray">
-                        <div class="px-xxs">
-                            <p class="t-italic t-half-muted">
-                                <i class="fa-duotone fa-solid fa-ruler-combined mr-xs"></i>32x32
-                                <i class="fa-duotone fa-solid fa-weight-hanging mr-xs ml-m"></i>12.5 KiB
-                                <i class="fa-duotone fa-solid fa-palette mr-xs ml-m"></i>32 bpp
-                                <i class="fa-duotone fa-solid fa-swatchbook mr-xs ml-m"></i>256 colors
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
-                        <i class="fad fa-caret-down cursor-pointer px-xxs"></i>
-                    </td>
-                    <td class="bkgd-gray">
-                        <div class="px-xxs">
-                            {{ render_button("<i class=\"fa-duotone fa-solid fa-gear\"></i>Options", False, None, "bkgd-blue") }}
-                            {{ render_button("<i class=\"fa-duotone fa-solid fa-trash\"></i>Remove", False, None, "bkgd-orange") }}
-                            {{ render_button("<i class=\"fa-duotone fa-solid fa-file-circle-info\"></i>Details", False, None, "") }}
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="border r-m">
-            <table class="table-p-xxs table-v-center">
-                <tr>
-                    <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
-                        <i class="fad fa-grip-vertical cursor-pointer px-xxs"></i>
-                    </td>
-                    <td class="w-full bkgd-gray bb">
-                        <div class="px-xxs">
-                            <p class="t-bold">
-                                <i class="fa-duotone fa-solid fa-binary mr-xxs t-muted"></i>
-                                Watermark.bin
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bkgd-grid40 rl-m br t-size-14 t-noselect bt">
-                        <i class="fad fa-caret-up cursor-pointer px-xxs"></i>
-                    </td>
-                    <td class="bkgd-gray">
-                        <div class="px-xxs">
-                            <p class="t-italic t-half-muted">
-                                <i class="fa-duotone fa-solid fa-weight-hanging mr-xs"></i>12.5 KiB
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
-                        <i class="fad fa-caret-down cursor-pointer px-xxs"></i>
-                    </td>
-                    <td class="bkgd-gray">
-                        <div class="px-xxs">
-                            {{ render_button("<i class=\"fa-duotone fa-solid fa-trash\"></i>Remove", False, None, "bkgd-orange") }}
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="border r-m">
-            <table class="table-p-xxs table-v-center">
-                <tr>
-                    <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
-                        <i class="fad fa-grip-vertical cursor-pointer px-xxs"></i>
-                    </td>
-                    <td class="w-full bkgd-gray bb">
-                        <div class="px-xxs">
-                            <p class="t-bold t-italic">
-                                <i class="fa-duotone fa-solid fa-text-size mr-xxs t-muted"></i>
-                                Custom Text
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bkgd-grid40 rl-m br t-size-14 t-noselect bt">
-                        <i class="fad fa-caret-up cursor-pointer px-xxs"></i>
-                    </td>
-                    <td class="bkgd-gray">
-                        <div class="px-xxs">
-                            <label for="test123" hidden>321</label>
-                            <textarea name="test123" id="test123" cols="30" rows="6"
-                                      class="p-xxs border r-m w-full ta-resize-v"></textarea>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
-                        <i class="fad fa-caret-down cursor-pointer px-xxs"></i>
-                    </td>
-                    <td class="bkgd-gray">
-                        <div class="px-xxs">
-                            {{ render_button("<i class=\"fa-duotone fa-solid fa-gear\"></i>Options", False, None, "bkgd-blue") }}
-                            {{ render_button("<i class=\"fa-duotone fa-solid fa-trash\"></i>Remove", False, None, "bkgd-orange") }}
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
+    <div class="border r-m">
+        <table class="table-p-xxs table-v-center">
+            <tr>
+                <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
+                    <i class="fad fa-grip-vertical cursor-pointer px-xxs"></i>
+                </td>
+                <td class="w-full bkgd-gray bb">
+                    <div class="px-xxs">
+                        <p class="t-bold">
+                            <i class="fa-duotone fa-solid fa-binary mr-xxs t-muted"></i>
+                            Watermark.bin
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="bkgd-grid40 rl-m br t-size-14 t-noselect bt">
+                    <i class="fad fa-caret-up cursor-pointer px-xxs"></i>
+                </td>
+                <td class="bkgd-gray">
+                    <div class="px-xxs">
+                        <p class="t-italic t-half-muted">
+                            <i class="fa-duotone fa-solid fa-weight-hanging mr-xs"></i>12.5 KiB
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
+                    <i class="fad fa-caret-down cursor-pointer px-xxs"></i>
+                </td>
+                <td class="bkgd-gray">
+                    <div class="px-xxs">
+                        {{ render_button("<i class=\"fa-duotone fa-solid fa-trash\"></i>Remove", False, None, "bkgd-orange") }}
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 
-</section>
+    <div class="border r-m">
+        <table class="table-p-xxs table-v-center">
+            <tr>
+                <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
+                    <i class="fad fa-grip-vertical cursor-pointer px-xxs"></i>
+                </td>
+                <td class="w-full bkgd-gray bb">
+                    <div class="px-xxs">
+                        <p class="t-bold t-italic">
+                            <i class="fa-duotone fa-solid fa-text-size mr-xxs t-muted"></i>
+                            Custom Text
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="bkgd-grid40 rl-m br t-size-14 t-noselect bt">
+                    <i class="fad fa-caret-up cursor-pointer px-xxs"></i>
+                </td>
+                <td class="bkgd-gray">
+                    <div class="px-xxs">
+                        <label for="test123" hidden>321</label>
+                        <textarea name="test123" id="test123" cols="30" rows="6"
+                                  class="p-xxs border r-m w-full ta-resize-v"></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="bkgd-grid40 rl-m br t-size-14 t-noselect">
+                    <i class="fad fa-caret-down cursor-pointer px-xxs"></i>
+                </td>
+                <td class="bkgd-gray">
+                    <div class="px-xxs">
+                        {{ render_button("<i class=\"fa-duotone fa-solid fa-gear\"></i>Options", False, None, "bkgd-blue") }}
+                        {{ render_button("<i class=\"fa-duotone fa-solid fa-trash\"></i>Remove", False, None, "bkgd-orange") }}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
 
 
-<section id="{{ applet_data.id }}-licenses">
-    {{ render_h2(l10n("licenses.title", "commons", user_lang)) }}
+
+{% if is_standalone %}
+    <hr class="subtle">
     {{ render_paragraph(l10n("licenses.1", applet_data.id, user_lang)) }}
     {{ render_paragraph(l10n("licenses.2", applet_data.id, user_lang)) }}
-</section>
+{% endif %}

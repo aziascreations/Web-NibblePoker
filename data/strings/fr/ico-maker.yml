@@ -4,7 +4,8 @@ meta.title: "Fabricateur d'icônes"
 meta.description: "..."
 
 
-
+file.selection.title : "Sélection de fichier(s)"
+file.selection.1 : "Déposez vos fichiers ici ou cliquez sur les boutons."
 
 enable.expert.mode: "Activer le mode expert"
 enable.binary.blobs: "Autoriser les blobs binaires"

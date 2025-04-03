@@ -1,0 +1,8 @@
+
+.ico-maker-advanced {
+    display: none;
+}
+
+input[type="checkbox"]#ico-maker-enable-expert-mode:checked ~ .ico-maker-advanced {
+    display: block;
+}

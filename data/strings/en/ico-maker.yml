@@ -4,7 +4,8 @@ meta.title: "Icon Maker"
 meta.description: "..."
 
 
-
+file.selection.title: "File Selection"
+file.selection.1: "Drop your file(s) here or click on the buttons."
 
 enable.expert.mode: "Enable expert mode"
 enable.binary.blobs: "Allow binary blobs"
