@@ -50,3 +50,36 @@ export function peekUInt32LE(data, offset = 0) {
     }
     return new DataView(data.buffer, offset, 4).getUint32(0, true);
 }
+
+/**
+ * Converts a given `Uint8Array` to a hexadecimal representation.
+ * @param data The data to be transformed into a string.
+ * @return {string} The resulting hexadecimal string.
+ */
+export function Uint8ArrayToHex(data) {
+    return Array.prototype.map.call(data, x => ('00' + x.toString(16)).slice(-2)).join('');
+}
+
+/*export function decimalToHexString(number) {
+	if (number < 0) {
+		number = 0xFFFFFFFF + number + 1;
+	}
+	return number.toString(16).toUpperCase();
+}*/
+
+export function AsciiStringToUint8Array(asciiText) {
+    return Uint8Array.from(Array.from(asciiText).map(asciiLetter => asciiLetter.charCodeAt(0)));
+}
+
+export function Int32ToUint8Array(number) {
+    /*let arr = new ArrayBuffer(4);
+    new DataView(arr).setUint32(0, number);
+    return new Uint8Array(arr);*/
+
+    return new Uint8Array([
+        (number >>> 24) & 0xFF,
+        (number >>> 16) & 0xFF,
+        (number >>> 8) & 0xFF,
+        number & 0xFF
+    ]);
+}

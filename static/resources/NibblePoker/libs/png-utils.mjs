@@ -1,6 +1,6 @@
 
-//import {__crc32, crc32b, _crc32b, decimalToHexString} from "./crc32.mjs";
-import {areUintArraysEqual, peekUInt32BE, peekUInt32LE} from "./data-utils.mjs"
+import {stepCrc32IEEE, finishCrc32IEEE} from "./crc32.mjs";
+import {areUintArraysEqual, peekUInt32BE, AsciiStringToUint8Array, Int32ToUint8Array, Uint8ArrayToHex} from "./data-utils.mjs"
 import {loadFileAsUint8Array} from "./file-utils.mjs";
 
 /**
@@ -14,7 +14,11 @@ export class PngInvalidStructureError extends PngError {}
 
 export class PngInvalidChunkNameError extends PngError {}
 
+export class PngInvalidChunkChecksumError extends PngError {}
+
 export class PngInvalidImageHeaderError extends PngError {}
+
+export class PngMissingCriticalChunksError extends PngError {}
 
 export const PngFileHeader = new Uint8Array([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]);
 
@@ -34,10 +38,29 @@ export class PngChunk {
     constructor(type, data, expectedChecksum) {
         this.type = type;
         this.data = data;
+
+        if(expectedChecksum !== null) {
+            if(!areUintArraysEqual(expectedChecksum, this.getChecksumUint8Array())) {
+                throw new PngInvalidChunkChecksumError(
+                    `Invalid checksum was given ! (Expected ${
+                        Uint8ArrayToHex(expectedChecksum)}, got ${
+                        Uint8ArrayToHex(this.getChecksumUint8Array())})`
+                );
+            }
+        }
     }
 
-    getChecksum() {
-        throw new Error("This function isn't implemented yet !");
+    getChecksumNumber() {
+        return finishCrc32IEEE(
+            stepCrc32IEEE(
+                this.data,
+                stepCrc32IEEE(AsciiStringToUint8Array(this.type))
+            )
+        )
+    }
+
+    getChecksumUint8Array() {
+        return Int32ToUint8Array(this.getChecksumNumber());
     }
 }
 
@@ -111,17 +134,22 @@ export class PngFile {
     /**
      * @param file {File|null}
      * @param fileData {Uint8Array|null}
-     * @throws PngInvalidFileHeaderError If the `fileData` is provided and doesn't contain a valid PNG file header.
+     * @throws PngInvalidFileHeaderError If `fileData` is provided and doesn't contain a valid PNG file header.
+     * @throws PngMissingCriticalChunksError If `fileData` is provided and is missing some critical chunks.
      */
     constructor(file = null, fileData = null) {
         this.originalFile = file;
 
         this.chunks = [];
 
-        // Parsing the data
+        // Parsing and validating the data if given
         if(fileData !== null) {
             this.#validateFileHeader(fileData);
             this.#parseChunks(fileData);
+
+            if(!this.hasEndChunk() || this.getChunkByType("IHDR") === null) {
+                throw new PngMissingCriticalChunksError("One or more critical chunk is missing from the PNG file !");
+            }
         }
     }
 
