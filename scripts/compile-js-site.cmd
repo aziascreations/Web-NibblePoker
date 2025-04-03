@@ -83,6 +83,16 @@ call "%~dp0node_modules\.bin\rollup" uuid-generator.mjs --file uuid-generator.js
 call "%~dp0node_modules\.bin\terser" uuid-generator.js -c -m -o uuid-generator.min.js
 popd
 
+
+:js-pnganalyser-minify
+echo Minifying PNG Analyzer
+pushd %CD%
+cd %~dp0\..\static\resources\NibblePoker\applets\png-analyser\
+echo ^> static\resources\NibblePoker\applets\png-analyser\png-analyser.mjs
+call "%~dp0node_modules\.bin\rollup" png-analyser.mjs --file png-analyser.js
+call "%~dp0node_modules\.bin\terser" png-analyser.js -c -m -o png-analyser.min.js
+popd
+
 :js-nibblepoker-end
 
 :end

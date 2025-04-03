@@ -5,6 +5,8 @@ from flask import url_for
 from website.content import ContentApplet
 
 
+# FIXME: Implement preload support !
+
 def render_applet_head(applet_data: ContentApplet, is_standalone: bool = False) -> str:
     applet_style_html = ""
 
