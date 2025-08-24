@@ -17,13 +17,12 @@
     <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.7.2/webfonts/fa-brands-400.woff2" as="font" />
     <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.7.2/webfonts/fa-duotone-900.woff2" as="font" />
     <link rel="prefetch" href="https://cdn.nibblepoker.lu/FontAwesomePro/6.7.2/webfonts/fa-solid-900.woff2" as="font" />
-    <link rel="prefetch" href="https://cdn.nibblepoker.lu/NibblePoker/StandardCSS/3px-tile-0.1.png" as="image" />
-    <link rel="prefetch" href="https://cdn.nibblepoker.lu/NibblePoker/StandardCSS/3px-tile-0.4.png" as="image" />
     {% block extra_preloads %}{% endblock %}
 
     <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/FontAwesomePro/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/IndevCSS/nibblepoker.min.css">
+    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/StandardCSS/nibblepoker.min.css">
     <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/Quantum/Quantum.min.css">
+    <link rel="stylesheet" href="https://cdn.nibblepoker.{{ domain_tld }}/FamFamFam/FlagsExtended/famfamfam-flags.min.css">
 
     <link rel="stylesheet" href="{{ url_for("static", filename="resources/NibblePoker/css/extra.css") }}">
 
@@ -53,16 +52,37 @@
         </summary>
 
         <div class="p-xs border bkgd-surround r-m t-w-500">
-            <a href="{{ l10n_url_switch(request_path, "en") }}" class="a-hidden">
-                <p class="mb-s px-xxs">{{ l10n("english", "langs", user_lang) }}</p>
-            </a>
-            <a href="{{ l10n_url_switch(request_path, "fr") }}" class="a-hidden">
-                <p class="my-s px-xxs">{{ l10n("french", "langs", user_lang) }}</p>
-            </a>
-            <hr class="subtle m-0">
-            <a href="{{ l10n_url_switch(request_path) }}" class="a-hidden">
-                <p class="mt-xs px-xxs">{{ l10n("automatic", "langs", user_lang) }}</p>
-            </a>
+            <table class="w-full table-p-xxs">
+                <tr>
+                    <td>
+                        <a href="{{ l10n_url_switch(request_path, "en") }}" class="w-full d-inline-block a-hidden">
+                            {{ l10n("english", "langs", user_lang) }}
+                        </a>
+                    </td>
+                    <td class="t-center"><i class="famfamfam-flag-us"></i></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ l10n_url_switch(request_path, "fr") }}" class="w-full d-inline-block a-hidden">
+                            {{ l10n("french", "langs", user_lang) }}
+                        </a>
+                    </td>
+                    <td class="t-center"><i class="famfamfam-flag-be"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr class="subtle m-0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ l10n_url_switch(request_path) }}" class="w-full d-inline-block a-hidden">
+                            {{ l10n("automatic", "langs", user_lang) }}
+                        </a>
+                    </td>
+                    <td class="t-center"><i class="famfamfam-flag-unknown"></i></td>
+                </tr>
+            </table>
         </div>
     </details>
 </header>

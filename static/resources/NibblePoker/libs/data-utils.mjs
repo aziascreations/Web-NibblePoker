@@ -24,6 +24,34 @@ export function areUintArraysEqual(array1, array2) {
 }
 
 /**
+ * Peeks a UInt16 from the given data at the given offset in Big-Endian.
+ * @param data {Uint8Array} - Data to read from.
+ * @param offset {number} - Offset to read from in the given `data`.
+ * @return {number} The peeked number.
+ * @throws RangeError If the given offset is too close or over the end of the data.
+ */
+export function peekUInt16BE(data, offset = 0) {
+    if(offset + 2 > data.length) {
+        throw new RangeError(`Offset is too far into the given data ! (${offset} & ${data.length})`);
+    }
+    return new DataView(data.buffer, offset, 2).getUint16(0, false);
+}
+
+/**
+ * Peeks a UInt16 from the given data at the given offset in Little-Endian.
+ * @param data {Uint8Array} - Data to read from.
+ * @param offset {number} - Offset to read from in the given `data`.
+ * @return {number} The peeked number.
+ * @throws RangeError If the given offset is too close or over the end of the data.
+ */
+export function peekUInt16LE(data, offset = 0) {
+    if(offset + 2 > data.length) {
+        throw new RangeError(`Offset is too far into the given data ! (${offset} & ${data.length})`);
+    }
+    return new DataView(data.buffer, offset, 2).getUint16(0, true);
+}
+
+/**
  * Peeks a UInt32 from the given data at the given offset in Big-Endian.
  * @param data {Uint8Array} - Data to read from.
  * @param offset {number} - Offset to read from in the given `data`.

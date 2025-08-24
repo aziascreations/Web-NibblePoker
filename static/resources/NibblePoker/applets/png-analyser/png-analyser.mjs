@@ -1,6 +1,7 @@
 
 import {initCore} from "../../js/nibblepoker-core.mjs"
 import {parsePngFile} from "../../libs/png-utils.mjs";
+import {parseBmpFile} from "../../libs/bmp-utils.mjs";
 
 {
     initCore();
@@ -16,12 +17,18 @@ import {parsePngFile} from "../../libs/png-utils.mjs";
 
             console.log(files);
 
-            parsePngFile(files[0]).then(pngFile => {
-                console.log(pngFile);
+            if(files[0].name.endsWith(".png")) {
+                parsePngFile(files[0]).then(pngFile => {
+                    console.log(pngFile);
+                    console.log(pngFile.getImageHeaderChunk().getWidth());
+                    console.log(pngFile.getImageHeaderChunk().getHeight());
+                });
+            } else if(files[0].name.endsWith(".bmp")) {
+                parseBmpFile(files[0]).then(bmpFile => {
+                    console.log(bmpFile);
+                });
+            }
 
-                console.log(pngFile.getImageHeaderChunk().getWidth());
-                console.log(pngFile.getImageHeaderChunk().getHeight());
-            });
         });
     };
 }
