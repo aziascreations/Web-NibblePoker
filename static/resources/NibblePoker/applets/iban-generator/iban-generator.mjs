@@ -30,10 +30,20 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
 
     /** @type {HTMLInputElement} */
     const eOptionCount = document.querySelector("input#iban-generator-option-count");
-    /** @type {HTMLInputElement} */
-    const eOptionPrettyPrint = document.querySelector("input#iban-generator-option-pretty");
+
+    ///** @type {HTMLInputElement} */
+    //const eOptionPreferRandom = document.querySelector("input#iban-generator-option-prefer-random");
     /** @type {HTMLInputElement} */
     const eOptionPreferNumbers = document.querySelector("input#iban-generator-option-prefer-numbers");
+    /** @type {HTMLInputElement} */
+    const eOptionPreferLetters = document.querySelector("input#iban-generator-option-prefer-letters");
+
+    /** @type {HTMLInputElement} */
+    const eOptionFormatNone = document.querySelector("input#iban-generator-option-format-none");
+    /** @type {HTMLInputElement} */
+    const eOptionFormatStandard = document.querySelector("input#iban-generator-option-format-standard");
+    /** @type {HTMLInputElement} */
+    const eOptionFormat4By4 = document.querySelector("input#iban-generator-option-format-4by4");
 
     /** @type {HTMLElement} */
     const eGenerateButton = document.querySelector("#iban-generator-generate");
@@ -75,14 +85,14 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
 
     /** @returns {number} */
     function getDesiredCount() {
-        return getInputCount(eOptionCount, 1, 1000);
+        return getInputCount(eOptionCount, 1, 10000);
     }
 
     function changeDesiredCount(difference = 0) {
         if(difference !== 0) {
-            eOptionCount.value = getDesiredCount(eOptionCount, 1, 1000) + difference;
+            eOptionCount.value = getDesiredCount(eOptionCount, 1, 10000) + difference;
         }
-        eOptionCount.value = getDesiredCount(eOptionCount, 1, 1000);
+        eOptionCount.value = getDesiredCount(eOptionCount, 1, 10000);
     }
 
     window.onload = function () {
@@ -108,12 +118,28 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
             let desiredCount = getDesiredCount();
 
             let preferNumbers = eOptionPreferNumbers.checked;
-            let prettyIban = eOptionPrettyPrint.checked;
+            let preferLetters = eOptionPreferLetters.checked;
+
+            let ibanFormat = (
+                eOptionFormatNone.checked ? 0 : (
+                    eOptionFormatStandard.checked ? 1 : (
+                        eOptionFormat4By4.checked ? 2 : 0
+                    )
+                )
+            );
 
             /** @type {IbanSpecification[]} */
             let targetSpecs;
             if(eOptionForEach.checked) {
                 targetSpecs = Object.values(countriesSpecs);
+
+                // BUGFIX: Removing unwanted specs.
+                if(!eOptionEnableSepa.checked) {
+                    targetSpecs = targetSpecs.filter(ibanSpec => !ibanSpec.isSepa);
+                }
+                if(!eOptionEnableNonSepa.checked) {
+                    targetSpecs = targetSpecs.filter(ibanSpec => ibanSpec.isSepa);
+                }
             } else {
                 targetSpecs = [countriesSpecs[eOptionCountry.value]];
             }
@@ -123,15 +149,27 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
                     return;
                 }
                 for(let i = 0; i < desiredCount; i++) {
-                    if(prettyIban) {
+                    if(ibanFormat === 1) {
+                        // standard
                         lastIBANs.push(
                             spec.getFormattedIban(
-                                new StandardIban(spec.countryCode, spec.generateRandomBban(preferNumbers), spec).toString()
+                                new StandardIban(spec.countryCode, spec.generateRandomBban(preferNumbers, preferLetters), spec)
+                                    .toString()
                             )
                         );
-                    } else {
+                    } else if(ibanFormat === 2) {
+                        // 4-by-4
                         lastIBANs.push(
-                            new StandardIban(spec.countryCode, spec.generateRandomBban(preferNumbers), spec).toString()
+                            new StandardIban(spec.countryCode, spec.generateRandomBban(preferNumbers, preferLetters), spec)
+                                .toString()
+                                .match(/.{1,4}/g)
+                                .join(' ')
+                        );
+                    } else {
+                        // none
+                        lastIBANs.push(
+                            new StandardIban(spec.countryCode, spec.generateRandomBban(preferNumbers, preferLetters), spec)
+                                .toString()
                         );
                     }
                 }

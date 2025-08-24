@@ -9,11 +9,17 @@ meta.description.light: "Web application that allows you to generate IBANs in bu
 country.label: "Country"
 
 option.count: "IBAN Count"
-option.human.readable: "Format for readability"
-option.prefer.numbers: "Prefer numbers over letters"
 option.for.each: "Generate <i>X</i> for each country"
 option.sepa.enable: "Enable SEPA countries"
 option.non-sepa.enable: "Enable non-SEPA countries"
+
+option.prefer.random: "Do not prefer letters nor numbers"
+option.prefer.numbers: "Prefer numbers over letters"
+option.prefer.letters: "Prefer letters over numbers"
+
+option.human.format.none: "No formatting"
+option.human.format.standard: "Use recommended spacing"
+option.human.format.4by4: "Use 4 character-wide spacing"
 
 license.1: "The code for this project is released in the public domain."
 license.2: "The original source code can be found on <a href=\"https://github.com/aziascreations/Web-NibblePoker\">GitHub</a>."

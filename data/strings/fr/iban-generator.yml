@@ -9,11 +9,17 @@ meta.description.light: "Application web qui vous permet de générer des IBANs 
 country.label: "Pays"
 
 option.count: "Nombre d'IBAN"
-option.human.readable: "Formatter pour lecture"
-option.prefer.numbers: "Favoriser les nombres aux lettres"
 option.for.each: "Générer <i>X</i> pour chaque pays"
 option.sepa.enable: "Activer les pays SEPA"
 option.non-sepa.enable: "Activer les pays non-SEPA"
+
+option.prefer.random: "Pas de favorisation des lettres ou nombres"
+option.prefer.numbers: "Favoriser les nombres aux lettres"
+option.prefer.letters: "Favoriser les lettres aux nombres"
+
+option.human.format.none: "Aucun formatage"
+option.human.format.standard: "Utiliser le format standard des pays"
+option.human.format.4by4: "Formater en segments de 4 caractères"
 
 license.1: "Le code de ce projet est publié dans le domaine public."
 license.2: "Le code source original peut être trouvé sur <a href=\"https://github.com/aziascreations/Web-NibblePoker\">GitHub</a>."

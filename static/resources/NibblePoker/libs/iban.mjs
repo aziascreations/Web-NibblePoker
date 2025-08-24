@@ -269,7 +269,7 @@ export class IbanSpecification {
         return iban.match(/.{1,4}/g).join(' ');
     }
 
-    generateRandomBban(preferNumbers = false) {
+    generateRandomBban(preferNumbers = false, preferLetters = false) {
         let returnedBban = "";
         let patternParts = ("_" + this.bbanFormat + "0").split("!");
 
@@ -291,7 +291,11 @@ export class IbanSpecification {
                     if(preferNumbers) {
                         elementChoices = charsN;
                     } else {
-                        elementChoices = charsC;
+                        if(preferLetters) {
+                             elementChoices = charsA;
+                        } else {
+                             elementChoices = charsC;
+                        }
                     }
                     break;
                 case 'a':
