@@ -2,12 +2,12 @@
 <!-- {{ render_h2(l10n("disclaimer.title", applet_data.id, user_lang)) }} -->
 
 <label for="iban-generator-option-enable-sepa" class="mr-xxs">{{ l10n("option.sepa.enable", "iban-generator", user_lang) }}:</label>
-<input id="iban-generator-option-enable-sepa" class="r-m border" type="checkbox" checked>
+<input id="iban-generator-option-enable-sepa" class="r-m border cb-pretty" type="checkbox" checked>
 
 <br>
 
 <label for="iban-generator-option-enable-non-sepa" class="mr-xxs">{{ l10n("option.non-sepa.enable", "iban-generator", user_lang) }}:</label>
-<input id="iban-generator-option-enable-non-sepa" class="r-m border" type="checkbox" checked>
+<input id="iban-generator-option-enable-non-sepa" class="r-m border cb-pretty" type="checkbox" checked>
 
 <hr class="subtle">
 
@@ -113,38 +113,38 @@
 <br>
 
 <label for="iban-generator-option-foreach" class="mr-xxs">{{ l10n("option.for.each", "iban-generator", user_lang) }}:</label>
-<input id="iban-generator-option-foreach" class="r-m border" type="checkbox">
+<input id="iban-generator-option-foreach" class="r-m border cb-pretty" type="checkbox">
 
 <hr class="subtle">
 
 
-<input type="radio" id="iban-generator-option-prefer-random" name="iban_charset" value="0" class="radio-solid border mr-xxs" checked>
+<input type="radio" id="iban-generator-option-prefer-random" name="iban_charset" value="0" class="radio-solid border mr-xxs radio-unchecked-subtle" checked>
 <label for="iban-generator-option-prefer-random">{{ l10n("option.prefer.random", "iban-generator", user_lang) }}</label>
 
 <br>
 
-<input type="radio" id="iban-generator-option-prefer-numbers" name="iban_charset" value="0" class="radio-solid border mr-xxs">
+<input type="radio" id="iban-generator-option-prefer-numbers" name="iban_charset" value="0" class="radio-solid border mr-xxs radio-unchecked-subtle">
 <label for="iban-generator-option-prefer-numbers">{{ l10n("option.prefer.numbers", "iban-generator", user_lang) }}</label>
 
 <br>
 
-<input type="radio" id="iban-generator-option-prefer-letters" name="iban_charset" value="0" class="radio-solid border mr-xxs">
+<input type="radio" id="iban-generator-option-prefer-letters" name="iban_charset" value="0" class="radio-solid border mr-xxs radio-unchecked-subtle">
 <label for="iban-generator-option-prefer-letters">{{ l10n("option.prefer.letters", "iban-generator", user_lang) }}</label>
 
 <hr class="subtle">
 
 
-<input type="radio" id="iban-generator-option-format-none" name="iban_format" value="none" class="radio-solid border mr-xxs" checked>
+<input type="radio" id="iban-generator-option-format-none" name="iban_format" value="none" class="radio-solid border mr-xxs radio-unchecked-subtle" checked>
 <label for="iban-generator-option-format-none">{{ l10n("option.human.format.none", "iban-generator", user_lang) }}</label>
 
 <br>
 
-<input type="radio" id="iban-generator-option-format-standard" name="iban_format" value="standard" class="radio-solid border mr-xxs">
+<input type="radio" id="iban-generator-option-format-standard" name="iban_format" value="standard" class="radio-solid border mr-xxs radio-unchecked-subtle">
 <label for="iban-generator-option-format-standard">{{ l10n("option.human.format.standard", "iban-generator", user_lang) }}</label>
 
 <br>
 
-<input type="radio" id="iban-generator-option-format-4by4" name="iban_format" value="4by4" class="radio-solid border mr-xxs">
+<input type="radio" id="iban-generator-option-format-4by4" name="iban_format" value="4by4" class="radio-solid border mr-xxs radio-unchecked-subtle">
 <label for="iban-generator-option-format-4by4">{{ l10n("option.human.format.4by4", "iban-generator", user_lang) }}</label>
 
 
