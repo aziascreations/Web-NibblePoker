@@ -19,6 +19,8 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
     const eOptionHyphenInput = document.querySelector("input#uuid-generator-option-hyphens");
     /** @type {HTMLInputElement} */
     const eOptionGuidBracketsInput = document.querySelector("input#uuid-generator-option-guid-brackets");
+    /** @type {HTMLInputElement} */
+    const eOptionUppercaseInput = document.querySelector("input#uuid-generator-option-uppercase");
 
     /** @type {HTMLElement} */
     const eGenerateButton = document.querySelector("#uuid-generator-generate");
@@ -40,14 +42,14 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
     }
 
     function changeDesiredCount(difference = 0) {
-        if(difference !== 0) {
+        if (difference !== 0) {
             eOptionCountInput.value = getDesiredCount() + difference;
         }
         eOptionCountInput.value = getDesiredCount();
     }
 
     window.onload = function () {
-        eGenerateButton.addEventListener("click", function() {
+        eGenerateButton.addEventListener("click", function () {
             ePreviewTextArea.value = "";
 
             let desiredCount = getDesiredCount();
@@ -57,20 +59,26 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
             let addGuidBrackets = eOptionGuidBracketsInput.checked;
 
             lastUUIDs = [];
-            for(let i= 0; i < desiredCount; i++) {
-                lastUUIDs.push(uuidGenerator(addHyphens, addGuidBrackets));
-                ePreviewTextArea.value += uuidGenerator(addHyphens, addGuidBrackets) + "\n";
+            if (eOptionUppercaseInput.checked) {
+                for (let i = 0; i < desiredCount; i++) {
+                    lastUUIDs.push(uuidGenerator(addHyphens, addGuidBrackets).toUpperCase());
+                }
+            } else {
+                for (let i = 0; i < desiredCount; i++) {
+                    lastUUIDs.push(uuidGenerator(addHyphens, addGuidBrackets));
+                }
             }
+
             ePreviewTextArea.value = lastUUIDs.join("\n");
         });
 
         // Count option
-        eOptionCountInput.addEventListener("change", function() {
+        eOptionCountInput.addEventListener("change", function () {
             changeDesiredCount(0);
         });
-        eOptionCountInput.addEventListener("mousewheel", function(e) {
+        eOptionCountInput.addEventListener("mousewheel", function (e) {
             // Handling wheel scroll on count field.
-            if(e.wheelDelta < 0) {
+            if (e.wheelDelta < 0) {
                 changeDesiredCount(-1);
             } else {
                 changeDesiredCount(1);
@@ -78,19 +86,19 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
         });
 
         // Download buttons
-        eDownloadRawButton.addEventListener("click", function() {
+        eDownloadRawButton.addEventListener("click", function () {
             if (lastUUIDs.length <= 0) {
                 return;
             }
             downloadStringAsFile(lastUUIDs.join("\n"), "uuids.txt", "text/plain");
         });
-        eDownloadJsonButton.addEventListener("click", function() {
+        eDownloadJsonButton.addEventListener("click", function () {
             if (lastUUIDs.length <= 0) {
                 return;
             }
             downloadStringAsFile(JSON.stringify(lastUUIDs, null, 4), "uuids.json", "application/json");
         });
-        eDownloadYamlButton.addEventListener("click", function() {
+        eDownloadYamlButton.addEventListener("click", function () {
             if (lastUUIDs.length <= 0) {
                 return;
             }

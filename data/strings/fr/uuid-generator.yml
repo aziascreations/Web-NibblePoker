@@ -10,6 +10,7 @@ type.uuid4: "UUID4 / GUID4"
 option.count: "Nombre d'UUID/GUID"
 option.hyphen: "Ajouter trait d'union"
 option.guid_brackets: "Ajouter accolades pour GUID"
+option.uppercase: "Générer en majuscules"
 
 generate: "Générer"
 
