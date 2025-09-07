@@ -24,7 +24,7 @@ tools:
         image_url: "/resources/NibblePoker/images/tools/uuid-generator/main.png"
         image_alt_key: ""
       general:
-        icon: "fab fa-python"
+        icon: "fa-duotone fa-memo-pad"
         title_key: "meta.title"
         subtitle_key: "article.subtitle"
         tags:

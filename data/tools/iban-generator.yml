@@ -24,7 +24,7 @@ tools:
         image_url: "/resources/NibblePoker/images/tools/iban-generator/main.png"
         image_alt_key: ""
       general:
-        icon: "fa-duotone fa-solid fa-credit-card-front"
+        icon: "fa-duotone fa-credit-card-front"
         title_key: "meta.title"
         subtitle_key: "article.subtitle"
         tags:

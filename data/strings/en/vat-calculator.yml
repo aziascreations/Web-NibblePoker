@@ -1,7 +1,7 @@
 # EN - VAT Calculator
 
 meta.title: "VAT Calculator"
-meta.description: "Simple VAT calculator with a selection of common rates for over X countries."
+meta.description: "Simple VAT calculator with a selection of common rates for 32 countries/regions."
 
 preset.label: "Official rates"
 
@@ -17,8 +17,10 @@ rate.option.custom: "Custom rate"
 
 rate.type.standard: "Standard"
 rate.type.intermediate: "Intermediate"
+rate.type.preferential: "Preferential"
 rate.type.reduced: "Reduced"
 rate.type.reduced.super: "Super reduced"
+rate.type.special: "Special"
 
 option.decimal-places: "Decimal places count"
 option.trim-zeroes: "Trim trailing zeroes"
@@ -47,4 +49,4 @@ rounding.mode.floor.half: "Towards negative infinity if equidistant&emsp;(Half f
 
 license.text.1: "This tool uses the <a href=\"https://github.com/MikeMcl/decimal.js-light\">decimal.js-light</a> 
 library, which is licensed under the <a href=\"https://github.com/MikeMcl/decimal.js-light/blob/master/LICENCE.md\">MIT license</a>."
-license.text.2: "The rest of this tool's code is released in the public domain."
+license.text.2: "The rest of this tool's code is released in the <a href=\"https://github.com/aziascreations/Web-NibblePoker\">public domain</a>."

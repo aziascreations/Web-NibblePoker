@@ -24,8 +24,9 @@ tools:
         image_url: "/resources/NibblePoker/images/tools/vat-calculator/main-quiet.png"
         image_alt_key: ""
       general:
-        icon: "fab fa-python"
+        icon: "fa-solid fa-memo-pad"
         title_key: "meta.title"
         subtitle_key: "article.subtitle"
         tags:
           - "calculator"
+          - "finance"

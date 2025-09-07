@@ -1,7 +1,7 @@
 # FR - VAT Calculator
 
 meta.title: "Calculateur de TVA"
-meta.description: "Simple calculateur de TVA avec une selection de taux communs pour plus de X pays."
+meta.description: "Simple calculateur de TVA avec une selection de taux communs pour 32 pays/régions."
 
 preset.label: "Taux officiel"
 
@@ -17,8 +17,10 @@ rate.option.custom: "Taux personalisé"
 
 rate.type.standard: "Standard"
 rate.type.intermediate: "Intermédiaire"
+rate.type.preferential: "Préférentiel"
 rate.type.reduced: "Réduit"
 rate.type.reduced.super: "Super réduit"
+rate.type.special: "Spécial"
 
 option.decimal-places: "Nombre de décimales"
 option.trim-zeroes: "Supprimer les zéros de fin"
@@ -47,4 +49,4 @@ rounding.mode.floor.half: "Vers moins l'infini&emsp;(Demi plancher)"
 
 license.text.1: "Cet outil utilise la bibliothèque <a href=\"https://github.com/MikeMcl/decimal.js-light\">decimal.js-light</a>,
 qui est distribuée sous licence <a href=\"https://github.com/MikeMcl/decimal.js-light/blob/master/LICENCE.md\">MIT</a>."
-license.text.2: "Le reste du code de cet outil est placé dans le domaine public."
+license.text.2: "Le reste du code de cet outil est placé dans le <a href=\"https://github.com/aziascreations/Web-NibblePoker\">domaine public</a>."
