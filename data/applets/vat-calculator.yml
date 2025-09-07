@@ -1,0 +1,7 @@
+applets:
+  - id: "vat-calculator"
+    resources:
+      scripts:
+        - "applet://vat-calculator.mjs"
+      stylesheets:
+        - "applet://vat-calculator.css"

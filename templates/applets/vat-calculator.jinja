@@ -1,0 +1,170 @@
+
+{%
+        set all_vat_data = [
+            ["afghanistan", [[10, "standard"]],
+                "https://ard.gov.af/file_download/432/FAQs+of+VAT+English.pdf"],
+            ["belgium", [[6, "reduced"],[12, "intermediate"],[21, "standard"]],
+                "https://finance.belgium.be/en/enterprises/vat/vat-obligation/rates-and-calculation/vat-rates"],
+            ["luxembourg", [[3, "reduced.super"],[8, "reduced"],[14, "intermediate"],[17, "standard"]],
+                "https://logistics.public.lu/en/formalities-procedures/taxes/value-added-tax/national-operations.html"],
+        ]
+%}
+
+<label for="vat-calculator-preset-short" class="mr-xxs">
+    {{ l10n("preset.label", "vat-calculator", user_lang) }}:
+</label>
+<select name="vat-calculator-preset-short" id="vat-calculator-preset-short" class="p-xxs border r-s">
+    <option value="" selected>{{ l10n("rate.option.custom", "vat-calculator", user_lang) }}</option>
+    <hr>
+
+    {% for country_vat_data in all_vat_data %}
+        <optgroup label="{{ l10n("country." + country_vat_data[0], "commons", user_lang) }}">
+
+        {% for country_vat_rate in country_vat_data[1] %}
+            <option value="{{ country_vat_rate[0] }}">
+                {{ country_vat_rate[0] }} %
+            </option>
+        {% endfor %}
+
+        </optgroup>
+    {% endfor %}
+</select>
+
+<label for="vat-calculator-preset-detailed" class="mr-xxs" hidden>
+    {{ l10n("preset.label", "vat-calculator", user_lang) }}:
+</label>
+<select name="vat-calculator-preset-detailed" id="vat-calculator-preset-detailed" class="p-xxs border r-s" hidden>
+    <option value="" selected>{{ l10n("rate.option.custom", "vat-calculator", user_lang) }}</option>
+    <hr>
+
+    {% for country_vat_data in all_vat_data %}
+        <optgroup label="{{ l10n("country." + country_vat_data[0], "commons", user_lang) }}">
+
+        {% for country_vat_rate in country_vat_data[1] %}
+            <option value="{{ country_vat_rate[0] }}">
+                {{ country_vat_rate[0] }} %&emsp;({{ l10n("rate.type." + country_vat_rate[1], "vat-calculator", user_lang) }})
+            </option>
+        {% endfor %}
+
+        </optgroup>
+    {% endfor %}
+</select>
+
+<span id="vat-calculator-preset-country-echo" class="t-muted ml-xs t-italic mobile-hide"></span>
+
+<br>
+
+<label for="vat-calculator-detailed-presets" class="mr-xxs">{{ l10n("option.detailed", "vat-calculator", user_lang) }}:</label>
+<input id="vat-calculator-detailed-presets" class="r-m border cb-pretty" type="checkbox">
+
+
+<hr class="subtle">
+
+<!-- TODO: Implement iframe-able template for multi-instance applets on the same page -->
+
+<table class="">
+    <tr>
+        <td>
+            <input type="radio" id="vat-calculator-radio-rate" name="vat_calc_target" value="0"
+                   class="radio-solid border mr-xxs radio-unchecked-subtle">
+            <label for="vat-calculator-radio-rate">
+                {{ l10n("radio.rate", "vat-calculator", user_lang) }}
+            </label>
+        </td>
+        <td>
+            <label for="vat-calculator-input-rate" class="mr-xs"></label>
+            <input id="vat-calculator-input-rate" class="p-xxs border r-s" type="number" min="0">
+            {% if not is_standalone %}<i class="fa-duotone fa-solid fa-percent ml-xxs t-muted"></i>{% else %}%{% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td class="pt-xxs">
+            <input type="radio" id="vat-calculator-radio-untaxed" name="vat_calc_target" value="1"
+                   class="radio-solid border mr-xxs radio-unchecked-subtle">
+            <label for="vat-calculator-radio-untaxed">
+                {{ l10n("radio.untaxed", "vat-calculator", user_lang) }}
+            </label>
+        </td>
+        <td class="pt-xxs">
+            <label for="vat-calculator-input-untaxed" class="mr-xs"></label>
+            <input id="vat-calculator-input-untaxed" class="p-xxs border r-s" type="number" min="0">
+            {% if not is_standalone %}<i class="fa-duotone fa-solid fa-money-bill ml-xxs t-muted"></i>{% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td class="pt-xxs">
+            <input type="radio" id="vat-calculator-radio-taxed" name="vat_calc_target" value="2"
+                   class="radio-solid border mr-xxs radio-unchecked-subtle" checked>
+            <label for="vat-calculator-radio-taxed">
+                {{ l10n("radio.taxed", "vat-calculator", user_lang) }}
+            </label>
+        </td>
+        <td class="pt-xxs">
+            <label for="vat-calculator-input-taxed" class="mr-xs"></label>
+            <input id="vat-calculator-input-taxed" class="p-xxs border r-s bkgd-gray" type="number" min="0" readonly>
+            {% if not is_standalone %}<i class="fa-duotone fa-solid fa-money-bill ml-xxs t-muted"></i>{% endif %}
+        </td>
+    </tr>
+</table>
+
+<p class="t-muted ml-xs mt-xs t-italic">{{ l10n("text.radio.explanation", "vat-calculator", user_lang) }}</p>
+
+
+<hr class="subtle">
+
+<label for="vat-calculator-rounding-mode" class="mr-xxs">
+    {{ l10n("rounding.mode.label", "vat-calculator", user_lang) }}:
+</label>
+<select name="vat-calculator-rounding-mode" id="vat-calculator-rounding-mode" class="p-xxs border r-s">
+    <optgroup label="{{ l10n("rounding.mode.group.regular", "vat-calculator", user_lang) }}">
+        <option value="0" selected>{{ l10n("rounding.mode.up", "vat-calculator", user_lang) }}</option>
+        <option value="1">{{ l10n("rounding.mode.down", "vat-calculator", user_lang) }}</option>
+        <option value="2">{{ l10n("rounding.mode.ceil", "vat-calculator", user_lang) }}</option>
+        <option value="3">{{ l10n("rounding.mode.floor", "vat-calculator", user_lang) }}</option>
+    </optgroup>
+
+    <optgroup label="{{ l10n("rounding.mode.group.half", "vat-calculator", user_lang) }}">
+        <option value="4">{{ l10n("rounding.mode.up.half", "vat-calculator", user_lang) }}</option>
+        <option value="5">{{ l10n("rounding.mode.down.half", "vat-calculator", user_lang) }}</option>
+        <option value="6">{{ l10n("rounding.mode.even.half", "vat-calculator", user_lang) }}</option>
+        <option value="7">{{ l10n("rounding.mode.ceil.half", "vat-calculator", user_lang) }}</option>
+        <option value="8">{{ l10n("rounding.mode.floor.half", "vat-calculator", user_lang) }}</option>
+    </optgroup>
+</select>
+
+<br>
+
+<label for="vat-calculator-option-decimal-places" class="mr-xs">{{ l10n("option.decimal-places", "vat-calculator", user_lang) }}:</label>
+
+<button id="vat-calculator-decimal-places-minus" class="p-xxs border br-0 rl-s {% if is_standalone %}px-xs{% endif %}">
+    {% if not is_standalone %}<i class="fa-duotone fa-solid fa-minus"></i>{% else %}-{% endif %}
+</button>
+<input id="vat-calculator-option-decimal-places" class="p-xxs border" type="number" value="2" min="0" max="99">
+<button id="vat-calculator-decimal-places-plus" class="p-xxs border bl-0 rr-s {% if is_standalone %}px-xs{% endif %}">
+    {% if not is_standalone %}<i class="fa-duotone fa-solid fa-plus"></i>{% else %}+{% endif %}
+</button>
+
+<br hidden>
+
+<label for="vat-calculator-detailed-trim-zeroes" class="mr-xxs" hidden>{{ l10n("option.trim-zeroes", "vat-calculator", user_lang) }}:</label>
+<input id="vat-calculator-detailed-trim-zeroes" class="r-m border cb-pretty" type="checkbox" hidden>
+
+
+<!--<hr class="subtle">
+
+<details class="border bkgd-dark r-m mt-s">
+    <summary class="p-xs">Click to show/hide all classes</summary>
+    <div class="p-xs bt bkgd-grey">
+        <p>
+            <span class="code mr-xs">p-0</span>
+        </p>
+    </div>
+</details>-->
+
+{% if is_standalone %}
+    <hr class="subtle">
+    <p class="t-half-muted">
+        {{ l10n("license.text.1", "vat-calculator", user_lang) }}<br>
+        {{ l10n("license.text.2", "vat-calculator", user_lang) }}
+    </p>
+{% endif %}

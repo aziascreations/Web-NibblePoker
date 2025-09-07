@@ -93,6 +93,16 @@ call "%~dp0node_modules\.bin\rollup" png-analyser.mjs --file png-analyser.js
 call "%~dp0node_modules\.bin\terser" png-analyser.js -c -m -o png-analyser.min.js
 popd
 
+
+:js-vatcalculator-minify
+echo Minifying VAT Calculator
+pushd %CD%
+cd %~dp0\..\static\resources\NibblePoker\applets\vat-calculator\
+echo ^> static\resources\NibblePoker\applets\vat-calculator\vat-calculator.mjs
+call "%~dp0node_modules\.bin\rollup" vat-calculator.mjs --file vat-calculator.js
+call "%~dp0node_modules\.bin\terser" vat-calculator.js -c -m -o vat-calculator.min.js
+popd
+
 :js-nibblepoker-end
 
 :end

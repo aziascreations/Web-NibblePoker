@@ -43,7 +43,7 @@ def reload_strings(strings_root: str) -> None:
             domain_key = str(Path(lang_domain).with_suffix(''))
 
             if lang_domain.endswith(".json"):
-                print(f"Loading JSON lang data from '{lang_domain_path}'...")
+                #print(f"Loading JSON lang data from '{lang_domain_path}'...")
                 L10N.add_domain(
                     lang_dir,
                     domain_key,
@@ -51,7 +51,7 @@ def reload_strings(strings_root: str) -> None:
                 )
 
             if lang_domain.endswith(".yml"):
-                print(f"Loading YAML lang data from '{lang_domain_path}'...")
+                #print(f"Loading YAML lang data from '{lang_domain_path}'...")
                 L10N.add_domain(
                     lang_dir,
                     domain_key,

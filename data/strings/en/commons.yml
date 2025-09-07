@@ -91,3 +91,19 @@ format.json: "JSON"
 format.yaml: "YAML"
 
 action.generate: "Generate"
+
+country.afghanistan: "Afghanistan"
+country.albania: "Albania"
+country.algeria: "Algeria"
+country.andorra: "Andorra"
+country.angola: "Angola"
+country.anguilla: "Anguilla"
+country.argentina: "Argentina"
+country.australia: "Australia"
+country.austria: "Austria"
+country.azerbaijan: "Azerbaijan"
+country.bahamas: "Bahamas"
+
+country.belgium: "Belgium"
+
+country.luxembourg: "Luxembourg"

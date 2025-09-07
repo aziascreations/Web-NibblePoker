@@ -1,0 +1,50 @@
+# EN - VAT Calculator
+
+meta.title: "VAT Calculator"
+meta.description: "Simple VAT calculator with a selection of common rates for over X countries."
+
+preset.label: "Official rates"
+
+option.detailed: "Show VAT rate types"
+
+radio.rate: "VAT rate: "
+radio.untaxed: "Excl. VAT: "
+radio.taxed: "Incl. VAT: "
+
+text.radio.explanation: "The selected radio input indicates the automatically calculated field."
+
+rate.option.custom: "Custom rate"
+
+rate.type.standard: "Standard"
+rate.type.intermediate: "Intermediate"
+rate.type.reduced: "Reduced"
+rate.type.reduced.super: "Super reduced"
+
+option.decimal-places: "Decimal places count"
+option.trim-zeroes: "Trim trailing zeroes"
+
+rounding.mode.label: "Rounding mode"
+
+rounding.mode.group.regular: "Regular rounding"
+rounding.mode.group.half: "Half rounding&emsp;(Towards nearest neighbour)"
+
+rounding.mode.up: "Away from zero&emsp;(Up)"
+rounding.mode.down: "Towards zero&emsp;(Down)"
+rounding.mode.ceil: "Towards infinity&emsp;(Ceil)"
+rounding.mode.floor: "Towards negative infinity&emsp;(Floor)"
+
+rounding.mode.up.half: "Away from zero if equidistant&emsp;(Half up)"
+rounding.mode.down.half: "Towards zero if equidistant&emsp;(Half down)"
+rounding.mode.even.half: "Towards even neighbour if equidistant&emsp;(Half even)"
+rounding.mode.ceil.half: "Towards infinity if equidistant&emsp;(Half ceil)"
+rounding.mode.floor.half: "Towards negative infinity if equidistant&emsp;(Half floor)"
+
+#rounding.mode.up.half: "Towards nearest neighbour, away from zero if equidistant&emsp;(Half up)"
+#rounding.mode.down.half: "Towards nearest neighbour, towards zero if equidistant&emsp;(Half down)"
+#rounding.mode.even.half: "Towards nearest neighbour, towards even neighbour if equidistant&emsp;(Half even)"
+#rounding.mode.ceil.half: "Towards nearest neighbour, towards infinity if equidistant&emsp;(Half ceil)"
+#rounding.mode.floor.half: "Towards nearest neighbour, towards negative infinity if equidistant&emsp;(Half floor)"
+
+license.text.1: "This tool uses the <a href=\"https://github.com/MikeMcl/decimal.js-light\">decimal.js-light</a> 
+library, which is licensed under the <a href=\"https://github.com/MikeMcl/decimal.js-light/blob/master/LICENCE.md\">MIT license</a>."
+license.text.2: "The rest of this tool's code is released in the public domain."

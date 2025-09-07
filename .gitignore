@@ -14,5 +14,6 @@ node_modules/
 *.ai
 
 # Temp
+static/resources/DecimalJs*
 static/resources/SortableJS
 static/resources/Standalone

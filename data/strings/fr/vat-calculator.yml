@@ -1,0 +1,50 @@
+# FR - VAT Calculator
+
+meta.title: "Calculateur de TVA"
+meta.description: "Simple calculateur de TVA avec une selection de taux communs pour plus de X pays."
+
+preset.label: "Taux officiel"
+
+option.detailed: "Afficher le type de TVA"
+
+radio.rate: "Taux: "
+radio.untaxed: "<abbr title=\"Hors Taxe sur la Valeur Ajoutée\">HTVA</abbr>: "
+radio.taxed: "<abbr title=\"Toutes Taxes Comprises\">TTC</abbr>: "
+
+text.radio.explanation: "Le cercle en vert indique la valeur automatiquement calculée."
+
+rate.option.custom: "Taux personalisé"
+
+rate.type.standard: "Standard"
+rate.type.intermediate: "Intermédiaire"
+rate.type.reduced: "Réduit"
+rate.type.reduced.super: "Super réduit"
+
+option.decimal-places: "Nombre de décimales"
+option.trim-zeroes: "Supprimer les zéros de fin"
+
+rounding.mode.label: "Type d'arrondi"
+
+rounding.mode.group.regular: "Arrondis classiques"
+rounding.mode.group.half: "Demi-arrondis&emsp;(Vers le plus proche)"
+
+rounding.mode.up: "Loin de zéro&emsp;(Arrondi au supérieur)"
+rounding.mode.down: "Vers zéro&emsp;(Arrondi à l'inférieur)"
+rounding.mode.ceil: "Vers l'infini&emsp;(Par plafond)"
+rounding.mode.floor: "Vers moins l'infini&emsp;(Par plancher)"
+
+rounding.mode.up.half: "Loin de zéro si équidistant&emsp;(Demi supérieur)"
+rounding.mode.down.half: "Vers zéro si équidistant&emsp;(Demi inférieur)"
+rounding.mode.even.half: "Vers le pair si équidistant&emsp;(Demi pair)"
+rounding.mode.ceil.half: "Vers l'infini&emsp;(Demi plafond)"
+rounding.mode.floor.half: "Vers moins l'infini&emsp;(Demi plancher)"
+
+#rounding.mode.up.half: "Vers le plus proche, loin de zéro si équidistant&emsp;(Demi supérieur)"
+#rounding.mode.down.half: "Vers le plus proche, vers zéro si équidistant&emsp;(Demi inférieur)"
+#rounding.mode.even.half: "Vers le plus proche, vers le pair si équidistant&emsp;(Demi pair)"
+#rounding.mode.ceil.half: "Vers le plus proche, vers l'infini&emsp;(Demi plafond)"
+#rounding.mode.floor.half: "Vers le plus proche, vers moins l'infini&emsp;(Demi plancher)"
+
+license.text.1: "Cet outil utilise la bibliothèque <a href=\"https://github.com/MikeMcl/decimal.js-light\">decimal.js-light</a>,
+qui est distribuée sous licence <a href=\"https://github.com/MikeMcl/decimal.js-light/blob/master/LICENCE.md\">MIT</a>."
+license.text.2: "Le reste du code de cet outil est placé dans le domaine public."

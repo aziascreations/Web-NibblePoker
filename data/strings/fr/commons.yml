@@ -91,3 +91,7 @@ format.json: "JSON"
 format.yaml: "YAML"
 
 action.generate: "Générer"
+
+country.belgium: "Belgique"
+
+country.luxembourg: "Luxembourg"
