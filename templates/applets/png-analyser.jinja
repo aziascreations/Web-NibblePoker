@@ -1,3 +1,38 @@
 
 {{ render_file_input(tool_id + "-test-input", true, ".png, .bmp", true, true) }}
 
+
+<div class="w-full ox-auto">
+    <table class="table-stylish table-p-s border r-m w-full table-no-wrap">
+        <thead>
+            <tr>
+                <th class="bkgd-grid30">Offset</th>
+                <th class="bkgd-grid30">Chunk Header</th>
+                <th class="bkgd-grid30">Chunk Data</th>
+                <th class="bkgd-grid30">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="t-monospace">0x0000</td>
+            <td>2</td>
+            <td>2</td>
+            <td>
+                <button class="p-xs r-s border btn-primary">
+                    <i class="fa-duotone fa-solid fa-binary"></i><span class="ml-xxs mobile-hide">Hex dump</span>
+                </button>
+                <button class="p-xs r-s border btn-primary">
+                    <i class="fa-duotone fa-solid fa-download"></i><span class="ml-xxs mobile-hide">Export</span>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="t-monospace">0x0010</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
