@@ -29,3 +29,11 @@ input[type=file].np-file-input-drop {
     margin-top: calc(1rem* 0.5);
     margin-bottom: calc(1rem* 0.5);
 }
+
+.hide-if-last:last-child {
+    display: none;
+}
+
+.hide-if-first:first-child {
+    display: none;
+}

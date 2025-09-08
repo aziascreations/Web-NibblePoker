@@ -83,5 +83,7 @@
   "content.commons.lang.luxembourgish": "Luxembourgish",
   "content.commons.lang.english.639-3": "English (eng)",
   "content.commons.lang.french.639-3": "French (fra)",
-  "content.commons.lang.luxembourgish.639-3": "Luxembourgish (ltz)"
+  "content.commons.lang.luxembourgish.639-3": "Luxembourgish (ltz)",
+
+  "filters.summary": "Click to show/hide tag filters"
 }

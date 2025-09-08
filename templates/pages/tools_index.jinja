@@ -9,13 +9,34 @@
 {% endblock %}
 
 {% block content_filters %}
-[Tools filters here !]
+    <details class="border bkgd-dark r-m mb-s">
+        <summary class="p-xs t-noselect">{{ l10n("filters.summary", "content", user_lang) }}</summary>
+        <div class="p-xs bt bkgd-grey rb-m">
+
+            {% for linked_tag in get_tools_linked_tags(requested_tags) %}
+                <span class="mr-s t-size-10">
+                    <a href="{{ l10n_url_abs('/tools/?tags=' + linked_tag, raw_lang) }}">#{{ linked_tag }}</a>
+                    (+)
+                </span>
+            {% endfor %}
+
+            <hr class="subtle hide-if-last hide-if-first">
+
+            {% for unlinked_tag in get_tools_unlinked_tags(requested_tags) %}
+                <span class="mr-s">
+                    <a href="{{ l10n_url_abs('/tools/?tags=' + unlinked_tag, raw_lang) }}">#{{ unlinked_tag }}</a>
+                    (+)
+                </span>
+            {% endfor %}
+
+        </div>
+    </details>
 {% endblock %}
 
 {% block content_listing %}
 
     {% for tool_data in get_sorted_tools_by_tags(requested_tags) %}
-        <hr class="subtle">
+        <hr class="subtle hide-if-first">
 
         <!--<div class="p-s border r-m">-->
         <div class="p-xs r-m">

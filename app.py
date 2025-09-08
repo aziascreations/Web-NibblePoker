@@ -10,7 +10,7 @@ from werkzeug.exceptions import HTTPException
 
 from website.content import get_projects, get_tools, sanitize_input_tags, load_content_items, get_content, \
     get_applets, get_projects_languages, get_projects_by_languages, get_sorted_tools_by_tags, \
-    get_sorted_projects_by_tags
+    get_sorted_projects_by_tags, get_tools_linked_tags, get_tools_unlinked_tags
 from website.contributors import reload_contributors_data
 from website.domains import ALLOWED_DOMAINS
 from website.l10n.utils import get_user_lang, localize, reload_strings, l10n_url_abs, l10n_url_switch, DEFAULT_LANG
@@ -125,6 +125,8 @@ def inject_processors():
         get_tools=get_tools,
         get_sorted_projects_by_tags=get_sorted_projects_by_tags,
         get_sorted_tools_by_tags=get_sorted_tools_by_tags,
+        get_tools_unlinked_tags=get_tools_unlinked_tags,
+        get_tools_linked_tags=get_tools_linked_tags,
 
         # Renderers
         render_button=render_button,

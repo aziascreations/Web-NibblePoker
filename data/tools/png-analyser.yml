@@ -27,4 +27,5 @@ tools:
         title_key: "meta.title"
         subtitle_key: "article.subtitle"
         tags:
-          - "undefined"
+          - "graphics"
+          - "analyser"

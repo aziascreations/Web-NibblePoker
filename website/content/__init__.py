@@ -54,6 +54,22 @@ def get_tools() -> LockedDict[str, ContentTool]:
     return __CONTENT.tools
 
 
+def get_tools_tags() -> list[str]:
+    tool: ContentTool
+
+    return sorted(
+        set(
+            [tag for tool in __CONTENT.tools.values() for tag in tool.metadata.general.tags]
+        )
+    )
+
+    #returned_list: list[str] = list()
+    #for tool in __CONTENT.tools.values():
+    #    tool: ContentTool
+    #    returned_list = returned_list + tool.metadata.general.tags
+    #return list(set(returned_list))
+
+
 def get_sorted_tools_by_tags(tags: Optional[list[str]]) -> list[ContentProject]:
     if tags is None:
         return sorted(__CONTENT.tools.values(), key=lambda x: x.metadata.index.priority, reverse=True)
@@ -65,6 +81,37 @@ def get_sorted_tools_by_tags(tags: Optional[list[str]]) -> list[ContentProject]:
             if any(tag in x.metadata.general.tags for tag in tags)
         ]
         return sorted(returned_list, key=lambda x: x.metadata.index.priority, reverse=True)
+
+
+def get_tools_unlinked_tags(tags: Optional[list[str]]) -> list[str]:
+    """Returns a list of tags which are not used with any tools that has one or more of the given tags."""
+    # TODO: cache the result !!!
+
+    all_tags = get_tools_tags()
+    linked_tags = get_tools_linked_tags(tags)
+
+    if tags is None:
+        return [tag for tag in all_tags if tag not in linked_tags]
+    else:
+        return [tag for tag in all_tags if (tag not in linked_tags and tag not in tags)]
+
+
+def get_tools_linked_tags(tags: Optional[list[str]]) -> list[str]:
+    """Returns a list of tags which are used in any tools that has one or more of the given tags."""
+    # TODO: cache the result !!!
+
+    returned_list = list()
+
+    if tags is not None:
+        relevant_tools = get_sorted_tools_by_tags(tags)
+
+        for relevant_tool in relevant_tools:
+            returned_list = returned_list + relevant_tool.metadata.general.tags
+
+        returned_list = set(returned_list)
+        returned_list = [tag for tag in returned_list if tag not in tags]
+
+    return returned_list
 
 
 def sanitize_input_tags(input_tags: str) -> list[str]:

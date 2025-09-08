@@ -24,7 +24,7 @@ metadata:
     title_key: "meta.title"
     subtitle_key: "article.subtitle"
     tags:
-      - "undefined"
+      - "graphics"
 resources:
   scripts:
     - "svg-to-png.mjs"
