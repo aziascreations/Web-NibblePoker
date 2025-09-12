@@ -1,12 +1,14 @@
 # EN - Home
 
-head.title: NibblePoker
-head.description: Collection of free and open-source handmade utilities and libraries
-  ranging from a simple COM port lister to password remover and autonomous video archivers.
+head:
+  title: NibblePoker
+  description: Collection of free and open-source handmade utilities and libraries 
+    ranging from a simple COM port lister to password remover and autonomous video archivers.
 
-og.title: NibblePoker
-og.description: Collection of free and open-source handmade utilities and libraries
-  ranging from a simple COM port lister to password remover and autonomous video archivers.
+og:
+  title: NibblePoker
+  description: Collection of free and open-source handmade utilities and libraries
+    ranging from a simple COM port lister to password remover and autonomous video archivers.
 
 header.title: Homepage
 
@@ -23,25 +25,32 @@ updates.title: Updates
 
 updates.text.privacy: Updated our privacy policy.
 
-updates.5.date: March 30 2025
-updates.5.text.1: Complete redesign of the site to use a standardized style.
-updates.5.text.2: Changed some of our VPS providers to <a href="https://hosteam.pl/">HosTeam</a>.
-
-updates.4.date: November 30 2023
-updates.4.text.1: Centralized DNS servers & implemented GeoDNS.
-updates.4.text.2: Added US CDN hosted by <a href="https://www.chicagovps.net/">ChicagoVPS</a>.
-updates.4.text.3: All other regions use the EU CDN hosted by IONOS.
-
-updates.3.date: November 12 2023
-updates.3.text.1: Other services are back online.
-updates.3.text.2: Changed our host to IONOS.
-updates.3.text.3: Finished all side pages.
-
-updates.2.date: August 15 2023
-updates.2.text.1: The website is back online.
-updates.2.text.2: New and much lighter design.
-updates.2.text.3: Changed our host to HostBrr.
-updates.2.text.4: Added a section for web-based tools.
-
-updates.1.date: September 9 2022
-updates.1.text.1: Changed our host to v6Node.
+updates:
+  5:
+    date: March 30 2025
+    text:
+      1: Complete redesign of the site to use a standardized style.
+      2: Changed some of our VPS providers to <a href="https://hosteam.pl/">HosTeam</a>.
+  4:
+    date: November 30 2023
+    text:
+      1: Centralized DNS servers & implemented GeoDNS.
+      2: Added US CDN hosted by <a href="https://www.chicagovps.net/">ChicagoVPS</a>.
+      3: All other regions use the EU CDN hosted by IONOS.
+  3:
+    date: November 12 2023
+    text:
+      1: Other services are back online.
+      2: Changed our host to IONOS.
+      3: Finished all side pages.
+  2:
+    date: August 15 2023
+    text:
+      1: The website is back online.
+      2: New and much lighter design.
+      3: Changed our host to HostBrr.
+      4: Added a section for web-based tools.
+  1:
+    date: September 9 2022
+    text:
+      1: Changed our host to v6Node.

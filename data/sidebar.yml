@@ -4,7 +4,7 @@
   active_id: home
   has_new_until_utc: 0
 
--
+- {}
 
 #- title_key: text.articles
 #  abs_href: "/articles/"
@@ -56,7 +56,7 @@
   active_id: ""
   has_new_until_utc: 0
 
--
+- {}
 
 #- title_key: text.about
 #  abs_href: "/about"

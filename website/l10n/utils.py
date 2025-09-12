@@ -5,7 +5,7 @@ from typing import Optional
 
 import yaml
 
-from . import Localizer
+from .localizer import Localizer
 
 DEFAULT_LANG = "en"
 ALLOWED_LANGS = ["en", "fr"]
@@ -123,46 +123,3 @@ def l10n_url_switch(url: str, new_lang: Optional[str] = None) -> str:
         url = "/" + new_lang + url
 
     return url.replace("//", "/")
-
-
-# STRINGS = dict()
-# STRINGS[DEFAULT_LANG] = dict()
-# STRINGS["_compile_date"] = "1970-01-01T00:00:00.000000+00:00Z"
-#
-#
-# def reload_strings(strings_file: str) -> None:
-#     global STRINGS
-#     STRINGS = dict()
-#     STRINGS[DEFAULT_LANG] = dict()
-#     STRINGS["_compile_date"] = "1970-01-01T00:00:00.000000+00:00Z"
-#     STRINGS = json.loads(open(strings_file, "r").read())
-#
-#
-# def localize_internal(string_key: str, language: str, lang_data: dict, fallback: Optional[str]) -> Optional[str]:
-#     if language not in ALLOWED_LANGS:
-#         return fallback
-#
-#     if language not in lang_data.keys():
-#         language = DEFAULT_LANG
-#
-#     localized_string = lang_data[language].get(string_key)
-#     if localized_string is None and language != DEFAULT_LANG:
-#         localized_string = lang_data[DEFAULT_LANG].get(string_key)
-#
-#     if localized_string is None:
-#         return fallback
-#     return localized_string
-#
-#
-# def localize(strings_key: str, language: str, extra_lang_data: Optional[dict] = None) -> str:
-#     localized_string = None
-#
-#     if extra_lang_data is not None:
-#         localized_string = localize_internal(strings_key, language, extra_lang_data, None)
-#
-#     if localized_string is None:
-#         localized_string = localize_internal(strings_key, language, STRINGS, None)
-#
-#     if localized_string is None:
-#         return f"${strings_key}"
-#     return localized_string

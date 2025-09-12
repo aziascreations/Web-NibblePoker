@@ -17,3 +17,10 @@ node_modules/
 static/resources/DecimalJs*
 static/resources/SortableJS
 static/resources/Standalone
+
+# Secrets
+src/
+bin/
+app/
+.run/
+*.tmpl

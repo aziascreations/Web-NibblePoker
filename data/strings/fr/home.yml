@@ -24,25 +24,32 @@ showcase.title: Vitrine
 updates.title: Updates
 updates.text.privacy: Mise-à-jour de notre politique de confidentialité.
 
-updates.5.date: 30 mars 2025
-updates.5.text.1: Refonte complète du site pour utiliser un style standardisé.
-updates.5.text.2: Changements de certains providers de VPS pour <a href="https://hosteam.pl/">HosTeam</a>.
-
-updates.4.date: 30 novembre 2023
-updates.4.text.1: Centralisation des serveurs DNS & implémentation de GeoDNS.
-updates.4.text.2: Ajout d'un CDN pour l'Amérique du Nord hébergé par <a href="https://www.chicagovps.net/">ChicagoVPS</a>.
-updates.4.text.3: Les autres régions utilisent le CDN Européen hébergé par IONOS.
-
-updates.3.date: 12 novembre 2023
-updates.3.text.1: Les services annexes sont disponibles.
-updates.3.text.2: Changement d'hébergeur vers IONOS.
-updates.3.text.3: Finition des pages annexes.
-
-updates.2.date: 15 août 2023
-updates.2.text.1: Le site internet est à nouveau disponible.
-updates.2.text.2: Mise en place d'un nouveau design plus léger.
-updates.2.text.3: Changement d'hébergeur vers HostBrr.
-updates.2.text.4: Ajout d'une nouvelle section pour les outils.
-
-updates.1.date: 9 septembre 2022
-updates.1.text.1: Changement d'hébergeur vers v6Node.
+updates:
+  5:
+    date: 30 mars 2025
+    text:
+      1: Refonte complète du site pour utiliser un style standardisé.
+      2: Changements de certains providers de VPS pour <a href="https://hosteam.pl/">HosTeam</a>.
+  4:
+    date: 30 novembre 2023
+    text:
+      1: Centralisation des serveurs DNS & implémentation de GeoDNS.
+      2: Ajout d'un CDN pour l'Amérique du Nord hébergé par <a href="https://www.chicagovps.net/">ChicagoVPS</a>.
+      3: Les autres régions utilisent le CDN Européen hébergé par IONOS.
+  3:
+    date: 12 novembre 2023
+    text:
+      1: Les services annexes sont disponibles.
+      2: Changement d'hébergeur vers IONOS.
+      3: Finition des pages annexes.
+  2:
+    date: 15 août 2023
+    text:
+      1: Le site internet est à nouveau disponible.
+      2: Mise en place d'un nouveau design plus léger.
+      3: Changement d'hébergeur vers HostBrr.
+      4: Ajout d'une nouvelle section pour les outils.
+  1:
+    date: 9 septembre 2022
+    text:
+      1: Changement d'hébergeur vers v6Node.
