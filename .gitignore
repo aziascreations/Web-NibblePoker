@@ -8,6 +8,7 @@ __pycache__/
 
 # NodeJS' BS
 node_modules/
+scripts/package-lock.json
 
 # Internal stuff
 *.pdn

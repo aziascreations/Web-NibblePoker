@@ -1,7 +1,7 @@
 {% extends "projects/_project.jinja" %}
 
 {% block project_content %}
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("intro.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("intro.p1", project_id, user_lang)) }}
@@ -10,7 +10,7 @@
         </div>
     </section>
 
-        <section>
+        <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("requirements.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_list_ul([
@@ -26,7 +26,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("improvements.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_list_ul([
@@ -39,7 +39,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("screenshots.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_splide([
@@ -50,7 +50,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("usage.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{
@@ -78,7 +78,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("formatting.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{
@@ -105,7 +105,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("packages.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("packages.single.title", project_id, user_lang)) }}
@@ -117,10 +117,10 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("version.current", "commons", user_lang)) }}
         <div class="content-spacer">
-            <table class="table-stylish table-p-s border r-l">
+            <table class="table-stylish table-p-xs table-v-center border r-l">
                 <thead>
                     <tr>
                         <th>{{ l10n("cpu.architecture", "commons", user_lang) }}</th>
@@ -132,53 +132,134 @@
                     <tr>
                         <td>{{ l10n("cpu.any", "commons", user_lang) }}</td>
                         <td>{{ l10n("requirements.text.dotnet", project_id, user_lang) }}</td>
-                        <td>...</td>
+                        <td>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_AnyCPU.zip" class="a-hidden">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>ZIP - 120.36 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+                        </td>
                     </tr>
+
                     <tr>
                         <td rowspan="2">{{ l10n("cpu.x64", "commons", user_lang) }}</td>
                         <td>{{ l10n("requirements.text.dotnet", project_id, user_lang) }}</td>
-                        <td>...</td>
+                        <td>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64_Single.zip" class="a-hidden">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>ZIP - 138.9 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>{{ l10n("none.fs", "commons", user_lang) }}</td>
-                        <td>...</td>
+                        <td>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64_SelfContained.zip" class="a-hidden mr-s">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>ZIP - 7.35 MiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x64.msi" class="a-hidden">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>MSI - 10.51 MiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None, "btn-primary")
+                                }}
+                            </a>
+                        </td>
                     </tr>
+
                     <tr>
                         <td rowspan="2">{{ l10n("cpu.x86", "commons", user_lang) }}</td>
                         <td>{{ l10n("requirements.text.dotnet", project_id, user_lang) }}</td>
-                        <td>...</td>
+                        <td>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86_Single.zip" class="a-hidden">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>ZIP - 123.56 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>{{ l10n("none.fs", "commons", user_lang) }}</td>
-                        <td>...</td>
+                        <td>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86_SelfContained.zip" class="a-hidden mr-s">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>ZIP - 6.64 MiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_x86.msi" class="a-hidden mr-s">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>MSI - 9.79 MiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None, "btn-primary")
+                                }}
+                            </a>
+                        </td>
                     </tr>
+
                     <tr>
                         <td rowspan="2">{{ l10n("cpu.arm64", "commons", user_lang) }}</td>
                         <td>{{ l10n("requirements.text.dotnet", project_id, user_lang) }}</td>
-                        <td>...</td>
+                        <td>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm64_Single.zip" class="a-hidden">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>ZIP - 130.34 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>{{ l10n("none.fs", "commons", user_lang) }}</td>
-                        <td>...</td>
+                        <td>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm64_SelfContained.zip" class="a-hidden">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>ZIP - 7.04 MiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+                        </td>
                     </tr>
-                    <tr>
+
+                    <!--<tr>
                         <td rowspan="2">{{ l10n("cpu.arm32", "commons", user_lang) }}</td>
                         <td>{{ l10n("requirements.text.dotnet", project_id, user_lang) }}</td>
-                        <td>...</td>
+                        <td>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm_Single.zip" class="a-hidden">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>ZIP - 127.57 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>{{ l10n("none.fs", "commons", user_lang) }}</td>
-                        <td>...</td>
-                    </tr>
+                        <td>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/ListComPort_v3.0.0_arm_SelfContained.zip" class="a-hidden">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>ZIP - 6.68 MiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+                        </td>
+                    </tr>-->
                 </tbody>
             </table>
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("source.code", "commons", user_lang)) }}
         <div class="content-spacer">
-            <table class="table-stylish table-p-s border r-l">
+            <table class="table-stylish table-p-xs table-v-center border r-l">
                 <thead>
                     <tr>
                         <th>{{ l10n("version", "commons", user_lang) }}</th>
@@ -188,14 +269,27 @@
                 <tbody>
                     <tr>
                         <td>v3.0.0</td>
-                        <td>...</td>
+                        <td>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.tar.gz" class="a-hidden mr-s">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>TAR.GZ - 4.22 MiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+                            <a href="https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/DotNet-ListComPort-3.0.0.zip" class="a-hidden">
+                                {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>ZIP - 4.23 MiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                }}
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("links.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_list_ul([

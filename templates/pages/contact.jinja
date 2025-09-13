@@ -8,24 +8,23 @@
 {% endblock %}
 
 {% block main_content %}
-    {{ render_h1(l10n("email.title", "contact", user_lang), "fad fa-mail-bulk", "herwin.bozet@gmail.com") }}
-    <p class="m-s">
-		<a href="mailto:Herwin Bozet<herwin.bozet@nibblepoker.lu>?subject=Contact%20via%20NibblePoker.lu" class="a-hidden button-link">
-			<button class="p-xs r-s border b-light success"><i class="fad fa-external-link-alt mr-xs"></i>{{ l10n("email.compose.nibblepoker", "contact", user_lang) }}</button>
-		</a>
-	</p>
-    <!--<p class="m-s">
-		<a href="mailto:Herwin Bozet<herwin.bozet@gmail.com>?subject=Contact%20via%20NibblePoker.lu" class="a-hidden button-link">
-			<button class="p-xs r-s border b-light success"><i class="fad fa-external-link-alt mr-xs"></i>{{ l10n("email.compose", "contact", user_lang) }}</button>
-		</a>
-	</p>-->
+    <section class="mt-l mt-0-if-first">
+        {{ render_h1(l10n("email.title", "contact", user_lang), "fad fa-mail-bulk", "herwin.bozet@nibblepoker.lu") }}
+        <p class="m-s">
+            <a href="mailto:Herwin Bozet<herwin.bozet@nibblepoker.lu>?subject=Contact%20via%20NibblePoker.lu" class="a-hidden button-link">
+                <button class="p-xs r-s border b-light success"><i class="fad fa-external-link-alt mr-xs"></i>{{ l10n("email.compose.nibblepoker", "contact", user_lang) }}</button>
+            </a>
+        </p>
+    </section>
 
-    {{ render_h1(l10n("twitter.title", "contact", user_lang), "fab fa-twitter", "@NibblePoker") }}
-    <p class="m-s">
-		<a href="https://twitter.com/messages/compose?recipient_id=937370791334895616" class="a-hidden button-link">
-			<button class="p-xs r-s border b-light primary"><i class="fad fa-external-link-alt mr-xs"></i>{{ l10n("twitter.compose", "contact", user_lang) }}</button>
-		</a>
-	</p>
+    <section class="mt-l mt-0-if-first">
+        {{ render_h1(l10n("twitter.title", "contact", user_lang), "fab fa-x-twitter", "@NibblePoker") }}
+        <p class="m-s">
+            <a href="https://twitter.com/messages/compose?recipient_id=937370791334895616" class="a-hidden button-link">
+                <button class="p-xs r-s border b-light primary"><i class="fad fa-external-link-alt mr-xs"></i>{{ l10n("twitter.compose", "contact", user_lang) }}</button>
+            </a>
+        </p>
+    </section>
 
 {% endblock %}
 

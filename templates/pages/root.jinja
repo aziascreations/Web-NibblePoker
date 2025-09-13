@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block main_content %}
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h1(l10n("intro.title", "home", user_lang, ["NibblePoker." + domain_tld] )) }}
 
         <div class="content-spacer">
@@ -21,7 +21,7 @@
         </div>
     </section>
     
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("updates.title", "home", user_lang)) }}
 
         <div class="content-spacer">

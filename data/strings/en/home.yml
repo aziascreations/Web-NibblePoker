@@ -10,22 +10,25 @@ og:
   description: Collection of free and open-source handmade utilities and libraries
     ranging from a simple COM port lister to password remover and autonomous video archivers.
 
-header.title: Homepage
+header:
+  title: Homepage
 
-intro.title: Welcome to %0
-intro.text.1: This website contains a collection of my personal work through
-  blog posts, software releases and other forms of media, all of which is accessible
-  for free and under open-source friendly licenses.
-intro.text.2: If you wish to contact me, you can do so through the contact form
-  linked in the sidebar or via the email address present on that page.
+intro:
+  title: Welcome to %0
+  text:
+    1: This website contains a collection of my personal work through
+      blog posts, software releases and other forms of media, all of which is accessible
+      for free and under open-source friendly licenses.
+    2: If you wish to contact me, you can do so through the contact form
+      linked in the sidebar or via the email address present on that page.
 
-showcase.title: Showcase
-
-updates.title: Updates
-
-updates.text.privacy: Updated our privacy policy.
+showcase:
+  title: Showcase
 
 updates:
+  title: Updates
+  text:
+    privacy: Updated our privacy policy.
   5:
     date: March 30 2025
     text:

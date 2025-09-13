@@ -13,7 +13,7 @@
 
 {% block main_content %}
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h1(l10n("introduction.title", "privacy", user_lang), "fad fa-info") }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("introduction.text.1", "privacy", user_lang)) }}
@@ -26,7 +26,7 @@
     </section>
 
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h1(l10n("v2.data.title", "privacy", user_lang), "fad fa-database") }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("v2.data.intro.1", "privacy", user_lang) +
@@ -51,7 +51,7 @@
     </section>
 
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h1(l10n("v2.data_dns.title", "privacy", user_lang), "fad fa-database") }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("v2.data_dns.intro.1", "privacy", user_lang) +
@@ -73,7 +73,7 @@
     </section>
 
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h1(l10n("v2.third.title", "privacy", user_lang), "fad fa-handshake") }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("v3.third.intro.1", "privacy", user_lang)) }}
@@ -81,7 +81,7 @@
     </section>
 
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h1(l10n("v2.cookies.title", "privacy", user_lang), "fad fa-cookie-bite") }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("v2.cookies.intro.1", "privacy", user_lang)) }}
@@ -89,7 +89,7 @@
     </section>
 
 
-    <section>
+    <section class="mt-l mt-0-if-first">
 	    {{ render_h1(l10n("v2.update.title", "privacy", user_lang), "fad fa-sync-alt") }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("v2.update.intro.1", "privacy", user_lang)) }}
@@ -161,7 +161,7 @@
     </section>
 
 
-    <section>
+    <section class="mt-l mt-0-if-first">
 	    {{ render_h1(l10n("contact.title", "privacy", user_lang), "fad fa-mailbox") }}
         <div class="content-spacer">
         {{ render_paragraph(l10n("contact.text.1", "privacy", user_lang) +
@@ -170,7 +170,7 @@
     </section>
 
 
-    <section>
+    <section class="mt-l mt-0-if-first">
 	    {{ render_h1(l10n("complaint.title", "privacy", user_lang), "fad fa-gavel") }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("complaint.text.1", "privacy", user_lang)) }}

@@ -1,14 +1,14 @@
 {% extends "projects/_project.jinja" %}
 
 {% block project_content %}
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("intro.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("intro.p1", project_id, user_lang)) }}
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("features.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_list_ul([
@@ -28,7 +28,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("limitations.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_list_ul([
@@ -50,14 +50,14 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("doc.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("doc.p1", project_id, user_lang)) }}
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("usage.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("usage.p1", project_id, user_lang)) }}
@@ -99,7 +99,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("demo.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_paragraph(l10n("demo.p1", project_id, user_lang)) }}
@@ -114,7 +114,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("downloads.title", project_id, user_lang)) }}
         <div class="content-spacer">
             <table class="table-stylish table-p-xs table-v-center border r-l">
@@ -207,7 +207,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("license.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_paragraph(
@@ -218,7 +218,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="mt-l mt-0-if-first">
         {{ render_h2(l10n("links.title", project_id, user_lang)) }}
         <div class="content-spacer">
             {{ render_list_ul([

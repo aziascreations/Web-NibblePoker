@@ -1,22 +1,42 @@
 /* File inputs with drop thingy */
+
 .np-file-input-drop-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
 }
 
-.np-file-drop-text {
+input.np-file-input-drop {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-input[type=file].np-file-input-drop {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     opacity: 0;
     cursor: pointer;
 }
 
+.np-file-drop-text {
+    text-align: center;
+    pointer-events: none;
+}
+
+.np-file-drop-buttons {
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
 /* Top margin trimmer for heading renderer */
 
+
+.t-v-center {
+    vertical-align: middle;
+}
 
 /* Copy of the m*-xs classes */
 /* Accommodates the paragraph renderer that has a hard-coded .mt-xs */
@@ -36,4 +56,8 @@ input[type=file].np-file-input-drop {
 
 .hide-if-first:first-child {
     display: none;
+}
+
+.mt-0-if-first:first-child {
+    margin-top: 0;
 }
