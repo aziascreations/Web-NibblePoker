@@ -7,7 +7,8 @@
            {% if file_multiple %}multiple{% endif %}>
 
     {% if file_upload_button or file_clear_button %}
-        <p class="np-file-drop-text pt-s mb-s">
+        <p id="{{ file_input_id }}-text-drop"
+           class="np-file-drop-text pt-s mb-s">
             {% if text_override == "" %}
                 {% if file_multiple %}
                     {{ l10n("file.drop.select.multiple", "commons", user_lang) }}

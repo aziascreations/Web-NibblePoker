@@ -28,7 +28,7 @@ export function initCore() {
 
 	//showContentModal(eContentModal);
 
-	// FIXME: Fix this shit !
+	// FIXME: Fix the modals, this is hindering many things !
 	//[eContentModal, document.getElementById("modal-content-cross"), eContentModalInner].forEach(value => {
 	//	value.onclick = function() {
 	//		fadeOut(eContentModal, 175).then(r => {
@@ -47,7 +47,7 @@ export function initCore() {
 	});*/
 
 	// Setting up the file drop inputs
-	document.querySelectorAll(".np-file-input-root-container").forEach(eRootContainer => {
+	document.querySelectorAll(".np-file-input-drop-container").forEach(eRootContainer => {
 		//console.log(eRootContainer);
 
     	/** @type {HTMLInputElement} */
