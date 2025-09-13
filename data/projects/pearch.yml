@@ -1,6 +1,6 @@
 
 projects:
-  - id: "lscom-cli-dotnet"
+  - id: "pearch"
     metadata:
       head:
         title_key: "meta.title"
@@ -10,7 +10,7 @@ projects:
         description_key: "meta.description"
         type: null
         url: null
-        image_url: "/resources/NibblePoker/images/content/lscom/lscom-v2-text-01-bkgd-cli.png"
+        image_url: "/resources/NibblePoker/images/content/pearch/main.png"
         image_type: null
       twitter:
         title_key: "meta.title"
@@ -20,7 +20,7 @@ projects:
         enable: true
         title_key: "meta.title"
         preamble_key: "meta.description"
-        image_url: "/resources/NibblePoker/images/content/lscom/lscom-v2-text-01-bkgd-cli.png"
+        image_url: "/resources/NibblePoker/images/content/pearch/main.png"
         image_alt_key: ""
       general:
         icon: "fad fa-terminal"
@@ -30,5 +30,7 @@ projects:
           - "application"
           - "cli"
           - "windows"
+          - "windows-pe"
+          - "cpu-arch"
         languages:
-          - "dotnet"
+          - "purebasic"

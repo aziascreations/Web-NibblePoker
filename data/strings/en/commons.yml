@@ -22,6 +22,18 @@ user-agent: User-Agent
 
 server: Server
 
+windows:
+  95: "Windows 95"
+  98: "Windows 98"
+  2000: "Windows 2000"
+  xp: "Windows XP"
+  vista: "Windows Vista"
+  7: "Windows 7"
+  8: "Windows 8"
+  81: "Windows 8.1"
+  10: "Windows 10"
+  11: "Windows 11"
+
 cpu.architecture: CPU Architecture
 cpu.responsive: "CPU<span class=\"mobile-hide\"> Architecture</span>"
 cpu.any: "Any architecture"
@@ -33,6 +45,87 @@ cpu.arm32: "ARM32"
 cpu.arm64: "ARM64"
 #cpu.arm64: "<p>ARM64<br>ARMv8<br>AArch64</p>"
 cpu.risc-v: "RISC-V"
+
+cpu:
+  human:
+    unknown: The content of this field is assumed to be applicable to any machine type
+    alpha: Alpha AXP, 32-bit address space
+    alpha64: Alpha 64, 64-bit address space
+    am33: Matsushita AM33
+    amd64: x64
+    any: Any architecture
+    arm: ARM little endian
+    arm64: ARM64 little endian
+    arm64ec: ABI that enables interoperability between native ARM64 and emulated x64 code.
+    arm64x: Binary format that allows both native ARM64 and ARM64EC code to coexist in the same file.
+    armnt: ARM Thumb-2 little endian
+    axp64: AXP 64 (Same as Alpha 64)
+    ebc: EFI byte code
+    i386: Intel 386 or later processors and compatible processors
+    ia64: Intel Itanium processor family
+    loongarch32: LoongArch 32-bit processor family
+    loongarch64: LoongArch 64-bit processor family
+    m32r: Mitsubishi M32R little endian
+    mips16: MIPS16
+    mipsfpu: MIPS with FPU
+    mipsfpu16: MIPS16 with FPU
+    powerpc: Power PC little endian
+    powerpcfp: Power PC with floating point support
+    r3000be: MIPS I compatible 32-bit big endian
+    r3000: MIPS I compatible 32-bit little endian
+    r4000: MIPS III compatible 64-bit little endian
+    r10000: MIPS IV compatible 64-bit little endian
+    riscv32: RISC-V 32-bit address space
+    riscv64: RISC-V 64-bit address space
+    riscv128: RISC-V 128-bit address space
+    sh3: Hitachi SH3
+    sh3dsp: Hitachi SH3 DSP
+    sh4: Hitachi SH4
+    sh5: Hitachi SH5
+    thumb: Thumb
+    wcemipsv2: MIPS little-endian WCE v2v2
+  code:
+    unknown: UNKNOWN
+    alpha: ALPHA
+    alpha64: ALPHA64
+    am33: AM33
+    amd64: AMD64
+    any: ANY
+    arm: ARM
+    arm32: "ARM32"
+    arm64: ARM64
+    arm64ec: ARM64EC
+    arm64x: ARM64X
+    armnt: ARMNT
+    axp64: AXP64
+    ebc: EBC
+    i386: I386
+    ia64: IA64
+    loongarch32: LOONGARCH32
+    loongarch64: LOONGARCH64
+    m32r: M32R
+    mips16: MIPS16
+    mipsfpu: MIPSFPU
+    mipsfpu16: MIPSFPU16
+    powerpc: POWERPC
+    powerpcfp: POWERPCFP
+    r3000be: R3000BE
+    r3000: R3000
+    r4000: R4000
+    r10000: R10000
+    riscv: RISC-V
+    riscv32: RISCV32
+    riscv64: RISCV64
+    riscv128: RISCV128
+    sh3: SH3
+    sh3dsp: SH3DSP
+    sh4: SH4
+    sh5: SH5
+    thumb: THUMB
+    wcemipsv2: WCEMIPSV2
+    x64: "x64"
+    x86: "x86"
+
 
 requirements: Requirements
 
@@ -92,47 +185,48 @@ format.yaml: "YAML"
 
 action.generate: "Generate"
 
-country.afghanistan: "Afghanistan"
-country.albania: "Albania"
-country.algeria: "Algeria"
-country.andorra: "Andorra"
-country.angola: "Angola"
-country.anguilla: "Anguilla"
-country.argentina: "Argentina"
-country.australia: "Australia"
-country.austria: "Austria"
-country.azerbaijan: "Azerbaijan"
-country.azores: "Azores"
-country.bahamas: "Bahamas"
-country.belgium: "Belgium"
-country.bulgaria: "Bulgaria"
-country.corsica: "Corsica"
-country.croatia: "Croatia"
-country.cyprus: "Cyprus"
-country.czechia: "Czechia"
-country.denmark: "Denmark"
-country.estonia: "Estonia"
-country.finland: "Finland"
-country.france: "France"
-country.france.corsica: "France - Corsica"
-country.germany: "Germany"
-country.greece: "Greece"
-country.hungary: "Hungary"
-country.ireland: "Ireland"
-country.italy: "Italy"
-country.latvia: "Latvia"
-country.lithuania: "lithuania"
-country.luxembourg: "Luxembourg"
-country.madeira: "Madeira"
-country.malta: "Malta"
-country.monaco: "Monaco"
-country.netherlands: "Netherlands"
-country.poland: "Poland"
-country.portugal: "Portugal"
-country.portugal.azores: "Portugal - Azores"
-country.portugal.madeira: "Portugal - Madeira"
-country.romania: "Romania"
-country.slovenia: "Slovenia"
-country.slovakia: "Slovakia"
-country.spain: "Spain"
-country.sweden: "Sweden"
+country:
+  afghanistan: "Afghanistan"
+  albania: "Albania"
+  algeria: "Algeria"
+  andorra: "Andorra"
+  angola: "Angola"
+  anguilla: "Anguilla"
+  argentina: "Argentina"
+  australia: "Australia"
+  austria: "Austria"
+  azerbaijan: "Azerbaijan"
+  azores: "Azores"
+  bahamas: "Bahamas"
+  belgium: "Belgium"
+  bulgaria: "Bulgaria"
+  corsica: "Corsica"
+  croatia: "Croatia"
+  cyprus: "Cyprus"
+  czechia: "Czechia"
+  denmark: "Denmark"
+  estonia: "Estonia"
+  finland: "Finland"
+  france: "France"
+  france.corsica: "France - Corsica"
+  germany: "Germany"
+  greece: "Greece"
+  hungary: "Hungary"
+  ireland: "Ireland"
+  italy: "Italy"
+  latvia: "Latvia"
+  lithuania: "lithuania"
+  luxembourg: "Luxembourg"
+  madeira: "Madeira"
+  malta: "Malta"
+  monaco: "Monaco"
+  netherlands: "Netherlands"
+  poland: "Poland"
+  portugal: "Portugal"
+  portugal.azores: "Portugal - Azores"
+  portugal.madeira: "Portugal - Madeira"
+  romania: "Romania"
+  slovenia: "Slovenia"
+  slovakia: "Slovakia"
+  spain: "Spain"
+  sweden: "Sweden"

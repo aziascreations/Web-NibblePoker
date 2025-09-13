@@ -1,9 +1,18 @@
 # Website - NibblePoker.lu
-Public repository containing the source code for the *nibblepoker.lu* & *nibblepoker.com* websites.
+Public repository containing the source code for [nibblepoker.lu](https://nibblepoker.lu/) &
+[nibblepoker.com](https://nibblepoker.com/).
 
 
 ## Features
-TODO
+* Projects
+  * [CircuitPython - Ebyte E32 Driver](https://nibblepoker.lu/content/circuitpython-ebyte-e32/)
+  * [DotNet-ListComPort](https://nibblepoker.lu/content/lscom-cli-dotnet/)
+  * [Mini Dockerized CCTV NVR](https://nibblepoker.lu/content/docker-mini-cctv-nvr/)
+* Web-based Tools
+  * [Excel Password Remover](https://nibblepoker.lu/tools/excel-password-remover/)
+  * [IBAN Generator](https://nibblepoker.lu/tools/iban-generator/)
+  * [UUID Generator](https://nibblepoker.lu/tools/uuid-generator/)
+  * [VAT Calculator](https://nibblepoker.lu/tools/vat-calculator/)
 
 
 ## Related Projects

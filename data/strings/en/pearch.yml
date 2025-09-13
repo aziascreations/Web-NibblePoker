@@ -1,0 +1,48 @@
+# PEArch - EN
+
+meta:
+  title: "PEArch"
+  description: "CLI tool that tells you which CPU architecture a given Windows PE is made for."
+
+intro:
+  title: "Introduction"
+  text:
+    p1:
+      l1: A small tool that tells you which
+        <a href="https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#machine-types">CPU architecture</a>
+        a given <a href="https://learn.microsoft.com/en-us/windows/win32/debug/pe-format">Windows PE</a> is made for.
+    p2:
+      l1: A total of 35 architectures are supported by this tool.
+
+usage:
+  title: "Usage"
+  text:
+    p1:
+      l1: "This tool can either be used in a command prompt with the options below."
+      l2: "Or, you can simply drop a file onto the <span class=\"code\">.exe</span> or a shortcut to get the same result."
+  details:
+    #disclaimer: The architecture codes, as well as their descriptions, are taken from Microsoft's
+    #  <a href="https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#machine-types">MSDN</a>.
+    title: "Click here to show/hide the architecture and return codes"
+    thead:
+      code: "<span class=\"t-monospace\">STDOUT</span>"
+      hex: "<span class=\"t-monospace\">STDOUT</span> with <span class=\"t-monospace\">/AsHex</span>"
+      dec: "<span class=\"t-monospace\">STDERR</span> with <span class=\"t-monospace\">/AsError</span>"
+      description: "Description <i>(Source: <a href=\"https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#machine-types\">MSDN</a>)</i>"
+
+output:
+  title: "Output examples"
+  default:
+    title: "Without options:"
+  options:
+    title: "With <span class=\"code\">/AsHex</span> and <span class=\"code\">/AsError</span>:"
+
+downloads:
+  title: "Downloads"
+
+license:
+  title: "License"
+  text: "This software and its source code is released in the Public Domain (CC0 1.0 Universal)."
+
+links:
+  title: "Links"

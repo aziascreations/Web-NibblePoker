@@ -11,3 +11,8 @@ scripts/
 # Docker
 docker-compose.yml
 Dockerfile
+
+# Internal stuff
+*.pdn
+*.ai
+*.private.*
