@@ -24,7 +24,7 @@ from website.renderers.lists import render_list_ul
 from website.renderers.splide import render_splide
 from website.renderers.standalone import get_standalone_common_headers
 from website.sidebar import reload_sidebar_entries, get_sidebar_entries
-from website.sitemap import reload_sitemap_entries, get_sitemap_entries
+from website.sitemap import reload_sitemap_entries, get_sitemap_entries, get_sitemap_xml
 
 try:
     from rich import print
@@ -164,9 +164,13 @@ def route_robots_txt():
 
 
 @app.route('/sitemap.txt')
-def route_sitemap():
-    # FIXME: Add the domain !!!
+def route_sitemap_txt():
     return Response("\n".join(get_sitemap_entries()), mimetype="")
+
+
+@app.route('/sitemap.xml')
+def route_sitemap_xml():
+    return Response(get_sitemap_xml(request.headers['Host']), mimetype="application/xml")
 
 
 @app.route('/', defaults={'lang': None})

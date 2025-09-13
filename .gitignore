@@ -19,9 +19,8 @@ static/resources/DecimalJs*
 static/resources/SortableJS
 static/resources/Standalone
 
-# Secrets
+# Golang revamp
 src/
 bin/
 app/
-.run/
 *.tmpl

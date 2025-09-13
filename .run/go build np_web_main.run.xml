@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="go build np_web_main" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+    <module name="Web-NibblePoker" />
+    <working_directory value="$PROJECT_DIR$" />
+    <go_parameters value="-ldflags=&quot;-s -w -extldflags '-static'&quot;" />
+    <kind value="PACKAGE" />
+    <package value="np_web_main" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$/app/main.go" />
+    <output_directory value="$PROJECT_DIR$/bin" />
+    <method v="2" />
+  </configuration>
+</component>
