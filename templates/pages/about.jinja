@@ -9,93 +9,105 @@
 
 {% block main_content %}
 
-    {{ render_h1(l10n("intro.title", "about", user_lang)) }}
-    <img src="/resources/NibblePoker/images/about/profile-pic.jpg"
-         alt="" class="r-r img-profile f-right m-xs ml-xxs"
-         draggable="false">
-    {{ render_paragraph(l10n("intro.text.01", "about", user_lang) + l10n("intro.text.02", "about", user_lang)) }}
-    {{ render_paragraph(l10n("intro.text.10", "about", user_lang) + l10n("intro.text.11", "about", user_lang)) }}
-    {{ render_paragraph(l10n("intro.text.20", "about", user_lang) + l10n("intro.text.21", "about", user_lang)) }}
+    <section class="mt-l mt-0-if-first">
+        {{ render_h1(l10n("intro.title", "about", user_lang)) }}
+        <div class="content-spacer">
+            <img src="/resources/NibblePoker/images/about/profile-pic.jpg"
+                 alt="" class="r-r img-profile f-right m-xs ml-xxs"
+                 draggable="false">
+            {{ render_paragraph(l10n("intro.text.p1.l1", "about", user_lang)) }}
+            {{ render_paragraph(l10n("intro.text.p3.l1", "about", user_lang) + "<br>" + l10n("intro.text.p3.l2", "about", user_lang)) }}
+        </div>
+    </section>
 
-    <!--{{ render_h1(l10n("tenets.title", "about", user_lang)) }}
-    <p class="mt-xs ml-s t-bold">
-		TODO
-	</p>-->
+    <section class="mt-l mt-0-if-first">
+        {{ render_h1(l10n("future.title", "about", user_lang)) }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("future.text.p1.l1", "about", user_lang) + "<br>" + l10n("future.text.p1.l2", "about", user_lang)) }}
+            {{ render_paragraph(l10n("future.text.p2.l1", "about", user_lang)) }}
+            {{ render_paragraph(l10n("future.text.p3.l1", "about", user_lang)) }}
+        </div>
+    </section>
 
-    {{ render_h1(l10n("future.title", "about", user_lang)) }}
-    {{ render_paragraph(l10n("future.text.01", "about", user_lang) + l10n("future.text.02", "about", user_lang)) }}
-    {{ render_paragraph(l10n("future.text.10", "about", user_lang)) }}
-    {{ render_paragraph(l10n("future.text.20", "about", user_lang)) }}
+    <section class="mt-l mt-0-if-first">
+        {{ render_h1(l10n("financing.title", "about", user_lang)) }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("financing.text.p1.l1", "about", user_lang) + "<br>" + l10n("financing.text.p1.l2", "about", user_lang)) }}
+            {{ render_paragraph(l10n("financing.text.p2.l1", "about", user_lang)) }}
+            {{ render_paragraph(l10n("financing.text.p3.l1", "about", user_lang) + "<br>" + l10n("financing.text.p3.l2", "about", user_lang)) }}
+        </div>
+    </section>
 
-    {{ render_h1(l10n("financing.title", "about", user_lang)) }}
-    {{ render_paragraph(l10n("financing.text.01", "about", user_lang) + l10n("financing.text.02", "about", user_lang)) }}
-    {{ render_paragraph(l10n("financing.text.10", "about", user_lang)) }}
-    {{ render_paragraph(l10n("financing.text.20", "about", user_lang) + l10n("financing.text.21", "about", user_lang)) }}
+    <section class="mt-l mt-0-if-first">
+        <div class="grid grid-col-2 grid-col-medium-1 grid-gap-m">
+            <div>
+                <table class="table-stylish table-p-xs border r-l w-full">
+                    <thead>
+                    <tr>
+                        <th>{{ l10n("financing.part.service", "about", user_lang) }}</th>
+                        <th>{{ l10n("financing.part.cost.yearly", "about", user_lang) }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ l10n("financing.part.domain.lu", "about", user_lang) }}</td>
+                        <td>19,99 €</td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("financing.part.domain.com", "about", user_lang) }}</td>
+                        <td>13,49 €</td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("financing.part.proxy.europe", "about", user_lang) }}</td>
+                        <td>348 PLN / &pm;81,84 €</td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("financing.part.proxy.america", "about", user_lang) }}</td>
+                        <td>13,00 €</td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("financing.part.electricity", "about", user_lang) }}</td>
+                        <td>&pm;32,00 €</td>
+                    </tr>
+                    <tr>
+                        <td><b class="f-right">{{ l10n("financing.part.cost.yearly.total", "about", user_lang) }}:</b></td>
+                        <td>&pm;160,32 €</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table class="table-stylish table-p-xs border r-l w-full">
+                    <thead>
+                    <tr>
+                        <th>{{ l10n("financing.part.equipment", "about", user_lang) }}</th>
+                        <th>{{ l10n("financing.part.cost", "about", user_lang) }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ l10n("financing.part.nanopir4s", "about", user_lang) }}</td>
+                        <td>&pm;80,00 €</td>
+                    </tr>
+                    <tr>
+                        <td>{{ l10n("financing.part.storage", "about", user_lang) }}</td>
+                        <td>&pm;10,00 €</td>
+                    </tr>
+                    <tr>
+                        <td><b class="f-right">{{ l10n("financing.part.cost.total", "about", user_lang) }}:</b></td>
+                        <td>&pm;90,00 €
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
+        <p class="mt-xs ml-s t-super-muted t-center">
+            {{ l10n("financing.text.isp", "about", user_lang) }}
+        </p>
+    </section>
 
-    <div class="grid col-2 col-medium-1">
-		<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center mt-s mx-s">
-			<thead>
-				<tr>
-					<th>{{ l10n("financing.part.service", "about", user_lang) }}</th>
-					<th>{{ l10n("financing.part.cost.yearly", "about", user_lang) }}</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>{{ l10n("financing.part.domain.lu", "about", user_lang) }}</td>
-					<td>17,00 €</td>
-				</tr>
-				<tr>
-					<td>{{ l10n("financing.part.domain.com", "about", user_lang) }}</td>
-					<td>14,50 €</td>
-				</tr>
-				<tr>
-					<td>{{ l10n("financing.part.proxy.europe", "about", user_lang) }}</td>
-					<td>14,50 €</td>
-				</tr>
-				<tr>
-					<td>{{ l10n("financing.part.proxy.america", "about", user_lang) }}</td>
-					<td>13,00 €</td>
-				</tr>
-				<tr>
-					<td>{{ l10n("financing.part.electricity", "about", user_lang) }}</td>
-					<td>&pm;32,00 €</td>
-				</tr>
-				<tr>
-					<td><b class="f-right">{{ l10n("financing.part.cost.yearly.total", "about", user_lang) }}:</b></td>
-					<td>&pm;89,00 €</td>
-				</tr>
-			</tbody>
-		</table>
-		<table class="stylish r-s border o-hidden table-p-xs table-h-p-s table-v-center mt-s mx-s">
-			<thead>
-                <tr>
-                    <th>{{ l10n("financing.part.equipment", "about", user_lang) }}</th>
-                    <th>{{ l10n("financing.part.cost", "about", user_lang) }}</th>
-                </tr>
-			</thead>
-			<tbody>
-                <tr>
-					<td>{{ l10n("financing.part.nanopir4s", "about", user_lang) }}</td>
-					<td>&pm;80,00 €</td>
-                </tr>
-                <tr>
-					<td>{{ l10n("financing.part.storage", "about", user_lang) }}</td>
-					<td>&pm;10,00 €</td>
-                </tr>
-                <tr>
-                    <td><b class="f-right">{{ l10n("financing.part.cost.total", "about", user_lang) }}:</b></td>
-                    <td>&pm;90,00 €
-                    </td>
-                </tr>
-			</tbody>
-		</table>
-	</div>
-
-    <p class="mt-xs ml-s t-super-muted t-center">
-		{{ l10n("financing.text.isp", "about", user_lang) }}
-	</p>
 {% endblock %}
 
 {% block extra_scripts %}

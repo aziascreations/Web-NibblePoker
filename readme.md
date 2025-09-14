@@ -8,6 +8,7 @@ Public repository containing the source code for [nibblepoker.lu](https://nibble
   * [CircuitPython - Ebyte E32 Driver](https://nibblepoker.lu/content/circuitpython-ebyte-e32/)
   * [DotNet-ListComPort](https://nibblepoker.lu/content/lscom-cli-dotnet/)
   * [Mini Dockerized CCTV NVR](https://nibblepoker.lu/content/docker-mini-cctv-nvr/)
+  * [PEArch](https://nibblepoker.lu/content/pearch/)
 * Web-based Tools
   * [Excel Password Remover](https://nibblepoker.lu/tools/excel-password-remover/)
   * [IBAN Generator](https://nibblepoker.lu/tools/iban-generator/)
@@ -16,7 +17,7 @@ Public repository containing the source code for [nibblepoker.lu](https://nibble
 
 
 ## Related Projects
-TODO
+* [aziascreations/Excel-Worksheet-Password-Remover](https://github.com/aziascreations/Excel-Worksheet-Password-Remover)
 
 
 ## Local Setup

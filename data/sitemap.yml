@@ -7,6 +7,10 @@ sitemap:
     lastmod: "2025-03-30T00:00:00+01:00"
     priority: "1"
 
+  "/about/":
+    lastmod: "2025-09-14T22:04:00+01:00"
+    priority: "0.2"
+
   "/contact/":
     lastmod: "2025-03-01T07:40:00+01:00"
     priority: "0.5"

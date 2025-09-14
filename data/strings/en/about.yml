@@ -1,80 +1,93 @@
 # EN - About
 
-head.title: About - NibblePoker
-head.description: 'TODO: description'
-og.title: NibblePoker - About
-og.description: 'TODO: description'
-header.title: About
-intro.title: Introduction
-intro.text.01: My name is Herwin Bozet, I'm an experienced developer with extensive
-  experience in PureBasic, Python, Java, VBA; and intermediate knowledge in C, Win32
-  APIs, embedded systems and general web development.
-intro.text.02: I've been programming for about 10 years now, and for the last
-  5 years I've been actively working on applying that experience to a variety of projects
-  with the aim of helping programmers and people in their day-to-day life.
-intro.text.10: NibblePoker is, in essence, a simple moniker and the front-end
-  for most of my public-focused work.
-intro.text.11: It houses all my work made and tailored for usage by other people.
-intro.text.20: This entire website, as well as all my work for it and other
-  personal projects, is completely open-source and available under permissive <abbr
-  title="Open Source Initiative">OSI</abbr> approved licenses.
-intro.text.21: All of it is maintained, developed and expanded in my free time
-  with the occasional help from people in the open-source community.
-tenets.title: Core tenets
-tenets.text.01: ''
-tenets.text.02: ''
-future.title: Future plans
-future.text.01: It is planned to turn NibblePoker into a <abbr title="Private
-  company with limited liability">SPRL</abbr> in a couple years if everything goes
-  as planned.
-future.text.02: This would allow me to centralize many things and invest properly
-  in my targetted fields to achieve my goals.
-future.text.10: The goal would be to create a small sustainable local business
-  that offers a wide range of products and solutions covering <abbr title="Internet
-  of things">IoT</abbr> devices, programming, and technological independence ; All
-  while including the required software and hardware components often lacking in such
-  products and solutions.
-future.text.20: Ultimately, all this work and research would be made available
-  to the public under open-source licenses, enabling anyone who wishes to learn, reuse,
-  and resell open-source products, to do so in a similar way as companies like Adafruit
-  do.
-_nibblepoker.title: The 'NibblePoker' name
-_nibblepoker.text.01: TODO
-_nibblepoker.text.10: TODO
-_nibblepoker.text.11: TODO
-_nibblepoker.text.20: TODO
-financing.title: Financing
-financing.text.01: This website, as well as the surrounding infrastructure,
-  was made to cost as little as possible while not being reliant on any censor-happy
-  companies.
-financing.text.02: Following my core tenets, I also wanted to retain some sort
-  of "technological sovereignty", and therefore refuse to support or use companies
-  that actively fight against legal free speech.
-financing.text.10: The details of the operating costs are provided below to
-  illustrate the low price of such independence.
-financing.text.20: And for those of you who are more motivated, I hope to inspire
-  you to at least try this kind of activity.
-financing.text.21: It may seem daunting at first, but for a fraction of the
-  cost presented here, <b>and with a bit of motivation</b>, you can already accomplish
-  a lot of things and gain valuable knowledge for a world as interconnected as ours.
-financing.text.isp: The main ISP bill isn't accounted for since this could run
-  off some random public Wi-Fi.
-financing.part.service: Service
-financing.part.cost: Cost
-financing.part.cost.total: Total Cost
-financing.part.equipment: Equipment
-financing.part.cost.yearly: Yearly Cost
-financing.part.cost.yearly.total: Yearly Cost
-financing.part.domain.lu: "<i>.lu</i> domain"
-financing.part.domain.com: "<i>.com</i> domain"
-financing.part.proxy.europe: European reverse-proxy
-financing.part.proxy.america: American reverse-proxy
-financing.part.proxy.asia: Asian reverse-proxy
-financing.part.emails: Emails
-financing.part.electricity: Electricity
-financing.part.nanopir4s: NanoPi R4S
-financing.part.nanopir4s.desc: Handles all non public-facing tasks and services.
-financing.part.storage: Local storage
-aziascreations.title: The 'AziasCreations' name
-_aziascreations.text.01: TODO
-_aziascreations.text.10: TODO
+head:
+  title: About - NibblePoker
+  description: 'TODO: description'
+
+og:
+  title: NibblePoker - About
+  description: 'TODO: description'
+
+header:
+  title: About
+
+intro:
+  title: Introduction
+  text:
+    p1:
+      l1: My name is Herwin Bozet, I'm an experienced developer with extensive
+        experience in PureBasic, Python, .NET, Java; and intermediate knowledge in C, Win32
+        APIs, embedded systems and general web development.
+    #  l2: I've been programming for about 10 years now, and for the last
+    #    5 years I've been actively working on applying that experience to a variety of projects
+    #    with the aim of helping programmers and people in their day-to-day life.
+    #p2:
+    #  l1: NibblePoker is, in essence, a simple moniker and the front-end
+    #    for most of my public-focused work.
+    #  l2: It houses all my work made and tailored for usage by other people.
+    p3:
+      l1: This entire website, as well as all my work for it and other
+        personal projects, is completely open-source and available under permissive <abbr
+        title="Open Source Initiative">OSI</abbr> approved licenses.
+      l2: All of it is maintained, developed and expanded in my free time
+        with the occasional help from people in the open-source community.
+
+future:
+  title: Future plans
+  text:
+    p1:
+      l1: It is planned to turn NibblePoker into a <abbr title="Private
+        company with limited liability">SPRL</abbr> in a couple years if everything goes
+        as planned.
+      l2: This would allow me to centralize many things and invest properly
+        in my targeted fields to achieve my goals.
+    p2:
+      l1: The goal would be to create a small sustainable local business
+        that offers a wide range of products and solutions covering <abbr title="Internet
+        of things">IoT</abbr> devices, programming, and technological independence ; All
+        while including the required software and hardware components often lacking in such
+        products and solutions.
+    p3:
+      l1: Ultimately, all this work and research would be made available
+        to the public under open-source licenses, enabling anyone who wishes to learn, reuse,
+        and resell open-source products, to do so in a similar way as companies like Adafruit
+        do.
+
+financing:
+  title: Financing
+  text:
+    p1:
+      l1: This website, as well as the surrounding infrastructure,
+        was made to cost as little as possible while not being reliant on any censor-happy
+        companies.
+      l2: Following my core tenets, I also wanted to retain some sort
+        of "technological sovereignty", and therefore refuse to support or use companies
+        that actively fight against legal free speech.
+    p2:
+      l1: The details of the operating costs are provided below to
+        illustrate the low price of such independence.
+    p3:
+      l1: And for those of you who are more motivated, I hope to inspire
+        you to at least try this kind of activity.
+      l2: It may seem daunting at first, but for a fraction of the
+        cost presented here, <b>and with a bit of motivation</b>, you can already accomplish
+        a lot of things and gain valuable knowledge for a world as interconnected as ours.
+    isp: The main ISP bill isn't accounted for since this could run
+      off some random public Wi-Fi.
+  part:
+    service: Service
+    equipment: Equipment
+    cost: Cost
+    cost.total: Total Cost
+    cost.yearly: Yearly Cost
+    cost.yearly.total: Yearly Cost
+    domain.lu: "<i>.lu</i> domain"
+    domain.com: "<i>.com</i> domain"
+    proxy.europe: European reverse-proxy
+    proxy.america: American reverse-proxy
+    proxy.asia: Asian reverse-proxy
+    emails: Emails
+    electricity: Electricity
+    nanopir4s: NanoPi R4S
+    nanopir4s.desc: Handles all non public-facing tasks and services.
+    storage: Local storage

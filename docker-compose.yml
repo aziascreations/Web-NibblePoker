@@ -1,3 +1,5 @@
+# This docker-compose file should only be used for development !
+
 services:
   www_nibblepoker_lu:
     container_name: www-nibblepoker-python

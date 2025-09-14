@@ -58,11 +58,11 @@
 
 - {}
 
-#- title_key: text.about
-#  abs_href: "/about"
-#  icon: fad fa-user
-#  active_id: about
-#  has_new_until_utc: 0
+- title_key: text.about
+  abs_href: "/about"
+  icon: fad fa-user
+  active_id: about
+  has_new_until_utc: 0
 
 - title_key: text.contact
   abs_href: "/contact"
