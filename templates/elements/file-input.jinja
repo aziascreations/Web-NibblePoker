@@ -23,7 +23,10 @@
         <div class="np-file-drop-buttons pb-s">
             {% if file_upload_button %}
                 <button id="{{ file_input_id }}-add" class="p-xs r-s border btn-primary np-file-drop-button">
-                    <i class="fa-duotone fa-solid fa-cloud-arrow-up mr-xxs"></i>
+                    {% if not is_standalone %}
+                        <i class="fa-duotone fa-solid fa-cloud-arrow-up mr-xxs"></i>
+                    {% endif %}
+
                     {% if file_multiple %}
                         {{ l10n("file.drop.upload.multiple", "commons", user_lang) }}
                     {% else %}
@@ -34,7 +37,11 @@
 
             {% if file_clear_button %}
                 <button id="{{ file_input_id }}-reset" class="p-xs r-s border btn-warning np-file-drop-button">
-                    {{ "<i class=\"fa-duotone fa-solid fa-trash mr-xs\"></i>" + l10n("file.drop.clear", "commons", user_lang) }}
+                    {% if not is_standalone %}
+                        <i class="fa-duotone fa-solid fa-trash mr-xs"></i>
+                    {% endif %}
+
+                    {{ l10n("file.drop.clear", "commons", user_lang) }}
                 </button>
             {% endif %}
         </div>

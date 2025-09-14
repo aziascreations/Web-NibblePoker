@@ -48,7 +48,6 @@ export function initCore() {
 
 	// Setting up the file drop inputs
 	document.querySelectorAll(".np-file-input-drop-container").forEach(eRootContainer => {
-		//console.log(eRootContainer);
 
     	/** @type {HTMLInputElement} */
 		const eFileDropInput = eRootContainer.querySelector("input[type=file]");
@@ -58,7 +57,6 @@ export function initCore() {
 
     	/** @type {string} */
 		const inputId = eFileDropInput.getAttribute("id");
-		//console.log(inputId);
 
     	/** @type {HTMLElement} */
 		const eFileDropTextEmpty = eRootContainer.querySelector(`#${inputId}-text-drop`);
@@ -78,24 +76,29 @@ export function initCore() {
     	/** @type {NodeListOf<HTMLElement>} */
 		const eFileDropSelectionCounts = eRootContainer.querySelectorAll(`.np-file-drop-count`);
 
+        function handleFileDropClear() {
+            eFileDropInput.value = '';
+			if(eFileDropTextSingle !== null) {
+				eFileDropTextSingle.hidden = true;
+			}
+			if(eFileDropTextMultiple !== null) {
+				eFileDropTextMultiple.hidden = true;
+			}
+			if(eFileDropTextEmpty !== null) {
+				eFileDropTextEmpty.hidden = false;
+			}
+        }
+
 		if(eFileDropAddButton !== null) {
 			eFileDropAddButton.addEventListener("click", function() {
+                handleFileDropClear();
 				eFileDropInput.click();
 			});
 		}
 
 		if(eFileDropClearButton !== null) {
 			eFileDropClearButton.addEventListener("click", function() {
-				eFileDropInput.value = '';
-				if(eFileDropTextSingle !== null) {
-					eFileDropTextSingle.hidden = true;
-				}
-				if(eFileDropTextMultiple !== null) {
-					eFileDropTextMultiple.hidden = true;
-				}
-				if(eFileDropTextEmpty !== null) {
-					eFileDropTextEmpty.hidden = false;
-				}
+				handleFileDropClear();
 			});
 		}
 
