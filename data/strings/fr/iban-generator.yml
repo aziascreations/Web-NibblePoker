@@ -21,8 +21,7 @@ option.human.format.none: "Aucun formatage"
 option.human.format.standard: "Utiliser le format standard des pays"
 option.human.format.4by4: "Formater en segments de 4 caractères"
 
-license.1: "Le code de ce projet est publié dans le domaine public."
-license.2: "Le code source original peut être trouvé sur <a href=\"https://github.com/aziascreations/Web-NibblePoker\">GitHub</a>."
-license.3: "Les données du 
+license.1: "Le code de ce projet est publié dans le <a href=\"https://github.com/aziascreations/Web-NibblePoker\">domaine public</a>."
+license.2: "Les données du 
 <a href=\"https://www.swift.com/standards/data-standards/iban-international-bank-account-number\">Registre IBAN</a>
 de Swift ont également été utilisées et peuvent être soumises à des conditions de licence différentes."

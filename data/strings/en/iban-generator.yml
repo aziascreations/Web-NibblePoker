@@ -21,8 +21,7 @@ option.human.format.none: "No formatting"
 option.human.format.standard: "Use recommended spacing"
 option.human.format.4by4: "Use 4 character-wide spacing"
 
-license.1: "The code for this project is released in the public domain."
-license.2: "The original source code can be found on <a href=\"https://github.com/aziascreations/Web-NibblePoker\">GitHub</a>."
-license.3: "Data from Swift's 
+license.1: "The code for this project is released in the <a href=\"https://github.com/aziascreations/Web-NibblePoker\">public domain</a>."
+license.2: "Data from Swift's 
 <a href=\"https://www.swift.com/standards/data-standards/iban-international-bank-account-number\">IBAN Registry</a>
 was also used and may be licensed under different terms."

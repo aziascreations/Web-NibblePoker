@@ -17,3 +17,5 @@ generate: "Générer"
 download.raw: "Brut"
 download.json: "JSON"
 download.yaml: "YAML"
+
+license.1: "Cet outil et son code-source sont publié dans le <a href=\"https://github.com/aziascreations/Web-NibblePoker\">domaine public</a>."
