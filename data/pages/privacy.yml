@@ -1,0 +1,11 @@
+
+pages:
+  - id: privacy
+    output_base_name: "privacy"
+    template_path: "pages/privacy.jinja"
+    served_paths: ["/privacy/", "/privacy"]
+    canonical_path: "/privacy/"
+    localizable: true
+    standalone: false
+    brandable: false
+    release: false
