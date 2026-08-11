@@ -9,6 +9,9 @@ __pycache__/
 *.dll
 *.so
 
+# Static renders
+static/renders/*.html
+
 # NodeJS' BS
 node_modules/
 scripts/package-lock.json
