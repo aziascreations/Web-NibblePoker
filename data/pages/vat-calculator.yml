@@ -1,0 +1,11 @@
+
+pages:
+  - id: tools-vat-calculator
+    output_base_name: "tools-vat-calculator"
+    template_path: "tools/vat_calculator.jinja"
+    served_paths: ["/tools/vat-calculator/", "/tools/vat-calculator"]
+    canonical_path: "/tools/vat-calculator/"
+    localizable: true
+    standalone: true
+    brandable: true
+    release: true

@@ -22,6 +22,13 @@ rate.type.reduced: "Reduced"
 rate.type.reduced.super: "Super reduced"
 rate.type.special: "Special"
 
+#rate.type.standard.parameterized: "%0 (Standard)"
+#rate.type.intermediate.parameterized: "%0 (Intermediate)"
+#rate.type.preferential.parameterized: "%0 (Preferential)"
+#rate.type.reduced.parameterized: "%0 (Reduced)"
+#rate.type.reduced.super.parameterized: "%0 (Super reduced)"
+#rate.type.special.parameterized: "%0 (Special)"
+
 option.decimal-places: "Decimal places count"
 option.trim-zeroes: "Trim trailing zeroes"
 

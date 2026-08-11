@@ -1,0 +1,33 @@
+
+<nav id="sidebar" class="sidebar p-m">
+	<a href="{{ url_set_lang('/', url_lang) }}" class="no-select">
+		<img class="logo-sidebar-v2"
+		     src="https://cdn.nibblepoker.{{ domain_tld }}/NibblePoker/Logos/v2_full_shaded_optimized.svg"
+		     alt="{{ l10n("logo.alt", "sidebar", page_lang) }}"
+		     draggable="false">
+	</a>
+
+    <div class="p-xs"></div>
+
+    {% for sidebar_entry in sidebar_entries %}
+        {% if sidebar_entry is not none %}
+            <a class="{% if sidebar_entry_active %}a-bland{% else %}a-hidden{% endif %}"
+                    {% if sidebar_entry.raw_href is not none %}
+               href="{{ sidebar_entry.raw_href }}"
+                    {% elif sidebar_entry.abs_href is not none %}
+               href="{{ url_set_lang(sidebar_entry.abs_href, url_lang) }}"
+                    {% endif %}
+            >
+                <p class="t-size-18 t-w-500 py-xs sidebar-entry">
+                    <i class="{{ sidebar_entry.icon }} pr-xs t-size-12 t-half-muted"></i>
+                    <span class="t-size-12">{{ l10n(sidebar_entry.title_key, "sidebar", page_lang) }}</span>
+                    {% if sidebar_entry.has_new() %}
+                        <i class="fa-duotone fa-solid fa-sparkles ml-auto t-size-11 t-muted"></i>
+                    {% endif %}
+                </p>
+            </a>
+        {% else %}
+            <hr class="subtle">
+        {% endif %}
+    {% endfor %}
+</nav>

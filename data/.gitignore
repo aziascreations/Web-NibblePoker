@@ -1,0 +1,8 @@
+# Private
+.*.yml
+.*.yaml
+
+# Build artifacts
+*.xml
+*.json
+*.ini

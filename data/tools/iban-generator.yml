@@ -2,6 +2,7 @@
 tools:
   - id: "iban-generator"
     applet_id: "iban-generator"
+    download_base_name: "IbanGenerator"
     metadata:
       head:
         title_key: "meta.title"

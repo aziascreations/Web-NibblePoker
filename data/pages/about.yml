@@ -1,0 +1,11 @@
+
+pages:
+  - id: about
+    output_base_name: "about"
+    template_path: "pages/about.jinja"
+    served_paths: ["/about/", "/about"]
+    canonical_path: "/about/"
+    localizable: true
+    standalone: false
+    brandable: false
+    release: false

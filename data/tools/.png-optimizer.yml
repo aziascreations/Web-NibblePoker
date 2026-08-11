@@ -2,6 +2,7 @@
 tools:
   - id: "png-optimizer"
     applet_id: "png-optimizer"
+    download_base_name: "PngOptimizer"
     metadata:
       head:
         title_key: "meta.title"

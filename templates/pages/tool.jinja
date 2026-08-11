@@ -1,0 +1,46 @@
+{#
+pages/tool.jinja
+
+Parameter:
+    * tool_id - Tool ID for which the page should be rendered.
+
+Notable globals:
+    * applets_index
+    * tools_index
+#}
+
+{% if is_standalone %}
+    {% extends "bases/standalone.jinja" %}
+{% else %}
+    {% extends "bases/default.jinja" %}
+{% endif %}
+
+{% block head_title %}{{ l10n("head.title", "home", page_lang) }}{% endblock %}
+
+{% block head_description %}
+    <!-- IRRELEVANT, shove it in the opengraph section !!! -->
+    {{ l10n("head.title", "home", page_lang) }}
+{% endblock %}
+
+{% block opengraph_tags %}
+    <!-- TODO -->
+{% endblock %}
+
+{% block main_content %}
+    <np-section>
+
+        {% set _rendered_applet_id = tools_index[tool_id].applet_id %}
+
+        {% with applet_id = _rendered_applet_id,
+                applet_uid = "53e60939",
+                applet_overrides = {} %}
+            {% include 'elements/applet.jinja' %}
+        {% endwith %}
+
+        <!-- tool_id: {{ tool_id }} -->
+    </np-section>
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="/resources/NibblePoker/js/nibblepoker-default.min.js"></script>
+{% endblock %}

@@ -1,0 +1,11 @@
+
+pages:
+  - id: project-pearch
+    output_base_name: "project-pearch"
+    template_path: "projects/pearch.jinja"
+    served_paths: ["/content/pearch/", "/content/pearch"]
+    canonical_path: "/content/pearch/"
+    localizable: true
+    standalone: false
+    brandable: false
+    release: false

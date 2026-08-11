@@ -1,6 +1,14 @@
-<button
-        {% if button_id is not none %}id="{{ button_id }}" {% endif %}
-        class="p-xs r-s border b-light t-nowrap {{ button_extra_classes }}"
-        {% if button_disabled %}disabled{% endif %}>
-    {{ button_inner_html }}
+{#
+button.jinja
+
+
+#}
+<button 
+    class="btn {% if classes %}{{ classes }}{% else %}btn-primary{% endif %}"
+    {% if type %}type="{{ type }}"{% else %}type="button"{% endif %}
+    {% if id %}id="{{ id }}"{% endif %}
+    {% if onclick %}onclick="{{ onclick }}"{% endif %}
+    {% if disabled %}disabled{% endif %}
+>
+    {{ title }}
 </button>

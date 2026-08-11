@@ -1,0 +1,11 @@
+
+pages:
+  - id: links
+    output_base_name: "links"
+    template_path: "pages/links.jinja"
+    served_paths: ["/links/", "/links"]
+    canonical_path: "/links/"
+    localizable: true
+    standalone: false
+    brandable: false
+    release: false

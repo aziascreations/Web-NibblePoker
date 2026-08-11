@@ -1,0 +1,11 @@
+
+pages:
+  - id: index
+    output_base_name: "index"
+    template_path: "pages/index.jinja"
+    served_paths: ["/"]
+    canonical_path: "/"
+    localizable: true
+    standalone: false
+    brandable: false
+    release: false

@@ -1,0 +1,31 @@
+{#
+elements/applet.jinja
+
+Parameters:
+    * applet_id        - Applet ID as defined in the applet repository and templates in "templates/applets/".
+    * applet_uid       - Unique ID for the applet to differentiate it from other instances of the same applet.
+    * applet_overrides - Extra config that takes precedence over the default one in `applet_data.default_config`.
+
+Notable globals:
+    * applets_index
+#}
+
+{# TODO: Wrap it ? #}
+
+<div class="np-applet"
+     data-np-applet-id="{{ applet_id }}"
+     data-np-applet-uid="{{ applet_uid }}"
+     data-np-{{ applet_id }}="123">
+
+    {% with applet_id = applet_id,
+            applet_uid = applet_uid,
+            applet_data = applets_index[applet_id],
+            applet_config = consolidate_applet_config(applets_index[applet_id].default_config, applet_overrides) %}
+        {% include 'applets/' + applet_id + '.jinja' %}
+    {% endwith %}
+
+</div>
+
+{#
+    FIXME: Find a solution to duplicate dependency imports !!!
+#}

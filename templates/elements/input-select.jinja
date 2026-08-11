@@ -1,0 +1,79 @@
+{#
+elements/input-select.jinja
+
+Parameters:
+    * input_label
+    * input_id
+    * input_select_l10n_domain_override = None
+    * input_select_localize_optgroup_label = False
+    * input_select_localize_entry_text = False
+    * input_select_entries
+        * [
+            Optional[{
+              optgroup_label: Optional[str]
+              entries: [
+                [value, text, is_selected, is_disabled]
+                //or
+                //[value, text, [{attrib_key: str, attrib_value: str,}]]
+              ]
+            }] -> None == <hr/>
+          ]
+#}
+
+{% if input_select_l10n_domain is none %}
+    {% set input_select_l10n_domain = False %}
+{% endif %}
+
+{% if input_select_localize_optgroup_label is none %}
+    {% set input_select_localize_optgroup_label = False %}
+{% endif %}
+
+{% if input_select_localize_entry_text is none %}
+    {% set input_select_localize_entry_text = False %}
+{% endif %}
+
+{% if input_label is not none %}
+    <label for="{{ input_id }}"
+           class="mr-xxs">
+        {{ input_label }}:
+    </label>
+{% endif %}
+
+<select name="{{ input_id }}" id="{{ input_id }}" class="p-xxs border r-s">
+    {% for _eis_group in input_select_entries %}
+        {% if _eis_group is none %}
+            <hr>
+        {% else %}
+
+            {% if _eis_group["optgroup_label"] is not none %}
+                {% if input_select_localize_optgroup_label %}
+                    <optgroup label="{{
+                            l10n(_eis_group["optgroup_label"], input_select_l10n_domain_override, page_lang)
+                            }}">
+                {% else %}
+                    <optgroup label="{{ _eis_group["optgroup_label"] }}">
+                {% endif %}
+            {% endif %}
+
+            {% for _eis_entry in _eis_group["entries"] %}
+                <option value="{{ _eis_entry[0] }}"
+                        {% if _eis_entry[2] == True %} selected{% endif %}
+                        {% if _eis_entry[3] == True %} disabled{% endif %}
+                >
+
+                {% if input_select_localize_optgroup_label %}
+                    {{ l10n(_eis_entry[1], input_select_l10n_domain_override, page_lang) }}
+                {% else %}
+                    {{ _eis_entry[1] }}
+                {% endif %}
+
+                </option>
+            {% endfor %}
+
+            {% if _eis_group["optgroup_label"] is not none %}
+                </optgroup>
+            {% endif %}
+
+        {% endif %}
+    {% endfor %}
+</select>

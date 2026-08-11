@@ -1,0 +1,214 @@
+{% extends "projects/_project.jinja" %}
+
+{% block project_content %}
+
+    <section class="mt-l mt-0-if-first">
+        {{ render_h2(l10n("intro.title", project_id, user_lang)) }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("intro.text.p1.l1", project_id, user_lang)) }}
+            {{ render_paragraph(l10n("intro.text.p2.l1", project_id, user_lang)) }}
+        </div>
+    </section>
+
+    <section class="mt-l mt-0-if-first">
+        {{ render_h2(l10n("usage.title", project_id, user_lang)) }}
+        <div class="content-spacer">
+            {{ render_paragraph(
+                l10n("usage.text.p1.l1", project_id, user_lang) +
+                "<br>" +
+                l10n("usage.text.p1.l2", project_id, user_lang)
+            )}}
+
+            {{ render_code_block([
+                "PEArch.exe [/?] [/E|/AsError] [/H|/AsHex] [/F|/FullText] <File>",
+                "",
+                "Options:",
+                "  /?             Prints this help text, and some additional details.",
+                "  /E, /AsError   Gives out the result as an error code.",
+                "  /H, /AsHex     Prints the architecture as a hex number.",
+                "  /F, /FullText  Prints a longer description of the architecture.",
+            ]) }}
+
+            <details class="border bkgd-dark r-m mt-s">
+                <summary class="p-xs">{{ l10n("usage.details.title", project_id, user_lang) }}</summary>
+                <div class="bt ox-auto">
+                    <table class="table-stylish table-p-xs table-v-center table-no-wrap w-full rb-m">
+                        <thead>
+                        <tr>
+                            <th class="t-left">{{ l10n("usage.details.thead.code", project_id, user_lang) }}</th>
+                            <th class="t-left">{{ l10n("usage.details.thead.hex", project_id, user_lang) }}</th>
+                            <th class="t-left">{{ l10n("usage.details.thead.dec", project_id, user_lang) }}</th>
+                            <th class="t-left">{{ l10n("usage.details.thead.description", project_id, user_lang) }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr><td>{{ l10n("cpu.code.unknown", "commons", user_lang) }}</td><td><span class="code">0x0</span></td><td><span class="code">0</span></td><td>{{ l10n("cpu.human.unknown", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.alpha", "commons", user_lang) }}</td><td><span class="code">0x184</span></td><td><span class="code">388</span></td><td>{{ l10n("cpu.human.alpha", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.alpha64", "commons", user_lang) }}</td><td><span class="code">0x284</span></td><td><span class="code">644</span></td><td>{{ l10n("cpu.human.alpha64", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.am33", "commons", user_lang) }}</td><td><span class="code">0x1d3</span></td><td><span class="code">467</span></td><td>{{ l10n("cpu.human.am33", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.amd64", "commons", user_lang) }}</td><td><span class="code">0x8664</span></td><td><span class="code">34404</span></td><td>{{ l10n("cpu.human.amd64", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.arm", "commons", user_lang) }}</td><td><span class="code">0x1c0</span></td><td><span class="code">448</span></td><td>{{ l10n("cpu.human.arm", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.arm64", "commons", user_lang) }}</td><td><span class="code">0xaa64</span></td><td><span class="code">43620</span></td><td>{{ l10n("cpu.human.arm64", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.arm64ec", "commons", user_lang) }}</td><td><span class="code">0xA641</span></td><td><span class="code">42561</span></td><td>{{ l10n("cpu.human.arm64ec", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.arm64x", "commons", user_lang) }}</td><td><span class="code">0xA64E</span></td><td><span class="code">42574</span></td><td>{{ l10n("cpu.human.arm64x", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.armnt", "commons", user_lang) }}</td><td><span class="code">0x1c4</span></td><td><span class="code">452</span></td><td>{{ l10n("cpu.human.armnt", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.axp64", "commons", user_lang) }}</td><td><span class="code">0x284</span></td><td><span class="code">644</span></td><td>{{ l10n("cpu.human.axp64", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.ebc", "commons", user_lang) }}</td><td><span class="code">0xebc</span></td><td><span class="code">3772</span></td><td>{{ l10n("cpu.human.ebc", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.i386", "commons", user_lang) }}</td><td><span class="code">0x14c</span></td><td><span class="code">332</span></td><td>{{ l10n("cpu.human.i386", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.ia64", "commons", user_lang) }}</td><td><span class="code">0x200</span></td><td><span class="code">512</span></td><td>{{ l10n("cpu.human.ia64", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.loongarch32", "commons", user_lang) }}</td><td><span class="code">0x6232</span></td><td><span class="code">25138</span></td><td>{{ l10n("cpu.human.loongarch32", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.loongarch64", "commons", user_lang) }}</td><td><span class="code">0x6264</span></td><td><span class="code">25188</span></td><td>{{ l10n("cpu.human.loongarch64", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.m32r", "commons", user_lang) }}</td><td><span class="code">0x9041</span></td><td><span class="code">36929</span></td><td>{{ l10n("cpu.human.m32r", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.mips16", "commons", user_lang) }}</td><td><span class="code">0x266</span></td><td><span class="code">614</span></td><td>{{ l10n("cpu.human.mips16", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.mipsfpu", "commons", user_lang) }}</td><td><span class="code">0x366</span></td><td><span class="code">870</span></td><td>{{ l10n("cpu.human.mipsfpu", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.mipsfpu16", "commons", user_lang) }}</td><td><span class="code">0x466</span></td><td><span class="code">1126</span></td><td>{{ l10n("cpu.human.mipsfpu16", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.powerpc", "commons", user_lang) }}</td><td><span class="code">0x1f0</span></td><td><span class="code">496</span></td><td>{{ l10n("cpu.human.powerpc", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.powerpcfp", "commons", user_lang) }}</td><td><span class="code">0x1f1</span></td><td><span class="code">497</span></td><td>{{ l10n("cpu.human.powerpcfp", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.r3000be", "commons", user_lang) }}</td><td><span class="code">0x160</span></td><td><span class="code">352</span></td><td>{{ l10n("cpu.human.r3000be", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.r3000", "commons", user_lang) }}</td><td><span class="code">0x162</span></td><td><span class="code">354</span></td><td>{{ l10n("cpu.human.r3000", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.r4000", "commons", user_lang) }}</td><td><span class="code">0x166</span></td><td><span class="code">358</span></td><td>{{ l10n("cpu.human.r4000", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.r10000", "commons", user_lang) }}</td><td><span class="code">0x168</span></td><td><span class="code">360</span></td><td>{{ l10n("cpu.human.r10000", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.riscv32", "commons", user_lang) }}</td><td><span class="code">0x5032</span></td><td><span class="code">20530</span></td><td>{{ l10n("cpu.human.riscv32", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.riscv64", "commons", user_lang) }}</td><td><span class="code">0x5064</span></td><td><span class="code">20580</span></td><td>{{ l10n("cpu.human.riscv64", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.riscv128", "commons", user_lang) }}</td><td><span class="code">0x5128</span></td><td><span class="code">20776</span></td><td>{{ l10n("cpu.human.riscv128", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.sh3", "commons", user_lang) }}</td><td><span class="code">0x1a2</span></td><td><span class="code">418</span></td><td>{{ l10n("cpu.human.sh3", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.sh3dsp", "commons", user_lang) }}</td><td><span class="code">0x1a3</span></td><td><span class="code">419</span></td><td>{{ l10n("cpu.human.sh3dsp", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.sh4", "commons", user_lang) }}</td><td><span class="code">0x1a6</span></td><td><span class="code">422</span></td><td>{{ l10n("cpu.human.sh4", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.sh5", "commons", user_lang) }}</td><td><span class="code">0x1a8</span></td><td><span class="code">424</span></td><td>{{ l10n("cpu.human.sh5", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.thumb", "commons", user_lang) }}</td><td><span class="code">0x1c2</span></td><td><span class="code">450</span></td><td>{{ l10n("cpu.human.thumb", "commons", user_lang) }}</td></tr>
+                        <tr><td>{{ l10n("cpu.code.wcemipsv2", "commons", user_lang) }}</td><td><span class="code">0x169</span></td><td><span class="code">361</span></td><td>{{ l10n("cpu.human.wcemipsv2", "commons", user_lang) }}</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </div>
+    </section>
+
+
+    <section class="mt-l mt-0-if-first">
+        {{ render_h2(l10n("output.title", project_id, user_lang)) }}
+        <div class="content-spacer">
+            {{ render_paragraph("<b>" + l10n("output.default.title", project_id, user_lang) + "</b>")}}
+
+            <div class="ml-s">
+                {{ render_code_block([
+                    "Command: pearch \"C:\\Windows\\explorer.exe\"",
+                    "> STDOUT: AMD64",
+                    "> STDERR:",
+                    "> ERRORLEVEL: 0",
+                ], "bash") }}
+                {{ render_code_block([
+                    "Command: pearch \"C:\\Windows\\non-existant-file.exe\"",
+                    "> STDOUT:",
+                    "> STDERR: Cannot open file !",
+                    "> ERRORLEVEL: 12",
+                ], "bash") }}
+            </div>
+        </div>
+
+        <div class="content-spacer">
+            {{ render_paragraph("<b>" + l10n("output.options.title", project_id, user_lang) + "</b>")}}
+
+            <div class="ml-s">
+                {{ render_code_block([
+                    "Command: pearch /AsHex \"C:\\Windows\\explorer.exe\"",
+                    "> STDOUT: 8664",
+                    "> STDERR:",
+                    "> ERRORLEVEL: 0",
+                ], "bash") }}
+                {{ render_code_block([
+                    "Command: pearch /AsError \"C:\\Windows\\explorer.exe\"",
+                    "> STDOUT:",
+                    "> STDERR:",
+                    "> ERRORLEVEL: 34404",
+                ], "bash") }}
+                {{ render_code_block([
+                    "Command: pearch /AsError /AsHex \"C:\\Windows\\explorer.exe\"",
+                    "> STDOUT: 8664",
+                    "> STDERR:",
+                    "> ERRORLEVEL: 34404",
+                ], "bash") }}
+                {{ render_code_block([
+                    "Command: pearch /AsError /AsHex \"C:\\Windows\\non-existant-file.exe\"",
+                    "> STDOUT:",
+                    "> STDERR: Cannot open file !",
+                    "> ERRORLEVEL: 0",
+                ], "bash") }}
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-l mt-0-if-first">
+        {{ render_h2(l10n("downloads.title", project_id, user_lang)) }}
+        <div class="content-spacer">
+            <table class="table-stylish table-p-xs table-v-center border r-l">
+                <thead>
+                <tr>
+                    <th>{{ l10n("cpu.architecture", "commons", user_lang) }}</th>
+                    <th>{{ l10n("requirements", "commons", user_lang) }}</th>
+                    <th>{{ l10n("download.multiple", "commons", user_lang) }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ l10n("cpu.x64", "commons", user_lang) }}</td>
+                    <td rowspan="2">{{ l10n("windows.7", "commons", user_lang) }}</td>
+                    <td>
+                        <a href="https://files.nibblepoker.lu/downloads/PEArch/1.1.0/x64-msvcrt/pearch-x64-msvcrt.7z" class="a-hidden mr-s">
+                            {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>"+
+                                    "7Zip - 14.49 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None, "btn-primary")
+                                    }}
+                        </a>
+                        <a href="https://files.nibblepoker.lu/downloads/PEArch/1.1.0/x64-msvcrt/pearch.exe" class="a-hidden">
+                            {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>"+
+                                    "Exe - 43.5 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None, "btn-primary")
+                                    }}
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ l10n("cpu.x86", "commons", user_lang) }}</td>
+                    <td>
+                        <a href="https://files.nibblepoker.lu/downloads/PEArch/1.1.0/x86-msvcrt/pearch-x86-msvcrt.7z" class="a-hidden mr-s">
+                            {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>"+
+                                    "7Zip - 10.36 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                    }}
+                        </a>
+                        <a href="https://files.nibblepoker.lu/downloads/PEArch/1.1.0/x86-msvcrt/pearch.exe" class="a-hidden">
+                            {{ render_button(
+                                    "<span class=\"text-monospace\"><i class=\"fad fa-file-archive mr-xs\"></i>"+
+                                    "Exe - 31 KiB<i class=\"fas fa-download ml-xs\"></i>",
+                                    False, None)
+                                    }}
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="mt-l mt-0-if-first">
+        {{ render_h2(l10n("license.title", project_id, user_lang)) }}
+        <div class="content-spacer">
+            {{ render_paragraph(l10n("license.text", project_id, user_lang)) }}
+        </div>
+    </section>
+
+    <section class="mt-l mt-0-if-first">
+        {{ render_h2(l10n("links.title", project_id, user_lang)) }}
+        <div class="content-spacer">
+            {{ render_list_ul([
+                "<a href=\"https://github.com/aziascreations/PEArch\">" +
+                l10n("github", "commons", user_lang) + "</a>",
+            ]) }}
+        </div>
+    </section>
+
+{% endblock %}

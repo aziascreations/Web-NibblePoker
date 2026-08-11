@@ -1,74 +1,95 @@
-{% if standalone %}
-    {% extends "base_standalone.jinja" %}
+{% if is_standalone %}
+    {# Should never happen for non-tool pages ! #}
+    {% extends "bases/standalone.jinja" %}
 {% else %}
-    {% extends "base_www.jinja" %}
+    {% extends "bases/default.jinja" %}
 {% endif %}
 
-{% block head_title %}{{ l10n("head.title", "links", user_lang) }}{% endblock %}
-{% block head_description %}{{ l10n("head.title", "links", user_lang) }}{% endblock %}
+{% block head_title %}{{ l10n("head.title", "links", page_lang) }}{% endblock %}
 
-{% block header_title %}
-    <i class="fad fa-link t-size-16 mr-s t-muted"></i>{{ l10n("header.title", "links", user_lang) }}
+{% block head_description %}
+    <!-- IRRELEVANT, shove it in the opengraph section !!! -->
+    {{ l10n("head.title", "links", page_lang) }}
+{% endblock %}
+
+{% block opengraph_tags %}
+    <!-- TODO -->
 {% endblock %}
 
 {% block main_content %}
-    <section class="mt-l mt-0-if-first">
-        {{ render_h1(l10n("social.title", "links", user_lang )) }}
 
-        <p class="mt-s ml-s t-w-600 t-size-12">
-            <i class="fab fa-twitter mr-xs"></i>
-            <a href="https://twitter.com/NibblePoker">{{ l10n("twitter.title", "links", user_lang ) }}</a>
-        </p>
-        <p class="mt-xxs ml-l">{{ l10n("twitter.text.1", "links", user_lang ) }}</p>
+    <np-section>
+        {% with heading_inner_html=l10n("social.title", "links", page_lang, ["NibblePoker." + domain_tld]),
+                heading_level=2 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
 
-        <p class="mt-s ml-s t-w-600 t-size-12">
-            <i class="fab fa-github mr-xs"></i>
-            <a href="https://github.com/aziascreations">{{ l10n("github.title", "links", user_lang ) }}</a>
-        </p>
-        <p class="mt-xxs ml-l">{{ l10n("github.text.1", "links", user_lang ) }}</p>
+        <np-content-spacer>
+            {% with link_entry_icon_class="fab fa-twitter", link_entry_url="https://twitter.com/NibblePoker",
+                    link_main_text=l10n("twitter.title", "links", user_lang ),
+                    link_sub_text=l10n("twitter.text.1", "links", user_lang ) %}
+                {% include 'elements/link-page-entry.jinja' %}
+            {% endwith %}
 
-        <p class="mt-s ml-s t-w-600 t-size-12">
-            <i class="fab fa-github mr-xs"></i>
-            <a href="https://github.com/NibblePoker">{{ l10n("github_pro.title", "links", user_lang ) }}</a>
-        </p>
-        <p class="mt-xxs ml-l">{{ l10n("github_pro.text.1", "links", user_lang ) }}</p>
-    </section>
+            {% with link_entry_icon_class="fab fa-github", link_entry_url="https://github.com/aziascreations",
+                    link_main_text=l10n("github.title", "links", user_lang ),
+                    link_sub_text=l10n("github.text.1", "links", user_lang ) %}
+                {% include 'elements/link-page-entry.jinja' %}
+            {% endwith %}
 
+            {% with link_entry_icon_class="fab fa-github", link_entry_url="https://github.com/NibblePoker",
+                    link_main_text=l10n("github_pro.title", "links", user_lang ),
+                    link_sub_text=l10n("github_pro.text.1", "links", user_lang ) %}
+                {% include 'elements/link-page-entry.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
 
-    <section class="mt-l mt-0-if-first">
-        {{ render_h1(l10n("work.title", "links", user_lang )) }}
+    <np-section>
+        {% with heading_inner_html=l10n("work.title", "links", page_lang, ["NibblePoker." + domain_tld]),
+                heading_level=2 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
 
-        <p class="mt-s ml-s t-w-600 t-size-12">
-            <i class="fab fa-linkedin mr-xs"></i>
-            <a href="https://www.linkedin.com/in/herwin-bozet/">{{ l10n("linkedin.title", "links", user_lang ) }}</a>
-        </p>
-        <p class="mt-xxs ml-l">{{ l10n("linkedin.text.1", "links", user_lang ) }}</p>
-    </section>
+        <np-content-spacer>
+            {% with link_entry_icon_class="fab fa-linkedin", link_entry_url="https://www.linkedin.com/in/herwin-bozet/",
+                    link_main_text=l10n("linkedin.title", "links", user_lang ),
+                    link_sub_text=l10n("linkedin.text.1", "links", user_lang ) %}
+                {% include 'elements/link-page-entry.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
 
+    <np-section>
+        {% with heading_inner_html=l10n("misc.title", "links", page_lang, ["NibblePoker." + domain_tld]),
+                heading_level=2 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
 
-    <section class="mt-l mt-0-if-first">
-        {{ render_h1(l10n("misc.title", "links", user_lang )) }}
+        <np-content-spacer>
+            {% with link_entry_icon_class="fad fa-download", link_entry_url="https://files.nibblepoker.lu/",
+                    link_main_text=l10n("files.title", "links", user_lang ),
+                    link_sub_text=l10n("files.text.1", "links", user_lang ) %}
+                {% include 'elements/link-page-entry.jinja' %}
+            {% endwith %}
 
-        <p class="mt-s ml-s t-w-600 t-size-12">
-            <i class="fad fa-download mr-xs"></i>
-            <a href="https://files.nibblepoker.lu/">{{ l10n("files.title", "links", user_lang ) }}</a>
-        </p>
-        <p class="mt-xxs ml-l">{{ l10n("files.text.1", "links", user_lang ) }}</p>
+            {% with link_entry_icon_class="fad fa-archive", link_entry_url="https://archives.nibblepoker.lu/",
+                    link_main_text=l10n("archives.title", "links", user_lang ),
+                    link_sub_text=l10n("archives.text.1", "links", user_lang ) %}
+                {% include 'elements/link-page-entry.jinja' %}
+            {% endwith %}
 
-        <p class="mt-s ml-s t-w-600 t-size-12">
-            <i class="fad fa-archive mr-xs"></i>
-            <a href="https://archives.nibblepoker.lu/">{{ l10n("archives.title", "links", user_lang ) }}</a>
-        </p>
-        <p class="mt-xxs ml-l">{{ l10n("archives.text.1", "links", user_lang ) }}</p>
+            {% with link_entry_icon_class="fa-duotone fa-code-branch", link_entry_url="https://git.nibblepoker.lu/",
+                    link_main_text=l10n("gitea.title", "links", user_lang ),
+                    link_sub_text=l10n("gitea.text.1", "links", user_lang ) %}
+                {% include 'elements/link-page-entry.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
 
-        <p class="mt-s ml-s t-w-600 t-size-12">
-            <i class="fa-duotone fa-code-branch mr-xs"></i>
-            <a href="https://git.nibblepoker.lu/">{{ l10n("gitea.title", "links", user_lang ) }}</a>
-        </p>
-        <p class="mt-xxs ml-l">{{ l10n("gitea.text.1", "links", user_lang ) }}</p>
-    </section>
 {% endblock %}
 
 {% block extra_scripts %}
-    <script src="{{ url_for("static", filename="resources/NibblePoker/js/nibblepoker-default.min.js") }}"></script>
+    <script src="/resources/NibblePoker/js/nibblepoker-default.min.js"></script>
 {% endblock %}
+

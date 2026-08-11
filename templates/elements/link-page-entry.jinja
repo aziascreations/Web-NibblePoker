@@ -1,0 +1,15 @@
+{#
+elements/link-page-entry.jinja
+
+Parameters:
+    * link_entry_icon_class
+    * link_entry_url
+    * link_main_text
+    * link_sub_text
+#}
+
+<p class="mt-s ml-xs t-w-600 t-size-12">
+    <i class="{{ link_entry_icon_class }} mr-xs"></i>
+    <a href="{{ link_entry_url }}">{{ link_main_text }}</a>
+</p>
+<p class="mt-xxs ml-m">{{ link_sub_text }}</p>

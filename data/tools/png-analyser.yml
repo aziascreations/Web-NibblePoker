@@ -1,6 +1,7 @@
 tools:
   - id: "png-analyser"
     applet_id: "png-analyser"
+    download_base_name: "PngAnalyser"
     metadata:
       head:
         title_key: "meta.title"

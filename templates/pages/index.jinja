@@ -1,0 +1,83 @@
+{% if is_standalone %}
+    {# Should never happen for non-tool pages ! #}
+    {% extends "bases/standalone.jinja" %}
+{% else %}
+    {% extends "bases/default.jinja" %}
+{% endif %}
+
+{% block head_title %}{{ l10n("head.title", "home", page_lang) }}{% endblock %}
+
+{% block head_description %}
+    <!-- IRRELEVANT, shove it in the opengraph section !!! -->
+    {{ l10n("head.title", "home", page_lang) }}
+{% endblock %}
+
+{% block opengraph_tags %}
+    <!-- TODO -->
+{% endblock %}
+
+{% block main_content %}
+    <np-section>
+        {% with heading_inner_html=l10n("intro.title", "home", page_lang, ["NibblePoker." + domain_tld]),
+                heading_level=2 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            {% with paragraph_inner_html=l10n("intro.text.1", "home", page_lang) %}{% include 'elements/paragraph.jinja' %}{% endwith %}
+            {% with paragraph_inner_html=l10n("intro.text.2", "home", page_lang) %}{% include 'elements/paragraph.jinja' %}{% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+    {#<section class="mt-l mt-0-if-first">
+
+        {% with heading_inner_html=l10n("updates.title", "home", page_lang, ["NibblePoker." + domain_tld]),
+                heading_level=2 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+         <div class="content-spacer">
+            <p><i class="fad fa-calendar-alt mr-xs"></i>{{ l10n("updates.5.date", "home", page_lang) }}</p>
+            {{ render_list_ul([
+                l10n("updates.5.text.1", "home", page_lang),
+                l10n("updates.5.text.2", "home", page_lang),
+                l10n("updates.text.privacy", "home", page_lang)
+            ]) }}
+
+            <p><i class="fad fa-calendar-alt mr-xs mt-s"></i>{{ l10n("updates.4.date", "home", page_lang) }}</p>
+            {{ render_list_ul([
+                l10n("updates.4.text.1", "home", page_lang),
+                l10n("updates.4.text.2", "home", page_lang),
+                l10n("updates.4.text.3", "home", page_lang),
+                l10n("updates.text.privacy", "home", page_lang)
+            ]) }}
+
+            <p><i class="fad fa-calendar-alt mr-xs mt-s"></i>{{ l10n("updates.3.date", "home", page_lang) }}</p>
+            {{ render_list_ul([
+                l10n("updates.3.text.1", "home", page_lang),
+                l10n("updates.3.text.2", "home", page_lang),
+                l10n("updates.3.text.3", "home", page_lang),
+                l10n("updates.text.privacy", "home", page_lang)
+            ]) }}
+
+            <p><i class="fad fa-calendar-alt mr-xs mt-s"></i>{{ l10n("updates.2.date", "home", page_lang) }}</p>
+            {{ render_list_ul([
+                l10n("updates.2.text.1", "home", page_lang),
+                l10n("updates.2.text.2", "home", page_lang),
+                l10n("updates.2.text.3", "home", page_lang),
+                l10n("updates.2.text.4", "home", page_lang),
+                l10n("updates.text.privacy", "home", page_lang)
+            ]) }}
+
+            <p><i class="fad fa-calendar-alt mr-xs mt-s"></i>{{ l10n("updates.1.date", "home", page_lang) }}</p>
+            {{ render_list_ul([
+                l10n("updates.1.text.1", "home", page_lang),
+                l10n("updates.text.privacy", "home", page_lang)
+            ]) }}
+        </div>
+    </section> #}
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="/resources/NibblePoker/js/nibblepoker-default.min.js"></script>
+{% endblock %}

@@ -5,6 +5,9 @@
 # Build artifacts
 __pycache__/
 *.tar
+*.exe
+*.dll
+*.so
 
 # NodeJS' BS
 node_modules/
@@ -22,7 +25,10 @@ static/resources/SortableJS
 static/resources/Standalone
 
 # Golang revamp
-src/
-bin/
-app/
 *.tmpl
+
+# PureBasic Tests
+*.pb.cfg
+*.pbi.cfg
+*.pbf.cfg
+*.pbp.cfg

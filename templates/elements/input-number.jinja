@@ -1,0 +1,76 @@
+{#
+elements/input-number.jinja
+
+Parameters:
+    * input_label
+    * input_id
+    * input_value
+    * input_readonly
+    * input_disabled
+    * input_number_min
+    * input_number_max
+    * input_number_scrollable
+    * input_number_add_buttons
+    * input_extra_classes_label
+    * input_extra_classes
+#}
+
+{% if input_readonly is none %}
+    {% set input_readonly = False %}
+{% endif %}
+
+{% if input_disabled is none %}
+    {% set input_disabled = False %}
+{% endif %}
+
+{% if input_number_scrollable is none %}
+    {% set input_number_scrollable = False %}
+{% endif %}
+
+{% if input_number_add_buttons is none %}
+    {% set input_number_add_buttons = False %}
+{% endif %}
+
+{% if input_label is not none %}
+    <label for="{{ input_id }}"
+           class="mr-xxs {% if input_extra_classes_label is not none %}{{ input_extra_classes_label }}{% endif %}">
+        {{ input_label }}:
+    </label>
+{% else %}
+    <label for="{{ input_id }}"
+           class="{% if input_extra_classes_label is not none %}{{ input_extra_classes_label }}{% endif %}"></label>
+{% endif %}
+
+{% if input_number_add_buttons %}
+    <button id="{{ input_id }}-minus" class="p-xxs border br-0 rl-s {% if is_standalone %}px-xs{% endif %}">
+        {% if not is_standalone %}
+            <i class="fa-duotone fa-solid fa-minus"></i>
+        {% else %}
+            -
+        {% endif %}
+    </button>
+{% endif %}
+
+<input id="{{ input_id }}"
+       class="p-xxs border
+              {% if input_number_scrollable %} np-input-scrollable{% endif %}
+              {% if not input_number_add_buttons %} r-s{% endif %}
+              {% if input_extra_classes is not none %} {{ input_extra_classes }}{% endif %}
+             "
+       type="number"
+       {% if input_value is not none %} value="{{ input_value }}"{% endif %}
+       {% if input_number_min is not none %} min="{{ input_number_min }}"{% endif %}
+       {% if input_number_max is not none %} max="{{ input_number_max }}"{% endif %}
+       {% if input_readonly %} readonly{% endif %}
+       {% if input_disabled %} disabled{% endif %}
+       >
+
+{% if input_number_add_buttons %}
+    <button id="{{ input_id }}-plus" class="p-xxs border bl-0 rr-s {% if is_standalone %}px-xs{% endif %}">
+        {% if not is_standalone %}
+            <i class="fa-duotone fa-solid fa-plus"></i>
+        {% else %}
+            +
+        {% endif %}
+    </button>
+{% endif %}

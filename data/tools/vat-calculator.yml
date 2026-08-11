@@ -2,6 +2,9 @@
 tools:
   - id: "vat-calculator"
     applet_id: "vat-calculator"
+    applet_config:
+      - test: "test123"
+    download_base_name: "VatCalculator"
     metadata:
       head:
         title_key: "meta.title"

@@ -1,115 +1,136 @@
-{% extends "base_www.jinja" %}
+{% if is_standalone %}
+    {# Should never happen for non-tool pages ! #}
+    {% extends "bases/standalone.jinja" %}
+{% else %}
+    {% extends "bases/default.jinja" %}
+{% endif %}
 
-{% block head_title %}{{ l10n("head.title", "about", user_lang) }}{% endblock %}
-{% block head_description %}{{ l10n("head.description", "about", user_lang) }}{% endblock %}
+{% block head_title %}{{ l10n("head.title", "about", page_lang) }}{% endblock %}
 
-{% block header_title %}
-    <i class="fad fa-user t-size-16 mr-s t-muted"></i>{{ l10n("header.title", "about", user_lang) }}
+{% block head_description %}
+    <!-- IRRELEVANT, shove it in the opengraph section !!! -->
+    {{ l10n("head.title", "about", page_lang) }}
+{% endblock %}
+
+{% block opengraph_tags %}
+    <!-- TODO -->
 {% endblock %}
 
 {% block main_content %}
+    <np-section>
+        {% with heading_inner_html=l10n("intro.title", "about", page_lang, ""),
+                heading_level=2 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
 
-    <section class="mt-l mt-0-if-first">
-        {{ render_h1(l10n("intro.title", "about", user_lang)) }}
-        <div class="content-spacer">
+        <np-content-spacer>
             <img src="/resources/NibblePoker/images/about/profile-pic.jpg"
                  alt="" class="r-r img-profile f-right m-xs ml-xxs"
                  draggable="false">
-            {{ render_paragraph(l10n("intro.text.p1.l1", "about", user_lang)) }}
-            {{ render_paragraph(l10n("intro.text.p3.l1", "about", user_lang) + "<br>" + l10n("intro.text.p3.l2", "about", user_lang)) }}
-        </div>
-    </section>
+            {% with paragraph_inner_html=l10n("intro.text.p1.l1", "about", page_lang) + "<br>" + l10n("intro.text.p1.l2", "about", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+            {% with paragraph_inner_html=l10n("intro.text.p2.l1", "about", page_lang) + "<br>" + l10n("intro.text.p2.l2", "about", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+            {% with paragraph_inner_html=l10n("intro.text.p3.l1", "about", page_lang) + "<br>" + l10n("intro.text.p3.l2", "about", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
 
-    <section class="mt-l mt-0-if-first">
-        {{ render_h1(l10n("future.title", "about", user_lang)) }}
-        <div class="content-spacer">
-            {{ render_paragraph(l10n("future.text.p1.l1", "about", user_lang) + "<br>" + l10n("future.text.p1.l2", "about", user_lang)) }}
-            {{ render_paragraph(l10n("future.text.p2.l1", "about", user_lang)) }}
-            {{ render_paragraph(l10n("future.text.p3.l1", "about", user_lang)) }}
-        </div>
-    </section>
+    <np-section>
+        {% with heading_inner_html=l10n("tenets.title", "about", page_lang, ""),
+                heading_level=2 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
 
-    <section class="mt-l mt-0-if-first">
-        {{ render_h1(l10n("financing.title", "about", user_lang)) }}
-        <div class="content-spacer">
-            {{ render_paragraph(l10n("financing.text.p1.l1", "about", user_lang) + "<br>" + l10n("financing.text.p1.l2", "about", user_lang)) }}
-            {{ render_paragraph(l10n("financing.text.p2.l1", "about", user_lang)) }}
-            {{ render_paragraph(l10n("financing.text.p3.l1", "about", user_lang) + "<br>" + l10n("financing.text.p3.l2", "about", user_lang)) }}
-        </div>
-    </section>
+        <np-content-spacer>
+            <i>
+                {% with heading_inner_html=l10n("tenets.politics.title", "about", page_lang, ""),
+                        heading_level=3 %}
+                    {% include 'elements/heading.jinja' %}
+                {% endwith %}
+            </i>
+            <np-content-spacer>
+                {% with paragraph_inner_html=l10n("tenets.politics.text.p1.l1", "about", page_lang) + "<br>" +
+                                             l10n("tenets.politics.text.p1.l2", "about", page_lang) + "<br>" +
+                                             l10n("tenets.politics.text.p1.l3", "about", page_lang) %}
+                    {% include 'elements/paragraph.jinja' %}
+                {% endwith %}
+                {% with paragraph_inner_html=l10n("tenets.politics.text.p2.l1", "about", page_lang) + "<br>" +
+                                             l10n("tenets.politics.text.p2.l2", "about", page_lang) %}
+                    {% include 'elements/paragraph.jinja' %}
+                {% endwith %}
+            </np-content-spacer>
+        </np-content-spacer>
+    </np-section>
 
-    <section class="mt-l mt-0-if-first">
-        <div class="grid grid-col-2 grid-col-medium-1 grid-gap-m">
-            <div>
-                <table class="table-stylish table-p-xs border r-l w-full">
-                    <thead>
-                    <tr>
-                        <th>{{ l10n("financing.part.service", "about", user_lang) }}</th>
-                        <th>{{ l10n("financing.part.cost.yearly", "about", user_lang) }}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>{{ l10n("financing.part.domain.lu", "about", user_lang) }}</td>
-                        <td>19,99 €</td>
-                    </tr>
-                    <tr>
-                        <td>{{ l10n("financing.part.domain.com", "about", user_lang) }}</td>
-                        <td>13,49 €</td>
-                    </tr>
-                    <tr>
-                        <td>{{ l10n("financing.part.proxy.europe", "about", user_lang) }}</td>
-                        <td>348 PLN / &pm;81,84 €</td>
-                    </tr>
-                    <tr>
-                        <td>{{ l10n("financing.part.proxy.america", "about", user_lang) }}</td>
-                        <td>13,00 €</td>
-                    </tr>
-                    <tr>
-                        <td>{{ l10n("financing.part.electricity", "about", user_lang) }}</td>
-                        <td>&pm;32,00 €</td>
-                    </tr>
-                    <tr>
-                        <td><b class="f-right">{{ l10n("financing.part.cost.yearly.total", "about", user_lang) }}:</b></td>
-                        <td>&pm;160,32 €</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <table class="table-stylish table-p-xs border r-l w-full">
-                    <thead>
-                    <tr>
-                        <th>{{ l10n("financing.part.equipment", "about", user_lang) }}</th>
-                        <th>{{ l10n("financing.part.cost", "about", user_lang) }}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>{{ l10n("financing.part.nanopir4s", "about", user_lang) }}</td>
-                        <td>&pm;80,00 €</td>
-                    </tr>
-                    <tr>
-                        <td>{{ l10n("financing.part.storage", "about", user_lang) }}</td>
-                        <td>&pm;10,00 €</td>
-                    </tr>
-                    <tr>
-                        <td><b class="f-right">{{ l10n("financing.part.cost.total", "about", user_lang) }}:</b></td>
-                        <td>&pm;90,00 €
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <np-section>
+        {% with heading_inner_html=l10n("financing.title", "about", page_lang, ""),
+                heading_level=2 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
 
-        <p class="mt-xs ml-s t-super-muted t-center">
-            {{ l10n("financing.text.isp", "about", user_lang) }}
-        </p>
-    </section>
+        <np-content-spacer>
+            {% with paragraph_inner_html=l10n("financing.text.p1.l1", "about", page_lang) + "<br>" +
+                                         l10n("financing.text.p1.l2", "about", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+            {% with paragraph_inner_html=l10n("financing.text.p2.l1", "about", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+            {% with paragraph_inner_html=l10n("financing.text.p3.l1", "about", page_lang) + "<br>" +
+                                         l10n("financing.text.p3.l2", "about", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+
+            <table class="table-stylish table-p-xs border r-l table-v-center mt-m">
+                <thead>
+                <tr>
+                    <th>{{ l10n("financing.part.service", "about", page_lang) }}</th>
+                    <th>{{ l10n("financing.part.cost.yearly", "about", page_lang) }}</th>
+                    <th>{{ l10n("financing.part.cost.optimized", "about", page_lang) }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ l10n("financing.part.domain.lu", "about", page_lang) }}</td>
+                    <td>19,99 €</td>
+                    <td>19,99 €</td>
+                </tr>
+                <tr>
+                    <td>{{ l10n("financing.part.domain.com", "about", page_lang) }}</td>
+                    <td>13,49 €</td>
+                    <td>0,00 €</td>
+                </tr>
+                <tr>
+                    <td>{{ l10n("financing.part.server.dns", "about", page_lang) }}</td>
+                    <td>23.76 €</td>
+                    <td rowspan="2">23.76 € **</td>
+                </tr>
+                <tr>
+                    <td>{{ l10n("financing.part.server.web", "about", page_lang) }}</td>
+                    <td class="br">59,88 €</td>
+                </tr>
+                <tr>
+                    <td><b class="f-right">{{ l10n("financing.part.cost.yearly.total", "about", page_lang) }}:</b></td>
+                    <td>&pm;117,12 €</td>
+                    <td>&pm;43,75 €</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p class="mt-xs t-super-muted">
+                {{ l10n("financing.text.reduced", "about", page_lang) }}
+                <br>
+                {{ l10n("financing.text.servers", "about", page_lang) }}
+            </p>
+        </np-content-spacer>
+    </np-section>
 
 {% endblock %}
 
 {% block extra_scripts %}
-    <script src="{{ url_for("static", filename="resources/NibblePoker/js/nibblepoker-default.min.js") }}"></script>
+    <script src="/resources/NibblePoker/js/nibblepoker-default.min.js"></script>
 {% endblock %}

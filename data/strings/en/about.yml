@@ -15,43 +15,31 @@ intro:
   title: Introduction
   text:
     p1:
-      l1: My name is Herwin Bozet, I'm an experienced developer with extensive
-        experience in PureBasic, Python, .NET, Java; and intermediate knowledge in C, Win32
-        APIs, embedded systems and general web development.
-    #  l2: I've been programming for about 10 years now, and for the last
-    #    5 years I've been actively working on applying that experience to a variety of projects
-    #    with the aim of helping programmers and people in their day-to-day life.
-    #p2:
-    #  l1: NibblePoker is, in essence, a simple moniker and the front-end
-    #    for most of my public-focused work.
-    #  l2: It houses all my work made and tailored for usage by other people.
-    p3:
-      l1: This entire website, as well as all my work for it and other
-        personal projects, is completely open-source and available under permissive <abbr
-        title="Open Source Initiative">OSI</abbr> approved licenses.
-      l2: All of it is maintained, developed and expanded in my free time
-        with the occasional help from people in the open-source community.
-
-future:
-  title: Future plans
-  text:
-    p1:
-      l1: It is planned to turn NibblePoker into a <abbr title="Private
-        company with limited liability">SPRL</abbr> in a couple years if everything goes
-        as planned.
-      l2: This would allow me to centralize many things and invest properly
-        in my targeted fields to achieve my goals.
+      l1: Hello there, my name is Herwin Bozet.
+      l2: I'm a developer who's spent years working in PureBasic, Python, .NET, C, Win32 APIs, embedded systems, and web development.
     p2:
-      l1: The goal would be to create a small sustainable local business
-        that offers a wide range of products and solutions covering <abbr title="Internet
-        of things">IoT</abbr> devices, programming, and technological independence ; All
-        while including the required software and hardware components often lacking in such
-        products and solutions.
+      l1: I like building things that stay out of the way and minimalistic in logic and code.
+      l2: You'll mainly find CLI tools, small libraries, self-hosted services, and electronics projects for everyday or specific needs.
     p3:
-      l1: Ultimately, all this work and research would be made available
-        to the public under open-source licenses, enabling anyone who wishes to learn, reuse,
-        and resell open-source products, to do so in a similar way as companies like Adafruit
-        do.
+      l1: Finally, everything here, this website included, is open-source under permissive OSI-approved licenses or in the public domain.
+      l2: It's all built and maintained in my free time, with occasional help from the open-source community.
+
+tenets:
+  title: Core Tenets
+  politics:
+    title: Apolitical code
+    text:
+      p1:
+        l1: Code does not care about feelings, code does not care about wars, and it certainly does not care about your politics.
+        l2: Everything I do, and any service I offer, is done in a completely apolitical way.
+        l3: If you expect to find socially conscious and engaged software, you can look elsewhere.
+      p2:
+        l1: During the last couple of years, we've seen many developers and companies take stances that either enshittify their product or endanger their users.
+        l2: This is something that has bothered me to no end, and I refuse to take part in that kind of rhetoric.
+  independence:
+    title: Self-reliance &amp; Independance
+  freedom:
+    title: Trully free software
 
 financing:
   title: Financing
@@ -74,15 +62,20 @@ financing:
         a lot of things and gain valuable knowledge for a world as interconnected as ours.
     isp: The main ISP bill isn't accounted for since this could run
       off some random public Wi-Fi.
+    reduced: "*: Estimated prices if I had to get the strict minimum"
+    servers: "**: Could be much lower if I used basic hosting solutions"
   part:
     service: Service
     equipment: Equipment
     cost: Cost
     cost.total: Total Cost
     cost.yearly: Yearly Cost
+    cost.optimized: Reduced Cost *
     cost.yearly.total: Yearly Cost
     domain.lu: "<i>.lu</i> domain"
     domain.com: "<i>.com</i> domain"
+    server.dns: DNS servers
+    server.web: Web-hosting servers
     proxy.europe: European reverse-proxy
     proxy.america: American reverse-proxy
     proxy.asia: Asian reverse-proxy

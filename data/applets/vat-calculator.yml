@@ -1,5 +1,8 @@
 applets:
   - id: "vat-calculator"
+    default_config:
+      simplified_rounding: False
+      always_show_licenses: False
     resources:
       scripts:
         - "applet://vat-calculator.mjs"

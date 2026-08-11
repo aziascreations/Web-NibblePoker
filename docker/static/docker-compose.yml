@@ -1,0 +1,23 @@
+# This docker-compose file should only be used for development !
+
+services:
+  www_nibblepoker_lu_cgi:
+    container_name: www-nibblepoker-cgi
+    build:
+      context: .
+    ports:
+      - 5002:80
+    environment:
+      - TZ=Europe/Brussels
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../../static/resources:/var/www/localhost/resources:ro
+    restart: unless-stopped
+    stop_grace_period: 1s
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    logging:
+        driver: "json-file"
+        options:
+            max-size: "16m"

@@ -21,31 +21,40 @@ Public repository containing the source code for [nibblepoker.lu](https://nibble
 
 
 ## Local Setup
-Follow these steps to setup a local version of this website:
-1. Install Python 3.13
-2. Install Node JS 20+
-3. Install Python Modules \
+
+### Requirements
+* Windows (x64) or Linux (x64/ARM64)
+* PureBasic 6.21 LTS
+  * *5.xx will not work !*
+* Python 3.13
+  * *Previous versions untested*
+* Node JS 20+
+* Docker *(Optional)*
+
+### Pre-rendering
+1. Install Python Modules \
    `pip install --upgrade -r requirements.txt`
-4. Install NPM modules \
+2. Install NPM modules \
    `.\scripts\nodejs-setup.cmd`
-5. Compile the `.mjs` files into `.js` and `.min.js` \
+3. Download external libs \
+   `.\scripts\download-externals.ps1`
+4. Compile the `.mjs` files \
    `.\scripts\compile-js-site.cmd`
-6. [TODO: Install static files]
-7. Setup environment variables:
-   ```batch
-   :: Batch
-   set NP_HTML_POST_PROCESS=MINIFY
-   set NP_FLASK_WAITRESS=1
-   set NP_FLASK_PORT=80
-   ```
-   ```bash
-   # Bash
-   NP_HTML_POST_PROCESS=MINIFY
-   NP_FLASK_WAITRESS=1
-   NP_FLASK_PORT=80
-   ```
-8. Run [app.py](app.py) \
-   `python ./app.py`
+5. Pre-render the pages \
+   `python prerender.py`
+
+### Docker on Windows
+1. Compile FCGI apps via [Web-NibblePoker.pbp](Web-NibblePoker.pbp)
+2. Setup Apache/Nginx/HAProxy/... to interact with FCGI apps \
+   `./docker/RunDockerStuff.cmd`
+3. Start static page server \
+   `./cgi/RunLocalFcgi.cmd`
+4. Start index page server \
+   `???`
+5. Open "http://localhost:5002/"
+
+### Docker on Linux
+1. Copy over the project on your Linux machine
 
 
 ## Licenses

@@ -1,3 +1,15 @@
+{#
+applets/vat_calculator.jinja
+
+Parameters:
+    * applet_id     - Applet ID as defined in the applet repository and templates in "templates/applets/".
+                      Assumed to be correct from the get-go.
+    * applet_uid    - Unique ID for the applet to differentiate it from other instances of the same applet.
+    * applet_data   - See `nibblepoker.objects.content.applet.ContentApplet`.
+    * applet_config - Config with all custom parameters overriding the default ones that you can
+                       get in `applet_data.default_config`.
+#}
+
 {%
         set all_vat_data = [
             ["afghanistan",
@@ -135,15 +147,18 @@
         ]
 %}
 
-<label for="vat-calculator-preset-short" class="mr-xxs">
-    {{ l10n("preset.label", "vat-calculator", user_lang) }}:
+<label for="{{ applet_uid + "-" + applet_id + "-preset-short" }}"
+       class="mr-xxs">
+    {{ l10n("preset.label", "vat-calculator", page_lang) }}:
 </label>
-<select name="vat-calculator-preset-short" id="vat-calculator-preset-short" class="p-xxs border r-s">
-    <option value="" selected>{{ l10n("rate.option.custom", "vat-calculator", user_lang) }}</option>
+<select name="{{ applet_uid + "-" + applet_id + "-preset-short" }}"
+        id="{{ applet_uid + "-" + applet_id + "-preset-short" }}"
+        class="p-xxs border r-s">
+    <option value="" selected>{{ l10n("rate.option.custom", "vat-calculator", page_lang) }}</option>
     <hr>
 
     {% for country_vat_data in all_vat_data %}
-        <optgroup label="{{ l10n("country." + country_vat_data[0], "commons", user_lang) }}">
+        <optgroup label="{{ l10n("country." + country_vat_data[0], "commons", page_lang) }}">
 
         {% for country_vat_rate in country_vat_data[1] %}
             <option value="{{ country_vat_rate[0] }}">
@@ -155,19 +170,24 @@
     {% endfor %}
 </select>
 
-<label for="vat-calculator-preset-detailed" class="mr-xxs" hidden>
-    {{ l10n("preset.label", "vat-calculator", user_lang) }}:
+<label for="{{ applet_uid + "-" + applet_id + "-preset-detailed" }}"
+       class="mr-xxs"
+       hidden>
+    {{ l10n("preset.label", "vat-calculator", page_lang) }}:
 </label>
-<select name="vat-calculator-preset-detailed" id="vat-calculator-preset-detailed" class="p-xxs border r-s" hidden>
-    <option value="" selected>{{ l10n("rate.option.custom", "vat-calculator", user_lang) }}</option>
+<select name="{{ applet_uid + "-" + applet_id + "-preset-detailed" }}"
+        id="{{ applet_uid + "-" + applet_id + "-preset-detailed" }}"
+        class="p-xxs border r-s"
+        hidden>
+    <option value="" selected>{{ l10n("rate.option.custom", "vat-calculator", page_lang) }}</option>
     <hr>
 
     {% for country_vat_data in all_vat_data %}
-        <optgroup label="{{ l10n("country." + country_vat_data[0], "commons", user_lang) }}">
+        <optgroup label="{{ l10n("country." + country_vat_data[0], "commons", page_lang) }}">
 
         {% for country_vat_rate in country_vat_data[1] %}
             <option value="{{ country_vat_rate[0] }}">
-                {{ country_vat_rate[0] }} %&emsp;({{ l10n("rate.type." + country_vat_rate[1], "vat-calculator", user_lang) }})
+                {{ country_vat_rate[0] }} %&emsp;({{ l10n("rate.type." + country_vat_rate[1], "vat-calculator", page_lang) }})
             </option>
         {% endfor %}
 
@@ -175,108 +195,155 @@
     {% endfor %}
 </select>
 
-<span id="vat-calculator-preset-country-echo" class="t-muted ml-xs t-italic mobile-hide"></span>
+<span id="{{ applet_uid + "-" + applet_id + "-preset-country-echo" }}"
+      class="t-muted ml-xs t-italic mobile-hide"></span>
 
 <br>
 
-<label for="vat-calculator-detailed-presets" class="mr-xxs">{{ l10n("option.detailed", "vat-calculator", user_lang) }}:</label>
-<input id="vat-calculator-detailed-presets" class="r-m border cb-pretty" type="checkbox">
+<label for="{{ applet_uid + "-" + applet_id + "-detailed-presets" }}"
+       class="mr-xxs">{{ l10n("option.detailed", "vat-calculator", page_lang) }}:</label>
+<input id="{{ applet_uid + "-" + applet_id + "-detailed-presets" }}"
+       class="r-m border cb-pretty"
+       type="checkbox">
 
 
 <hr class="subtle">
 
-<!-- TODO: Implement iframe-able template for multi-instance applets on the same page -->
+<table id="{{ applet_uid + "-" + applet_id + "-rate-input-table" }}"
+       class=""
+       data-np-readonly-classes="bkgd-gray">
+    <tr>
+        <td>
+            <input type="radio"
+                   id="{{ applet_uid + "-" + applet_id + "-radio-rate" }}"
+                   name="{{ applet_uid + "-" + applet_id + "-radio-group-target" }}"
+                   value="0"
+                   class="radio-solid border mr-xxs radio-unchecked-subtle">
+            <label for="{{ applet_uid + "-" + applet_id + "-radio-rate" }}">
+                {{ l10n("radio.rate", "vat-calculator", page_lang) }}
+            </label>
+        </td>
+        <td>
+            {% with input_label = none,
+                    input_id = applet_uid + "-" + applet_id + "-input-rate",
+                    input_number_min = "0",
+                    input_extra_classes = "ml-xs" %}
+                {% include 'elements/input-number.jinja' %}
+            {% endwith %}
 
-<table class="">
-    <tr>
-        <td>
-            <input type="radio" id="vat-calculator-radio-rate" name="vat_calc_target" value="0"
-                   class="radio-solid border mr-xxs radio-unchecked-subtle">
-            <label for="vat-calculator-radio-rate">
-                {{ l10n("radio.rate", "vat-calculator", user_lang) }}
-            </label>
-        </td>
-        <td>
-            <label for="vat-calculator-input-rate" class="mr-xs"></label>
-            <input id="vat-calculator-input-rate" class="p-xxs border r-s" type="number" min="0">
-            {% if not is_standalone %}<i class="fa-duotone fa-solid fa-percent ml-xxs t-muted"></i>{% else %}%{% endif %}
+            {% if not is_standalone %}
+                <i class="fa-duotone fa-solid fa-percent ml-xxs t-muted"></i>
+            {% else %}%{% endif %}
         </td>
     </tr>
+
     <tr>
         <td class="pt-xxs">
-            <input type="radio" id="vat-calculator-radio-untaxed" name="vat_calc_target" value="1"
-                   class="radio-solid border mr-xxs radio-unchecked-subtle" checked>
-            <label for="vat-calculator-radio-untaxed">
-                {{ l10n("radio.untaxed", "vat-calculator", user_lang) }}
+            <input type="radio"
+                   id="{{ applet_uid + "-" + applet_id + "-radio-untaxed" }}"
+                   name="{{ applet_uid + "-" + applet_id + "-radio-group-target" }}"
+                   value="1"
+                   class="radio-solid border mr-xxs radio-unchecked-subtle"
+                   checked>
+            <label for="{{ applet_uid + "-" + applet_id + "-radio-untaxed" }}">
+                {{ l10n("radio.untaxed", "vat-calculator", page_lang) }}
             </label>
         </td>
         <td class="pt-xxs">
-            <label for="vat-calculator-input-untaxed" class="mr-xs"></label>
-            <input id="vat-calculator-input-untaxed" class="p-xxs border r-s bkgd-gray" type="number" min="0" readonly>
-            {% if not is_standalone %}<i class="fa-duotone fa-solid fa-money-bill ml-xxs t-muted"></i>{% endif %}
+            {% with input_label = none,
+                    input_id = applet_uid + "-" + applet_id + "-input-untaxed",
+                    input_readonly = True,
+                    input_number_min = "0",
+                    input_extra_classes = "ml-xs bkgd-gray" %}
+                {% include 'elements/input-number.jinja' %}
+            {% endwith %}
+
+            {% if not is_standalone %}
+                <i class="fa-duotone fa-solid fa-money-bill ml-xxs t-muted"></i>
+            {% endif %}
         </td>
     </tr>
+
     <tr>
         <td class="pt-xxs">
-            <input type="radio" id="vat-calculator-radio-taxed" name="vat_calc_target" value="2"
+            <input type="radio"
+                   id="{{ applet_uid + "-" + applet_id + "-radio-taxed" }}"
+                   name="{{ applet_uid + "-" + applet_id + "-radio-group-target" }}"
+                   value="2"
                    class="radio-solid border mr-xxs radio-unchecked-subtle">
-            <label for="vat-calculator-radio-taxed">
-                {{ l10n("radio.taxed", "vat-calculator", user_lang) }}
+            <label for="{{ applet_uid + "-" + applet_id + "-radio-taxed" }}">
+                {{ l10n("radio.taxed", "vat-calculator", page_lang) }}
             </label>
         </td>
         <td class="pt-xxs">
-            <label for="vat-calculator-input-taxed" class="mr-xs"></label>
-            <input id="vat-calculator-input-taxed" class="p-xxs border r-s" type="number" min="0">
-            {% if not is_standalone %}<i class="fa-duotone fa-solid fa-money-bill ml-xxs t-muted"></i>{% endif %}
+            {% with input_label = none,
+                    input_id = applet_uid + "-" + applet_id + "-input-taxed",
+                    input_number_min = "0",
+                    input_extra_classes = "ml-xs" %}
+                {% include 'elements/input-number.jinja' %}
+            {% endwith %}
+
+            {% if not is_standalone %}
+                <i class="fa-duotone fa-solid fa-money-bill ml-xxs t-muted"></i>
+            {% endif %}
         </td>
     </tr>
 </table>
 
-<p class="t-muted ml-xs mt-xs t-italic">{{ l10n("text.radio.explanation", "vat-calculator", user_lang) }}</p>
+<p class="t-muted ml-xs mt-xs t-italic">{{ l10n("text.radio.explanation", "vat-calculator", page_lang) }}</p>
 
 
 <hr class="subtle">
 
-<label for="vat-calculator-rounding-mode" class="mr-xxs">
-    {{ l10n("rounding.mode.label", "vat-calculator", user_lang) }}:
-</label>
-<select name="vat-calculator-rounding-mode" id="vat-calculator-rounding-mode" class="p-xxs border r-s">
-    <optgroup label="{{ l10n("rounding.mode.group.regular", "vat-calculator", user_lang) }}">
-        <option value="0" selected>{{ l10n("rounding.mode.up", "vat-calculator", user_lang) }}</option>
-        <option value="1">{{ l10n("rounding.mode.down", "vat-calculator", user_lang) }}</option>
-        <option value="2">{{ l10n("rounding.mode.ceil", "vat-calculator", user_lang) }}</option>
-        <option value="3">{{ l10n("rounding.mode.floor", "vat-calculator", user_lang) }}</option>
-    </optgroup>
-
-    <optgroup label="{{ l10n("rounding.mode.group.half", "vat-calculator", user_lang) }}">
-        <option value="4">{{ l10n("rounding.mode.up.half", "vat-calculator", user_lang) }}</option>
-        <option value="5">{{ l10n("rounding.mode.down.half", "vat-calculator", user_lang) }}</option>
-        <option value="6">{{ l10n("rounding.mode.even.half", "vat-calculator", user_lang) }}</option>
-        <option value="7">{{ l10n("rounding.mode.ceil.half", "vat-calculator", user_lang) }}</option>
-        <option value="8">{{ l10n("rounding.mode.floor.half", "vat-calculator", user_lang) }}</option>
-    </optgroup>
-</select>
+{%
+        set vat_calculator_roundings = [
+            {
+                "optgroup_label": "rounding.mode.group.regular",
+                "entries": [
+                    ["0", "rounding.mode.up", True, False],
+                    ["1", "rounding.mode.down", False, False],
+                    ["2", "rounding.mode.ceil", False, False],
+                    ["3", "rounding.mode.floor", False, False]
+                ]
+            },
+            {
+                "optgroup_label": "rounding.mode.group.half",
+                "entries": [
+                    ["4", "rounding.mode.up.half", False, False],
+                    ["5", "rounding.mode.down.half", False, False],
+                    ["6", "rounding.mode.even.half", False, False],
+                    ["7", "rounding.mode.ceil.half", False, False],
+                    ["8", "rounding.mode.floor.half", False, False]
+                ]
+            }
+        ]
+%}
+{% with input_label = l10n("rounding.mode.label", "vat-calculator", page_lang),
+        input_id = applet_uid + "-" + applet_id + "-rounding-mode",
+        input_select_entries = vat_calculator_roundings,
+        input_select_l10n_domain_override = "vat-calculator",
+        input_select_localize_optgroup_label = True,
+        input_select_localize_entry_text = True %}
+    {% include 'elements/input-select.jinja' %}
+{% endwith %}
 
 <br>
 
-<label for="vat-calculator-option-decimal-places" class="mr-xs">{{ l10n("option.decimal-places", "vat-calculator", user_lang) }}:</label>
+{% with input_label = l10n("option.decimal-places", "vat-calculator", page_lang),
+        input_id = applet_uid + "-" + applet_id + "-option-decimal-places",
+        input_value = "2",
+        input_number_min = "0",
+        input_number_max = "99",
+        input_number_scrollable = True %}
+    {% include 'elements/input-number.jinja' %}
+{% endwith %}
 
-<button id="vat-calculator-decimal-places-minus" class="p-xxs border br-0 rl-s {% if is_standalone %}px-xs{% endif %}">
-    {% if not is_standalone %}<i class="fa-duotone fa-solid fa-minus"></i>{% else %}-{% endif %}
-</button>
-<input id="vat-calculator-option-decimal-places" class="p-xxs border" type="number" value="2" min="0" max="99">
-<button id="vat-calculator-decimal-places-plus" class="p-xxs border bl-0 rr-s {% if is_standalone %}px-xs{% endif %}">
-    {% if not is_standalone %}<i class="fa-duotone fa-solid fa-plus"></i>{% else %}+{% endif %}
-</button>
+<!--<br hidden>
 
-<br hidden>
-
-<label for="vat-calculator-detailed-trim-zeroes" class="mr-xxs" hidden>{{ l10n("option.trim-zeroes", "vat-calculator", user_lang) }}:</label>
+<label for="vat-calculator-detailed-trim-zeroes" class="mr-xxs" hidden>{{ l10n("option.trim-zeroes", "vat-calculator", page_lang) }}:</label>
 <input id="vat-calculator-detailed-trim-zeroes" class="r-m border cb-pretty" type="checkbox" hidden>
 
-
-<!--<hr class="subtle">
-
+<hr class="subtle">
 <details class="border bkgd-dark r-m mt-s">
     <summary class="p-xs">Click to show/hide all classes</summary>
     <div class="p-xs bt bkgd-grey">
@@ -286,10 +353,10 @@
     </div>
 </details>-->
 
-{% if is_standalone %}
+{% if is_standalone or applet_config["always_show_licenses"] == True %}
     <hr class="subtle">
     <p class="t-half-muted">
-        {{ l10n("license.text.1", "vat-calculator", user_lang) }}<br>
-        {{ l10n("license.text.2", "vat-calculator", user_lang) }}
+        {{ l10n("license.text.1", "vat-calculator", page_lang) }}<br>
+        {{ l10n("license.text.2", "vat-calculator", page_lang) }}
     </p>
 {% endif %}

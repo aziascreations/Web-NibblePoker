@@ -15,24 +15,14 @@ intro:
   title: Introduction
   text:
     p1:
-      l1: Je m'appelle Herwin Bozet, et je suis un développeur expérimenté
-        en PureBasic, Python, Java, VBA ; et de manière plus modérée en C, API Win32, systèmes
-        embarqués et le développement web général.
-    #  l2: Je programme depuis environ 10 ans, et au cours des 5 dernières
-    #    années, j'ai activement travaillé à l'application de cette expérience à divers projets
-    #    dans le but d'aider les programmeurs et les gens dans leur vie quotidienne.
-    #p2:
-    #  l1: NibblePoker est, en essence, un simple pseudonyme et une ombrelle
-    #    sous laquelle la majeure partie de mon travail axé sur le public sera présente.
-    #  l2: Il abrite l'ensemble de mon travail créé et adapté pour être
-    #    utilisé par d'autres personnes.
+      l1: Bonjour, je suis Herwin Bozet.
+      l2: Je suis un développeur, avec des années d'expérience en PureBasic, Python, .NET, C, les API Win32, les systèmes embarqués et le développement web.
+    p2:
+      l1: J'aime créer des choses minimalistes et utilitaires, simples dans leur logique et leur code.
+      l2: Vous trouverez principalement des outils en ligne de commande, de petites bibliothèques, des services auto-hébergés et des projets électroniques, pour des besoins du quotidien ou plus spécifiques.
     p3:
-      l1: L'ensemble de ce site web, ainsi que l'ensemble de mon travail
-        et autres projets personnels réalisés pour lui, sont entièrement open-source et
-        disponibles sous des licences permissives approuvées par l'<abbr title="Open Source
-        Initiative">OSI</abbr>.
-      l2: Tout cela est maintenu, développé et étendu pendant mon temps
-        libre, avec l'aide occasionnelle de personnes de la communauté open source.
+      l1: Enfin, tout ce qui se trouve ici, y compris ce site, est open-source sous licence permissive approuvée par l'OSI, ou dans le domaine public.
+      l2: Tout est développé et maintenu sur mon temps libre, avec parfois un coup de main de la communauté open-source.
 
 future:
   title: Projet d'avenir
@@ -77,15 +67,20 @@ financing:
         dans un monde aussi connecté que le nôtre.
     isp: Le coût de la connexion internet n'est pas compté car elle
       pourrait être remplacée par un Wi-Fi public lambda.
+    reduced: "*: Coût estimé si je prenais le strict minimum"
+    servers: "**: Pourrait être beaucoup plus bas avec des solution d'hébergement plus basiques"
   part:
     service: Service
     equipment: Matériel
     cost: Coût
     cost.total: Coût Total
     cost.yearly: Coût Annuel
+    cost.optimized: Coût Réduit *
     cost.yearly.total: Coût Annuel
     domain.lu: Domaine en <i>.lu</i>
     domain.com: Domaine en <i>.com</i>
+    server.dns: Serveurs DNS
+    server.web: Hébergement Web
     proxy.europe: Reverse-proxy en Europe
     proxy.america: Reverse-proxy en Amérique
     proxy.asia: Reverse-proxy en Asie

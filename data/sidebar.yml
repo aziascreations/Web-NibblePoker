@@ -45,7 +45,7 @@
 #  has_new_until_utc: 0
 
 - title_key: text.tools
-  abs_href: "/tools"
+  abs_href: "/tools/"
   icon: fad fa-toolbox
   active_id: tools
   has_new_until_utc: 1759856025
@@ -59,19 +59,19 @@
 - {}
 
 - title_key: text.about
-  abs_href: "/about"
+  abs_href: "/about/"
   icon: fad fa-user
   active_id: about
   has_new_until_utc: 0
 
 - title_key: text.contact
-  abs_href: "/contact"
+  abs_href: "/contact/"
   icon: fad fa-mailbox
   active_id: ""
   has_new_until_utc: 0
 
 - title_key: text.links
-  abs_href: "/links"
+  abs_href: "/links/"
   icon: fad fa-link
   active_id: links
   has_new_until_utc: 0
