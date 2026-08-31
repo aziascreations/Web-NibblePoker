@@ -1,0 +1,30 @@
+{#
+pages/project.jinja
+
+Parameter:
+    * project_id - Project ID for which the page should be rendered.
+
+Notable globals:
+    * projects_index
+#}
+
+{% if is_standalone %}
+    {% extends "bases/standalone.jinja" %}
+{% else %}
+    {% extends "bases/default.jinja" %}
+{% endif %}
+
+{% block head_title %}{{ l10n("head.title", "home", page_lang) }}{% endblock %}
+
+{% block head_description %}
+    <!-- IRRELEVANT, shove it in the opengraph section !!! -->
+    {{ l10n("head.title", "home", page_lang) }}
+{% endblock %}
+
+{% block opengraph_tags %}
+    <!-- TODO -->
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="/resources/NibblePoker/js/nibblepoker-default.min.js"></script>
+{% endblock %}

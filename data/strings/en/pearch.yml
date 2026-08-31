@@ -13,6 +13,8 @@ intro:
         a given <a href="https://learn.microsoft.com/en-us/windows/win32/debug/pe-format">Windows PE</a> is made for.
     p2:
       l1: A total of 35 architectures are supported by this tool.
+    p3:
+      l1: The tool is also available in English and French in auto-localized and statically localized versions.
 
 usage:
   title: "Usage"
@@ -36,6 +38,13 @@ output:
     title: "Without options:"
   options:
     title: "With <span class=\"code\">/AsHex</span> and <span class=\"code\">/AsError</span>:"
+  thead:
+    options: "Launch options"
+    exist: "If file exist"
+    missing: "If file doesn't exist"
+    stdout: "STDOUT"
+    stderr: "STDERR"
+    errorlevel: "ERRORLEVEL"
 
 downloads:
   title: "Downloads"

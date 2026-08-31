@@ -1,0 +1,15 @@
+{#
+elements/code-block.jinja
+
+Parameters:
+    * code_source     - Path to the file with the code.
+    * code_copiable   - Enabled the copy utility wedge.
+    * code_language   - Defines the language the code is for highlighting.
+    * code_highlight  - Enables code highlighting.
+#}
+
+<code class="d-block p-xxs border r-s mt-s">
+    {% for code_line in get_code_lines(code_source) %}
+        {{ code_line | replace(" ", "&nbsp;")}}<br/>
+    {% endfor %}
+</code>

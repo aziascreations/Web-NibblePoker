@@ -1,0 +1,7 @@
+PEArch.exe [/?] [/E|/AsError] [/H|/AsHex] [/F|/FullText] <File>
+
+Options:
+  /?             Prints this help text, and some additional details.
+  /E, /AsError   Gives out the result as an error code.
+  /H, /AsHex     Prints the architecture as a hex number.
+  /F, /FullText  Prints a longer description of the architecture.

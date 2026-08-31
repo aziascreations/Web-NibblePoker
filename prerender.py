@@ -18,6 +18,7 @@ from nibblepoker.website.web_brand import WebBrandRepository
 
 DOMAINS = [("nibblepoker.lu", "lu",), ("nibblepoker.com", "com",)]
 RENDERS_OUT_DIR = "./static/renders/"
+CODE_SNIPPETS_DIR = "./data/code/"
 
 
 if os.environ.get('NP_HTML_POST_PROCESS', "NONE") == "MINIFY":
@@ -61,6 +62,15 @@ else:
 
 def url_set_lang(url: str, new_lang: Optional[str] = None):
     return _url_set_lang(url, new_lang, ALLOWED_LANGS)
+
+
+def get_code_lines(file_name: str) -> list[str]:
+    file_path = os.path.join(CODE_SNIPPETS_DIR, file_name)
+    if os.path.exists(file_path):
+        with open(file_path, "r") as code_file:
+            return code_file.readlines()
+    else:
+        return [f"ERROR: Missing file `{file_name}`"]
 
 
 if __name__ == "__main__":
@@ -144,6 +154,7 @@ if __name__ == "__main__":
 
         # Other data
         "sidebar_entries": sidebar_defs.get_all_sidebar_defs(),
+        "get_code_lines": get_code_lines,
 
         # Commons
         "html_escape": escape,
