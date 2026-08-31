@@ -17,22 +17,6 @@ introduction:
     1: This privacy policy is written in accordance with the 12th and 13th articles of the GDPR.
     2: 'If you wish to consult it, you can do so on the following websites:'
 
-contact:
-  title: How to contact us ?
-  text:
-    1: 'If you wish to contact us for more information regarding
-      our privacy policy, please contact us via the form included on the contact page,
-      or at the following email address:'
-
-complaint:
-  title: How to contact the appropriate authorities ?
-  text:
-    1: Should you wish to report a complaint or if you feel that
-      our privacy policy has not addressed your concern in a satisfactory manner, you
-      may contact your national Data Protection Authority (DPA).
-    2: 'More information on this procedure can be found on the
-      following websites:'
-
 data:
   title: Data collection (Web)
   intro:
@@ -144,6 +128,24 @@ cookies:
   intro:
     1: Our websites doesn't use nor store any cookies in your
       browser.
+
+
+
+contact:
+  title: How to contact us ?
+  text:
+    1: 'If you wish to contact us for more information regarding
+      our privacy policy, please contact us via the form included on the contact page,
+      or at the following email address:'
+
+complaint:
+  title: How to contact the appropriate authorities ?
+  text:
+    1: Should you wish to report a complaint or if you feel that
+      our privacy policy has not addressed your concern in a satisfactory manner, you
+      may contact your national Data Protection Authority (DPA).
+    2: 'More information on this procedure can be found on the
+      following websites:'
 
 #personal:
 #  title: Personal Measures &amp; Convictions

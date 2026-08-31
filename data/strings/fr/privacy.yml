@@ -17,22 +17,6 @@ introduction:
     1: La politique de confidentialité ci-présente a été écrite en accord avec les articles 12 et 13 de la RGPD.
     2: 'Si vous souhaitez consulter le texte officiel en question, vous pouvez le faire sur les sites internet suivants :'
 
-contact:
-  title: Comment nous contacter ?
-  text:
-    1: 'Si vous souhaitez nous contacter afin d''obtenir plus d''informations
-  concernant notre politique de confidentialité, nous vous recommandons d''utiliser
-  le formulaire présent sur la page de contact, ou par courriel à l''adresse suivante:'
-
-complaint:
-  title: Comment contacter les autorités compétentes ?
-  text:
-    1: Dans l'éventualité où vous souhaiteriez déposer une plainte
-      pour une quelconque raison en rapport avec notre politique de confidentialité, veuillez
-      vous adresser à l'autorité nationale de protection des données (DPA).
-    2: 'Les informations concernant cette procédure peuvent être
-      trouvées sur les sites internet suivants:'
-
 data:
   title: Collecte de données (Web)
   intro:
@@ -146,3 +130,21 @@ cookies:
   intro:
     1: Ce site web n'utilise pas, et ne stocke aucun cookies
       dans votre navigateur internet.
+
+
+
+contact:
+  title: Comment nous contacter ?
+  text:
+    1: 'Si vous souhaitez nous contacter afin d''obtenir plus d''informations
+  concernant notre politique de confidentialité, nous vous recommandons d''utiliser
+  le formulaire présent sur la page de contact, ou par courriel à l''adresse suivante:'
+
+complaint:
+  title: Comment contacter les autorités compétentes ?
+  text:
+    1: Dans l'éventualité où vous souhaiteriez déposer une plainte
+      pour une quelconque raison en rapport avec notre politique de confidentialité, veuillez
+      vous adresser à l'autorité nationale de protection des données (DPA).
+    2: 'Les informations concernant cette procédure peuvent être
+      trouvées sur les sites internet suivants:'

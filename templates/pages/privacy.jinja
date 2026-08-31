@@ -20,7 +20,8 @@
     <!-- Introduction -->
     <np-section>
         {% with heading_inner_html=l10n("introduction.title", "privacy", page_lang, ""),
-                heading_level=2 %}
+                heading_level=2,
+                heading_icon="fad fa-info" %}
             {% include 'elements/heading.jinja' %}
         {% endwith %}
         <np-content-spacer>
@@ -40,7 +41,8 @@
     <!-- Data collection (Web) -->
     <np-section>
         {% with heading_inner_html=l10n("data.title", "privacy", page_lang, ""),
-                heading_level=2 %}
+                heading_level=2,
+                heading_icon="fad fa-database" %}
             {% include 'elements/heading.jinja' %}
         {% endwith %}
         <np-content-spacer>
@@ -74,7 +76,8 @@
     <!-- Data collection (DNS) -->
     <np-section>
         {% with heading_inner_html=l10n("data_dns.title", "privacy", page_lang, ""),
-                heading_level=2 %}
+                heading_level=2,
+                heading_icon="fad fa-database" %}
             {% include 'elements/heading.jinja' %}
         {% endwith %}
         <np-content-spacer>
@@ -99,6 +102,193 @@
             {% endwith %}
 
             {% with paragraph_inner_html=l10n("data_dns.end.1", "privacy", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Third Party -->
+    <np-section>
+        {% with heading_inner_html=l10n("third.title", "privacy", page_lang, ""),
+                heading_level=2,
+                heading_icon="fad fa-handshake" %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            {% with paragraph_inner_html=l10n("third.intro.1", "privacy", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+
+    </np-section>
+
+    <!-- Cookies -->
+    <np-section>
+        {% with heading_inner_html=l10n("cookies.title", "privacy", page_lang, ""),
+                heading_level=2,
+                heading_icon="fad fa-cookie-bite" %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+        <np-content-spacer>
+            {% with paragraph_inner_html=l10n("cookies.intro.1", "privacy", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+
+    <!-- Change history -->
+    <np-section>
+        {% with heading_inner_html=l10n("update.title", "privacy", page_lang, ""),
+                heading_level=2,
+                heading_icon="fad fa-sync-alt" %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+        <np-content-spacer>
+            {% with paragraph_inner_html=l10n("update.intro.1", "privacy", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+
+            <!-- 2021/12/04 -->
+            {% with paragraph_inner_html='<i class="fad fa-calendar-alt mr-xs"></i>' +
+                                         l10n("update.history.1.date", "privacy", user_lang) +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2021-12-04_en.txt">' +
+                                         l10n('english', "langs", user_lang) + '</a></span>' +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2021-12-04_fr.txt">' +
+                                         l10n('french', "langs", user_lang) + '</a></span>' +
+                                         "<ul class='ml-s l-bullets l-bullet-inside'>" +
+                                         "<li>" + l10n('update.history.1.desc.1', "privacy", page_lang) + "</li>" +
+                                         "</ul>" %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+
+            <!-- 2022/03/18 -->
+            {% with paragraph_inner_html='<i class="fad fa-calendar-alt mr-xs"></i>' +
+                                         l10n("update.history.2.date", "privacy", user_lang) +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2022-03-18_en.txt">' +
+                                         l10n('english', "langs", user_lang) + '</a></span>' +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2022-03-18_fr.txt">' +
+                                         l10n('french', "langs", user_lang) + '</a></span>' +
+                                         "<ul class='ml-s l-bullets l-bullet-inside'>" +
+                                         "<li>" + l10n('update.history.2.desc.1', "privacy", page_lang) + "</li>" +
+                                         "<li>" + l10n('update.history.2.desc.2', "privacy", page_lang) + "</li>" +
+                                         "<li>" + l10n('update.history.2.desc.3', "privacy", page_lang) + "</li>" +
+                                         "</ul>" %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+
+            <!-- 2022/09/09 -->
+            {% with paragraph_inner_html='<i class="fad fa-calendar-alt mr-xs"></i>' +
+                                         l10n("update.history.3.date", "privacy", user_lang) +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2022-09-09_en.txt">' +
+                                         l10n('english', "langs", user_lang) + '</a></span>' +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2022-09-09_fr.txt">' +
+                                         l10n('french', "langs", user_lang) + '</a></span>' +
+                                         "<ul class='ml-s l-bullets l-bullet-inside'>" +
+                                         "<li>" + l10n('update.history.3.desc.1', "privacy", page_lang) + "</li>" +
+                                         "<li>" + l10n('update.history.3.desc.1.1', "privacy", page_lang) + "</li>" +
+                                         "<li>" + l10n('update.history.3.desc.1.2', "privacy", page_lang) + "</li>" +
+                                         "<li>" + l10n('update.history.3.desc.2', "privacy", page_lang) + "</li>" +
+                                         "</ul>" %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+
+            <!-- 2023/11/11 -->
+            {% with paragraph_inner_html='<i class="fad fa-calendar-alt mr-xs"></i>' +
+                                         l10n("update.history.4.date", "privacy", user_lang) +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2023-11-11_en.txt">' +
+                                         l10n('english', "langs", user_lang) + '</a></span>' +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2023-11-11_fr.txt">' +
+                                         l10n('french', "langs", user_lang) + '</a></span>' +
+                                         "<ul class='ml-s l-bullets l-bullet-inside'>" +
+                                         "<li>" + l10n('update.history.4.desc.1', "privacy", page_lang) + "</li>" +
+                                         "<li>" + l10n('update.history.4.desc.1.1', "privacy", page_lang) + "</li>" +
+                                         "<li>" + l10n('update.history.4.desc.2', "privacy", page_lang) + "</li>" +
+                                         "</ul>" %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+
+            <!-- 2023/11/30 -->
+            {% with paragraph_inner_html='<i class="fad fa-calendar-alt mr-xs"></i>' +
+                                         l10n("update.history.5.date", "privacy", user_lang) +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2023-11-30_en.txt">' +
+                                         l10n('english', "langs", user_lang) + '</a></span>' +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2023-11-30_fr.txt">' +
+                                         l10n('french', "langs", user_lang) + '</a></span>' +
+                                         "<ul class='ml-s l-bullets l-bullet-inside'>" +
+                                         "<li>" + l10n('update.history.5.desc.1', "privacy", page_lang) + "</li>" +
+                                         "<li>" + l10n('update.history.5.desc.2', "privacy", page_lang) + "</li>" +
+                                         "</ul>" %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+
+            <!-- 2025/03/30 -->
+            {% with paragraph_inner_html='<i class="fad fa-calendar-alt mr-xs"></i>' +
+                                         l10n("update.history.6.date", "privacy", user_lang) +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2025-03-30_en.txt">' +
+                                         l10n('english', "langs", user_lang) + '</a></span>' +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2025-03-30_fr.txt">' +
+                                         l10n('french', "langs", user_lang) + '</a></span>' +
+                                         "<ul class='ml-s l-bullets l-bullet-inside'>" +
+                                         "<li>" + l10n('update.history.6.desc.1', "privacy", page_lang) + "</li>" +
+                                         "<li>" + l10n('update.history.6.desc.2', "privacy", page_lang) + "</li>" +
+                                         "</ul>" %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+
+            <!-- 2026/??/?? -->
+            {% with paragraph_inner_html='<i class="fad fa-calendar-alt mr-xs"></i>' +
+                                         l10n("update.history.7.date", "privacy", user_lang) +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2025-03-30_en.txt">' +
+                                         l10n('english', "langs", user_lang) + '</a></span>' +
+                                         '<span class="ml-l"><i class="fad fa-globe t-size-8 mr-xxs"></i><a href="/resources/NibblePoker/privacy/privacy_2025-03-30_fr.txt">' +
+                                         l10n('french', "langs", user_lang) + '</a></span>' +
+                                         "<ul class='ml-s l-bullets l-bullet-inside'>" +
+                                         "<li>" + l10n('update.history.7.desc.1', "privacy", page_lang) + "</li>" +
+                                         "<li>" + l10n('update.history.7.desc.2', "privacy", page_lang) + "</li>" +
+                                         "</ul>" %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Contact us -->
+    <np-section>
+        {% with heading_inner_html=l10n("contact.title", "privacy", page_lang, ""),
+                heading_level=2,
+                heading_icon="fad fa-mailbox" %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+        <np-content-spacer>
+            {% with paragraph_inner_html=l10n("contact.text.1", "privacy", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Contact authorities -->
+    <np-section>
+        {% with heading_inner_html=l10n("complaint.title", "privacy", page_lang, ""),
+                heading_level=2,
+                heading_icon="fad fa-gavel" %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+        <np-content-spacer>
+            {% with paragraph_inner_html=l10n("complaint.text.1", "privacy", page_lang) %}
+                {% include 'elements/paragraph.jinja' %}
+            {% endwith %}
+            {% with paragraph_inner_html=l10n("complaint.text.2", "privacy", page_lang) + "<br>" +
+                                              "<ul class='ml-s l-bullets l-bullet-inside'>" +
+                                              "<li>" +
+                                              '<a class="ml-xs" href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rights-citizens/redress/what-should-i-do-if-i-think-my-personal-data-protection-rights-havent-been-respected_en">https://ec.europa.eu/</a>' +
+                                              '<span class="ml-s">(' + l10n('english', "langs", user_lang) + ')</span>' +
+                                              "</li>" +
+                                              "<li>" +
+                                              '<a class="ml-xs" href="https://gegevensbeschermingsautoriteit.be/citoyen/agir/introduire-une-plainte">https://gegevensbeschermingsautoriteit.be/</a>' +
+                                              '<span class="ml-s">(' + l10n('french', "langs", user_lang) + ')</span>' +
+                                              "</li>" +
+                                              "</ul>" %}
                 {% include 'elements/paragraph.jinja' %}
             {% endwith %}
         </np-content-spacer>

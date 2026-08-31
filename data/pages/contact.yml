@@ -1,0 +1,11 @@
+
+pages:
+  - id: contact
+    output_base_name: "contact"
+    template_path: "pages/contact.jinja"
+    served_paths: ["/contact/", "/contact"]
+    canonical_path: "/contact/"
+    localizable: true
+    standalone: false
+    brandable: false
+    release: false
