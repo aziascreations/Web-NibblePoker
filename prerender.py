@@ -11,6 +11,8 @@ from nibblepoker.website.adam.l10n import DEFAULT_LANG, ALLOWED_LANGS, load_stri
 from nibblepoker.website.adam.url_fondler import url_set_lang as _url_set_lang
 from nibblepoker.website.applets import consolidate_applet_config
 from nibblepoker.website.content.repository import ContentRepository
+from nibblepoker.website.downloads.structures import ReleaseVersionRepository
+from nibblepoker.website.downloads.utils import group_single_release
 from nibblepoker.website.sidebar import SidebarEntryRepository
 from nibblepoker.website.static_page import StaticPageDefRepository
 from nibblepoker.website.web_brand import WebBrandRepository
@@ -104,6 +106,10 @@ if __name__ == "__main__":
     # Loading L10N stuff
     localizer = load_strings("./data/strings")
 
+    # Release data
+    release_repo = ReleaseVersionRepository()
+    release_repo.load_folder("./data/downloads")
+
     def _localize(strings_key: str, strings_domain: Optional[str], language: str, args: list[str] = None) -> str:
         global localizer
 
@@ -115,6 +121,10 @@ if __name__ == "__main__":
             return _localize(string_key_parts[0], string_key_parts[1], language, args)
 
         return localizer.localize(language, strings_domain, strings_key, args)
+
+
+    def _raise(msg):
+        raise Exception(msg)
 
 
     # Loading other non-exported data
@@ -152,12 +162,20 @@ if __name__ == "__main__":
 
         "consolidate_applet_config": consolidate_applet_config,
 
+        # Release table stuff
+        "get_all_releases": release_repo.get_all_releases,
+        "get_releases_for": release_repo.get_releases_for,
+        "get_latest_releases_for": release_repo.get_latest_releases_for,
+
+        "group_single_release": group_single_release,
+
         # Other data
         "sidebar_entries": sidebar_defs.get_all_sidebar_defs(),
         "get_code_lines": get_code_lines,
 
         # Commons
         "html_escape": escape,
+        "raise": _raise,
     }
 
     # Rendering static pages

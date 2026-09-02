@@ -1,0 +1,41 @@
+{#
+release-table.jinja
+
+Parameters:
+    * release_id
+    * release_version  (If None, we use the latest)
+#}
+
+{# Prep work #}
+{% if release_id is not defined %}
+    {{ raise("Tried to render a release table with a null `release_id` !") }}
+{% endif %}
+
+{% if release_version is not defined %}
+    {% set release_version = none %}
+{% endif %}
+
+{% if release_version is none %}
+    {% set release_data = get_latest_releases_for(release_id) %}
+{% else %}
+    {{ raise("Version-specific release tables are not implemented yet !") }}
+{% endif %}
+
+{% if release_data is none %}
+    {{ raise("Unable to get the release data for `" + release_id + "` !") }}
+{% endif %}
+
+{% set release_data_groups = group_single_release(release_data) %}
+
+
+{# Actual DOM stuff #}
+<table class="table-stylish table-p-s border r-l">
+    <!--<thead>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>-->
+
+
+</table>

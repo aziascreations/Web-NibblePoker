@@ -1,0 +1,45 @@
+downloads:
+  - version: "2.0.1"
+    title: "Native ARM64 builds"
+    url_prefix: "https://files.nibblepoker.lu/downloads/PEArch/2.0.1/"
+    columns: arch;win32crt
+    artifacts:
+      - pearch-msvcrt-x64-english.zip
+      - pearch-msvcrt-x64-french.zip
+      - pearch-msvcrt-x64.zip
+      - pearch-msvcrt-x86-english.zip
+      - pearch-msvcrt-x86-french.zip
+      - pearch-msvcrt-x86.zip
+      - pearch-ucrt-arm64-english.zip
+      - pearch-ucrt-arm64-french.zip
+      - pearch-ucrt-arm64.zip
+      - pearch-ucrt-x64-english.zip
+      - pearch-ucrt-x64-french.zip
+      - pearch-ucrt-x64.zip
+      - pearch-ucrt-x86-english.zip
+      - pearch-ucrt-x86-french.zip
+      - pearch-ucrt-x86.zip
+  - version: "2.0.0"
+    title: "Multilingual Support Release"
+    url_prefix: "https://files.nibblepoker.lu/downloads/PEArch/2.0.0/"
+    columns: arch;win32crt
+    artifacts:
+      - pearch-msvcrt-x64-english.zip
+      - pearch-msvcrt-x64-french.zip
+      - pearch-msvcrt-x64.zip
+      - pearch-msvcrt-x86-english.zip
+      - pearch-msvcrt-x86-french.zip
+      - pearch-msvcrt-x86.zip
+      - pearch-ucrt-x64-english.zip
+      - pearch-ucrt-x64-french.zip
+      - pearch-ucrt-x64.zip
+      - pearch-ucrt-x86-english.zip
+      - pearch-ucrt-x86-french.zip
+      - pearch-ucrt-x86.zip
+  - version: "1.1.0"
+    title: "Initial release"
+    url_prefix: "https://files.nibblepoker.lu/downloads/PEArch/1.1.0/"
+    columns: arch
+    artifacts:
+      - pearch-x64-msvcrt.zip
+      - pearch-x86-msvcrt.zip
