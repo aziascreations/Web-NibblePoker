@@ -12,13 +12,15 @@ from nibblepoker.website.adam.url_fondler import url_set_lang as _url_set_lang
 from nibblepoker.website.applets import consolidate_applet_config
 from nibblepoker.website.content.repository import ContentRepository
 from nibblepoker.website.downloads.structures import ReleaseVersionRepository
+from nibblepoker.website.downloads.tags import TAG_GROUPS
 from nibblepoker.website.downloads.utils import group_single_release
 from nibblepoker.website.sidebar import SidebarEntryRepository
 from nibblepoker.website.static_page import StaticPageDefRepository
 from nibblepoker.website.web_brand import WebBrandRepository
 
 
-DOMAINS = [("nibblepoker.lu", "lu",), ("nibblepoker.com", "com",)]
+#DOMAINS = [("nibblepoker.lu", "lu",), ("nibblepoker.com", "com",)]
+DOMAINS = [("nibblepoker.lu", "lu",)]
 RENDERS_OUT_DIR = "./static/renders/"
 CODE_SNIPPETS_DIR = "./data/code/"
 
@@ -168,6 +170,8 @@ if __name__ == "__main__":
         "get_latest_releases_for": release_repo.get_latest_releases_for,
 
         "group_single_release": group_single_release,
+
+        "release_tag_groups": TAG_GROUPS,
 
         # Other data
         "sidebar_entries": sidebar_defs.get_all_sidebar_defs(),

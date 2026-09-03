@@ -2,12 +2,12 @@ from dataclasses import dataclass
 from typing import Optional
 
 from nibblepoker.website.downloads.structures import ReleaseVersion
-from nibblepoker.website.downloads.tags import TAG_GROUPS, Tag
+from nibblepoker.website.downloads.tags import TAG_GROUPS, ReleaseSortingTag
 
 
 @dataclass
 class ReleaseVersionGroup:
-    tag: Tag
+    tag: ReleaseSortingTag
     subs: Optional[list[ReleaseVersionGroup]]
     values: Optional[list[str]]
 
@@ -26,7 +26,7 @@ def _make_download_tags_tree(remaining_tags: list[str]) -> list[ReleaseVersionGr
         raise Exception(f"The {remaining_tags[0]} isn't known !")
 
     # Creating the groups for this tag
-    for tag in TAG_GROUPS[remaining_tags[0]]:
+    for tag in TAG_GROUPS[remaining_tags[0]].tags:
         returned_groups.append(ReleaseVersionGroup(tag, None, None))
 
     # Populating the subs and values
@@ -40,7 +40,7 @@ def _make_download_tags_tree(remaining_tags: list[str]) -> list[ReleaseVersionGr
 
 
 def _add_download_tags_entries(artifacts: list[str], download_groups: list[ReleaseVersionGroup],
-                               parent_tags: Optional[list[Tag]] = None) -> None:
+                               parent_tags: Optional[list[ReleaseSortingTag]] = None) -> None:
     if parent_tags is None:
         parent_tags = list()
 

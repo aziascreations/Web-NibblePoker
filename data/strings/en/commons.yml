@@ -127,6 +127,13 @@ cpu:
     x86: "x86"
 
 
+win32crt:
+  heading:
+    simple: Windows C Runtime
+  msvcrt: MSVCRT
+  ucrt: UCRT
+
+
 requirements: Requirements
 
 python: Python

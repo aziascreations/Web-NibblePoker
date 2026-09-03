@@ -1,0 +1,57 @@
+{#
+release-table-subgroup.jinja
+
+Parameters:
+    * release_data: ReleaseVersion
+    * release_subgroup: ReleaseVersionGroup
+    * release_subgroup_is_last: bool
+#}
+
+{# Sanity checks #}
+{#
+BROKEN, for some reason...
+{% if release_subgroup.subs is none and release_subgroup.values is none %}
+    <code>{{ release_subgroup }}</code><br><br>
+    {% raise("Both subgroups and values are None !") %}
+{% endif %}
+ #}
+
+{# Actual DOM stuff #}
+{% if release_subgroup.subs is not none %}
+    <td rowspan='{{ release_subgroup.subs | length }}' class='bb-0'>{{
+        l10n(
+            release_subgroup.tag.lang_key,
+            release_subgroup.tag.lang_domain,
+            page_lang
+        )
+    }}</td>
+
+    {% for release_sub_subgroup in release_subgroup.subs %}
+        {% with release_data=release_data,
+                release_subgroup=release_sub_subgroup,
+                release_subgroup_is_last=loop.last %}
+            {% include 'elements/release-table-subgroup.jinja' %}
+        {% endwith %}
+    {% endfor %}
+{% endif %}
+
+
+{% if release_subgroup.values is not none %}
+    <td>{{
+        l10n(
+            release_subgroup.tag.lang_key,
+            release_subgroup.tag.lang_domain,
+            page_lang
+        )
+    }}</td>
+
+    <td>
+    {% for release_artifact in release_subgroup.values %}
+        {{ release_artifact }}<br>
+    {% endfor %}
+    </td>
+
+    {% if not release_subgroup_is_last %}
+        </tr><tr>
+    {% endif %}
+{% endif %}

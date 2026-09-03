@@ -2,7 +2,19 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Tag:
+class ReleaseSortingTagGroup:
+    table_header_lang_key: str
+    table_header_lang_domain: str
+    tags: list[ReleaseSortingTag]
+
+    def __post_init__(self):
+        for tag in self.tags:
+            tag.parent = self
+
+
+@dataclass
+class ReleaseSortingTag:
+    parent: ReleaseSortingTagGroup
     lang_key: str
     lang_domain: str
     keywords: list[str]
@@ -17,16 +29,24 @@ class Tag:
         return False
 
 
-TAG_GROUPS: dict[str, list[Tag]] = {
-    "arch": [
-        Tag("arch.x64", "commons", ["x64", "amd64"]),
-        Tag("arch.x86", "commons", ["x86", "i386"]),
-        Tag("arch.arm64", "commons", ["arm64"]),
-    ],
-    "win32crt": [
-        Tag("win32crt.msvcrt", "commons", ["msvcrt"]),
-        Tag("win32crt.ucrt", "commons", ["ucrt"]),
-    ],
+TAG_GROUPS: dict[str, ReleaseSortingTagGroup] = {
+    "arch": ReleaseSortingTagGroup(
+        "cpu.responsive",
+        "commons",
+        [
+            ReleaseSortingTag(None, "cpu.x64", "commons", ["x64", "amd64"]),
+            ReleaseSortingTag(None, "cpu.x86", "commons", ["x86", "i386"]),
+            ReleaseSortingTag(None, "cpu.arm64", "commons", ["arm64"]),
+        ]
+    ),
+    "win32crt": ReleaseSortingTagGroup(
+        "win32crt.heading.simple",
+        "commons",
+        [
+            ReleaseSortingTag(None, "win32crt.msvcrt", "commons", ["msvcrt"]),
+            ReleaseSortingTag(None, "win32crt.ucrt", "commons", ["ucrt"]),
+        ]
+    ),
 }
 
 #"lang": {

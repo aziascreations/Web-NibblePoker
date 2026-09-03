@@ -2,8 +2,14 @@
 release-table.jinja
 
 Parameters:
-    * release_id
-    * release_version  (If None, we use the latest)
+    * release_id: str
+    * release_version: ??? (If None, we use the latest)
+
+Important globals:
+    * release_tag_groups: ReleaseSortingTagGroup
+
+Important variables:
+    * release_data: ReleaseVersion
 #}
 
 {# Prep work #}
@@ -30,12 +36,31 @@ Parameters:
 
 {# Actual DOM stuff #}
 <table class="table-stylish table-p-s border r-l">
-    <!--<thead>
+    <thead>
     <tr>
-        <th></th>
-        <th></th>
+        {% for release_column_tag in release_data.columns %}
+            {% set release_column_tag_group = release_tag_groups[release_column_tag] %}
+            <th>{{l10n(
+                      release_column_tag_group.table_header_lang_key,
+                      release_column_tag_group.table_header_lang_domain,
+                      page_lang
+            )}}</th>
+        {% endfor %}
+        <th>_Files</th>
     </tr>
-    </thead>-->
+    </thead>
 
+    {% set grouped_release_data = group_single_release(release_data) %}
 
+    <tbody>
+    {% for release_data_subgroup in grouped_release_data %}
+        <tr>
+        {% with release_data=release_data,
+                release_subgroup=release_data_subgroup,
+                release_subgroup_is_last=loop.last %}
+            {% include 'elements/release-table-subgroup.jinja' %}
+        {% endwith %}
+        </tr>
+    {% endfor %}
+    </tbody>
 </table>
