@@ -9,30 +9,37 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
 {
     initCore();
 
+    // 'templates/applets/uuid-generator.jinja' prefixes every element ID it renders with the
+    // applet instance's UID (see 'templates/elements/applet.jinja'), so IDs must be resolved
+    // from the applet's own container at runtime instead of being hardcoded here.
+    /** @type {HTMLElement} */
+    const eAppletContainer = document.querySelector('.np-applet[data-np-applet-id="uuid-generator"]');
+    const idPrefix = eAppletContainer.dataset.npAppletUid + "-uuid-generator-";
+
     /** @type {HTMLSelectElement} */
-    const eOptionTypeSelect = document.querySelector("select#uuid-generator-option-type");
+    const eOptionTypeSelect = document.getElementById(idPrefix + "option-type");
 
     /** @type {HTMLInputElement} */
-    const eOptionCountInput = document.querySelector("input#uuid-generator-option-count");
+    const eOptionCountInput = document.getElementById(idPrefix + "option-count");
 
     /** @type {HTMLInputElement} */
-    const eOptionHyphenInput = document.querySelector("input#uuid-generator-option-hyphens");
+    const eOptionHyphenInput = document.getElementById(idPrefix + "option-hyphens");
     /** @type {HTMLInputElement} */
-    const eOptionGuidBracketsInput = document.querySelector("input#uuid-generator-option-guid-brackets");
+    const eOptionGuidBracketsInput = document.getElementById(idPrefix + "option-guid-brackets");
     /** @type {HTMLInputElement} */
-    const eOptionUppercaseInput = document.querySelector("input#uuid-generator-option-uppercase");
+    const eOptionUppercaseInput = document.getElementById(idPrefix + "option-uppercase");
 
     /** @type {HTMLElement} */
-    const eGenerateButton = document.querySelector("#uuid-generator-generate");
+    const eGenerateButton = document.getElementById(idPrefix + "generate");
     /** @type {HTMLElement} */
-    const eDownloadRawButton = document.querySelector("#uuid-generator-download-raw");
+    const eDownloadRawButton = document.getElementById(idPrefix + "download-raw");
     /** @type {HTMLElement} */
-    const eDownloadJsonButton = document.querySelector("#uuid-generator-download-json");
+    const eDownloadJsonButton = document.getElementById(idPrefix + "download-json");
     /** @type {HTMLElement} */
-    const eDownloadYamlButton = document.querySelector("#uuid-generator-download-yaml");
+    const eDownloadYamlButton = document.getElementById(idPrefix + "download-yaml");
 
     /** @type {HTMLTextAreaElement} */
-    const ePreviewTextArea = document.querySelector("textarea#uuid-generator-preview");
+    const ePreviewTextArea = document.getElementById(idPrefix + "preview");
 
     let lastUUIDs = [];
 

@@ -9,50 +9,57 @@ import {getInputCount, getInputNumber} from "../../libs/input-utils.mjs";
 
     const classesReadonly = ["bkgd-gray"];
 
-    const calcRadioGroupName = "vat_calc_target";
+    // 'templates/applets/vat-calculator.jinja' prefixes every element ID it renders with the
+    // applet instance's UID (see 'templates/elements/applet.jinja'), so IDs must be resolved
+    // from the applet's own container at runtime instead of being hardcoded here.
+    /** @type {HTMLElement} */
+    const eAppletContainer = document.querySelector('.np-applet[data-np-applet-id="vat-calculator"]');
+    const idPrefix = eAppletContainer.dataset.npAppletUid + "-vat-calculator-";
+
+    const calcRadioGroupName = idPrefix + "radio-group-target";
 
     /** @type {HTMLLabelElement} */
-    const ePresetShortLabel = document.querySelector("label[for=vat-calculator-preset-short]");
+    const ePresetShortLabel = document.querySelector(`label[for="${idPrefix}preset-short"]`);
     /** @type {HTMLSelectElement} */
-    const ePresetShortSelect = document.getElementById("vat-calculator-preset-short");
+    const ePresetShortSelect = document.getElementById(idPrefix + "preset-short");
 
     /** @type {HTMLLabelElement} */
-    const ePresetDetailedLabel = document.querySelector("label[for=vat-calculator-preset-detailed]");
+    const ePresetDetailedLabel = document.querySelector(`label[for="${idPrefix}preset-detailed"]`);
     /** @type {HTMLSelectElement} */
-    const ePresetDetailedSelect = document.getElementById("vat-calculator-preset-detailed");
+    const ePresetDetailedSelect = document.getElementById(idPrefix + "preset-detailed");
 
     /** @type {HTMLInputElement} */
-    const eCheckboxDetailedPreset = document.getElementById("vat-calculator-detailed-presets");
+    const eCheckboxDetailedPreset = document.getElementById(idPrefix + "detailed-presets");
 
     /** @type {HTMLSpanElement} */
-    const ePresetEchoedCountry = document.getElementById("vat-calculator-preset-country-echo");
+    const ePresetEchoedCountry = document.getElementById(idPrefix + "preset-country-echo");
 
     /** @type {HTMLButtonElement} */
-    const eButtonDecimalPlacesMinus = document.getElementById("vat-calculator-decimal-places-minus");
+    const eButtonDecimalPlacesMinus = document.getElementById(idPrefix + "option-decimal-places-minus");
     /** @type {HTMLInputElement} */
-    const eInputDecimalPlaces = document.getElementById("vat-calculator-option-decimal-places");
+    const eInputDecimalPlaces = document.getElementById(idPrefix + "option-decimal-places");
     /** @type {HTMLButtonElement} */
-    const eButtonDecimalPlacesPlus = document.getElementById("vat-calculator-decimal-places-plus");
+    const eButtonDecimalPlacesPlus = document.getElementById(idPrefix + "option-decimal-places-plus");
 
     /* #vat-calculator-detailed-trim-zeroes */
 
     /** @type {HTMLInputElement} */
-    const eCalcRateRadio = document.getElementById("vat-calculator-radio-rate");
+    const eCalcRateRadio = document.getElementById(idPrefix + "radio-rate");
     /** @type {HTMLInputElement} */
-    const eCalcRateInput = document.getElementById("vat-calculator-input-rate");
+    const eCalcRateInput = document.getElementById(idPrefix + "input-rate");
 
     /** @type {HTMLInputElement} */
-    const eCalcUntaxedRadio = document.getElementById("vat-calculator-radio-untaxed");
+    const eCalcUntaxedRadio = document.getElementById(idPrefix + "radio-untaxed");
     /** @type {HTMLInputElement} */
-    const eCalcUntaxedInput = document.getElementById("vat-calculator-input-untaxed");
+    const eCalcUntaxedInput = document.getElementById(idPrefix + "input-untaxed");
 
     /** @type {HTMLInputElement} */
-    const eCalcTaxedRadio = document.getElementById("vat-calculator-radio-taxed");
+    const eCalcTaxedRadio = document.getElementById(idPrefix + "radio-taxed");
     /** @type {HTMLInputElement} */
-    const eCalcTaxedInput = document.getElementById("vat-calculator-input-taxed");
+    const eCalcTaxedInput = document.getElementById(idPrefix + "input-taxed");
 
     /** @type {HTMLSelectElement} */
-    const eRoundingModeSelect = document.getElementById("vat-calculator-rounding-mode");
+    const eRoundingModeSelect = document.getElementById(idPrefix + "rounding-mode");
 
     /**
      * Handles the switch between the short and detailed standard rates selects
