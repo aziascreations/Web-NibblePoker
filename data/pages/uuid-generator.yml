@@ -1,0 +1,11 @@
+
+pages:
+  - id: tools-uuid-generator
+    output_base_name: "tools-uuid-generator"
+    template_path: "tools/uuid-generator.jinja"
+    served_paths: ["/tools/uuid-generator/", "/tools/uuid-generator"]
+    canonical_path: "/tools/uuid-generator/"
+    localizable: true
+    standalone: true
+    brandable: true
+    release: true

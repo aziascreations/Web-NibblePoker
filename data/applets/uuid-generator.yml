@@ -1,7 +1,7 @@
 applets:
-  - id: "web-usb-test"
+  - id: "uuid-generator"
     resources:
       scripts:
-        - "applet://web-usb-test.mjs"
+        - "applet://uuid-generator.mjs"
       stylesheets:
-        - "applet://web-usb-test.css"
+        - "applet://uuid-generator.css"

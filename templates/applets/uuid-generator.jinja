@@ -1,0 +1,96 @@
+{#
+applets/uuid-generator.jinja
+
+Parameters:
+    * applet_id     - Applet ID as defined in the applet repository and templates in "templates/applets/".
+                      Assumed to be correct from the get-go.
+    * applet_uid    - Unique ID for the applet to differentiate it from other instances of the same applet.
+    * applet_data   - See `nibblepoker.objects.content.applet.ContentApplet`.
+    * applet_config - Config with all custom parameters overriding the default ones that you can
+                       get in `applet_data.default_config`.
+#}
+
+<label for="uuid-generator-option-type" class="mr-xs">
+    {{ l10n("type.label", "uuid-generator", page_lang) }}:
+</label>
+<select name="uuid-generator-option-type" id="uuid-generator-option-type" class="p-xxs border r-s">
+    <option value="type-uuid4" selected>{{ l10n("type.uuid4", "uuid-generator", page_lang) }}</option>
+
+    <!-- GUID generation isn't implemented yet.
+    <option value="type-guid">{{ l10n("type.guid", "uuid-generator", page_lang) }}</option>
+    -->
+</select>
+
+<br>
+
+{% with input_label = l10n("option.count", "uuid-generator", page_lang),
+        input_id = "uuid-generator-option-count",
+        input_value = "4",
+        input_number_min = "1",
+        input_number_max = "1000",
+        input_number_scrollable = True %}
+    {% include 'elements/input-number.jinja' %}
+{% endwith %}
+
+<hr class="subtle">
+
+<label for="uuid-generator-option-hyphens" class="mr-xxs">
+    {{ l10n("option.hyphen", "uuid-generator", page_lang) }}:
+</label>
+<input id="uuid-generator-option-hyphens" class="r-m border cb-pretty" type="checkbox" checked>
+
+<br>
+
+<label for="uuid-generator-option-guid-brackets" class="mr-xxs">
+    {{ l10n("option.guid_brackets", "uuid-generator", page_lang) }}:
+</label>
+<input id="uuid-generator-option-guid-brackets" class="r-m border cb-pretty" type="checkbox">
+
+<br>
+
+<label for="uuid-generator-option-uppercase" class="mr-xxs">
+    {{ l10n("option.uppercase", "uuid-generator", page_lang) }}:
+</label>
+<input id="uuid-generator-option-uppercase" class="r-m border cb-pretty" type="checkbox">
+
+<hr class="subtle">
+
+<button id="uuid-generator-generate" class="p-xs r-s border b-light success">
+    {% if not is_standalone %}
+        <i class="fa-duotone fa-solid fa-gears mr-xs"></i>
+    {% endif %}
+    {{ l10n("action.generate", "commons", page_lang) }}
+</button>
+
+{% if not is_standalone %}
+    <button class="p-xs r-s border b-light primary rr-0 br-0">
+        <i class="fa-duotone fa-solid fa-download"></i>
+    </button>
+{% else %}
+    <span class="t-w-500 ml-m mr-xxs">{{ l10n("format.download.as", "commons", page_lang) }}:</span>
+{% endif %}
+
+<button id="uuid-generator-download-raw"
+        class="p-xs r-s border b-light primary ml-0 {% if not is_standalone %}r-0{% else %}rr-0{% endif %} br-0">
+    {{ l10n("format.raw", "commons", page_lang) }}
+</button>
+<button id="uuid-generator-download-json" class="p-xs r-s border b-light primary ml-0 r-0 br-0">
+    {{ l10n("format.json", "commons", page_lang) }}
+</button>
+<button id="uuid-generator-download-yaml" class="p-xs r-s border b-light primary ml-0 rl-0">
+    {{ l10n("format.yaml", "commons", page_lang) }}
+</button>
+
+<hr class="subtle">
+
+<label for="uuid-generator-preview" class="d-none">
+    {{ l10n("preview.label", "uuid-generator", page_lang) }}:
+</label>
+<textarea name="uuid-generator-preview" id="uuid-generator-preview" rows="16" class="w-full border r-s ta-resize-v"></textarea>
+
+{% if is_standalone %}
+    <hr class="subtle">
+    <p class="t-muted">
+        {{ l10n("license.1", "uuid-generator", page_lang) }}
+    </p>
+{% endif %}
