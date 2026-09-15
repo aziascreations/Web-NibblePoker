@@ -18,44 +18,51 @@ import {initCore} from "../../js/nibblepoker-core.mjs";
 {
     initCore();
 
+    // 'templates/applets/iban-generator.jinja' prefixes every element ID it renders with the
+    // applet instance's UID (see 'templates/elements/applet.jinja'), so IDs must be resolved
+    // from the applet's own container at runtime instead of being hardcoded here.
+    /** @type {HTMLElement} */
+    const eAppletContainer = document.querySelector('.np-applet[data-np-applet-id="iban-generator"]');
+    const idPrefix = eAppletContainer.dataset.npAppletUid + "-iban-generator-";
+
     /** @type {HTMLInputElement} */
-    const eOptionEnableSepa = document.querySelector("input#iban-generator-option-enable-sepa");
+    const eOptionEnableSepa = document.getElementById(idPrefix + "option-enable-sepa");
     /** @type {HTMLInputElement} */
-    const eOptionEnableNonSepa = document.querySelector("input#iban-generator-option-enable-non-sepa");
+    const eOptionEnableNonSepa = document.getElementById(idPrefix + "option-enable-non-sepa");
     /** @type {HTMLInputElement} */
-    const eOptionForEach = document.querySelector("input#iban-generator-option-foreach");
+    const eOptionForEach = document.getElementById(idPrefix + "option-foreach");
 
     /** @type {HTMLSelectElement} */
-    const eOptionCountry = document.querySelector("select#iban-generator-option-country");
+    const eOptionCountry = document.getElementById(idPrefix + "option-country");
 
     /** @type {HTMLInputElement} */
-    const eOptionCount = document.querySelector("input#iban-generator-option-count");
+    const eOptionCount = document.getElementById(idPrefix + "option-count");
 
     ///** @type {HTMLInputElement} */
-    //const eOptionPreferRandom = document.querySelector("input#iban-generator-option-prefer-random");
+    //const eOptionPreferRandom = document.getElementById(idPrefix + "option-prefer-random");
     /** @type {HTMLInputElement} */
-    const eOptionPreferNumbers = document.querySelector("input#iban-generator-option-prefer-numbers");
+    const eOptionPreferNumbers = document.getElementById(idPrefix + "option-prefer-numbers");
     /** @type {HTMLInputElement} */
-    const eOptionPreferLetters = document.querySelector("input#iban-generator-option-prefer-letters");
+    const eOptionPreferLetters = document.getElementById(idPrefix + "option-prefer-letters");
 
     /** @type {HTMLInputElement} */
-    const eOptionFormatNone = document.querySelector("input#iban-generator-option-format-none");
+    const eOptionFormatNone = document.getElementById(idPrefix + "option-format-none");
     /** @type {HTMLInputElement} */
-    const eOptionFormatStandard = document.querySelector("input#iban-generator-option-format-standard");
+    const eOptionFormatStandard = document.getElementById(idPrefix + "option-format-standard");
     /** @type {HTMLInputElement} */
-    const eOptionFormat4By4 = document.querySelector("input#iban-generator-option-format-4by4");
+    const eOptionFormat4By4 = document.getElementById(idPrefix + "option-format-4by4");
 
     /** @type {HTMLElement} */
-    const eGenerateButton = document.querySelector("#iban-generator-generate");
+    const eGenerateButton = document.getElementById(idPrefix + "generate");
     /** @type {HTMLElement} */
-    const eDownloadRawButton = document.querySelector("#iban-generator-download-raw");
+    const eDownloadRawButton = document.getElementById(idPrefix + "download-raw");
     /** @type {HTMLElement} */
-    const eDownloadJsonButton = document.querySelector("#iban-generator-download-json");
+    const eDownloadJsonButton = document.getElementById(idPrefix + "download-json");
     /** @type {HTMLElement} */
-    const eDownloadYamlButton = document.querySelector("#iban-generator-download-yaml");
+    const eDownloadYamlButton = document.getElementById(idPrefix + "download-yaml");
 
     /** @type {HTMLTextAreaElement} */
-    const ePreviewTextArea = document.querySelector("textarea#iban-generator-preview");
+    const ePreviewTextArea = document.getElementById(idPrefix + "preview");
 
     let lastIBANs = [];
 

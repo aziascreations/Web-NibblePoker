@@ -1,0 +1,177 @@
+{#
+applets/iban-generator.jinja
+
+Parameters:
+    * applet_id     - Applet ID as defined in the applet repository and templates in "templates/applets/".
+                      Assumed to be correct from the get-go.
+    * applet_uid    - Unique ID for the applet to differentiate it from other instances of the same applet.
+    * applet_data   - See `nibblepoker.objects.content.applet.ContentApplet`.
+    * applet_config - Config with all custom parameters overriding the default ones that you can
+                       get in `applet_data.default_config`.
+#}
+
+<label for="{{ applet_uid + "-" + applet_id + "-option-enable-sepa" }}" class="mr-xxs">
+    {{ l10n("option.sepa.enable", "iban-generator", page_lang) }}:
+</label>
+<input id="{{ applet_uid + "-" + applet_id + "-option-enable-sepa" }}" class="r-m border cb-pretty" type="checkbox" checked>
+
+<br>
+
+<label for="{{ applet_uid + "-" + applet_id + "-option-enable-non-sepa" }}" class="mr-xxs">
+    {{ l10n("option.non-sepa.enable", "iban-generator", page_lang) }}:
+</label>
+<input id="{{ applet_uid + "-" + applet_id + "-option-enable-non-sepa" }}" class="r-m border cb-pretty" type="checkbox" checked>
+
+<hr class="subtle">
+
+{%
+        set iban_country_codes = [
+            "AD","AE","AL","AT","AZ","BA","BE","BG","BH","BI","BR","BY","CH","CR","CY","CZ","DE","DJ","DK","DO",
+            "EE","EG","ES","FI","FK","FO","FR","GB","GE","GI","GL","GR","GT","HN","HR","HU","IE","IL","IQ","IS",
+            "IT","JO","KW","KZ","LB","LC","LI","LT","LU","LV","LY","MC","MD","ME","MK","MN","MR","MT","MU","NI",
+            "NL","NO","OM","PK","PL","PS","PT","QA","RO","RS","RU","SA","SC","SD","SE","SI","SK","SM","SO","ST",
+            "SV","TL","TN","TR","UA","VA","VG","XK","YE"
+        ]
+%}
+
+<label for="{{ applet_uid + "-" + applet_id + "-option-country" }}" class="mr-xs">
+    {{ l10n("country.label", "iban-generator", page_lang) }}:
+</label>
+<select name="{{ applet_uid + "-" + applet_id + "-option-country" }}"
+        id="{{ applet_uid + "-" + applet_id + "-option-country" }}"
+        class="p-xxs border r-s">
+    {% for country_code in iban_country_codes %}
+        <option value="{{ country_code }}">{{ country_code }} - {{ l10n("iso3166.a2." + country_code, "countries", page_lang) }}</option>
+    {% endfor %}
+</select>
+
+<br>
+
+{% with input_label = l10n("option.count", "iban-generator", page_lang),
+        input_id = applet_uid + "-" + applet_id + "-option-count",
+        input_value = "4",
+        input_number_min = "1",
+        input_number_max = "10000",
+        input_number_scrollable = True %}
+    {% include 'elements/input-number.jinja' %}
+{% endwith %}
+
+<br>
+
+<label for="{{ applet_uid + "-" + applet_id + "-option-foreach" }}" class="mr-xxs">
+    {{ l10n("option.for.each", "iban-generator", page_lang) }}:
+</label>
+<input id="{{ applet_uid + "-" + applet_id + "-option-foreach" }}" class="r-m border cb-pretty" type="checkbox">
+
+<hr class="subtle">
+
+<input type="radio"
+       id="{{ applet_uid + "-" + applet_id + "-option-prefer-random" }}"
+       name="{{ applet_uid + "-" + applet_id + "-radio-group-charset" }}"
+       value="0"
+       class="radio-solid border mr-xxs radio-unchecked-subtle"
+       checked>
+<label for="{{ applet_uid + "-" + applet_id + "-option-prefer-random" }}">
+    {{ l10n("option.prefer.random", "iban-generator", page_lang) }}
+</label>
+
+<br>
+
+<input type="radio"
+       id="{{ applet_uid + "-" + applet_id + "-option-prefer-numbers" }}"
+       name="{{ applet_uid + "-" + applet_id + "-radio-group-charset" }}"
+       value="1"
+       class="radio-solid border mr-xxs radio-unchecked-subtle">
+<label for="{{ applet_uid + "-" + applet_id + "-option-prefer-numbers" }}">
+    {{ l10n("option.prefer.numbers", "iban-generator", page_lang) }}
+</label>
+
+<br>
+
+<input type="radio"
+       id="{{ applet_uid + "-" + applet_id + "-option-prefer-letters" }}"
+       name="{{ applet_uid + "-" + applet_id + "-radio-group-charset" }}"
+       value="2"
+       class="radio-solid border mr-xxs radio-unchecked-subtle">
+<label for="{{ applet_uid + "-" + applet_id + "-option-prefer-letters" }}">
+    {{ l10n("option.prefer.letters", "iban-generator", page_lang) }}
+</label>
+
+<hr class="subtle">
+
+<input type="radio"
+       id="{{ applet_uid + "-" + applet_id + "-option-format-none" }}"
+       name="{{ applet_uid + "-" + applet_id + "-radio-group-format" }}"
+       value="none"
+       class="radio-solid border mr-xxs radio-unchecked-subtle"
+       checked>
+<label for="{{ applet_uid + "-" + applet_id + "-option-format-none" }}">
+    {{ l10n("option.human.format.none", "iban-generator", page_lang) }}
+</label>
+
+<br>
+
+<input type="radio"
+       id="{{ applet_uid + "-" + applet_id + "-option-format-standard" }}"
+       name="{{ applet_uid + "-" + applet_id + "-radio-group-format" }}"
+       value="standard"
+       class="radio-solid border mr-xxs radio-unchecked-subtle">
+<label for="{{ applet_uid + "-" + applet_id + "-option-format-standard" }}">
+    {{ l10n("option.human.format.standard", "iban-generator", page_lang) }}
+</label>
+
+<br>
+
+<input type="radio"
+       id="{{ applet_uid + "-" + applet_id + "-option-format-4by4" }}"
+       name="{{ applet_uid + "-" + applet_id + "-radio-group-format" }}"
+       value="4by4"
+       class="radio-solid border mr-xxs radio-unchecked-subtle">
+<label for="{{ applet_uid + "-" + applet_id + "-option-format-4by4" }}">
+    {{ l10n("option.human.format.4by4", "iban-generator", page_lang) }}
+</label>
+
+<hr class="subtle">
+
+<button id="{{ applet_uid + "-" + applet_id + "-generate" }}" class="p-xs r-s border b-light success">
+    {% if not is_standalone %}
+        <i class="fa-duotone fa-solid fa-gears mr-xs"></i>
+    {% endif %}
+    {{ l10n("action.generate", "commons", page_lang) }}
+</button>
+
+{% if not is_standalone %}
+    <button class="p-xs r-s border b-light primary rr-0 br-0">
+        <i class="fa-duotone fa-solid fa-download"></i>
+    </button>
+{% else %}
+    <span class="t-w-500 ml-m mr-xxs">{{ l10n("format.download.as", "commons", page_lang) }}:</span>
+{% endif %}
+
+<button id="{{ applet_uid + "-" + applet_id + "-download-raw" }}"
+        class="p-xs r-s border b-light primary ml-0 {% if not is_standalone %}r-0{% else %}rr-0{% endif %} br-0">
+    {{ l10n("format.raw", "commons", page_lang) }}
+</button>
+<button id="{{ applet_uid + "-" + applet_id + "-download-json" }}" class="p-xs r-s border b-light primary ml-0 r-0 br-0">
+    {{ l10n("format.json", "commons", page_lang) }}
+</button>
+<button id="{{ applet_uid + "-" + applet_id + "-download-yaml" }}" class="p-xs r-s border b-light primary ml-0 rl-0">
+    {{ l10n("format.yaml", "commons", page_lang) }}
+</button>
+
+<hr class="subtle">
+
+<label for="{{ applet_uid + "-" + applet_id + "-preview" }}" class="d-none">
+    {{ l10n("preview.label", "iban-generator", page_lang) }}:
+</label>
+<textarea name="{{ applet_uid + "-" + applet_id + "-preview" }}"
+          id="{{ applet_uid + "-" + applet_id + "-preview" }}"
+          rows="16" class="w-full border r-s ta-resize-v"></textarea>
+
+{% if is_standalone %}
+    <hr class="subtle">
+    <p class="t-muted">
+        {{ l10n("license.1", "iban-generator", page_lang) }}<br>
+        {{ l10n("license.2", "iban-generator", page_lang) }}
+    </p>
+{% endif %}

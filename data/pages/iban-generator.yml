@@ -1,0 +1,11 @@
+
+pages:
+  - id: tools-iban-generator
+    output_base_name: "tools-iban-generator"
+    template_path: "tools/iban-generator.jinja"
+    served_paths: ["/tools/iban-generator/", "/tools/iban-generator"]
+    canonical_path: "/tools/iban-generator/"
+    localizable: true
+    standalone: true
+    brandable: true
+    release: true
