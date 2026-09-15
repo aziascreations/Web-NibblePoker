@@ -9,7 +9,7 @@ from jinja2 import Environment, FileSystemLoader
 from nibblepoker.website.adam.custom_html import resolve_custom_tags
 from nibblepoker.website.adam.l10n import DEFAULT_LANG, ALLOWED_LANGS, load_strings
 from nibblepoker.website.adam.url_fondler import url_set_lang as _url_set_lang
-from nibblepoker.website.applets import consolidate_applet_config
+from nibblepoker.website.applets import consolidate_applet_config, RequiredResources
 from nibblepoker.website.content.repository import ContentRepository
 from nibblepoker.website.downloads.structures import ReleaseVersionRepository
 from nibblepoker.website.downloads.tags import TAG_GROUPS
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     # Loading other non-exported data
 
     # Setting up Jinja2
-    jinja_env = Environment(loader=FileSystemLoader("templates/"))
+    jinja_env = Environment(loader=FileSystemLoader("templates/"), extensions=["jinja2.ext.do"])
     jinja_env.trim_blocks = True
     jinja_env.lstrip_blocks = True
     jinja_env.strip_trailing_newlines = True
@@ -179,6 +179,9 @@ if __name__ == "__main__":
         "tools_index": content_repo.tools,
 
         "consolidate_applet_config": consolidate_applet_config,
+        # Reset before every distinct page render below, so resources required by one page
+        # never leak into the next one's <script>/<link> tags.
+        "required_resources": RequiredResources(),
 
         # Release table stuff
         "get_all_releases": release_repo.get_all_releases,
@@ -224,6 +227,7 @@ if __name__ == "__main__":
                     print(f"--> {project_key}")
 
                     context["card_project_id"] = project_key
+                    context["required_resources"] = RequiredResources()
 
                     t = jinja_env.get_template("components/content-card.jinja", globals=context)
                     with open(
@@ -241,6 +245,7 @@ if __name__ == "__main__":
                     print(f"--> {tool_key}")
 
                     context["card_tool_id"] = tool_key
+                    context["required_resources"] = RequiredResources()
 
                     t = jinja_env.get_template("components/tool-card.jinja", globals=context)
                     with open(
@@ -263,6 +268,7 @@ if __name__ == "__main__":
                     # Rendering non-standalone base
                     context["is_standalone"] = False
                     context["current_brand"] = None
+                    context["required_resources"] = RequiredResources()
 
                     t = jinja_env.get_template(static_page_def.template_path, globals=context)
                     with open(
@@ -287,6 +293,7 @@ if __name__ == "__main__":
                     for brand in brands_to_render.values():
                         print(f"---> {brand.id}")
                         context["current_brand"] = brand
+                        context["required_resources"] = RequiredResources()
 
                         t = jinja_env.get_template(static_page_def.template_path, globals=context)
                         with open(
@@ -305,6 +312,7 @@ if __name__ == "__main__":
                     context["absolute_url"] = "/"
                     context["is_standalone"] = False
                     context["current_brand"] = None
+                    context["required_resources"] = RequiredResources()
 
                     t = jinja_env.get_template("pages/error.jinja", globals=context)
                     with open(

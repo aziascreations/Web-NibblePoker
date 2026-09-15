@@ -8,6 +8,10 @@ Parameters:
 
 Notable globals:
     * applets_index
+    * required_resources - Collects this applet's scripts/stylesheets (see `nibblepoker.website
+                            .applets.RequiredResources`) so they're emitted once per page no matter
+                            how many applets -- or instances of the same applet -- get included.
+                            The actual <script>/<link> tags are emitted once by the base template.
 #}
 
 {# TODO: Wrap it ? #}
@@ -21,11 +25,8 @@ Notable globals:
             applet_uid = applet_uid,
             applet_data = applets_index[applet_id],
             applet_config = consolidate_applet_config(applets_index[applet_id].default_config, applet_overrides) %}
+        {% do required_resources.require_applet(applet_id, applet_data) %}
         {% include 'applets/' + applet_id + '.jinja' %}
     {% endwith %}
 
 </div>
-
-{#
-    FIXME: Find a solution to duplicate dependency imports !!!
-#}
