@@ -1,0 +1,17 @@
+ *┬> No launch arguments:
+  └──> ${Raw name}      => COM1
+ *┬> '-d' or '-f'
+  ├──> ${Device name}   => \Device\Serial1
+  └──> ${Friendly name} => Communications Port
+ *┬> '-d' and '-f'
+  └──> ${Friendly name} [${Device name}]        => Communications Port [\Device\Serial1]
+ *┬> '-n' and '-d'
+  └──> ${Raw name} [$DeviceName]        => COM1 [\Device\Serial1]
+ *┬> '-n' and '-f'
+  └──> ${Raw name} - ${Friendly name}   => COM1 - Communications Port
+ *┬> '-ndf' or '-a'
+  └──> ${Raw name} - ${Friendly name} [${Device name}]  => COM1 - Communications Port [\Device\Serial1]
+ *┬> '-ndfp' or '-ap'
+  └──> ${Raw name} ${Friendly name} ${Device name}      => COM1 Communications Port \Device\Serial1
+ *┬> '-ndfD ";"' or '-aD ";"'
+  └──> ${Raw name};${Friendly name};${Device name}      => COM1;Communications Port;\Device\Serial1

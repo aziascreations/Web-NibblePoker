@@ -1,0 +1,11 @@
+
+pages:
+  - id: project-lscom
+    output_base_name: "project-lscom"
+    template_path: "projects/lscom.jinja"
+    served_paths: ["/content/lscom/", "/content/lscom"]
+    canonical_path: "/content/lscom/"
+    localizable: true
+    standalone: false
+    brandable: false
+    release: false

@@ -1,0 +1,25 @@
+{% set project_id = "lscom" %}
+
+{% extends "pages/project.jinja" %}
+
+{% block project_content %}
+    <!-- Introduction -->
+    <np-section>
+        {% with heading_inner_html=l10n("intro.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                {{ l10n("intro.p1", project_id, page_lang) }}
+            </np-paragraph>
+            <np-paragraph>
+                {{ l10n("intro.p2", project_id, page_lang) }}
+            </np-paragraph>
+            <np-paragraph>
+                {{ l10n("intro.p3", project_id, page_lang) }}
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+{% endblock %}

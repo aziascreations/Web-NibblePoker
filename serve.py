@@ -2,6 +2,7 @@
 # NEVER PUBLICLY HOST IT !!!
 
 import configparser
+import re
 from pathlib import Path
 from typing import Optional
 
@@ -18,13 +19,20 @@ RESOURCES_DIR = Path("static/resources")
 INI_PATH = Path("data/pages.ini")  # adjust to your actual path
 PROJECTS_INI_PATH = Path("data/projects.ini")
 PROJECT_CARDS_DIR = RENDERS_DIR / "project-cards"
-CONTENT_INDEX_TAG = "<np-content-index></np-content-index>"
+CONTENT_INDEX_TAG_NAME = "np-content-index"
 
 TOOLS_INI_PATH = Path("data/tools.ini")
 TOOL_CARDS_DIR = RENDERS_DIR / "tool-cards"
-TOOLS_INDEX_TAG = "<np-tools-index></np-tools-index>"
+TOOLS_INDEX_TAG_NAME = "np-tools-index"
 
 ERROR_CODES = [403, 404, 500]
+
+
+def index_tag_pattern(tag_name: str) -> re.Pattern:
+    # The renderer may re-indent the source HTML, inserting whitespace/newlines
+    # between the opening and closing tag. Match only the start and end of the
+    # tag and ignore whatever ends up in between.
+    return re.compile(rf"<{tag_name}[^>]*>.*?</{tag_name}\s*>", re.DOTALL)
 
 
 def get_user_lang(url_lang: Optional[str], header_langs: Optional[str], simplify_entries: bool = True) -> str:
@@ -187,7 +195,7 @@ def render_cards(items: list, cards_dir: Path, lang: str, explicit: bool, tags_f
     return "".join(cards_html)
 
 
-def make_index_page_view(index_tag: str, items: list, cards_dir: Path):
+def make_index_page_view(tag_pattern: re.Pattern, items: list, cards_dir: Path):
     def _view():
         lookup_path = normalize(request.path)
 
@@ -206,29 +214,30 @@ def make_index_page_view(index_tag: str, items: list, cards_dir: Path):
             abort(404)
 
         html = file_path.read_text(encoding="utf-8")
-        html = html.replace(index_tag, render_cards(items, cards_dir, lang, explicit, get_tags_filter()))
+        cards = render_cards(items, cards_dir, lang, explicit, get_tags_filter())
+        html = tag_pattern.sub(lambda _m: cards, html)
 
         return html
 
     return _view
 
 
-def register_index_page(page_id: str, index_tag: str, items: list, cards_dir: Path):
+def register_index_page(page_id: str, tag_name: str, items: list, cards_dir: Path):
     # Registers a page on its own dedicated routes so its rendered file can
     # be post-processed to inject the matching cards (filtered by tags).
     page = next((p for p in pages if p.id == page_id), None)
     if page is None:
         return
 
-    view_func = make_index_page_view(index_tag, items, cards_dir)
+    view_func = make_index_page_view(index_tag_pattern(tag_name), items, cards_dir)
     endpoint = f"serve_{page_id}_page"
 
     for served_path in page.served_paths:
         app.add_url_rule(served_path, endpoint=endpoint, view_func=view_func)
 
 
-register_index_page("content", CONTENT_INDEX_TAG, projects, PROJECT_CARDS_DIR)
-register_index_page("tools", TOOLS_INDEX_TAG, tools, TOOL_CARDS_DIR)
+register_index_page("content", CONTENT_INDEX_TAG_NAME, projects, PROJECT_CARDS_DIR)
+register_index_page("tools", TOOLS_INDEX_TAG_NAME, tools, TOOL_CARDS_DIR)
 
 
 @app.route("/", defaults={"path": ""})

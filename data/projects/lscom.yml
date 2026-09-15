@@ -1,6 +1,6 @@
 
 projects:
-  - id: "lscom-cli-dotnet"
+  - id: "lscom"
     metadata:
       head:
         title_key: "meta.title"
