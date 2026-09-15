@@ -1,7 +1,7 @@
 # FR - DotNet-ListComPort
 
 meta:
-  title: DotNet-ListComPort
+  title: ListComPort
   description: Un petit utilitaire pour invité de commande qui permet de facilement
     lister les noms, noms formatés et chemin des ports COM.
 

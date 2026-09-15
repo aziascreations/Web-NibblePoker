@@ -1,0 +1,13 @@
+nvr_stack:
+  cctv_cleaner:
+    container_name: cctv-cleaner
+    build:
+      context: .
+      dockerfile: Dockerfile_cleaner
+    environment:
+      - TZ=Europe/Brussels
+      - "NP_MAX_FILE_AGE_HOURS=72"
+    volumes:
+      - ./recordings:/data
+      - ./cleaner.py:/app/app.py:ro
+    restart: unless-stopped

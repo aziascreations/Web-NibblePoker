@@ -57,7 +57,7 @@ def _load_page_def_folder(folder_path, ignore_errors: bool = False) -> dict[str,
     page_defs = dict()
 
     for page_def_file in os.listdir(folder_path):
-        if page_def_file.split(".")[-1] not in __ALLOWED_EXTENSIONS:
+        if page_def_file.startswith(".") or page_def_file.split(".")[-1] not in __ALLOWED_EXTENSIONS:
             continue
 
         _page_defs = _load_page_def_file(os.path.join(folder_path, page_def_file), ignore_errors=ignore_errors)

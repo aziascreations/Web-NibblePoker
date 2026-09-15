@@ -22,6 +22,9 @@ Public repository containing the source code for [nibblepoker.lu](https://nibble
 
 ## Local Setup
 
+### Externals
+TODO
+
 ### Requirements
 TODO
 

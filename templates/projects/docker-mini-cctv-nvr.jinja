@@ -1,0 +1,240 @@
+{% set project_id = "docker-mini-cctv-nvr" %}
+
+{% set enable_highlightjs = true %}
+
+{% extends "pages/project.jinja" %}
+
+{% block project_content %}
+    <!-- Introduction -->
+    <np-section>
+        {% with heading_inner_html=l10n("intro.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                {{ l10n("intro.1", project_id, page_lang) }}
+            </np-paragraph>
+            <np-paragraph>
+                {{ l10n("intro.2", project_id, page_lang) }}
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Preamble -->
+    <np-section>
+        {% with heading_inner_html=l10n("preamble.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                {{ l10n("preamble.1", project_id, page_lang) }}
+            </np-paragraph>
+            <np-paragraph>
+                {{ l10n("preamble.2", project_id, page_lang) }}
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Setup -->
+    <np-section>
+        {% with heading_inner_html=l10n("setup.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                {{ l10n("setup.1", project_id, page_lang) }}
+            </np-paragraph>
+            <np-paragraph>
+                {{ l10n("setup.2", project_id, page_lang) }}
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Setup: Cameras -->
+    <np-section>
+        {% with heading_inner_html=l10n("setup.camera.title", project_id, page_lang),
+                heading_level=4 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                {{ l10n("setup.camera.1", project_id, page_lang) }}
+            </np-paragraph>
+            <np-paragraph>
+                {{ l10n("setup.camera.2", project_id, page_lang) }}
+            </np-paragraph>
+
+            {% with heading_inner_html=l10n("commons.example", project_id, page_lang),
+                    heading_level=5 %}
+                {% include 'elements/heading.jinja' %}
+            {% endwith %}
+            {% with code_source="docker-mini-cctv-nvr-camera-en.txt",
+                    code_highlight=true,
+                    code_language="yaml",
+                    code_copiable=true %}
+                {% include 'elements/code-block.jinja' %}
+            {% endwith %}
+
+            <np-paragraph>
+                {{ l10n("setup.camera.3", project_id, page_lang) }}
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Setup: Cleaner -->
+    <np-section>
+        {% with heading_inner_html=l10n("setup.cleaner.title", project_id, page_lang),
+                heading_level=4 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                {{ l10n("setup.cleaner.1", project_id, page_lang) }}
+            </np-paragraph>
+            <np-paragraph>
+                {{ l10n("setup.cleaner.2", project_id, page_lang) }}
+            </np-paragraph>
+
+            {% with heading_inner_html=l10n("commons.example", project_id, page_lang),
+                    heading_level=5 %}
+                {% include 'elements/heading.jinja' %}
+            {% endwith %}
+            {% with code_source="docker-mini-cctv-nvr-cleaner-en.txt",
+                    code_highlight=true,
+                    code_language="yaml",
+                    code_copiable=true %}
+                {% include 'elements/code-block.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Setup: Web interface -->
+    <np-section>
+        {% with heading_inner_html=l10n("setup.web.title", project_id, page_lang),
+                heading_level=4 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                {{ l10n("setup.web.1", project_id, page_lang) }}
+            </np-paragraph>
+            <np-paragraph>
+                {{ l10n("setup.web.2", project_id, page_lang) }}
+            </np-paragraph>
+            <np-paragraph>
+                {{ l10n("setup.web.3", project_id, page_lang) }}
+            </np-paragraph>
+
+            {% with heading_inner_html=l10n("setup.web.vars.title", project_id, page_lang),
+                    heading_level=5 %}
+                {% include 'elements/heading.jinja' %}
+            {% endwith %}
+            {% with heading_inner_html=l10n("commons.example", project_id, page_lang),
+                    heading_level=5 %}
+                {% include 'elements/heading.jinja' %}
+            {% endwith %}
+            {% with code_source="docker-mini-cctv-nvr-web-en.txt",
+                    code_highlight=true,
+                    code_language="yaml",
+                    code_copiable=true %}
+                {% include 'elements/code-block.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Startup -->
+    <np-section>
+        {% with heading_inner_html=l10n("startup.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                {{ l10n("startup.1", project_id, page_lang) }}
+            </np-paragraph>
+            {% with code_source="docker-mini-cctv-nvr-startup-en.txt",
+                    code_highlight=true,
+                    code_language="bash",
+                    code_copiable=true %}
+                {% include 'elements/code-block.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Usage statistics -->
+    <np-section>
+        {% with heading_inner_html=l10n("statistics.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                <np-ul>
+                    <li>{{ l10n("statistics.1", project_id, page_lang) }}</li>
+                    <np-ul>
+                        <li>{{ l10n("statistics.1.1", project_id, page_lang) }}</li>
+                    </np-ul>
+                    <li>{{ l10n("statistics.2", project_id, page_lang) }}</li>
+                    <np-ul>
+                        <li>{{ l10n("statistics.2.1", project_id, page_lang) }}</li>
+                        <li>{{ l10n("statistics.2.2", project_id, page_lang) }}</li>
+                        <np-ul>
+                            <li>{{ l10n("statistics.2.2.1", project_id, page_lang) }}</li>
+                        </np-ul>
+                    </np-ul>
+                    <li>{{ l10n("statistics.3", project_id, page_lang) }}</li>
+                    <np-ul>
+                        <li>{{ l10n("statistics.3.1", project_id, page_lang) }}</li>
+                        <li>{{ l10n("statistics.3.2", project_id, page_lang) }}</li>
+                        <li>{{ l10n("statistics.3.3", project_id, page_lang) }}</li>
+                    </np-ul>
+                    <li>{{ l10n("statistics.4", project_id, page_lang) }}</li>
+                    <np-ul>
+                        <li>{{ l10n("statistics.4.1", project_id, page_lang) }}</li>
+                        <li>{{ l10n("statistics.4.2", project_id, page_lang) }}</li>
+                    </np-ul>
+                </np-ul>
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+
+    <!-- License -->
+    <np-section>
+        {% with heading_inner_html=l10n("license.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                {{ l10n("license.1", project_id, page_lang) }}
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Links -->
+    <np-section>
+        {% with heading_inner_html=l10n("links.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+        <np-content-spacer>
+            <np-paragraph>
+                <np-ul>
+                    <li><a href="https://github.com/aziascreations/Docker-Mini-CCTV-NVR">{{ l10n("github", "commons", user_lang) }}</a></li>
+                </np-ul>
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+{% endblock %}

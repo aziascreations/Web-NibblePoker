@@ -1,0 +1,12 @@
+nvr_stack:
+  cctv_recorder_cam1:
+    container_name: cctv-recorder-cam1
+    build:
+      context: .
+      dockerfile: Dockerfile_recorder
+    environment:
+      - TZ=Europe/Brussels
+      - "NP_CCTV_URL=rtsp://user:password@address:554/sub-path"
+    volumes:
+      - ./recordings/cam1:/data
+    restart: unless-stopped

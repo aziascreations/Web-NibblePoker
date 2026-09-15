@@ -1,0 +1,17 @@
+nvr_stack:
+  cctv_web:
+    container_name: cctv-web
+    image: php:apache
+    ports:
+      - 26880:80
+    environment:
+      - TZ=Europe/Brussels
+      - "NP_CAM_cam1=Camera #1"
+      - "NP_CAM_cam2=Camera #2"
+      - "NP_TITLE=NibblePoker's Mini CCTV NVR"
+      - "NP_FOOTER=Made by <i>BOZET Herwin</i>"
+    volumes:
+      - ./htdocs:/var/www/html  # Cannot be ":ro" since the recordings are mounted into it.
+      - ./apache2.conf:/etc/apache2/apache2.conf:ro
+      - ./recordings:/var/www/html/data:ro
+    restart: unless-stopped
