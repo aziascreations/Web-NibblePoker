@@ -22,22 +22,20 @@ intro:
 
 requirements:
   title: Requirements
-  1: Windows
-  2: Any CPU architecture
-  3: ".NET 6.0"
-  4: Optional if using the larger "self-contained" builds.
-  table:
-    title: Requirements
   text:
-    dotnet: <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.NET 6.0</a>
+    1: Windows
+    1.1: Any CPU architecture
+    2: ".NET 6.0"
+    2.1: Optional if using the larger "self-contained" builds.
 
 improvements:
   title: Improvements over PB-ListComPort
-  1: Switched from PureBasic to .NET 6.0.
-  2: Improved a lot of the program's logic.
-  3: Added the <code class="code">-H/--short-help</code>.
-  4: Added support for Windows ARM & ARM64.
-  5: Support for running without a console.
+  text:
+    1: Switched from PureBasic to .NET 6.0.
+    2: Improved a lot of the program's logic.
+    3: Added the <code class="code">-H/--short-help</code> option.
+    4: Added support for Windows ARM & ARM64.
+    5: Support for running without a console.
 
 usage:
   title: Usage
@@ -49,22 +47,25 @@ packages:
   title: Packages
   single:
     title: Single Builds
-    1: Lighter builds that only contain the exe and required licenses.<br>You
-      will need to install the <a href="https://dotnet.microsoft.com/en-us/download">.NET
-      6.0 Runtime</a>.
+    text:
+      p1: Lighter builds that only contain the exe and required licenses.<br>You
+        will need to install the <a href="https://dotnet.microsoft.com/en-us/download">.NET
+        6.0 Runtime</a>.
   self:
     title: Self-Contained Builds
-    1: Larger builds that contain the exe and the <a href="https://dotnet.microsoft.com/en-us/download">.NET
-      6.0 Runtime</a> as well as the required licenses.
+    text:
+      p1: Larger builds that contain the exe and the <a href="https://dotnet.microsoft.com/en-us/download">.NET
+        6.0 Runtime</a> as well as the required licenses.
   msi:
     title: MSI Installers
-    1: Windows installers that contain the relevant "Self-Contained" build
-      with an option to automatically update existing installations and add the program
-      to the <kbd>%PATH%</kbd>.<br>The install location is <kbd>%ProgramFiles%\NibblePoker\lscom\</kbd>
-      and cannot be changed. <i>(This will be possible in future releases)</i>
+    text:
+      p1: Windows installers that contain the relevant "Self-Contained" build
+        with an option to automatically update existing installations and add the program
+        to the <kbd>%PATH%</kbd>.<br>The install location is <kbd>%ProgramFiles%\NibblePoker\lscom\</kbd>
+        and cannot be changed. <i>(This will be possible in future releases)</i>
+
+downloads:
+  title: Downloads
 
 links:
   title: Links
-
-screenshots:
-  title: Screenshots

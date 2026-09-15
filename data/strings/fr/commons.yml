@@ -34,19 +34,18 @@ windows:
   10: "Windows 10"
   11: "Windows 11"
 
-cpu.architecture: Architecture de CPU
-cpu.responsive: "<span class=\"mobile-hide\">Architecture de </span>CPU"
-cpu.any: "Indépendante"
-cpu.x64: "x64"
-#cpu.x64: "<p>x64<br>AMD64</p>"
-cpu.x86: "x86"
-cpu.arm32: "ARM32"
-#cpu.arm32: "<p>ARM32<br>ARMv7<br>AArch32</p>"
-cpu.arm64: "ARM64"
-#cpu.arm64: "<p>ARM64<br>ARMv8<br>AArch64</p>"
-cpu.risc-v: "RISC-V"
-
 cpu:
+  architecture: Architecture de CPU
+  responsive: "<span class=\"mobile-hide\">Architecture de </span>CPU"
+  any: "Indépendante"
+  x64: "x64"
+  #x64: "<p>x64<br>AMD64</p>"
+  x86: "x86"
+  arm32: "ARM32"
+  #arm32: "<p>ARM32<br>ARMv7<br>AArch32</p>"
+  arm64: "ARM64"
+  #arm64: "<p>ARM64<br>ARMv8<br>AArch64</p>"
+  risc-v: "RISC-V"
   human:
     unknown: Le contenu de ce champ est supposé pouvoir s’appliquer à n’importe quel type d’ordinateur
     alpha: Alpha AXP, espace d’adressage 32 bits
@@ -127,13 +126,20 @@ cpu:
     x86: "x86"
 
 
+dotnet:
+  core:
+    6-raw: .NET 6.0
+    6-url: '<a href="https://dotnet.microsoft.com/fr-fr/download/dotnet/6.0">.NET 6.0</a>'
+
+
 requirements: "Dépendances"
 
-python: Python
-java: Java
-c99: C99
-dotnet: .NET
-purebasic: PureBasic
+language:
+  python: Python
+  java: Java
+  c99: C99
+  dotnet: .NET
+  purebasic: PureBasic
 
 version: "Version"
 version.current: "Version actuelle"
@@ -154,10 +160,11 @@ gitea: "Dépôt Gitea auto-hébergé"
 nuget: "Packet Nuget"
 doc.online: "Documentation en ligne"
 
-none.ms: Aucun
-none.mp: Aucuns
-none.fs: Aucune
-none.fp: Aucunes
+none:
+  ms: Aucun
+  mp: Aucuns
+  fs: Aucune
+  fp: Aucunes
 
 eula.short: CLUF
 eula.long: Contrat de licence utilisateur final (CLUF)

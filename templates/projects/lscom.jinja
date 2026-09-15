@@ -22,4 +22,135 @@
             </np-paragraph>
         </np-content-spacer>
     </np-section>
+
+    <!-- Requirements -->
+    <np-section>
+        {% with heading_inner_html=l10n("requirements.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                <np-ul>
+                    <li>{{ l10n("requirements.text.1", project_id, page_lang) }}</li>
+                    <np-ul>
+                        <li>{{ l10n("requirements.text.1.1", project_id, page_lang) }}</li>
+                    </np-ul>
+                    <li>{{ l10n("requirements.text.2", project_id, page_lang) }}</li>
+                    <np-ul>
+                        <li>{{ l10n("requirements.text.2.1", project_id, page_lang) }}</li>
+                    </np-ul>
+                </np-ul>
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Improvements -->
+    <np-section>
+        {% with heading_inner_html=l10n("improvements.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            <np-paragraph>
+                <np-ul>
+                    <li>{{ l10n("improvements.text.1", project_id, page_lang) }}</li>
+                    <li>{{ l10n("improvements.text.2", project_id, page_lang) }}</li>
+                    <li>{{ l10n("improvements.text.3", project_id, page_lang) }}</li>
+                    <li>{{ l10n("improvements.text.4", project_id, page_lang) }}</li>
+                    <li>{{ l10n("improvements.text.5", project_id, page_lang) }}</li>
+                </np-ul>
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Usage -->
+    <np-section>
+        {% with heading_inner_html=l10n("usage.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            {% with code_source="lscom-usage-en.txt" %}
+                {% include 'elements/code-block.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Output formatting -->
+    <np-section>
+        {% with heading_inner_html=l10n("formatting.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            {% with code_source="lscom-formatting-en.txt" %}
+                {% include 'elements/code-block.jinja' %}
+            {% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Packages -->
+    <np-section>
+        {% with heading_inner_html=l10n("packages.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+
+        <np-content-spacer>
+            {% with heading_inner_html=l10n("packages.single.title", project_id, page_lang),
+                    heading_level=4 %}
+                {% include 'elements/heading.jinja' %}
+            {% endwith %}
+            <np-paragraph>
+                {{ l10n("packages.single.text.p1", project_id, page_lang) }}
+            </np-paragraph>
+
+            {% with heading_inner_html=l10n("packages.self.title", project_id, page_lang),
+                    heading_level=4 %}
+                {% include 'elements/heading.jinja' %}
+            {% endwith %}
+            <np-paragraph>
+                {{ l10n("packages.self.text.p1", project_id, page_lang) }}
+            </np-paragraph>
+
+            {% with heading_inner_html=l10n("packages.msi.title", project_id, page_lang),
+                    heading_level=4 %}
+                {% include 'elements/heading.jinja' %}
+            {% endwith %}
+            <np-paragraph>
+                {{ l10n("packages.msi.text.p1", project_id, page_lang) }}
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Downloads -->
+    <np-section>
+        {% with heading_inner_html=l10n("downloads.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+        <np-content-spacer>
+            {% with release_id=project_id %}{% include 'elements/release-table.jinja' %}{% endwith %}
+        </np-content-spacer>
+    </np-section>
+
+    <!-- Links -->
+    <np-section>
+        {% with heading_inner_html=l10n("links.title", project_id, page_lang),
+                heading_level=3 %}
+            {% include 'elements/heading.jinja' %}
+        {% endwith %}
+        <np-content-spacer>
+            <np-paragraph>
+                <np-ul>
+                    <li><a href="https://github.com/aziascreations/DotNet-ListComPort">{{ l10n("github", "commons", user_lang) }}</a></li>
+                </np-ul>
+            </np-paragraph>
+        </np-content-spacer>
+    </np-section>
 {% endblock %}

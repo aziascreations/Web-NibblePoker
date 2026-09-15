@@ -14,7 +14,7 @@ intro:
   p1: Un petit utilitaire pour invité de commande qui permet de facilement lister
     les noms, noms formatés et chemins des ports COM.
   p2: Cet outil a pour bût de faciliter cette tâche sans avoir à utiliser la commande
-    <code>mode</code> ou le <i>Gestionnaire de périphérique</i>.
+    <code class="code">mode</code> ou le <i>Gestionnaire de périphérique</i>.
   p3: Cette version du programme a completement été réecrit depuis le projet original
     <a href="https://github.com/aziascreations/PB-ListComPort">PB-ListComPort</a> en
     .NET 6.0 au lieu de PureBasic afin de ne plus utiliser de langage de programmation
@@ -22,22 +22,20 @@ intro:
 
 requirements:
   title: Dépendances
-  1: Windows
-  2: Toutes architectures de CPU
-  3: ".NET 6.0"
-  4: Optionnel si vous utilisez les paquets "self-contained".
-  table:
-    title: Dépendances
   text:
-    dotnet: <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.NET 6.0</a>
+    1: Windows
+    1.1: Toutes architectures de CPU
+    2: ".NET 6.0"
+    2.1: Optionnel si vous utilisez les paquets "self-contained".
 
 improvements:
   title: Améliorations
-  1: Changement de PureBasic vers .NET 6.0.
-  2: Amélioration de la logique interne du programme.
-  3: Ajout de l'option <code class="code">-H/--short-help</code>.
-  4: Support pour Windows ARM et ARM64.
-  5: Support pour le lancement sans invité de commande.
+  text:
+    1: Changement de PureBasic vers .NET 6.0.
+    2: Amélioration de la logique interne du programme.
+    3: Ajout de l'option <code class="code">-H/--short-help</code>.
+    4: Support pour Windows ARM et ARM64.
+    5: Support pour le lancement sans invité de commande.
 
 usage:
   title: Utilisation
@@ -49,19 +47,22 @@ packages:
   title: Packages
   single:
     title: Builds légers
-    1: Versions allégées contenant uniquement l'exécutable et les licences requises.<br>
-      Vous devrez installer le <a href="https://dotnet.microsoft.com/en-us/download">Runtime .NET 6.0</a>.
+    text:
+      p1: Versions allégées contenant uniquement l'exécutable et les licences requises.<br>
+        Vous devrez installer le <a href="https://dotnet.microsoft.com/en-us/download">Runtime .NET 6.0</a>.
   self:
     title: Builds autonomes
-    1: Versions plus volumineuses contenant l'exécutable, le <a href="https://dotnet.microsoft.com/en-us/download">Runtime .NET 6.0</a> et les licences requises.
+    text:
+      p1: Versions plus volumineuses contenant l'exécutable, le <a href="https://dotnet.microsoft.com/en-us/download">Runtime .NET 6.0</a> et les licences requises.
   msi:
     title: Installateurs MSI
-    1: Installateurs Windows contenant la version "Autonome" avec une option de mise à jour automatique des
-      installations existantes et d'ajout du programme au <kbd>%PATH%</kbd>.<br>
-      Le chemin d'installation est <kbd>%ProgramFiles%\NibblePoker\lscom\</kbd> et ne peut pas être modifié. <i>(Cela sera possible dans les futures versions)</i>
+    text:
+      p1: Installateurs Windows contenant la version "Autonome" avec une option de mise à jour automatique des
+        installations existantes et d'ajout du programme au <kbd>%PATH%</kbd>.<br>
+        Le chemin d'installation est <kbd>%ProgramFiles%\NibblePoker\lscom\</kbd> et ne peut pas être modifié. <i>(Cela sera possible dans les futures versions)</i>
+
+downloads:
+  title: Téléchargements
 
 links:
   title: Liens
-
-screenshots:
-  title: Captures d'écran

@@ -34,19 +34,18 @@ windows:
   10: "Windows 10"
   11: "Windows 11"
 
-cpu.architecture: CPU Architecture
-cpu.responsive: "CPU<span class=\"mobile-hide\"> Architecture</span>"
-cpu.any: "Any architecture"
-cpu.x64: "x64"
-#cpu.x64: "<p>x64<br>AMD64</p>"
-cpu.x86: "x86"
-cpu.arm32: "ARM32"
-#cpu.arm32: "<p>ARM32<br>ARMv7<br>AArch32</p>"
-cpu.arm64: "ARM64"
-#cpu.arm64: "<p>ARM64<br>ARMv8<br>AArch64</p>"
-cpu.risc-v: "RISC-V"
-
 cpu:
+  architecture: CPU Architecture
+  responsive: "CPU<span class=\"mobile-hide\"> Architecture</span>"
+  any: "Any architecture"
+  x64: "x64"
+  #x64: "<p>x64<br>AMD64</p>"
+  x86: "x86"
+  arm32: "ARM32"
+  #arm32: "<p>ARM32<br>ARMv7<br>AArch32</p>"
+  arm64: "ARM64"
+  #arm64: "<p>ARM64<br>ARMv8<br>AArch64</p>"
+  risc-v: "RISC-V"
   human:
     unknown: The content of this field is assumed to be applicable to any machine type
     alpha: Alpha AXP, 32-bit address space
@@ -127,6 +126,12 @@ cpu:
     x86: "x86"
 
 
+dotnet:
+  core:
+    6-raw: .NET 6.0
+    6-url: '<a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.NET 6.0</a>'
+
+
 win32crt:
   heading:
     simple: Windows C Runtime
@@ -136,11 +141,12 @@ win32crt:
 
 requirements: Requirements
 
-python: Python
-java: Java
-c99: C99
-dotnet: .NET
-purebasic: PureBasic
+language:
+  python: Python
+  java: Java
+  c99: C99
+  dotnet: .NET
+  purebasic: PureBasic
 
 version: "Version"
 version.current: "Current version"
@@ -161,10 +167,11 @@ gitea: "Self-hosted Gitea Repository"
 nuget: "Nuget Package"
 doc.online: "Online Documentation"
 
-none.ms: None
-none.mp: None
-none.fs: None
-none.fp: None
+none:
+  ms: None
+  mp: None
+  fs: None
+  fp: None
 
 eula.short: EULA
 eula.long: End-user license agreement (EULA)

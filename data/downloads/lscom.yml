@@ -1,0 +1,15 @@
+downloads:
+  - version: "3.0.0"
+    title: ""
+    url_prefix: "https://files.nibblepoker.lu/downloads/DotNet-ListComPort/3.0.0/"
+    columns: arch;netcore-6-self-contaiend
+    artifacts:
+      - ListComPort_v3.0.0_AnyCPU.zip
+      - ListComPort_v3.0.0_x64_Single.zip
+      - ListComPort_v3.0.0_x64_SelfContained.zip
+      - ListComPort_v3.0.0_x64.msi
+      - ListComPort_v3.0.0_x86_Single.zip
+      - ListComPort_v3.0.0_x86_SelfContained.zip
+      - ListComPort_v3.0.0_x86.msi
+      - ListComPort_v3.0.0_arm64_Single.zip
+      - ListComPort_v3.0.0_arm64_SelfContained.zip

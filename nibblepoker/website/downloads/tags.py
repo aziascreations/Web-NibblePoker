@@ -39,9 +39,18 @@ TAG_GROUPS: dict[str, ReleaseSortingTagGroup] = {
         "cpu.responsive",
         "commons",
         [
+            ReleaseSortingTag(None, "cpu.any", "commons", ["AnyCPU"]),
             ReleaseSortingTag(None, "cpu.x64", "commons", ["x64", "amd64"]),
             ReleaseSortingTag(None, "cpu.x86", "commons", ["x86", "i386"]),
             ReleaseSortingTag(None, "cpu.arm64", "commons", ["arm64"]),
+        ]
+    ),
+    "netcore-6-self-contaiend": ReleaseSortingTagGroup(
+        "cpu.responsive",
+        "commons",
+        [
+            ReleaseSortingTag(None, "dotnet.core.6-url", "commons", ["Single", "AnyCPU"]),
+            ReleaseSortingTag(None, "none.fs", "commons", ["SelfContained", ""]),
         ]
     ),
     "win32crt": ReleaseSortingTagGroup(
