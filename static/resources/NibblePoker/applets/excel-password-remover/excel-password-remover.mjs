@@ -32,33 +32,37 @@ export function isExcelExtension(fileName) {
     //let filesProcessedCount = 0;
     //let passwordsRemoved = 0;
 
-    /** @type {string} */
-    const appletId = "excel-password-remover";
+    // 'templates/applets/excel-password-remover.jinja' prefixes every element ID it renders with
+    // the applet instance's UID (see 'templates/elements/applet.jinja'), so IDs must be resolved
+    // from the applet's own container at runtime instead of being hardcoded here.
+    /** @type {HTMLElement} */
+    const eAppletContainer = document.querySelector('.np-applet[data-np-applet-id="excel-password-remover"]');
+    const idPrefix = eAppletContainer.dataset.npAppletUid + "-excel-password-remover-";
 
     /** @type {HTMLInputElement} */
-    const eFileInput = document.querySelector(`input[type=file]#${appletId}-input-file`);
+    const eFileInput = document.getElementById(idPrefix + "input-file");
     /** @type {HTMLButtonElement} */
-    const eFileInputClearButton = document.querySelector(`button#${appletId}-input-file-reset`);
+    const eFileInputClearButton = document.getElementById(idPrefix + "input-file-reset");
 
     /** @type {HTMLElement} */
-    const eResultEmptyText = document.querySelector(`#${appletId}-details-empty`);
+    const eResultEmptyText = document.getElementById(idPrefix + "details-empty");
     /** @type {HTMLElement} */
-    const eResultPopulatedText = document.querySelector(`#${appletId}-details-populated`);
+    const eResultPopulatedText = document.getElementById(idPrefix + "details-populated");
 
     /** @type {HTMLElement} */
-    const eResultContainer = document.querySelector(`#${appletId}-result-container`);
+    const eResultContainer = document.getElementById(idPrefix + "result-container");
 
     /** @type {HTMLTemplateElement} */
-    const eSuccessTemplate = document.querySelector(`template#tmpl-success-root`);
+    const eSuccessTemplate = document.getElementById(idPrefix + "tmpl-success-root");
     /** @type {HTMLTemplateElement} */
-    const eWarningTemplate = document.querySelector(`template#tmpl-warning-root`);
+    const eWarningTemplate = document.getElementById(idPrefix + "tmpl-warning-root");
     /** @type {HTMLTemplateElement} */
-    const eErrorTemplate = document.querySelector(`template#tmpl-error-root`);
+    const eErrorTemplate = document.getElementById(idPrefix + "tmpl-error-root");
 
     /** @type {HTMLButtonElement} */
-    const eFileDownloadAllButton = document.querySelector(`button#${appletId}-files-download-all`);
+    const eFileDownloadAllButton = document.getElementById(idPrefix + "files-download-all");
     /** @type {HTMLButtonElement} */
-    const eFileClearButton = document.querySelector(`button#${appletId}-files-clear`);
+    const eFileClearButton = document.getElementById(idPrefix + "files-clear");
 
     class ExcelFileData {
         /** @type {File} */
